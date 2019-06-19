@@ -2,97 +2,82 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79D324A37F
-	for <lists+openipmi-developer@lfdr.de>; Tue, 18 Jun 2019 16:10:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D171D4B946
+	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Jun 2019 15:04:15 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1hdEon-0006RA-Jc; Tue, 18 Jun 2019 14:10:37 +0000
+	id 1hdaG5-0007e3-Mp; Wed, 19 Jun 2019 13:04:13 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <robherring2@gmail.com>) id 1hdEom-0006R3-C6
- for openipmi-developer@lists.sourceforge.net; Tue, 18 Jun 2019 14:10:36 +0000
+ (envelope-from <arnd@arndb.de>) id 1hdaG4-0007du-2d
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 Jun 2019 13:04:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ymzVRv+HbWASk9IbK9IR5jfXe4p30txsWn7MI2aWfko=; b=Ei/FwjYisRtl8w7qKhmU0qO6D0
- KTU+B1yy2UIdagWu5kqHYZYAgvyL8L+woO2fHVPs1h9ZcVRz4jBgtGNyKILpyAI9AXb+zrBNSj+xo
- CgAkAmkcCkc1mHdhlhS0/WEbIOVpDd1GFQLMeuKQUJi4e7zROnFnoArsxE3TbUfPDEUM=;
+ bh=jQtqbHsz06BdyG3pmSEUTFE4dIWIKozuQMr1ictgMvk=; b=cnz1oGmz7jdjmYtg87H2UeS7Vf
+ S96xfZ8XkHd0RT1nBuL2E0RSQv8HdIZCk4UifSje6OZCe8+V6guq16j9R3ZUJC7grD+nIH44Xrm2O
+ Dw1ZxAxSrCs+ORzzd6S+r1ZaVsE9YwZQZFEfEXJKIIfHv2YHj7BI8fxjYPGUF5xWfGa4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=ymzVRv+HbWASk9IbK9IR5jfXe4p30txsWn7MI2aWfko=; b=kqg8ilH8+CPNix5o/CzwMVPMAR
- Fz6CEkuuJbAjnq8EtBrIWzoJP5WXZeA8BCCSoKFtF3nxsFvlwgxuNVTvONAk+UZi/ZjlK5MqlLylr
- ZNbTWlJ/w4hNwb+IN6+4Aroo0648YFLr791bFXVA9wAODS4D5n+fUZPMJEtg96YCOBmQ=;
-Received: from mail-qk1-f195.google.com ([209.85.222.195])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=jQtqbHsz06BdyG3pmSEUTFE4dIWIKozuQMr1ictgMvk=; b=P
+ upYnc4ezzOqOzkN4Z2QNqfeSz+DJGVJUfdsoMy3Yo9mBERPpkk3iGxPmXKmpRPe7KAOhpM7KrFgaA
+ Z+m2JCxOD0tZJab5QfjaBQFNqhHpdpFbsWsft5dxtBWr24jkp+nwDln6wNcYNdFi/WNYnNNepE+p3
+ WxfnkwAK/fjHKUKY=;
+Received: from mout.kundenserver.de ([212.227.126.134])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.90_1)
- id 1hdEoi-0033n3-W4
- for openipmi-developer@lists.sourceforge.net; Tue, 18 Jun 2019 14:10:36 +0000
-Received: by mail-qk1-f195.google.com with SMTP id a27so8620001qkk.5
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 18 Jun 2019 07:10:31 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=ymzVRv+HbWASk9IbK9IR5jfXe4p30txsWn7MI2aWfko=;
- b=pB3FaZmHHn7kAfgos3F6gNb2aNyvV/BXl+YkZPhRtXqaJI8QuEAY05VILUl3pQ1hn/
- jw+T/IhGQpvAw1c6pSdPvKkr5jelNF1fnmeR0m1xyZoIYcI+iiuW/Iu/WuUGZ78hcMqh
- g3CL3V0pe63hx+L+xlWLkuQYwLCKRyQisrQbl5WPPG/B41ZvBuJHJD4o+wnBbckPGoPv
- +Te9gcqwUjKpRSQzInv64N+/QE1a66zs8A2lobBuKuwo9AQpa9VNf4fHPoHMx9fwcBti
- IidpbYBiGaMKnhEyScbdIEcpDlMFoWgbx4jdM2zf6T2D0AGgMVW6xy9iTym6V3D3XpLt
- 4P/A==
-X-Gm-Message-State: APjAAAUw2cOgV1VYcKj1YZxKTjy6gUlCvPOU3WwDB6Gr9v5ZN4tAQlyX
- XnaBpqC5Zp35+2ysjRT1pA==
-X-Google-Smtp-Source: APXvYqzTd+SUScnI+raBK375orxhwOZtIjBl7LTQ+SrdOuzX+fB6KoQ7w06WVT6SBK2QaP+LwnqcBg==
-X-Received: by 2002:a37:9ece:: with SMTP id h197mr75339469qke.50.1560867025673; 
- Tue, 18 Jun 2019 07:10:25 -0700 (PDT)
-Received: from localhost ([64.188.179.192])
- by smtp.gmail.com with ESMTPSA id s11sm9602685qte.49.2019.06.18.07.10.24
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Tue, 18 Jun 2019 07:10:25 -0700 (PDT)
-Date: Tue, 18 Jun 2019 08:10:23 -0600
-From: Rob Herring <robh@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Message-ID: <20190618141023.GA20154@bogus>
-References: <20190617143322.4332-1-geert+renesas@glider.be>
+ id 1hdaG1-0057px-Th
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 Jun 2019 13:04:12 +0000
+Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
+ (mreue009 [212.227.15.129]) with ESMTPA (Nemesis) id
+ 1Mnq0I-1iNKvN22aA-00pLEE; Wed, 19 Jun 2019 14:50:47 +0200
+From: Arnd Bergmann <arnd@arndb.de>
+To: Corey Minyard <minyard@acm.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Date: Wed, 19 Jun 2019 14:50:34 +0200
+Message-Id: <20190619125045.918700-1-arnd@arndb.de>
+X-Mailer: git-send-email 2.20.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190617143322.4332-1-geert+renesas@glider.be>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Score: 0.7 (/)
+X-Provags-ID: V03:K1:U/wB7UGi/dDxj5A2YvCRhhrBeJdf03T+zz3oLyZzEkzwOOPJNyr
+ 0v/6xQZAkHibPImBjjuHoTDeZpFulHUsqJiQgOL4MNe8qSODthws2+ofq7rB+lm8sDB0PfS
+ 4R5YdlujOpraLS4FBTREtZXKDs4DK03DJzQbiJXVz5Ufvxby2SJinlA7bdY7NGSvS2MSxmZ
+ 5fnZOHbf/m9HrscTRLiHA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:9tF1bk3P54A=:BHuK8dxX9Xj4AX9CeCrv/R
+ uUvgAN+sxDd5wQqw79hIwlW6QbAOHCTMCYCfhKdOTrRW9ET4+EDpEvHQNqyO75pYIft8eH8tZ
+ r3OYEBPNj6u5njMw8lnZbzfA0p0ieNN+E3MaoHTWRss1O1iqSgjt+vMoYNcriYvJZ2w1S81y0
+ umoI3Lwp9XeRJtgKkX3B7nrFM8a5X8t6HVVpoFO+afT608Qd/PbcWlJ9FtSHH73sLRjDRW4/r
+ 8TgYK1GU+eI6tCL3Jr8HBjkNj7WSD8HORv7d8Rnhnr/vWM0i85lWQP6fMQnw4HQ0E9k6thxOb
+ aRajU8dkaHbLdKQTwfH+5L1T7zUAz85H2ioDiPqQttPobIUOKPk0TY6v7hFriFv5PVmcYBIX+
+ MRMTZ35oaRfyZNbOWfH6yFIwTU4Xwg4etet6leXHE2U/FKmbBYBfxKNJ4MzS6otJfG1+ZRTka
+ DM3Wc3hGxdW91U8SpPh2Qbhkfyms4C81HAKyY7fKpMetvgkLhnylAfLHH4laTQW8/fahvxWWg
+ FPfJ83ogJdv6heuMmMJcq0oKIM5jPgVqpSp/C/Vc77lhNkv5gUpFr/TrRLzlaEWbzcwrO6EnK
+ WgArs5e3joArooGZVbpQmOM5EN1CLskFYW3SITvOY7BY4BtfsH5J9A3MdYlQGdGXtJKF2q7BM
+ 4J3wlF5SHWmrFP6QGD2pNxyhnxiS/c7rDUaec5vl9cpO+zxeBSlkZBdh5SUnsxLTAdjAj7Fv8
+ vrxo9GTb8tjRvijZE7tmlgWoYLe3ymG4E4hI0A==
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (robherring2[at]gmail.com)
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.222.195 listed in list.dnswl.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
+ trust [212.227.126.134 listed in list.dnswl.org]
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: glider.be]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.195 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ for more information. [URIs: arndb.de]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends in
- digit (robherring2[at]gmail.com)
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
-X-Headers-End: 1hdEoi-0033n3-W4
-Subject: Re: [Openipmi-developer] [PATCH] dt-bindings: Add missing newline
- at end of file
+X-Headers-End: 1hdaG1-0057px-Th
+Subject: [Openipmi-developer] [PATCH] ipmi: ipmb: don't allocate i2c_client
+ on stack
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,33 +90,81 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- alsa-devel@alsa-project.org, Geert Uytterhoeven <geert+renesas@glider.be>,
- openbmc@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, openipmi-developer@lists.sourceforge.net
+Cc: Corey Minyard <cminyard@mvista.com>, Arnd Bergmann <arnd@arndb.de>,
+ vadimp@mellanox.com, linux-kernel@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, 17 Jun 2019 16:33:22 +0200, Geert Uytterhoeven wrote:
-> "git diff" says:
-> 
->     \ No newline at end of file
-> 
-> after modifying the files.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
->  Documentation/devicetree/bindings/ipmi/npcm7xx-kcs-bmc.txt      | 2 +-
->  .../devicetree/bindings/pinctrl/nuvoton,npcm7xx-pinctrl.txt     | 2 +-
->  Documentation/devicetree/bindings/regulator/pv88060.txt         | 2 +-
->  Documentation/devicetree/bindings/sound/cs42l73.txt             | 2 +-
->  4 files changed, 4 insertions(+), 4 deletions(-)
-> 
+The i2c_client structure can be fairly large, which leads to
+a warning about possible kernel stack overflow in some
+configurations:
 
-Applied, thanks.
+drivers/char/ipmi/ipmb_dev_int.c:115:16: error: stack frame size of 1032 bytes in function 'ipmb_write' [-Werror,-Wframe-larger-than=]
 
-Rob
+There is no real reason to even declare an i2c_client, as we can simply
+call i2c_smbus_xfer() directly instead of the i2c_smbus_write_block_data()
+wrapper.
+
+Convert the ipmb_write() to use an open-coded i2c_smbus_write_block_data()
+here, without changing the behavior.
+
+It seems that there is another problem with this implementation;
+when user space passes a length of more than I2C_SMBUS_BLOCK_MAX
+bytes, all the rest is silently ignored. This should probably be
+addressed in a separate patch, but I don't know what the intended
+behavior is here.
+
+Fixes: 51bd6f291583 ("Add support for IPMB driver")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/char/ipmi/ipmb_dev_int.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/char/ipmi/ipmb_dev_int.c b/drivers/char/ipmi/ipmb_dev_int.c
+index 2895abf72e61..c9724f6cf32d 100644
+--- a/drivers/char/ipmi/ipmb_dev_int.c
++++ b/drivers/char/ipmi/ipmb_dev_int.c
+@@ -117,7 +117,7 @@ static ssize_t ipmb_write(struct file *file, const char __user *buf,
+ {
+ 	struct ipmb_dev *ipmb_dev = to_ipmb_dev(file);
+ 	u8 rq_sa, netf_rq_lun, msg_len;
+-	struct i2c_client rq_client;
++	union i2c_smbus_data data;
+ 	u8 msg[MAX_MSG_LEN];
+ 	ssize_t ret;
+ 
+@@ -138,17 +138,17 @@ static ssize_t ipmb_write(struct file *file, const char __user *buf,
+ 
+ 	/*
+ 	 * subtract rq_sa and netf_rq_lun from the length of the msg passed to
+-	 * i2c_smbus_write_block_data_local
++	 * i2c_smbus_xfer
+ 	 */
+ 	msg_len = msg[IPMB_MSG_LEN_IDX] - SMBUS_MSG_HEADER_LENGTH;
+-
+-	strcpy(rq_client.name, "ipmb_requester");
+-	rq_client.adapter = ipmb_dev->client->adapter;
+-	rq_client.flags = ipmb_dev->client->flags;
+-	rq_client.addr = rq_sa;
+-
+-	ret = i2c_smbus_write_block_data(&rq_client, netf_rq_lun, msg_len,
+-					msg + SMBUS_MSG_IDX_OFFSET);
++	if (msg_len > I2C_SMBUS_BLOCK_MAX)
++		msg_len = I2C_SMBUS_BLOCK_MAX;
++
++	data.block[0] = msg_len;
++	memcpy(&data.block[1], msg + SMBUS_MSG_IDX_OFFSET, msg_len);
++	ret = i2c_smbus_xfer(ipmb_dev->client->adapter, rq_sa, ipmb_dev->client->flags,
++			     I2C_SMBUS_WRITE, netf_rq_lun,
++			     I2C_SMBUS_BLOCK_DATA, &data);
+ 
+ 	return ret ? : count;
+ }
+-- 
+2.20.0
+
 
 
 _______________________________________________
