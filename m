@@ -2,111 +2,77 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D0714BAC6
-	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Jun 2019 16:08:15 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 631B84FDBB
+	for <lists+openipmi-developer@lfdr.de>; Sun, 23 Jun 2019 20:51:33 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1hdbG1-0002iY-II; Wed, 19 Jun 2019 14:08:13 +0000
+	id 1hf7aH-0007NZ-Q6; Sun, 23 Jun 2019 18:51:25 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1hdbG0-0002iC-7D
- for openipmi-developer@lists.sourceforge.net; Wed, 19 Jun 2019 14:08:12 +0000
+ (envelope-from <lkp@intel.com>) id 1hf7aG-0007NR-Io
+ for openipmi-developer@lists.sourceforge.net; Sun, 23 Jun 2019 18:51:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=pAiH03kncavoXyLc1Eknk+svRY2+Ge1NcF9vyuUm92A=; b=ISy0RdFcRZikrwwUSTyYG5EjwW
- DjjyuOTWgU2ESscgYjM46SvYLnRrZIZTH+Ek4QGT3LoNI8YO6Z5P+IKRp9W7KFkyht83mHPX8XhJq
- Nm6VDXBMCsx4WEuO6m5ZCtnKpolxKhU9E04BYK9vnReW9jwqWmTaRPuGzyozhUscDfws=;
+ bh=QLmLjw03CiX6DXkpU47VFtBKVaF10nNi8oD3y9Rcdl4=; b=YJuo/lntMifhwLgukWHiJZt3nZ
+ opxgnbnY2F9hUXfuMffPeyyUZ0UrLBjOmjjqJfcX7Ow5jkqmN+SUDosTDZ/Vbd3taWWoznmeQqWi9
+ H1qQiKPJJorhpLcGFwh79pTCU1IgkEQNS5KnjS1f+5HR+5Gar1VkJEc12cg6FHUVeok4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=pAiH03kncavoXyLc1Eknk+svRY2+Ge1NcF9vyuUm92A=; b=UZePXMoUBuj9D+LSsVj+1X7PEG
- kL9vzeQcQoqo7GPVRpv+ZECzhUH2cSh//kHBz7py2PYyisplHHyEGnhgBR+FKooIFLm5GtSAXjIeK
- iq+qqIyzSaZ07fkV4aSOdS7GH6Np6GqxBNKoJ7Z0HDn5kV1de+zp2tLVCo2ica4fB4mI=;
-Received: from mail-ot1-f65.google.com ([209.85.210.65])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.90_1)
- id 1hdbFy-00HWtV-Sx
- for openipmi-developer@lists.sourceforge.net; Wed, 19 Jun 2019 14:08:12 +0000
-Received: by mail-ot1-f65.google.com with SMTP id n5so19449250otk.1
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 19 Jun 2019 07:08:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=pAiH03kncavoXyLc1Eknk+svRY2+Ge1NcF9vyuUm92A=;
- b=dpgCYgV+kWHJKNjqwnayFjgikgytQOekff4vmPGqKiXN9ziupaPpZj6+0HUvI9TcUk
- 1jdifpAXy7T1+b/VH4nikcXUu7/DjT7ivqggirJN9Cl36mrTpDNqeoin3rh25NztOjqB
- sZCONy61pZiDv5Uf5dsX3sQsh53jkRS+h3c68ozprkjrOskso+Ctf6mog9okrbvhpkGs
- Q9qelni5rGHgJwE3BCdFfzcooS3IxqrlXXJtPlBYwoo+DQ+Im23UXz1HYimuDnknmxGd
- akuFghcS3V/1P+rsMjIdSCd0QfSNCnj3pkvUVBb1fVIUREhHGZAdrJjLNnKhg8+Ve8KX
- 9Lyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to
- :user-agent;
- bh=pAiH03kncavoXyLc1Eknk+svRY2+Ge1NcF9vyuUm92A=;
- b=N23SmY6nP+ln4RzhbMiewEHydH0aC96U6YU6J2eLL5yUGJgFA9QqOQuq5p2RgtQ1mH
- 0AfBewP9RBz+i/PQCAkMxTO8GEgyQsuE6bl8T3LGESxdyn6lBKo7CLzRztihgGwf2pmh
- ZlyqaehLo+Kyxadbaw/QVDbJWEp5A702SnCmH468OXFZ3FnQFnSllLr4fnXdnmggv6uO
- OYxpuy7VS/ej70SX2d1EDmnOFT2YrPHGG12PSDv9nuNUi1+wDqf41RfEJtmdnxSXYkzs
- zMe04i9frjYdNHgRQkfShe0MOrk2iZ1+rzQvFLaIuTdTLGPoC73fl9KLHSTq1nNByhLd
- RvEw==
-X-Gm-Message-State: APjAAAUlCKagjmu/bZN+CDAGCr7ekptfEzq+5Li4LGhKt1RrUwju6NVW
- bxJSGb+hai6SQwlBavaPog==
-X-Google-Smtp-Source: APXvYqxpYFHJG2nhLsugZY7xZIOIvhW0nXQTNOsL8SUKG9gxcyHsUg0YhQr++tfaOBQauJN45wQZxw==
-X-Received: by 2002:a9d:6e93:: with SMTP id a19mr6113364otr.216.1560953284891; 
- Wed, 19 Jun 2019 07:08:04 -0700 (PDT)
-Received: from serve.minyard.net ([47.184.134.43])
- by smtp.gmail.com with ESMTPSA id w17sm6834733oia.24.2019.06.19.07.08.04
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Wed, 19 Jun 2019 07:08:04 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:5546:341d:943c:c2a3])
- by serve.minyard.net (Postfix) with ESMTPSA id E51B31800CE;
- Wed, 19 Jun 2019 14:08:03 +0000 (UTC)
-Date: Wed, 19 Jun 2019 09:08:02 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Message-ID: <20190619140802.GB7168@minyard.net>
-References: <20190619125045.918700-1-arnd@arndb.de>
+ bh=QLmLjw03CiX6DXkpU47VFtBKVaF10nNi8oD3y9Rcdl4=; b=IxZOSniY3bMslPS+jkQGhMcE2q
+ R+QpnaYOxE8QhIyFDm809KbRYWfDafQIzywNj7Yb9vtc40KkHUfppRIVWXAGlv5R6PsyzBeqS00zZ
+ V2dwVqRoeu9hobNWUdmEp4Q1+9c4j8GfGrwLf3Dyn1TXcw6bvJuQoivW3yB87A/4PyD4=;
+Received: from mga07.intel.com ([134.134.136.100])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
+ id 1hf7aJ-00BAeX-B1
+ for openipmi-developer@lists.sourceforge.net; Sun, 23 Jun 2019 18:51:29 +0000
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+ by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 23 Jun 2019 11:50:55 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.63,409,1557212400"; d="scan'208";a="169272519"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+ by FMSMGA003.fm.intel.com with ESMTP; 23 Jun 2019 11:50:54 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+ (envelope-from <lkp@intel.com>)
+ id 1hf7Zm-00078d-2X; Mon, 24 Jun 2019 02:50:54 +0800
+Date: Mon, 24 Jun 2019 02:50:44 +0800
+From: kbuild test robot <lkp@intel.com>
+To: Asmaa Mnebhi <Asmaa@mellanox.com>
+Message-ID: <20190623185044.GA94834@lkp-kbuild21>
+References: <201906240241.S3kwAGar%lkp@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190619125045.918700-1-arnd@arndb.de>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Spam-Score: 0.5 (/)
+In-Reply-To: <201906240241.S3kwAGar%lkp@intel.com>
+X-Patchwork-Hint: ignore
+User-Agent: Mutt/1.5.23 (2014-03-12)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: arndb.de]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.65 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
+ for more information. [URIs: intel.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
-X-Headers-End: 1hdbFy-00HWtV-Sx
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: ipmb: don't allocate
- i2c_client on stack
+ -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1hf7aJ-00BAeX-B1
+Subject: [Openipmi-developer] [PATCH] fix platform_no_drv_owner.cocci
+ warnings
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -119,91 +85,43 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: Corey Minyard <cminyard@mvista.com>, vadimp@mellanox.com,
+Cc: Corey Minyard <cminyard@mvista.com>, Arnd Bergmann <arnd@arndb.de>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net
+ kbuild-all@01.org, openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Jun 19, 2019 at 02:50:34PM +0200, Arnd Bergmann wrote:
-> The i2c_client structure can be fairly large, which leads to
-> a warning about possible kernel stack overflow in some
-> configurations:
-> 
-> drivers/char/ipmi/ipmb_dev_int.c:115:16: error: stack frame size of 1032 bytes in function 'ipmb_write' [-Werror,-Wframe-larger-than=]
-> 
-> There is no real reason to even declare an i2c_client, as we can simply
-> call i2c_smbus_xfer() directly instead of the i2c_smbus_write_block_data()
-> wrapper.
-> 
-> Convert the ipmb_write() to use an open-coded i2c_smbus_write_block_data()
-> here, without changing the behavior.
-> 
-> It seems that there is another problem with this implementation;
-> when user space passes a length of more than I2C_SMBUS_BLOCK_MAX
-> bytes, all the rest is silently ignored. This should probably be
-> addressed in a separate patch, but I don't know what the intended
-> behavior is here.
-> 
-> Fixes: 51bd6f291583 ("Add support for IPMB driver")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+From: kbuild test robot <lkp@intel.com>
 
-I broke up the line with the call to i2c_smbus_xfer(), which was
-longer than 80 characters, but that's it, it's in the IPMI next queue.
+drivers/char/ipmi/ipmb_dev_int.c:352:3-8: No need to set .owner here. The core will do it.
 
-Thanks,
+ Remove .owner field if calls are used which set it automatically
 
--corey
+Generated by: scripts/coccinelle/api/platform_no_drv_owner.cocci
 
-> ---
->  drivers/char/ipmi/ipmb_dev_int.c | 20 ++++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmb_dev_int.c b/drivers/char/ipmi/ipmb_dev_int.c
-> index 2895abf72e61..c9724f6cf32d 100644
-> --- a/drivers/char/ipmi/ipmb_dev_int.c
-> +++ b/drivers/char/ipmi/ipmb_dev_int.c
-> @@ -117,7 +117,7 @@ static ssize_t ipmb_write(struct file *file, const char __user *buf,
->  {
->  	struct ipmb_dev *ipmb_dev = to_ipmb_dev(file);
->  	u8 rq_sa, netf_rq_lun, msg_len;
-> -	struct i2c_client rq_client;
-> +	union i2c_smbus_data data;
->  	u8 msg[MAX_MSG_LEN];
->  	ssize_t ret;
->  
-> @@ -138,17 +138,17 @@ static ssize_t ipmb_write(struct file *file, const char __user *buf,
->  
->  	/*
->  	 * subtract rq_sa and netf_rq_lun from the length of the msg passed to
-> -	 * i2c_smbus_write_block_data_local
-> +	 * i2c_smbus_xfer
->  	 */
->  	msg_len = msg[IPMB_MSG_LEN_IDX] - SMBUS_MSG_HEADER_LENGTH;
-> -
-> -	strcpy(rq_client.name, "ipmb_requester");
-> -	rq_client.adapter = ipmb_dev->client->adapter;
-> -	rq_client.flags = ipmb_dev->client->flags;
-> -	rq_client.addr = rq_sa;
-> -
-> -	ret = i2c_smbus_write_block_data(&rq_client, netf_rq_lun, msg_len,
-> -					msg + SMBUS_MSG_IDX_OFFSET);
-> +	if (msg_len > I2C_SMBUS_BLOCK_MAX)
-> +		msg_len = I2C_SMBUS_BLOCK_MAX;
-> +
-> +	data.block[0] = msg_len;
-> +	memcpy(&data.block[1], msg + SMBUS_MSG_IDX_OFFSET, msg_len);
-> +	ret = i2c_smbus_xfer(ipmb_dev->client->adapter, rq_sa, ipmb_dev->client->flags,
-> +			     I2C_SMBUS_WRITE, netf_rq_lun,
-> +			     I2C_SMBUS_BLOCK_DATA, &data);
->  
->  	return ret ? : count;
->  }
-> -- 
-> 2.20.0
-> 
+Fixes: 51bd6f291583 ("Add support for IPMB driver")
+CC: Asmaa Mnebhi <Asmaa@mellanox.com>
+Signed-off-by: kbuild test robot <lkp@intel.com>
+---
+
+tree:   https://github.com/cminyard/linux-ipmi for-next
+head:   21feadd024e747123bc0aaba8d8cbef2b5eda058
+commit: 51bd6f291583684f495ea498984dfc22049d7fd2 [5/7] Add support for IPMB driver
+
+ ipmb_dev_int.c |    1 -
+ 1 file changed, 1 deletion(-)
+
+--- a/drivers/char/ipmi/ipmb_dev_int.c
++++ b/drivers/char/ipmi/ipmb_dev_int.c
+@@ -349,7 +349,6 @@ MODULE_DEVICE_TABLE(acpi, acpi_ipmb_id);
+ 
+ static struct i2c_driver ipmb_driver = {
+ 	.driver = {
+-		.owner = THIS_MODULE,
+ 		.name = "ipmb-dev",
+ 		.acpi_match_table = ACPI_PTR(acpi_ipmb_id),
+ 	},
 
 
 _______________________________________________
