@@ -2,77 +2,70 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 631B84FDBB
-	for <lists+openipmi-developer@lfdr.de>; Sun, 23 Jun 2019 20:51:33 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8DE3855193
+	for <lists+openipmi-developer@lfdr.de>; Tue, 25 Jun 2019 16:24:49 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1hf7aH-0007NZ-Q6; Sun, 23 Jun 2019 18:51:25 +0000
+	id 1hfmNH-0007pR-7O; Tue, 25 Jun 2019 14:24:43 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <lkp@intel.com>) id 1hf7aG-0007NR-Io
- for openipmi-developer@lists.sourceforge.net; Sun, 23 Jun 2019 18:51:24 +0000
+ (envelope-from <tcamuso@redhat.com>) id 1hfmNF-0007pF-T8
+ for openipmi-developer@lists.sourceforge.net; Tue, 25 Jun 2019 14:24:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Date:Message-ID:Subject:From:To:Sender:Reply-To:Cc:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=QLmLjw03CiX6DXkpU47VFtBKVaF10nNi8oD3y9Rcdl4=; b=YJuo/lntMifhwLgukWHiJZt3nZ
- opxgnbnY2F9hUXfuMffPeyyUZ0UrLBjOmjjqJfcX7Ow5jkqmN+SUDosTDZ/Vbd3taWWoznmeQqWi9
- H1qQiKPJJorhpLcGFwh79pTCU1IgkEQNS5KnjS1f+5HR+5Gar1VkJEc12cg6FHUVeok4=;
+ bh=915/9vsBgmHOhqPqhN7tU7r6DY1WMdSxZ7RIL6FFNt0=; b=EPCHciAkwdr+UBvFOAUNOGX9m5
+ odGwTAdka4VAhv6HJjD4WR1e02XXBJP8yXtWfDf/cWiWJy0j/6t/X1UuERhzYtqDi2RrjQDQ+HTyh
+ dhGM8GGkW7zh2h6Xhcn68rXlacVCDFbVsVat3q723X1tPa1LkirJiVwO4vJPTuMd7fD8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=QLmLjw03CiX6DXkpU47VFtBKVaF10nNi8oD3y9Rcdl4=; b=IxZOSniY3bMslPS+jkQGhMcE2q
- R+QpnaYOxE8QhIyFDm809KbRYWfDafQIzywNj7Yb9vtc40KkHUfppRIVWXAGlv5R6PsyzBeqS00zZ
- V2dwVqRoeu9hobNWUdmEp4Q1+9c4j8GfGrwLf3Dyn1TXcw6bvJuQoivW3yB87A/4PyD4=;
-Received: from mga07.intel.com ([134.134.136.100])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-ID:
+ Subject:From:To:Sender:Reply-To:Cc:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=915/9vsBgmHOhqPqhN7tU7r6DY1WMdSxZ7RIL6FFNt0=; b=S
+ JNT4iuSgzYCjhLDk/pxP7Nbt2A/9ridzo4d7uBT+Rsjihvg4X0wtZX9EoktJMfMnOG5afoJU4kUHW
+ olsM0G0x/VsTRDHd0Yg69jcE2UYg28SE2w9gfUgK+vnwsovvl3F2OW8bCm2Rf35RS7kuwOVqHNtBX
+ JTEi12zeHfonuBdE=;
+Received: from mx1.redhat.com ([209.132.183.28])
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- id 1hf7aJ-00BAeX-B1
- for openipmi-developer@lists.sourceforge.net; Sun, 23 Jun 2019 18:51:29 +0000
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
- by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 23 Jun 2019 11:50:55 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.63,409,1557212400"; d="scan'208";a="169272519"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
- by FMSMGA003.fm.intel.com with ESMTP; 23 Jun 2019 11:50:54 -0700
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
- (envelope-from <lkp@intel.com>)
- id 1hf7Zm-00078d-2X; Mon, 24 Jun 2019 02:50:54 +0800
-Date: Mon, 24 Jun 2019 02:50:44 +0800
-From: kbuild test robot <lkp@intel.com>
-To: Asmaa Mnebhi <Asmaa@mellanox.com>
-Message-ID: <20190623185044.GA94834@lkp-kbuild21>
-References: <201906240241.S3kwAGar%lkp@intel.com>
+ id 1hfmNI-00DDrQ-Kb
+ for openipmi-developer@lists.sourceforge.net; Tue, 25 Jun 2019 14:24:46 +0000
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mx1.redhat.com (Postfix) with ESMTPS id 3010330C0DE5;
+ Tue, 25 Jun 2019 14:24:34 +0000 (UTC)
+Received: from dhcp-17-119.bos.redhat.com (dhcp-17-119.bos.redhat.com
+ [10.18.17.119])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id DBE9310021B2;
+ Tue, 25 Jun 2019 14:24:29 +0000 (UTC)
+To: Corey Minyard <cminyard@mvista.com>,
+ openipmi-developer@lists.sourceforge.net
+From: Tony Camuso <tcamuso@redhat.com>
+Message-ID: <352582dd-a26d-a788-d63b-36aa9c029fb0@redhat.com>
+Date: Tue, 25 Jun 2019 10:24:29 -0400
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <201906240241.S3kwAGar%lkp@intel.com>
-X-Patchwork-Hint: ignore
-User-Agent: Mutt/1.5.23 (2014-03-12)
-X-Spam-Score: -0.2 (/)
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+ (mx1.redhat.com [10.5.110.45]); Tue, 25 Jun 2019 14:24:39 +0000 (UTC)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: intel.com]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1hf7aJ-00BAeX-B1
-Subject: [Openipmi-developer] [PATCH] fix platform_no_drv_owner.cocci
- warnings
+X-Headers-End: 1hfmNI-00DDrQ-Kb
+Subject: [Openipmi-developer] IPMI test suite automation
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -85,43 +78,33 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Corey Minyard <cminyard@mvista.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- kbuild-all@01.org, openipmi-developer@lists.sourceforge.net
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: kbuild test robot <lkp@intel.com>
 
-drivers/char/ipmi/ipmb_dev_int.c:352:3-8: No need to set .owner here. The core will do it.
+I'd like to know if there are any test suites out there for
+automated IPMI testing, especially as new features emerge and
+new bugs are exposed.
 
- Remove .owner field if calls are used which set it automatically
+We have a few of our own, but they are relatively primitive
+and don't provide a breadth and depth of coverage that could
+affirm full functionality or catch all regressions.
+Unfortunately, many regressions and functionality misses are
+caught by our customers.
 
-Generated by: scripts/coccinelle/api/platform_no_drv_owner.cocci
+I know that Corey uses a VM with virtual IPMI, and I'd like
+to know more about that, if there is a link somewhere that
+has the information.
 
-Fixes: 51bd6f291583 ("Add support for IPMB driver")
-CC: Asmaa Mnebhi <Asmaa@mellanox.com>
-Signed-off-by: kbuild test robot <lkp@intel.com>
----
+Virtual technology frees us from having to find systems using
+all the various methods of reporting the IPMI as well as a
+means to test all the functionality, and it provides a better
+way to automate testing.
 
-tree:   https://github.com/cminyard/linux-ipmi for-next
-head:   21feadd024e747123bc0aaba8d8cbef2b5eda058
-commit: 51bd6f291583684f495ea498984dfc22049d7fd2 [5/7] Add support for IPMB driver
-
- ipmb_dev_int.c |    1 -
- 1 file changed, 1 deletion(-)
-
---- a/drivers/char/ipmi/ipmb_dev_int.c
-+++ b/drivers/char/ipmi/ipmb_dev_int.c
-@@ -349,7 +349,6 @@ MODULE_DEVICE_TABLE(acpi, acpi_ipmb_id);
- 
- static struct i2c_driver ipmb_driver = {
- 	.driver = {
--		.owner = THIS_MODULE,
- 		.name = "ipmb-dev",
- 		.acpi_match_table = ACPI_PTR(acpi_ipmb_id),
- 	},
+Regards,
+Tony Camuso
+Red Hat
 
 
 _______________________________________________
