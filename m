@@ -2,72 +2,94 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A609063958
-	for <lists+openipmi-developer@lfdr.de>; Tue,  9 Jul 2019 18:27:35 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 56596639CF
+	for <lists+openipmi-developer@lfdr.de>; Tue,  9 Jul 2019 19:02:58 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1hksxp-0005C3-It; Tue, 09 Jul 2019 16:27:33 +0000
+	id 1hktW4-00010V-G8; Tue, 09 Jul 2019 17:02:56 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <asmaa@mellanox.com>) id 1hksxo-0005Bm-0Q
- for openipmi-developer@lists.sourceforge.net; Tue, 09 Jul 2019 16:27:32 +0000
+ (envelope-from <robherring2@gmail.com>) id 1hktW3-00010H-Mz
+ for openipmi-developer@lists.sourceforge.net; Tue, 09 Jul 2019 17:02:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=References:In-Reply-To:Message-Id:Date:Subject:Cc:
- To:From:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=h20setZmLf6gEhVQuzkJdHdNS0v/5g1ty0qcO//txuI=; b=QgJDxTtvqD2/+sbnxcJ7ClCAfB
- D4SvqvkLFGbE9yN3wkRrTU8Y9HZyDyLRr40RRSur0KOafrMOnNe/6j5oqCDuEWVf5iyR1xfoHVVd9
- nKxEn/Ms0olv//BXLqBJC279RtAx5w+lNzL+kPlfNm2gXd8rJYPGUgkVxd6NBjAMJBug=;
+ bh=OG0t8j7U3Eq0BS7c24XaaHRiFgFvKq1Zb+tb4UzVdso=; b=Ek0hBSOFyl9JmrqrxlENAYKRmv
+ QN4+/1R5wnA38rmX8+B+pCKA/kz17bF6ldxAsRWh+UsqW0Ndh0FMlVJZ3++14xzqMcTWGLCOc7QtM
+ 2zKpt11JuJXChW10H9NiDZvqCHmGMxHPj82kH2bUNO6w7vpS+Ycv25H1dfa999VNAvgM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To
- :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=h20setZmLf6gEhVQuzkJdHdNS0v/5g1ty0qcO//txuI=; b=CyK+TqjPvihLvZ/fY169Nxk6vz
- LPOKaezIKIgforHuiFepMNjuNXGeCrFrRLUZVGNhYmiSiJnWbmlEujuHMmn6T9l4XO7f8579c8Smw
- h/BcfkLGlBjWJXfTzqAeUdtP0f0/o1bkk+y2LdDOLj6+rd5Q02JeTmNOUBMhN3q0wbIM=;
-Received: from mail-il-dmz.mellanox.com ([193.47.165.129] helo=mellanox.co.il)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtp (Exim 4.90_1)
- id 1hksxl-00CNPs-7K
- for openipmi-developer@lists.sourceforge.net; Tue, 09 Jul 2019 16:27:31 +0000
-Received: from Internal Mail-Server by MTLPINE2 (envelope-from
- asmaa@mellanox.com)
- with ESMTPS (AES256-SHA encrypted); 9 Jul 2019 19:00:40 +0300
-Received: from farm-0002.mtbu.labs.mlnx (farm-0002.mtbu.labs.mlnx [10.15.2.32])
- by mtbu-labmailer.labs.mlnx (8.14.4/8.14.4) with ESMTP id x69G0cVT011878;
- Tue, 9 Jul 2019 12:00:38 -0400
-Received: (from asmaa@localhost)
- by farm-0002.mtbu.labs.mlnx (8.14.7/8.13.8/Submit) id x69G0cpk021781;
- Tue, 9 Jul 2019 12:00:38 -0400
-From: Asmaa Mnebhi <Asmaa@mellanox.com>
-To: minyard@acm.org
-Date: Tue,  9 Jul 2019 12:00:31 -0400
-Message-Id: <4a2b4f5397160dd8b40bd622cd8f4d541e5039cf.1562687885.git.Asmaa@mellanox.com>
-X-Mailer: git-send-email 2.1.2
-In-Reply-To: <cover.1562687885.git.Asmaa@mellanox.com>
-References: <cover.1562687885.git.Asmaa@mellanox.com>
-In-Reply-To: <cover.1562687885.git.Asmaa@mellanox.com>
-References: <cover.1562687885.git.Asmaa@mellanox.com>
-X-Spam-Score: 0.0 (/)
+ bh=OG0t8j7U3Eq0BS7c24XaaHRiFgFvKq1Zb+tb4UzVdso=; b=EiRz9bYyT3ddJfR4y4v780UVv5
+ +npEfnbhi3FPHzBfjS9mZI4WJeY7uFDcYIoEgaa5EVoAwFSy5yOP5qsUL2aZYh7Vo2RBTbGZgtDO2
+ rmrian29+ycVVFsOkIKBukcz54FPHs4N9G6oxS6fzH29cvT4biT/tMMixcOZb1UmR+KA=;
+Received: from mail-io1-f66.google.com ([209.85.166.66])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.90_1)
+ id 1hktW1-00DjHP-Uu
+ for openipmi-developer@lists.sourceforge.net; Tue, 09 Jul 2019 17:02:55 +0000
+Received: by mail-io1-f66.google.com with SMTP id z3so29748803iog.0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Tue, 09 Jul 2019 10:02:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=OG0t8j7U3Eq0BS7c24XaaHRiFgFvKq1Zb+tb4UzVdso=;
+ b=BShJn8LqgX0qc1b3Dvmbn4ApKFotCagwEVpnzc+yAeofhJxPP5KndJU8Saee3TOugU
+ dj8ohLq6tzbnDFsLCb5ml/8KvCNM5ak1Z/jDZzkkgmuslHiyQCBzp+3h+bNPoy//gAjk
+ KThA+U+VOy1UlRureyoYbuH3dDaPkY4NVrrtAgMPyia/jj2bZZjwqE8+Hkwxenh8zQaM
+ Ia+arbaRtDgSLCgOtGeWxhV5tZ5ePuaEVdJ6I3U3wToFrmBCvriYQVngXthvWKxkjW1D
+ PDM8Z90/zOn8sPJs3smzIlTBHQZk7FqG9jk89sXV4/A5YsC/wsDT3ndV4+AN3MVWH/Qn
+ suXQ==
+X-Gm-Message-State: APjAAAVLN9IsjfQTxeq1uLReAsq23AJ8QPZIRwYKCjuxl0v+0v1Hi/NM
+ sGjocWMGeVTZ6xs74xjJzsqoyLu1QA==
+X-Google-Smtp-Source: APXvYqxJonQLmorme2uaSZLZbCgdw4oO4EUuXZyb4aVUwA9TC/IuDaOHugEWxw1GvkVrOdtJboLiAg==
+X-Received: by 2002:a5d:80c3:: with SMTP id h3mr2239379ior.167.1562691767891; 
+ Tue, 09 Jul 2019 10:02:47 -0700 (PDT)
+Received: from localhost ([64.188.179.251])
+ by smtp.gmail.com with ESMTPSA id e84sm21742728iof.39.2019.07.09.10.02.46
+ (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+ Tue, 09 Jul 2019 10:02:46 -0700 (PDT)
+Date: Tue, 9 Jul 2019 11:02:45 -0600
+From: Rob Herring <robh@kernel.org>
+To: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+Message-ID: <20190709170245.GA7073@bogus>
+References: <cover.1560891322.git.mchehab+samsung@kernel.org>
+ <6b6b6db8d6de9b66223dd6d4b43eb60ead4c71d7.1560891322.git.mchehab+samsung@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <6b6b6db8d6de9b66223dd6d4b43eb60ead4c71d7.1560891322.git.mchehab+samsung@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Spam-Score: 0.7 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: makefile.am]
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (robherring2[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [193.47.165.129 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ trust [209.85.166.66 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 UNPARSEABLE_RELAY Informational: message has unparseable relay lines
-X-Headers-End: 1hksxl-00CNPs-7K
-Subject: [Openipmi-developer] [PATCH v3 1/1] Support IPMB
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends in
+ digit (robherring2[at]gmail.com)
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
+ freemail headers are different
+ 1.3 PDS_NO_HELO_DNS        High profile HELO but no A record
+ -1.4 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1hktW1-00DjHP-Uu
+Subject: Re: [Openipmi-developer] [PATCH v1 01/22] docs:
+ Documentation/*.txt: rename all ReST files to *.rst
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -80,637 +102,307 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: openipmi-developer@lists.sourceforge.net
-MIME-Version: 1.0
+Cc: linux-wireless@vger.kernel.org, linux-fbdev@vger.kernel.org,
+ linux-ia64@vger.kernel.org, kvm@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-pci@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ platform-driver-x86@vger.kernel.org, linux-mm@kvack.org,
+ kernel-hardening@lists.openwall.com, sparclinux@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
+ Jonathan Corbet <corbet@lwn.net>, x86@kernel.org,
+ iommu@lists.linux-foundation.org, devicetree@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, Mauro Carvalho Chehab <mchehab@infradead.org>,
+ linux-block@vger.kernel.org, linux-gpio@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, linux-arm-kernel@lists.infradead.org,
+ linaro-mm-sig@lists.linaro.org, linux-parisc@vger.kernel.org,
+ netdev@vger.kernel.org, Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-crypto@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Support receiving IPMB request on Satellite MC. The Satellite
-MC uses this code to handle the incoming IPMB request,
-generate a response and send it back to the requester.
+On Tue, Jun 18, 2019 at 06:05:25PM -0300, Mauro Carvalho Chehab wrote:
+> Those files are actually at ReST format. Ok, currently, they
+> don't belong to any place yet at the organized book series,
+> but we don't want patches to break them as ReST files. So,
+> rename them and add a :orphan: in order to shut up warning
+> messages like those:
+> 
+> ...
+>     Documentation/svga.rst: WARNING: document isn't included in any toctree
+>     Documentation/switchtec.rst: WARNING: document isn't included in any toctree
+> ...
+> 
+> Later patches will move them to a better place and remove the
+> :orphan: markup.
+> 
+> Signed-off-by: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+> ---
+> 
+> I had to remove the long list of maintainers got by
+> getpatch.pl, as it was too long. I opted to keep only the
+> mailing lists.
+> 
+>  Documentation/ABI/removed/sysfs-class-rfkill  |  2 +-
+>  Documentation/ABI/stable/sysfs-class-rfkill   |  2 +-
+>  Documentation/ABI/stable/sysfs-devices-node   |  2 +-
+>  Documentation/ABI/testing/procfs-diskstats    |  2 +-
+>  Documentation/ABI/testing/sysfs-block         |  2 +-
+>  .../ABI/testing/sysfs-class-switchtec         |  2 +-
+>  .../ABI/testing/sysfs-devices-system-cpu      |  4 +-
+>  .../{DMA-API-HOWTO.txt => DMA-API-HOWTO.rst}  |  2 +
+>  Documentation/{DMA-API.txt => DMA-API.rst}    |  8 ++-
+>  .../{DMA-ISA-LPC.txt => DMA-ISA-LPC.rst}      |  4 +-
+>  ...{DMA-attributes.txt => DMA-attributes.rst} |  2 +
+>  Documentation/{IPMI.txt => IPMI.rst}          |  2 +
+>  .../{IRQ-affinity.txt => IRQ-affinity.rst}    |  2 +
+>  .../{IRQ-domain.txt => IRQ-domain.rst}        |  2 +
+>  Documentation/{IRQ.txt => IRQ.rst}            |  2 +
+>  .../{Intel-IOMMU.txt => Intel-IOMMU.rst}      |  2 +
+>  Documentation/PCI/pci.rst                     |  8 +--
+>  Documentation/{SAK.txt => SAK.rst}            |  3 +-
+>  Documentation/{SM501.txt => SM501.rst}        |  2 +
+>  Documentation/admin-guide/hw-vuln/l1tf.rst    |  2 +-
+>  .../admin-guide/kernel-parameters.txt         |  4 +-
+>  .../{atomic_bitops.txt => atomic_bitops.rst}  |  3 +-
+>  Documentation/block/biodoc.txt                |  2 +-
+>  .../{bt8xxgpio.txt => bt8xxgpio.rst}          |  3 +-
+>  Documentation/{btmrvl.txt => btmrvl.rst}      |  2 +
+>  ...-mapping.txt => bus-virt-phys-mapping.rst} | 54 +++++++++---------
+>  ...g-warn-once.txt => clearing-warn-once.rst} |  2 +
+>  Documentation/{cpu-load.txt => cpu-load.rst}  |  2 +
+>  .../{cputopology.txt => cputopology.rst}      |  2 +
+>  Documentation/{crc32.txt => crc32.rst}        |  2 +
+>  Documentation/{dcdbas.txt => dcdbas.rst}      |  2 +
+>  ...ging-modules.txt => debugging-modules.rst} |  2 +
+>  ...hci1394.txt => debugging-via-ohci1394.rst} |  2 +
+>  Documentation/{dell_rbu.txt => dell_rbu.rst}  |  3 +-
+>  Documentation/device-mapper/statistics.rst    |  4 +-
+>  .../devicetree/bindings/phy/phy-bindings.txt  |  2 +-
 
-For instance, if it is an IPMB bridged request, a BMC will be
-fowarding the request message to the responder device
-(satellite MC for example), so this code would be supported
-on the responder device, which will generate a response and send
-it back to the BMC.
+Acked-by: Rob Herring <robh@kernel.org>
 
-Signed-off-by: Asmaa Mnebhi <Asmaa@mellanox.com>
----
- lanserv/Makefile.am          |   2 +-
- lanserv/OpenIPMI/Makefile.am |   2 +-
- lanserv/OpenIPMI/ipmbserv.h  |  62 ++++++++++
- lanserv/OpenIPMI/serv.h      |   6 +
- lanserv/README.design        |   6 +-
- lanserv/bmc.c                |   4 +
- lanserv/config.c             |   3 +
- lanserv/ipmb_ipmi.c          | 261 +++++++++++++++++++++++++++++++++++++++++++
- lanserv/ipmi_sim.c           |  86 ++++++++++++++
- lanserv/lan.conf             |  10 ++
- 10 files changed, 439 insertions(+), 3 deletions(-)
- create mode 100644 lanserv/OpenIPMI/ipmbserv.h
- create mode 100644 lanserv/ipmb_ipmi.c
-
-diff --git a/lanserv/Makefile.am b/lanserv/Makefile.am
-index 265b74a..659e957 100644
---- a/lanserv/Makefile.am
-+++ b/lanserv/Makefile.am
-@@ -34,7 +34,7 @@ noinst_HEADERS = emu.h bmc.h
- 
- libIPMIlanserv_la_SOURCES = lanserv_ipmi.c lanserv_asf.c priv_table.c \
- 	lanserv_oem_force.c lanserv_config.c config.c serv.c serial_ipmi.c \
--	persist.c extcmd.c
-+	persist.c extcmd.c ipmb_ipmi.c
- libIPMIlanserv_la_LIBADD = $(OPENSSLLIBS) -ldl $(RT_LIB)
- libIPMIlanserv_la_LDFLAGS = -version-info $(LD_VERSION) \
- 	../utils/libOpenIPMIutils.la
-diff --git a/lanserv/OpenIPMI/Makefile.am b/lanserv/OpenIPMI/Makefile.am
-index ab1e514..7c17c10 100644
---- a/lanserv/OpenIPMI/Makefile.am
-+++ b/lanserv/OpenIPMI/Makefile.am
-@@ -1,3 +1,3 @@
- 
- pkginclude_HEADERS = lanserv.h serserv.h serv.h extcmd.h persist.h msg.h \
--	mcserv.h
-+	mcserv.h ipmbserv.h
-diff --git a/lanserv/OpenIPMI/ipmbserv.h b/lanserv/OpenIPMI/ipmbserv.h
-new file mode 100644
-index 0000000..938ace3
---- /dev/null
-+++ b/lanserv/OpenIPMI/ipmbserv.h
-@@ -0,0 +1,62 @@
-+/*
-+ * ipmbserv.h
-+ *
-+ * IPMB server include file
-+ *
-+ * Copyright 2019 Mellanox
-+ *
-+ * This software is available to you under a choice of one of two
-+ * licenses.  You may choose to be licensed under the terms of the GNU
-+ * Lesser General Public License (GPL) Version 2 or the modified BSD
-+ * license below.  The following disclamer applies to both licenses:
-+ *
-+ *  THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESS OR IMPLIED
-+ *  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-+ *  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-+ *  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
-+ *  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-+ *  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-+ *  OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-+ *  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
-+ *  TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
-+ *  USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-+ *
-+ * GNU Lesser General Public Licence
-+ *
-+ *  This program is free software; you can redistribute it and/or
-+ *  modify it under the terms of the GNU Lesser General Public License
-+ *  as published by the Free Software Foundation; either version 2 of
-+ *  the License, or (at your option) any later version.
-+ *
-+ *  You should have received a copy of the GNU Lesser General Public
-+ *  License along with this program; if not, write to the Free
-+ *  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-+ *
-+ * Modified BSD Licence
-+ *
-+ * Redistribution and use in source and binary forms, with or without
-+ * modification, are permitted provided that the following conditions
-+ * are met:
-+ *
-+ *   1. Redistributions of source code must retain the above copyright
-+ *      notice, this list of conditions and the following disclaimer.
-+ *   2. Redistributions in binary form must reproduce the above
-+ *      copyright notice, this list of conditions and the following
-+ *      disclaimer in the documentation and/or other materials provided
-+ *      with the distribution.
-+ *   3. The name of the author may not be used to endorse or promote
-+ *      products derived from this software without specific prior
-+ *      written permission.
-+ */
-+
-+#ifndef __IPMBSERV_H
-+#define __IPMBSERV_H
-+
-+#include <OpenIPMI/msg.h>
-+#include <OpenIPMI/serserv.h>
-+
-+typedef struct serserv_data_s ipmbserv_data_t;
-+
-+int ipmb_read_config(char **tokptr, sys_data_t *sys, const char **errstr);
-+
-+#endif /* __IPMBSERV_H */
-diff --git a/lanserv/OpenIPMI/serv.h b/lanserv/OpenIPMI/serv.h
-index d2087f5..3d40060 100644
---- a/lanserv/OpenIPMI/serv.h
-+++ b/lanserv/OpenIPMI/serv.h
-@@ -219,6 +219,9 @@ struct channel_s
-      */
-     int (*oem_intf_recv_handler)(channel_t *chan, msg_t *msg,
- 				 unsigned char *rdata, unsigned int *rdata_len);
-+
-+    /* Set to 1 if ipmb channel 0 is listed in the config file, 0 otherwise */
-+    int prim_ipmb_in_cfg_file;
- };
- 
- struct user_s
-@@ -408,6 +411,9 @@ struct sys_data_s {
-     void (*cfree)(channel_t *chan, void *data);
-     int (*lan_channel_init)(void *info, channel_t *chan);
-     int (*ser_channel_init)(void *info, channel_t *chan);
-+    int (*ipmb_channel_init)(void *info, channel_t *chan);
-+
-+    char ipmidev[15];
- };
- 
- static inline void
-diff --git a/lanserv/README.design b/lanserv/README.design
-index 2f897c4..5260a6c 100644
---- a/lanserv/README.design
-+++ b/lanserv/README.design
-@@ -31,6 +31,8 @@ msg.h - This defines an IPMI message that is passed around, and a few
- 
- serserv.h - The configuration of a serial interface.
- 
-+ipmbserv.h - The configuration of an IPMB interface.
-+
- serv.h - This defines data structures used by the whole system.
- 
- 
-@@ -77,6 +79,8 @@ emu.h - Defines the interface between bmc_xxx.c and emu_cmd.c
- extcmd.c - Code for running the external command for dealing with LAN
- 	configuration.
- 
-+ipmb_ipmi.c - An implementation of the IPMB protocol.
-+
- ipmi_sim.c - The main file for the ipmi_sim program.
- 
- lanserv_asf.c - Handles LAN ASF commands.
-@@ -179,4 +183,4 @@ It is called from config.c to handle sol-specific configuration.
- It installs a hook into lanserv_ipmi.c to receive the SOL payload and
- send the SOL payload.
- 
--It ties into bmc.c to handle SOL-specific commands.
-\ No newline at end of file
-+It ties into bmc.c to handle SOL-specific commands.
-diff --git a/lanserv/bmc.c b/lanserv/bmc.c
-index 93d0b3f..264b4ae 100644
---- a/lanserv/bmc.c
-+++ b/lanserv/bmc.c
-@@ -613,6 +613,9 @@ ipmi_mc_enable(lmc_data_t *mc)
- 	    err = sys->lan_channel_init(sys->info, chan);
- 	else if (chan->medium_type == IPMI_CHANNEL_MEDIUM_RS232)
- 	    err = sys->ser_channel_init(sys->info, chan);
-+	else if ((chan->medium_type == IPMI_CHANNEL_MEDIUM_IPMB) &&
-+		((chan->channel_num != 0) || (chan->prim_ipmb_in_cfg_file)))
-+	    err = sys->ipmb_channel_init(sys->info, chan);
- 	else 
- 	    chan_init(chan);
- 	if (err) {
-@@ -802,6 +805,7 @@ ipmi_mc_alloc_unconfigured(sys_data_t *sys, unsigned char ipmb,
-     mc->ipmb_channel.protocol_type = IPMI_CHANNEL_PROTOCOL_IPMB;
-     mc->ipmb_channel.session_support = IPMI_CHANNEL_SESSION_LESS;
-     mc->ipmb_channel.active_sessions = 0;
-+    mc->ipmb_channel.prim_ipmb_in_cfg_file = 0;
-     mc->channels[0] = &mc->ipmb_channel;
-     mc->channels[0]->log = sys->clog;
- 
-diff --git a/lanserv/config.c b/lanserv/config.c
-index f0dda9f..976f8f2 100644
---- a/lanserv/config.c
-+++ b/lanserv/config.c
-@@ -64,6 +64,7 @@
- #include <OpenIPMI/serv.h>
- #include <OpenIPMI/lanserv.h>
- #include <OpenIPMI/serserv.h>
-+#include <OpenIPMI/ipmbserv.h>
- #include <OpenIPMI/persist.h>
- 
- void
-@@ -829,6 +830,8 @@ read_config(sys_data_t *sys,
- 	    }
- 	} else if (strcmp(tok, "user") == 0) {
- 	    err = get_user(&tokptr, sys, &errstr);
-+	} else if (strcmp(tok, "ipmb") == 0) {
-+	    err = ipmb_read_config(&tokptr, sys, &errstr);
- 	} else if (strcmp(tok, "serial") == 0) {
- 	    err = serserv_read_config(&tokptr, sys, &errstr);
- 	} else if (strcmp(tok, "sol") == 0) {
-diff --git a/lanserv/ipmb_ipmi.c b/lanserv/ipmb_ipmi.c
-new file mode 100644
-index 0000000..41e3b86
---- /dev/null
-+++ b/lanserv/ipmb_ipmi.c
-@@ -0,0 +1,261 @@
-+/*
-+ * ipmb_ipmi.c
-+ *
-+ * IPMB server interface.
-+ *
-+ * Copyright 2019 Mellanox
-+ *
-+ * This software is available to you under a choice of one of two
-+ * licenses.  You may choose to be licensed under the terms of the GNU
-+ * Lesser General Public License (GPL) Version 2 or the modified BSD
-+ * license below.  The following disclamer applies to both licenses:
-+ *
-+ *  THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESS OR IMPLIED
-+ *  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-+ *  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-+ *  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
-+ *  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-+ *  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-+ *  OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-+ *  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
-+ *  TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
-+ *  USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-+ *
-+ * GNU Lesser General Public Licence
-+ *
-+ *  This program is free software; you can redistribute it and/or
-+ *  modify it under the terms of the GNU Lesser General Public License
-+ *  as published by the Free Software Foundation; either version 2 of
-+ *  the License, or (at your option) any later version.
-+ *
-+ *  You should have received a copy of the GNU Lesser General Public
-+ *  License along with this program; if not, write to the Free
-+ *  Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-+ *
-+ * Modified BSD Licence
-+ *
-+ * Redistribution and use in source and binary forms, with or without
-+ * modification, are permitted provided that the following conditions
-+ * are met:
-+ *
-+ *   1. Redistributions of source code must retain the above copyright
-+ *      notice, this list of conditions and the following disclaimer.
-+ *   2. Redistributions in binary form must reproduce the above
-+ *      copyright notice, this list of conditions and the following
-+ *      disclaimer in the documentation and/or other materials provided
-+ *      with the distribution.
-+ *   3. The name of the author may not be used to endorse or promote
-+ *      products derived from this software without specific prior
-+ *      written permission.
-+ */
-+
-+#include <string.h>
-+#include <stdlib.h>
-+#include <OpenIPMI/serv.h>
-+#include <OpenIPMI/ipmbserv.h>
-+#include <OpenIPMI/ipmi_mc.h>
-+
-+#define	IPMIDEV_MAX_SIZE	15
-+
-+static void
-+raw_send(ipmbserv_data_t *ipmb, unsigned char *data, unsigned int len)
-+{
-+    if (ipmb->sysinfo->debug & DEBUG_RAW_MSG)
-+	debug_log_raw_msg(ipmb->sysinfo, data, len, "Raw serial send:");
-+    ipmb->send_out(ipmb, data, len);
-+}
-+
-+/***********************************************************************
-+ *
-+ * IPMB message
-+ *
-+ * According to the IPMI spec, the IPMB message size should never
-+ * exceed 32 bytes. So it doesn't harm to set the max size of the
-+ * recv_msg to 36 bytes.
-+ *
-+ ***********************************************************************/
-+struct ipmb_data {
-+    unsigned char   recv_msg[IPMI_SIM_MAX_MSG_LENGTH + 4];
-+    unsigned int    recv_msg_len;
-+    int             recv_msg_too_many;
-+};
-+
-+static void
-+ipmb_handle_msg(unsigned char *imsg, unsigned int len, ipmbserv_data_t *ipmb)
-+{
-+    msg_t msg;
-+
-+    if (len < 8) {
-+	fprintf(stderr, "Message too short\n");
-+	return;
-+    }
-+    /* subtract len field and checksum */
-+    len--;
-+    imsg++;
-+
-+    if (ipmb_checksum(imsg, len, 0) != 0) {
-+	fprintf(stderr, "Message checksum failure\n");
-+	return;
-+    }
-+    len--;
-+
-+    memset(&msg, 0, sizeof(msg));
-+
-+    msg.rs_addr = imsg[0];
-+    msg.netfn = imsg[1] >> 2;
-+    msg.rs_lun = imsg[1] & 3;
-+    /* imsg[2] is first checksum */
-+    msg.rq_addr = imsg[3];
-+    msg.rq_seq = imsg[4] >> 2;
-+    msg.rq_lun = imsg[4] & 3;
-+    msg.cmd = imsg[5];
-+
-+    msg.len = len - 6;
-+    msg.data = imsg + 6;
-+
-+    msg.src_addr = NULL;
-+    msg.src_len = 0;
-+
-+    channel_smi_send(&ipmb->channel, &msg);
-+}
-+
-+static void
-+ipmb_handle_char(unsigned char ch, ipmbserv_data_t *ipmb)
-+{
-+    struct ipmb_data *info = ipmb->codec_info;
-+    unsigned int len = info->recv_msg_len;
-+
-+    if (ipmb->bind_fd == 0) {
-+	if (info->recv_msg_len != 0) {
-+	    ipmb_handle_msg(info->recv_msg, info->recv_msg_len, ipmb);
-+	    info->recv_msg_len = 0;
-+	}
-+	return;
-+    }
-+
-+    if (len >= sizeof(info->recv_msg))
-+	return;
-+
-+    info->recv_msg[len] = ch;
-+    info->recv_msg_len++;
-+}
-+
-+static void
-+ipmb_send(msg_t *imsg, ipmbserv_data_t *ipmb)
-+{
-+    unsigned char msg[(IPMI_SIM_MAX_MSG_LENGTH + 7) * 3];
-+    unsigned int msg_len;
-+
-+    msg[0] = imsg->len + 7;
-+    msg[1] = imsg->rs_addr;
-+    msg[2] = (imsg->netfn << 2) | imsg->rs_lun;
-+    msg[3] = -ipmb_checksum(msg + 1, 2, 0);
-+    msg[4] = imsg->rq_addr;
-+    msg[5] = (imsg->rq_seq << 2) | imsg->rq_lun;
-+    msg[6] = imsg->cmd;
-+    memcpy(msg + 7, imsg->data, imsg->len);
-+    msg_len = imsg->len + 7;
-+    msg[msg_len] = -ipmb_checksum(msg + 4, msg_len - 4, 0);
-+    msg_len++;
-+
-+    raw_send(ipmb, msg, msg_len);
-+}
-+
-+static int
-+ipmb_setup(ipmbserv_data_t *ipmb)
-+{
-+    struct ipmb_data *info;
-+
-+    info = malloc(sizeof(*info));
-+    if (!info)
-+	return -1;
-+    memset(info, 0, sizeof(*info));
-+    ipmb->codec_info = info;
-+    ipmb->connected = 1;
-+    return 0;
-+}
-+
-+int
-+ipmb_read_config(char **tokptr, sys_data_t *sys, const char **errstr)
-+{
-+    ipmbserv_data_t *ipmb;
-+    unsigned int chan_num;
-+    int err;
-+    const char *tok;
-+
-+    err = get_uint(tokptr, &chan_num, errstr);
-+    if (!err && (chan_num >= IPMI_MAX_CHANNELS)) {
-+	return -1;
-+    }
-+
-+    /*
-+     * Primary IPMB associated with channel 0 was already
-+     * initialized in ipmi_mc_alloc_unconfigured.
-+     * So skip the check for channel already in use if
-+     * ipmb is listed in the config file (lan.conf).
-+     */
-+    if (chan_num != 0) {
-+	if (sys->chan_set[chan_num] != NULL) {
-+	    *errstr = "Channel already in use";
-+	    return -1;
-+	}
-+    }
-+
-+    tok = mystrtok(NULL, " \t\n", tokptr);
-+    if (!tok || strncmp(tok, "ipmidev", 7)) {
-+	*errstr = "Config file missing argument ipmidev";
-+	return -1;
-+    }
-+
-+    tok = mystrtok(NULL, " \t\n", tokptr);
-+    if (!tok || strncmp(tok, "/dev/", 5)) {
-+	*errstr = "Missing parameter for ipmidev";
-+	return -1;
-+    }
-+
-+    if (strlen(tok) > IPMIDEV_MAX_SIZE) {
-+	*errstr = "Length of device file name %s > 15";
-+	return -1;
-+    }
-+
-+    strcpy(sys->ipmidev, tok);
-+    if (!(sys->ipmidev)) {
-+	*errstr = "Unable to set ipmidev";
-+	return -1;
-+    }
-+
-+    ipmb = malloc(sizeof(*ipmb));
-+    if (!ipmb) {
-+	*errstr = "Out of memory";
-+	return -1;
-+    }
-+    memset(ipmb, 0, sizeof(*ipmb));
-+
-+    ipmb->codec = (ser_codec_t *)malloc(sizeof(ser_codec_t));
-+    if (!ipmb->codec) {
-+	*errstr = "Out of memory";
-+	return -1;
-+    }
-+
-+    ipmb->channel.session_support = IPMI_CHANNEL_SESSION_LESS;
-+    ipmb->channel.medium_type = IPMI_CHANNEL_MEDIUM_IPMB;
-+    ipmb->channel.protocol_type = IPMI_CHANNEL_PROTOCOL_IPMB;
-+
-+    ipmb->channel.channel_num = chan_num;
-+
-+    ipmb->codec->handle_char = ipmb_handle_char;
-+    ipmb->codec->send = ipmb_send;
-+    ipmb->codec->setup = ipmb_setup;
-+
-+    ipmb->sysinfo = sys;
-+    ipmb->channel.chan_info = ipmb;
-+
-+    if (chan_num == 0)
-+	ipmb->channel.prim_ipmb_in_cfg_file = 1;
-+    else
-+	ipmb->channel.prim_ipmb_in_cfg_file = 0;
-+
-+    sys->chan_set[chan_num] = &ipmb->channel;
-+
-+    return 0;
-+}
-diff --git a/lanserv/ipmi_sim.c b/lanserv/ipmi_sim.c
-index c4e5b18..0a20e22 100644
---- a/lanserv/ipmi_sim.c
-+++ b/lanserv/ipmi_sim.c
-@@ -90,6 +90,7 @@
- #include <OpenIPMI/serv.h>
- #include <OpenIPMI/lanserv.h>
- #include <OpenIPMI/serserv.h>
-+#include <OpenIPMI/ipmbserv.h>
- 
- #include "emu.h"
- #include <OpenIPMI/persist.h>
-@@ -103,6 +104,7 @@ static char *command_string = NULL;
- static char *command_file = NULL;
- static int debug = 0;
- static int nostdio = 0;
-+static char g_ipmi_dev[15];
- 
- /*
-  * Keep track of open sockets so we can close them on exec().
-@@ -567,6 +569,86 @@ ser_channel_init(void *info, channel_t *chan)
-     return err;
- }
- 
-+static int
-+ipmb_open(char *ipmi_dev)
-+{
-+    int ipmi_fd;
-+
-+    if (!ipmi_dev) {
-+	fprintf(stderr, "ipmi_dev is not specified\n");
-+	return -1;
-+    }
-+
-+    ipmi_fd = open(ipmi_dev, O_RDWR);
-+    if (ipmi_fd == -1)
-+        fprintf(stderr, "Could not open ipmi device\n");
-+
-+    return ipmi_fd;
-+}
-+
-+static void
-+ipmb_data_ready(int fd, void *cb_data, os_hnd_fd_id_t *id)
-+{
-+    ipmbserv_data_t *ipmb = cb_data;
-+    unsigned int  len;
-+    unsigned char msgd[256];
-+
-+    len = read(fd, msgd, sizeof(msgd));
-+
-+    if (ipmb->sysinfo->debug & DEBUG_MSG)
-+        printf(">ipmb_data_ready size %d\n", len);
-+    if (len <= 0) {
-+        if ((len < 0) && (errno == EINTR))
-+            return;
-+
-+        ipmb->os_hnd->remove_fd_to_wait_for(ipmb->os_hnd, id);
-+        close(fd);
-+        ipmb->con_fd = -1;
-+        return;
-+    }
-+
-+    ipmb->bind_fd = -1;
-+    serserv_handle_data(ipmb, msgd, len);
-+    ipmb->bind_fd = 0;
-+    serserv_handle_data(ipmb, msgd, 1);
-+}
-+
-+static int
-+ipmb_channel_init(void *info, channel_t *chan)
-+{
-+    misc_data_t *data = info;
-+    ipmbserv_data_t *ipmb = chan->chan_info;
-+    int err;
-+    int fd;
-+    os_hnd_fd_id_t *fd_id;
-+
-+    ipmb->os_hnd = data->os_hnd;
-+    ipmb->user_info = data;
-+    ipmb->send_out = ser_send;
-+    err = serserv_init(ipmb);
-+
-+    if (err) {
-+        fprintf(stderr, "Unable to init ipmb: 0x%x\n", err);
-+        exit(1);
-+    }
-+
-+    fd = ipmb_open(g_ipmi_dev);
-+    if (fd == -1){
-+        fprintf(stderr, "Unable to open ipmi device file: 0x%x\n", err);
-+        exit(1);
-+    }
-+
-+    ipmb->con_fd = fd;
-+
-+    err = data->os_hnd->add_fd_to_wait_for(data->os_hnd, ipmb->con_fd,
-+                                            ipmb_data_ready, ipmb,
-+                                            NULL, &fd_id);
-+    if (!err)
-+        isim_add_fd(fd);
-+
-+    return err;
-+}
-+
- static void
- isim_log(sys_data_t *sys, int logtype, msg_t *msg, const char *format,
- 	 va_list ap, int len)
-@@ -1438,6 +1520,7 @@ main(int argc, const char *argv[])
-     sysinfo.cfree = ifree;
-     sysinfo.lan_channel_init = lan_channel_init;
-     sysinfo.ser_channel_init = ser_channel_init;
-+    sysinfo.ipmb_channel_init = ipmb_channel_init;
-     data.sys = &sysinfo;
- 
-     err = pipe(sigpipeh);
-@@ -1501,6 +1584,9 @@ main(int argc, const char *argv[])
-     if (read_config(&sysinfo, config_file, print_version))
- 	exit(1);
- 
-+    if (sysinfo.ipmidev != NULL)
-+	strcpy(g_ipmi_dev, sysinfo.ipmidev);
-+
-     if (print_version)
- 	exit(0);
- 
-diff --git a/lanserv/lan.conf b/lanserv/lan.conf
-index 37732d4..c1f80b7 100644
---- a/lanserv/lan.conf
-+++ b/lanserv/lan.conf
-@@ -126,3 +126,13 @@ set_working_mc 0x30
- # where initstr is the init string passed on the module load line.
- # It should return 0 on success or an errno no failure.
- #loadlib "/opt/lib/ipmi_sim_extend.so" "Initialization String"
-+
-+# "ipmb" should be added to the config file of a device
-+# that needs to handle an IPMB request and generate a response
-+# back to the requester.
-+# In the case of an IPMB bridge request for example, the
-+# BMC is considered the requester and the responder device
-+# should have a config file defining the IPMB channel number.
-+# For example:
-+# ipmb <channel number> ipmbdev <device file>
-+# ipmb 2 ipmbdev /dev/ipmb-2
--- 
-2.1.2
-
+>  Documentation/{digsig.txt => digsig.rst}      |  2 +
+>  Documentation/driver-api/usb/dma.rst          |  6 +-
+>  Documentation/driver-model/device.rst         |  2 +-
+>  Documentation/{efi-stub.txt => efi-stub.rst}  |  2 +
+>  Documentation/{eisa.txt => eisa.rst}          |  2 +
+>  Documentation/fb/vesafb.rst                   |  2 +-
+>  Documentation/filesystems/sysfs.txt           |  2 +-
+>  ...ex-requeue-pi.txt => futex-requeue-pi.rst} |  2 +
+>  .../{gcc-plugins.txt => gcc-plugins.rst}      |  2 +
+>  Documentation/gpu/drm-mm.rst                  |  2 +-
+>  Documentation/{highuid.txt => highuid.rst}    |  4 +-
+>  .../{hw_random.txt => hw_random.rst}          |  2 +
+>  .../{hwspinlock.txt => hwspinlock.rst}        |  2 +
+>  Documentation/ia64/irq-redir.rst              |  2 +-
+>  .../{intel_txt.txt => intel_txt.rst}          |  2 +
+>  .../{io-mapping.txt => io-mapping.rst}        |  2 +
+>  .../{io_ordering.txt => io_ordering.rst}      |  2 +
+>  Documentation/{iostats.txt => iostats.rst}    |  2 +
+>  ...flags-tracing.txt => irqflags-tracing.rst} |  3 +-
+>  Documentation/{isa.txt => isa.rst}            |  2 +
+>  Documentation/{isapnp.txt => isapnp.rst}      |  2 +
+>  ...hreads.txt => kernel-per-CPU-kthreads.rst} |  4 +-
+>  Documentation/{kobject.txt => kobject.rst}    |  6 +-
+>  Documentation/{kprobes.txt => kprobes.rst}    |  3 +-
+>  Documentation/{kref.txt => kref.rst}          |  2 +
+>  Documentation/laptops/thinkpad-acpi.rst       |  6 +-
+>  Documentation/{ldm.txt => ldm.rst}            |  5 +-
+>  Documentation/locking/rt-mutex.rst            |  2 +-
+>  ...kup-watchdogs.txt => lockup-watchdogs.rst} |  2 +
+>  Documentation/{lsm.txt => lsm.rst}            |  2 +
+>  Documentation/{lzo.txt => lzo.rst}            |  2 +
+>  Documentation/{mailbox.txt => mailbox.rst}    |  2 +
+>  Documentation/memory-barriers.txt             |  6 +-
+>  ...hameleon-bus.txt => men-chameleon-bus.rst} |  2 +
+>  Documentation/networking/scaling.rst          |  4 +-
+>  .../{nommu-mmap.txt => nommu-mmap.rst}        |  2 +
+>  Documentation/{ntb.txt => ntb.rst}            |  2 +
+>  Documentation/{numastat.txt => numastat.rst}  |  3 +-
+>  Documentation/{padata.txt => padata.rst}      |  2 +
+>  ...port-lowlevel.txt => parport-lowlevel.rst} |  2 +
+>  ...-semaphore.txt => percpu-rw-semaphore.rst} |  2 +
+>  Documentation/{phy.txt => phy.rst}            |  2 +
+>  Documentation/{pi-futex.txt => pi-futex.rst}  |  2 +
+>  Documentation/{pnp.txt => pnp.rst}            | 13 +++--
+>  ...reempt-locking.txt => preempt-locking.rst} |  4 +-
+>  Documentation/{pwm.txt => pwm.rst}            |  2 +
+>  Documentation/{rbtree.txt => rbtree.rst}      | 54 +++++++++---------
+>  .../{remoteproc.txt => remoteproc.rst}        |  4 +-
+>  Documentation/{rfkill.txt => rfkill.rst}      |  2 +
+>  ...ust-futex-ABI.txt => robust-futex-ABI.rst} |  2 +
+>  ...{robust-futexes.txt => robust-futexes.rst} |  2 +
+>  Documentation/{rpmsg.txt => rpmsg.rst}        |  2 +
+>  Documentation/{rtc.txt => rtc.rst}            |  8 ++-
+>  Documentation/s390/vfio-ccw.rst               |  6 +-
+>  Documentation/{sgi-ioc4.txt => sgi-ioc4.rst}  |  2 +
+>  Documentation/{siphash.txt => siphash.rst}    |  2 +
+>  .../{smsc_ece1099.txt => smsc_ece1099.rst}    |  2 +
+>  .../{speculation.txt => speculation.rst}      |  2 +
+>  .../{static-keys.txt => static-keys.rst}      |  2 +
+>  Documentation/{svga.txt => svga.rst}          |  2 +
+>  .../{switchtec.txt => switchtec.rst}          |  4 +-
+>  .../{sync_file.txt => sync_file.rst}          |  2 +
+>  Documentation/sysctl/kernel.txt               |  4 +-
+>  Documentation/sysctl/vm.txt                   |  2 +-
+>  Documentation/{tee.txt => tee.rst}            |  2 +
+>  .../{this_cpu_ops.txt => this_cpu_ops.rst}    |  2 +
+>  Documentation/trace/kprobetrace.rst           |  2 +-
+>  .../translations/ko_KR/memory-barriers.txt    |  6 +-
+>  Documentation/translations/zh_CN/IRQ.txt      |  4 +-
+>  .../translations/zh_CN/filesystems/sysfs.txt  |  2 +-
+>  .../translations/zh_CN/io_ordering.txt        |  4 +-
+>  ...access.txt => unaligned-memory-access.rst} |  2 +
+>  ...ed-device.txt => vfio-mediated-device.rst} |  4 +-
+>  Documentation/{vfio.txt => vfio.rst}          |  2 +
+>  .../{video-output.txt => video-output.rst}    |  3 +-
+>  Documentation/watchdog/hpwdt.rst              |  2 +-
+>  Documentation/x86/topology.rst                |  2 +-
+>  Documentation/{xillybus.txt => xillybus.rst}  |  2 +
+>  Documentation/{xz.txt => xz.rst}              |  2 +
+>  Documentation/{zorro.txt => zorro.rst}        |  7 ++-
+>  MAINTAINERS                                   | 56 +++++++++----------
+>  arch/Kconfig                                  |  4 +-
+>  arch/arm/Kconfig                              |  2 +-
+>  arch/ia64/hp/common/sba_iommu.c               | 12 ++--
+>  arch/ia64/sn/pci/pci_dma.c                    |  4 +-
+>  arch/parisc/Kconfig                           |  2 +-
+>  arch/parisc/kernel/pci-dma.c                  |  2 +-
+>  arch/sh/Kconfig                               |  2 +-
+>  arch/sparc/Kconfig                            |  2 +-
+>  arch/unicore32/include/asm/io.h               |  2 +-
+>  arch/x86/Kconfig                              |  4 +-
+>  arch/x86/include/asm/dma-mapping.h            |  4 +-
+>  arch/x86/kernel/amd_gart_64.c                 |  2 +-
+>  block/partitions/Kconfig                      |  2 +-
+>  drivers/base/core.c                           |  2 +-
+>  drivers/char/Kconfig                          |  4 +-
+>  drivers/char/hw_random/core.c                 |  2 +-
+>  drivers/char/ipmi/Kconfig                     |  2 +-
+>  drivers/char/ipmi/ipmi_si_hotmod.c            |  2 +-
+>  drivers/char/ipmi/ipmi_si_intf.c              |  2 +-
+>  drivers/dma-buf/Kconfig                       |  2 +-
+>  drivers/gpio/Kconfig                          |  2 +-
+>  drivers/parisc/sba_iommu.c                    | 16 +++---
+>  drivers/pci/switch/Kconfig                    |  2 +-
+>  drivers/platform/x86/Kconfig                  |  4 +-
+>  drivers/platform/x86/dcdbas.c                 |  2 +-
+>  drivers/platform/x86/dell_rbu.c               |  2 +-
+>  drivers/pnp/isapnp/Kconfig                    |  2 +-
+>  drivers/vfio/Kconfig                          |  2 +-
+>  drivers/vfio/mdev/Kconfig                     |  2 +-
+>  include/asm-generic/bitops/atomic.h           |  2 +-
+>  include/linux/dma-mapping.h                   |  2 +-
+>  include/linux/hw_random.h                     |  2 +-
+>  include/linux/io-mapping.h                    |  2 +-
+>  include/linux/jump_label.h                    |  2 +-
+>  include/linux/kobject.h                       |  2 +-
+>  include/linux/kobject_ns.h                    |  2 +-
+>  include/linux/rbtree.h                        |  2 +-
+>  include/linux/rbtree_augmented.h              |  2 +-
+>  include/media/videobuf-dma-sg.h               |  2 +-
+>  init/Kconfig                                  |  2 +-
+>  kernel/dma/debug.c                            |  2 +-
+>  kernel/padata.c                               |  2 +-
+>  lib/Kconfig                                   |  2 +-
+>  lib/Kconfig.debug                             |  2 +-
+>  lib/crc32.c                                   |  2 +-
+>  lib/kobject.c                                 |  4 +-
+>  lib/lzo/lzo1x_decompress_safe.c               |  2 +-
+>  lib/xz/Kconfig                                |  2 +-
+>  mm/Kconfig                                    |  2 +-
+>  mm/nommu.c                                    |  2 +-
+>  samples/kprobes/kprobe_example.c              |  2 +-
+>  samples/kprobes/kretprobe_example.c           |  2 +-
+>  scripts/gcc-plugins/Kconfig                   |  2 +-
+>  security/Kconfig                              |  2 +-
+>  tools/include/linux/rbtree.h                  |  2 +-
+>  tools/include/linux/rbtree_augmented.h        |  2 +-
+>  173 files changed, 397 insertions(+), 242 deletions(-)
+>  rename Documentation/{DMA-API-HOWTO.txt => DMA-API-HOWTO.rst} (99%)
+>  rename Documentation/{DMA-API.txt => DMA-API.rst} (99%)
+>  rename Documentation/{DMA-ISA-LPC.txt => DMA-ISA-LPC.rst} (98%)
+>  rename Documentation/{DMA-attributes.txt => DMA-attributes.rst} (99%)
+>  rename Documentation/{IPMI.txt => IPMI.rst} (99%)
+>  rename Documentation/{IRQ-affinity.txt => IRQ-affinity.rst} (99%)
+>  rename Documentation/{IRQ-domain.txt => IRQ-domain.rst} (99%)
+>  rename Documentation/{IRQ.txt => IRQ.rst} (99%)
+>  rename Documentation/{Intel-IOMMU.txt => Intel-IOMMU.rst} (99%)
+>  rename Documentation/{SAK.txt => SAK.rst} (99%)
+>  rename Documentation/{SM501.txt => SM501.rst} (99%)
+>  rename Documentation/{atomic_bitops.txt => atomic_bitops.rst} (99%)
+>  rename Documentation/{bt8xxgpio.txt => bt8xxgpio.rst} (99%)
+>  rename Documentation/{btmrvl.txt => btmrvl.rst} (99%)
+>  rename Documentation/{bus-virt-phys-mapping.txt => bus-virt-phys-mapping.rst} (93%)
+>  rename Documentation/{clearing-warn-once.txt => clearing-warn-once.rst} (96%)
+>  rename Documentation/{cpu-load.txt => cpu-load.rst} (99%)
+>  rename Documentation/{cputopology.txt => cputopology.rst} (99%)
+>  rename Documentation/{crc32.txt => crc32.rst} (99%)
+>  rename Documentation/{dcdbas.txt => dcdbas.rst} (99%)
+>  rename Documentation/{debugging-modules.txt => debugging-modules.rst} (98%)
+>  rename Documentation/{debugging-via-ohci1394.txt => debugging-via-ohci1394.rst} (99%)
+>  rename Documentation/{dell_rbu.txt => dell_rbu.rst} (99%)
+>  rename Documentation/{digsig.txt => digsig.rst} (99%)
+>  rename Documentation/{efi-stub.txt => efi-stub.rst} (99%)
+>  rename Documentation/{eisa.txt => eisa.rst} (99%)
+>  rename Documentation/{futex-requeue-pi.txt => futex-requeue-pi.rst} (99%)
+>  rename Documentation/{gcc-plugins.txt => gcc-plugins.rst} (99%)
+>  rename Documentation/{highuid.txt => highuid.rst} (99%)
+>  rename Documentation/{hw_random.txt => hw_random.rst} (99%)
+>  rename Documentation/{hwspinlock.txt => hwspinlock.rst} (99%)
+>  rename Documentation/{intel_txt.txt => intel_txt.rst} (99%)
+>  rename Documentation/{io-mapping.txt => io-mapping.rst} (99%)
+>  rename Documentation/{io_ordering.txt => io_ordering.rst} (99%)
+>  rename Documentation/{iostats.txt => iostats.rst} (99%)
+>  rename Documentation/{irqflags-tracing.txt => irqflags-tracing.rst} (99%)
+>  rename Documentation/{isa.txt => isa.rst} (99%)
+>  rename Documentation/{isapnp.txt => isapnp.rst} (98%)
+>  rename Documentation/{kernel-per-CPU-kthreads.txt => kernel-per-CPU-kthreads.rst} (99%)
+>  rename Documentation/{kobject.txt => kobject.rst} (99%)
+>  rename Documentation/{kprobes.txt => kprobes.rst} (99%)
+>  rename Documentation/{kref.txt => kref.rst} (99%)
+>  rename Documentation/{ldm.txt => ldm.rst} (98%)
+>  rename Documentation/{lockup-watchdogs.txt => lockup-watchdogs.rst} (99%)
+>  rename Documentation/{lsm.txt => lsm.rst} (99%)
+>  rename Documentation/{lzo.txt => lzo.rst} (99%)
+>  rename Documentation/{mailbox.txt => mailbox.rst} (99%)
+>  rename Documentation/{men-chameleon-bus.txt => men-chameleon-bus.rst} (99%)
+>  rename Documentation/{nommu-mmap.txt => nommu-mmap.rst} (99%)
+>  rename Documentation/{ntb.txt => ntb.rst} (99%)
+>  rename Documentation/{numastat.txt => numastat.rst} (99%)
+>  rename Documentation/{padata.txt => padata.rst} (99%)
+>  rename Documentation/{parport-lowlevel.txt => parport-lowlevel.rst} (99%)
+>  rename Documentation/{percpu-rw-semaphore.txt => percpu-rw-semaphore.rst} (99%)
+>  rename Documentation/{phy.txt => phy.rst} (99%)
+>  rename Documentation/{pi-futex.txt => pi-futex.rst} (99%)
+>  rename Documentation/{pnp.txt => pnp.rst} (98%)
+>  rename Documentation/{preempt-locking.txt => preempt-locking.rst} (99%)
+>  rename Documentation/{pwm.txt => pwm.rst} (99%)
+>  rename Documentation/{rbtree.txt => rbtree.rst} (94%)
+>  rename Documentation/{remoteproc.txt => remoteproc.rst} (99%)
+>  rename Documentation/{rfkill.txt => rfkill.rst} (99%)
+>  rename Documentation/{robust-futex-ABI.txt => robust-futex-ABI.rst} (99%)
+>  rename Documentation/{robust-futexes.txt => robust-futexes.rst} (99%)
+>  rename Documentation/{rpmsg.txt => rpmsg.rst} (99%)
+>  rename Documentation/{rtc.txt => rtc.rst} (99%)
+>  rename Documentation/{sgi-ioc4.txt => sgi-ioc4.rst} (99%)
+>  rename Documentation/{siphash.txt => siphash.rst} (99%)
+>  rename Documentation/{smsc_ece1099.txt => smsc_ece1099.rst} (99%)
+>  rename Documentation/{speculation.txt => speculation.rst} (99%)
+>  rename Documentation/{static-keys.txt => static-keys.rst} (99%)
+>  rename Documentation/{svga.txt => svga.rst} (99%)
+>  rename Documentation/{switchtec.txt => switchtec.rst} (98%)
+>  rename Documentation/{sync_file.txt => sync_file.rst} (99%)
+>  rename Documentation/{tee.txt => tee.rst} (99%)
+>  rename Documentation/{this_cpu_ops.txt => this_cpu_ops.rst} (99%)
+>  rename Documentation/{unaligned-memory-access.txt => unaligned-memory-access.rst} (99%)
+>  rename Documentation/{vfio-mediated-device.txt => vfio-mediated-device.rst} (99%)
+>  rename Documentation/{vfio.txt => vfio.rst} (99%)
+>  rename Documentation/{video-output.txt => video-output.rst} (99%)
+>  rename Documentation/{xillybus.txt => xillybus.rst} (99%)
+>  rename Documentation/{xz.txt => xz.rst} (99%)
+>  rename Documentation/{zorro.txt => zorro.rst} (99%)
 
 
 _______________________________________________
