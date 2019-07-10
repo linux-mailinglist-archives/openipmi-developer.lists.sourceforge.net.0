@@ -2,96 +2,100 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A33CD64832
-	for <lists+openipmi-developer@lfdr.de>; Wed, 10 Jul 2019 16:22:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 380D164D32
+	for <lists+openipmi-developer@lfdr.de>; Wed, 10 Jul 2019 22:11:46 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1hlDUO-0003R1-Ta; Wed, 10 Jul 2019 14:22:32 +0000
+	id 1hlIwJ-0001BU-Tb; Wed, 10 Jul 2019 20:11:43 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <htejun@gmail.com>) id 1hlDUN-0003Qm-Ci
- for openipmi-developer@lists.sourceforge.net; Wed, 10 Jul 2019 14:22:31 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1hlIwI-0001BN-RS
+ for openipmi-developer@lists.sourceforge.net; Wed, 10 Jul 2019 20:11:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ppjQH7UnKSNQZiUbygkROUvFgkXUyrf6BJVSCRoD7mo=; b=bTsYB6RjSX7xIfCX63FrKJ3/J6
- MiYI0H5zzXVJoyUrczTaF/HVY4QhS/d7xsZiNpX2QgVh/6fnc688U7R8Y5QkVPr2tTT/WNEKaDbcQ
- 947rx9+e2mzzWLTYv/6RD9FvTyKMV9cWA7Fisv5NJyVgpGOGf4zzzxXh1BM1Qg0hyiZU=;
+ bh=C4Oo5mdvetUmxDbSUBL29GZ+Vehe4xWNg6RgKG4Gwt4=; b=gcx1moGkmEVRu/JiQnSZV4felv
+ toSQgx7sjaAKImL2o/tRfKN92pke51cG+2YMq5QJC51sebZwfea+vHA5xRq9EvKfAl4eChVbzYrge
+ 02e7kuRab7dA16A9UReYxVdm0Km84n+zvJOauHzm9AHkUCN6Ee9BL0fPGIDPLW2Crh9U=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=ppjQH7UnKSNQZiUbygkROUvFgkXUyrf6BJVSCRoD7mo=; b=SAN+Al9Cn3xb5VsV01i7vfDuH1
- V5MALIMKXU1BozjXhGWZzJJoMikL92S+Q5nRwwpjhNAZlJwuq0f+Psewnt9TK5wGd70zNi2Qq5P2V
- x1Y20HNPVp66VXxnflL4S8gD/RBU9QRhIOewPnzEaMtnNqbk0xIn+eEa7MhQFh7hSJyw=;
-Received: from mail-qk1-f174.google.com ([209.85.222.174])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=C4Oo5mdvetUmxDbSUBL29GZ+Vehe4xWNg6RgKG4Gwt4=; b=kOxxaaTGZbI7hcmGzqfl9H31Cb
+ 9tpwfth2tTba1Ol9dD9LBYowUC2rUo7O7XPO4XopGWV8BTuzczQktxo89+LrxLIHzluE/Q3+ZpCi3
+ WiEchCtw/WePhQc4rW/EP6tcDeRKD9HDYbMAH9WONGq5XbcJmNncZXwHjAUEDe4t0K84=;
+Received: from mail-oi1-f179.google.com ([209.85.167.179])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.90_1)
- id 1hlDUL-00DwVn-Un
- for openipmi-developer@lists.sourceforge.net; Wed, 10 Jul 2019 14:22:31 +0000
-Received: by mail-qk1-f174.google.com with SMTP id m14so1980873qka.10
+ id 1hlIwH-00FKBn-FO
+ for openipmi-developer@lists.sourceforge.net; Wed, 10 Jul 2019 20:11:42 +0000
+Received: by mail-oi1-f179.google.com with SMTP id e189so2624134oib.11
  for <openipmi-developer@lists.sourceforge.net>;
- Wed, 10 Jul 2019 07:22:29 -0700 (PDT)
+ Wed, 10 Jul 2019 13:11:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=ppjQH7UnKSNQZiUbygkROUvFgkXUyrf6BJVSCRoD7mo=;
- b=SgcOUEhU3ozGdXF2/sEbHBTindyV5H9yn5U3KQ8IsbT/CcVNeb4FlmmeF80ImehMCy
- iCWrpwPNEdBf5Xo4Z9CX+7l6USQgVuXN/JyWDnER0bITcZEKp+jyE9/wSl58JqOp/HXV
- LK34xwqzEwN99PfMFxXd8JSKb663MlOzp6+Q6QslI+sSsAu6b8aNmcbD7EQOHWdsnMhT
- hAxl/PFZfA4ZboPeLWPU8mVFdJaEXjK1nNZxTxy0fWSWYLk0bqPt2472hMYwSLdFLZVH
- vCcZksmhXRAMo0ddCRYvkUn2jlYD0LOiNIJf23980CgsnQqogYMMQh9zG8f4xybTBElf
- PC/w==
+ h=sender:date:from:to:cc:subject:message-id:reply-to:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=C4Oo5mdvetUmxDbSUBL29GZ+Vehe4xWNg6RgKG4Gwt4=;
+ b=mXmGPoxjwHpfp3CLLd+9LSOoCKadt5E0qlN+U8wdZNRzV7JdqZ9Q0VhlT1bvP7tkY6
+ +ub4J7BiIjLznFj6KqyIAhb6lIAEbHmU/UDdqQhn5KMJhN1SZtNdThiVHk0MjoOplHmD
+ +gBCmRmU2/PxHPN55nPCadpD4MKnsVW8UOmYTQuDtq0OhnF4qI8As8VBoXuXzavOoLQa
+ F2YJNJCRVr5xuHbe6YtvMRz/N/TS5mfd5JaDOVCuAkqx4Xk1zJWklfNxXTzLsS9pQuQp
+ tlJ1SNp81XlS3Py7w3AVzbr/Wjr45MOYDkiXIaBqZ+gOdQJqf6w94mAzB5RRmCsBXaNn
+ wPnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :references:mime-version:content-disposition:in-reply-to:user-agent;
- bh=ppjQH7UnKSNQZiUbygkROUvFgkXUyrf6BJVSCRoD7mo=;
- b=jYVpWVfYodp5yMmUmeMFmEsVTBCZJkB1+3GLI4WWWoDHG975cSHGiXe+GuulXw0BIk
- IsNYpUi+ubD1CmYgfpGxR8tbM2ZcTrwQCoKFUwTbykgE7tDEdDmAubi7+wmgyxWgpvJs
- 1Ym6plv5qn64RBzM2nIqrfsHhxs91lOg+xKolXmSdu7opbH3diBaR8HQuimVECB4M1iP
- 5QiUyQ/NOQTVwKqQ1uLW/eMTEKO29astAS1HftrPq3eZs2xvSP8/f2/gEMMIbtlkYCCw
- M/bxJtjiwXxh3MN5r3Adw1DR/9baMiSKEsjdN11Cm+AKeY0LCifH2r9GEIoMehTyJb4/
- 4jGA==
-X-Gm-Message-State: APjAAAUC9hBD5SODB5qWoW/hP3eeA71Pje+QzZvdX43xSsqVir7QXi1H
- 0X/nNLU9iLB+uZGalwgWgl5L4PVeAaM=
-X-Google-Smtp-Source: APXvYqySh2dm5C8yTdJddAWW6mq9d2RALMnSitjXV8aWgC+SiV85ujE3R+v6o3tjeE/bGRCMiADtdg==
-X-Received: by 2002:a05:620a:11ba:: with SMTP id
- c26mr21353453qkk.201.1562768543720; 
- Wed, 10 Jul 2019 07:22:23 -0700 (PDT)
-Received: from localhost ([2620:10d:c091:500::3:2bbe])
- by smtp.gmail.com with ESMTPSA id j78sm1069992qke.102.2019.07.10.07.22.22
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 10 Jul 2019 07:22:23 -0700 (PDT)
-Date: Wed, 10 Jul 2019 07:22:21 -0700
-From: Tejun Heo <tj@kernel.org>
-To: Corey Minyard <minyard@acm.org>
-Message-ID: <20190710142221.GO657710@devbig004.ftw2.facebook.com>
+ :reply-to:references:mime-version:content-disposition:in-reply-to
+ :user-agent;
+ bh=C4Oo5mdvetUmxDbSUBL29GZ+Vehe4xWNg6RgKG4Gwt4=;
+ b=QwhJk9zp+/C8Xm2z9YwW/NXIhqgxz8kZwl2TNhSCubyB1BdhWMsxW5AxZjRR2detnU
+ gmkJR5pqoIqytwozcAcAZSMp4c6Nps0H2Noyv0Q0jfhtqbgnc921cHZ1ptDwgJMiCiWd
+ KsSMyNasgBlivNTLunJAUuTlYoGqlQ61yeyYIFI2wwQjq8fyDL3UNlO62x64l/jLdmIY
+ hkDlDiV/RWhaTOnRCLywIEBrj2Ld8fcApbI4JoT8wXGWp/5+eKedU3NKu5Bo4WjRSn27
+ DVJIHn9zZ1VXlALqLQnjjvAIEMXTeglK+UiVDitHDbVxbKu1hQ5IVxs+7VHrcFha+iIf
+ 6S8Q==
+X-Gm-Message-State: APjAAAVvKnYEpwvkI7SvUsyoWsmX6thQ2M3/JPMVf3wrASLVSOFwkqhT
+ 5OGvQX0+dAkTFScaan7cRg==
+X-Google-Smtp-Source: APXvYqwluDUCiSXTRKCeP9btcWwoCO5Q93q4Z5o1gMibop9R2/B/lPFbj1yts8R/BE/ln2w4Cw4kMQ==
+X-Received: by 2002:aca:be88:: with SMTP id o130mr116980oif.122.1562789495255; 
+ Wed, 10 Jul 2019 13:11:35 -0700 (PDT)
+Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
+ by smtp.gmail.com with ESMTPSA id k10sm1080434otn.58.2019.07.10.13.11.34
+ (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+ Wed, 10 Jul 2019 13:11:34 -0700 (PDT)
+Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:8d86:5827:9904:bfb])
+ by serve.minyard.net (Postfix) with ESMTPSA id 12F961800D1;
+ Wed, 10 Jul 2019 20:11:34 +0000 (UTC)
+Date: Wed, 10 Jul 2019 15:11:32 -0500
+From: Corey Minyard <minyard@acm.org>
+To: Tejun Heo <tj@kernel.org>
+Message-ID: <20190710201132.GB3066@minyard.net>
 References: <20190709210643.GJ657710@devbig004.ftw2.facebook.com>
  <20190709214602.GD19430@minyard.net>
  <20190709220908.GL657710@devbig004.ftw2.facebook.com>
  <20190709230144.GE19430@minyard.net>
+ <20190710142221.GO657710@devbig004.ftw2.facebook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190709230144.GE19430@minyard.net>
-User-Agent: Mutt/1.5.21 (2010-09-15)
+In-Reply-To: <20190710142221.GO657710@devbig004.ftw2.facebook.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Spam-Score: 1.8 (+)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (htejun[at]gmail.com)
+ (tcminyard[at]gmail.com)
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.167.179 listed in list.dnswl.org]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.222.174 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -101,7 +105,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  freemail headers are different
  1.3 PDS_NO_HELO_DNS        High profile HELO but no A record
  0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1hlDUL-00DwVn-Un
+X-Headers-End: 1hlIwH-00FKBn-FO
 Subject: Re: [Openipmi-developer] [PATCH] ipmi_si_intf: use usleep_range()
  instead of busy looping
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -116,52 +120,78 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
+Reply-To: minyard@acm.org
 Cc: openipmi-developer@lists.sourceforge.net, kernel-team@fb.com,
  linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hello,
-
-On Tue, Jul 09, 2019 at 06:01:44PM -0500, Corey Minyard wrote:
-> > I'm really not sure "carefully tuned" is applicable on indefinite busy
-> > looping.
+On Wed, Jul 10, 2019 at 07:22:21AM -0700, Tejun Heo wrote:
+> Hello,
 > 
-> Well, yeah, but other things were tried and this was the only thing
-> we could find that worked.  That was before the kind of SMP stuff
-> we have now, though.
-
-I see.
-
-> > We can go for shorter timeouts for sure but I don't think this sort of
-> > busy looping is acceptable.  Is your position that this must be a busy
-> > loop?
+> > > We can go for shorter timeouts for sure but I don't think this sort of
+> > > busy looping is acceptable.  Is your position that this must be a busy
+> > > loop?
+> > 
+> > Well, no.  I want something that provides as high a throughput as
+> > possible and doesn't cause scheduling issues.  But that may not be
+> > possible.  Screwing up the scheduler is a lot worse than slow IPMI
+> > firmware updates.
+> > 
+> > How short can the timeouts be and avoid issues?
 > 
-> Well, no.  I want something that provides as high a throughput as
-> possible and doesn't cause scheduling issues.  But that may not be
-> possible.  Screwing up the scheduler is a lot worse than slow IPMI
-> firmware updates.
+> We first tried msleep(1) and that was too slow even for sensor reading
+> making it take longer than 50s.  With the 100us-200us sleep, it got
+> down to ~5s which was good enough for our use case and the cpu /
+> scheduler impact was still mostly negligible.  I can't tell for sure
+> without testing but going significantly below 100us is likely to
+> become visible pretty quickly.
+
+What was the time to read the sensors before you did the change?
+It depends a lot on the system, so I can't really guess.
+
 > 
-> How short can the timeouts be and avoid issues?
+> We can also take a hybrid approach where we busy poll w/ 1us udelay
+> upto, say, fifty times and then switch to sleeping poll.
 
-We first tried msleep(1) and that was too slow even for sensor reading
-making it take longer than 50s.  With the 100us-200us sleep, it got
-down to ~5s which was good enough for our use case and the cpu /
-scheduler impact was still mostly negligible.  I can't tell for sure
-without testing but going significantly below 100us is likely to
-become visible pretty quickly.
+I'm pretty sure we didn't try that in the original work, but I'm
+not sure that would work.  Most of the initial spinning would be
+pointless.
 
-We can also take a hybrid approach where we busy poll w/ 1us udelay
-upto, say, fifty times and then switch to sleeping poll.
+I would guess that you would decrease the delay and the performance
+would improve linearly until you hit a certain point, and then
+decreasing the delay wouldn't make a big difference.  That's the
+point you want to use, I think.
 
-Are there some tests which can be used to verify the cases which may
-get impacted by these changes?
+What might actually be best would be for the driver to measure the
+time it takes the BMC to respond and try to set the timeout based
+on that information.  BMCs vary a lot, a constant probably won't
+work.
 
-Thanks.
+And I was just saying that I wasn't expecting any big changes in
+the IPMI driver any more...
 
--- 
-tejun
+> 
+> Are there some tests which can be used to verify the cases which may
+> get impacted by these changes?
+
+Unfortunately not.  The original people at Dell that did the work
+don't work there any more, I don't think.
+
+I mostly use qemu now for testing, but this is not something you can
+really simulate on qemu very well.  Can you do an IPMI firmware
+update on your system?  That would be the easiest way to measure.
+
+Thanks,
+
+-corey
+
+> 
+> Thanks.
+> 
+> -- 
+> tejun
 
 
 _______________________________________________
