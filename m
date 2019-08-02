@@ -2,114 +2,104 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7A7E7E758
-	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Aug 2019 03:04:35 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 968F97EC56
+	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Aug 2019 07:51:48 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1htLzl-00044z-Ko; Fri, 02 Aug 2019 01:04:33 +0000
+	id 1htQTi-0003iN-LU; Fri, 02 Aug 2019 05:51:46 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1htLzk-00044e-DE
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Aug 2019 01:04:32 +0000
+ (envelope-from <joel.stan@gmail.com>) id 1htQTg-0003i2-VA
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Aug 2019 05:51:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
+ In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=3/kbP0svSsUq8SJpgLX1Dp0HLWCTGDCFyMDclc7G+oQ=; b=EdDuXBWv+dIX3ixhmixTrfTynZ
- va0WrsOCRgHYtnCwYe2nK3UMro9pRwhpOTnU/tIeWXyg/AlElNZuLnhxOKdFeJ8uVvkMio7WGpuda
- BnxGIXBMcTkCMgeqidxzLcMGMM1p7AQaMDdIkY1b2NQA9k4eIbXyDfvtB2JKcv5qiAdc=;
+ bh=5ITQyJRBl7ht1TYk00a4jNJ9PbzaX8Bwy7nVWaA9ibU=; b=lPd/WT7NkK9OVTI7Uq3Kulfy/y
+ qTYgFdIUNg96XB6wIu3AjyMzAjHv7rqXuwUSJveNBhS8J4j8vUCK5VrCiIkkvN9iiWYyvG5g3ywDd
+ tdoHGhJbqrSg+mjvKj0p8XHpNSVMIQ2E07mG92w0sCgjogVXe8qvCvnwqkioByMkhIv4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=3/kbP0svSsUq8SJpgLX1Dp0HLWCTGDCFyMDclc7G+oQ=; b=JIWVakN7OD9+2mM4E7LYb+PeIf
- A5/sJyvd9CNFxc8eU8okoIcpieQWQxpeo+dqs3tktA2fkhAXowJ7WQcHBqEW+QnmYiUqRYYoWGndd
- V7W9A3fM7mwiwLb6Ha4HANlJj45Gv6twR+DkyaY9Ouo8Nc7wjn23kc+1cqv3s5bHf3XM=;
-Received: from mail-ot1-f68.google.com ([209.85.210.68])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ bh=5ITQyJRBl7ht1TYk00a4jNJ9PbzaX8Bwy7nVWaA9ibU=; b=iCf/gp3xGEFyuEJ0nzaje3puLC
+ J92qDpgL8f4rTQJQpo06IdyfPYfRhS3vI9z9epAuiqfBItYjx0k20nocfnZHhRIxQycRlvpx9fnFn
+ YhC+mzKyyy9Mj9zgkobGzLxv10fgy/oYfaGUMUddcZ3v6hYogN4JTkj4S68OydcZLUFg=;
+Received: from mail-qt1-f194.google.com ([209.85.160.194])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.90_1)
- id 1htLzg-007B9R-Pm
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Aug 2019 01:04:32 +0000
-Received: by mail-ot1-f68.google.com with SMTP id d17so76436200oth.5
+ id 1htQTc-006kn1-KW
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Aug 2019 05:51:44 +0000
+Received: by mail-qt1-f194.google.com with SMTP id h21so72723706qtn.13
  for <openipmi-developer@lists.sourceforge.net>;
- Thu, 01 Aug 2019 18:04:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=3/kbP0svSsUq8SJpgLX1Dp0HLWCTGDCFyMDclc7G+oQ=;
- b=TH1LpnCjNMyCmMXCAtIs8HWAJ1OlCTZrJcfbxoKgSmdKFzMhMw8CGgeFNrZhf6Hq18
- WyfCxcnoiuRNKhirZcLAoy/XQYQGRmDzEYhtOpXH29v5mq6+6T78l7moXzPqTarMe+Xe
- dldRRFjGCG/N+ff2jNqsldKcxI56sI7XnZS6miYHTfp3WeJ5Q0XAl9YwapQ4NIvbCJnI
- CTXw24qpAxfm84TiHuAcnyp5Vpg6QXHK8dFWybVirYO/2zR+voqT8GPVNfceGwd25iY7
- s7zhNZvpW0DVfa9zDgOa0mpBCmUo69uUWYaXIeAUFu2HmOImd5AzTDtAJYWdYOLfaUHY
- LtqQ==
+ Thu, 01 Aug 2019 22:51:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jms.id.au; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=5ITQyJRBl7ht1TYk00a4jNJ9PbzaX8Bwy7nVWaA9ibU=;
+ b=ZlXyZ6ztAsHkWX/gNtW3rbHVMXIy8YlD4tZkfmEg2K2GZWwrJbhbsffFVc4OaXLrg9
+ 4tTqk4gATmYjzkZBvV6sH+07OauO8iQOl7F9IrPpZzBS6Z/6Juf2gv2baaqlQJdyWdqq
+ U2PcA4vf7asSgaO+0RaIZUlir57+Jn+ToB2VE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to
- :user-agent;
- bh=3/kbP0svSsUq8SJpgLX1Dp0HLWCTGDCFyMDclc7G+oQ=;
- b=t8qrnFj5WJFy2Iepsz0HsnQfgJf8Z1IR3Ukjt7YPJNxPuFxXyOohLpamSw9gGL6Im3
- OL6D1d8FvhxgImvGleC6JZ2Vpl7zuMy3fL/rA9oRzI2bf+BamYcexVrHblzTCR6CULn7
- V8ZS7DVwYL2zDnwVZa6Z3TNoG4PhfnVHus+3zNW7B2kkZVok/X1/okINgc5OlQSPcVOi
- J006GjxUAVzzc0l46JQFtqnlV7ZDVmGNTOQibyzcPMJbzzEDWWhPLnQiqspMNKpO+32N
- KPEd/in4flyIgdxX0mdbYPDIcom3XV39TYORW1bNCjYDEvPK9sAIDjNr+eXJKlx0e0cb
- rVeA==
-X-Gm-Message-State: APjAAAVOqI8L6Kaymv/EzQmHiWg4dtoC8Ffk3PWi2FWKeI2UEX8B11hO
- i7GbiW+pHWn31TQwfgH/mblMIP0=
-X-Google-Smtp-Source: APXvYqxBm3e3DYlt4PzuIqJIR3v4YM/QMgCJRCmRa3aDY7LSWhUW73YaPTWOsuCPmbSwbpfQgy45Dw==
-X-Received: by 2002:a9d:4c8b:: with SMTP id m11mr6831800otf.293.1564707862466; 
- Thu, 01 Aug 2019 18:04:22 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id k10sm25030098otl.21.2019.08.01.18.04.21
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Thu, 01 Aug 2019 18:04:21 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:11bd:bafd:193e:17d9])
- by serve.minyard.net (Postfix) with ESMTPSA id 643F91800D1;
- Fri,  2 Aug 2019 01:04:21 +0000 (UTC)
-Date: Thu, 1 Aug 2019 20:04:20 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Asmaa Mnebhi <Asmaa@mellanox.com>
-Message-ID: <20190802010420.GD5001@minyard.net>
-References: <cover.1564590483.git.Asmaa@mellanox.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=5ITQyJRBl7ht1TYk00a4jNJ9PbzaX8Bwy7nVWaA9ibU=;
+ b=J32Th16D9fLBxXYeBPo8wCcGAnDz0pd7A8FMnu81ePnzmUbfuRZS5jMBhZz0vQO7iW
+ 4ii4dFDQSdQChROoDrj9zUAB1sJWEwlHWczi05CkGF9gZAKYnpLZbHWKRwdnxUWmHhDu
+ ec/0oPSHtpGTbQfGBcCIig2aC1GWikCn96SliPFopYNhfmTMUL6KMqoyXDPwOa7/p7Y8
+ XjEkqIVECjEDDrGKBnFZJ3jWszOnujRJwgg7EK3QCgUO1PliZPW+AanTfQ9j4su6PqhF
+ DunRYQmcmDVmyOLDv7KJ2HhWc72PVo+aDIJoDbvvTknkJHa8ZNjfGRx300gdyjX7+pi3
+ 4UWw==
+X-Gm-Message-State: APjAAAXwezOXC4E7VaBslZJOGb8ATZjcimMhyOzPjN3Mk0qDGUzm9JbN
+ oudhOQX5MY7ISNS4RdW/SlGSalOeCuasfyaORvQ=
+X-Google-Smtp-Source: APXvYqxO7iXCAjOTakLYUnlXhbQV3QpIiWAYTjbetNNaVVixnu8M5TKpFH8tA3QT0jtpa2v4Vzycy56QBDbI0RnB0tU=
+X-Received: by 2002:a05:6214:1306:: with SMTP id
+ a6mr97854130qvv.38.1564725094592; 
+ Thu, 01 Aug 2019 22:51:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1564590483.git.Asmaa@mellanox.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+References: <20190726053959.2003-1-andrew@aj.id.au>
+ <CAL_JsqJ+sFDG8eKbV3gvmqVHx+otWbki4dY213apzXgfhbXXEw@mail.gmail.com>
+ <fd8e57f0-aee2-403e-b6fb-76d0c18fe306@www.fastmail.com>
+In-Reply-To: <fd8e57f0-aee2-403e-b6fb-76d0c18fe306@www.fastmail.com>
+From: Joel Stanley <joel@jms.id.au>
+Date: Fri, 2 Aug 2019 05:51:23 +0000
+Message-ID: <CACPK8Xc4Vigeu1B1Su5392BSCSKfoEDqt_tiDtgKmNH5ucAvAg@mail.gmail.com>
+To: Andrew Jeffery <andrew@aj.id.au>
 X-Spam-Score: 0.2 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
+ (joel.stan[at]gmail.com)
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: makefile.am]
+ for more information. [URIs: jms.id.au]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.160.194 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.160.194 listed in wl.mailspike.net]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.68 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.68 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
- 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1htLzg-007B9R-Pm
-Subject: Re: [Openipmi-developer] [PATCH v6 0/1] Support IPMB
+X-Headers-End: 1htQTc-006kn1-KW
+Subject: Re: [Openipmi-developer] [RFC-ish PATCH 00/17] Clean up ASPEED
+ devicetree warnings
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -122,42 +112,72 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: openipmi-developer@lists.sourceforge.net
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-aspeed@lists.ozlabs.org,
+ Linus Walleij <linus.walleij@linaro.org>, Corey Minyard <minyard@acm.org>,
+ "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ devicetree <devicetree@vger.kernel.org>, Xo Wang <xow@google.com>,
+ Arnd Bergmann <arnd@arndb.de>, Ken Chen <chen.kenyy@inventec.com>,
+ Adriana Kobylak <anoo@us.ibm.com>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ =?UTF-8?B?WWFuZ0JyaWFuQy5XIOaliuWYieWBiSBUQU8=?= <yang.brianc.w@inventec.com>,
+ openipmi-developer@lists.sourceforge.net,
+ "Alexander A. Filippov" <a.filippov@yadro.com>, Tao Ren <taoren@fb.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ yao.yuan@linaro.org, Patrick Venture <venture@google.com>,
+ John Wang <wangzqbj@inspur.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Stefan M Schaeckeler <sschaeck@cisco.com>,
+ Haiyue Wang <haiyue.wang@linux.intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Jul 31, 2019 at 12:30:44PM -0400, Asmaa Mnebhi wrote:
-> Fixed ipmb_read_config -> ipmbserv_read_config
+On Tue, 30 Jul 2019 at 01:09, Andrew Jeffery <andrew@aj.id.au> wrote:
 
-Ok, it's included and pushed up to master.
+> > > The bang-for-buck is in fixing up the KCS bindings which removes all-but-two of
+> > > the remaining warnings (which we can't feasibly remove), but doing so forces
+> > > code changes (which I'd avoided up until this point).
+> > >
+> > > Reflecting broadly on the fixes, I think I've made a mistake way back by using
+> > > syscon/simple-mfds to expose the innards of the SCU and LPC controllers in the
+> > > devicetree. This series cleans up what's currently there, but I have half a
+> > > mind to rev the SCU and LPC bindings to not use simple-mfd and instead have a
+> > > driver implementation that uses `platform_device_register_full()` or similar to
+> > > deal with the mess.
+> > >
+> > > Rob - I'm looking for your thoughts here and on the series, I've never felt
+> > > entirely comfortable with what I cooked up. Your advice would be appreciated.
+> >
+> > The series generally looks fine to me from a quick scan. As far as
+> > dropping 'simple-mfd', having less fine grained description in DT is
+> > generally my preference. It comes down to whether what you have
+> > defined is maintainable. As most of it is just additions, I think what
+> > you have is fine. Maybe keep all this in mind for the next chip
+> > depending how the SCU and LPC change.
+>
+> Okay, I think the timing of that suggestion is good given where things are with
+> the AST2600. I'll keep that in mind.
+>
+> Consensus so far seems to be that the series is fine. I'll split it up and send out
+> the sub-series to the relevant lists with the acks accumulated here.
 
-Thanks
+The series look good. I suggest posting the KCS bindings and driver
+changes as their own series to go through the IPMI tree.
 
--corey
+Please add my tag to all the patches except the OCC one, which I need
+to do some investigation in to.
 
-> 
-> Asmaa Mnebhi (1):
->   Support IPMB
-> 
->  lanserv/Makefile.am          |   2 +-
->  lanserv/OpenIPMI/Makefile.am |   2 +-
->  lanserv/OpenIPMI/ipmbserv.h  |  83 ++++++++++++++++
->  lanserv/OpenIPMI/serv.h      |   4 +
->  lanserv/README.design        |   6 +-
->  lanserv/bmc.c                |   4 +
->  lanserv/config.c             |   3 +
->  lanserv/ipmb_ipmi.c          | 219 +++++++++++++++++++++++++++++++++++++++++++
->  lanserv/ipmi_sim.c           |  96 +++++++++++++++++++
->  lanserv/lan.conf             |  13 +++
->  10 files changed, 429 insertions(+), 3 deletions(-)
->  create mode 100644 lanserv/OpenIPMI/ipmbserv.h
->  create mode 100644 lanserv/ipmb_ipmi.c
-> 
-> -- 
-> 2.1.2
-> 
+Reviewed-by: Joel Stanley <joel@jms.id.au>
+
+The others can go via the aspeed tree. Perhaps post them as their own
+series too so I don't get confused and apply the wrong ones. That way
+if Rob wants to send his reviewed-by he can.
+
+Cheers,
+
+Joel
 
 
 _______________________________________________
