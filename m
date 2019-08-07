@@ -2,52 +2,52 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 989A28657A
+	by mail.lfdr.de (Postfix) with ESMTPS id 9590786579
 	for <lists+openipmi-developer@lfdr.de>; Thu,  8 Aug 2019 17:17:21 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1hvkAJ-0002CU-OG; Thu, 08 Aug 2019 15:17:19 +0000
+	id 1hvkAJ-0002Cg-Py; Thu, 08 Aug 2019 15:17:19 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tony@camusofamily.com>) id 1hvNRb-0002dg-5X
- for openipmi-developer@lists.sourceforge.net; Wed, 07 Aug 2019 15:01:39 +0000
+ (envelope-from <tony@camusofamily.com>) id 1hvNRc-0006sJ-NV
+ for openipmi-developer@lists.sourceforge.net; Wed, 07 Aug 2019 15:01:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
  :Date:Message-ID:Subject:From:To:Sender:Reply-To:Cc:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=lj+hgujjiLVo35Tmg46aBFyXijWVLWMLH+9UPJo6eFE=; b=CuUcskTd3jLpckKbVaKrkeWSds
- bn7baHmWySvKuPpk4rhtuN/IqC9Hi9sVUkkCfxBefdkWZv7VVUo8n0REY4jt0Uu9OQniMFmcffFmv
- 5ZJk/1iq/pjCgfrHV07G1xcoiHgl+g/FcQXG8pzkWS3wLiIsULW6nrW4oSKcYPDruUsk=;
+ bh=SSNAaR5MqCUcQToD1R4JE32YiMwj/8yd7DefFE2WCR8=; b=kkQdcwxaTLx1TITpjZ9A8WDyfM
+ HUZEb8z47hHbZEmFZpeaQn7Dl2wBD6cOvhMlHLRpLG+Dnql0QkMC2txh0KQ7FZ3S2MLXR1ysF1hlB
+ Ky9WO9oOwLwhv+ZYXkR00JfVGK1kkqIH3oP7CF9bBZqLci05TClJW0QRGzuWoYvmFdbg=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-ID:
  Subject:From:To:Sender:Reply-To:Cc:Content-ID:Content-Description:Resent-Date
  :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
  References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=lj+hgujjiLVo35Tmg46aBFyXijWVLWMLH+9UPJo6eFE=; b=U
- CNG5URLtWK525DUeJF1EqinMadxtCwfvp8rD483nbXjY/hSosebeooqu7VcewTWYKuXeQ9xFByUQq
- H0RLidqQlcNxrgps8mfhVe6zKA5bvzvyuIYals3Bmi21a/3hWNEZRiCExkCclgtHuHjJGveDhMGhH
- PLiiS4w3ceeB+HUo=;
+ List-Owner:List-Archive; bh=SSNAaR5MqCUcQToD1R4JE32YiMwj/8yd7DefFE2WCR8=; b=V
+ WGGcKlZW6bktO+8u1fXoyQ9bSPUpjyZM7kDNVNooBLLz58kQJry1/x7d6giJTSb1+nLqSZYMLv/hF
+ eMFrQt/skDySjx/RcfKKs3+ufxx8cBkDstW8A16pmAecL0h9gDbgn5Kmq/RmSFgUhdEtcw7dLWqiV
+ CfMvuRE+pwQyhtmc=;
 Received: from outbound01.webhero.com ([216.57.225.250])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- id 1hvNRX-00E3jB-6A
- for openipmi-developer@lists.sourceforge.net; Wed, 07 Aug 2019 15:01:39 +0000
+ id 1hvNRX-00F1dC-Ax
+ for openipmi-developer@lists.sourceforge.net; Wed, 07 Aug 2019 15:01:40 +0000
 X-Virus-Scanned: by SpamTitan at webhero.com
 Authentication-Results: outbound01.webhero.com; none
-Received: (qmail 13463 invoked by uid 10000); 7 Aug 2019 14:31:02 -0000
+Received: (qmail 13712 invoked by uid 10000); 7 Aug 2019 14:33:46 -0000
 Received: from unknown (HELO localhost.localdomain)
  (tony@camusofamily.com@66.187.232.66)
- by wh-qmail03b.webhero.com with ESMTPA; 7 Aug 2019 14:31:02 -0000
+ by wh-qmail03b.webhero.com with ESMTPA; 7 Aug 2019 14:33:46 -0000
 To: Corey Minyard <cminyard@mvista.com>,
  openipmi-developer@lists.sourceforge.net
 From: Tony Camuso <tony@camusofamily.com>
-Message-ID: <fd070e14-53c0-e03f-3356-5568ce3f6125@camusofamily.com>
-Date: Wed, 7 Aug 2019 10:41:42 -0400
+Message-ID: <9a8dad96-4468-bf86-56b7-bb3700d0c064@camusofamily.com>
+Date: Wed, 7 Aug 2019 10:44:27 -0400
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.8.0
 MIME-Version: 1.0
@@ -58,10 +58,10 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: nec.com]
+ for more information. [URIs: mvista.com]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-X-Headers-End: 1hvNRX-00E3jB-6A
+X-Headers-End: 1hvNRX-00F1dC-Ax
 X-Mailman-Approved-At: Thu, 08 Aug 2019 15:17:18 +0000
 Subject: [Openipmi-developer] Deadlock in ipmi
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -79,7 +79,6 @@ List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
-
 
 Hi, Corey.
 
@@ -116,7 +115,8 @@ Do we really need to take out the si_lock in ipmi_thread? Do we really need to
 block IRQs that early?
 
 Thanks and regards,
-Tony Camuso
+Tony Camuso <tcamuso@redhat.com>
+
 
 
 
