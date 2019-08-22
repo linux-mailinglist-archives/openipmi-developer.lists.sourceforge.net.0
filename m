@@ -2,112 +2,75 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 71032979A6
-	for <lists+openipmi-developer@lfdr.de>; Wed, 21 Aug 2019 14:39:58 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4883B992BA
+	for <lists+openipmi-developer@lfdr.de>; Thu, 22 Aug 2019 13:59:49 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1i0Pu8-0004Rs-LX; Wed, 21 Aug 2019 12:39:56 +0000
+	id 1i0lkp-0003tW-CZ; Thu, 22 Aug 2019 11:59:47 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1i0Pu7-0004Rm-Si
- for openipmi-developer@lists.sourceforge.net; Wed, 21 Aug 2019 12:39:55 +0000
+ (envelope-from <tcamuso@redhat.com>) id 1i0lkn-0003sy-9D
+ for openipmi-developer@lists.sourceforge.net; Thu, 22 Aug 2019 11:59:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=1DQJWn+ibudXHzu56fJPgiO6mpd/1nURhgitbxFw278=; b=cO15YHS5wgGfhZZ1bonlaaHMZT
- jNfY7iHLautuXVB2YO9L1MoqnigNwFlTYA1QoSucxRx1/wDFVZguGUoGXq2NvLvENpQJKChf1l/P1
- FhYQZlOomJvuuWNeNO37HAOpjlU30lTS1GSuPcPimuYkakCt37QQPahAuLizwn1yUIjs=;
+ bh=fw1yUcV/WxMFqQnbD9whtSSQKMHOKNgoph1ci5oS8AM=; b=aYrdUszcpirrBvgSfJEWxjam69
+ /BzyZCazA3BaWWo+A7X1t1tZycbbcVuYnQsecZIyG9NL9grlE/7e2dhhJBy+kZNC0/I6V+nzAZay6
+ qWHNt9FEocSM+cA4EDPhU/CzwzXL+nPFcH3d2V3Ac7ID0uhgz1Sk2GoQUbthjzc9Xano=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=1DQJWn+ibudXHzu56fJPgiO6mpd/1nURhgitbxFw278=; b=Q/7pGItYFKyVHGsYXWNDT/7IqM
- 1ujJhn4nn1FsCY+qS9oydNPCcq7ktqNCDom2uJ5Z+05ASxjonWPYd/HRTWkRsrgY1DiIqcZqjH/wH
- 1JKf9AOkYW2f0ufWUNaE13xl/yu6SpN18tuE+1U4CdC0f8P54RD4Hi07I2oViy9i5mDo=;
-Received: from mail-oi1-f193.google.com ([209.85.167.193])
+ bh=fw1yUcV/WxMFqQnbD9whtSSQKMHOKNgoph1ci5oS8AM=; b=gMiCbBXQvucXd1Te+WsuWXZEAb
+ QAuDd4I022XldvYeoUfFSOK10OWvKVMf+TWGZcYlEAsAgF7O5zTEyTBpVlZKf8Lh/PFsGw/qmZiBG
+ gKoDoqgZDdZywMcf3MnuRXaUb8sxQYA4MA+Tf6vuLNdp2hZsrNaPC4FA1CJxdGQnY0p0=;
+Received: from mx1.redhat.com ([209.132.183.28])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.90_1)
- id 1i0Pu6-00B17W-1X
- for openipmi-developer@lists.sourceforge.net; Wed, 21 Aug 2019 12:39:55 +0000
-Received: by mail-oi1-f193.google.com with SMTP id o6so1423509oic.9
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 21 Aug 2019 05:39:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=1DQJWn+ibudXHzu56fJPgiO6mpd/1nURhgitbxFw278=;
- b=I2vZn94QChyOvmL8FAa7iT3RVw4cceo7KN4SLb/2N7OqZqR7/L5iIatg3Qv4exSpJi
- epOjqEJF5JeX38BdjhAXtsPfkej65+1ua+0BvHlZ0FhpvK77XBU5Jzb7zaBjJfspLkzD
- AiZAXYnl2YhJsAZ8DCE5vuDC+mSfQrtQn5xTo6Y89HzlnYfd3u9+ozVcYVyKRecOVMw+
- ks7gsKqdSAJb9UFo3fy8AJkHufvHW1WVo+Sru1N/S4fmqmDrxrAMLCBc+ycrlVDygKV9
- vY6Q71H+JOWjtz7S70KJwoh1zdAO7+mKG9XNXQrUngR02lzKx+bNeYg4iZrmLqVU2grx
- 65GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to
- :user-agent;
- bh=1DQJWn+ibudXHzu56fJPgiO6mpd/1nURhgitbxFw278=;
- b=RA8/SAfy2fpIxitZHlT4fNdj5Z/ucHuRD0hCKkYBMu3+H4FozWtaQ6t1jejV1dUdZ/
- UtXUlstD7gdEnXDGLLelXj+VbvGe52Pf4YXpBYvasilsMOkVcbHzOnJn59IrrFAAB5v5
- rL/OPXX1u++Y8DBB97M+8hRABZ7og2H1pd0IVNS22cSa4EIaXq4aGOmzDwZQ07PCu8C0
- tW1Ubdz/tYFTVllJFNPdmAgKzkN+CsLWUsBOldVNDYj158t9tisoPR7+klGhjOxLrrLp
- OaM7XVn14Uztsop9xlVrKqLq3YOsBg08y4NxJqTQdYVUqysM4kqhH1QkloEKELky9Id2
- 53Ew==
-X-Gm-Message-State: APjAAAUuls4znJ1KB+3YCyI82bLbC5biTugrYhs35NpLACYZiVo+XPRu
- Jvr9ii706+7iWKox2+1fr0Sd1G8=
-X-Google-Smtp-Source: APXvYqwfIa+mRsJTofSMwCXk2VwU5gpTnBz372CJEBIx0S8rv9Yt62mYO+nAwuk9cGd0rEV0AgpV5A==
-X-Received: by 2002:aca:ea0b:: with SMTP id i11mr3303655oih.102.1566391187576; 
- Wed, 21 Aug 2019 05:39:47 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id r2sm7716830otk.49.2019.08.21.05.39.46
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 21 Aug 2019 05:39:46 -0700 (PDT)
-Received: from minyard.net (t430m.minyard.net [192.168.27.3])
- by serve.minyard.net (Postfix) with ESMTPSA id 196641800D0;
- Wed, 21 Aug 2019 12:39:46 +0000 (UTC)
-Date: Wed, 21 Aug 2019 07:39:44 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Kamlakant Patel <kamlakantp@marvell.com>
-Message-ID: <20190821123944.GP5001@minyard.net>
-References: <1566389064-27356-1-git-send-email-kamlakantp@marvell.com>
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
+ id 1i0lkf-00C3iM-Qd
+ for openipmi-developer@lists.sourceforge.net; Thu, 22 Aug 2019 11:59:45 +0000
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
+ [10.5.11.12])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mx1.redhat.com (Postfix) with ESMTPS id 64F767F75D;
+ Thu, 22 Aug 2019 11:59:31 +0000 (UTC)
+Received: from [10.3.116.210] (ovpn-116-210.phx2.redhat.com [10.3.116.210])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 82F3460FA2;
+ Thu, 22 Aug 2019 11:59:29 +0000 (UTC)
+To: minyard@acm.org
+References: <20190820185529.10662-1-tcamuso@redhat.com>
+ <20190820190910.GM5001@minyard.net>
+From: tony camuso <tcamuso@redhat.com>
+Message-ID: <23add244-55f0-14cb-5a35-7f4711381a75@redhat.com>
+Date: Thu, 22 Aug 2019 07:59:28 -0400
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1566389064-27356-1-git-send-email-kamlakantp@marvell.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Spam-Score: 0.5 (/)
+In-Reply-To: <20190820190910.GM5001@minyard.net>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
+ (mx1.redhat.com [10.5.110.71]); Thu, 22 Aug 2019 11:59:32 +0000 (UTC)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: marvell.com]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.193 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.193 listed in wl.mailspike.net]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
+ for more information. [URIs: nec.com]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
-X-Headers-End: 1i0Pu6-00B17W-1X
-Subject: Re: [Openipmi-developer] [PATCH v3] ipmi_ssif: avoid registering
- duplicate ssif interface
+X-Headers-End: 1i0lkf-00C3iM-Qd
+Subject: Re: [Openipmi-developer] Corey,
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -120,211 +83,212 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
- George Cherian <gcherian@marvell.com>,
- Jayachandran Chandrasekharan Nair <jnair@marvell.com>,
- Ganapatrao Kulkarni <gkulkarni@marvell.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: cminyard@mvista.com, openipmi-developer@lists.sourceforge.net
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Aug 21, 2019 at 12:04:33PM +0000, Kamlakant Patel wrote:
-> It is possible that SSIF interface entry is present in both DMI and ACPI
-> tables. In SMP systems, in such cases it is possible that ssif_probe could
-> be called simultaneously from i2c interface (from ACPI) and from DMI on
-> different CPUs at kernel boot. Both try to register same SSIF interface
-> simultaneously and result in race.
+On 8/20/19 3:09 PM, Corey Minyard wrote:
+> On Tue, Aug 20, 2019 at 02:55:29PM -0400, Tony Camuso wrote:
+>> I think this fixes the deadlock without messing up the message
+>> sequencing.
 > 
-> In such cases where ACPI and SMBIOS both IPMI entries are available, we
-> need to prefer ACPI over SMBIOS so that ACPI functions work properly if
-> they use IPMI.
-> So, if we get an ACPI interface and have already registered an SMBIOS
-> at the same address, we need to remove the SMBIOS one and add the ACPI.
-> 
-> Log:
-> [   38.774743] ipmi device interface
-> [   38.805006] ipmi_ssif: IPMI SSIF Interface driver
-> [   38.861979] ipmi_ssif i2c-IPI0001:06: ssif_probe CPU 99 ***
-> [   38.863655] ipmi_ssif 0-000e: ssif_probe CPU 14 ***
-> [   38.863658] ipmi_ssif: Trying SMBIOS-specified SSIF interface at i2c address 0xe, adapter xlp9xx-i2c, slave address 0x0
-> [   38.869500] ipmi_ssif: Trying ACPI-specified SSIF interface at i2c address 0xe, adapter xlp9xx-i2c, slave address 0x0
-> [   38.914530] ipmi_ssif: Unable to clear message flags: -22 7 c7
-> [   38.952429] ipmi_ssif: Unable to clear message flags: -22 7 00
-> [   38.994734] ipmi_ssif: Error getting global enables: -22 7 00
-> [   39.015877] ipmi_ssif 0-000e: IPMI message handler: Found new BMC (man_id: 0x00b3d1, prod_id: 0x0001, dev_id: 0x20)
-> [   39.377645] ipmi_ssif i2c-IPI0001:06: IPMI message handler: Found new BMC (man_id: 0x00b3d1, prod_id: 0x0001, dev_id: 0x20)
-> [   39.387863] ipmi_ssif 0-000e: IPMI message handler: BMC returned incorrect response, expected netfn 7 cmd 42, got netfn 7 cmd 1
-> ...
-> [NOTE] : Added custom prints to explain the problem.
-> 
-> In the above log, ssif_probe is executed simultaneously on two different
-> CPUs.
-> 
-> This patch fixes this issue in following way:
->  - Adds ACPI entry also to the 'ssif_infos' list.
->  - Checks the list if SMBIOS is already registered, removes it and adds
->    ACPI.
->  - If ACPI is already registered, it ignores SMBIOS.
->  - Adds mutex lock throughout the probe process to avoid race.
-> 
-> Signed-off-by: Kamlakant Patel <kamlakantp@marvell.com>
-> ---
-> Hi Corey,
-> 
-> I have done a few improvements on the code based on internal review comments.
-> Could you please pick this patch instead of previous one.
-
-Ok, got it, thanks.
-
--corey
-
+> Looks good to me.  Queued for next release with a backport to 5.1
 > 
 > Thanks,
-> Kamlakant Patel
 > 
-> Changes since v2:
->  - Handle mutex_unlock for all error paths.
->  - Removed unnecessary goto from ssif_check_and_remove.
->  - Removed unnecessary continue from ssif_check_and_remove.
->  - Removed unnecessary ssif_client_match function.
->  - Removed unnecessary NULL check.
->  - Moved ssif_add_infos to ssif_probe to avoid to make it more readable.
+> -corey
+
+Corey,
+
+There's a bug in this patch reported by NEC.
+
+ipmi_free_smi_msg is called too soon.
+
+I will submit a new patch with the incorporated fix shortly.
+
+
 > 
-> Changes since v1:
->  - Avoid using separate list for handling ACPI entries.
->  - This patch adds ACPI entry also to the ssif_infos list.
-> 
->  drivers/char/ipmi/ipmi_ssif.c | 78 ++++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 77 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-> index 305fa505..ee60892 100644
-> --- a/drivers/char/ipmi/ipmi_ssif.c
-> +++ b/drivers/char/ipmi/ipmi_ssif.c
-> @@ -1428,6 +1428,10 @@ static struct ssif_addr_info *ssif_info_find(unsigned short addr,
->  restart:
->  	list_for_each_entry(info, &ssif_infos, link) {
->  		if (info->binfo.addr == addr) {
-> +			if (info->addr_src == SI_SMBIOS)
-> +				info->adapter_name = kstrdup(adapter_name,
-> +							     GFP_KERNEL);
-> +
->  			if (info->adapter_name || adapter_name) {
->  				if (!info->adapter_name != !adapter_name) {
->  					/* One is NULL and one is not */
-> @@ -1603,6 +1607,60 @@ static void test_multipart_messages(struct i2c_client *client,
->  #define GLOBAL_ENABLES_MASK (IPMI_BMC_EVT_MSG_BUFF | IPMI_BMC_RCV_MSG_INTR | \
->  			     IPMI_BMC_EVT_MSG_INTR)
->  
-> +static void ssif_remove_dup(struct i2c_client *client)
-> +{
-> +	struct ssif_info *ssif_info = i2c_get_clientdata(client);
-> +
-> +	ipmi_unregister_smi(ssif_info->intf);
-> +	kfree(ssif_info);
-> +}
-> +
-> +static int ssif_add_infos(struct i2c_client *client)
-> +{
-> +	struct ssif_addr_info *info;
-> +
-> +	info = kzalloc(sizeof(*info), GFP_KERNEL);
-> +	if (!info)
-> +		return -ENOMEM;
-> +	info->addr_src = SI_ACPI;
-> +	info->client = client;
-> +	info->adapter_name = kstrdup(client->adapter->name, GFP_KERNEL);
-> +	info->binfo.addr = client->addr;
-> +	list_add_tail(&info->link, &ssif_infos);
-> +	return 0;
-> +}
-> +
-> +/*
-> + * Prefer ACPI over SMBIOS, if both are available.
-> + * So if we get an ACPI interface and have already registered a SMBIOS
-> + * interface at the same address, remove the SMBIOS and add the ACPI one.
-> + */
-> +static int ssif_check_and_remove(struct i2c_client *client,
-> +			      struct ssif_info *ssif_info)
-> +{
-> +	struct ssif_addr_info *info;
-> +
-> +	list_for_each_entry(info, &ssif_infos, link) {
-> +		if (!info->client)
-> +			return 0;
-> +		if (!strcmp(info->adapter_name, client->adapter->name) &&
-> +		    info->binfo.addr == client->addr) {
-> +			if (info->addr_src == SI_ACPI)
-> +				return -EEXIST;
-> +
-> +			if (ssif_info->addr_source == SI_ACPI &&
-> +			    info->addr_src == SI_SMBIOS) {
-> +				dev_info(&client->dev,
-> +					 "Removing %s-specified SSIF interface in favor of ACPI\n",
-> +					 ipmi_addr_src_to_str(info->addr_src));
-> +				ssif_remove_dup(info->client);
-> +				return 0;
-> +			}
-> +		}
-> +	}
-> +	return 0;
-> +}
-> +
->  static int ssif_probe(struct i2c_client *client, const struct i2c_device_id *id)
->  {
->  	unsigned char     msg[3];
-> @@ -1614,13 +1672,17 @@ static int ssif_probe(struct i2c_client *client, const struct i2c_device_id *id)
->  	u8		  slave_addr = 0;
->  	struct ssif_addr_info *addr_info = NULL;
->  
-> +	mutex_lock(&ssif_infos_mutex);
->  	resp = kmalloc(IPMI_MAX_MSG_LENGTH, GFP_KERNEL);
-> -	if (!resp)
-> +	if (!resp) {
-> +		mutex_unlock(&ssif_infos_mutex);
->  		return -ENOMEM;
-> +	}
->  
->  	ssif_info = kzalloc(sizeof(*ssif_info), GFP_KERNEL);
->  	if (!ssif_info) {
->  		kfree(resp);
-> +		mutex_unlock(&ssif_infos_mutex);
->  		return -ENOMEM;
->  	}
->  
-> @@ -1639,6 +1701,19 @@ static int ssif_probe(struct i2c_client *client, const struct i2c_device_id *id)
->  		}
->  	}
->  
-> +	rv = ssif_check_and_remove(client, ssif_info);
-> +	/* If rv is 0 and addr source is not SI_ACPI, continue probing */
-> +	if (!rv && ssif_info->addr_source == SI_ACPI) {
-> +		rv = ssif_add_infos(client);
-> +		if (rv) {
-> +			dev_err(&client->dev, "Out of memory!, exiting ..\n");
-> +			goto out;
-> +		}
-> +	} else if (rv) {
-> +		dev_err(&client->dev, "Not probing, Interface already present\n");
-> +		goto out;
-> +	}
-> +
->  	slave_addr = find_slave_address(client, slave_addr);
->  
->  	dev_info(&client->dev,
-> @@ -1851,6 +1926,7 @@ static int ssif_probe(struct i2c_client *client, const struct i2c_device_id *id)
->  		kfree(ssif_info);
->  	}
->  	kfree(resp);
-> +	mutex_unlock(&ssif_infos_mutex);
->  	return rv;
->  
->  out_remove_attr:
-> -- 
-> 1.8.3.1
-> 
+>>
+>>  From 144aa8c3020c72a68a57f5d1496ed9a83d013087 Mon Sep 17 00:00:00 2001
+>> From: Tony Camuso <tcamuso@redhat.com>
+>> Date: Tue, 20 Aug 2019 14:51:26 -0400
+>> Subject: [PATCH] ipmi: move message error checking to avoid deadlock
+>>
+>> In the source stack trace below, function set_need_watch tries to
+>> take out the same si_lock that was taken earlier by ipmi_thread.
+>>
+>> ipmi_thread() [drivers/char/ipmi/ipmi_si_intf.c:995]
+>>   smi_event_handler() [drivers/char/ipmi/ipmi_si_intf.c:765]
+>>    handle_transaction_done() [drivers/char/ipmi/ipmi_si_intf.c:555]
+>>     deliver_recv_msg() [drivers/char/ipmi/ipmi_si_intf.c:283]
+>>      ipmi_smi_msg_received() [drivers/char/ipmi/ipmi_msghandler.c:4503]
+>>       intf_err_seq() [drivers/char/ipmi/ipmi_msghandler.c:1149]
+>>        smi_remove_watch() [drivers/char/ipmi/ipmi_msghandler.c:999]
+>>         set_need_watch() [drivers/char/ipmi/ipmi_si_intf.c:1066]
+>>
+>> Upstream commit e1891cffd4c4896a899337a243273f0e23c028df adds code to
+>> ipmi_smi_msg_received() to call smi_remove_watch() via intf_err_seq()
+>> and this seems to be causing the deadlock.
+>>
+>> commit e1891cffd4c4896a899337a243273f0e23c028df
+>> Author: Corey Minyard <cminyard@mvista.com>
+>> Date:   Wed Oct 24 15:17:04 2018 -0500
+>>      ipmi: Make the smi watcher be disabled immediately when not needed
+>>
+>> The fix is to put all messages in the queue and move the message
+>> checking code out of ipmi_smi_msg_received and into handle_one_recv_msg,
+>> which processes the message checking after ipmi_thread releases its
+>> locks.
+>>
+>> Reported by: Osamu Samukawa <osa-samukawa@tg.jp.nec.com>
+>> Characterized by: Kosuke Tatsukawa <tatsu@ab.jp.nec.com>
+>> Signed-off-by: Tony Camuso <tcamuso@redhat.com>
+>> ---
+>>   drivers/char/ipmi/ipmi_msghandler.c | 113 ++++++++++++++++++------------------
+>>   1 file changed, 56 insertions(+), 57 deletions(-)
+>>
+>> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+>> index 6707659cffd6..0a907cd62dc6 100644
+>> --- a/drivers/char/ipmi/ipmi_msghandler.c
+>> +++ b/drivers/char/ipmi/ipmi_msghandler.c
+>> @@ -4215,7 +4215,52 @@ static int handle_one_recv_msg(struct ipmi_smi *intf,
+>>   	int chan;
+>>   
+>>   	ipmi_debug_msg("Recv:", msg->rsp, msg->rsp_size);
+>> -	if (msg->rsp_size < 2) {
+>> +
+>> +	if ((msg->data_size >= 2)
+>> +	    && (msg->data[0] == (IPMI_NETFN_APP_REQUEST << 2))
+>> +	    && (msg->data[1] == IPMI_SEND_MSG_CMD)
+>> +	    && (msg->user_data == NULL)) {
+>> +
+>> +		if (intf->in_shutdown)
+>> +			goto free_msg;
+>> +
+>> +		/*
+>> +		 * This is the local response to a command send, start
+>> +		 * the timer for these.  The user_data will not be
+>> +		 * NULL if this is a response send, and we will let
+>> +		 * response sends just go through.
+>> +		 */
+>> +
+>> +		/*
+>> +		 * Check for errors, if we get certain errors (ones
+>> +		 * that mean basically we can try again later), we
+>> +		 * ignore them and start the timer.  Otherwise we
+>> +		 * report the error immediately.
+>> +		 */
+>> +		if ((msg->rsp_size >= 3) && (msg->rsp[2] != 0)
+>> +		    && (msg->rsp[2] != IPMI_NODE_BUSY_ERR)
+>> +		    && (msg->rsp[2] != IPMI_LOST_ARBITRATION_ERR)
+>> +		    && (msg->rsp[2] != IPMI_BUS_ERR)
+>> +		    && (msg->rsp[2] != IPMI_NAK_ON_WRITE_ERR)) {
+>> +			int ch = msg->rsp[3] & 0xf;
+>> +			struct ipmi_channel *chans;
+>> +
+>> +			/* Got an error sending the message, handle it. */
+>> +
+>> +			chans = READ_ONCE(intf->channel_list)->c;
+>> +			if ((chans[ch].medium == IPMI_CHANNEL_MEDIUM_8023LAN)
+>> +			    || (chans[ch].medium == IPMI_CHANNEL_MEDIUM_ASYNC))
+>> +				ipmi_inc_stat(intf, sent_lan_command_errs);
+>> +			else
+>> +				ipmi_inc_stat(intf, sent_ipmb_command_errs);
+>> +			intf_err_seq(intf, msg->msgid, msg->rsp[2]);
+>> +		} else
+>> +			/* The message was sent, start the timer. */
+>> +			intf_start_seq_timer(intf, msg->msgid);
+>> +free_msg:
+>> +		ipmi_free_smi_msg(msg);
+>> +
+>> +	} else if (msg->rsp_size < 2) {
+>>   		/* Message is too small to be correct. */
+>>   		dev_warn(intf->si_dev,
+>>   			 "BMC returned too small a message for netfn %x cmd %x, got %d bytes\n",
+>> @@ -4472,62 +4517,16 @@ void ipmi_smi_msg_received(struct ipmi_smi *intf,
+>>   	unsigned long flags = 0; /* keep us warning-free. */
+>>   	int run_to_completion = intf->run_to_completion;
+>>   
+>> -	if ((msg->data_size >= 2)
+>> -	    && (msg->data[0] == (IPMI_NETFN_APP_REQUEST << 2))
+>> -	    && (msg->data[1] == IPMI_SEND_MSG_CMD)
+>> -	    && (msg->user_data == NULL)) {
+>> -
+>> -		if (intf->in_shutdown)
+>> -			goto free_msg;
+>> -
+>> -		/*
+>> -		 * This is the local response to a command send, start
+>> -		 * the timer for these.  The user_data will not be
+>> -		 * NULL if this is a response send, and we will let
+>> -		 * response sends just go through.
+>> -		 */
+>> -
+>> -		/*
+>> -		 * Check for errors, if we get certain errors (ones
+>> -		 * that mean basically we can try again later), we
+>> -		 * ignore them and start the timer.  Otherwise we
+>> -		 * report the error immediately.
+>> -		 */
+>> -		if ((msg->rsp_size >= 3) && (msg->rsp[2] != 0)
+>> -		    && (msg->rsp[2] != IPMI_NODE_BUSY_ERR)
+>> -		    && (msg->rsp[2] != IPMI_LOST_ARBITRATION_ERR)
+>> -		    && (msg->rsp[2] != IPMI_BUS_ERR)
+>> -		    && (msg->rsp[2] != IPMI_NAK_ON_WRITE_ERR)) {
+>> -			int ch = msg->rsp[3] & 0xf;
+>> -			struct ipmi_channel *chans;
+>> -
+>> -			/* Got an error sending the message, handle it. */
+>> -
+>> -			chans = READ_ONCE(intf->channel_list)->c;
+>> -			if ((chans[ch].medium == IPMI_CHANNEL_MEDIUM_8023LAN)
+>> -			    || (chans[ch].medium == IPMI_CHANNEL_MEDIUM_ASYNC))
+>> -				ipmi_inc_stat(intf, sent_lan_command_errs);
+>> -			else
+>> -				ipmi_inc_stat(intf, sent_ipmb_command_errs);
+>> -			intf_err_seq(intf, msg->msgid, msg->rsp[2]);
+>> -		} else
+>> -			/* The message was sent, start the timer. */
+>> -			intf_start_seq_timer(intf, msg->msgid);
+>> -
+>> -free_msg:
+>> -		ipmi_free_smi_msg(msg);
+>> -	} else {
+>> -		/*
+>> -		 * To preserve message order, we keep a queue and deliver from
+>> -		 * a tasklet.
+>> -		 */
+>> -		if (!run_to_completion)
+>> -			spin_lock_irqsave(&intf->waiting_rcv_msgs_lock, flags);
+>> -		list_add_tail(&msg->link, &intf->waiting_rcv_msgs);
+>> -		if (!run_to_completion)
+>> -			spin_unlock_irqrestore(&intf->waiting_rcv_msgs_lock,
+>> -					       flags);
+>> -	}
+>> +	/*
+>> +	 * To preserve message order, we keep a queue and deliver from
+>> +	 * a tasklet.
+>> +	 */
+>> +	if (!run_to_completion)
+>> +		spin_lock_irqsave(&intf->waiting_rcv_msgs_lock, flags);
+>> +	list_add_tail(&msg->link, &intf->waiting_rcv_msgs);
+>> +	if (!run_to_completion)
+>> +		spin_unlock_irqrestore(&intf->waiting_rcv_msgs_lock,
+>> +				       flags);
+>>   
+>>   	if (!run_to_completion)
+>>   		spin_lock_irqsave(&intf->xmit_msgs_lock, flags);
+>> -- 
+>> 2.18.1
+>>
+>>
+>>
+>> _______________________________________________
+>> Openipmi-developer mailing list
+>> Openipmi-developer@lists.sourceforge.net
+>> https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+
 
 
 _______________________________________________
