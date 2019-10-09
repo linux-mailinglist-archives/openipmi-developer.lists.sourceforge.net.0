@@ -2,75 +2,73 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2B5AB8360
-	for <lists+openipmi-developer@lfdr.de>; Thu, 19 Sep 2019 23:30:42 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 07BA8D161B
+	for <lists+openipmi-developer@lfdr.de>; Wed,  9 Oct 2019 19:27:50 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1iB40f-0000Mx-0X; Thu, 19 Sep 2019 21:30:41 +0000
+	id 1iIFkZ-0003jX-26; Wed, 09 Oct 2019 17:27:47 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <pr-tracker-bot@kernel.org>) id 1iB40d-0000Mq-KB
- for openipmi-developer@lists.sourceforge.net; Thu, 19 Sep 2019 21:30:39 +0000
+ (envelope-from <tcamuso@redhat.com>) id 1iIFkX-0003jM-MN
+ for openipmi-developer@lists.sourceforge.net; Wed, 09 Oct 2019 17:27:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Cc:To:Date:Message-Id:References:In-Reply-To:From:
- Subject:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Date:Message-ID:Subject:From:Cc:To:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=HAarkRgpNVEYHN01NCDuAbWo8CeSfHfF11OB1aT/AYI=; b=k6mx9ZTf4ZlBbSIe82NqxnAIry
- tirNGTQHfR6Pv2SgHjkfcU/LYyDdl5Lf/Gvd2U9/VaPdMSOsJikYTRW3uSUdCspi3PsVAB8dl4S0h
- eNjBLgDTs1UHEbTsoYVqa5sR4HC9YXiQ7dLwsC1zPQBrjx6EhL4lSd7g8kuQnIc1jibw=;
+ bh=5yDBayUOcwSOCI0U3E4qnzqIo4GPrtJVrQUhOZmSvDg=; b=cfr/hWNXCoyJK2uSeD2Sv58uKR
+ ddTT21QNmpqIQvQ4pldzT2TbdGd3/0uLFjcPCEIXASBmt6AgEcC6IdQEKjtcHcGOaiCGSrKYEQZYn
+ l+hwKnijbCc/5M9M2kahxnRqmLj/2/n4HLepX/Asvhc5rv3WPqY03Ty54O9m3lE/73Qs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Cc:To:Date:Message-Id:References:In-Reply-To:From:Subject:Sender:Reply-To
- :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=HAarkRgpNVEYHN01NCDuAbWo8CeSfHfF11OB1aT/AYI=; b=T0qlzdwbb7awhLW4lS+osdEZMV
- y6PEZc27QNW+K4HoBpbSp6+QwGK0hU/Ij4l3r4in5qmrjDJTMZEwDkpBMhm1lVQGJ0o+KE3OADHp2
- 19qgRrRfb1k69Pfs4z7PhrkH0UalgnKCPsO4g9e6PnKKz/ywkMJlw7O+ZGrI0q27u7AA=;
-Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- id 1iB40c-004ROR-C5
- for openipmi-developer@lists.sourceforge.net; Thu, 19 Sep 2019 21:30:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1568928632;
- bh=xwTJV+Y4QUUFIQZHtZTx+jn5DYCuQ/XItTrEl7d2g7E=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=GUZheCmpm3FTJ9R7olxeR+XZtT924872y8gK8KTN9dFnw5a2n4Kh7p8+sVzPY3Nwm
- 0hIoA6ci7cT55YXia83kOQpyhzN/YeQjn4M7a7Ol+NwXhjPhhD0lUBUNYVL831yrWk
- PmO/3+XlpQxhk1S/02bicYGTTfBn9Gfaf778Tceg=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20190919160807.GL13407@t560>
-References: <20190919160807.GL13407@t560>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20190919160807.GL13407@t560>
-X-PR-Tracked-Remote: https://github.com/cminyard/linux-ipmi.git
- tags/for-linus-5.4-1
-X-PR-Tracked-Commit-Id: c9acc3c4f8e42ae538aea7f418fddc16f257ba75
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: a9f8b38a071b468276a243ea3ea5a0636e848cf2
-Message-Id: <156892863274.30913.4363982565614390979.pr-tracker-bot@kernel.org>
-Date: Thu, 19 Sep 2019 21:30:32 +0000
-To: Corey Minyard <minyard@acm.org>
-X-Spam-Score: -0.1 (/)
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-ID:
+ Subject:From:Cc:To:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=5yDBayUOcwSOCI0U3E4qnzqIo4GPrtJVrQUhOZmSvDg=; b=Q
+ H6RGi8T5qxNQp2ie8oq7FUDN4TohDDEOqIltawXAsQP5jEAq2C53WPtFgwD4HKk2yoGh/iwXregPu
+ TRanGs9XtbC6bGHjmEGeI83ywg5vSbLx4G9KzSipKwuu0M5FZaL/L+kQ06a8KNMNq7Z85lxVKiuRl
+ UQ050DGPXDm8vwT4=;
+Received: from mx1.redhat.com ([209.132.183.28])
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1iIFkQ-004ATZ-LG
+ for openipmi-developer@lists.sourceforge.net; Wed, 09 Oct 2019 17:27:45 +0000
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
+ [10.5.11.16])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mx1.redhat.com (Postfix) with ESMTPS id F17A330860CB;
+ Wed,  9 Oct 2019 17:27:29 +0000 (UTC)
+Received: from [10.3.116.195] (ovpn-116-195.phx2.redhat.com [10.3.116.195])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 742A75C223;
+ Wed,  9 Oct 2019 17:27:29 +0000 (UTC)
+To: openipmi-developer@lists.sourceforge.net
+From: tony camuso <tcamuso@redhat.com>
+Message-ID: <cbf409f1-9055-5786-eae8-8fff422038be@redhat.com>
+Date: Wed, 9 Oct 2019 13:27:28 -0400
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.1.0
+MIME-Version: 1.0
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
+ (mx1.redhat.com [10.5.110.44]); Wed, 09 Oct 2019 17:27:30 +0000 (UTC)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: mvista.com]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
-X-Headers-End: 1iB40c-004ROR-C5
-Subject: Re: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 5.4
+X-Headers-End: 1iIFkQ-004ATZ-LG
+Subject: [Openipmi-developer] ipmi kmods can be unloaded even when userspace
+ is accessing /dev/ipmi0
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -83,26 +81,33 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: openipmi-developer@lists.sourceforge.net,
- Linus Torvalds <torvalds@linux-foundation.org>,
- linux-kernel <linux-kernel@vger.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Cc: cminyard@mvista.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-The pull request you sent on Thu, 19 Sep 2019 11:08:07 -0500:
 
-> https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.4-1
+One of our vendors reports that the following commit ...
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/a9f8b38a071b468276a243ea3ea5a0636e848cf2
+commit e86ee2d44b44056243da17c120ad258717cedf9b
+Author: Corey Minyard <cminyard@mvista.com>
+Date:   Thu Apr 5 22:05:04 2018 -0500
 
-Thank you!
+     ipmi: Rework locking and shutdown for hot remove
+    
+     To handle hot remove of interfaces, a lot of rework had to be
+     done to the locking.  Several things were switched over to srcu
+     and shutdown for users and interfaces was added for cleaner
+     shutdown.
+    
+     Signed-off-by: Corey Minyard <cminyard@mvista.com>
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+... appears to have made it possible to unload ipmi kmods when userspace
+is accessing /dev/ipmi0
+
+Is this an intended behavior?
+
+
 
 
 _______________________________________________
