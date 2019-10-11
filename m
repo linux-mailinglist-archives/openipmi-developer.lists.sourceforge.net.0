@@ -2,76 +2,72 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id DD9F8D2FE3
-	for <lists+openipmi-developer@lfdr.de>; Thu, 10 Oct 2019 20:01:54 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 67410D4371
+	for <lists+openipmi-developer@lfdr.de>; Fri, 11 Oct 2019 16:52:26 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1iIcl6-0007KB-Am; Thu, 10 Oct 2019 18:01:52 +0000
+	id 1iIwHI-0003ob-Bj; Fri, 11 Oct 2019 14:52:24 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcamuso@redhat.com>) id 1iIcl4-0007K4-Mo
- for openipmi-developer@lists.sourceforge.net; Thu, 10 Oct 2019 18:01:50 +0000
+ (envelope-from <andriy.shevchenko@linux.intel.com>)
+ id 1iIwHH-0003oH-3s
+ for openipmi-developer@lists.sourceforge.net; Fri, 11 Oct 2019 14:52:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=fj7dF0aDoJKjdXw37WaDboAt+ZxXGz/cHQQiwHTeq2g=; b=EY1+/PBLiMKBa7Pu6ZqGbSn/7T
- MbXT87VDqy3J+oD7MZEFnUXwnpsaVUcs3N3KeFW14vj6Xfj1bxZAXupLxr/94vpDmzfVrigxzAgjl
- CBY91YldbIX9nkB6TqLmN5t+xLFgXl4aih7u3tEv1SaqAQwCQF65+3qTH07XbjHxq5rw=;
+ bh=uwPUhEEhsfyRoE1U6ftqnxpsRruxR8yueKh/CoIeR3E=; b=fqndLTZlrOZ6LuzMimZDpTQ/dy
+ 4ZJbg4KbqWBL1hKBoLr4TQsJShPF1SPlUKUtKqV18ZCgOhEgVTCCye2rNdJED5YmQMeGhZmVBj6Wz
+ u1Qu1ux6aYX/2yIDriKNmzkHU8C+GBhZ5EaLI8QGJ81Rhuqs42xtKnEkg/9J8PkQvj9c=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=fj7dF0aDoJKjdXw37WaDboAt+ZxXGz/cHQQiwHTeq2g=; b=kl3234ZQPX3cFzZBAG5ueX2ooB
- tkWVqPmlBYDIxrPQ/fKkp0opGkHwdjOCMOveTvoerh06Xo7BYQuX14OT+j9zMBNF+EBjmVwx4WJmu
- d21xN5D39ANSIF2CNWXW90HYWA9z1MMrEc5/jpWLgXei6lVfXcBbus2AHI+tPX2P2+QI=;
-Received: from mx1.redhat.com ([209.132.183.28])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=uwPUhEEhsfyRoE1U6ftqnxpsRruxR8yueKh/CoIeR3E=; b=A
+ 3pJjrITp6xb2TxupDUaQLLFUecanZeAB4eMmOvUut4+gHu+r+VjkVYDZiPEncRY7UAswZvCdzi+X/
+ AiOQSYZjo0xNQjKXZIg2YL1/a724vtiQy8iqVfus1TGoRYSxUwd45mRPjcrA/zmcpKWJcBk8roOJo
+ fL0EM2SsHu0o1X9w=;
+Received: from mga01.intel.com ([192.55.52.88])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iIckz-00D5Bu-5d
- for openipmi-developer@lists.sourceforge.net; Thu, 10 Oct 2019 18:01:50 +0000
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
- [10.5.11.13])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id 761871DB6;
- Thu, 10 Oct 2019 18:01:37 +0000 (UTC)
-Received: from [10.3.116.11] (ovpn-116-11.phx2.redhat.com [10.3.116.11])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 076C560600;
- Thu, 10 Oct 2019 18:01:33 +0000 (UTC)
-To: minyard@acm.org
-References: <cbf409f1-9055-5786-eae8-8fff422038be@redhat.com>
- <20191010131758.GB14172@t560>
-From: tony camuso <tcamuso@redhat.com>
-Message-ID: <41768c2f-6ef4-4215-2f5b-ea04328e7165@redhat.com>
-Date: Thu, 10 Oct 2019 14:01:33 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.1.0
+ id 1iIwHF-0065VZ-Q0
+ for openipmi-developer@lists.sourceforge.net; Fri, 11 Oct 2019 14:52:23 +0000
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+ by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 11 Oct 2019 07:52:16 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.67,284,1566889200"; d="scan'208";a="193554670"
+Received: from black.fi.intel.com ([10.237.72.28])
+ by fmsmga008.fm.intel.com with ESMTP; 11 Oct 2019 07:52:14 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+ id DB58F16A; Fri, 11 Oct 2019 17:52:13 +0300 (EEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Corey Minyard <minyard@acm.org>, openipmi-developer@lists.sourceforge.net,
+ linux-kernel@vger.kernel.org
+Date: Fri, 11 Oct 2019 17:52:13 +0300
+Message-Id: <20191011145213.65082-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.23.0
 MIME-Version: 1.0
-In-Reply-To: <20191010131758.GB14172@t560>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
- (mx1.redhat.com [10.5.110.71]); Thu, 10 Oct 2019 18:01:38 +0000 (UTC)
-X-Spam-Score: -0.0 (/)
+X-Spam-Score: -0.4 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: mvista.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1iIckz-00D5Bu-5d
-Subject: Re: [Openipmi-developer] ipmi kmods can be unloaded even when
- userspace is accessing /dev/ipmi0
+ for more information. [URIs: intel.com]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.4 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1iIwHF-0065VZ-Q0
+Subject: [Openipmi-developer] [PATCH v1] ipmi: use %*ph to print small buffer
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -84,48 +80,49 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: cminyard@mvista.com, openipmi-developer@lists.sourceforge.net
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 10/10/19 9:17 AM, Corey Minyard wrote:
-> On Wed, Oct 09, 2019 at 01:27:28PM -0400, tony camuso wrote:
->>
->> One of our vendors reports that the following commit ...
->>
->> commit e86ee2d44b44056243da17c120ad258717cedf9b
->> Author: Corey Minyard <cminyard@mvista.com>
->> Date:   Thu Apr 5 22:05:04 2018 -0500
->>
->>      ipmi: Rework locking and shutdown for hot remove
->>      To handle hot remove of interfaces, a lot of rework had to be
->>      done to the locking.  Several things were switched over to srcu
->>      and shutdown for users and interfaces was added for cleaner
->>      shutdown.
->>      Signed-off-by: Corey Minyard <cminyard@mvista.com>
->>
->> ... appears to have made it possible to unload ipmi kmods when userspace
->> is accessing /dev/ipmi0
->>
->> Is this an intended behavior?
-> 
-> Hmm.  It kind of was, you should be able to unload ipmi_si or ipmi_ssif,
-> but not ipmi_msghandler or ipmi_devintf.  If a program is using the
-> device, it will just get errors.
-> 
-> This was all added because of devices that could be dynamically removed
-> without warning.  The behavior you are referencing is sort of a side
-> effect of that; it would have taken some extra code to keep the module
-> from unload, and my assumption was that anyone unloading a module
-> indended this.
-> 
-> If this is causing a problem, it can be modified.
-> 
-> -corey
-> 
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
 
-Thanks, Corey. I'll check with the vendor.
+Use %*ph format to print small buffer as hex string.
+
+The change is safe since the specifier can handle up to 64 bytes and taking
+into account the buffer size of 100 bytes on stack the function has never been
+used to dump more than 32 bytes. Note, this also avoids potential buffer
+overflow if the length of the input buffer is bigger.
+
+Signed-off-by: Andy Shevchenko <andy.shevchenko@gmail.com>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
+
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 2aab80e19ae0..d0cefd95fa57 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -48,14 +48,7 @@ static int handle_one_recv_msg(struct ipmi_smi *intf,
+ static void ipmi_debug_msg(const char *title, unsigned char *data,
+ 			   unsigned int len)
+ {
+-	int i, pos;
+-	char buf[100];
+-
+-	pos = snprintf(buf, sizeof(buf), "%s: ", title);
+-	for (i = 0; i < len; i++)
+-		pos += snprintf(buf + pos, sizeof(buf) - pos,
+-				" %2.2x", data[i]);
+-	pr_debug("%s\n", buf);
++	pr_debug("%s: %*ph\n", title, len, buf);
+ }
+ #else
+ static void ipmi_debug_msg(const char *title, unsigned char *data,
+-- 
+2.23.0
 
 
 
