@@ -2,77 +2,86 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 27FA9D4481
-	for <lists+openipmi-developer@lfdr.de>; Fri, 11 Oct 2019 17:36:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9A023D44B2
+	for <lists+openipmi-developer@lfdr.de>; Fri, 11 Oct 2019 17:46:54 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1iIwyG-0004Fz-ED; Fri, 11 Oct 2019 15:36:48 +0000
+	id 1iIx80-0004kD-WB; Fri, 11 Oct 2019 15:46:53 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1iIwyF-0004Fs-HG
- for openipmi-developer@lists.sourceforge.net; Fri, 11 Oct 2019 15:36:47 +0000
+ (envelope-from <joe@perches.com>) id 1iIx7z-0004k5-CE
+ for openipmi-developer@lists.sourceforge.net; Fri, 11 Oct 2019 15:46:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Content-Type
+ :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=XR4//LA75uX460QqUmXDe8pehNvlNe12LxNojmggOdw=; b=S1KiZatVfIgXzldPrjq80Vgzgw
- ykrqrQ4bU5UZu37QMaYcuhoJTL5edHKpZOR/nTteQSKIv1YvXNR2RmDcquOD0wEP9IPVAhxC1YfoJ
- SBZnhLCIs7BjWR81lkKgNtVDKwXtiYZLPHWhVoxYEhW900hNfrSbUSMvER9EItCleZWc=;
+ bh=5w+LFh9OA7/0EA4Ll8SpO9lkds50T7pPb2bkju9VWr8=; b=KS9Dcz0FrRVp2KYSvID+CK1/DR
+ ahU1Q20/FSomahV5ixcN5GLsv2sqTOOzCrOaP6ESpodYogwc+OsbMLeS22pK3MNQR2riSzCiiAZRn
+ 0MuE2/vqlnteMVGaRSrfL9MZ9exrEWTAwS9e4TfmaChZQrTU1SvRsmxDNClL/WcftiHQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:MIME-Version:Content-Type:References:
+ In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=XR4//LA75uX460QqUmXDe8pehNvlNe12LxNojmggOdw=; b=VLg0Jx0bfCBnD6iRT+C4DKdjAo
- TSfQRrv8DOtP4EhdvRG0aUy70YLWYCxw2/CEVWVrhNgd6r3J3DGEklRtE7cKYn9SrW9Ef9cuWzT0j
- 3K5Bc23md2+HjdekiEZGzrsf26r9xP0IljRE+SaKIbPAtXdn9FhFPxqS0rwQzBjC6S00=;
-Received: from mga01.intel.com ([192.55.52.88])
+ bh=5w+LFh9OA7/0EA4Ll8SpO9lkds50T7pPb2bkju9VWr8=; b=bgnq8xJQwNorCjfqOuuiN8q7uj
+ 0kKytJ6sUqXw7mApnReDxFoKAqBO5wt0XMJcW8Zh3CjpSUhuEWlfMMyEoCrRDVvlDKRAgWZGvkwq0
+ VXicxDFsFmxKrSVpCdQxEdc0SQCeggp5tEpF9fZs98Gya/gNGLI/1WzAyfMqMngfL/ak=;
+Received: from smtprelay0063.hostedemail.com ([216.40.44.63]
+ helo=smtprelay.hostedemail.com)
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iIwyE-00EIwk-21
- for openipmi-developer@lists.sourceforge.net; Fri, 11 Oct 2019 15:36:47 +0000
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
- by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 11 Oct 2019 08:36:40 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.67,284,1566889200"; d="scan'208";a="184797061"
-Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
- by orsmga007.jf.intel.com with ESMTP; 11 Oct 2019 08:36:38 -0700
-Received: from andy by smile with local (Exim 4.92.2)
- (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1iIwy6-00012Z-2G; Fri, 11 Oct 2019 18:36:38 +0300
-Date: Fri, 11 Oct 2019 18:36:38 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Joe Perches <joe@perches.com>
-Message-ID: <20191011153638.GF32742@smile.fi.intel.com>
+ id 1iIx7x-00EJl2-Hb
+ for openipmi-developer@lists.sourceforge.net; Fri, 11 Oct 2019 15:46:51 +0000
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay08.hostedemail.com (Postfix) with ESMTP id 77B18182CF669;
+ Fri, 11 Oct 2019 15:46:43 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2, 0, 0, , d41d8cd98f00b204, joe@perches.com, :::::::,
+ RULES_HIT:41:69:355:379:800:960:966:968:973:988:989:1260:1277:1311:1313:1314:1345:1359:1431:1437:1515:1516:1518:1534:1542:1593:1594:1711:1730:1747:1777:1792:2196:2199:2393:2559:2562:2828:3138:3139:3140:3141:3142:3353:3865:3866:3867:3868:4385:4605:5007:7903:8603:9389:9592:10004:10400:11026:11473:11658:11914:12043:12296:12297:12438:12555:12760:13439:13972:14181:14394:14659:14721:21080:21212:21627:21795:30051:30054:30083,
+ 0,
+ RBL:47.151.152.152:@perches.com:.lbl8.mailshell.net-62.8.0.100 64.201.201.201,
+ CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none, DomainCache:0,
+ MSF:not bulk, SPF:fn, MSBL:0, DNSBL:neutral, Custom_rules:0:0:0, LFtime:26,
+ LUA_SUMMARY:none
+X-HE-Tag: ants79_74cb061a9a557
+X-Filterd-Recvd-Size: 3855
+Received: from XPS-9350.home (unknown [47.151.152.152])
+ (Authenticated sender: joe@perches.com)
+ by omf11.hostedemail.com (Postfix) with ESMTPA;
+ Fri, 11 Oct 2019 15:46:42 +0000 (UTC)
+Message-ID: <7831759661d9f3d47bd304b2e98e65e5d6c5d167.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Date: Fri, 11 Oct 2019 08:46:41 -0700
+In-Reply-To: <e0b24ff49eb69a216b11f97db1fc26c5d3b971b4.camel@perches.com>
 References: <20191011145213.65082-1-andriy.shevchenko@linux.intel.com>
  <4eaca9a1bcbf9d87c1fb3c9135876c3ecb72a91b.camel@perches.com>
  <20191011151220.GB32742@smile.fi.intel.com>
  <e0b24ff49eb69a216b11f97db1fc26c5d3b971b4.camel@perches.com>
+User-Agent: Evolution 3.32.1-2 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e0b24ff49eb69a216b11f97db1fc26c5d3b971b4.camel@perches.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: intel.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [216.40.44.63 listed in list.dnswl.org]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1iIwyE-00EIwk-21
-Subject: Re: [Openipmi-developer] [PATCH v1] ipmi: use %*ph to print small
- buffer
+X-Headers-End: 1iIx7x-00EJl2-Hb
+Subject: [Openipmi-developer] [PATCH] ipmi: Convert ipmi_debug_msg to
+ pr_debug and use %*ph
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,38 +100,87 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Oct 11, 2019 at 08:18:41AM -0700, Joe Perches wrote:
-> On Fri, 2019-10-11 at 18:12 +0300, Andy Shevchenko wrote:
-> > On Fri, Oct 11, 2019 at 07:58:14AM -0700, Joe Perches wrote:
-> > > On Fri, 2019-10-11 at 17:52 +0300, Andy Shevchenko wrote:
+Using %*ph format to print small buffers as hex string reduces
+overall object size and allows the removal of the two variants
+of ipmi_debug_msg.
 
-> > > >  static void ipmi_debug_msg(const char *title, unsigned char *data,
-...
-> > > > +	pr_debug("%s: %*ph\n", title, len, buf);
-...
-> > > >  #else
-> > > >  static void ipmi_debug_msg(const char *title, unsigned char *data,
+This also removes unnecessary duplicate colons from output when
+enabled by #DEBUG or newly possible CONFIG_DYNAMIC_DEBUG.
 
-> > > Now you might as well remove the #ifdef DEBUG above this
-> > > and the empty function in the #else too.
-> > 
-> > It's up to maintainer.
-> 
-> That's like suggesting any function with a single pr_debug
-> should have another duplicative empty function without.
-> 
-> Using code like the below is not good form as it's prone
-> to defects when the arguments in one block is changed but
-> not the other.
-> 
-> Also the first form doesn't work with dynamic debug.
+Suggested-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Joe Perches <joe@perches.com>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 29 ++++++-----------------------
+ 1 file changed, 6 insertions(+), 23 deletions(-)
 
-I'm surprised to see my name in To:. I guess you intended to explain this to
-Corey. I'm fine with either, since I have no idea what is in the IPMI going on.
-
--- 
-With Best Regards,
-Andy Shevchenko
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 2aab80e19ae0..1b1f6a7dc17d 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -44,25 +44,6 @@ static void need_waiter(struct ipmi_smi *intf);
+ static int handle_one_recv_msg(struct ipmi_smi *intf,
+ 			       struct ipmi_smi_msg *msg);
+ 
+-#ifdef DEBUG
+-static void ipmi_debug_msg(const char *title, unsigned char *data,
+-			   unsigned int len)
+-{
+-	int i, pos;
+-	char buf[100];
+-
+-	pos = snprintf(buf, sizeof(buf), "%s: ", title);
+-	for (i = 0; i < len; i++)
+-		pos += snprintf(buf + pos, sizeof(buf) - pos,
+-				" %2.2x", data[i]);
+-	pr_debug("%s\n", buf);
+-}
+-#else
+-static void ipmi_debug_msg(const char *title, unsigned char *data,
+-			   unsigned int len)
+-{ }
+-#endif
+-
+ static bool initialized;
+ static bool drvregistered;
+ 
+@@ -2267,7 +2248,8 @@ static int i_ipmi_request(struct ipmi_user     *user,
+ 		ipmi_free_smi_msg(smi_msg);
+ 		ipmi_free_recv_msg(recv_msg);
+ 	} else {
+-		ipmi_debug_msg("Send", smi_msg->data, smi_msg->data_size);
++		pr_debug("%s: %*ph\n",
++			 "Send", smi_msg->data, smi_msg->data_size);
+ 
+ 		smi_send(intf, intf->handlers, smi_msg, priority);
+ 	}
+@@ -3730,7 +3712,8 @@ static int handle_ipmb_get_msg_cmd(struct ipmi_smi *intf,
+ 		msg->data[10] = ipmb_checksum(&msg->data[6], 4);
+ 		msg->data_size = 11;
+ 
+-		ipmi_debug_msg("Invalid command:", msg->data, msg->data_size);
++		pr_debug("%s: %*ph\n",
++			 "Invalid command", msg->data, msg->data_size);
+ 
+ 		rcu_read_lock();
+ 		if (!intf->in_shutdown) {
+@@ -4217,7 +4200,7 @@ static int handle_one_recv_msg(struct ipmi_smi *intf,
+ 	int requeue;
+ 	int chan;
+ 
+-	ipmi_debug_msg("Recv:", msg->rsp, msg->rsp_size);
++	pr_debug("%s: %*ph\n", "Recv", msg->rsp, msg->rsp_size);
+ 
+ 	if ((msg->data_size >= 2)
+ 	    && (msg->data[0] == (IPMI_NETFN_APP_REQUEST << 2))
+@@ -4576,7 +4559,7 @@ smi_from_recv_msg(struct ipmi_smi *intf, struct ipmi_recv_msg *recv_msg,
+ 	smi_msg->data_size = recv_msg->msg.data_len;
+ 	smi_msg->msgid = STORE_SEQ_IN_MSGID(seq, seqid);
+ 
+-	ipmi_debug_msg("Resend: ", smi_msg->data, smi_msg->data_size);
++	pr_debug("%s: %*ph\n", "Resend", smi_msg->data, smi_msg->data_size);
+ 
+ 	return smi_msg;
+ }
 
 
 
