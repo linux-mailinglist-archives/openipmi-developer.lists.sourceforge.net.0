@@ -2,69 +2,72 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3E74AD909D
-	for <lists+openipmi-developer@lfdr.de>; Wed, 16 Oct 2019 14:18:29 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 70CDDD921E
+	for <lists+openipmi-developer@lfdr.de>; Wed, 16 Oct 2019 15:13:29 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1iKiG3-00042f-BN; Wed, 16 Oct 2019 12:18:27 +0000
+	id 1iKj7H-0002Mw-Np; Wed, 16 Oct 2019 13:13:27 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcamuso@redhat.com>) id 1iKiG2-00042L-AU
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Oct 2019 12:18:26 +0000
+ (envelope-from <tcamuso@redhat.com>) id 1iKj7G-0002Mp-9f
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Oct 2019 13:13:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
+ MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=f4f/A8OVM5PGvDGs39FfqvbQtwgwfCE71neHHUW6KCI=; b=TU+NF1H2V0Flekk1MQDkFgWDEu
- u3Gh+uNfP3nbGtIbljpHlIfA3XAXmZ4M6Sy/PVGeTs6GQfmV80gKPKwup7aINar/QJDaTq+k6qKxv
- cF71RPBB5tIaqGckIXYihypFgUm2c9vWOHFvco7qISZWu4f8u9O1LUVuHJHToy8cqspI=;
+ bh=fH1W1Mtypb5f+oLEF+vjzNl2bNrB87dLkwAe1c4iEFI=; b=YezT+wjWaVrO8U4va1tG06kp1T
+ 0nZKdrsBHKrEJzv9cK3r8k2tg92D9Tiw0v1lkSIeKMsagsFhMpYf6m3UfUpcXhTuNkvappvWWyiAE
+ FAQNoHEhkmQCv7y6Wbm/oM+QslDeKdRARc4ZddJrXCJVMkKGc8IKVjM6cx6/Stj3Rvyg=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=f4f/A8OVM5PGvDGs39FfqvbQtwgwfCE71neHHUW6KCI=; b=Ozgu2RLU5bLKl2ZAFHfinS6clK
- eWRUug9cubdymHNg5ta4M+RgmAKpCvi6nErZ/a2313U1xxjnVDOz7kIxd8Epb5lbUr4+LEZDxYuum
- +GxFkExK4TzUzVzGm8k3m+iyooftNvgREqQoHvX3A5sKCzW+SEDp9JuT7Z8xBcSorOT8=;
+ bh=fH1W1Mtypb5f+oLEF+vjzNl2bNrB87dLkwAe1c4iEFI=; b=dkm98fBfIR0ej0AaT4e5tLHRFa
+ 12BZ2F3N/mreywoY9L4plbf4oLx7C36MO9lhJLuIjkQjTK6HSYhbsmScS3TOeK2P1DY29j/H9VEZX
+ AFVAMIkIm3UHFN/GXfYpQ7nlgmVXOlYYvrPgBztfYLhuTmJD1LMyfAD0bykkg77wSmDw=;
 Received: from mx1.redhat.com ([209.132.183.28])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iKiFw-00BMQf-P0
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Oct 2019 12:18:26 +0000
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
- [10.5.11.16])
+ id 1iKj7A-00BRDt-SK
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Oct 2019 13:13:26 +0000
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+ [10.5.11.11])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id DF9A43079B77;
- Wed, 16 Oct 2019 12:18:13 +0000 (UTC)
+ by mx1.redhat.com (Postfix) with ESMTPS id D51EEA3CD92;
+ Wed, 16 Oct 2019 13:13:11 +0000 (UTC)
 Received: from [10.3.116.74] (ovpn-116-74.phx2.redhat.com [10.3.116.74])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 4343B5C1D8;
- Wed, 16 Oct 2019 12:18:10 +0000 (UTC)
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 3647560127;
+ Wed, 16 Oct 2019 13:13:11 +0000 (UTC)
+From: tony camuso <tcamuso@redhat.com>
 To: minyard@acm.org
 References: <20191014134141.GA25427@t560>
  <20191014154632.11103-1-minyard@acm.org>
-From: tony camuso <tcamuso@redhat.com>
-Message-ID: <40e26052-3ccb-684a-540f-61ff47077690@redhat.com>
-Date: Wed, 16 Oct 2019 08:18:09 -0400
+ <40e26052-3ccb-684a-540f-61ff47077690@redhat.com>
+Message-ID: <321ed6cb-929c-462f-2459-9caf67be224e@redhat.com>
+Date: Wed, 16 Oct 2019 09:13:10 -0400
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.1.1
 MIME-Version: 1.0
-In-Reply-To: <20191014154632.11103-1-minyard@acm.org>
+In-Reply-To: <40e26052-3ccb-684a-540f-61ff47077690@redhat.com>
 Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16
- (mx1.redhat.com [10.5.110.41]); Wed, 16 Oct 2019 12:18:15 +0000 (UTC)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
+ (mx1.redhat.com [10.5.110.68]); Wed, 16 Oct 2019 13:13:11 +0000 (UTC)
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1iKiFw-00BMQf-P0
+ 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1iKj7A-00BRDt-SK
 Subject: Re: [Openipmi-developer] [PATCH] ipmi: Don't allow device module
  unload when in use
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -81,152 +84,112 @@ List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: Corey Minyard <cminyard@mvista.com>,
  openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 10/14/19 11:46 AM, minyard@acm.org wrote:
-> From: Corey Minyard <cminyard@mvista.com>
-> 
-> If something has the IPMI driver open, don't allow the device
-> module to be unloaded.  Before it would unload and the user would
-> get errors on use.
-> 
-> This change is made on user request, and it makes it consistent
-> with the I2C driver, which has the same behavior.
-> 
-> It does change things a little bit with respect to kernel users.
-> If the ACPI or IPMI watchdog (or any other kernel user) has
-> created a user, then the device module cannot be unloaded.  Before
-> it could be unloaded,
-> 
-> This does not affect hot-plug.  If the device goes away (it's on
-> something removable that is removed or is hot-removed via sysfs)
-> then it still behaves as it did before.
-> 
-> Reported-by: tony camuso <tcamuso@redhat.com>
-> Signed-off-by: Corey Minyard <cminyard@mvista.com>
-> ---
-> Tony, here is a suggested change for this.  Can you look it over and
-> see if it looks ok?
-> 
-> Thanks,
-> 
-> -corey
-> 
->   drivers/char/ipmi/ipmi_msghandler.c | 23 ++++++++++++++++-------
->   include/linux/ipmi_smi.h            | 12 ++++++++----
->   2 files changed, 24 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index 2aab80e19ae0..15680de18625 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -448,6 +448,8 @@ enum ipmi_stat_indexes {
->   
->   #define IPMI_IPMB_NUM_SEQ	64
->   struct ipmi_smi {
-> +	struct module *owner;
-> +
->   	/* What interface number are we? */
->   	int intf_num;
->   
-> @@ -1220,6 +1222,11 @@ int ipmi_create_user(unsigned int          if_num,
->   	if (rv)
->   		goto out_kfree;
->   
-> +	if (!try_module_get(intf->owner)) {
-> +		rv = -ENODEV;
-> +		goto out_kfree;
-> +	}
-> +	
->   	/* Note that each existing user holds a refcount to the interface. */
->   	kref_get(&intf->refcount);
->   
-> @@ -1349,6 +1356,7 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
->   	}
->   
->   	kref_put(&intf->refcount, intf_free);
-> +	module_put(intf->owner);
->   }
->   
->   int ipmi_destroy_user(struct ipmi_user *user)
-> @@ -2459,7 +2467,7 @@ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
->    * been recently fetched, this will just use the cached data.  Otherwise
->    * it will run a new fetch.
->    *
-> - * Except for the first time this is called (in ipmi_register_smi()),
-> + * Except for the first time this is called (in ipmi_add_smi()),
->    * this will always return good data;
->    */
->   static int __bmc_get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc,
-> @@ -3377,10 +3385,11 @@ static void redo_bmc_reg(struct work_struct *work)
->   	kref_put(&intf->refcount, intf_free);
->   }
->   
-> -int ipmi_register_smi(const struct ipmi_smi_handlers *handlers,
-> -		      void		       *send_info,
-> -		      struct device            *si_dev,
-> -		      unsigned char            slave_addr)
-> +int ipmi_add_smi(struct module         *owner,
-> +		 const struct ipmi_smi_handlers *handlers,
-> +		 void		       *send_info,
-> +		 struct device         *si_dev,
-> +		 unsigned char         slave_addr)
->   {
->   	int              i, j;
->   	int              rv;
-> @@ -3406,7 +3415,7 @@ int ipmi_register_smi(const struct ipmi_smi_handlers *handlers,
->   		return rv;
->   	}
->   
-> -
-> +	intf->owner = owner;
->   	intf->bmc = &intf->tmp_bmc;
->   	INIT_LIST_HEAD(&intf->bmc->intfs);
->   	mutex_init(&intf->bmc->dyn_mutex);
-> @@ -3514,7 +3523,7 @@ int ipmi_register_smi(const struct ipmi_smi_handlers *handlers,
->   
->   	return rv;
->   }
-> -EXPORT_SYMBOL(ipmi_register_smi);
-> +EXPORT_SYMBOL(ipmi_add_smi);
->   
->   static void deliver_smi_err_response(struct ipmi_smi *intf,
->   				     struct ipmi_smi_msg *msg,
-> diff --git a/include/linux/ipmi_smi.h b/include/linux/ipmi_smi.h
-> index 4dc66157d872..deec18b8944a 100644
-> --- a/include/linux/ipmi_smi.h
-> +++ b/include/linux/ipmi_smi.h
-> @@ -224,10 +224,14 @@ static inline int ipmi_demangle_device_id(uint8_t netfn, uint8_t cmd,
->    * is called, and the lower layer must get the interface from that
->    * call.
->    */
-> -int ipmi_register_smi(const struct ipmi_smi_handlers *handlers,
-> -		      void                     *send_info,
-> -		      struct device            *dev,
-> -		      unsigned char            slave_addr);
-> +int ipmi_add_smi(struct module            *owner,
-> +		 const struct ipmi_smi_handlers *handlers,
-> +		 void                     *send_info,
-> +		 struct device            *dev,
-> +		 unsigned char            slave_addr);
-> +
-> +#define ipmi_register_smi(handlers, send_info, dev, slave_addr) \
-> +	ipmi_add_smi(THIS_MODULE, handlers, send_info, dev, slave_addr)
->   
->   /*
->    * Remove a low-level interface from the IPMI driver.  This will
-> 
-
-Thanks, Corey.
-
-Regards,
-Tony
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gMTAvMTYvMTkgODoxOCBBTSwgdG9ueSBjYW11c28gd3JvdGU6Cj4gT24gMTAvMTQvMTkgMTE6
+NDYgQU0sIG1pbnlhcmRAYWNtLm9yZyB3cm90ZToKPj4gRnJvbTogQ29yZXkgTWlueWFyZCA8Y21p
+bnlhcmRAbXZpc3RhLmNvbT4KPj4KPj4gSWYgc29tZXRoaW5nIGhhcyB0aGUgSVBNSSBkcml2ZXIg
+b3BlbiwgZG9uJ3QgYWxsb3cgdGhlIGRldmljZQo+PiBtb2R1bGUgdG8gYmUgdW5sb2FkZWQuwqAg
+QmVmb3JlIGl0IHdvdWxkIHVubG9hZCBhbmQgdGhlIHVzZXIgd291bGQKPj4gZ2V0IGVycm9ycyBv
+biB1c2UuCj4+Cj4+IFRoaXMgY2hhbmdlIGlzIG1hZGUgb24gdXNlciByZXF1ZXN0LCBhbmQgaXQg
+bWFrZXMgaXQgY29uc2lzdGVudAo+PiB3aXRoIHRoZSBJMkMgZHJpdmVyLCB3aGljaCBoYXMgdGhl
+IHNhbWUgYmVoYXZpb3IuCj4+Cj4+IEl0IGRvZXMgY2hhbmdlIHRoaW5ncyBhIGxpdHRsZSBiaXQg
+d2l0aCByZXNwZWN0IHRvIGtlcm5lbCB1c2Vycy4KPj4gSWYgdGhlIEFDUEkgb3IgSVBNSSB3YXRj
+aGRvZyAob3IgYW55IG90aGVyIGtlcm5lbCB1c2VyKSBoYXMKPj4gY3JlYXRlZCBhIHVzZXIsIHRo
+ZW4gdGhlIGRldmljZSBtb2R1bGUgY2Fubm90IGJlIHVubG9hZGVkLsKgIEJlZm9yZQo+PiBpdCBj
+b3VsZCBiZSB1bmxvYWRlZCwKPj4KPj4gVGhpcyBkb2VzIG5vdCBhZmZlY3QgaG90LXBsdWcuwqAg
+SWYgdGhlIGRldmljZSBnb2VzIGF3YXkgKGl0J3Mgb24KPj4gc29tZXRoaW5nIHJlbW92YWJsZSB0
+aGF0IGlzIHJlbW92ZWQgb3IgaXMgaG90LXJlbW92ZWQgdmlhIHN5c2ZzKQo+PiB0aGVuIGl0IHN0
+aWxsIGJlaGF2ZXMgYXMgaXQgZGlkIGJlZm9yZS4KPj4KPj4gUmVwb3J0ZWQtYnk6IHRvbnkgY2Ft
+dXNvIDx0Y2FtdXNvQHJlZGhhdC5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IENvcmV5IE1pbnlhcmQg
+PGNtaW55YXJkQG12aXN0YS5jb20+Cj4+IC0tLQo+PiBUb255LCBoZXJlIGlzIGEgc3VnZ2VzdGVk
+IGNoYW5nZSBmb3IgdGhpcy7CoCBDYW4geW91IGxvb2sgaXQgb3ZlciBhbmQKPj4gc2VlIGlmIGl0
+IGxvb2tzIG9rPwo+Pgo+PiBUaGFua3MsCj4+Cj4+IC1jb3JleQo+Pgo+PiDCoCBkcml2ZXJzL2No
+YXIvaXBtaS9pcG1pX21zZ2hhbmRsZXIuYyB8IDIzICsrKysrKysrKysrKysrKystLS0tLS0tCj4+
+IMKgIGluY2x1ZGUvbGludXgvaXBtaV9zbWkuaMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMiAr
+KysrKysrKy0tLS0KPj4gwqAgMiBmaWxlcyBjaGFuZ2VkLCAyNCBpbnNlcnRpb25zKCspLCAxMSBk
+ZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfbXNn
+aGFuZGxlci5jIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9tc2doYW5kbGVyLmMKPj4gaW5kZXgg
+MmFhYjgwZTE5YWUwLi4xNTY4MGRlMTg2MjUgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvY2hhci9p
+cG1pL2lwbWlfbXNnaGFuZGxlci5jCj4+ICsrKyBiL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfbXNn
+aGFuZGxlci5jCj4+IEBAIC00NDgsNiArNDQ4LDggQEAgZW51bSBpcG1pX3N0YXRfaW5kZXhlcyB7
+Cj4+IMKgICNkZWZpbmUgSVBNSV9JUE1CX05VTV9TRVHCoMKgwqAgNjQKPj4gwqAgc3RydWN0IGlw
+bWlfc21pIHsKPj4gK8KgwqDCoCBzdHJ1Y3QgbW9kdWxlICpvd25lcjsKPj4gKwo+PiDCoMKgwqDC
+oMKgIC8qIFdoYXQgaW50ZXJmYWNlIG51bWJlciBhcmUgd2U/ICovCj4+IMKgwqDCoMKgwqAgaW50
+IGludGZfbnVtOwo+PiBAQCAtMTIyMCw2ICsxMjIyLDExIEBAIGludCBpcG1pX2NyZWF0ZV91c2Vy
+KHVuc2lnbmVkIGludMKgwqDCoMKgwqDCoMKgwqDCoCBpZl9udW0sCj4+IMKgwqDCoMKgwqAgaWYg
+KHJ2KQo+PiDCoMKgwqDCoMKgwqDCoMKgwqAgZ290byBvdXRfa2ZyZWU7Cj4+ICvCoMKgwqAgaWYg
+KCF0cnlfbW9kdWxlX2dldChpbnRmLT5vd25lcikpIHsKPj4gK8KgwqDCoMKgwqDCoMKgIHJ2ID0g
+LUVOT0RFVjsKPj4gK8KgwqDCoMKgwqDCoMKgIGdvdG8gb3V0X2tmcmVlOwo+PiArwqDCoMKgIH0K
+Pj4gKwo+PiDCoMKgwqDCoMKgIC8qIE5vdGUgdGhhdCBlYWNoIGV4aXN0aW5nIHVzZXIgaG9sZHMg
+YSByZWZjb3VudCB0byB0aGUgaW50ZXJmYWNlLiAqLwo+PiDCoMKgwqDCoMKgIGtyZWZfZ2V0KCZp
+bnRmLT5yZWZjb3VudCk7Cj4+IEBAIC0xMzQ5LDYgKzEzNTYsNyBAQCBzdGF0aWMgdm9pZCBfaXBt
+aV9kZXN0cm95X3VzZXIoc3RydWN0IGlwbWlfdXNlciAqdXNlcikKPj4gwqDCoMKgwqDCoCB9Cj4+
+IMKgwqDCoMKgwqAga3JlZl9wdXQoJmludGYtPnJlZmNvdW50LCBpbnRmX2ZyZWUpOwo+PiArwqDC
+oMKgIG1vZHVsZV9wdXQoaW50Zi0+b3duZXIpOwo+PiDCoCB9Cj4+IMKgIGludCBpcG1pX2Rlc3Ry
+b3lfdXNlcihzdHJ1Y3QgaXBtaV91c2VyICp1c2VyKQo+PiBAQCAtMjQ1OSw3ICsyNDY3LDcgQEAg
+c3RhdGljIGludCBfX2dldF9kZXZpY2VfaWQoc3RydWN0IGlwbWlfc21pICppbnRmLCBzdHJ1Y3Qg
+Ym1jX2RldmljZSAqYm1jKQo+PiDCoMKgICogYmVlbiByZWNlbnRseSBmZXRjaGVkLCB0aGlzIHdp
+bGwganVzdCB1c2UgdGhlIGNhY2hlZCBkYXRhLsKgIE90aGVyd2lzZQo+PiDCoMKgICogaXQgd2ls
+bCBydW4gYSBuZXcgZmV0Y2guCj4+IMKgwqAgKgo+PiAtICogRXhjZXB0IGZvciB0aGUgZmlyc3Qg
+dGltZSB0aGlzIGlzIGNhbGxlZCAoaW4gaXBtaV9yZWdpc3Rlcl9zbWkoKSksCj4+ICsgKiBFeGNl
+cHQgZm9yIHRoZSBmaXJzdCB0aW1lIHRoaXMgaXMgY2FsbGVkIChpbiBpcG1pX2FkZF9zbWkoKSks
+Cj4+IMKgwqAgKiB0aGlzIHdpbGwgYWx3YXlzIHJldHVybiBnb29kIGRhdGE7Cj4+IMKgwqAgKi8K
+Pj4gwqAgc3RhdGljIGludCBfX2JtY19nZXRfZGV2aWNlX2lkKHN0cnVjdCBpcG1pX3NtaSAqaW50
+Ziwgc3RydWN0IGJtY19kZXZpY2UgKmJtYywKPj4gQEAgLTMzNzcsMTAgKzMzODUsMTEgQEAgc3Rh
+dGljIHZvaWQgcmVkb19ibWNfcmVnKHN0cnVjdCB3b3JrX3N0cnVjdCAqd29yaykKPj4gwqDCoMKg
+wqDCoCBrcmVmX3B1dCgmaW50Zi0+cmVmY291bnQsIGludGZfZnJlZSk7Cj4+IMKgIH0KPj4gLWlu
+dCBpcG1pX3JlZ2lzdGVyX3NtaShjb25zdCBzdHJ1Y3QgaXBtaV9zbWlfaGFuZGxlcnMgKmhhbmRs
+ZXJzLAo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdm9pZMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgKnNlbmRfaW5mbywKPj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0
+cnVjdCBkZXZpY2XCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICpzaV9kZXYsCj4+IC3CoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCB1bnNpZ25lZCBjaGFywqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBzbGF2
+ZV9hZGRyKQo+PiAraW50IGlwbWlfYWRkX3NtaShzdHJ1Y3QgbW9kdWxlwqDCoMKgwqDCoMKgwqDC
+oCAqb3duZXIsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIGNvbnN0IHN0cnVjdCBpcG1pX3NtaV9oYW5k
+bGVycyAqaGFuZGxlcnMsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHZvaWTCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgICpzZW5kX2luZm8sCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBkZXZp
+Y2XCoMKgwqDCoMKgwqDCoMKgICpzaV9kZXYsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHVuc2lnbmVk
+IGNoYXLCoMKgwqDCoMKgwqDCoMKgIHNsYXZlX2FkZHIpCj4+IMKgIHsKPj4gwqDCoMKgwqDCoCBp
+bnTCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpLCBqOwo+PiDCoMKgwqDCoMKgIGludMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJ2Owo+PiBAQCAtMzQwNiw3ICszNDE1LDcgQEAgaW50IGlw
+bWlfcmVnaXN0ZXJfc21pKGNvbnN0IHN0cnVjdCBpcG1pX3NtaV9oYW5kbGVycyAqaGFuZGxlcnMs
+Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gcnY7Cj4+IMKgwqDCoMKgwqAgfQo+PiAtCj4+
+ICvCoMKgwqAgaW50Zi0+b3duZXIgPSBvd25lcjsKPj4gwqDCoMKgwqDCoCBpbnRmLT5ibWMgPSAm
+aW50Zi0+dG1wX2JtYzsKPj4gwqDCoMKgwqDCoCBJTklUX0xJU1RfSEVBRCgmaW50Zi0+Ym1jLT5p
+bnRmcyk7Cj4+IMKgwqDCoMKgwqAgbXV0ZXhfaW5pdCgmaW50Zi0+Ym1jLT5keW5fbXV0ZXgpOwo+
+PiBAQCAtMzUxNCw3ICszNTIzLDcgQEAgaW50IGlwbWlfcmVnaXN0ZXJfc21pKGNvbnN0IHN0cnVj
+dCBpcG1pX3NtaV9oYW5kbGVycyAqaGFuZGxlcnMsCj4+IMKgwqDCoMKgwqAgcmV0dXJuIHJ2Owo+
+PiDCoCB9Cj4+IC1FWFBPUlRfU1lNQk9MKGlwbWlfcmVnaXN0ZXJfc21pKTsKPj4gK0VYUE9SVF9T
+WU1CT0woaXBtaV9hZGRfc21pKTsKPj4gwqAgc3RhdGljIHZvaWQgZGVsaXZlcl9zbWlfZXJyX3Jl
+c3BvbnNlKHN0cnVjdCBpcG1pX3NtaSAqaW50ZiwKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgc3RydWN0IGlwbWlfc21pX21zZyAqbXNnLAo+PiBkaWZmIC0t
+Z2l0IGEvaW5jbHVkZS9saW51eC9pcG1pX3NtaS5oIGIvaW5jbHVkZS9saW51eC9pcG1pX3NtaS5o
+Cj4+IGluZGV4IDRkYzY2MTU3ZDg3Mi4uZGVlYzE4Yjg5NDRhIDEwMDY0NAo+PiAtLS0gYS9pbmNs
+dWRlL2xpbnV4L2lwbWlfc21pLmgKPj4gKysrIGIvaW5jbHVkZS9saW51eC9pcG1pX3NtaS5oCj4+
+IEBAIC0yMjQsMTAgKzIyNCwxNCBAQCBzdGF0aWMgaW5saW5lIGludCBpcG1pX2RlbWFuZ2xlX2Rl
+dmljZV9pZCh1aW50OF90IG5ldGZuLCB1aW50OF90IGNtZCwKPj4gwqDCoCAqIGlzIGNhbGxlZCwg
+YW5kIHRoZSBsb3dlciBsYXllciBtdXN0IGdldCB0aGUgaW50ZXJmYWNlIGZyb20gdGhhdAo+PiDC
+oMKgICogY2FsbC4KPj4gwqDCoCAqLwo+PiAtaW50IGlwbWlfcmVnaXN0ZXJfc21pKGNvbnN0IHN0
+cnVjdCBpcG1pX3NtaV9oYW5kbGVycyAqaGFuZGxlcnMsCj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCB2b2lkwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAqc2Vu
+ZF9pbmZvLAo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgc3RydWN0IGRldmljZcKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqAgKmRldiwKPj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHVu
+c2lnbmVkIGNoYXLCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHNsYXZlX2FkZHIpOwo+PiAraW50IGlw
+bWlfYWRkX3NtaShzdHJ1Y3QgbW9kdWxlwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAqb3duZXIsCj4+
+ICvCoMKgwqDCoMKgwqDCoMKgIGNvbnN0IHN0cnVjdCBpcG1pX3NtaV9oYW5kbGVycyAqaGFuZGxl
+cnMsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHZvaWTCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgICpzZW5kX2luZm8sCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBkZXZp
+Y2XCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICpkZXYsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHVuc2ln
+bmVkIGNoYXLCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHNsYXZlX2FkZHIpOwo+PiArCj4+ICsjZGVm
+aW5lIGlwbWlfcmVnaXN0ZXJfc21pKGhhbmRsZXJzLCBzZW5kX2luZm8sIGRldiwgc2xhdmVfYWRk
+cikgXAo+PiArwqDCoMKgIGlwbWlfYWRkX3NtaShUSElTX01PRFVMRSwgaGFuZGxlcnMsIHNlbmRf
+aW5mbywgZGV2LCBzbGF2ZV9hZGRyKQo+PiDCoCAvKgo+PiDCoMKgICogUmVtb3ZlIGEgbG93LWxl
+dmVsIGludGVyZmFjZSBmcm9tIHRoZSBJUE1JIGRyaXZlci7CoCBUaGlzIHdpbGwKPj4KPiAKPiBU
+aGFua3MsIENvcmV5Lgo+IAo+IFJlZ2FyZHMsCj4gVG9ueQo+IAoKQW5kIEkgbWVhbnQgdG8gYWRk
+IHRoYXQgSSB3aWxsIGJlIHRlc3RpbmcgdGhpcyBvdmVyIHRoZSBuZXh0IGNvdXBsZSBkYXlzLgoK
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBt
+aS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vm
+b3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3Bl
+bmlwbWktZGV2ZWxvcGVyCg==
