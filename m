@@ -2,74 +2,109 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 70CDDD921E
-	for <lists+openipmi-developer@lfdr.de>; Wed, 16 Oct 2019 15:13:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B8B6CD938B
+	for <lists+openipmi-developer@lfdr.de>; Wed, 16 Oct 2019 16:19:50 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1iKj7H-0002Mw-Np; Wed, 16 Oct 2019 13:13:27 +0000
+	id 1iKk9U-0005Ng-D8; Wed, 16 Oct 2019 14:19:48 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcamuso@redhat.com>) id 1iKj7G-0002Mp-9f
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Oct 2019 13:13:26 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1iKk9T-0005NU-8j
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Oct 2019 14:19:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=fH1W1Mtypb5f+oLEF+vjzNl2bNrB87dLkwAe1c4iEFI=; b=YezT+wjWaVrO8U4va1tG06kp1T
- 0nZKdrsBHKrEJzv9cK3r8k2tg92D9Tiw0v1lkSIeKMsagsFhMpYf6m3UfUpcXhTuNkvappvWWyiAE
- FAQNoHEhkmQCv7y6Wbm/oM+QslDeKdRARc4ZddJrXCJVMkKGc8IKVjM6cx6/Stj3Rvyg=;
+ bh=oRCJA7Fo6qKgPkycGt7GDX3KsXKekLnt+bCZAb1lUvQ=; b=iMRuzE3e3a/vxgmXKo7lTim5mb
+ 6urRA5tcQ10Wd5Z5EVINA47f9loiUUGVm3c8cmfsBFW+d8+AEY23szLQ+Cv2YO6YAD97bE9h5wA4F
+ 3uIL0lq/ygaU0vwLo9t7nc9YUl0aCejxaYtQ8vEex9QJvTfuWjLUGwDWWHw0DJG7Z6pM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:References:Cc:To:From:Subject:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=fH1W1Mtypb5f+oLEF+vjzNl2bNrB87dLkwAe1c4iEFI=; b=dkm98fBfIR0ej0AaT4e5tLHRFa
- 12BZ2F3N/mreywoY9L4plbf4oLx7C36MO9lhJLuIjkQjTK6HSYhbsmScS3TOeK2P1DY29j/H9VEZX
- AFVAMIkIm3UHFN/GXfYpQ7nlgmVXOlYYvrPgBztfYLhuTmJD1LMyfAD0bykkg77wSmDw=;
-Received: from mx1.redhat.com ([209.132.183.28])
+ bh=oRCJA7Fo6qKgPkycGt7GDX3KsXKekLnt+bCZAb1lUvQ=; b=bYS8q7PivCiw0zd3aqPIkTu8rA
+ 1jJKZTnDPs22BYc7HnB8fFpl/efEVFxRXgiUipw3WU2WSdmrLXWe0aKW1srwZZtXf8ykYT6Krt8qw
+ En/oiLiHdFhOWR6NQGheniAxlUqnekCcciwa4lor7rzHIWfY9EX0NJB9Ff944068UrbU=;
+Received: from mail-ot1-f65.google.com ([209.85.210.65])
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iKj7A-00BRDt-SK
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Oct 2019 13:13:26 +0000
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
- [10.5.11.11])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mx1.redhat.com (Postfix) with ESMTPS id D51EEA3CD92;
- Wed, 16 Oct 2019 13:13:11 +0000 (UTC)
-Received: from [10.3.116.74] (ovpn-116-74.phx2.redhat.com [10.3.116.74])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 3647560127;
- Wed, 16 Oct 2019 13:13:11 +0000 (UTC)
-From: tony camuso <tcamuso@redhat.com>
-To: minyard@acm.org
-References: <20191014134141.GA25427@t560>
- <20191014154632.11103-1-minyard@acm.org>
- <40e26052-3ccb-684a-540f-61ff47077690@redhat.com>
-Message-ID: <321ed6cb-929c-462f-2459-9caf67be224e@redhat.com>
-Date: Wed, 16 Oct 2019 09:13:10 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.1.1
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1iKk9R-00BV1i-3U
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Oct 2019 14:19:47 +0000
+Received: by mail-ot1-f65.google.com with SMTP id 60so20285285otu.0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 16 Oct 2019 07:19:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:reply-to:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=oRCJA7Fo6qKgPkycGt7GDX3KsXKekLnt+bCZAb1lUvQ=;
+ b=kmVGKFBVSltBLVc5IdxfR70Sn9KD+16oQYLZrmvIB3fFsxTG878Z9MXJHt/QkP+cBq
+ u4NmLTBDMgJi0dqbv0HCu6F0VDZnayXCP9Y2lXENq0zImZQQXGsFTky4BIO359avKJGm
+ /tIVJbLgv4fJW7jBAxYakqwUHVE3nDQCN7P2HLBxNXasgP/+fhHV9DE3oID4FyzKbiis
+ rce8MS/NxTZsem3AdWsoHE7i5g3SiucIaMahTWiQhnNgeXs/rp613JzaoYgzdp0QPB2r
+ SlVY6MohzNoTmohNZf8e/S/4DRLNHdEcj3h6dvlFQX2+8XO1LYDBSefU9NB5DzwoPXIL
+ fD9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :reply-to:references:mime-version:content-disposition:in-reply-to
+ :user-agent;
+ bh=oRCJA7Fo6qKgPkycGt7GDX3KsXKekLnt+bCZAb1lUvQ=;
+ b=MMwwgoGD8WmtaTzMUhkwionw8JAJGQpFaiyTtt5sL3hHqq9W8H/PDwF74m//jEIqKT
+ ngCG1j1HcaJboXeRVc/9T2Wvojbmq0YdaFyyfjlEWUJUx4Q+DOZlUsNOXUpeN5hMllZZ
+ /mUrZyTI990oL9nbAZOZxO1FFjJNOCWiDf3GAFQI2QRbCBzVVjsT1aZJGx2RaZuVKhjO
+ 2lhQF//LjD2dC2qG3P/pGUnwkyB03rUOpTWmOjUZ6n5iyw5PXORN7JPK5dP+MK+EtUjk
+ P+jv6/u5JqW6IYblI++2SRyoP6eRi2hFpASHiwcgDnzTUCLfzjtrPFGJtgcf8B/HLYjh
+ XLGg==
+X-Gm-Message-State: APjAAAUKFPKnWBTIw5dI7/a80fku8zFyiHsHTIwbc8F6TA7GfcsMSwMa
+ s0yCTM425kDiDA1NHQnZBw==
+X-Google-Smtp-Source: APXvYqzsMQ8sg5gTyK6Tys4TFflwQcD2kmByJ78d7v7u2pMPuFKF96PL0pWTxDbBatC8ov4NW2yxPw==
+X-Received: by 2002:a9d:30c1:: with SMTP id r1mr1816638otg.91.1571235578921;
+ Wed, 16 Oct 2019 07:19:38 -0700 (PDT)
+Received: from serve.minyard.net ([47.184.136.59])
+ by smtp.gmail.com with ESMTPSA id 91sm7752566otn.36.2019.10.16.07.19.38
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 16 Oct 2019 07:19:38 -0700 (PDT)
+Received: from t560 (unknown [192.168.27.180])
+ by serve.minyard.net (Postfix) with ESMTPSA id 6C59D180056;
+ Wed, 16 Oct 2019 14:19:37 +0000 (UTC)
+Date: Wed, 16 Oct 2019 09:19:36 -0500
+From: Corey Minyard <minyard@acm.org>
+To: YueHaibing <yuehaibing@huawei.com>
+Message-ID: <20191016141936.GN14232@t560>
+References: <20191016092131.23096-1-yuehaibing@huawei.com>
 MIME-Version: 1.0
-In-Reply-To: <40e26052-3ccb-684a-540f-61ff47077690@redhat.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
- (mx1.redhat.com [10.5.110.68]); Wed, 16 Oct 2019 13:13:11 +0000 (UTC)
-X-Spam-Score: -0.0 (/)
+Content-Disposition: inline
+In-Reply-To: <20191016092131.23096-1-yuehaibing@huawei.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Spam-Score: 0.3 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.210.65 listed in list.dnswl.org]
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (tcminyard[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.65 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1iKj7A-00BRDt-SK
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: Don't allow device module
- unload when in use
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
+ freemail headers are different
+X-Headers-End: 1iKk9R-00BV1i-3U
+Subject: Re: [Openipmi-developer] [PATCH -next] ipmi: bt-bmc: use
+ devm_platform_ioremap_resource() to simplify code
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -82,114 +117,58 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Corey Minyard <cminyard@mvista.com>,
- openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Reply-To: minyard@acm.org
+Cc: arnd@arndb.de, gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
+ =?utf-8?Q?C=C3=A9dric?= Le Goater <clg@kaod.org>,
+ Alistair Popple <alistair@popple.id.au>,
+ openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T24gMTAvMTYvMTkgODoxOCBBTSwgdG9ueSBjYW11c28gd3JvdGU6Cj4gT24gMTAvMTQvMTkgMTE6
-NDYgQU0sIG1pbnlhcmRAYWNtLm9yZyB3cm90ZToKPj4gRnJvbTogQ29yZXkgTWlueWFyZCA8Y21p
-bnlhcmRAbXZpc3RhLmNvbT4KPj4KPj4gSWYgc29tZXRoaW5nIGhhcyB0aGUgSVBNSSBkcml2ZXIg
-b3BlbiwgZG9uJ3QgYWxsb3cgdGhlIGRldmljZQo+PiBtb2R1bGUgdG8gYmUgdW5sb2FkZWQuwqAg
-QmVmb3JlIGl0IHdvdWxkIHVubG9hZCBhbmQgdGhlIHVzZXIgd291bGQKPj4gZ2V0IGVycm9ycyBv
-biB1c2UuCj4+Cj4+IFRoaXMgY2hhbmdlIGlzIG1hZGUgb24gdXNlciByZXF1ZXN0LCBhbmQgaXQg
-bWFrZXMgaXQgY29uc2lzdGVudAo+PiB3aXRoIHRoZSBJMkMgZHJpdmVyLCB3aGljaCBoYXMgdGhl
-IHNhbWUgYmVoYXZpb3IuCj4+Cj4+IEl0IGRvZXMgY2hhbmdlIHRoaW5ncyBhIGxpdHRsZSBiaXQg
-d2l0aCByZXNwZWN0IHRvIGtlcm5lbCB1c2Vycy4KPj4gSWYgdGhlIEFDUEkgb3IgSVBNSSB3YXRj
-aGRvZyAob3IgYW55IG90aGVyIGtlcm5lbCB1c2VyKSBoYXMKPj4gY3JlYXRlZCBhIHVzZXIsIHRo
-ZW4gdGhlIGRldmljZSBtb2R1bGUgY2Fubm90IGJlIHVubG9hZGVkLsKgIEJlZm9yZQo+PiBpdCBj
-b3VsZCBiZSB1bmxvYWRlZCwKPj4KPj4gVGhpcyBkb2VzIG5vdCBhZmZlY3QgaG90LXBsdWcuwqAg
-SWYgdGhlIGRldmljZSBnb2VzIGF3YXkgKGl0J3Mgb24KPj4gc29tZXRoaW5nIHJlbW92YWJsZSB0
-aGF0IGlzIHJlbW92ZWQgb3IgaXMgaG90LXJlbW92ZWQgdmlhIHN5c2ZzKQo+PiB0aGVuIGl0IHN0
-aWxsIGJlaGF2ZXMgYXMgaXQgZGlkIGJlZm9yZS4KPj4KPj4gUmVwb3J0ZWQtYnk6IHRvbnkgY2Ft
-dXNvIDx0Y2FtdXNvQHJlZGhhdC5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IENvcmV5IE1pbnlhcmQg
-PGNtaW55YXJkQG12aXN0YS5jb20+Cj4+IC0tLQo+PiBUb255LCBoZXJlIGlzIGEgc3VnZ2VzdGVk
-IGNoYW5nZSBmb3IgdGhpcy7CoCBDYW4geW91IGxvb2sgaXQgb3ZlciBhbmQKPj4gc2VlIGlmIGl0
-IGxvb2tzIG9rPwo+Pgo+PiBUaGFua3MsCj4+Cj4+IC1jb3JleQo+Pgo+PiDCoCBkcml2ZXJzL2No
-YXIvaXBtaS9pcG1pX21zZ2hhbmRsZXIuYyB8IDIzICsrKysrKysrKysrKysrKystLS0tLS0tCj4+
-IMKgIGluY2x1ZGUvbGludXgvaXBtaV9zbWkuaMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMiAr
-KysrKysrKy0tLS0KPj4gwqAgMiBmaWxlcyBjaGFuZ2VkLCAyNCBpbnNlcnRpb25zKCspLCAxMSBk
-ZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfbXNn
-aGFuZGxlci5jIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9tc2doYW5kbGVyLmMKPj4gaW5kZXgg
-MmFhYjgwZTE5YWUwLi4xNTY4MGRlMTg2MjUgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvY2hhci9p
-cG1pL2lwbWlfbXNnaGFuZGxlci5jCj4+ICsrKyBiL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfbXNn
-aGFuZGxlci5jCj4+IEBAIC00NDgsNiArNDQ4LDggQEAgZW51bSBpcG1pX3N0YXRfaW5kZXhlcyB7
-Cj4+IMKgICNkZWZpbmUgSVBNSV9JUE1CX05VTV9TRVHCoMKgwqAgNjQKPj4gwqAgc3RydWN0IGlw
-bWlfc21pIHsKPj4gK8KgwqDCoCBzdHJ1Y3QgbW9kdWxlICpvd25lcjsKPj4gKwo+PiDCoMKgwqDC
-oMKgIC8qIFdoYXQgaW50ZXJmYWNlIG51bWJlciBhcmUgd2U/ICovCj4+IMKgwqDCoMKgwqAgaW50
-IGludGZfbnVtOwo+PiBAQCAtMTIyMCw2ICsxMjIyLDExIEBAIGludCBpcG1pX2NyZWF0ZV91c2Vy
-KHVuc2lnbmVkIGludMKgwqDCoMKgwqDCoMKgwqDCoCBpZl9udW0sCj4+IMKgwqDCoMKgwqAgaWYg
-KHJ2KQo+PiDCoMKgwqDCoMKgwqDCoMKgwqAgZ290byBvdXRfa2ZyZWU7Cj4+ICvCoMKgwqAgaWYg
-KCF0cnlfbW9kdWxlX2dldChpbnRmLT5vd25lcikpIHsKPj4gK8KgwqDCoMKgwqDCoMKgIHJ2ID0g
-LUVOT0RFVjsKPj4gK8KgwqDCoMKgwqDCoMKgIGdvdG8gb3V0X2tmcmVlOwo+PiArwqDCoMKgIH0K
-Pj4gKwo+PiDCoMKgwqDCoMKgIC8qIE5vdGUgdGhhdCBlYWNoIGV4aXN0aW5nIHVzZXIgaG9sZHMg
-YSByZWZjb3VudCB0byB0aGUgaW50ZXJmYWNlLiAqLwo+PiDCoMKgwqDCoMKgIGtyZWZfZ2V0KCZp
-bnRmLT5yZWZjb3VudCk7Cj4+IEBAIC0xMzQ5LDYgKzEzNTYsNyBAQCBzdGF0aWMgdm9pZCBfaXBt
-aV9kZXN0cm95X3VzZXIoc3RydWN0IGlwbWlfdXNlciAqdXNlcikKPj4gwqDCoMKgwqDCoCB9Cj4+
-IMKgwqDCoMKgwqAga3JlZl9wdXQoJmludGYtPnJlZmNvdW50LCBpbnRmX2ZyZWUpOwo+PiArwqDC
-oMKgIG1vZHVsZV9wdXQoaW50Zi0+b3duZXIpOwo+PiDCoCB9Cj4+IMKgIGludCBpcG1pX2Rlc3Ry
-b3lfdXNlcihzdHJ1Y3QgaXBtaV91c2VyICp1c2VyKQo+PiBAQCAtMjQ1OSw3ICsyNDY3LDcgQEAg
-c3RhdGljIGludCBfX2dldF9kZXZpY2VfaWQoc3RydWN0IGlwbWlfc21pICppbnRmLCBzdHJ1Y3Qg
-Ym1jX2RldmljZSAqYm1jKQo+PiDCoMKgICogYmVlbiByZWNlbnRseSBmZXRjaGVkLCB0aGlzIHdp
-bGwganVzdCB1c2UgdGhlIGNhY2hlZCBkYXRhLsKgIE90aGVyd2lzZQo+PiDCoMKgICogaXQgd2ls
-bCBydW4gYSBuZXcgZmV0Y2guCj4+IMKgwqAgKgo+PiAtICogRXhjZXB0IGZvciB0aGUgZmlyc3Qg
-dGltZSB0aGlzIGlzIGNhbGxlZCAoaW4gaXBtaV9yZWdpc3Rlcl9zbWkoKSksCj4+ICsgKiBFeGNl
-cHQgZm9yIHRoZSBmaXJzdCB0aW1lIHRoaXMgaXMgY2FsbGVkIChpbiBpcG1pX2FkZF9zbWkoKSks
-Cj4+IMKgwqAgKiB0aGlzIHdpbGwgYWx3YXlzIHJldHVybiBnb29kIGRhdGE7Cj4+IMKgwqAgKi8K
-Pj4gwqAgc3RhdGljIGludCBfX2JtY19nZXRfZGV2aWNlX2lkKHN0cnVjdCBpcG1pX3NtaSAqaW50
-Ziwgc3RydWN0IGJtY19kZXZpY2UgKmJtYywKPj4gQEAgLTMzNzcsMTAgKzMzODUsMTEgQEAgc3Rh
-dGljIHZvaWQgcmVkb19ibWNfcmVnKHN0cnVjdCB3b3JrX3N0cnVjdCAqd29yaykKPj4gwqDCoMKg
-wqDCoCBrcmVmX3B1dCgmaW50Zi0+cmVmY291bnQsIGludGZfZnJlZSk7Cj4+IMKgIH0KPj4gLWlu
-dCBpcG1pX3JlZ2lzdGVyX3NtaShjb25zdCBzdHJ1Y3QgaXBtaV9zbWlfaGFuZGxlcnMgKmhhbmRs
-ZXJzLAo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdm9pZMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgKnNlbmRfaW5mbywKPj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0
-cnVjdCBkZXZpY2XCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICpzaV9kZXYsCj4+IC3CoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCB1bnNpZ25lZCBjaGFywqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBzbGF2
-ZV9hZGRyKQo+PiAraW50IGlwbWlfYWRkX3NtaShzdHJ1Y3QgbW9kdWxlwqDCoMKgwqDCoMKgwqDC
-oCAqb3duZXIsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIGNvbnN0IHN0cnVjdCBpcG1pX3NtaV9oYW5k
-bGVycyAqaGFuZGxlcnMsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHZvaWTCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgICpzZW5kX2luZm8sCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBkZXZp
-Y2XCoMKgwqDCoMKgwqDCoMKgICpzaV9kZXYsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHVuc2lnbmVk
-IGNoYXLCoMKgwqDCoMKgwqDCoMKgIHNsYXZlX2FkZHIpCj4+IMKgIHsKPj4gwqDCoMKgwqDCoCBp
-bnTCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpLCBqOwo+PiDCoMKgwqDCoMKgIGludMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJ2Owo+PiBAQCAtMzQwNiw3ICszNDE1LDcgQEAgaW50IGlw
-bWlfcmVnaXN0ZXJfc21pKGNvbnN0IHN0cnVjdCBpcG1pX3NtaV9oYW5kbGVycyAqaGFuZGxlcnMs
-Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gcnY7Cj4+IMKgwqDCoMKgwqAgfQo+PiAtCj4+
-ICvCoMKgwqAgaW50Zi0+b3duZXIgPSBvd25lcjsKPj4gwqDCoMKgwqDCoCBpbnRmLT5ibWMgPSAm
-aW50Zi0+dG1wX2JtYzsKPj4gwqDCoMKgwqDCoCBJTklUX0xJU1RfSEVBRCgmaW50Zi0+Ym1jLT5p
-bnRmcyk7Cj4+IMKgwqDCoMKgwqAgbXV0ZXhfaW5pdCgmaW50Zi0+Ym1jLT5keW5fbXV0ZXgpOwo+
-PiBAQCAtMzUxNCw3ICszNTIzLDcgQEAgaW50IGlwbWlfcmVnaXN0ZXJfc21pKGNvbnN0IHN0cnVj
-dCBpcG1pX3NtaV9oYW5kbGVycyAqaGFuZGxlcnMsCj4+IMKgwqDCoMKgwqAgcmV0dXJuIHJ2Owo+
-PiDCoCB9Cj4+IC1FWFBPUlRfU1lNQk9MKGlwbWlfcmVnaXN0ZXJfc21pKTsKPj4gK0VYUE9SVF9T
-WU1CT0woaXBtaV9hZGRfc21pKTsKPj4gwqAgc3RhdGljIHZvaWQgZGVsaXZlcl9zbWlfZXJyX3Jl
-c3BvbnNlKHN0cnVjdCBpcG1pX3NtaSAqaW50ZiwKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgc3RydWN0IGlwbWlfc21pX21zZyAqbXNnLAo+PiBkaWZmIC0t
-Z2l0IGEvaW5jbHVkZS9saW51eC9pcG1pX3NtaS5oIGIvaW5jbHVkZS9saW51eC9pcG1pX3NtaS5o
-Cj4+IGluZGV4IDRkYzY2MTU3ZDg3Mi4uZGVlYzE4Yjg5NDRhIDEwMDY0NAo+PiAtLS0gYS9pbmNs
-dWRlL2xpbnV4L2lwbWlfc21pLmgKPj4gKysrIGIvaW5jbHVkZS9saW51eC9pcG1pX3NtaS5oCj4+
-IEBAIC0yMjQsMTAgKzIyNCwxNCBAQCBzdGF0aWMgaW5saW5lIGludCBpcG1pX2RlbWFuZ2xlX2Rl
-dmljZV9pZCh1aW50OF90IG5ldGZuLCB1aW50OF90IGNtZCwKPj4gwqDCoCAqIGlzIGNhbGxlZCwg
-YW5kIHRoZSBsb3dlciBsYXllciBtdXN0IGdldCB0aGUgaW50ZXJmYWNlIGZyb20gdGhhdAo+PiDC
-oMKgICogY2FsbC4KPj4gwqDCoCAqLwo+PiAtaW50IGlwbWlfcmVnaXN0ZXJfc21pKGNvbnN0IHN0
-cnVjdCBpcG1pX3NtaV9oYW5kbGVycyAqaGFuZGxlcnMsCj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCB2b2lkwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAqc2Vu
-ZF9pbmZvLAo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgc3RydWN0IGRldmljZcKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgKmRldiwKPj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHVu
-c2lnbmVkIGNoYXLCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHNsYXZlX2FkZHIpOwo+PiAraW50IGlw
-bWlfYWRkX3NtaShzdHJ1Y3QgbW9kdWxlwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAqb3duZXIsCj4+
-ICvCoMKgwqDCoMKgwqDCoMKgIGNvbnN0IHN0cnVjdCBpcG1pX3NtaV9oYW5kbGVycyAqaGFuZGxl
-cnMsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHZvaWTCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgICpzZW5kX2luZm8sCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBkZXZp
-Y2XCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICpkZXYsCj4+ICvCoMKgwqDCoMKgwqDCoMKgIHVuc2ln
-bmVkIGNoYXLCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHNsYXZlX2FkZHIpOwo+PiArCj4+ICsjZGVm
-aW5lIGlwbWlfcmVnaXN0ZXJfc21pKGhhbmRsZXJzLCBzZW5kX2luZm8sIGRldiwgc2xhdmVfYWRk
-cikgXAo+PiArwqDCoMKgIGlwbWlfYWRkX3NtaShUSElTX01PRFVMRSwgaGFuZGxlcnMsIHNlbmRf
-aW5mbywgZGV2LCBzbGF2ZV9hZGRyKQo+PiDCoCAvKgo+PiDCoMKgICogUmVtb3ZlIGEgbG93LWxl
-dmVsIGludGVyZmFjZSBmcm9tIHRoZSBJUE1JIGRyaXZlci7CoCBUaGlzIHdpbGwKPj4KPiAKPiBU
-aGFua3MsIENvcmV5Lgo+IAo+IFJlZ2FyZHMsCj4gVG9ueQo+IAoKQW5kIEkgbWVhbnQgdG8gYWRk
-IHRoYXQgSSB3aWxsIGJlIHRlc3RpbmcgdGhpcyBvdmVyIHRoZSBuZXh0IGNvdXBsZSBkYXlzLgoK
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBt
-aS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vm
-b3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3Bl
-bmlwbWktZGV2ZWxvcGVyCg==
+On Wed, Oct 16, 2019 at 05:21:31PM +0800, YueHaibing wrote:
+> Use devm_platform_ioremap_resource() to simplify the code a bit.
+> This is detected by coccinelle.
+
+Adding the module author and others. I can't see a reason to not do
+this.
+
+-corey
+
+> 
+> Signed-off-by: YueHaibing <yuehaibing@huawei.com>
+> ---
+>  drivers/char/ipmi/bt-bmc.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/drivers/char/ipmi/bt-bmc.c b/drivers/char/ipmi/bt-bmc.c
+> index 40b9927..d36aeac 100644
+> --- a/drivers/char/ipmi/bt-bmc.c
+> +++ b/drivers/char/ipmi/bt-bmc.c
+> @@ -444,15 +444,13 @@ static int bt_bmc_probe(struct platform_device *pdev)
+>  
+>  	bt_bmc->map = syscon_node_to_regmap(pdev->dev.parent->of_node);
+>  	if (IS_ERR(bt_bmc->map)) {
+> -		struct resource *res;
+>  		void __iomem *base;
+>  
+>  		/*
+>  		 * Assume it's not the MFD-based devicetree description, in
+>  		 * which case generate a regmap ourselves
+>  		 */
+> -		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> -		base = devm_ioremap_resource(&pdev->dev, res);
+> +		base = devm_platform_ioremap_resource(pdev, 0);
+>  		if (IS_ERR(base))
+>  			return PTR_ERR(base);
+>  
+> -- 
+> 2.7.4
+> 
+> 
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
