@@ -2,125 +2,104 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 60865F935F
-	for <lists+openipmi-developer@lfdr.de>; Tue, 12 Nov 2019 15:54:02 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 113EEF9960
+	for <lists+openipmi-developer@lfdr.de>; Tue, 12 Nov 2019 20:09:32 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1iUXYO-0008KE-Ld; Tue, 12 Nov 2019 14:54:00 +0000
+	id 1iUbXe-0002sB-Rx; Tue, 12 Nov 2019 19:09:30 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <Asmaa@mellanox.com>) id 1iUXYN-0008K7-Sz
- for openipmi-developer@lists.sourceforge.net; Tue, 12 Nov 2019 14:53:59 +0000
+ (envelope-from <cminyard@mvista.com>) id 1iUbXa-0002s0-3C
+ for openipmi-developer@lists.sourceforge.net; Tue, 12 Nov 2019 19:09:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=AYy7JsrpEVYcwD2IL2OZQ31r0vayf6hsDJOlmOJndu0=; b=EIp+kteLVm9tzRmVE+dAqvPemA
- Hb+8aU4QBTnfn1UmHo5247A2MrmgpUXfseiLZaX+IC0CXF1D/Y9Vm9zh//B0sIAM7qMM+Qh5+UPzX
- nyGS/IbEOmy5v6Ys82gjdlh/ncukRjg0quLh5DE+kQpxXH33P+rT7wqg9XeyCc233YzU=;
+ bh=VEGoFwrILa/Bz2Z5av58zC5E/xCfln7dzu7x1nqlQj0=; b=alXhb3SAjXa9i06aWlYFzZ8X9m
+ 2muMIZ+SGU24QhRYH31hnOqIDh5Y+MttLeD42qPSI6r6T4owAkR/mvybnv2MbRyh7Z93arpSEStXS
+ M/13Vfae0eRLLZaAIxC2ImqCNdfhf4mzCSwUsiFRCCfJOLYQIv7dtzvevOQgoByINiKc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:
- References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=AYy7JsrpEVYcwD2IL2OZQ31r0vayf6hsDJOlmOJndu0=; b=ThxRYbsEoeJvRcAkDiE+0FJ/HO
- HSVMRsmgUcjx8SRC+V1vNiXh/9AKfvyywIvc0CQK5zvTIkYyhiBO0F4ydAALfGh+1QeDO4ZE4pO+j
- X1oyRAkmWjUG55B4JloeCFc524d/cVC4o9PmIOgxxP6eoYRCjMbLdlpAwp2zPywYiY1k=;
-Received: from mail-eopbgr60046.outbound.protection.outlook.com ([40.107.6.46]
- helo=EUR04-DB3-obe.outbound.protection.outlook.com)
+ bh=VEGoFwrILa/Bz2Z5av58zC5E/xCfln7dzu7x1nqlQj0=; b=hAdJjqrNp1eOJhKYHVc4CwOtPY
+ QBBi4N8chdtagqi+d35Bf2+5RPb7lAcXw/+ojV92qvrxlb6BvtB+jno80V/i7015Dvs/1lBW+dk6z
+ imCVJrvPlD+VADyEL0Jfndzb911tsGO9DW9tMqE3a8MljYObHPvI5wQsW/yFAvKJQTIs=;
+Received: from mail-oi1-f196.google.com ([209.85.167.196])
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iUXYJ-00DVhL-Km
- for openipmi-developer@lists.sourceforge.net; Tue, 12 Nov 2019 14:53:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=E+hDa4w4FVkjVCuLFUs53Jm29DqZXFTbxJxT4E4MH77AvL3f+Av4X74vc73ub8qOQg0nfOgAELHCdUI7+uTui+uIgEa2ZZI2UL42xP4c6bPqjDZ19FyVYLl2QEPNbmTwNZT8+Ogbs5zpz63qX+vZyFb31vhHxxZXiAF/nTyOL4/9nvn/k1LSVrg6ALdVqYuyEJv/AdNJZQ3CDBXGFlyYnULHXpaWACGfERoja5cYcBkn+VF48m9ba+tqEMOsScWZgKpG8WwfmqzjGpgYn0GAB9mWz/uPQcV0Vt1bcj51JZioxngyOpkmOOqgJZBnw+/5+xRsJrZcdyAUvgDTvm3/+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AYy7JsrpEVYcwD2IL2OZQ31r0vayf6hsDJOlmOJndu0=;
- b=UlM+ykYoxOW15wJYsnRyO2cN9MK4FKTNRbC+/OChzb9ricvGbpe6ZEJ2dcAQxV2FM/+N3lm4SpSws92aid6IzNaBBjHExtCdlCNzJgwUSds0ZsCWex7LOYmCZS67i5O4A+aE+dskWcWtxygwepl7coMfd7gIUsNrdT1bG67Kq1WOUeR+6ipOfe9GfRJs1qRhgM3nEUIOCW14XfNv/i5bB9cBCxjIiJ6Mk4PBQThFx51ll/U38f9T/cQdGNVDS25UZfRw8ODGeyIHFp320daTVdbzyIRWy0NKvCkaAimY0V4kObAfRGVdaeFM8l1cwSgKc+DOdu0nfFoCez+R+u/1dg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mellanox.com; dmarc=pass action=none header.from=mellanox.com;
- dkim=pass header.d=mellanox.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Mellanox.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AYy7JsrpEVYcwD2IL2OZQ31r0vayf6hsDJOlmOJndu0=;
- b=cFNkBRzXKaTMaYbqDFSqH46fyjbZnKry83j0phKcQgpTN2vsxa0SXLcsQ7iW5b7wEHyEHurlkT1DUDT9FqCIGn9DwZiri41J78jEZjRogxGxQjdroZXuN6yTeiZ735NtSgDFVlTwGsE2NRUUB2+0d0gsC4b83Kt2RxXLvnudKZI=
-Received: from DB6PR0501MB2712.eurprd05.prod.outlook.com (10.172.225.17) by
- DB6PR0501MB2599.eurprd05.prod.outlook.com (10.168.71.8) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2430.25; Tue, 12 Nov 2019 14:19:43 +0000
-Received: from DB6PR0501MB2712.eurprd05.prod.outlook.com
- ([fe80::99be:5f3a:9871:ecd1]) by DB6PR0501MB2712.eurprd05.prod.outlook.com
- ([fe80::99be:5f3a:9871:ecd1%12]) with mapi id 15.20.2430.027; Tue, 12 Nov
- 2019 14:19:43 +0000
-From: Asmaa Mnebhi <Asmaa@mellanox.com>
-To: "minyard@acm.org" <minyard@acm.org>, Vijay Khemka <vijaykhemka@fb.com>
-Thread-Topic: [PATCH 1/2] drivers: ipmi: Support raw i2c packet in IPMB
-Thread-Index: AQHVmQJhVFa2qHxMQE+ZOphOmDlBEKeHeXcAgAAc2cA=
-Date: Tue, 12 Nov 2019 14:19:43 +0000
-Message-ID: <DB6PR0501MB271273D1EC0CF9CAA67A22CCDA770@DB6PR0501MB2712.eurprd05.prod.outlook.com>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1iUbXU-00Dr1S-0P
+ for openipmi-developer@lists.sourceforge.net; Tue, 12 Nov 2019 19:09:26 +0000
+Received: by mail-oi1-f196.google.com with SMTP id v138so15842169oif.6
+ for <openipmi-developer@lists.sourceforge.net>;
+ Tue, 12 Nov 2019 11:09:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mvista-com.20150623.gappssmtp.com; s=20150623;
+ h=date:from:to:cc:subject:message-id:reply-to:references:mime-version
+ :content-disposition:content-transfer-encoding:in-reply-to
+ :user-agent; bh=VEGoFwrILa/Bz2Z5av58zC5E/xCfln7dzu7x1nqlQj0=;
+ b=C+6bLj8x/BxaJhpnFaG2kWpSLjCPH7N3gGA4B2HmQWBnVa743Xf+w7JU9gGt46ZsqJ
+ 35bfMn4pCSCNbbVVegjCjUMxZ0MbyChHS/20CBYzSikRVulk2tgBAsoxEQ8b0KEtn3Zq
+ z1FwS8H0h5ct89UqOqVBu9xGfa9kUrQWKNMK4UYzEOJ6UtRptcWR4UqGL26x8nOqTSzB
+ exDIh7/vB0GPAjNKA8b4L1TWNZ6iqoBWQ35LNuPHOJ1mnk8UqAEERofFN8EzkKaMGfeH
+ D3oPC6kI6U5yx++Km3/uiTcwqhcVjEGvOmf9j/BeSdExzMG1z0syAY9LvYKhRltmkjgg
+ 1wRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:reply-to
+ :references:mime-version:content-disposition
+ :content-transfer-encoding:in-reply-to:user-agent;
+ bh=VEGoFwrILa/Bz2Z5av58zC5E/xCfln7dzu7x1nqlQj0=;
+ b=NHhpm1gyXJRTcOtJKrM10kSSgu7p5Ji9Po/mt0+28ZB11WcPk6y+OUCfOwwDE4WyJz
+ MRtKce0gt0TVFMlIT1U3o4GSg3dfY+ydny8dWSv/sixpMeg8TBOsuOTm9Hl7y/E7FjvU
+ sx9IS5s4KV9e62i7NoZAJZHvAm7hY8TgaHc8gzKw2xHw4hue2DzcNIpdaOLvnvHiiPyh
+ m8CfrrGmhNn9FGczr5j25cIQ8SC3nJ2SQPbgZo09wsuXu2jgsKiHkS6EEAV5hG9OgRuT
+ dI/8zJ/hoKjw+gSu+D3tnqAierHXO5ndrOUBLbiSpNKFzLUWL/jdY2lasT9W5xi8aXo8
+ fkzg==
+X-Gm-Message-State: APjAAAVyfOgZlKVlynBHSt6n5enAz+lKIferHM8FNj/Br5HLVMey5/a+
+ vmmFmDUcM8Uy4yVs3Lmogj8ywVJWM88n5g==
+X-Google-Smtp-Source: APXvYqwpIv3p55kAYFjXsw3MARmCQNdjHAUw1xtx7WrcYifyecc6dpULS7L6ofxBsbZAfSjeErr5fg==
+X-Received: by 2002:aca:57d7:: with SMTP id l206mr395543oib.32.1573584073982; 
+ Tue, 12 Nov 2019 10:41:13 -0800 (PST)
+Received: from minyard.net ([47.184.136.59])
+ by smtp.gmail.com with ESMTPSA id n9sm6636379otn.4.2019.11.12.10.41.12
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Tue, 12 Nov 2019 10:41:13 -0800 (PST)
+Date: Tue, 12 Nov 2019 12:41:11 -0600
+From: Corey Minyard <cminyard@mvista.com>
+To: Vijay Khemka <vijaykhemka@fb.com>
+Message-ID: <20191112184111.GA2938@minyard.net>
 References: <20191112023610.3644314-1-vijaykhemka@fb.com>
  <20191112123602.GD2882@minyard.net>
-In-Reply-To: <20191112123602.GD2882@minyard.net>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Asmaa@mellanox.com; 
-x-originating-ip: [216.156.69.42]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: c3e66bec-4079-4eee-037a-08d7677b5cf8
-x-ms-traffictypediagnostic: DB6PR0501MB2599:
-x-microsoft-antispam-prvs: <DB6PR0501MB259995E630469798C9AD5026DA770@DB6PR0501MB2599.eurprd05.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:3383;
-x-forefront-prvs: 021975AE46
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(4636009)(346002)(136003)(376002)(39860400002)(396003)(366004)(13464003)(199004)(189003)(6246003)(80792005)(2501003)(5660300002)(14454004)(478600001)(6436002)(52536014)(4326008)(229853002)(25786009)(6116002)(3846002)(9686003)(66556008)(66476007)(66946007)(64756008)(66446008)(76116006)(55016002)(110136005)(446003)(486006)(256004)(71190400001)(71200400001)(81156014)(99286004)(7416002)(11346002)(8676002)(54906003)(66066001)(8936002)(476003)(81166006)(74316002)(186003)(7696005)(76176011)(6506007)(53546011)(33656002)(86362001)(7736002)(2906002)(305945005)(316002)(26005)(102836004);
- DIR:OUT; SFP:1101; SCL:1; SRVR:DB6PR0501MB2599;
- H:DB6PR0501MB2712.eurprd05.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-received-spf: None (protection.outlook.com: mellanox.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 4Obxb6zYgP23kg4SMlT5/dYX+94pH97Y26wwj2q4bUb6m+I4fAZFU19z5JBzVZZhijOi+Qe9vczStMoKjdZkUw3u9lAjrI/tGwLNNYU0vhYjihJBsfluUzu1nHki0X0UbE37mBbXcu1u5x8kOCu8fGXtaImJ7BF4kOb6uxuVs+ERscW8IszGPwwpzlpg8ed28NXpkkty7FjFILl4nL3qL1xg+IAOozSqAniJTigQksKnN//5IwT9mN1K477IDdNwVz16TiHk+L7z7w4v5tjdZhW5Cpah7LCewttEyViZjBHDANQG1cGKdbAYOtHLygTQJzeLv9skEpB2lsp3SVtAJqGww7WJb+Y/ay3RWW8OXsXqbeVJOqof8vayPEGRglcPgK+X3J5fFHeLt7fNyBMS3UL02CWtMHpnc6crn/2OXMflbcY2EbLS1YMHFwGd14sG
-x-ms-exchange-transport-forked: True
+ <493C2E64-2E41-47FF-BDA6-6EA1DA758016@fb.com>
 MIME-Version: 1.0
-X-OriginatorOrg: Mellanox.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c3e66bec-4079-4eee-037a-08d7677b5cf8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Nov 2019 14:19:43.3471 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a652971c-7d2e-4d9b-a6a4-d149256f461b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 16k3ZLW91NV+s9QAiSkiMWB8eC2D2BdsqXC/Ue4Egsrhl7/wkpPmh0KDf5w08FeBwoMbyjVesluloRKI2ziXZw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB6PR0501MB2599
-X-Spam-Score: -0.1 (/)
+Content-Disposition: inline
+In-Reply-To: <493C2E64-2E41-47FF-BDA6-6EA1DA758016@fb.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.167.196 listed in list.dnswl.org]
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: mellanox.com]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [40.107.6.46 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ for more information. [URIs: acm.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.196 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1iUXYJ-00DVhL-Km
+X-Headers-End: 1iUbXU-00Dr1S-0P
 Subject: Re: [Openipmi-developer] [PATCH 1/2] drivers: ipmi: Support raw i2c
  packet in IPMB
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -135,121 +114,95 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "cminyard@mvista.com" <cminyard@mvista.com>,
- "sdasari@fb.com" <sdasari@fb.com>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+Reply-To: cminyard@mvista.com
+Cc: Sai Dasari <sdasari@fb.com>, "minyard@acm.org" <minyard@acm.org>,
  Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ <openipmi-developer@lists.sourceforge.net>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-I agree with corey. You can take a look at the ipmi_ssif.c driver which does that.
-
------Original Message-----
-From: Corey Minyard <tcminyard@gmail.com> On Behalf Of Corey Minyard
-Sent: Tuesday, November 12, 2019 7:36 AM
-To: Vijay Khemka <vijaykhemka@fb.com>
-Cc: Arnd Bergmann <arnd@arndb.de>; Greg Kroah-Hartman <gregkh@linuxfoundation.org>; openipmi-developer@lists.sourceforge.net; linux-kernel@vger.kernel.org; cminyard@mvista.com; Asmaa Mnebhi <Asmaa@mellanox.com>; joel@jms.id.au; linux-aspeed@lists.ozlabs.org; sdasari@fb.com
-Subject: Re: [PATCH 1/2] drivers: ipmi: Support raw i2c packet in IPMB
-
-On Mon, Nov 11, 2019 at 06:36:09PM -0800, Vijay Khemka wrote:
-> Many IPMB devices doesn't support smbus protocol and current driver 
-> support only smbus devices. So added support for raw i2c packets.
-
-I haven't reviewed this, really, because I have a more general concern...
-
-Is it possible to not do this with a config item?  Can you add something to the device tree and/or via an ioctl to make this dynamically configurable?  That's more flexible (it can support mixed devices) and is friendlier to users (don't have to get the config right).
-
-Config items for adding new functionality are generally ok.  Config items for choosing between two mutually exclusive choices are generally not.
-
--corey
-
-> 
-> Signed-off-by: Vijay Khemka <vijaykhemka@fb.com>
-> ---
->  drivers/char/ipmi/Kconfig        |  6 ++++++
->  drivers/char/ipmi/ipmb_dev_int.c | 30 ++++++++++++++++++++++++++++++
->  2 files changed, 36 insertions(+)
-> 
-> diff --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig 
-> index a9cfe4c05e64..e5268443b478 100644
-> --- a/drivers/char/ipmi/Kconfig
-> +++ b/drivers/char/ipmi/Kconfig
-> @@ -139,3 +139,9 @@ config IPMB_DEVICE_INTERFACE
->  	  Provides a driver for a device (Satellite MC) to
->  	  receive requests and send responses back to the BMC via
->  	  the IPMB interface. This module requires I2C support.
-> +
-> +config IPMB_SMBUS_DISABLE
-> +	bool 'Disable SMBUS protocol for sending packet to IPMB device'
-> +	depends on IPMB_DEVICE_INTERFACE
-> +	help
-> +	  provides functionality of sending raw i2c packets to IPMB device.
-> diff --git a/drivers/char/ipmi/ipmb_dev_int.c 
-> b/drivers/char/ipmi/ipmb_dev_int.c
-> index ae3bfba27526..2419b9a928b2 100644
-> --- a/drivers/char/ipmi/ipmb_dev_int.c
-> +++ b/drivers/char/ipmi/ipmb_dev_int.c
-> @@ -118,6 +118,10 @@ static ssize_t ipmb_write(struct file *file, const char __user *buf,
->  	struct ipmb_dev *ipmb_dev = to_ipmb_dev(file);
->  	u8 rq_sa, netf_rq_lun, msg_len;
->  	union i2c_smbus_data data;
-> +#ifdef CONFIG_IPMB_SMBUS_DISABLE
-> +	unsigned char *i2c_buf;
-> +	struct i2c_msg i2c_msg;
-> +#endif
->  	u8 msg[MAX_MSG_LEN];
->  	ssize_t ret;
->  
-> @@ -133,6 +137,31 @@ static ssize_t ipmb_write(struct file *file, const char __user *buf,
->  	rq_sa = GET_7BIT_ADDR(msg[RQ_SA_8BIT_IDX]);
->  	netf_rq_lun = msg[NETFN_LUN_IDX];
->  
-> +#ifdef CONFIG_IPMB_SMBUS_DISABLE
-> +	/*
-> +	 * subtract 1 byte (rq_sa) from the length of the msg passed to
-> +	 * raw i2c_transfer
-> +	 */
-> +	msg_len = msg[IPMB_MSG_LEN_IDX] - 1;
-> +
-> +	i2c_buf = kzalloc(msg_len, GFP_KERNEL);
-> +	if (!i2c_buf)
-> +		return -EFAULT;
-> +
-> +	/* Copy message to buffer except first 2 bytes (length and address) */
-> +	memcpy(i2c_buf, msg+2, msg_len);
-> +
-> +	i2c_msg.addr = rq_sa;
-> +	i2c_msg.flags = ipmb_dev->client->flags &
-> +			(I2C_M_TEN | I2C_CLIENT_PEC | I2C_CLIENT_SCCB);
-> +	i2c_msg.len = msg_len;
-> +	i2c_msg.buf = i2c_buf;
-> +
-> +	ret = i2c_transfer(ipmb_dev->client->adapter, &i2c_msg, 1);
-> +	kfree(i2c_buf);
-> +
-> +	return (ret == 1) ? count : ret;
-> +#else
->  	/*
->  	 * subtract rq_sa and netf_rq_lun from the length of the msg passed to
->  	 * i2c_smbus_xfer
-> @@ -149,6 +178,7 @@ static ssize_t ipmb_write(struct file *file, const char __user *buf,
->  			     I2C_SMBUS_BLOCK_DATA, &data);
->  
->  	return ret ? : count;
-> +#endif
->  }
->  
->  static unsigned int ipmb_poll(struct file *file, poll_table *wait)
-> --
-> 2.17.1
-> 
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gVHVlLCBOb3YgMTIsIDIwMTkgYXQgMDU6NTc6MjVQTSArMDAwMCwgVmlqYXkgS2hlbWthIHdy
+b3RlOgo+IAo+IAo+IO+7v09uIDExLzEyLzE5LCA0OjM2IEFNLCAiQ29yZXkgTWlueWFyZCIgPHRj
+bWlueWFyZEBnbWFpbC5jb20gb24gYmVoYWxmIG9mIG1pbnlhcmRAYWNtLm9yZz4gd3JvdGU6Cj4g
+Cj4gICAgIE9uIE1vbiwgTm92IDExLCAyMDE5IGF0IDA2OjM2OjA5UE0gLTA4MDAsIFZpamF5IEto
+ZW1rYSB3cm90ZToKPiAgICAgPiBNYW55IElQTUIgZGV2aWNlcyBkb2Vzbid0IHN1cHBvcnQgc21i
+dXMgcHJvdG9jb2wgYW5kIGN1cnJlbnQgZHJpdmVyCj4gICAgID4gc3VwcG9ydCBvbmx5IHNtYnVz
+IGRldmljZXMuIFNvIGFkZGVkIHN1cHBvcnQgZm9yIHJhdyBpMmMgcGFja2V0cy4KPiAgICAgCj4g
+ICAgIEkgaGF2ZW4ndCByZXZpZXdlZCB0aGlzLCByZWFsbHksIGJlY2F1c2UgSSBoYXZlIGEgbW9y
+ZSBnZW5lcmFsCj4gICAgIGNvbmNlcm4uLi4KPiAgICAgCj4gICAgIElzIGl0IHBvc3NpYmxlIHRv
+IG5vdCBkbyB0aGlzIHdpdGggYSBjb25maWcgaXRlbT8gIENhbiB5b3UgYWRkIHNvbWV0aGluZwo+
+ICAgICB0byB0aGUgZGV2aWNlIHRyZWUgYW5kL29yIHZpYSBhbiBpb2N0bCB0byBtYWtlIHRoaXMg
+ZHluYW1pY2FsbHkKPiAgICAgY29uZmlndXJhYmxlPyAgVGhhdCdzIG1vcmUgZmxleGlibGUgKGl0
+IGNhbiBzdXBwb3J0IG1peGVkIGRldmljZXMpIGFuZAo+ICAgICBpcyBmcmllbmRsaWVyIHRvIHVz
+ZXJzIChkb24ndCBoYXZlIHRvIGdldCB0aGUgY29uZmlnIHJpZ2h0KS4KPiBJIGFncmVlIHdpdGgg
+eW91LCBJIHdhcyBhbHNvIG5vdCBjb21mb3J0YWJsZSB1c2luZyBjb25maWcgYW5kIGNvdWxkbid0
+IGZpbmQgb3RoZXIgCj4gT3B0aW9ucywgSSB3aWxsIGxvb2sgaW50byBtb3JlIG9wdGlvbiBub3cg
+YW5kIHVwZGF0ZSBwYXRjaC4KCklNSE8sIGRldmljZSB0cmVlIGlzIHRoZSByaWdodCB3YXkgdG8g
+ZG8gdGhpcy4gIFlvdSBzaG91bGQgYWxzbyBoYXZlIGEKc3lzZnMgc2V0dGluZyBmb3IgdGhpcywg
+SSB0aGluay4KCi1jb3JleQoKPiAgICAgCj4gICAgIENvbmZpZyBpdGVtcyBmb3IgYWRkaW5nIG5l
+dyBmdW5jdGlvbmFsaXR5IGFyZSBnZW5lcmFsbHkgb2suICBDb25maWcKPiAgICAgaXRlbXMgZm9y
+IGNob29zaW5nIGJldHdlZW4gdHdvIG11dHVhbGx5IGV4Y2x1c2l2ZSBjaG9pY2VzIGFyZQo+ICAg
+ICBnZW5lcmFsbHkgbm90Lgo+ICAgICAKPiAgICAgLWNvcmV5Cj4gICAgIAo+ICAgICA+IAo+ICAg
+ICA+IFNpZ25lZC1vZmYtYnk6IFZpamF5IEtoZW1rYSA8dmlqYXlraGVta2FAZmIuY29tPgo+ICAg
+ICA+IC0tLQo+ICAgICA+ICBkcml2ZXJzL2NoYXIvaXBtaS9LY29uZmlnICAgICAgICB8ICA2ICsr
+KysrKwo+ICAgICA+ICBkcml2ZXJzL2NoYXIvaXBtaS9pcG1iX2Rldl9pbnQuYyB8IDMwICsrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKwo+ICAgICA+ICAyIGZpbGVzIGNoYW5nZWQsIDM2IGlu
+c2VydGlvbnMoKykKPiAgICAgPiAKPiAgICAgPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jaGFyL2lw
+bWkvS2NvbmZpZyBiL2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcKPiAgICAgPiBpbmRleCBhOWNm
+ZTRjMDVlNjQuLmU1MjY4NDQzYjQ3OCAxMDA2NDQKPiAgICAgPiAtLS0gYS9kcml2ZXJzL2NoYXIv
+aXBtaS9LY29uZmlnCj4gICAgID4gKysrIGIvZHJpdmVycy9jaGFyL2lwbWkvS2NvbmZpZwo+ICAg
+ICA+IEBAIC0xMzksMyArMTM5LDkgQEAgY29uZmlnIElQTUJfREVWSUNFX0lOVEVSRkFDRQo+ICAg
+ICA+ICAJICBQcm92aWRlcyBhIGRyaXZlciBmb3IgYSBkZXZpY2UgKFNhdGVsbGl0ZSBNQykgdG8K
+PiAgICAgPiAgCSAgcmVjZWl2ZSByZXF1ZXN0cyBhbmQgc2VuZCByZXNwb25zZXMgYmFjayB0byB0
+aGUgQk1DIHZpYQo+ICAgICA+ICAJICB0aGUgSVBNQiBpbnRlcmZhY2UuIFRoaXMgbW9kdWxlIHJl
+cXVpcmVzIEkyQyBzdXBwb3J0Lgo+ICAgICA+ICsKPiAgICAgPiArY29uZmlnIElQTUJfU01CVVNf
+RElTQUJMRQo+ICAgICA+ICsJYm9vbCAnRGlzYWJsZSBTTUJVUyBwcm90b2NvbCBmb3Igc2VuZGlu
+ZyBwYWNrZXQgdG8gSVBNQiBkZXZpY2UnCj4gICAgID4gKwlkZXBlbmRzIG9uIElQTUJfREVWSUNF
+X0lOVEVSRkFDRQo+ICAgICA+ICsJaGVscAo+ICAgICA+ICsJICBwcm92aWRlcyBmdW5jdGlvbmFs
+aXR5IG9mIHNlbmRpbmcgcmF3IGkyYyBwYWNrZXRzIHRvIElQTUIgZGV2aWNlLgo+ICAgICA+IGRp
+ZmYgLS1naXQgYS9kcml2ZXJzL2NoYXIvaXBtaS9pcG1iX2Rldl9pbnQuYyBiL2RyaXZlcnMvY2hh
+ci9pcG1pL2lwbWJfZGV2X2ludC5jCj4gICAgID4gaW5kZXggYWUzYmZiYTI3NTI2Li4yNDE5Yjlh
+OTI4YjIgMTAwNjQ0Cj4gICAgID4gLS0tIGEvZHJpdmVycy9jaGFyL2lwbWkvaXBtYl9kZXZfaW50
+LmMKPiAgICAgPiArKysgYi9kcml2ZXJzL2NoYXIvaXBtaS9pcG1iX2Rldl9pbnQuYwo+ICAgICA+
+IEBAIC0xMTgsNiArMTE4LDEwIEBAIHN0YXRpYyBzc2l6ZV90IGlwbWJfd3JpdGUoc3RydWN0IGZp
+bGUgKmZpbGUsIGNvbnN0IGNoYXIgX191c2VyICpidWYsCj4gICAgID4gIAlzdHJ1Y3QgaXBtYl9k
+ZXYgKmlwbWJfZGV2ID0gdG9faXBtYl9kZXYoZmlsZSk7Cj4gICAgID4gIAl1OCBycV9zYSwgbmV0
+Zl9ycV9sdW4sIG1zZ19sZW47Cj4gICAgID4gIAl1bmlvbiBpMmNfc21idXNfZGF0YSBkYXRhOwo+
+ICAgICA+ICsjaWZkZWYgQ09ORklHX0lQTUJfU01CVVNfRElTQUJMRQo+ICAgICA+ICsJdW5zaWdu
+ZWQgY2hhciAqaTJjX2J1ZjsKPiAgICAgPiArCXN0cnVjdCBpMmNfbXNnIGkyY19tc2c7Cj4gICAg
+ID4gKyNlbmRpZgo+ICAgICA+ICAJdTggbXNnW01BWF9NU0dfTEVOXTsKPiAgICAgPiAgCXNzaXpl
+X3QgcmV0Owo+ICAgICA+ICAKPiAgICAgPiBAQCAtMTMzLDYgKzEzNywzMSBAQCBzdGF0aWMgc3Np
+emVfdCBpcG1iX3dyaXRlKHN0cnVjdCBmaWxlICpmaWxlLCBjb25zdCBjaGFyIF9fdXNlciAqYnVm
+LAo+ICAgICA+ICAJcnFfc2EgPSBHRVRfN0JJVF9BRERSKG1zZ1tSUV9TQV84QklUX0lEWF0pOwo+
+ICAgICA+ICAJbmV0Zl9ycV9sdW4gPSBtc2dbTkVURk5fTFVOX0lEWF07Cj4gICAgID4gIAo+ICAg
+ICA+ICsjaWZkZWYgQ09ORklHX0lQTUJfU01CVVNfRElTQUJMRQo+ICAgICA+ICsJLyoKPiAgICAg
+PiArCSAqIHN1YnRyYWN0IDEgYnl0ZSAocnFfc2EpIGZyb20gdGhlIGxlbmd0aCBvZiB0aGUgbXNn
+IHBhc3NlZCB0bwo+ICAgICA+ICsJICogcmF3IGkyY190cmFuc2Zlcgo+ICAgICA+ICsJICovCj4g
+ICAgID4gKwltc2dfbGVuID0gbXNnW0lQTUJfTVNHX0xFTl9JRFhdIC0gMTsKPiAgICAgPiArCj4g
+ICAgID4gKwlpMmNfYnVmID0ga3phbGxvYyhtc2dfbGVuLCBHRlBfS0VSTkVMKTsKPiAgICAgPiAr
+CWlmICghaTJjX2J1ZikKPiAgICAgPiArCQlyZXR1cm4gLUVGQVVMVDsKPiAgICAgPiArCj4gICAg
+ID4gKwkvKiBDb3B5IG1lc3NhZ2UgdG8gYnVmZmVyIGV4Y2VwdCBmaXJzdCAyIGJ5dGVzIChsZW5n
+dGggYW5kIGFkZHJlc3MpICovCj4gICAgID4gKwltZW1jcHkoaTJjX2J1ZiwgbXNnKzIsIG1zZ19s
+ZW4pOwo+ICAgICA+ICsKPiAgICAgPiArCWkyY19tc2cuYWRkciA9IHJxX3NhOwo+ICAgICA+ICsJ
+aTJjX21zZy5mbGFncyA9IGlwbWJfZGV2LT5jbGllbnQtPmZsYWdzICYKPiAgICAgPiArCQkJKEky
+Q19NX1RFTiB8IEkyQ19DTElFTlRfUEVDIHwgSTJDX0NMSUVOVF9TQ0NCKTsKPiAgICAgPiArCWky
+Y19tc2cubGVuID0gbXNnX2xlbjsKPiAgICAgPiArCWkyY19tc2cuYnVmID0gaTJjX2J1ZjsKPiAg
+ICAgPiArCj4gICAgID4gKwlyZXQgPSBpMmNfdHJhbnNmZXIoaXBtYl9kZXYtPmNsaWVudC0+YWRh
+cHRlciwgJmkyY19tc2csIDEpOwo+ICAgICA+ICsJa2ZyZWUoaTJjX2J1Zik7Cj4gICAgID4gKwo+
+ICAgICA+ICsJcmV0dXJuIChyZXQgPT0gMSkgPyBjb3VudCA6IHJldDsKPiAgICAgPiArI2Vsc2UK
+PiAgICAgPiAgCS8qCj4gICAgID4gIAkgKiBzdWJ0cmFjdCBycV9zYSBhbmQgbmV0Zl9ycV9sdW4g
+ZnJvbSB0aGUgbGVuZ3RoIG9mIHRoZSBtc2cgcGFzc2VkIHRvCj4gICAgID4gIAkgKiBpMmNfc21i
+dXNfeGZlcgo+ICAgICA+IEBAIC0xNDksNiArMTc4LDcgQEAgc3RhdGljIHNzaXplX3QgaXBtYl93
+cml0ZShzdHJ1Y3QgZmlsZSAqZmlsZSwgY29uc3QgY2hhciBfX3VzZXIgKmJ1ZiwKPiAgICAgPiAg
+CQkJICAgICBJMkNfU01CVVNfQkxPQ0tfREFUQSwgJmRhdGEpOwo+ICAgICA+ICAKPiAgICAgPiAg
+CXJldHVybiByZXQgPyA6IGNvdW50Owo+ICAgICA+ICsjZW5kaWYKPiAgICAgPiAgfQo+ICAgICA+
+ICAKPiAgICAgPiAgc3RhdGljIHVuc2lnbmVkIGludCBpcG1iX3BvbGwoc3RydWN0IGZpbGUgKmZp
+bGUsIHBvbGxfdGFibGUgKndhaXQpCj4gICAgID4gLS0gCj4gICAgID4gMi4xNy4xCj4gICAgID4g
+Cj4gICAgIAo+IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxp
+c3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9s
+aXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
