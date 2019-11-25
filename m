@@ -2,123 +2,105 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 91F3510795B
-	for <lists+openipmi-developer@lfdr.de>; Fri, 22 Nov 2019 21:17:23 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 68C5210926F
+	for <lists+openipmi-developer@lfdr.de>; Mon, 25 Nov 2019 17:59:58 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1iYFMn-00078k-5L; Fri, 22 Nov 2019 20:17:21 +0000
+	id 1iZHiO-00015m-Ti; Mon, 25 Nov 2019 16:59:56 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <Asmaa@mellanox.com>) id 1iYFMg-00078L-GL
- for openipmi-developer@lists.sourceforge.net; Fri, 22 Nov 2019 20:17:14 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1iZHiN-00015S-CI
+ for openipmi-developer@lists.sourceforge.net; Mon, 25 Nov 2019 16:59:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=CMVTJs3gA21QbjgXI/0Pv/F3ftSB8rP6iacsqtlb4GU=; b=kAsB3tiYxR6MQ9OkfiQdVYjVNK
- Q5n6grJLWv+VV3C5tXy/KuvAcqAQ8O0rs+Td6/PGEvhnH4LAv13GjqpJ2C+YiXMb3Ar43meH0OYrF
- +1y8Rief2DaQwyrvlz0jrZskgxpQf6YEpOvBCzpvrZaT2MHC2H9eY4JOkZzEC4djvtcI=;
+ bh=7wb5i6/FZxQaE8n+z8M7xj50uZOfM6qEKwZxz5PmeaU=; b=msm/byXTW1ihiE05S1i6ubaITU
+ XPLIO8Zlb+Tze1Uh6UxzA3OnckYLLjXT5vJmD6/7kYbohA/dIJESbIG03x4VATrHrUsLdK3KaguNd
+ foJ3zpJkIgw0kSIxpYGgIpsnenbyMGXNnm5C+Mj0DpSt9RN51TOcLsChZHqVbSug1Z4M=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:
- References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=CMVTJs3gA21QbjgXI/0Pv/F3ftSB8rP6iacsqtlb4GU=; b=iQ4KLuuQQDEyXU9VImRo5EQZWo
- GlIivra6EkiMqVxGDwFXQf8XNVUQWC0RAkH4jdjUPIr9Iz2qdzecx+4CAhZlAwUJ16cLJlXh7ZiDg
- Hw6tVPgGVrOKbzPq+S/jn36DTYNvke6AZef/PFjqP6H3ivqvmjNVx6pJ+zIzMjjPZCas=;
-Received: from mail-eopbgr140044.outbound.protection.outlook.com
- ([40.107.14.44] helo=EUR01-VE1-obe.outbound.protection.outlook.com)
+ h=Content-Type:MIME-Version:Reply-To:Message-ID:Subject:Cc:To:From:Date:
+ Sender:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=7wb5i6/FZxQaE8n+z8M7xj50uZOfM6qEKwZxz5PmeaU=; b=V
+ gZOOa8mCfOhuYQ36wUsk8jUF2KfXaxviRiOvW7/dXTGDWTsY5vzSUAeFpDkDxmC+maffK6H4T1i6W
+ jJVOG/upL3sujyfQ+L6nNLztgDCRkpf5qYXfOVzx0irl1pLlbduLW4JSCXtBs19iabh97cpKfsy9/
+ tZhPSwOD7Lf23xM8=;
+Received: from mail-ot1-f65.google.com ([209.85.210.65])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iYFMZ-000tWX-V0
- for openipmi-developer@lists.sourceforge.net; Fri, 22 Nov 2019 20:17:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Uwwx2VkhgBTHn8OpB9M/vWBRo/KuUdsGedAtVKNNkG1afnssY56/MYXBjciKHZF78BwQTRmrvmVMvt1tfpUeSs6xcLEs2uxb+zlN0BQMW7iVfLFUn1smY3E/SK+c0gGH/p1SDSHEo72pLce5YpoFi25vfgBrPitsaogC+iPLsjz5WkQjB2aEgBHk0/on1KjlD+qtu7cPaNB7ZKHE24g+EfpZT6A/7LQxV5waDGKUJ6qwLvT7vTdXSwp24K5cWEDDAXNIg7t2jvFOCFtla8VzKyjJ8mVOXjMAxVsE1HgaVi5mdgCVFPi/5T5SIkrPl7CQpsONqsv47scpnplweB0geg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CMVTJs3gA21QbjgXI/0Pv/F3ftSB8rP6iacsqtlb4GU=;
- b=P2kOSkw5cIgZDTgfeILLoW8B3Z7cI8+dpGNRChHTJLPawL/DbJHbNVrFrdlk7e4K/Ygl4Hh+YlkukSXwP4xrh+HtqLcW0hC3PEnwaDo6hfBwGFBMHK7zJhpbfuDQhSJPZw4egR+gX8jlEqZj16mmI/r6Bo43SfsX2wlWzHpeYWk/HEPDRUWl7SWdtmYb6VYn2ljcjhrmKbQlKOrDfPvF4n6fqvdpoz5+pGwSTdgI0woHPB1KiuA0xK8DvlXrQGy/gdYNJRGdRzDL+Qti93moQAmkjG6/xhuFfJOEzUDn3vUf2TXD3yzNqcW009xj47d7ibQ2sR/typMdymGRpqbxzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mellanox.com; dmarc=pass action=none header.from=mellanox.com;
- dkim=pass header.d=mellanox.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Mellanox.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CMVTJs3gA21QbjgXI/0Pv/F3ftSB8rP6iacsqtlb4GU=;
- b=E7pvN+Esz3xmvUNC0ZZAhIoii7zM/uxSadML1Cg6Bjq1MH7uGlzE8RxOHUPRm64596g93nlrXAs/2ewgXAju6jsIQT6DNLS9Omdg1axFNfUAtXFQ9VvUnl77lqb1+mcKtsQf8qYC5vwjkgFlCu8HI9I/T/gNjLNQvROMSwq6WE0=
-Received: from DB6PR0501MB2712.eurprd05.prod.outlook.com (10.172.225.17) by
- DB6PR0501MB2549.eurprd05.prod.outlook.com (10.168.77.14) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2474.16; Fri, 22 Nov 2019 19:43:06 +0000
-Received: from DB6PR0501MB2712.eurprd05.prod.outlook.com
- ([fe80::99be:5f3a:9871:ecd1]) by DB6PR0501MB2712.eurprd05.prod.outlook.com
- ([fe80::99be:5f3a:9871:ecd1%12]) with mapi id 15.20.2474.021; Fri, 22 Nov
- 2019 19:43:06 +0000
-From: Asmaa Mnebhi <Asmaa@mellanox.com>
-To: "minyard@acm.org" <minyard@acm.org>, Luc Van Oostenryck
- <luc.vanoostenryck@gmail.com>
-Thread-Topic: [PATCH] ipmi: fix ipmb_poll()'s return type
-Thread-Index: AQHVoWy9dzHT4ezyPkGsfMiFXFnBaaeXlxkg
-Date: Fri, 22 Nov 2019 19:43:06 +0000
-Message-ID: <DB6PR0501MB27127F64884DEA1AF3E4620ADA490@DB6PR0501MB2712.eurprd05.prod.outlook.com>
-References: <20191120000741.30657-1-luc.vanoostenryck@gmail.com>
- <20191122194041.GB3527@minyard.net>
-In-Reply-To: <20191122194041.GB3527@minyard.net>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Asmaa@mellanox.com; 
-x-originating-ip: [216.156.69.42]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 0c59618a-b592-4395-ba42-08d76f843206
-x-ms-traffictypediagnostic: DB6PR0501MB2549:
-x-microsoft-antispam-prvs: <DB6PR0501MB2549E74BEC90F4DC6370A07ADA490@DB6PR0501MB2549.eurprd05.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:4941;
-x-forefront-prvs: 02296943FF
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(4636009)(376002)(39860400002)(366004)(136003)(346002)(396003)(13464003)(199004)(189003)(102836004)(186003)(316002)(6506007)(53546011)(25786009)(110136005)(7696005)(54906003)(52536014)(71200400001)(11346002)(446003)(5660300002)(80792005)(71190400001)(256004)(26005)(76176011)(4326008)(55016002)(8676002)(14444005)(7736002)(305945005)(9686003)(66066001)(2906002)(6246003)(74316002)(86362001)(229853002)(81166006)(81156014)(76116006)(2501003)(14454004)(66476007)(8936002)(64756008)(66556008)(478600001)(3846002)(66946007)(66446008)(99286004)(6116002)(33656002)(6436002);
- DIR:OUT; SFP:1101; SCL:1; SRVR:DB6PR0501MB2549;
- H:DB6PR0501MB2712.eurprd05.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-received-spf: None (protection.outlook.com: mellanox.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Bhy+7VwUzGSo5o1zKncK8uNJ8ShwHq5LD/lYmNqyTByxhVtrTecMrPebP1u3zSa+N8wL7zFyi+rrZi61bKASeCmCozaWTCdIKt9ETOFHnWjmXw8gTlu2i5MloqhEAZVFUo03YS9sNV7K4WCo6yCNXKnbPUCcwo30pnHTAWULa3wIvlZtb4FC5oHsyFfz+6K7uumMvmUDk0gY2tbPhQbFCw8GIWY5iQL0kG0y3tcLgq/vK8Q9zB93/RGELjYSVPh3gUFWvjtWyGTYTEzjkFC0eUO+7YnU5gC57ngvQ9dsMlZAqzFKBs53sb4HUcQV8Kv18GT1heVDqSprFo2CJjtGrulLnCWY4NJ/hSXa2n3yXxsQkAF/FcP0g4Q6RacKFXjtL9jpRMPEHLv9/SVxmpx65+GryCbygttHKrJXD/6GyrP/5z3EnQPuH7w0GkVgr4nk
-x-ms-exchange-transport-forked: True
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1iZHiL-0053x5-M9
+ for openipmi-developer@lists.sourceforge.net; Mon, 25 Nov 2019 16:59:55 +0000
+Received: by mail-ot1-f65.google.com with SMTP id 23so11464057otf.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Mon, 25 Nov 2019 08:59:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:reply-to:mime-version
+ :content-disposition:user-agent;
+ bh=7wb5i6/FZxQaE8n+z8M7xj50uZOfM6qEKwZxz5PmeaU=;
+ b=iOECNUjZXp49nZ2MCe9bj60ze2SZ2L6VMgYGHDzN3UqmIv35jp4a/RrIMDAzDIlpey
+ DQthatl4TaoPijcV7sPnm/Y0sX87B4U75hyhgDmAk8LvUhDqnqqAexhwjzNtATxJNRek
+ Yr4yM/Ow9vsZi6VnlX844VYln/UamgXuoZjLoiGWUxPcHM+b3welYTaKTGvg4DNiRRWn
+ vbL1aaKT7YRPqBT9RLv6Lkp+RyvwJFJrQfPKpYzkIVCoQsYR6iQHW8en+9rnDxc0riEj
+ 8SMGAL3Mtng9qYisg7egnTlugqyO7ccaH8AjpzpXBWanf1Y8uyUSOiptZWyMWirIFMQX
+ 3W5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :reply-to:mime-version:content-disposition:user-agent;
+ bh=7wb5i6/FZxQaE8n+z8M7xj50uZOfM6qEKwZxz5PmeaU=;
+ b=LBC4Qg4hewYJXC4/JAKbjd8GVqiwD8NXWo8fPLn/eQacPD0fz2Q7zjjFfCjWjiHTVC
+ NwvY0ziFYxrhJ3dqM7BOqrgAgbfHXmPiRoaomqVZVUwP4DM+6yhCNpkJP4yXXqwvUlLF
+ NE7IfQpBWCtrzOTQovmbqSNJaOkfr5hYiQXOToY/cGli2pqefK6l3C9rak6xLXQxGuwf
+ ix6CTWKd+kD8gU74MezV10OaeVtH+6rvlyr+bba/Gm1a0CNHmxa2U0xjnQDb1BfE7i3O
+ Gq2m6zGIGpAb8JmhFWnrwWBU8V6Hp3g95L6MXycSriPYrzAnd1yexBnv/1WGT1kbdHIx
+ WOlg==
+X-Gm-Message-State: APjAAAVpDuAG+f7ZwDUWTVLJ8vpBopvwQROWfyQpPHWHEy5M4qD4dosH
+ j1tjZGEU8MJZAz/7cpb5h9PeNM5y4g==
+X-Google-Smtp-Source: APXvYqw+Aw8aP1poCHyxvIoa6KKGxP3DMLdI3yVaA0nRtNvja4Z0HzUm5BwKby8xArguyaJ988TmuA==
+X-Received: by 2002:a9d:77c5:: with SMTP id w5mr19822955otl.351.1574701187460; 
+ Mon, 25 Nov 2019 08:59:47 -0800 (PST)
+Received: from serve.minyard.net ([47.184.136.59])
+ by smtp.gmail.com with ESMTPSA id f93sm2574226otb.64.2019.11.25.08.59.46
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 25 Nov 2019 08:59:46 -0800 (PST)
+Received: from minyard.net (unknown [192.168.27.180])
+ by serve.minyard.net (Postfix) with ESMTPSA id 32AFA180046;
+ Mon, 25 Nov 2019 16:59:46 +0000 (UTC)
+Date: Mon, 25 Nov 2019 10:59:45 -0600
+From: Corey Minyard <minyard@acm.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <20191125165945.GC3527@minyard.net>
 MIME-Version: 1.0
-X-OriginatorOrg: Mellanox.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c59618a-b592-4395-ba42-08d76f843206
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Nov 2019 19:43:06.0662 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a652971c-7d2e-4d9b-a6a4-d149256f461b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ijQ+HftZDk4dExIDnqJ1DxOE37ZENIqjpS5Xo8N5PLNEDJoiYRktftqOf/wOcj6UxJqim8Ka/ykR/PmopkGxGQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB6PR0501MB2549
-X-Spam-Score: -0.1 (/)
+Content-Disposition: inline
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (tcminyard[at]gmail.com)
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [40.107.14.44 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ trust [209.85.210.65 listed in list.dnswl.org]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.65 listed in wl.mailspike.net]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1iYFMZ-000tWX-V0
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: fix ipmb_poll()'s return type
+ -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
+ freemail headers are different
+X-Headers-End: 1iZHiL-0053x5-M9
+Subject: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 5.5
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -131,71 +113,57 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Reply-To: minyard@acm.org
+Cc: openipmi-developer@lists.sourceforge.net,
+ linux-kernel <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Reviewed-by: Asmaa Mnebhi <asmaa@mellanox.com>
+The following changes since commit 3b7c59a1950c75f2c0152e5a9cd77675b09233d6:
 
------Original Message-----
-From: Corey Minyard <tcminyard@gmail.com> On Behalf Of Corey Minyard
-Sent: Friday, November 22, 2019 2:41 PM
-To: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
-Cc: linux-kernel@vger.kernel.org; openipmi-developer@lists.sourceforge.net; Greg Kroah-Hartman <gregkh@linuxfoundation.org>; Asmaa Mnebhi <Asmaa@mellanox.com>
-Subject: Re: [PATCH] ipmi: fix ipmb_poll()'s return type
+  Merge tag 'pinctrl-v5.4-2' of git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl (2019-10-22 06:40:07 -0400)
 
-On Wed, Nov 20, 2019 at 01:07:41AM +0100, Luc Van Oostenryck wrote:
-> ipmb_poll() is defined as returning 'unsigned int' but the .poll 
-> method is declared as returning '__poll_t', a bitwise type.
-> 
-> Fix this by using the proper return type and using the EPOLL constants 
-> instead of the POLL ones, as required for __poll_t.
+are available in the Git repository at:
 
-Copying the author for comment, but this looks ok with me.
+  https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.5-1
 
--corey
+for you to fetch changes up to 8e6a5c833333e14a5023a5dcabb64b7d9e046bc6:
 
-> 
-> CC: Corey Minyard <minyard@acm.org>
-> CC: openipmi-developer@lists.sourceforge.net
-> CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Signed-off-by: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
-> ---
->  drivers/char/ipmi/ipmb_dev_int.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmb_dev_int.c 
-> b/drivers/char/ipmi/ipmb_dev_int.c
-> index 285e0b8f9a97..2ea51147c3e8 100644
-> --- a/drivers/char/ipmi/ipmb_dev_int.c
-> +++ b/drivers/char/ipmi/ipmb_dev_int.c
-> @@ -154,16 +154,16 @@ static ssize_t ipmb_write(struct file *file, const char __user *buf,
->  	return ret ? : count;
->  }
->  
-> -static unsigned int ipmb_poll(struct file *file, poll_table *wait)
-> +static __poll_t ipmb_poll(struct file *file, poll_table *wait)
->  {
->  	struct ipmb_dev *ipmb_dev = to_ipmb_dev(file);
-> -	unsigned int mask = POLLOUT;
-> +	__poll_t mask = EPOLLOUT;
->  
->  	mutex_lock(&ipmb_dev->file_mutex);
->  	poll_wait(file, &ipmb_dev->wait_queue, wait);
->  
->  	if (atomic_read(&ipmb_dev->request_queue_len))
-> -		mask |= POLLIN;
-> +		mask |= EPOLLIN;
->  	mutex_unlock(&ipmb_dev->file_mutex);
->  
->  	return mask;
-> --
-> 2.24.0
-> 
+  ipmi: fix ipmb_poll()'s return type (2019-11-22 13:54:55 -0600)
+
+----------------------------------------------------------------
+Some small fixes accumulated for IPMI, nothing major.
+
+----------------------------------------------------------------
+Andy Shevchenko (1):
+      ipmi: use %*ph to print small buffer
+
+Arnd Bergmann (1):
+      ipmi: kill off 'timespec' usage again
+
+Corey Minyard (1):
+      ipmi: Don't allow device module unload when in use
+
+Luc Van Oostenryck (1):
+      ipmi: fix ipmb_poll()'s return type
+
+Navid Emamdoost (1):
+      ipmi: Fix memory leak in __ipmi_bmc_register
+
+Vijay Khemka (1):
+      drivers: ipmi: Support for both IPMB Req and Resp
+
+YueHaibing (1):
+      ipmi: bt-bmc: use devm_platform_ioremap_resource() to simplify code
+
+ drivers/char/ipmi/bt-bmc.c          |  4 +--
+ drivers/char/ipmi/ipmb_dev_int.c    | 37 ++++++++-----------------
+ drivers/char/ipmi/ipmi_msghandler.c | 55 ++++++++++++++++---------------------
+ drivers/char/ipmi/ipmi_si_intf.c    | 40 +++++++++------------------
+ include/linux/ipmi_smi.h            | 12 +++++---
+ 5 files changed, 58 insertions(+), 90 deletions(-)
+
 
 
 _______________________________________________
