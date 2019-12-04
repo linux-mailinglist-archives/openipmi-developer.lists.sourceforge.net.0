@@ -2,91 +2,71 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id ABBC611002A
-	for <lists+openipmi-developer@lfdr.de>; Tue,  3 Dec 2019 15:31:37 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 69FB31130DD
+	for <lists+openipmi-developer@lfdr.de>; Wed,  4 Dec 2019 18:34:49 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ic9DD-00061a-Rt; Tue, 03 Dec 2019 14:31:35 +0000
+	id 1icYY3-00036c-DE; Wed, 04 Dec 2019 17:34:47 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <robh+dt@kernel.org>) id 1ic9DC-00061C-ON
- for openipmi-developer@lists.sourceforge.net; Tue, 03 Dec 2019 14:31:34 +0000
+ (envelope-from <john.garry@huawei.com>) id 1icYY2-00034t-Ch
+ for openipmi-developer@lists.sourceforge.net; Wed, 04 Dec 2019 17:34:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Date:Message-ID:Subject:From:CC:To:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=r/V+Zw+Wkdele1M32QRoHvABt0XYPtDwIi0dSI3baWw=; b=lEI/caB1ngRwqMDgaNWYLg7T+2
- lS4LbHNFxzLaEpggOcvQIisaTM3+LHAlaN8TWha36oLSdJGvIXb6YhsSvRifoTLbqreFG/ycZl1c4
- 6k1ypNb9hddJZ+aBEC7bQSb0eNOmVbBQ32lBTiTUgAWrGNzbbbkh4/C10v82ENQUPg84=;
+ bh=yVArPpfRAX86vc7zopT3ZTP+FfGAFA/jPUVXal+YMRc=; b=UGN9cmxXHZGSD8En7KcXVl4YGw
+ h/JPwfXGCYJYf0gLUveaSCMscYH0mPIFaGvekr8+sVXNyVexe81zQoRsh24v4PrHUhM6EmciiilSS
+ whQmXTDnn8jtd7K/r9K4QcDpnXJ7t5K73hrWOi3BrBW1oTrcwlSlhtEY2tZePlngFWuA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=r/V+Zw+Wkdele1M32QRoHvABt0XYPtDwIi0dSI3baWw=; b=eA4xm11GVQQt1Kyp4g7t1dZPG7
- I/pq3Ps3JTSNYqEjvwV+Dl+Hz7Sc2/4LnQJBVyxlBVaDrub0BVwBX3Fh7VPWVsmSTp4GqO6Es01N9
- jwMsPSBGPPL7NzM/kl7nLYk4rWwzBJlyjvIon/2yTwmrE/NOS3yfm1bpvqxaEOpn/aZI=;
-Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-ID:
+ Subject:From:CC:To:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=yVArPpfRAX86vc7zopT3ZTP+FfGAFA/jPUVXal+YMRc=; b=J
+ a6x0wGZ8wrZbbp+e28d927dfw0jub+FbpJ/cAsYc/oPIGBacBVRRiFrGS0MhVubckUFz3O9Oems7X
+ A0O7peivXls0+VwODIHPWe4aCRZV206C4iZRN4up1ZmnUM5K/SGziOxeKtMyMSB/I2CqNpQgVp4Bn
+ uHReiBhjGg27XquI=;
+Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1ic9DB-005s59-I4
- for openipmi-developer@lists.sourceforge.net; Tue, 03 Dec 2019 14:31:34 +0000
-Received: from mail-qv1-f53.google.com (mail-qv1-f53.google.com
- [209.85.219.53])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id D94842080F
- for <openipmi-developer@lists.sourceforge.net>;
- Tue,  3 Dec 2019 14:31:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1575383488;
- bh=paDjy7hZsmQkcUp7jKSH70ftPLffSgdTsEFpUetgz24=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=R73JqXZO27i7uFuaBaYq9o5NUsUs/1I6F7Y8hcmq5mT7j5AnKfUBEHcMrVZbk+yYF
- eiAv4eyAZleeAlLHquPfNBxXv0HA6QgV4VHvXkoeotsu7QQ1sG+5NncRgpZh8rQ+N5
- DH1PptTi3YRW/LdT21dj7wlrXH02g25SDcge8tFk=
-Received: by mail-qv1-f53.google.com with SMTP id t9so1545680qvh.13
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 03 Dec 2019 06:31:27 -0800 (PST)
-X-Gm-Message-State: APjAAAU/6P7Vgi+XBski0vuYICXAd7RVubSSWGyoQtdAU/V5d3zh+zH9
- 2mwDizPmWTOTFpvwqvBPmRc+7jlXaov02BksZg==
-X-Google-Smtp-Source: APXvYqxDBnGQNKjTk3qSKKiOvMvxPKQPV7m6ur08FqhiSl9j9w8DAHBF3481M9puWdGG8hXS2X7yJKuiKlMAjUfp4E0=
-X-Received: by 2002:a05:6214:11ac:: with SMTP id
- u12mr5420247qvv.85.1575383483847; 
- Tue, 03 Dec 2019 06:31:23 -0800 (PST)
+ id 1icYXy-009MER-J7
+ for openipmi-developer@lists.sourceforge.net; Wed, 04 Dec 2019 17:34:46 +0000
+Received: from lhreml704-cah.china.huawei.com (unknown [172.18.7.108])
+ by Forcepoint Email with ESMTP id CC18074A051245D850AE;
+ Wed,  4 Dec 2019 17:19:12 +0000 (GMT)
+Received: from lhreml724-chm.china.huawei.com (10.201.108.75) by
+ lhreml704-cah.china.huawei.com (10.201.108.45) with Microsoft SMTP Server
+ (TLS) id 14.3.408.0; Wed, 4 Dec 2019 17:19:12 +0000
+Received: from [127.0.0.1] (10.202.226.46) by lhreml724-chm.china.huawei.com
+ (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.1713.5; Wed, 4 Dec 2019
+ 17:19:12 +0000
+To: Corey Minyard <minyard@acm.org>
+From: John Garry <john.garry@huawei.com>
+Message-ID: <f6fc58e5-2133-9560-a5bd-5cadc107ac51@huawei.com>
+Date: Wed, 4 Dec 2019 17:19:11 +0000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.1.2
 MIME-Version: 1.0
-References: <cover.5630f63168ad5cddf02e9796106f8e086c196907.1575376664.git-series.andrew@aj.id.au>
- <3da2492c244962c27b21aad87bfa6bf74f568f1d.1575376664.git-series.andrew@aj.id.au>
-In-Reply-To: <3da2492c244962c27b21aad87bfa6bf74f568f1d.1575376664.git-series.andrew@aj.id.au>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Tue, 3 Dec 2019 08:31:10 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+3qXJbTu9G42g11PLJH-A0XeSQmJKj0obO32QFna3dEA@mail.gmail.com>
-Message-ID: <CAL_Jsq+3qXJbTu9G42g11PLJH-A0XeSQmJKj0obO32QFna3dEA@mail.gmail.com>
-To: Andrew Jeffery <andrew@aj.id.au>
-X-Spam-Score: -0.1 (/)
+Content-Language: en-US
+X-Originating-IP: [10.202.226.46]
+X-ClientProxiedBy: lhreml702-chm.china.huawei.com (10.201.108.51) To
+ lhreml724-chm.china.huawei.com (10.201.108.75)
+X-CFilter-Loop: Reflected
+X-Spam-Score: -0.4 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: aj.id.au]
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
-X-Headers-End: 1ic9DB-005s59-I4
-Subject: Re: [Openipmi-developer] [PATCH 1/3] dt-bindings: ipmi: aspeed:
- Introduce a v2 binding for KCS
+ -0.4 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1icYXy-009MER-J7
+Subject: [Openipmi-developer] Suspicious RCU usage in ipmi code
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,79 +79,128 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Corey Minyard <minyard@acm.org>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-aspeed@lists.ozlabs.org, openipmi-developer@lists.sourceforge.net,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: openipmi-developer@lists.sourceforge.net,
+ Anders Roxell <anders.roxell@linaro.org>, paulmck@kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Dec 3, 2019 at 6:36 AM Andrew Jeffery <andrew@aj.id.au> wrote:
->
-> The v2 binding utilises reg and renames some of the v1 properties.
->
-> Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
-> ---
->  Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt | 20 +++++---
->  1 file changed, 14 insertions(+), 6 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt b/Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt
-> index d98a9bf45d6c..76b180ebbde4 100644
-> --- a/Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt
-> +++ b/Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt
-> @@ -1,9 +1,10 @@
-> -* Aspeed KCS (Keyboard Controller Style) IPMI interface
-> +# Aspeed KCS (Keyboard Controller Style) IPMI interface
->
->  The Aspeed SOCs (AST2400 and AST2500) are commonly used as BMCs
->  (Baseboard Management Controllers) and the KCS interface can be
->  used to perform in-band IPMI communication with their host.
->
-> +## v1
->  Required properties:
->  - compatible : should be one of
->      "aspeed,ast2400-kcs-bmc"
-> @@ -12,14 +13,21 @@ Required properties:
->  - kcs_chan : The LPC channel number in the controller
->  - kcs_addr : The host CPU IO map address
->
-> +## v2
-> +Required properties:
-> +- compatible : should be one of
-> +    "aspeed,ast2400-kcs-bmc-v2"
-> +    "aspeed,ast2500-kcs-bmc-v2"
-> +- reg : The address and size of the IDR, ODR and STR registers
-> +- interrupts : interrupt generated by the controller
-> +- slave-reg : The host CPU IO map address
+Hi Corey,
 
-aspeed,slave-reg
+I'm booting an allmodconfig kernel on my arm64 system from recent Linus' 
+master branch, and I see this:
 
->
->  Example:
->
-> -    kcs3: kcs3@0 {
-> -        compatible = "aspeed,ast2500-kcs-bmc";
-> -        reg = <0x0 0x80>;
-> +    kcs3: kcs@24 {
-> +        compatible = "aspeed,ast2500-kcs-bmc-v2";
-> +        reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
+[  188.241001][    T1] IPMI message handler: version 39.2
+[  188.247331][    T1] ipmi device interface
+[  188.256271][    T1]
+[  188.258541][    T1] =============================
+[  188.263388][    T1] WARNING: suspicious RCU usage
+[  188.268236][    T1] 5.4.0+ #1416 Not tainted
+[  188.272645][    T1] -----------------------------
+[  188.277496][    T1] drivers/char/ipmi/ipmi_msghandler.c:744 RCU-list 
+traversed in non-reader section!!
+[  188.286971][    T1]
+[  188.286971][    T1] other info that might help us debug this:
+[  188.286971][    T1]
+[  188.297235][    T1]
+[  188.297235][    T1] rcu_scheduler_active = 2, debug_locks = 1
+[  188.305314][    T1] 2 locks held by swapper/0/1:
+[  188.310072][    T1]  #0: ffffffd0149687f0 (smi_watchers_mutex){+.+.}, 
+at: ipmi_smi_watcher_register+0x5c/0x248
+[  188.320295][    T1]  #1: ffffffd016c9aff8 
+(&ipmi_interfaces_srcu){....}, at: ipmi_smi_watcher_register+0xa8/0x248
+[  188.330771][    T1]
+[  188.330771][    T1] stack backtrace:
+[  188.336671][    T1] CPU: 1 PID: 1 Comm: swapper/0 Not tainted 5.4.0+ 
+#1416
+[  188.343604][    T1] Hardware name: Huawei Taishan 2280 /D05, BIOS 
+Hisilicon D05 IT21 Nemo 2.0 RC0 04/18/2018
+[  188.353506][    T1] Call trace:
+[  188.356688][    T1]  dump_backtrace+0x0/0x3a0
+[  188.361089][    T1]  show_stack+0x28/0x38
+[  188.365142][    T1]  dump_stack+0x1ac/0x23c
+[  188.369371][    T1]  lockdep_rcu_suspicious+0x100/0x118
+[  188.374646][    T1]  ipmi_smi_watcher_register+0x134/0x248
+[  188.380185][    T1]  init_ipmi_devintf+0xec/0x140
+[  188.384936][    T1]  do_one_initcall+0x2f8/0x710
+[  188.389600][    T1]  kernel_init_freeable+0x304/0x3dc
+[  188.394701][    T1]  kernel_init+0x20/0x180
+[  188.398928][    T1]  ret_from_fork+0x10/0x18
+[  188.403333][    T1] ipmi_si: IPMI System Interface driver
+[  188.411646][    T1] ipmi_si hisi-lpc-ipmi.5.auto: ipmi_platform: 
+probing via ACPI
+[  188.421958][    T1] ipmi_si hisi-lpc-ipmi.5.auto: IRQ index 0 not found
+[  188.428737][    T1] ipmi_si hisi-lpc-ipmi.5.auto: ipmi_platform: [io 
+0xffc0e3-0xffc0e7] regsize 1 spacing 1 irq 0
+[  188.439386][    T1] ipmi_si: Adding ACPI-specified bt state machine
+[  188.448341][    T1] kobject: 'wakeup' ((____ptrval____)): 
+kobject_release, parent (____ptrval____) (delayed 1000)
+[  188.458824][    T1] kobject: 'wakeup20' ((____ptrval____)): 
+kobject_release, parent (____ptrval____) (delayed 250)
+[  188.471778][    T1] ipmi_si hisi-lpc-ipmi.5.auto: ipmi_platform: 
+probing via ACPI
+[  188.481621][    T1] ipmi_si hisi-lpc-ipmi.5.auto: IRQ index 0 not found
+[  188.488390][    T1] ipmi_si hisi-lpc-ipmi.5.auto: ipmi_platform: [io 
+0xffc0e3-0xffc0e7] regsize 1 spacing 1 irq 0
+[  188.498936][    T1] ipmi_si: Adding ACPI-specified bt state machine
+[  188.507082][    T1] ipmi_si: Trying ACPI-specified bt state machine 
+at i/o address 0xffc0e3, slave address 0x0, irq 0
+[  188.524402][    T1] ipmi_si hisi-lpc-ipmi.5.auto: bt cap response too 
+short: 3
+[  188.531809][    T1] ipmi_si hisi-lpc-ipmi.5.auto: using default values
+[  188.538483][    T1] ipmi_si hisi-lpc-ipmi.5.auto: req2rsp=5 secs 
+retries=2
+[  188.572794][    T1]
+[  188.575080][    T1] =============================
+[  188.579930][    T1] WARNING: suspicious RCU usage
+[  188.584797][    T1] 5.4.0+ #1416 Not tainted
+[  188.589206][    T1] -----------------------------
+[  188.594055][    T1] drivers/char/ipmi/ipmi_msghandler.c:3453 RCU-list 
+traversed in non-reader section!!
+[  188.603617][    T1]
+[  188.603617][    T1] other info that might help us debug this:
+[  188.603617][    T1]
+[  188.613884][    T1]
+[  188.613884][    T1] rcu_scheduler_active = 2, debug_locks = 1
+[  188.621945][    T1] 2 locks held by swapper/0/1:
+[  188.626704][    T1]  #0: ffffffd01496c8f0 (smi_infos_lock){+.+.}, at: 
+init_ipmi_si+0x78/0x24c
+[  188.635436][    T1]  #1: ffffffd0149689b0 
+(ipmi_interfaces_mutex){+.+.}, at: ipmi_add_smi+0x5e4/0xae0
+[  188.644864][    T1]
+[  188.644864][    T1] stack backtrace:
+[  188.650765][    T1] CPU: 1 PID: 1 Comm: swapper/0 Not tainted 5.4.0+ 
+#1416
+[  188.657698][    T1] Hardware name: Huawei Taishan 2280 /D05, BIOS 
+Hisilicon D05 IT21 Nemo 2.0 RC0 04/18/2018
+[  188.667598][    T1] Call trace:
+[  188.670777][    T1]  dump_backtrace+0x0/0x3a0
+[  188.675178][    T1]  show_stack+0x28/0x38
+[  188.679230][    T1]  dump_stack+0x1ac/0x23c
+[  188.683458][    T1]  lockdep_rcu_suspicious+0x100/0x118
+[  188.688726][    T1]  ipmi_add_smi+0x630/0xae0
+[  188.688745][    T1]  try_smi_init+0xdbc/0xf18
+[  188.688759][    T1]  init_ipmi_si+0x14c/0x24c
+[  188.688773][    T1]  do_one_initcall+0x2f8/0x710
+[  188.688787][    T1]  kernel_init_freeable+0x304/0x3dc
+[  188.688802][    T1]  kernel_init+0x20/0x180
+[  188.688815][    T1]  ret_from_fork+0x10/0x18
+[  188.731333][    T1] ipmi_si hisi-lpc-ipmi.5.auto: IPMI message 
+handler: Found new BMC (man_id: 0x0007db, prod_id: 0x0001, dev_id: 0x01)
+[  188.935301][    T1] ipmi_si hisi-lpc-ipmi.5.auto: IPMI bt interface 
+initialized
+[  188.942797][    T1] ipmi_ssif: IPMI SSIF Interface driver
 
-What are the other registers in this address space? I'm not so sure
-this is an improvement if you end up with a bunch of nodes with single
-registers.
+In the code we seem to be using srcu read lock instead of rcu read lock 
+for list iteration protection, but that's a quick analysis. And there is 
+also a mutex locked in ipmi_smi_watcher_register() [didn't check the 
+other case], so I wonder if rcu list iterator variant is required at all.
 
->          interrupts = <8>;
-> -        kcs_chan = <3>;
-> -        kcs_addr = <0xCA2>;
-> +        slave-reg = <0xca2>;
->          status = "okay";
->      };
-> --
-> git-series 0.9.1
+Apologies if this has been reported previously. I see that Anders 
+(cc'ed) has been reporting some of these sorts of issues.
+
+Thanks,
+John
 
 
 _______________________________________________
