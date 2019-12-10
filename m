@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id D0853119353
-	for <lists+openipmi-developer@lfdr.de>; Tue, 10 Dec 2019 22:10:01 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9A071119780
+	for <lists+openipmi-developer@lfdr.de>; Tue, 10 Dec 2019 22:34:00 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1iemlb-0005p3-SR; Tue, 10 Dec 2019 21:09:59 +0000
+	id 1ien8o-0002KH-MI; Tue, 10 Dec 2019 21:33:58 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <sashal@kernel.org>) id 1iemlZ-0005os-7M
- for openipmi-developer@lists.sourceforge.net; Tue, 10 Dec 2019 21:09:57 +0000
+ (envelope-from <sashal@kernel.org>) id 1ien8n-0002KA-BI
+ for openipmi-developer@lists.sourceforge.net; Tue, 10 Dec 2019 21:33:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=UKCDb1CijpIFeYHJ9UO+WIzbdaoZMRc2lTT15FYJ0hI=; b=QYIVFMW9gmHGzJE14s6RZ1+9Yg
- 0FDq6bA2xJPKnot87p4no//iloGsax+ht4vK5RbXpl2tfjbwAHM8g9UMXJWnggmlQ21Ed1smmZoed
- kTJQh+WvOQdLyWZ408aJBcbQSdvZcULMEUFmb9XnYVXuhQ0IGD9oHtLcFnKlU1d3+a6c=;
+ bh=CATFRczZRgulcY8/1bnT1ZzErVzg2KkMKCLnbzJyqBQ=; b=bQUL7RyF57ZN+KM+YfCGnBA1O5
+ nzichmDPlr8hJGwxlB3pqKL+ucdRzF3XkOH5u9SmJtaqZDc8xpemYi4zkTsPReoo25AdQBgMrgn7S
+ HMuR4AQSycH4a4gWd5byYc0fp8+kT2q4XKqDhUBhPSFTEYO+usepCGJGPcgyeuzygZpI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,35 +29,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=UKCDb1CijpIFeYHJ9UO+WIzbdaoZMRc2lTT15FYJ0hI=; b=juS37yWPdLDDXSbbZiKGKS5jSU
- 0BgXSZ3mSZqahKLeHUHdigr+/VAepEJVIRh9X71FDv+5y6m/sJvPBhHFAR2wuHVZ50IB6SCghKF+/
- dztm7FJc0bkZMe5mITNU4bQNy7uyDC4Lnegu5sehcKlwuMedrRoDqcvtLg/xJXGG0o7w=;
+ bh=CATFRczZRgulcY8/1bnT1ZzErVzg2KkMKCLnbzJyqBQ=; b=djaG5xkeYWxjZaCOWPQsgBEsJ6
+ aX9Y1CFH6ohrwV28ffeOHkAEHkV7qEJQB74LWHEpCd596e8tM6yEBlG7GBWPKnhuFhjw2CS+sha04
+ bhLfpMrvq6tVvFNmNypU98vlcUxbrOqqDyBNFlJveXOyMOk3Muj119WFSeVh6u6GFwlA=;
 Received: from mail.kernel.org ([198.145.29.99])
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1iemlV-000NpX-Uu
- for openipmi-developer@lists.sourceforge.net; Tue, 10 Dec 2019 21:09:57 +0000
+ id 1ien8m-000RPf-5b
+ for openipmi-developer@lists.sourceforge.net; Tue, 10 Dec 2019 21:33:57 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 95FFC24697;
- Tue, 10 Dec 2019 21:09:43 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id DF0AA24654;
+ Tue, 10 Dec 2019 21:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1576012184;
- bh=rxzjSJnbj4/fdS6pWGsFMYoWLp+HgY8/eUiuyL01MtA=;
+ s=default; t=1576013630;
+ bh=tVWIOcwtsUD+cqMK4L1fGArHlYXqP6Xo+X7a3GHCS1Y=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=S1mupsZxIiO0d2l2/AIPNupAASsV4YZieIfnIvAPhKznyyTPvewKGx+miNooye3D2
- kumTtg8pzMTADiovtEYtzn18KEpmgSgwwnl0OLdjcOixDQt5RjAMRPx5SxpimkJzvE
- 6Esx2g5HYCf7JXAkPu7/v1KUBvda8aI08uniT0U8=
+ b=N93cUA3dn281JwfQJ9nsZYPKGo3gkGNAxNKO/A9PjIVz7DJBfa8397TFAKCraC3Pu
+ x//QB31phQaUvY4sX/emynML4CQXwvF3BE0Kdh3brTk8BcynPUsUUF6MVTMSXC/DE0
+ 6T7qxhPd5kj94GPgcPmiRWM5W/AR6c/Y+V8D3+Bs=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Date: Tue, 10 Dec 2019 16:04:06 -0500
-Message-Id: <20191210210735.9077-102-sashal@kernel.org>
+Date: Tue, 10 Dec 2019 16:30:36 -0500
+Message-Id: <20191210213221.11921-72-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20191210210735.9077-1-sashal@kernel.org>
-References: <20191210210735.9077-1-sashal@kernel.org>
+In-Reply-To: <20191210213221.11921-1-sashal@kernel.org>
+References: <20191210213221.11921-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
@@ -77,8 +77,8 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  not necessarily valid
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
  -0.4 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1iemlV-000NpX-Uu
-Subject: [Openipmi-developer] [PATCH AUTOSEL 5.4 141/350] ipmi: Don't allow
+X-Headers-End: 1ien8m-000RPf-5b
+Subject: [Openipmi-developer] [PATCH AUTOSEL 4.19 072/177] ipmi: Don't allow
  device module unload when in use
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -128,10 +128,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  2 files changed, 24 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 2aab80e19ae06..3c8a559506e86 100644
+index 84c17f936c09c..91f2d92194892 100644
 --- a/drivers/char/ipmi/ipmi_msghandler.c
 +++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -448,6 +448,8 @@ enum ipmi_stat_indexes {
+@@ -447,6 +447,8 @@ enum ipmi_stat_indexes {
  
  #define IPMI_IPMB_NUM_SEQ	64
  struct ipmi_smi {
@@ -140,7 +140,7 @@ index 2aab80e19ae06..3c8a559506e86 100644
  	/* What interface number are we? */
  	int intf_num;
  
-@@ -1220,6 +1222,11 @@ int ipmi_create_user(unsigned int          if_num,
+@@ -1139,6 +1141,11 @@ int ipmi_create_user(unsigned int          if_num,
  	if (rv)
  		goto out_kfree;
  
@@ -152,7 +152,7 @@ index 2aab80e19ae06..3c8a559506e86 100644
  	/* Note that each existing user holds a refcount to the interface. */
  	kref_get(&intf->refcount);
  
-@@ -1349,6 +1356,7 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
+@@ -1269,6 +1276,7 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
  	}
  
  	kref_put(&intf->refcount, intf_free);
@@ -160,7 +160,7 @@ index 2aab80e19ae06..3c8a559506e86 100644
  }
  
  int ipmi_destroy_user(struct ipmi_user *user)
-@@ -2459,7 +2467,7 @@ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
+@@ -2384,7 +2392,7 @@ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
   * been recently fetched, this will just use the cached data.  Otherwise
   * it will run a new fetch.
   *
@@ -169,7 +169,7 @@ index 2aab80e19ae06..3c8a559506e86 100644
   * this will always return good data;
   */
  static int __bmc_get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc,
-@@ -3377,10 +3385,11 @@ static void redo_bmc_reg(struct work_struct *work)
+@@ -3304,10 +3312,11 @@ static void redo_bmc_reg(struct work_struct *work)
  	kref_put(&intf->refcount, intf_free);
  }
  
@@ -185,7 +185,7 @@ index 2aab80e19ae06..3c8a559506e86 100644
  {
  	int              i, j;
  	int              rv;
-@@ -3406,7 +3415,7 @@ int ipmi_register_smi(const struct ipmi_smi_handlers *handlers,
+@@ -3333,7 +3342,7 @@ int ipmi_register_smi(const struct ipmi_smi_handlers *handlers,
  		return rv;
  	}
  
@@ -194,7 +194,7 @@ index 2aab80e19ae06..3c8a559506e86 100644
  	intf->bmc = &intf->tmp_bmc;
  	INIT_LIST_HEAD(&intf->bmc->intfs);
  	mutex_init(&intf->bmc->dyn_mutex);
-@@ -3514,7 +3523,7 @@ int ipmi_register_smi(const struct ipmi_smi_handlers *handlers,
+@@ -3440,7 +3449,7 @@ int ipmi_register_smi(const struct ipmi_smi_handlers *handlers,
  
  	return rv;
  }
@@ -204,10 +204,10 @@ index 2aab80e19ae06..3c8a559506e86 100644
  static void deliver_smi_err_response(struct ipmi_smi *intf,
  				     struct ipmi_smi_msg *msg,
 diff --git a/include/linux/ipmi_smi.h b/include/linux/ipmi_smi.h
-index 4dc66157d8723..deec18b8944a8 100644
+index 7d5fd38d5282a..1995ce1467890 100644
 --- a/include/linux/ipmi_smi.h
 +++ b/include/linux/ipmi_smi.h
-@@ -224,10 +224,14 @@ static inline int ipmi_demangle_device_id(uint8_t netfn, uint8_t cmd,
+@@ -211,10 +211,14 @@ static inline int ipmi_demangle_device_id(uint8_t netfn, uint8_t cmd,
   * is called, and the lower layer must get the interface from that
   * call.
   */
