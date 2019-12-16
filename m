@@ -2,107 +2,99 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 44ACD11D299
-	for <lists+openipmi-developer@lfdr.de>; Thu, 12 Dec 2019 17:45:26 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6DC7D11FCD5
+	for <lists+openipmi-developer@lfdr.de>; Mon, 16 Dec 2019 03:26:36 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ifRad-0006LQ-VJ; Thu, 12 Dec 2019 16:45:23 +0000
+	id 1igg5i-0001LL-PU; Mon, 16 Dec 2019 02:26:34 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1ifRac-0006L8-GJ
- for openipmi-developer@lists.sourceforge.net; Thu, 12 Dec 2019 16:45:22 +0000
+ (envelope-from <andrew@aj.id.au>) id 1igg5h-0001Kz-Rk
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 Dec 2019 02:26:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Reply-To:Message-ID:
- Subject:To:From:Date:Sender:Cc:Content-Transfer-Encoding:Content-ID:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=HFwK/FD+n8CoWcqu5akTJj/32zrjzCLhbVdB8UG7uyw=; b=Ol1AV28pKV1eZ/k07U8f4enRud
- H1Wbp9I3i2ZptzQVLMK0u2dO4ifm/CUWRFQ24dTHJlT3J9CUDGkn5xT8FsWrhe/amoUeZL+WOceUS
- 2e+f4aQ4wVsi4sxfBmE2zFXQDEwkj95bTKmzYHNfqW4uFMxsyHTyH2Dd9CoiJmbANc9c=;
+ bh=HY55BCVsizFE8+s5E5ZBDonzCDFgxVsezznsO8iULcc=; b=W/5DE8JhxVXgG2bl9eS8TpFCFE
+ /jw/hs0UyJMXYCQqSJsaAlrDWW2b47Gu4KhXdzx5fPGaEtTJWLWp71SJ/g+TdszrF1Auin3BGK7gc
+ FIWlPAry6mWUnPbebheuP8ZJ3VccEvPU16Hhy/mg8R7jCPCP7VphK+y2gYRsXIKok7pM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:Reply-To:Message-ID:Subject:To:From:Date:Sender
- :Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
  Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
  References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=HFwK/FD+n8CoWcqu5akTJj/32zrjzCLhbVdB8UG7uyw=; b=f
- lAJVTQHPkoqZroTg5h8t2W+NQFe7sQSgVW6wOIZLa3peGuOAwAZnZ/eAOlptghiXTAqaX8+7wHnOw
- lYIBPMvBdAZqYuIPEiiyc0TBQM94SNHtNFt/k4rMhO2npu1C8Q3TtsKmwbCyWMHTJe020Pj2LjSb8
- a1pq9pEXTvkq2iUg=;
-Received: from mail-ot1-f53.google.com ([209.85.210.53])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1ifRaa-00CPji-PJ
- for openipmi-developer@lists.sourceforge.net; Thu, 12 Dec 2019 16:45:22 +0000
-Received: by mail-ot1-f53.google.com with SMTP id 59so2597911otp.12
- for <openipmi-developer@lists.sourceforge.net>;
- Thu, 12 Dec 2019 08:45:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:subject:message-id:reply-to:mime-version
- :content-disposition:user-agent;
- bh=HFwK/FD+n8CoWcqu5akTJj/32zrjzCLhbVdB8UG7uyw=;
- b=t4aX7dhnW27XtrcI1riiQO0Oe8uPd/qqXS02+vyOa2jzO2YmyfqqGKviwt8ktRGOeL
- MdeZbNsv4yjcnKoxIbuGVEFSjlk76SNMJb1Kk3bvLs51J7C2kb1sMxlFici9dMbNOB7p
- bjVztjXOseQylzW13tD5+xlEkgURACXaFCLiZ2Bx2++C2RQYN6/Nx31Jj/dHXNOIJGXG
- Lz4twv3kwmcjRh107rTKTMo/7p1W5wtl6fFMLk2y7DxIoLdmkGjea5Fp/8DXkHZ1YE7o
- Z8aYRlyC5rj86Vo9LToFdoyoGNrHu1CDD+p4VUYMiFgWsjJ5PSnpgyvVimxhK/k2O1T1
- Jy7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:subject:message-id:reply-to
- :mime-version:content-disposition:user-agent;
- bh=HFwK/FD+n8CoWcqu5akTJj/32zrjzCLhbVdB8UG7uyw=;
- b=pv9R6J8Gcb8iAfpmMHXIIB+8+pRwLJg5aFCVMinP7U/shscXjVWH+DQWHF3oaSleXC
- 8RZFMaS+3MY/xi1jtrlu4GhaQMj1wT9uFH0frx8EwHUMbvW6osmYFrZ9k+SPraSruilg
- RnF3uk/jvzfKkRj13UyWSpMzkqRAgJcXQoaxfumHAw1c/vAD0PaigdiZhKR6agTd1rYy
- JjNEffRutL5uGfCzE2M1BuI4VsHloPwNrrPgbLrKaR7CVJxA/V5PZd0MEWS86FdR5ybV
- oHbNBSL8dhEfRcqe6gcUMYYcsBJxHZ4wr8/tBOBSRoqFZn0Fq/s/smmdQMv08WCzcLR+
- KgzA==
-X-Gm-Message-State: APjAAAXHSp57LlPsDljHu0Bdjj0IOoi3ihwGvbuqNf4iPfZfiejBQaz4
- xtHqj0d+ufpobJomq76ET5oz/f0=
-X-Google-Smtp-Source: APXvYqz6NLWkIfv4JWQiEhweLjt2RHyskZt+MYTuUWDJJh9rtXZYl+MniQf7OQHq5/nYZhcSqXTCpw==
-X-Received: by 2002:a9d:6251:: with SMTP id i17mr9280907otk.14.1576169114404; 
- Thu, 12 Dec 2019 08:45:14 -0800 (PST)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id h24sm2299907otn.29.2019.12.12.08.45.11
- for <openipmi-developer@lists.sourceforge.net>
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 12 Dec 2019 08:45:11 -0800 (PST)
-Received: from minyard.net (unknown [192.168.27.180])
- by serve.minyard.net (Postfix) with ESMTPSA id AA491180059
- for <openipmi-developer@lists.sourceforge.net>;
- Thu, 12 Dec 2019 16:45:10 +0000 (UTC)
-Date: Thu, 12 Dec 2019 10:45:09 -0600
-From: Corey Minyard <minyard@acm.org>
-To: OpenIPMI Developers <openipmi-developer@lists.sourceforge.net>
-Message-ID: <20191212164509.GI2891@minyard.net>
+ List-Owner:List-Archive; bh=HY55BCVsizFE8+s5E5ZBDonzCDFgxVsezznsO8iULcc=; b=S
+ AGXCwgrBDqWNym5Kyj82PC5o1jX7xbdeDV0WRBTZpknNkS348EIiT9niI6g27E5e2dnK0Y3xhlCyQ
+ 78USvIlheQuwg//ELB+yJ4UZFk62rfc4q3XSU9c1Gvnp7VHNDzAFwDxib9EPbW/Q7mMP8SmMjtf05
+ acblPfqyrY50Gssg=;
+Received: from new4-smtp.messagingengine.com ([66.111.4.230])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1igg5b-006DPb-KQ
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 Dec 2019 02:26:33 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+ by mailnew.nyi.internal (Postfix) with ESMTP id 7C7466A76;
+ Sun, 15 Dec 2019 21:26:18 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+ by compute4.internal (MEProxy); Sun, 15 Dec 2019 21:26:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=from
+ :to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding; s=fm1; bh=HY55BCVsizFE8+s5E5ZBDonzCD
+ FgxVsezznsO8iULcc=; b=W+Xc8tt9dsunJkPbmapfHbyXyhB2inF4eWJeuWOiJK
+ dZFSGVbwBCmANEChYj5alB/hZdOX4dUzeEFoCulR6wEvurJgyZnG7gZ4hNMEJw7O
+ ML17QLvkLC8b1VkW88Ipi5wwQheF9It0JizgRIcmNe6xAn+l5cUssEEANiFtuwsV
+ CJMOWeSHjGe59br2dondIo7k0FNNQwvLz17UxCeGipUeLYqTuZJaf6evkummXk1C
+ M0MXvjoK2fRv5CRh3jooRUgParRsQ4TBaqHk96kIve28gcLA3ujO0nDUMfq3mPgB
+ Dvy42fejruxyv4bE/7AICUJOBgMp8gi9zPsEKcE+8Xcw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-transfer-encoding:date:from
+ :message-id:mime-version:subject:to:x-me-proxy:x-me-proxy
+ :x-me-sender:x-me-sender:x-sasl-enc; s=fm1; bh=HY55BCVsizFE8+s5E
+ 5ZBDonzCDFgxVsezznsO8iULcc=; b=tNboqBN9XCn19Xbkqh8Z5zg0fVHL8mEOg
+ QHIpglvdl8mFrMseerat/B+VBgkasl6ht6HkflO7N2rmBPz55RuJPFDiKTSbDdzA
+ gKBt/CD9Zib6C82j4ZeZYo97BoCG/Inus+mgEzOvpT004NtkevpDVGCobqdR1Xbu
+ BN9wZfo6df4ZpUSNUkuc0Kj+mwCLhfSTrx6a8XjNepX+ZXQ+XNc/SVPQsEPB6WnY
+ Qia1/0zSo37dOLsUlH25G4Tk8u6DXAtYYD6x7RFpmp8LuBTBEpPWBLV35p+Gefud
+ ToUfeAu+a2FvEd074k17YVQx1KvnuZY8fTUALi5I7aponf3KnD9AQ==
+X-ME-Sender: <xms:Sev2XXu6NPaW4uIIrHyI8tUYiHz8u1LPn_e95Knw_XJUqNoFNSjJfg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedufedrvddtgedggeehucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucenucfjughrpefhvffufffkofgggfestdekredtre
+ dttdenucfhrhhomheptehnughrvgifucflvghffhgvrhihuceorghnughrvgifsegrjhdr
+ ihgurdgruheqnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddtvddrke
+ durddukedrfedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrnhgurhgvfiesrghjrdhi
+ ugdrrghunecuvehluhhsthgvrhfuihiivgeptd
+X-ME-Proxy: <xmx:Sev2XUvprDZT1Kq-4QFhUz7J7QSFqx5SeRu6mf3Ueu-0YukI-wVLCQ>
+ <xmx:Sev2XUY_RdiEA_vgeARq788LRe5KrHlkxMNehsCziEbPKzxR1q3XNA>
+ <xmx:Sev2XWgG_MdkKBkDd5017W2E62NgbqFMzgBzJ959uBNJ9StiVF3nDQ>
+ <xmx:Suv2XUE0TtfxRlHxN7DSR5sC2uBzlN6uKISs_F3LqXqWglTBfKeGDg>
+Received: from mistburn.au.ibm.com (bh02i525f01.au.ibm.com [202.81.18.30])
+ by mail.messagingengine.com (Postfix) with ESMTPA id EDC798005A;
+ Sun, 15 Dec 2019 21:26:12 -0500 (EST)
+From: Andrew Jeffery <andrew@aj.id.au>
+To: openipmi-developer@lists.sourceforge.net
+Date: Mon, 16 Dec 2019 12:57:39 +1030
+Message-Id: <cover.fe20dfec1a7c91771c6bb574814ffb4bb49e2136.1576462051.git-series.andrew@aj.id.au>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Spam-Score: 0.5 (/)
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.53 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.210.53 listed in wl.mailspike.net]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
- -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1ifRaa-00CPji-PJ
-Subject: [Openipmi-developer] OpenIPMI 2.0.28 released
+X-Headers-End: 1igg5b-006DPb-KQ
+Subject: [Openipmi-developer] [PATCH v2 0/3] ipmi: kcs-bmc: Rework bindings
+ to clean up DT warnings
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -115,18 +107,43 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, minyard@acm.org,
+ arnd@arndb.de, gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, robh+dt@kernel.org, haiyue.wang@linux.intel.com,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Mostly minor updates.
+Hello,
 
-The ability for the IPMI BMC simulator to connect to a real IPMB bus on Linux was added by Asmaa Mnebhi. That's the only feature addition.
+This is a short series reworking the devicetree binding and driver for the
+ASPEED BMC KCS devices. With the number of supported ASPEED BMC devicetrees the
+changes enable removal of more than 100 lines of warning output from dtc.
 
-It's just been a while, and these updates should go out.
+v1 can be found here:
 
--corey
+https://lore.kernel.org/lkml/cover.5630f63168ad5cddf02e9796106f8e086c196907.1575376664.git-series.andrew@aj.id.au/
+
+v2 cleans up the commit message of 2/3 and changes the name of the property
+governing the LPC IO address for the KCS devices.
+
+Cheers,
+
+Andrew
+
+Andrew Jeffery (3):
+  dt-bindings: ipmi: aspeed: Introduce a v2 binding for KCS
+  ipmi: kcs: Finish configuring ASPEED KCS device before enable
+  ipmi: kcs: aspeed: Implement v2 bindings
+
+ Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt |  20 +-
+ drivers/char/ipmi/kcs_bmc_aspeed.c                        | 151 +++++--
+ 2 files changed, 139 insertions(+), 32 deletions(-)
+
+base-commit: 937d6eefc716a9071f0e3bada19200de1bb9d048
+-- 
+git-series 0.9.1
 
 
 _______________________________________________
