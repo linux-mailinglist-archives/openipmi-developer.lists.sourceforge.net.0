@@ -2,84 +2,100 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 67CC313E53D
-	for <lists+openipmi-developer@lfdr.de>; Thu, 16 Jan 2020 18:13:49 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B80E1430CD
+	for <lists+openipmi-developer@lfdr.de>; Mon, 20 Jan 2020 18:28:30 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1is8iJ-0003Pc-GA; Thu, 16 Jan 2020 17:13:47 +0000
+	id 1itaqi-0004iR-Fk; Mon, 20 Jan 2020 17:28:28 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <sashal@kernel.org>) id 1is8iI-0003PU-AC
- for openipmi-developer@lists.sourceforge.net; Thu, 16 Jan 2020 17:13:46 +0000
+ (envelope-from <cminyard@mvista.com>) id 1itaqh-0004iK-Bp
+ for openipmi-developer@lists.sourceforge.net; Mon, 20 Jan 2020 17:28:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=0XO4zHp41coVxQTuBwyzwMf4F8P8dW1c6r9sQi9L9dw=; b=Bj+aFQ8bpcPr0R5S+dGpt5ALpc
- /pi2AeGpv4Ip8OlSQhQcVLZ0239xPTEVWvB5r0D9ie2fHMW9MfhuFMnPvCjMolTYcU/5OZB3yjFHo
- Zihnnh5LfWCUbSU12BzuV7FSdQPzetEhjDBViRez4ig0cXahhENL4vBXXJU5I5kbsp9s=;
+ bh=l7rXrWc9zdyZC8ngED66aztSeYAIdSfuXFbxTohqXwo=; b=N8byf8ytmLXkAdYSO4WJBiWLO0
+ rWFTgTDrPANkPBRhSBbGwTusioUMRB0FUfs1+gcPwIVK4YulsIG6A9J2jv7k5Zvq6yUtAxgxjmGS8
+ lcP9Yn0oTKtfj7Om+1ixe3AIBDEgSuW26c1BE2UvJ5LeuvPgyFggKAL//vKsNpL6ccBs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=0XO4zHp41coVxQTuBwyzwMf4F8P8dW1c6r9sQi9L9dw=; b=kZRPenUDpgh+u5IwXFd2xCNb6V
- EZxDMf/COwcu3/KO4b4uMlDIaS9Q7hWyRsdM9vH//9fC7+1jo3THaHLR1AW0asiN8dpS6yt4E3zX/
- DmDFZzcxcbY2lkiFj43HW6+cq3cRsaZnkei1nAERVVBAzFM3M1xA+1rFsFLtBwEvLShk=;
-Received: from mail.kernel.org ([198.145.29.99])
+ bh=l7rXrWc9zdyZC8ngED66aztSeYAIdSfuXFbxTohqXwo=; b=W0HZHuIVCddCwmbcEGheEBtwmd
+ cah4GEXLumNTFSvzBgnFjVuv7wozwmAIAirDwldgrnlDmb89gE/VvOXv+pSVP4YKEpXEJTfAkfs2F
+ gTF8ge5mIlGupxVyfn+8OjvqWOIy+tIOAXQKGvoTuaUtZkCWZ6QZs04IlKr5Xp2ibDVQ=;
+Received: from mail-yb1-f196.google.com ([209.85.219.196])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1is8iG-009Yay-Jw
- for openipmi-developer@lists.sourceforge.net; Thu, 16 Jan 2020 17:13:46 +0000
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
- [73.47.72.35])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 5A039246AC;
- Thu, 16 Jan 2020 17:13:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1579194819;
- bh=/+tlWGtQQlVArvWt2Onf8esOdt9YBNdy8vZHN0T9pU8=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=KJFiEYIiEc/m6QAQvVSn6FJV7kaYoxpy9rcoU+e0+RqLjsEUSJB69Qib2YKnLy+D8
- shMBWHLiWQqmSo0rQdTA/F4biG48WXDalwQEdKZ+KKIAnaFj4nNPzT90zvG7DKpKHB
- Ilr0Yyy0tvamoVAW9zYmkHqprtUd+GgLy85F0atc=
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Date: Thu, 16 Jan 2020 12:04:22 -0500
-Message-Id: <20200116170509.12787-361-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200116170509.12787-1-sashal@kernel.org>
-References: <20200116170509.12787-1-sashal@kernel.org>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1itaqZ-00FBR6-7d
+ for openipmi-developer@lists.sourceforge.net; Mon, 20 Jan 2020 17:28:27 +0000
+Received: by mail-yb1-f196.google.com with SMTP id o199so82138ybc.4
+ for <openipmi-developer@lists.sourceforge.net>;
+ Mon, 20 Jan 2020 09:28:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mvista-com.20150623.gappssmtp.com; s=20150623;
+ h=date:from:to:cc:subject:message-id:reply-to:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=l7rXrWc9zdyZC8ngED66aztSeYAIdSfuXFbxTohqXwo=;
+ b=FxbANqXV7CZGzzBj+hbAItH/ABPzjboPJBwcqWNsAjJuV6ZzuMFWZt//n7SNS2Wayf
+ k0mrNKGCC8fY1WKehL7UEw5/dAFcFbpnJ/yv7FzE7CJKao/3UlEqXPMm3xJWLCuI7yxT
+ O8CzgQT7Sxix0lNBYH6ezfmW/UAVM6lry0pzHCbb/L/F8f7HrR6LqIO98R9zi/w7rFMh
+ /R/x8fEZNw4g3KbH+LUN3P47dkLHjf+1R/ZqTzZmIB4759TViL/KZQFiUrZS7byD/O7L
+ cNXrebX0KFx5LoQJ63cYPxa7yQ7gvN1nrLoRIQrl5djAPy9p+FVedKPFK1VZTmRlT0R7
+ 6xUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:reply-to
+ :references:mime-version:content-disposition:in-reply-to:user-agent;
+ bh=l7rXrWc9zdyZC8ngED66aztSeYAIdSfuXFbxTohqXwo=;
+ b=GX1eeDoxI8stg4JeUJWKPFKMR5ygOm1qQ3tOLLYBwJLYQNuz5oQpxDPLts1bj8EeCn
+ VGzD6XRrxp8aZJ7tBPr1iXasRhw+YyzcuGdT9pev2e+NRCgpo1rts6Af4SW41IT9bWBC
+ cKdIMl0w57hIa8UzV3nCE31GClwM4gX+pG0zN1hrKMABR4ZboTD0ND/6yQ5QzoAAu9F2
+ QvWP9e4XCghrw/M/TElf/wGRhhhX8FS+extZ+R4lBZBLObSldhT5xS4HjZ+aVU0v6rJ6
+ bT8P1VedZIoNos/ixiOGSK5lWWtv1xoHHb5IvvhYIAcIw+pJoyCmHEw0H78u0X/ZG+Bo
+ SP+A==
+X-Gm-Message-State: APjAAAWOt5oZuyYSeHvIIsvx5ewnqUFVn0wMirQFnHhwrOSSKev+OWT8
+ 2Rxrf4Zbx6FOsWMZU+A9lk/f33BRtEM=
+X-Google-Smtp-Source: APXvYqxQlqgtwctnFJkk3FTNJcvt4oudhWgrQUyGHRg/Lus5T12Up6Sc2lVZkysElds60n0QZ1910Q==
+X-Received: by 2002:a9d:5885:: with SMTP id x5mr311761otg.132.1579539695269;
+ Mon, 20 Jan 2020 09:01:35 -0800 (PST)
+Received: from minyard.net ([2001:470:b8f6:1b:9c9c:d583:ce3d:f87a])
+ by smtp.gmail.com with ESMTPSA id n16sm12479084otk.25.2020.01.20.09.01.33
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Mon, 20 Jan 2020 09:01:34 -0800 (PST)
+Date: Mon, 20 Jan 2020 11:01:32 -0600
+From: Corey Minyard <cminyard@mvista.com>
+To: Asmaa Mnebhi <Asmaa@mellanox.com>
+Message-ID: <20200120170132.GT2886@minyard.net>
+References: <20200114144031.358003-1-colin.king@canonical.com>
+ <DB6PR0501MB2712BEBCF959566EAB063769DA340@DB6PR0501MB2712.eurprd05.prod.outlook.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Spam-Score: -0.4 (/)
+Content-Disposition: inline
+In-Reply-To: <DB6PR0501MB2712BEBCF959566EAB063769DA340@DB6PR0501MB2712.eurprd05.prod.outlook.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: pdev.id]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.219.196 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.219.196 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
- -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1is8iG-009Yay-Jw
-Subject: [Openipmi-developer] [PATCH AUTOSEL 4.19 624/671] ipmi: Fix memory
- leak in __ipmi_bmc_register
+X-Headers-End: 1itaqZ-00FBR6-7d
+Subject: Re: [Openipmi-developer] [PATCH][next] drivers: ipmi: fix
+ off-by-one bounds check that leads to a out-of-bounds write
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,49 +108,60 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Corey Minyard <cminyard@mvista.com>,
- openipmi-developer@lists.sourceforge.net,
- Navid Emamdoost <navid.emamdoost@gmail.com>
+Reply-To: cminyard@mvista.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Vadim Pasternak <vadimp@mellanox.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "kernel-janitors@vger.kernel.org" <kernel-janitors@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Colin King <colin.king@canonical.com>,
+ "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: Navid Emamdoost <navid.emamdoost@gmail.com>
+On Tue, Jan 14, 2020 at 03:50:22PM +0000, Asmaa Mnebhi wrote:
+> Reviewed-by: Asmaa Mnebhi <asmaa@mellanox.com>
 
-[ Upstream commit 4aa7afb0ee20a97fbf0c5bab3df028d5fb85fdab ]
+Thanks, I've picked this up in my next tree.
 
-In the impelementation of __ipmi_bmc_register() the allocated memory for
-bmc should be released in case ida_simple_get() fails.
+-corey
 
-Fixes: 68e7e50f195f ("ipmi: Don't use BMC product/dev ids in the BMC name")
-Signed-off-by: Navid Emamdoost <navid.emamdoost@gmail.com>
-Message-Id: <20191021200649.1511-1-navid.emamdoost@gmail.com>
-Signed-off-by: Corey Minyard <cminyard@mvista.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/char/ipmi/ipmi_msghandler.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 91f2d9219489..980eb7c60952 100644
---- a/drivers/char/ipmi/ipmi_msghandler.c
-+++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -2965,8 +2965,11 @@ static int __ipmi_bmc_register(struct ipmi_smi *intf,
- 		bmc->pdev.name = "ipmi_bmc";
- 
- 		rv = ida_simple_get(&ipmi_bmc_ida, 0, 0, GFP_KERNEL);
--		if (rv < 0)
-+		if (rv < 0) {
-+			kfree(bmc);
- 			goto out;
-+		}
-+
- 		bmc->pdev.dev.driver = &ipmidriver.driver;
- 		bmc->pdev.id = rv;
- 		bmc->pdev.dev.release = release_bmc_device;
--- 
-2.20.1
-
+> 
+> -----Original Message-----
+> From: Colin King <colin.king@canonical.com> 
+> Sent: Tuesday, January 14, 2020 9:41 AM
+> To: Corey Minyard <cminyard@mvista.com>; Arnd Bergmann <arnd@arndb.de>; Greg Kroah-Hartman <gregkh@linuxfoundation.org>; Vadim Pasternak <vadimp@mellanox.com>; Asmaa Mnebhi <Asmaa@mellanox.com>; openipmi-developer@lists.sourceforge.net
+> Cc: kernel-janitors@vger.kernel.org; linux-kernel@vger.kernel.org
+> Subject: [PATCH][next] drivers: ipmi: fix off-by-one bounds check that leads to a out-of-bounds write
+> 
+> From: Colin Ian King <colin.king@canonical.com>
+> 
+> The end of buffer check is off-by-one since the check is against an index that is pre-incremented before a store to buf[]. Fix this adjusting the bounds check appropriately.
+> 
+> Addresses-Coverity: ("Out-of-bounds write")
+> Fixes: 51bd6f291583 ("Add support for IPMB driver")
+> Signed-off-by: Colin Ian King <colin.king@canonical.com>
+> ---
+>  drivers/char/ipmi/ipmb_dev_int.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmb_dev_int.c b/drivers/char/ipmi/ipmb_dev_int.c
+> index 9fdae83e59e0..382b28f1cf2f 100644
+> --- a/drivers/char/ipmi/ipmb_dev_int.c
+> +++ b/drivers/char/ipmi/ipmb_dev_int.c
+> @@ -279,7 +279,7 @@ static int ipmb_slave_cb(struct i2c_client *client,
+>  		break;
+>  
+>  	case I2C_SLAVE_WRITE_RECEIVED:
+> -		if (ipmb_dev->msg_idx >= sizeof(struct ipmb_msg))
+> +		if (ipmb_dev->msg_idx >= sizeof(struct ipmb_msg) - 1)
+>  			break;
+>  
+>  		buf[++ipmb_dev->msg_idx] = *val;
+> --
+> 2.24.0
+> 
 
 
 _______________________________________________
