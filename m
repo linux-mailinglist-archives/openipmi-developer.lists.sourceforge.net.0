@@ -2,94 +2,98 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 635131586BB
-	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Feb 2020 01:18:54 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id A866415AA4A
+	for <lists+openipmi-developer@lfdr.de>; Wed, 12 Feb 2020 14:46:08 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1j1JGO-0003tN-Gc; Tue, 11 Feb 2020 00:18:52 +0000
+	id 1j1sL8-0005KZ-Ip; Wed, 12 Feb 2020 13:46:06 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1j1JGM-0003tE-Pu
- for openipmi-developer@lists.sourceforge.net; Tue, 11 Feb 2020 00:18:50 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1j1sL7-0005KN-5P
+ for openipmi-developer@lists.sourceforge.net; Wed, 12 Feb 2020 13:46:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=UhxPcj6/40TrfxQ8X9WmhGzj5RubLTtga5je0QqGKtU=; b=iQNmWoyFT2a1GUvRMYYCs90xrw
- Y3chAZXCwKtt6+sJrrOt+xZRqvcJQTbMMIN8NhxHi529SNdhNb+h6rbZcXVKC1boIWuFL++HPH7CG
- BPbWsCLjVNbdjtS7AEpq7Zt0vXHOJxm79fAgcMXcdlqCfuDBQ0GmY5BeRrZYJq1mWKE0=;
+ bh=w+9a/C8GLe23HYD/53W97lcvboWXgDPM5I+bKJDpdyw=; b=UINvqj1BZfLHZfTEdEenO2fk4h
+ jdUIfCyV/MHx8e357Ega/Llb7U7qfJG9wtqQ6wt4YNNfsdehKnGdmz+o5/ygSV722cAZpMIV4VStC
+ 6xnR3P1pSyn/k2QNIHwVQKfOgnudKM28RKrX9trFolV5ry+iUhvJ8bQrzeVdcSsr6waI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:Reply-To:Message-ID:Subject:Cc:To:From:Date:
- Sender:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=UhxPcj6/40TrfxQ8X9WmhGzj5RubLTtga5je0QqGKtU=; b=T
- 1ZofBJJTDW6lwO51vElEuQnAnpXXnSGd6gmIBibMWeHCqVmw2Od7kpGvq37P4Z50pCuEqQA/vn+v6
- /46cEde01OpOWpxDp4awJuDEf347aZQjM3EOAxY+jAtDT9tur9xqFiBpsbk072yhiR/z22pVYGkX6
- PwOSN85yIy48z6Tk=;
-Received: from mail-oi1-f195.google.com ([209.85.167.195])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=w+9a/C8GLe23HYD/53W97lcvboWXgDPM5I+bKJDpdyw=; b=QnNY4lyXK9xB0h81oOxE6sV2VV
+ MaIizrbSCRUiHkytHvMq1lE4zJWm3QFIVc4QvekRVOgzqVMai7HNQ30qtGkfU8ZB7ZfMVGWAdDsXu
+ ChOs1KlOsphMGbN/GyY7PTzzBOCpGwLnvMvHHcUahl1pbORCtWKXQzr8co2fBzpasp4M=;
+Received: from mail-oi1-f194.google.com ([209.85.167.194])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1j1JGH-0082hO-9D
- for openipmi-developer@lists.sourceforge.net; Tue, 11 Feb 2020 00:18:50 +0000
-Received: by mail-oi1-f195.google.com with SMTP id c16so11147556oic.3
+ id 1j1sL5-001RhV-7e
+ for openipmi-developer@lists.sourceforge.net; Wed, 12 Feb 2020 13:46:05 +0000
+Received: by mail-oi1-f194.google.com with SMTP id l136so2054366oig.1
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 10 Feb 2020 16:18:45 -0800 (PST)
+ Wed, 12 Feb 2020 05:46:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:mime-version
- :content-disposition:user-agent;
- bh=UhxPcj6/40TrfxQ8X9WmhGzj5RubLTtga5je0QqGKtU=;
- b=t1/CNSDasjvg213eVPV628rx/NqyicZ9MHL3nZV9iyRb0gnoDGAyk3zo2CbHrXMmUl
- WFvhDLBN1hBcGYvlgHjIs/vG4BS/ytAYuojaB6RCLOVzXa2Tm+GoJk8yREM2gpGS8rad
- 6ytY2A+Ek+kI5aA4FUBNcCPGjW4ZjNxbaPQ/OCdyP9+S/o+cMdtK/JKqbp9+6vzzD8vX
- rDntq7w+1rgHOGeB5wwpBBDVQ2vQaWYcKSpSjw7syD7i4O00HiWDx8WYrL6JGkY9BC3n
- g6A3TEldiQH2H+5/bufsQFXEln8xfTcdA/4B+Pp2Y6pgpFb+DN6dcVKT/XxYvOpE3HFG
- OPBQ==
+ h=sender:date:from:to:cc:subject:message-id:reply-to:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=w+9a/C8GLe23HYD/53W97lcvboWXgDPM5I+bKJDpdyw=;
+ b=ruTm3lqW2VysvFQ29tg9NgK2kyDCsR7ohgp4u2we/nGM4La/iKBWJCgqKJ0tm2+MR1
+ SzeEcJfO+CDWCBGlPrzJ0EXZ3biWOqDsxAIvTMTQAFmOmpwIS+kkyxKt4MFNSDHhFiYl
+ TqKjqBUeQoCBxTLwZY0skkn3vLbIkWK3g1ulxuS7yz1ILB3SjvDHVeVsVQvjqUJOMjSD
+ yTUdhqenNBftYtyxMsE7saHnHGOnHQcqg75E7+BxR110ybOK5dBdAFkmRRLeG+sKx72V
+ tbSAZYcGXhzmE15dI9iOiUa6NTUU3TDt7J9LPmN7w5EMvPWGcY0t5hvq+0PsLgCGWf5y
+ c8HQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:mime-version:content-disposition:user-agent;
- bh=UhxPcj6/40TrfxQ8X9WmhGzj5RubLTtga5je0QqGKtU=;
- b=Inzpb6322wTenlmAzL7taXkEjctfA5NFW5IQo7aY7sS1BZfEWVCv1lx7JaZtJLrgc8
- wxR06bAuiYIeYSg1Z+Kavb9sY2VM4Afc+nsORdW64Qox+nauYgSRhcIB+h9tfDndnuWF
- /4gv5MUMy9zC64lBq+GuQoWbDcjXBDmChz07HgrtoCeed7bpzwr/Aj5h2fhEGScSxBdU
- vlu+UkJTiP2DE/8mSP5EA/cThOCitmFppv9SHbIy4rVIFcy8VVQrTW9TALFN/wtNVvtM
- Ez2efpOwIHMQYjfM0pUd9egIExim6SaDQRtTXJFIiAeG8gnp0r6BEqJvY3uASJ6gqqdj
- o5aQ==
-X-Gm-Message-State: APjAAAVZLddmD50iW1DpAejPuvDTidS2gTyjxnmun2Htwn/oUF/J6vg+
- CyWJonbBYxNPXtI+HcNlQQ==
-X-Google-Smtp-Source: APXvYqzo0+ahUj2sFEaT94kJPwXL9G3Uy6b+rEKAM/F/An1bpHkf8Zo5HWsdpCGERzDKdO4w+fT8YA==
-X-Received: by 2002:a05:6808:358:: with SMTP id
- j24mr1223199oie.89.1581380319211; 
- Mon, 10 Feb 2020 16:18:39 -0800 (PST)
+ :reply-to:references:mime-version:content-disposition:in-reply-to
+ :user-agent;
+ bh=w+9a/C8GLe23HYD/53W97lcvboWXgDPM5I+bKJDpdyw=;
+ b=bstTRvORoFXbG7FJSf+sEnzHxO/Y/OzAYtW7SoZ1UohBKvq8dv5YD9VaPnMaz6IHlt
+ IK9ZZO/DWhBG7lOaTKoGe5K5TlyIgfgRXqXXGPjQ4/6G4pCPAP3/eJ+ISA6FIWtzicQk
+ KtOU3+CDXAijxVcAee1mYjMNX7xHuIMZ7Z4fiBwMNmrA6aXBD6NfJG10D4aEC6AcQ0xm
+ Uco0eo2ITDURMdWkYkzVm5ikEQjDPgjtOuFkyifhMZMcAudBSFz1CHwy8LhA6OCUlza/
+ cFsjNrey/+tTDrEkpso6jEHKRugbiWUlgeDjflPINrtjtIBaR/w5JCRdFjHlqWKTANBi
+ VvJQ==
+X-Gm-Message-State: APjAAAXX3/VMzuZHjg0DyUUf2XppItOn9BZgWad83GsEQzOzmdppSEhq
+ zVyRxlAaLrQXOSpvTSNd8A==
+X-Google-Smtp-Source: APXvYqwkgvblGx+JRC3ff68p+PCc3tv+uA3GDD2bV0WIyuf0Auq4Vf0YuAu0VPq26OyW80NZ5v2iKg==
+X-Received: by 2002:a05:6808:3ae:: with SMTP id
+ n14mr6317402oie.63.1581515157211; 
+ Wed, 12 Feb 2020 05:45:57 -0800 (PST)
 Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id m185sm606084oia.26.2020.02.10.16.18.37
+ by smtp.gmail.com with ESMTPSA id 108sm185737oti.1.2020.02.12.05.45.53
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 10 Feb 2020 16:18:38 -0800 (PST)
-Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:4d7:9d24:84b2:ef45])
- by serve.minyard.net (Postfix) with ESMTPSA id 4A338180046;
- Tue, 11 Feb 2020 00:18:37 +0000 (UTC)
-Date: Mon, 10 Feb 2020 18:18:36 -0600
+ Wed, 12 Feb 2020 05:45:53 -0800 (PST)
+Received: from minyard.net (unknown
+ [IPv6:2001:470:b8f6:1b:e166:6491:dd75:4196])
+ by serve.minyard.net (Postfix) with ESMTPSA id 5A6DA180053;
+ Wed, 12 Feb 2020 13:45:53 +0000 (UTC)
+Date: Wed, 12 Feb 2020 07:45:52 -0600
 From: Corey Minyard <minyard@acm.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <20200211001836.GI7842@minyard.net>
+To: Amol Grover <frextrite@gmail.com>
+Message-ID: <20200212134552.GN7842@minyard.net>
+References: <20200117132521.31020-1-frextrite@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
+In-Reply-To: <20200117132521.31020-1-frextrite@gmail.com>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.167.194 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (tcminyard[at]gmail.com)
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.195 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.195 listed in list.dnswl.org]
+ [209.85.167.194 listed in wl.mailspike.net]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -99,8 +103,10 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  not necessarily valid
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
-X-Headers-End: 1j1JGH-0082hO-9D
-Subject: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 5.6
+ -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1j1sL5-001RhV-7e
+Subject: Re: [Openipmi-developer] [PATCH v3] drivers: char: ipmi:
+ ipmi_msghandler: Pass lockdep expression to RCU lists
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -114,52 +120,110 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Reply-To: minyard@acm.org
-Cc: openipmi-developer@lists.sourceforge.net,
- linux-kernel <linux-kernel@vger.kernel.org>
+Cc: "Paul E . McKenney" <paulmck@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ Joel Fernandes <joel@joelfernandes.org>,
+ openipmi-developer@lists.sourceforge.net,
+ linux-kernel-mentees@lists.linuxfoundation.org,
+ Madhuparna Bhowmik <madhuparnabhowmik04@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-The following changes since commit 6794862a16ef41f753abd75c03a152836e4c8028:
+On Fri, Jan 17, 2020 at 06:55:22PM +0530, Amol Grover wrote:
+> intf->cmd_rcvrs is traversed with list_for_each_entry_rcu
+> outside an RCU read-side critical section but under the
+> protection of intf->cmd_rcvrs_mutex.
+> 
+> ipmi_interfaces is traversed using list_for_each_entry_rcu
+> outside an RCU read-side critical section but under the protection
+> of ipmi_interfaces_mutex.
+> 
+> Hence, add the corresponding lockdep expression to the list traversal
+> primitive to silence false-positive lockdep warnings, and
+> harden RCU lists.
+> 
+> Add macro for the corresponding lockdep expression to make the code
+> clean and concise.
+> 
+> Signed-off-by: Amol Grover <frextrite@gmail.com>
 
-  Merge tag 'for-5.5-rc1-kconfig-tag' of git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux (2019-12-09 12:14:31 -0800)
+After reading everything, I think this is correct, but I would like
+Paul's stamp of approval on this.
 
-are available in the Git repository at:
-
-  https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.6-1
-
-for you to fetch changes up to e0354d147e5889b5faa12e64fa38187aed39aad4:
-
-  drivers: ipmi: fix off-by-one bounds check that leads to a out-of-bounds write (2020-01-20 11:01:00 -0600)
-
-----------------------------------------------------------------
-Minor bug fixes for IPMI
-
-I know this is late; I've been travelling and, well, I've been
-distracted.
-
-This is just a few bug fixes and adding i2c support to the IPMB driver,
-which is something I wanted from the beginning for it.  It would be
-nice for the people doing IPMB to get this in.
+Thanks,
 
 -corey
 
-----------------------------------------------------------------
-Colin Ian King (1):
-      drivers: ipmi: fix off-by-one bounds check that leads to a out-of-bounds write
-
-Corey Minyard (1):
-      ipmi:ssif: Handle a possible NULL pointer reference
-
-Vijay Khemka (2):
-      drivers: ipmi: Support raw i2c packet in IPMB
-      drivers: ipmi: Modify max length of IPMB packet
-
- Documentation/driver-api/ipmb.rst |  4 ++++
- drivers/char/ipmi/ipmb_dev_int.c  | 33 +++++++++++++++++++++++++++++++--
- drivers/char/ipmi/ipmi_ssif.c     | 10 +++++++---
- 3 files changed, 42 insertions(+), 5 deletions(-)
-
+> ---
+> v3:
+> - Remove rcu_read_lock_held() from lockdep expression since it is
+>   implicitly checked.
+> - Remove unintended macro usage.
+>  
+> v2:
+> - Fix sparse error
+>   CHECK: Alignment should match open parenthesis
+> 
+>  drivers/char/ipmi/ipmi_msghandler.c | 14 ++++++++++----
+>  1 file changed, 10 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+> index cad9563f8f48..64ba16dcb681 100644
+> --- a/drivers/char/ipmi/ipmi_msghandler.c
+> +++ b/drivers/char/ipmi/ipmi_msghandler.c
+> @@ -618,6 +618,8 @@ static DEFINE_MUTEX(ipmidriver_mutex);
+>  
+>  static LIST_HEAD(ipmi_interfaces);
+>  static DEFINE_MUTEX(ipmi_interfaces_mutex);
+> +#define ipmi_interfaces_mutex_held() \
+> +	lockdep_is_held(&ipmi_interfaces_mutex)
+>  static struct srcu_struct ipmi_interfaces_srcu;
+>  
+>  /*
+> @@ -1321,7 +1323,8 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
+>  	 * synchronize_srcu()) then free everything in that list.
+>  	 */
+>  	mutex_lock(&intf->cmd_rcvrs_mutex);
+> -	list_for_each_entry_rcu(rcvr, &intf->cmd_rcvrs, link) {
+> +	list_for_each_entry_rcu(rcvr, &intf->cmd_rcvrs, link,
+> +				lockdep_is_held(&intf->cmd_rcvrs_mutex)) {
+>  		if (rcvr->user == user) {
+>  			list_del_rcu(&rcvr->link);
+>  			rcvr->next = rcvrs;
+> @@ -1599,7 +1602,8 @@ static struct cmd_rcvr *find_cmd_rcvr(struct ipmi_smi *intf,
+>  {
+>  	struct cmd_rcvr *rcvr;
+>  
+> -	list_for_each_entry_rcu(rcvr, &intf->cmd_rcvrs, link) {
+> +	list_for_each_entry_rcu(rcvr, &intf->cmd_rcvrs, link,
+> +				lockdep_is_held(&intf->cmd_rcvrs_mutex)) {
+>  		if ((rcvr->netfn == netfn) && (rcvr->cmd == cmd)
+>  					&& (rcvr->chans & (1 << chan)))
+>  			return rcvr;
+> @@ -1614,7 +1618,8 @@ static int is_cmd_rcvr_exclusive(struct ipmi_smi *intf,
+>  {
+>  	struct cmd_rcvr *rcvr;
+>  
+> -	list_for_each_entry_rcu(rcvr, &intf->cmd_rcvrs, link) {
+> +	list_for_each_entry_rcu(rcvr, &intf->cmd_rcvrs, link,
+> +				lockdep_is_held(&intf->cmd_rcvrs_mutex)) {
+>  		if ((rcvr->netfn == netfn) && (rcvr->cmd == cmd)
+>  					&& (rcvr->chans & chans))
+>  			return 0;
+> @@ -3450,7 +3455,8 @@ int ipmi_add_smi(struct module         *owner,
+>  	/* Look for a hole in the numbers. */
+>  	i = 0;
+>  	link = &ipmi_interfaces;
+> -	list_for_each_entry_rcu(tintf, &ipmi_interfaces, link) {
+> +	list_for_each_entry_rcu(tintf, &ipmi_interfaces, link,
+> +				ipmi_interfaces_mutex_held()) {
+>  		if (tintf->intf_num != i) {
+>  			link = &tintf->link;
+>  			break;
+> -- 
+> 2.24.1
+> 
 
 
 _______________________________________________
