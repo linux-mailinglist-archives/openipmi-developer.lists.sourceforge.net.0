@@ -2,59 +2,59 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 133691693A2
-	for <lists+openipmi-developer@lfdr.de>; Sun, 23 Feb 2020 03:24:51 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B1AF1693BB
+	for <lists+openipmi-developer@lfdr.de>; Sun, 23 Feb 2020 03:25:11 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1j5gwr-0006rA-DO; Sun, 23 Feb 2020 02:24:49 +0000
+	id 1j5gxB-0006Vf-Rl; Sun, 23 Feb 2020 02:25:09 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <sashal@kernel.org>) id 1j5gwq-0006r2-24
- for openipmi-developer@lists.sourceforge.net; Sun, 23 Feb 2020 02:24:48 +0000
+ (envelope-from <sashal@kernel.org>) id 1j5gxA-0006VZ-Vy
+ for openipmi-developer@lists.sourceforge.net; Sun, 23 Feb 2020 02:25:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
  Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=K+m8km8uzoOIVnIPOEY/jiAWcMTuzSUwoJJ4u/x+4iE=; b=BNFGu/a+6myZ52oWudOrkGjz2Q
- 3aKYSMnu104KoCxvVJfEeGFnoI63AXGjIzEh6jc8iCr1eqfP6+G45jg8f6piwdyQqo2M2D4MyeDNV
- Oz40u6oKagpPYR2zLznH6UXjIka+3qMU/iA+Hqe5fwb+ZlHDIyfbVWHXfmNfaJOnqugI=;
+ bh=6RooKZkrUrsAe/An8YSTQHwgV88a6ys5t1lYnOPTqE0=; b=eDrbLblAnqIZ6yr0VyNX/MEqig
+ ND1UNTgSr5UqXkOK+9EhLigSXpL5yA2rdrvjedjucUcdE+saH93ptkjz2AVNXl+cgjhdfBCKwnhn5
+ LJ8v8hZ31P+oNJxeUlJLcy4imFxcLL5UcXUeXvACdIjp52J28Rdvg/N4Zxtr9ATAcwFk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
  :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
  Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
  References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=K+m8km8uzoOIVnIPOEY/jiAWcMTuzSUwoJJ4u/x+4iE=; b=m
- /oZsYSV7lm2cnUM1TRz90OWS6yn6vMLn7STSYFG8bWP46sPse6tJVtQ5xldfxW+QRT55DVqOM2cXg
- ojRKN+1pVRrQ9pu+uUX7vRuvJsor2ZvcDyi47uBhlMRqRrE7YE6eOJxxUGpd78gNK2RC3jd+SC02l
- Cbf+ifX/hSbfy/vk=;
+ List-Owner:List-Archive; bh=6RooKZkrUrsAe/An8YSTQHwgV88a6ys5t1lYnOPTqE0=; b=a
+ Un1przNKFCrk7EoxLQyszQbJ0vrBB/2RHY3li5pVAQv/RsCUHbH1+HYIGldFRElETwpJkw39qHSXh
+ VU4IgRsyIbbU3BkUcSOaesMqSeoM6ZQ+Qyl0YWiImjONTPDqfMYI0cVXLvQjydjOVf8wuvkyYCf4g
+ HUh6yPI+Ms/Dho20=;
 Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1j5gwn-009DkE-WA
- for openipmi-developer@lists.sourceforge.net; Sun, 23 Feb 2020 02:24:48 +0000
+ id 1j5gx8-004H1h-Na
+ for openipmi-developer@lists.sourceforge.net; Sun, 23 Feb 2020 02:25:08 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id C5EB821741;
- Sun, 23 Feb 2020 02:24:39 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7674B24653;
+ Sun, 23 Feb 2020 02:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1582424680;
- bh=cg2as5AkT77EQDRMH1DPFUeJrfDK/wXOqjs5Sf/uJa8=;
+ s=default; t=1582424701;
+ bh=nmnY1Ri2kJpC7y93DLYY8xL8OUm4kGtIbjWn9Y14qJY=;
  h=From:To:Cc:Subject:Date:From;
- b=fzMXGMXYgGqQJknupMxUlphZk08T/uGkuB4kTV8sPVpbW5XsxitZvyDmsyIadlgw/
- 8RqPWIrH6VJbx6lufODm5YMS1c40Zo3+5rHWCLPgdHnWz/cwrlBxbRDdQZatOk9C0X
- Rg70cfLNf2cYum2egCzz3F0c+UCJ8IZRTiY6f9GI=
+ b=VHVe4TRTN7zQxB17iSPz7KXOE6+eHY+sTRk97wPSBlkezYSK4ZARTyNTPXpIIeUhE
+ 1Fudqy/FB4yN3Q7PnqAR0zmq+D3wBFQFc+aCdUPI7ZnoIJ2mmqHl5lCtQ/+Rrhai1P
+ Bxx8t6tFqhCMyoyLF4i7aPHo/x7U50g1nD8sOs0w=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Date: Sat, 22 Feb 2020 21:24:23 -0500
-Message-Id: <20200223022438.2398-1-sashal@kernel.org>
+Date: Sat, 22 Feb 2020 21:24:53 -0500
+Message-Id: <20200223022459.2594-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 X-stable: review
@@ -75,8 +75,8 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  not necessarily valid
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
  -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1j5gwn-009DkE-WA
-Subject: [Openipmi-developer] [PATCH AUTOSEL 4.9 01/16] ipmi:ssif: Handle a
+X-Headers-End: 1j5gx8-004H1h-Na
+Subject: [Openipmi-developer] [PATCH AUTOSEL 4.4 1/7] ipmi:ssif: Handle a
  possible NULL pointer reference
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -112,10 +112,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 7 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-index 996b9ae154042..a4ef9a6bd3678 100644
+index 67d23ed2d1a06..29082d99264e8 100644
 --- a/drivers/char/ipmi/ipmi_ssif.c
 +++ b/drivers/char/ipmi/ipmi_ssif.c
-@@ -746,10 +746,14 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+@@ -742,10 +742,14 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
  	flags = ipmi_ssif_lock_cond(ssif_info, &oflags);
  	msg = ssif_info->curr_msg;
  	if (msg) {
