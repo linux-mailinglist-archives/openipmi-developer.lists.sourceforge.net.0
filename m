@@ -2,82 +2,72 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4B1AF1693BB
-	for <lists+openipmi-developer@lfdr.de>; Sun, 23 Feb 2020 03:25:11 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6E23E16ED6F
+	for <lists+openipmi-developer@lfdr.de>; Tue, 25 Feb 2020 19:04:13 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1j5gxB-0006Vf-Rl; Sun, 23 Feb 2020 02:25:09 +0000
+	id 1j6eZ1-000458-BE; Tue, 25 Feb 2020 18:04:11 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <sashal@kernel.org>) id 1j5gxA-0006VZ-Vy
- for openipmi-developer@lists.sourceforge.net; Sun, 23 Feb 2020 02:25:08 +0000
+ (envelope-from <john.garry@huawei.com>) id 1j6eYy-00044z-5h
+ for openipmi-developer@lists.sourceforge.net; Tue, 25 Feb 2020 18:04:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ MIME-Version:Date:Message-ID:References:CC:To:From:Subject:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=6RooKZkrUrsAe/An8YSTQHwgV88a6ys5t1lYnOPTqE0=; b=eDrbLblAnqIZ6yr0VyNX/MEqig
- ND1UNTgSr5UqXkOK+9EhLigSXpL5yA2rdrvjedjucUcdE+saH93ptkjz2AVNXl+cgjhdfBCKwnhn5
- LJ8v8hZ31P+oNJxeUlJLcy4imFxcLL5UcXUeXvACdIjp52J28Rdvg/N4Zxtr9ATAcwFk=;
+ bh=jRqQ0TxNI/o8YAHeIsRO90LWyKVLT1b5XP4AP7yHcwU=; b=LzHbaG2Oh4a0Rs6C92zwFWb9DN
+ qLQ521tWinessVh1TU4lNNv2tsqw/UIjqPHD3XleoJ44q9+RY8Lo5fpD4v6KDv5D6oatpBSrEOGtE
+ KwN5Cfm1bGJE5EfDe/+EMvfLtb9LuRMNo/DWq386m/rKEZJURpzuejblsWh6qmmGmz9E=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=6RooKZkrUrsAe/An8YSTQHwgV88a6ys5t1lYnOPTqE0=; b=a
- Un1przNKFCrk7EoxLQyszQbJ0vrBB/2RHY3li5pVAQv/RsCUHbH1+HYIGldFRElETwpJkw39qHSXh
- VU4IgRsyIbbU3BkUcSOaesMqSeoM6ZQ+Qyl0YWiImjONTPDqfMYI0cVXLvQjydjOVf8wuvkyYCf4g
- HUh6yPI+Ms/Dho20=;
-Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:References:CC:To:From:Subject:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=jRqQ0TxNI/o8YAHeIsRO90LWyKVLT1b5XP4AP7yHcwU=; b=CqrHhOiqa+ujBgMj1Vm/YWB7+H
+ PIJlQ6ZssTACTaeGcHA+1y8ptzOyUI+psQfuTqcILkc6TcYmLr03bQxY1SmCIMBjAOR86z71pv9jw
+ flXdngvUCHkipLLOWDYu1XC2YiH1eZK805Z4KPMG4tqa/Of2O72hvExr2VNN69232xk0=;
+Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1j5gx8-004H1h-Na
- for openipmi-developer@lists.sourceforge.net; Sun, 23 Feb 2020 02:25:08 +0000
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
- [73.47.72.35])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 7674B24653;
- Sun, 23 Feb 2020 02:25:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1582424701;
- bh=nmnY1Ri2kJpC7y93DLYY8xL8OUm4kGtIbjWn9Y14qJY=;
- h=From:To:Cc:Subject:Date:From;
- b=VHVe4TRTN7zQxB17iSPz7KXOE6+eHY+sTRk97wPSBlkezYSK4ZARTyNTPXpIIeUhE
- 1Fudqy/FB4yN3Q7PnqAR0zmq+D3wBFQFc+aCdUPI7ZnoIJ2mmqHl5lCtQ/+Rrhai1P
- Bxx8t6tFqhCMyoyLF4i7aPHo/x7U50g1nD8sOs0w=
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Date: Sat, 22 Feb 2020 21:24:53 -0500
-Message-Id: <20200223022459.2594-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
+ id 1j6eYt-00GGfv-S5
+ for openipmi-developer@lists.sourceforge.net; Tue, 25 Feb 2020 18:04:08 +0000
+Received: from LHREML711-CAH.china.huawei.com (unknown [172.18.7.106])
+ by Forcepoint Email with ESMTP id 165EAE0A84090AF66458;
+ Tue, 25 Feb 2020 17:47:56 +0000 (GMT)
+Received: from lhreml724-chm.china.huawei.com (10.201.108.75) by
+ LHREML711-CAH.china.huawei.com (10.201.108.34) with Microsoft SMTP Server
+ (TLS) id 14.3.408.0; Tue, 25 Feb 2020 17:47:55 +0000
+Received: from [127.0.0.1] (10.202.226.45) by lhreml724-chm.china.huawei.com
+ (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.1713.5; Tue, 25 Feb
+ 2020 17:47:55 +0000
+From: John Garry <john.garry@huawei.com>
+To: Corey Minyard <minyard@acm.org>
+References: <f6fc58e5-2133-9560-a5bd-5cadc107ac51@huawei.com>
+Message-ID: <078e2e1e-0b4d-f87c-43cc-9d5dc51caece@huawei.com>
+Date: Tue, 25 Feb 2020 17:47:54 +0000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.1.2
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Spam-Score: -0.4 (/)
+In-Reply-To: <f6fc58e5-2133-9560-a5bd-5cadc107ac51@huawei.com>
+Content-Language: en-US
+X-Originating-IP: [10.202.226.45]
+X-ClientProxiedBy: lhreml708-chm.china.huawei.com (10.201.108.57) To
+ lhreml724-chm.china.huawei.com (10.201.108.75)
+X-CFilter-Loop: Reflected
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: mvista.com]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
- -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1j5gx8-004H1h-Na
-Subject: [Openipmi-developer] [PATCH AUTOSEL 4.4 1/7] ipmi:ssif: Handle a
- possible NULL pointer reference
+X-Headers-End: 1j6eYt-00GGfv-S5
+Subject: Re: [Openipmi-developer] Suspicious RCU usage in ipmi code
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -90,55 +80,128 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Corey Minyard <cminyard@mvista.com>,
- openipmi-developer@lists.sourceforge.net, kbuild test robot <lkp@intel.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: openipmi-developer@lists.sourceforge.net,
+ Anders Roxell <anders.roxell@linaro.org>, paulmck@kernel.org,
+ frextrite@gmail.com
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: Corey Minyard <cminyard@mvista.com>
-
-[ Upstream commit 6b8526d3abc02c08a2f888e8c20b7ac9e5776dfe ]
-
-In error cases a NULL can be passed to memcpy.  The length will always
-be zero, so it doesn't really matter, but go ahead and check for NULL,
-anyway, to be more precise and avoid static analysis errors.
-
-Reported-by: kbuild test robot <lkp@intel.com>
-Signed-off-by: Corey Minyard <cminyard@mvista.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/char/ipmi/ipmi_ssif.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-index 67d23ed2d1a06..29082d99264e8 100644
---- a/drivers/char/ipmi/ipmi_ssif.c
-+++ b/drivers/char/ipmi/ipmi_ssif.c
-@@ -742,10 +742,14 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
- 	flags = ipmi_ssif_lock_cond(ssif_info, &oflags);
- 	msg = ssif_info->curr_msg;
- 	if (msg) {
-+		if (data) {
-+			if (len > IPMI_MAX_MSG_LENGTH)
-+				len = IPMI_MAX_MSG_LENGTH;
-+			memcpy(msg->rsp, data, len);
-+		} else {
-+			len = 0;
-+		}
- 		msg->rsp_size = len;
--		if (msg->rsp_size > IPMI_MAX_MSG_LENGTH)
--			msg->rsp_size = IPMI_MAX_MSG_LENGTH;
--		memcpy(msg->rsp, data, msg->rsp_size);
- 		ssif_info->curr_msg = NULL;
- 	}
- 
--- 
-2.20.1
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+SGkgQ29yZXksCgpJIHdhcyBqdXN0IHdvbmRlcmluZyBhcmUgYWxsIHRoZSBjaGFuZ2VzIHRvIGZp
+eCB0aGlzIGlzc3VlIGFwcGxpZWQgeWV0PwoKSSBjb3VsZCBub3QgaGVscCBidXQgbm90aWNlIHRo
+aXMgY2hhbmdlOgoKaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9n
+aXQvbmV4dC9saW51eC1uZXh0LmdpdC9jb21taXQvZHJpdmVycy9jaGFyL2lwbWk/aD1uZXh0LTIw
+MjAwMjI1JmlkPWVmMDEyOWE0ZDA2YTY2OWEwYTRkNDk2NTRkMjEzMGZmNDM0M2EyNjIKCkkgdGVz
+dGVkIHRoaXMgb24gdG9wIG9mIDUuNi1yYzMsIGFuZCBJIHN0aWxsIGEgd2FybiBvZiBzdXNwaWNp
+b3VzIFJDVSAKdXNhZ2UgZnJvbSB0aGUgSVBNSSBkcml2ZXIuCgpUaGFua3MsCkpvaG4KCj4gCj4g
+SSdtIGJvb3RpbmcgYW4gYWxsbW9kY29uZmlnIGtlcm5lbCBvbiBteSBhcm02NCBzeXN0ZW0gZnJv
+bSByZWNlbnQgTGludXMnIAo+IG1hc3RlciBicmFuY2gsIGFuZCBJIHNlZSB0aGlzOgo+IAo+IFvC
+oCAxODguMjQxMDAxXVvCoMKgwqAgVDFdIElQTUkgbWVzc2FnZSBoYW5kbGVyOiB2ZXJzaW9uIDM5
+LjIKPiBbwqAgMTg4LjI0NzMzMV1bwqDCoMKgIFQxXSBpcG1pIGRldmljZSBpbnRlcmZhY2UKPiBb
+wqAgMTg4LjI1NjI3MV1bwqDCoMKgIFQxXQo+IFvCoCAxODguMjU4NTQxXVvCoMKgwqAgVDFdID09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09Cj4gW8KgIDE4OC4yNjMzODhdW8KgwqDCoCBUMV0g
+V0FSTklORzogc3VzcGljaW91cyBSQ1UgdXNhZ2UKPiBbwqAgMTg4LjI2ODIzNl1bwqDCoMKgIFQx
+XSA1LjQuMCsgIzE0MTYgTm90IHRhaW50ZWQKPiBbwqAgMTg4LjI3MjY0NV1bwqDCoMKgIFQxXSAt
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+IFvCoCAxODguMjc3NDk2XVvCoMKgwqAgVDFd
+IGRyaXZlcnMvY2hhci9pcG1pL2lwbWlfbXNnaGFuZGxlci5jOjc0NCBSQ1UtbGlzdCAKPiB0cmF2
+ZXJzZWQgaW4gbm9uLXJlYWRlciBzZWN0aW9uISEKPiBbwqAgMTg4LjI4Njk3MV1bwqDCoMKgIFQx
+XQo+IFvCoCAxODguMjg2OTcxXVvCoMKgwqAgVDFdIG90aGVyIGluZm8gdGhhdCBtaWdodCBoZWxw
+IHVzIGRlYnVnIHRoaXM6Cj4gW8KgIDE4OC4yODY5NzFdW8KgwqDCoCBUMV0KPiBbwqAgMTg4LjI5
+NzIzNV1bwqDCoMKgIFQxXQo+IFvCoCAxODguMjk3MjM1XVvCoMKgwqAgVDFdIHJjdV9zY2hlZHVs
+ZXJfYWN0aXZlID0gMiwgZGVidWdfbG9ja3MgPSAxCj4gW8KgIDE4OC4zMDUzMTRdW8KgwqDCoCBU
+MV0gMiBsb2NrcyBoZWxkIGJ5IHN3YXBwZXIvMC8xOgo+IFvCoCAxODguMzEwMDcyXVvCoMKgwqAg
+VDFdwqAgIzA6IGZmZmZmZmQwMTQ5Njg3ZjAgKHNtaV93YXRjaGVyc19tdXRleCl7Ky4rLn0sIAo+
+IGF0OiBpcG1pX3NtaV93YXRjaGVyX3JlZ2lzdGVyKzB4NWMvMHgyNDgKPiBbwqAgMTg4LjMyMDI5
+NV1bwqDCoMKgIFQxXcKgICMxOiBmZmZmZmZkMDE2YzlhZmY4IAo+ICgmaXBtaV9pbnRlcmZhY2Vz
+X3NyY3Upey4uLi59LCBhdDogaXBtaV9zbWlfd2F0Y2hlcl9yZWdpc3RlcisweGE4LzB4MjQ4Cj4g
+W8KgIDE4OC4zMzA3NzFdW8KgwqDCoCBUMV0KPiBbwqAgMTg4LjMzMDc3MV1bwqDCoMKgIFQxXSBz
+dGFjayBiYWNrdHJhY2U6Cj4gW8KgIDE4OC4zMzY2NzFdW8KgwqDCoCBUMV0gQ1BVOiAxIFBJRDog
+MSBDb21tOiBzd2FwcGVyLzAgTm90IHRhaW50ZWQgNS40LjArIAo+ICMxNDE2Cj4gW8KgIDE4OC4z
+NDM2MDRdW8KgwqDCoCBUMV0gSGFyZHdhcmUgbmFtZTogSHVhd2VpIFRhaXNoYW4gMjI4MCAvRDA1
+LCBCSU9TIAo+IEhpc2lsaWNvbiBEMDUgSVQyMSBOZW1vIDIuMCBSQzAgMDQvMTgvMjAxOAo+IFvC
+oCAxODguMzUzNTA2XVvCoMKgwqAgVDFdIENhbGwgdHJhY2U6Cj4gW8KgIDE4OC4zNTY2ODhdW8Kg
+wqDCoCBUMV3CoCBkdW1wX2JhY2t0cmFjZSsweDAvMHgzYTAKPiBbwqAgMTg4LjM2MTA4OV1bwqDC
+oMKgIFQxXcKgIHNob3dfc3RhY2srMHgyOC8weDM4Cj4gW8KgIDE4OC4zNjUxNDJdW8KgwqDCoCBU
+MV3CoCBkdW1wX3N0YWNrKzB4MWFjLzB4MjNjCj4gW8KgIDE4OC4zNjkzNzFdW8KgwqDCoCBUMV3C
+oCBsb2NrZGVwX3JjdV9zdXNwaWNpb3VzKzB4MTAwLzB4MTE4Cj4gW8KgIDE4OC4zNzQ2NDZdW8Kg
+wqDCoCBUMV3CoCBpcG1pX3NtaV93YXRjaGVyX3JlZ2lzdGVyKzB4MTM0LzB4MjQ4Cj4gW8KgIDE4
+OC4zODAxODVdW8KgwqDCoCBUMV3CoCBpbml0X2lwbWlfZGV2aW50ZisweGVjLzB4MTQwCj4gW8Kg
+IDE4OC4zODQ5MzZdW8KgwqDCoCBUMV3CoCBkb19vbmVfaW5pdGNhbGwrMHgyZjgvMHg3MTAKPiBb
+wqAgMTg4LjM4OTYwMF1bwqDCoMKgIFQxXcKgIGtlcm5lbF9pbml0X2ZyZWVhYmxlKzB4MzA0LzB4
+M2RjCj4gW8KgIDE4OC4zOTQ3MDFdW8KgwqDCoCBUMV3CoCBrZXJuZWxfaW5pdCsweDIwLzB4MTgw
+Cj4gW8KgIDE4OC4zOTg5MjhdW8KgwqDCoCBUMV3CoCByZXRfZnJvbV9mb3JrKzB4MTAvMHgxOAo+
+IFvCoCAxODguNDAzMzMzXVvCoMKgwqAgVDFdIGlwbWlfc2k6IElQTUkgU3lzdGVtIEludGVyZmFj
+ZSBkcml2ZXIKPiBbwqAgMTg4LjQxMTY0Nl1bwqDCoMKgIFQxXSBpcG1pX3NpIGhpc2ktbHBjLWlw
+bWkuNS5hdXRvOiBpcG1pX3BsYXRmb3JtOiAKPiBwcm9iaW5nIHZpYSBBQ1BJCj4gW8KgIDE4OC40
+MjE5NThdW8KgwqDCoCBUMV0gaXBtaV9zaSBoaXNpLWxwYy1pcG1pLjUuYXV0bzogSVJRIGluZGV4
+IDAgbm90IGZvdW5kCj4gW8KgIDE4OC40Mjg3MzddW8KgwqDCoCBUMV0gaXBtaV9zaSBoaXNpLWxw
+Yy1pcG1pLjUuYXV0bzogaXBtaV9wbGF0Zm9ybTogW2lvIAo+IDB4ZmZjMGUzLTB4ZmZjMGU3XSBy
+ZWdzaXplIDEgc3BhY2luZyAxIGlycSAwCj4gW8KgIDE4OC40MzkzODZdW8KgwqDCoCBUMV0gaXBt
+aV9zaTogQWRkaW5nIEFDUEktc3BlY2lmaWVkIGJ0IHN0YXRlIG1hY2hpbmUKPiBbwqAgMTg4LjQ0
+ODM0MV1bwqDCoMKgIFQxXSBrb2JqZWN0OiAnd2FrZXVwJyAoKF9fX19wdHJ2YWxfX19fKSk6IAo+
+IGtvYmplY3RfcmVsZWFzZSwgcGFyZW50IChfX19fcHRydmFsX19fXykgKGRlbGF5ZWQgMTAwMCkK
+PiBbwqAgMTg4LjQ1ODgyNF1bwqDCoMKgIFQxXSBrb2JqZWN0OiAnd2FrZXVwMjAnICgoX19fX3B0
+cnZhbF9fX18pKTogCj4ga29iamVjdF9yZWxlYXNlLCBwYXJlbnQgKF9fX19wdHJ2YWxfX19fKSAo
+ZGVsYXllZCAyNTApCj4gW8KgIDE4OC40NzE3NzhdW8KgwqDCoCBUMV0gaXBtaV9zaSBoaXNpLWxw
+Yy1pcG1pLjUuYXV0bzogaXBtaV9wbGF0Zm9ybTogCj4gcHJvYmluZyB2aWEgQUNQSQo+IFvCoCAx
+ODguNDgxNjIxXVvCoMKgwqAgVDFdIGlwbWlfc2kgaGlzaS1scGMtaXBtaS41LmF1dG86IElSUSBp
+bmRleCAwIG5vdCBmb3VuZAo+IFvCoCAxODguNDg4MzkwXVvCoMKgwqAgVDFdIGlwbWlfc2kgaGlz
+aS1scGMtaXBtaS41LmF1dG86IGlwbWlfcGxhdGZvcm06IFtpbyAKPiAweGZmYzBlMy0weGZmYzBl
+N10gcmVnc2l6ZSAxIHNwYWNpbmcgMSBpcnEgMAo+IFvCoCAxODguNDk4OTM2XVvCoMKgwqAgVDFd
+IGlwbWlfc2k6IEFkZGluZyBBQ1BJLXNwZWNpZmllZCBidCBzdGF0ZSBtYWNoaW5lCj4gW8KgIDE4
+OC41MDcwODJdW8KgwqDCoCBUMV0gaXBtaV9zaTogVHJ5aW5nIEFDUEktc3BlY2lmaWVkIGJ0IHN0
+YXRlIG1hY2hpbmUgCj4gYXQgaS9vIGFkZHJlc3MgMHhmZmMwZTMsIHNsYXZlIGFkZHJlc3MgMHgw
+LCBpcnEgMAo+IFvCoCAxODguNTI0NDAyXVvCoMKgwqAgVDFdIGlwbWlfc2kgaGlzaS1scGMtaXBt
+aS41LmF1dG86IGJ0IGNhcCByZXNwb25zZSB0b28gCj4gc2hvcnQ6IDMKPiBbwqAgMTg4LjUzMTgw
+OV1bwqDCoMKgIFQxXSBpcG1pX3NpIGhpc2ktbHBjLWlwbWkuNS5hdXRvOiB1c2luZyBkZWZhdWx0
+IHZhbHVlcwo+IFvCoCAxODguNTM4NDgzXVvCoMKgwqAgVDFdIGlwbWlfc2kgaGlzaS1scGMtaXBt
+aS41LmF1dG86IHJlcTJyc3A9NSBzZWNzIAo+IHJldHJpZXM9Mgo+IFvCoCAxODguNTcyNzk0XVvC
+oMKgwqAgVDFdCj4gW8KgIDE4OC41NzUwODBdW8KgwqDCoCBUMV0gPT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT0KPiBbwqAgMTg4LjU3OTkzMF1bwqDCoMKgIFQxXSBXQVJOSU5HOiBzdXNwaWNp
+b3VzIFJDVSB1c2FnZQo+IFvCoCAxODguNTg0Nzk3XVvCoMKgwqAgVDFdIDUuNC4wKyAjMTQxNiBO
+b3QgdGFpbnRlZAo+IFvCoCAxODguNTg5MjA2XVvCoMKgwqAgVDFdIC0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tCj4gW8KgIDE4OC41OTQwNTVdW8KgwqDCoCBUMV0gZHJpdmVycy9jaGFyL2lw
+bWkvaXBtaV9tc2doYW5kbGVyLmM6MzQ1MyBSQ1UtbGlzdCAKPiB0cmF2ZXJzZWQgaW4gbm9uLXJl
+YWRlciBzZWN0aW9uISEKPiBbwqAgMTg4LjYwMzYxN11bwqDCoMKgIFQxXQo+IFvCoCAxODguNjAz
+NjE3XVvCoMKgwqAgVDFdIG90aGVyIGluZm8gdGhhdCBtaWdodCBoZWxwIHVzIGRlYnVnIHRoaXM6
+Cj4gW8KgIDE4OC42MDM2MTddW8KgwqDCoCBUMV0KPiBbwqAgMTg4LjYxMzg4NF1bwqDCoMKgIFQx
+XQo+IFvCoCAxODguNjEzODg0XVvCoMKgwqAgVDFdIHJjdV9zY2hlZHVsZXJfYWN0aXZlID0gMiwg
+ZGVidWdfbG9ja3MgPSAxCj4gW8KgIDE4OC42MjE5NDVdW8KgwqDCoCBUMV0gMiBsb2NrcyBoZWxk
+IGJ5IHN3YXBwZXIvMC8xOgo+IFvCoCAxODguNjI2NzA0XVvCoMKgwqAgVDFdwqAgIzA6IGZmZmZm
+ZmQwMTQ5NmM4ZjAgKHNtaV9pbmZvc19sb2NrKXsrLisufSwgYXQ6IAo+IGluaXRfaXBtaV9zaSsw
+eDc4LzB4MjRjCj4gW8KgIDE4OC42MzU0MzZdW8KgwqDCoCBUMV3CoCAjMTogZmZmZmZmZDAxNDk2
+ODliMCAKPiAoaXBtaV9pbnRlcmZhY2VzX211dGV4KXsrLisufSwgYXQ6IGlwbWlfYWRkX3NtaSsw
+eDVlNC8weGFlMAo+IFvCoCAxODguNjQ0ODY0XVvCoMKgwqAgVDFdCj4gW8KgIDE4OC42NDQ4NjRd
+W8KgwqDCoCBUMV0gc3RhY2sgYmFja3RyYWNlOgo+IFvCoCAxODguNjUwNzY1XVvCoMKgwqAgVDFd
+IENQVTogMSBQSUQ6IDEgQ29tbTogc3dhcHBlci8wIE5vdCB0YWludGVkIDUuNC4wKyAKPiAjMTQx
+Ngo+IFvCoCAxODguNjU3Njk4XVvCoMKgwqAgVDFdIEhhcmR3YXJlIG5hbWU6IEh1YXdlaSBUYWlz
+aGFuIDIyODAgL0QwNSwgQklPUyAKPiBIaXNpbGljb24gRDA1IElUMjEgTmVtbyAyLjAgUkMwIDA0
+LzE4LzIwMTgKPiBbwqAgMTg4LjY2NzU5OF1bwqDCoMKgIFQxXSBDYWxsIHRyYWNlOgo+IFvCoCAx
+ODguNjcwNzc3XVvCoMKgwqAgVDFdwqAgZHVtcF9iYWNrdHJhY2UrMHgwLzB4M2EwCj4gW8KgIDE4
+OC42NzUxNzhdW8KgwqDCoCBUMV3CoCBzaG93X3N0YWNrKzB4MjgvMHgzOAo+IFvCoCAxODguNjc5
+MjMwXVvCoMKgwqAgVDFdwqAgZHVtcF9zdGFjaysweDFhYy8weDIzYwo+IFvCoCAxODguNjgzNDU4
+XVvCoMKgwqAgVDFdwqAgbG9ja2RlcF9yY3Vfc3VzcGljaW91cysweDEwMC8weDExOAo+IFvCoCAx
+ODguNjg4NzI2XVvCoMKgwqAgVDFdwqAgaXBtaV9hZGRfc21pKzB4NjMwLzB4YWUwCj4gW8KgIDE4
+OC42ODg3NDVdW8KgwqDCoCBUMV3CoCB0cnlfc21pX2luaXQrMHhkYmMvMHhmMTgKPiBbwqAgMTg4
+LjY4ODc1OV1bwqDCoMKgIFQxXcKgIGluaXRfaXBtaV9zaSsweDE0Yy8weDI0Ywo+IFvCoCAxODgu
+Njg4NzczXVvCoMKgwqAgVDFdwqAgZG9fb25lX2luaXRjYWxsKzB4MmY4LzB4NzEwCj4gW8KgIDE4
+OC42ODg3ODddW8KgwqDCoCBUMV3CoCBrZXJuZWxfaW5pdF9mcmVlYWJsZSsweDMwNC8weDNkYwo+
+IFvCoCAxODguNjg4ODAyXVvCoMKgwqAgVDFdwqAga2VybmVsX2luaXQrMHgyMC8weDE4MAo+IFvC
+oCAxODguNjg4ODE1XVvCoMKgwqAgVDFdwqAgcmV0X2Zyb21fZm9yaysweDEwLzB4MTgKPiBbwqAg
+MTg4LjczMTMzM11bwqDCoMKgIFQxXSBpcG1pX3NpIGhpc2ktbHBjLWlwbWkuNS5hdXRvOiBJUE1J
+IG1lc3NhZ2UgCj4gaGFuZGxlcjogRm91bmQgbmV3IEJNQyAobWFuX2lkOiAweDAwMDdkYiwgcHJv
+ZF9pZDogMHgwMDAxLCBkZXZfaWQ6IDB4MDEpCj4gW8KgIDE4OC45MzUzMDFdW8KgwqDCoCBUMV0g
+aXBtaV9zaSBoaXNpLWxwYy1pcG1pLjUuYXV0bzogSVBNSSBidCBpbnRlcmZhY2UgCj4gaW5pdGlh
+bGl6ZWQKPiBbwqAgMTg4Ljk0Mjc5N11bwqDCoMKgIFQxXSBpcG1pX3NzaWY6IElQTUkgU1NJRiBJ
+bnRlcmZhY2UgZHJpdmVyCj4gCj4gSW4gdGhlIGNvZGUgd2Ugc2VlbSB0byBiZSB1c2luZyBzcmN1
+IHJlYWQgbG9jayBpbnN0ZWFkIG9mIHJjdSByZWFkIGxvY2sgCj4gZm9yIGxpc3QgaXRlcmF0aW9u
+IHByb3RlY3Rpb24sIGJ1dCB0aGF0J3MgYSBxdWljayBhbmFseXNpcy4gQW5kIHRoZXJlIGlzIAo+
+IGFsc28gYSBtdXRleCBsb2NrZWQgaW4gaXBtaV9zbWlfd2F0Y2hlcl9yZWdpc3RlcigpIFtkaWRu
+J3QgY2hlY2sgdGhlIAo+IG90aGVyIGNhc2VdLCBzbyBJIHdvbmRlciBpZiByY3UgbGlzdCBpdGVy
+YXRvciB2YXJpYW50IGlzIHJlcXVpcmVkIGF0IGFsbC4KPiAKPiBBcG9sb2dpZXMgaWYgdGhpcyBo
+YXMgYmVlbiByZXBvcnRlZCBwcmV2aW91c2x5LiBJIHNlZSB0aGF0IEFuZGVycyAKPiAoY2MnZWQp
+IGhhcyBiZWVuIHJlcG9ydGluZyBzb21lIG9mIHRoZXNlIHNvcnRzIG9mIGlzc3Vlcy4KPiAKPiBU
+aGFua3MsCj4gSm9obgoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpPcGVuaXBtaS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3Bl
+ckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlz
+dHMvbGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVyCg==
