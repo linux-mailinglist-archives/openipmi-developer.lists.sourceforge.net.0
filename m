@@ -2,97 +2,94 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F1FE919E9A9
-	for <lists+openipmi-developer@lfdr.de>; Sun,  5 Apr 2020 09:00:16 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A9FF91A0D7E
+	for <lists+openipmi-developer@lfdr.de>; Tue,  7 Apr 2020 14:22:50 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1jKzGN-0005Ge-Ua; Sun, 05 Apr 2020 07:00:11 +0000
+	id 1jLnFf-0007vT-Ix; Tue, 07 Apr 2020 12:22:47 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <andrew@aj.id.au>) id 1jKzGL-0005GP-Bq
- for openipmi-developer@lists.sourceforge.net; Sun, 05 Apr 2020 07:00:09 +0000
+ (envelope-from <dan.carpenter@oracle.com>) id 1jLnFe-0007vL-5j
+ for openipmi-developer@lists.sourceforge.net; Tue, 07 Apr 2020 12:22:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Date:References:
- In-Reply-To:Message-Id:Mime-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+ From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=yWE5iV1vF2rjVGqJzP4udG6OgWvMuVfD2zKlW0VL8vc=; b=gAnlleOqTPUqcCEBvWhOmPTQKx
- /oBMeS2M5N+q4E0KXWYl2OmavI3frWqc6RYHhwtYAh8cg/0dzxxGlfl81YsVbnc25vsfMBH0sg0fe
- wEuI1PQ/HljpXHCl3wzjxpCul7Ponfa2EK5FtkQ6KJLpaOvDsl6VRqQOGmI2fpnM4AYM=;
+ bh=V7U/UPhdIVNmh0TGVMyOEl9Z22IuQG38qcPPCZe71G0=; b=Up8H6nVfuulPeRpaniDEA7/iNq
+ I02B56DXKbeLJ0fKGtyPAho00/ks90Ap5Yef5zjWrSgDpHi2Phgy3jdHK4oTXZvBV8mjCkc4nl59d
+ tOUzvgDf97RjGdf1vHu4Ec3kc/COos7vxqjwa7qQjxQ+kfP403GfVgGsULThkRW6VGrA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Subject:Cc:To:From:Date:References:In-Reply-To:Message-Id:
- Mime-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=yWE5iV1vF2rjVGqJzP4udG6OgWvMuVfD2zKlW0VL8vc=; b=kHjHujXKYIyddVbfMdooXQ8vt5
- BPScUebjZQPU18RgW7QnlJnb4Mt/lyMap4SMKiWuh6h8AFZbR4gead1rkq9+eL/se6qVVXNNJenO7
- uPNekc9ytW1gKdeMwan+PCgg5pmBNIhwXtmk6Km8fIfhGUI1tJbCcPal9cDgtx9UI2J0=;
-Received: from new1-smtp.messagingengine.com ([66.111.4.221])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Sender:
+ Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=V7U/UPhdIVNmh0TGVMyOEl9Z22IuQG38qcPPCZe71G0=; b=O
+ nd8m5jvlaJ80csvHTS3TZDwPUU/9pe2baxZ8FxyijQAC92wNtbQ6dAEdtc8jYF+M2qF5J+154AnGs
+ vtiCqeREdZ9jeI3G+iRjs4mKJrXxATCStG5t6DLX89N3v7y58IlsJPXFVGyU/5pIhkLBffbYDmFdf
+ 0Ojucpmp5AT6IbVI=;
+Received: from userp2130.oracle.com ([156.151.31.86])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1jKzGB-002YTh-4B
- for openipmi-developer@lists.sourceforge.net; Sun, 05 Apr 2020 07:00:08 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
- by mailnew.nyi.internal (Postfix) with ESMTP id AAEDE58026A;
- Sun,  5 Apr 2020 02:59:50 -0400 (EDT)
-Received: from imap2 ([10.202.2.52])
- by compute3.internal (MEProxy); Sun, 05 Apr 2020 02:59:50 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=
- mime-version:message-id:in-reply-to:references:date:from:to:cc
- :subject:content-type; s=fm2; bh=yWE5iV1vF2rjVGqJzP4udG6OgWvMuVf
- D2zKlW0VL8vc=; b=goGwj/jmvd74/4dXXrkmJVPe5xI9r3yKgasZjk9WlI8sZvA
- Hq8FllL86de3H+jkfEIilxOxo12fkh/uZUGny/AvGivr3scfemC7SN6haQ8cLUDX
- kNhFTFxt3PvIwPTWj8+orWCj7oZPLvd5Jy1TS0VAMqEv9td8mDYMkk8gex5pvoeA
- ucNFcYwGXilpC8XYUKedvB+1ommO41Vzbiusd1/aW5yknjdpImx7oilaa+/dl9qW
- KE3k6T7vf1ggYLO/YNXbgb4F8FxAlcVUZ/d5VQ+sZyJEYLzQw5rkmZD96vbYLLu/
- Vlukw8OOzCVMFp3RsorCHmsR+YcxKKESTznHguA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=yWE5iV
- 1vF2rjVGqJzP4udG6OgWvMuVfD2zKlW0VL8vc=; b=QQpV+ip6yBO7k7deoxKGUs
- rW3WfZZP7kKZy5IZipRQlASYytedxXztVz9s6lAsbr9r1rfrO4aaV5W/NgiNkG2E
- dcwvdQ+XbPv7RwpPM2Ek7A+AqhaYPEQtoEg8FP2ct2LKqXsA//neIK5q0H5Kmv9p
- ESfTAcXiw+aRhyXlvNuR5YKUOayawJtEIkwpYkOO6fSTgb142/azseN7ik/FsTbf
- JdXgvn/gh/lkZtCk6sYTR3NB8gvhSy+5/RNDytiIgGfJH0n0RNJG5OJg8SLaezdB
- dnVkGcD2iuBA+cRfi5P7ID9bOvcIdfhofBrMax6bBiggzvEoSgEP/OpDUMvMtw1Q
- ==
-X-ME-Sender: <xms:5IGJXgh39OEGA02bB29v2YQALa7x8qIPFiG_n0zd-ko5F5rCutG2cA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduhedruddtgddulecutefuodetggdotefrodftvf
- curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
- uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
- fjughrpefofgggkfgjfhffhffvufgtsehttdertderreejnecuhfhrohhmpedftehnughr
- vgifucflvghffhgvrhihfdcuoegrnhgurhgvfiesrghjrdhiugdrrghuqeenucffohhmrg
- hinhepkhgvrhhnvghlrdhorhhgpdguvghvihgtvghsrdhpihhnghenucevlhhushhtvghr
- ufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrnhgurhgvfiesrghjrdhiug
- drrghu
-X-ME-Proxy: <xmx:5IGJXoUMkaRJo6jN3vOIm7edHXudlz9cSM0j6tpYFurIuA7U-IYdnQ>
- <xmx:5IGJXvCM5nfC-tJ_HT3EdJZkXcpgb3h5JENEvcJysnffznYFloNhjw>
- <xmx:5IGJXslnrlyKOycSkd-ZzaXEsrp6Cgglk7UNiANZGtnAa-OYfektrg>
- <xmx:5oGJXtU6C2CZPne5rDC3sbV-JSzh2weW3z2qanuGgwholBRpBXk-Qg>
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
- id A15A8E00B1; Sun,  5 Apr 2020 02:59:48 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.1.7-1082-g13d7805-fmstable-20200403v1
-Mime-Version: 1.0
-Message-Id: <69bfc045-2059-4d37-af7a-52f5840664cf@www.fastmail.com>
-In-Reply-To: <20200403130840.GR2910@minyard.net>
-References: <cover.fe20dfec1a7c91771c6bb574814ffb4bb49e2136.1576462051.git-series.andrew@aj.id.au>
- <7734002a-181e-4baf-b9a3-af66894acc16@www.fastmail.com>
- <20200403130840.GR2910@minyard.net>
-Date: Sun, 05 Apr 2020 16:30:09 +0930
-From: "Andrew Jeffery" <andrew@aj.id.au>
-To: "Corey Minyard" <minyard@acm.org>
-X-Spam-Score: -0.3 (/)
+ id 1jLnFc-006Sq2-1n
+ for openipmi-developer@lists.sourceforge.net; Tue, 07 Apr 2020 12:22:46 +0000
+Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
+ by userp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 037CDwfn015653;
+ Tue, 7 Apr 2020 12:22:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=date : from : to : cc
+ : subject : message-id : mime-version : content-type; s=corp-2020-01-29;
+ bh=V7U/UPhdIVNmh0TGVMyOEl9Z22IuQG38qcPPCZe71G0=;
+ b=DVk2Gc7awsJ2EpBHjclJ+73v062HkALtVJF48bzDR3AYITsmiI5g6cVg/vE0zF9g4bNe
+ FfGwtINJBYsng9bPNbLC6Iibb0aPtB5u9qz5KUsOZ/erxxIe6PCfL4I5h+WheAxbkHB3
+ yX/nEaJ4umB6X8yszgnMnp0my+zz3FMfheSZABbuKOVU8Z9xMw+n9MAyUZGTZSu1oZjx
+ oxDbQNVCMvhh0x0PcpWARA6M6YWDGzYX4KUeL37d4ypgY+j3OXL+wvU84ju+H6N4566L
+ 7vo2Q4lALCEA0dwoO6F6InoNlW23a4RqVBVh/VlGN7jK4s6TsMKDwpTMk8PGOjqr1xfz ew== 
+Received: from aserp3030.oracle.com (aserp3030.oracle.com [141.146.126.71])
+ by userp2130.oracle.com with ESMTP id 308ffdahj2-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 07 Apr 2020 12:22:14 +0000
+Received: from pps.filterd (aserp3030.oracle.com [127.0.0.1])
+ by aserp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 037CGd6o062588;
+ Tue, 7 Apr 2020 12:22:13 GMT
+Received: from aserv0121.oracle.com (aserv0121.oracle.com [141.146.126.235])
+ by aserp3030.oracle.com with ESMTP id 3073ss0xjx-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 07 Apr 2020 12:22:13 +0000
+Received: from abhmp0012.oracle.com (abhmp0012.oracle.com [141.146.116.18])
+ by aserv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 037CLwwa000652;
+ Tue, 7 Apr 2020 12:21:58 GMT
+Received: from mwanda (/41.57.98.10) by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Tue, 07 Apr 2020 05:21:57 -0700
+Date: Tue, 7 Apr 2020 15:21:49 +0300
+From: Dan Carpenter <dan.carpenter@oracle.com>
+To: Corey Minyard <minyard@acm.org>, Andrew Jeffery <andrew@aj.id.au>
+Message-ID: <20200407122149.GA100026@mwanda>
+MIME-Version: 1.0
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9583
+ signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0
+ phishscore=0 spamscore=0
+ malwarescore=0 suspectscore=0 adultscore=0 bulkscore=0 mlxlogscore=999
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
+ definitions=main-2004070106
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9583
+ signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
+ priorityscore=1501
+ impostorscore=0 malwarescore=0 mlxlogscore=999 lowpriorityscore=0
+ clxscore=1011 phishscore=0 mlxscore=0 bulkscore=0 adultscore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
+ definitions=main-2004070106
+X-Spam-Score: -0.6 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [66.111.4.221 listed in wl.mailspike.net]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
@@ -100,12 +97,11 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jKzGB-002YTh-4B
-Subject: Re: [Openipmi-developer] 
- =?utf-8?q?=5BPATCH_v2_0/3=5D_ipmi=3A_kcs-bm?=
- =?utf-8?q?c=3A_Rework_bindings_to_clean_up_DT_warnings?=
+ 0.0 UNPARSEABLE_RELAY Informational: message has unparseable relay lines
+ -0.2 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.4 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jLnFc-006Sq2-1n
+Subject: [Openipmi-developer] [PATCH] ipmi: kcs: Fix aspeed_kcs_probe_of_v1()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -118,48 +114,39 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- openipmi-developer@lists.sourceforge.net,
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-aspeed@lists.ozlabs.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ kernel-janitors@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
  Haiyue Wang <haiyue.wang@linux.intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
+This needs to return the newly allocated struct but instead it returns
+zero which leads to an immediate Oops in the caller.
 
+Fixes: 09f5f680707e ("ipmi: kcs: aspeed: Implement v2 bindings")
+Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
+---
+ drivers/char/ipmi/kcs_bmc_aspeed.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Fri, 3 Apr 2020, at 23:38, Corey Minyard wrote:
-> On Fri, Apr 03, 2020 at 02:20:21PM +1030, Andrew Jeffery wrote:
-> > 
-> > 
-> > On Mon, 16 Dec 2019, at 12:57, Andrew Jeffery wrote:
-> > > Hello,
-> > > 
-> > > This is a short series reworking the devicetree binding and driver for the
-> > > ASPEED BMC KCS devices. With the number of supported ASPEED BMC devicetrees the
-> > > changes enable removal of more than 100 lines of warning output from dtc.
-> > > 
-> > > v1 can be found here:
-> > > 
-> > > https://lore.kernel.org/lkml/cover.5630f63168ad5cddf02e9796106f8e086c196907.1575376664.git-series.andrew@aj.id.au/
-> > > 
-> > > v2 cleans up the commit message of 2/3 and changes the name of the property
-> > > governing the LPC IO address for the KCS devices.
-> > 
-> > Ping?
-> 
-> Sorry, I've been busy.
+diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
+index 9422d55a0476..a140203c079b 100644
+--- a/drivers/char/ipmi/kcs_bmc_aspeed.c
++++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
+@@ -271,7 +271,7 @@ static struct kcs_bmc *aspeed_kcs_probe_of_v1(struct platform_device *pdev)
+ 	kcs->ioreg = ast_kcs_bmc_ioregs[channel - 1];
+ 	aspeed_kcs_set_address(kcs, slave);
+ 
+-	return 0;
++	return kcs;
+ }
+ 
+ static int aspeed_kcs_calculate_channel(const struct kcs_ioreg *regs)
+-- 
+2.25.1
 
-No worries, so have I. I was surprised when I found it had been 4 months :)
-
->  I've looked this over and it seems ok, and it's
-> in my next tree.
-
-Thanks.
-
-Andrew
 
 
 _______________________________________________
