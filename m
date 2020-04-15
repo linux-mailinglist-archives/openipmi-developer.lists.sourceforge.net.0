@@ -2,115 +2,81 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id D15851A8C28
-	for <lists+openipmi-developer@lfdr.de>; Tue, 14 Apr 2020 22:18:47 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5CDD01AA0FA
+	for <lists+openipmi-developer@lfdr.de>; Wed, 15 Apr 2020 14:34:34 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1jOS18-0005BO-6C; Tue, 14 Apr 2020 20:18:46 +0000
+	id 1jOhFQ-0007Cn-L3; Wed, 15 Apr 2020 12:34:32 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1jOS16-0005BC-Of
- for openipmi-developer@lists.sourceforge.net; Tue, 14 Apr 2020 20:18:44 +0000
+ (envelope-from <gregkh@linuxfoundation.org>) id 1jOhFL-0007C1-DO
+ for openipmi-developer@lists.sourceforge.net; Wed, 15 Apr 2020 12:34:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Message-ID:In-Reply-To:Date:From:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=rLY3E9TB/AARP5ZcaClXMaDKsCbI8tUQJ+pv7T0Vfno=; b=kYr6Nmc4KQ/T9+tO25aQqFReYw
- kSL9TSkpd0oBEfaVavMjMY2W6G5J7nUhKRAJ8+yrisnvHbEh950NZlNa4zfLxNcyRiDrBJUxnjO3b
- M71zdN3w/kIqN3ix1W8boSjnlITA79k4RAVb4gWpfe4nizB+nyOmPTM2Unp8h7FEj7t4=;
+ bh=+NtjIy7PVh+isHJr1QRC+Pe8jVoo5ZyUUEwae64tI4g=; b=JEBkSY8Z/oUni53OE83K7A072k
+ jdEUXMxOVcYn85f89LN3QjDrHf6yE77P/Bhkkm4I2/oKfWZ2fYu7kwi+OkLryGXBc2Txo5GB3DCJt
+ 6jMOjlxpVJLlnW4t+XH03V0ENtnw6V6okaL5RE5vCinlg9DYd10qzYNB3R/WE3G5rWyY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
+ In-Reply-To:Date:From:Cc:To:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=rLY3E9TB/AARP5ZcaClXMaDKsCbI8tUQJ+pv7T0Vfno=; b=EJIuObzfDs+muIBiJyaW8sbKrq
- cAtLmW7DJ1H9oxztezu8hyWfFf11w6CGkODcB8AHOsDqaZoR3peBfnydcIp4ldcBcan2sXzFzWu7Z
- xdO8qtNZfhGyVkTUCsExLhDWxbzpCSuUUwsC16SitsFMMmaOGsgutBgrrKG0VZJJjGCA=;
-Received: from mail-ot1-f67.google.com ([209.85.210.67])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1jOS12-00FDW0-Sn
- for openipmi-developer@lists.sourceforge.net; Tue, 14 Apr 2020 20:18:44 +0000
-Received: by mail-ot1-f67.google.com with SMTP id z17so1067762oto.4
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 14 Apr 2020 13:18:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=rLY3E9TB/AARP5ZcaClXMaDKsCbI8tUQJ+pv7T0Vfno=;
- b=ZqS4I9LRZs9vfonnUEXi4MrM6h+oq5OJhahQ9xq6CTRHyTB4R9s1z5sb+llkZJoYJS
- x/Wm1suRUG1Cws+auj6F2IEVbrzhqIf7KS+n69S/s3S0DPdhUe5xtFePYdkSWNUnw6fY
- cLFVA1EZQUnpmbyMGur1vb0ND99t6xhV8h1rJTO/tr4Oi+6CLxpMJxwl8xRqmsybrefV
- 6BZmhpDQsc1pKGodFruNncZbGzwI6SWALyiRCnRu0Wxca9IrgARZ/h3umrdNdR3CxGvn
- u6dWLYvzZggf80uAcnCzNT5B3Gkk2QtEzVTsDtZVLxr0vfqQVPCk9KmhEgo5T2iRve/y
- FeIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to
- :user-agent;
- bh=rLY3E9TB/AARP5ZcaClXMaDKsCbI8tUQJ+pv7T0Vfno=;
- b=dRJg6BhRRLMntgXLT2uAP/XhdJVwcJvLhOdDAooWTMzPxmKBg/EQeM7rd1eGEhzhgl
- 3Z6KfxnQ7idC325BX1V+xZcfvK5CuYNFkpkSCKqeuGV73gApxGymh+RgYjQQGETpcI9v
- SbSxXjm4ni3ceAuU/VsE014Jtj7kLAIxLAc9nHP3cvsUvjd4I0OvvdX7OstoG5/jM2VP
- 2v+37SixcXcDBX8YfLnXlZG4nAcc8diMVo17B+Ef0CZ+ERptL+NZndlT+lw+ZdQ+zlza
- DL2+sJuh3mg2/o+XvTcwuiJPa/+DyXK7BpDhJcLeMnd3kr60IAwD2mrhkhZ+qHzSteX3
- UXtQ==
-X-Gm-Message-State: AGi0PuZ5WFYYM/kMxkeuBw+J3eCMre64ODJXApCQXbp5dOt7Rh3IcmiX
- RXL3ckqrQfZF+6gCBNMAZxKtM5Gf3tFN
-X-Google-Smtp-Source: APiQypITkTCya6Z7MQTVnb9o1d9yzK8+NK79ZCFn/twBseE2eVwuqCIU1xYHRvAbOd5C4Ny5y9S5ww==
-X-Received: by 2002:a9d:1d45:: with SMTP id m63mr11854342otm.271.1586895515050; 
- Tue, 14 Apr 2020 13:18:35 -0700 (PDT)
-Received: from serve.minyard.net ([47.184.149.130])
- by smtp.gmail.com with ESMTPSA id p25sm5802615oth.49.2020.04.14.13.18.34
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 14 Apr 2020 13:18:34 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:8b39:c3f3:f502:5c4e])
- by serve.minyard.net (Postfix) with ESMTPSA id A90F8181888;
- Tue, 14 Apr 2020 20:18:33 +0000 (UTC)
-Date: Tue, 14 Apr 2020 15:18:32 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Tang Bin <tangbin@cmss.chinamobile.com>
-Message-ID: <20200414201832.GJ3587@minyard.net>
-References: <20200414141423.4968-1-tangbin@cmss.chinamobile.com>
+ :Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=+NtjIy7PVh+isHJr1QRC+Pe8jVoo5ZyUUEwae64tI4g=; b=bGuzyAFCYhz/G2REo6N3hi3tA1
+ 1bLuJv+q9JWe4hAdXr8/J+aZDUYaY8GnQWffgeMFh1SMagto7X3VWQDKXnwU0bnq1CowMAm8JktT7
+ 0bPUbadkXIW+Bqcs6PUyII9+1txfbaOi83fsxOlJCAT7d70u/+2fD3+UjJZsH35rebL4=;
+Received: from mail.kernel.org ([198.145.29.99])
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1jOhFJ-002fdI-JZ
+ for openipmi-developer@lists.sourceforge.net; Wed, 15 Apr 2020 12:34:27 +0000
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
+ [83.86.89.107])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7BF4320737;
+ Wed, 15 Apr 2020 12:16:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1586952974;
+ bh=pKCJuCbZNFoCa7g30gwsJQsj+19Ns9e4f1aQqF/KgAw=;
+ h=Subject:To:Cc:From:Date:In-Reply-To:From;
+ b=LdFXhriFv4CYDF9t2zqsBfVSmkauq6KamBnSub7cSpXhkvygry5WMbwSmxTdc/9Xc
+ JQAWnUkXoAfjzBuUPXHVTT+mjXxsRjY9A8Z1X5GL28kxpmJh4g1TckQNLJT1ev4/pT
+ y1aExninxzH3cpSkycBoAo/9TboeVxmYlFUBjjIM=
+To: 20200403090408.58745-1-wenyang@linux.alibaba.com, arnd@arndb.de,
+ cminyard@mvista.com, gregkh@linuxfoundation.org, minyard@acm.org,
+ openipmi-developer@lists.sourceforge.net, wenyang@linux.alibaba.com
+From: <gregkh@linuxfoundation.org>
+Date: Wed, 15 Apr 2020 14:15:44 +0200
+In-Reply-To: <20200403090408.58745-1-wenyang@linux.alibaba.com>
+Message-ID: <15869529441725@kroah.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200414141423.4968-1-tangbin@cmss.chinamobile.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Spam-Score: 0.2 (/)
+X-stable: commit
+X-Patchwork-Hint: ignore 
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: chinamobile.com]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.67 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.67 listed in wl.mailspike.net]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
+ for more information. [URIs: mvista.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
- -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jOS12-00FDW0-Sn
-Subject: Re: [Openipmi-developer] [PATCH 3/3] ipmi:bt-bmc: Fix error
- handling and status check
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jOhFJ-002fdI-JZ
+Subject: [Openipmi-developer] Patch "ipmi: fix hung processes in
+ __get_guid()" has been added to the 4.19-stable tree
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -123,82 +89,100 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: gregkh@linuxfoundation.org, openipmi-developer@lists.sourceforge.net,
- linux-kernel@vger.kernel.org, arnd@arndb.de,
- Shengju Zhang <zhangshengju@cmss.chinamobile.com>
+Cc: stable-commits@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Apr 14, 2020 at 10:14:24PM +0800, Tang Bin wrote:
-> If the function platform_get_irq() failed, the negative
-> value returned will not be detected here. So fix error
-> handling in bt_bmc_config_irq(). And if devm_request_irq()
-> failed, 'bt_bmc->irq' is assigned to zero maybe redundant,
-> it may be more suitable for using the correct negative values
-> to make the status check in the function bt_bmc_remove().
 
-Comments inline..
+This is a note to let you know that I've just added the patch titled
 
-> 
-> Signed-off-by: Tang Bin <tangbin@cmss.chinamobile.com>
-> Signed-off-by: Shengju Zhang <zhangshengju@cmss.chinamobile.com>
-> ---
->  drivers/char/ipmi/bt-bmc.c | 12 +++++-------
->  1 file changed, 5 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/bt-bmc.c b/drivers/char/ipmi/bt-bmc.c
-> index 1d4bf5c65..1740c6dc8 100644
-> --- a/drivers/char/ipmi/bt-bmc.c
-> +++ b/drivers/char/ipmi/bt-bmc.c
-> @@ -399,16 +399,14 @@ static int bt_bmc_config_irq(struct bt_bmc *bt_bmc,
->  	struct device *dev = &pdev->dev;
->  	int rc;
->  
-> -	bt_bmc->irq = platform_get_irq(pdev, 0);
-> -	if (!bt_bmc->irq)
-> -		return -ENODEV;
-> +	bt_bmc->irq = platform_get_irq_optional(pdev, 0);
-> +	if (bt_bmc->irq < 0)
-> +		return bt_bmc->irq;
->  
->  	rc = devm_request_irq(dev, bt_bmc->irq, bt_bmc_irq, IRQF_SHARED,
->  			      DEVICE_NAME, bt_bmc);
-> -	if (rc < 0) {
-> -		bt_bmc->irq = 0;
-> +	if (rc < 0)
->  		return rc;
+    ipmi: fix hung processes in __get_guid()
 
-I don't think this part is correct.  You will want to set bt_bmc->irq to
-rc here to match what is done elsewhere so it's the error if negative.
+to the 4.19-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-Also, I believe this function should no longer return an error.  It
-should just set the irq to the error if one happens.  The driver needs
-to continue to operate even if it can't get its interrupt.
+The filename of the patch is:
+     ipmi-fix-hung-processes-in-__get_guid.patch
+and it can be found in the queue-4.19 subdirectory.
 
-The rest of the changes are correct, I believe.
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
--corey
 
-> -	}
->  
->  	/*
->  	 * Configure IRQs on the bmc clearing the H2B and HBUSY bits;
-> @@ -499,7 +497,7 @@ static int bt_bmc_remove(struct platform_device *pdev)
->  	struct bt_bmc *bt_bmc = dev_get_drvdata(&pdev->dev);
->  
->  	misc_deregister(&bt_bmc->miscdev);
-> -	if (!bt_bmc->irq)
-> +	if (bt_bmc->irq < 0)
->  		del_timer_sync(&bt_bmc->poll_timer);
->  	return 0;
->  }
-> -- 
-> 2.20.1.windows.1
-> 
-> 
-> 
+From 32830a0534700f86366f371b150b17f0f0d140d7 Mon Sep 17 00:00:00 2001
+From: Wen Yang <wenyang@linux.alibaba.com>
+Date: Fri, 3 Apr 2020 17:04:08 +0800
+Subject: ipmi: fix hung processes in __get_guid()
+
+From: Wen Yang <wenyang@linux.alibaba.com>
+
+commit 32830a0534700f86366f371b150b17f0f0d140d7 upstream.
+
+The wait_event() function is used to detect command completion.
+When send_guid_cmd() returns an error, smi_send() has not been
+called to send data. Therefore, wait_event() should not be used
+on the error path, otherwise it will cause the following warning:
+
+[ 1361.588808] systemd-udevd   D    0  1501   1436 0x00000004
+[ 1361.588813]  ffff883f4b1298c0 0000000000000000 ffff883f4b188000 ffff887f7e3d9f40
+[ 1361.677952]  ffff887f64bd4280 ffffc90037297a68 ffffffff8173ca3b ffffc90000000010
+[ 1361.767077]  00ffc90037297ad0 ffff887f7e3d9f40 0000000000000286 ffff883f4b188000
+[ 1361.856199] Call Trace:
+[ 1361.885578]  [<ffffffff8173ca3b>] ? __schedule+0x23b/0x780
+[ 1361.951406]  [<ffffffff8173cfb6>] schedule+0x36/0x80
+[ 1362.010979]  [<ffffffffa071f178>] get_guid+0x118/0x150 [ipmi_msghandler]
+[ 1362.091281]  [<ffffffff810d5350>] ? prepare_to_wait_event+0x100/0x100
+[ 1362.168533]  [<ffffffffa071f755>] ipmi_register_smi+0x405/0x940 [ipmi_msghandler]
+[ 1362.258337]  [<ffffffffa0230ae9>] try_smi_init+0x529/0x950 [ipmi_si]
+[ 1362.334521]  [<ffffffffa022f350>] ? std_irq_setup+0xd0/0xd0 [ipmi_si]
+[ 1362.411701]  [<ffffffffa0232bd2>] init_ipmi_si+0x492/0x9e0 [ipmi_si]
+[ 1362.487917]  [<ffffffffa0232740>] ? ipmi_pci_probe+0x280/0x280 [ipmi_si]
+[ 1362.568219]  [<ffffffff810021a0>] do_one_initcall+0x50/0x180
+[ 1362.636109]  [<ffffffff812231b2>] ? kmem_cache_alloc_trace+0x142/0x190
+[ 1362.714330]  [<ffffffff811b2ae1>] do_init_module+0x5f/0x200
+[ 1362.781208]  [<ffffffff81123ca8>] load_module+0x1898/0x1de0
+[ 1362.848069]  [<ffffffff811202e0>] ? __symbol_put+0x60/0x60
+[ 1362.913886]  [<ffffffff8130696b>] ? security_kernel_post_read_file+0x6b/0x80
+[ 1362.998514]  [<ffffffff81124465>] SYSC_finit_module+0xe5/0x120
+[ 1363.068463]  [<ffffffff81124465>] ? SYSC_finit_module+0xe5/0x120
+[ 1363.140513]  [<ffffffff811244be>] SyS_finit_module+0xe/0x10
+[ 1363.207364]  [<ffffffff81003c04>] do_syscall_64+0x74/0x180
+
+Fixes: 50c812b2b951 ("[PATCH] ipmi: add full sysfs support")
+Signed-off-by: Wen Yang <wenyang@linux.alibaba.com>
+Cc: Corey Minyard <minyard@acm.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: openipmi-developer@lists.sourceforge.net
+Cc: linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org # 2.6.17-
+Message-Id: <20200403090408.58745-1-wenyang@linux.alibaba.com>
+Signed-off-by: Corey Minyard <cminyard@mvista.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+
+---
+ drivers/char/ipmi/ipmi_msghandler.c |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -3134,8 +3134,8 @@ static void __get_guid(struct ipmi_smi *
+ 	if (rv)
+ 		/* Send failed, no GUID available. */
+ 		bmc->dyn_guid_set = 0;
+-
+-	wait_event(intf->waitq, bmc->dyn_guid_set != 2);
++	else
++		wait_event(intf->waitq, bmc->dyn_guid_set != 2);
+ 
+ 	/* dyn_guid_set makes the guid data available. */
+ 	smp_rmb();
+
+
+Patches currently in stable-queue which might be from wenyang@linux.alibaba.com are
+
+queue-4.19/ipmi-fix-hung-processes-in-__get_guid.patch
 
 
 _______________________________________________
