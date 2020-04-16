@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 47C9D1AC2B2
-	for <lists+openipmi-developer@lfdr.de>; Thu, 16 Apr 2020 15:32:04 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id C042A1AC356
+	for <lists+openipmi-developer@lfdr.de>; Thu, 16 Apr 2020 15:41:39 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1jP4ca-0006zy-OI; Thu, 16 Apr 2020 13:32:00 +0000
+	id 1jP4ls-0005Yg-9N; Thu, 16 Apr 2020 13:41:36 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <gregkh@linuxfoundation.org>) id 1jP4cX-0006zo-6H
- for openipmi-developer@lists.sourceforge.net; Thu, 16 Apr 2020 13:31:57 +0000
+ (envelope-from <gregkh@linuxfoundation.org>) id 1jP4lq-0005YA-LF
+ for openipmi-developer@lists.sourceforge.net; Thu, 16 Apr 2020 13:41:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
  :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=f8ghF/arHHvJMNQav6fxtJJH8dshoS/jCcsTF1HXA7I=; b=dFHi1z9MmeARmfgI8minKXvptK
- pJK+dQIDh1NM2+fiPpPEgCPsbJn0LexrLbm3iXwbMSMgF6a4PNnCtcM7XQGXUxnc53rEHgJz10ams
- 6mK1nnehcWVtuK2Gcrngwn3Z9+5WbQATGb5hXcUAIs6llZe25Paj6uNJwLx+hG272RtM=;
+ bh=+iPGlEi0GrqCkdNGTz+T7e4cEUUQEeSuY22jmv83Wbo=; b=etLKI6M9uz3yNhWoq0cjrlXo7U
+ UNPE93Lp1rtxV6CUNDpcU3JSUhstTlQY3gHEKoFNj1FLYDiWbs/PA8sp/8RFBnZcnFECG18hpVwE7
+ d2Si2bRBW1PFvtlN2AHnwTGzbZ6c0HgoxTdKBEXM9Vq78LamgQe+YkL2aVg+ZAHv4jdM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
@@ -29,34 +29,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=f8ghF/arHHvJMNQav6fxtJJH8dshoS/jCcsTF1HXA7I=; b=H0/jSjczS8ys443AxgnMrekTX/
- 3lJj68SAX4fYhCkp5bqJ/gVsAWa22Pq1o3BdOeRCZX5yV1FOpBdA2wkvOr9gGUddnvJxtVG4apG3G
- oUOFYYmnfqCmLLlY+p4PfCv0HHPenjU1PPA0yHQDcw/bKiuOuBok86AODTEz58J23wLY=;
+ bh=+iPGlEi0GrqCkdNGTz+T7e4cEUUQEeSuY22jmv83Wbo=; b=J8Og1NWTY40iliRDzyoemrh1tE
+ QtsS7gZI2qZQCwMwJ3qgsXPydAYnUYGu94jg7EKyqaHBsfrBIJ2OsvraiZvi4RqxbZtpnd9NSktkF
+ 0Jl9F5pNok3Hk4LCEwJnG1DEoWsRASA5c91WzPkrd+dynpPzShOj458lYDel0DRc1hog=;
 Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1jP4cS-001w68-Sp
- for openipmi-developer@lists.sourceforge.net; Thu, 16 Apr 2020 13:31:57 +0000
+ id 1jP4lm-003vfo-OS
+ for openipmi-developer@lists.sourceforge.net; Thu, 16 Apr 2020 13:41:34 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 3A7602224E;
- Thu, 16 Apr 2020 13:31:45 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 1DCEE214D8;
+ Thu, 16 Apr 2020 13:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1587043905;
- bh=mf0Gh3FsRDQw+bSMC6JREENsy/uQD/xAYXEdbkGBcnY=;
+ s=default; t=1587044478;
+ bh=vZKMLH6+87IUjMNrup5IggY1o+3zzdiZAgU3UikVZlw=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=EjVijcd/c/hHwZG5BY7ulnSJ94QTVL0VdiMUkI1Mjf+//a8vomGdThhF4QZdt+IP8
- Ac56ngaYtS+BSIoDzWms3cxcilNXHLK/zpXEDlNtqzS/V6w9NyYXr66z+g7wOpMglf
- 4wSooq+TlZEFqh+E80nkYir57Emle9MvL8KwVuos=
+ b=XU9R5G4DernsuXLQSfySIHNoYJVnjrps62VMDMty/VIQv4/ebwnf/h0SaFD9aZeFY
+ QwMufgF/jsdyVwaK9ecmsU6/thTTWD91UfX1eWdyAstn7tkX5HaHvu9OTuJ9ZUtSBy
+ /jTgp2NWXmociEHOLioAJlaKGWkvuA3h4hd2Z6PM=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: linux-kernel@vger.kernel.org
-Date: Thu, 16 Apr 2020 15:24:23 +0200
-Message-Id: <20200416131259.256255132@linuxfoundation.org>
+Date: Thu, 16 Apr 2020 15:24:44 +0200
+Message-Id: <20200416131354.800144331@linuxfoundation.org>
 X-Mailer: git-send-email 2.26.1
-In-Reply-To: <20200416131242.353444678@linuxfoundation.org>
-References: <20200416131242.353444678@linuxfoundation.org>
+In-Reply-To: <20200416131325.891903893@linuxfoundation.org>
+References: <20200416131325.891903893@linuxfoundation.org>
 User-Agent: quilt/0.66
 MIME-Version: 1.0
 X-Spam-Score: -0.2 (/)
@@ -65,7 +65,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: linuxfoundation.org]
+ for more information. [URIs: acm.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -73,8 +73,8 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  not necessarily valid
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
  -0.2 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jP4cS-001w68-Sp
-Subject: [Openipmi-developer] [PATCH 4.19 122/146] ipmi: fix hung processes
+X-Headers-End: 1jP4lm-003vfo-OS
+Subject: [Openipmi-developer] [PATCH 5.5 233/257] ipmi: fix hung processes
  in __get_guid()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -148,7 +148,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 --- a/drivers/char/ipmi/ipmi_msghandler.c
 +++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -3134,8 +3134,8 @@ static void __get_guid(struct ipmi_smi *
+@@ -3188,8 +3188,8 @@ static void __get_guid(struct ipmi_smi *
  	if (rv)
  		/* Send failed, no GUID available. */
  		bmc->dyn_guid_set = 0;
