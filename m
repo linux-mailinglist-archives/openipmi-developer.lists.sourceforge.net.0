@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C38CC1AEEFE
-	for <lists+openipmi-developer@lfdr.de>; Sat, 18 Apr 2020 16:42:16 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id EED8E1AEF10
+	for <lists+openipmi-developer@lfdr.de>; Sat, 18 Apr 2020 16:43:24 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1jPoff-0002bm-5z; Sat, 18 Apr 2020 14:42:15 +0000
+	id 1jPogl-00056Q-0j; Sat, 18 Apr 2020 14:43:23 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <sashal@kernel.org>) id 1jPofd-0002bI-4D
- for openipmi-developer@lists.sourceforge.net; Sat, 18 Apr 2020 14:42:13 +0000
+ (envelope-from <sashal@kernel.org>) id 1jPogk-00056J-3x
+ for openipmi-developer@lists.sourceforge.net; Sat, 18 Apr 2020 14:43:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=WnkzTV1DyScMW5HzcDz3slmclD6YT9V/EZ87d/JY5Bw=; b=eUTvaPNtYI5+mH5AxliHJ+dtdJ
- BllpIUVMJrFStEeibcY5XOHcSxVNgz1ovc7ypOwjybmsD/Az1Cy0WAnHVFW/rxVBHL+6SwGxv6bG1
- EXjLMcp10iQU/QsTKRzmWRuIGC6WbpTjhZhUo0b2FxaJlAh6vZNaRjJ6MxHBn4ZpvLDQ=;
+ bh=tmEySCo+tj7tFJCE2N+r2VJnkbCpVwr5LfruMUbqYhU=; b=GoLa8TIAQmZxNWoi31h5YA4/Ij
+ /uGdtIoosAx2SCv+RCxmVQWtk8S3aFx4j10mvzhd5iQGqZxd3m2ACVCv5lKSOvazHBqQuEHhM/QgV
+ 5plVZ6QaanQ0nHMOVAj0zKTasf2/i9tX348uMQXYIfcshTKpukFhBKmdAPL27juHc2ls=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,35 +29,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=WnkzTV1DyScMW5HzcDz3slmclD6YT9V/EZ87d/JY5Bw=; b=V/LScSDqGsq55yfDaHEXMElo4h
- xHO/sVCbLvvq8/rwZwGYqHwSLr0wKsZNPQV092PPX2mBU6VNz5VYzTKWOYDN/6x1UfGzQygKUrXpM
- YfSHYa5IoYqgRF+ev+v4YrH0z7mF/AKJTiWFeToXlVDgUqjAJzRYfLqtQs+RTE1ZibgI=;
+ bh=tmEySCo+tj7tFJCE2N+r2VJnkbCpVwr5LfruMUbqYhU=; b=UQmFAPtBO034cI5pe3tpSPAR8x
+ +0DGj+ZWuJzCRlX5p2TBYkuML+KbehPDlseqK7mhthdVCIlGic+nhKrUUWqVe+mrGrzOolh4gU0Ep
+ si2fuyPe6idBGo8jDygTZRHuWeZk1O+rLlU/vxDbDpkdNqEhTZ9+Zjp5ellv8+chdE5s=;
 Received: from mail.kernel.org ([198.145.29.99])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1jPofU-0057tG-IU
- for openipmi-developer@lists.sourceforge.net; Sat, 18 Apr 2020 14:42:13 +0000
+ id 1jPogh-0057wK-V8
+ for openipmi-developer@lists.sourceforge.net; Sat, 18 Apr 2020 14:43:22 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 1830121D79;
- Sat, 18 Apr 2020 14:41:58 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7C2FE22261;
+ Sat, 18 Apr 2020 14:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1587220919;
- bh=MsdXjTPkgyliNIoLtzi9+2TMlllwSufYQvHCDgJ9Qxo=;
+ s=default; t=1587220994;
+ bh=XZdZZ43wVeDGvJmL7P9SqIIKj8Dd25pulCg1ZzJLMqk=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=TORmxiTo/WVm8mp7c2Swe/3PxI1k6N2H6LPs7g+NEDBwvSQNzR2yeiQms8lnXwbmK
- 9YQHbpM7bTzKHyHszuoh+fYoS5JmxgLjdfvjyLg3Hi4Vu5zLYw4M9VKbswG+SC7pnw
- 8C6HrLnsRf879mqX2K64tucfnhwjKMABLEBsw9kY=
+ b=cbU5R3INFrJyk+mWjLn0ArkTAzf7iOmLLN3f2f5psvgc71RQwXJtrnschPj9B1F/e
+ L2SgPhFKZP5AASidVgymHivtFEhw48Co53KHfPiJfdxpkR0NMQsxMIMUfJsMpByL2d
+ wFZLXerocZdf6lknyCikchasAGaST2kj0GePflQ4=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Date: Sat, 18 Apr 2020 10:40:26 -0400
-Message-Id: <20200418144047.9013-57-sashal@kernel.org>
+Date: Sat, 18 Apr 2020 10:42:17 -0400
+Message-Id: <20200418144227.9802-37-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200418144047.9013-1-sashal@kernel.org>
-References: <20200418144047.9013-1-sashal@kernel.org>
+In-Reply-To: <20200418144227.9802-1-sashal@kernel.org>
+References: <20200418144227.9802-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
@@ -76,9 +76,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
- -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jPofU-0057tG-IU
-Subject: [Openipmi-developer] [PATCH AUTOSEL 5.4 57/78] ipmi: fix hung
+ -0.4 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jPogh-0057wK-V8
+Subject: [Openipmi-developer] [PATCH AUTOSEL 4.19 37/47] ipmi: fix hung
  processes in __get_guid()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -151,10 +151,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 0b6e7f8d97297..90f5292e2051c 100644
+index 980eb7c609528..69734b1df7927 100644
 --- a/drivers/char/ipmi/ipmi_msghandler.c
 +++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -3207,8 +3207,8 @@ static void __get_guid(struct ipmi_smi *intf)
+@@ -3134,8 +3134,8 @@ static void __get_guid(struct ipmi_smi *intf)
  	if (rv)
  		/* Send failed, no GUID available. */
  		bmc->dyn_guid_set = 0;
