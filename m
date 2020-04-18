@@ -2,118 +2,84 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2DC3B1AE951
-	for <lists+openipmi-developer@lfdr.de>; Sat, 18 Apr 2020 04:15:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 73A4E1AED18
+	for <lists+openipmi-developer@lfdr.de>; Sat, 18 Apr 2020 15:49:48 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1jPd0U-0004Pf-5i; Sat, 18 Apr 2020 02:14:58 +0000
+	id 1jPnqs-0000yX-PO; Sat, 18 Apr 2020 13:49:46 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1jPd0S-0004PU-AS
- for openipmi-developer@lists.sourceforge.net; Sat, 18 Apr 2020 02:14:56 +0000
+ (envelope-from <sashal@kernel.org>) id 1jPnqr-0000yJ-UI
+ for openipmi-developer@lists.sourceforge.net; Sat, 18 Apr 2020 13:49:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
- MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=umk7gi6BmXUnjeGcg+cvTgVz8SwIa0aokBJtfxL9v1M=; b=IiozyW4oOjcL7/CTsc6FEY2GG2
- WTdfa5jvdSz7suvMttz1Mq5W3NwF765PMD3vuyY0J3ue0gCjBq1vgVmQXmoX32TSLSV9OWY+rQ7E3
- AH2qX9qPbYvyU0fBrNp9S4PSvyYT/CMW4T0bUHGkKrdXyNtbs2dY+g2mlPaYifuASk58=;
+ bh=Q7iETbiTSWdmbLBp7m4d87bl5oy94FlxNJJHRALWPSM=; b=J/ffoUH8VjjO3D9GrpNjSS2ldS
+ oZalqzoXUpCLPz0ixkB6Q+zBG1zMwX5mwHCQe38p8vjeIcoWQJ9zdThGUc77dqFkDAhFl0pIdhMsk
+ zF5/j58XwccKVJoG5fQuMI/bcIIQsG+cy4TH1Tv5xrE/V7qnB2oj9/UxqXfB9MkpUhfQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=umk7gi6BmXUnjeGcg+cvTgVz8SwIa0aokBJtfxL9v1M=; b=GhgLTsCi6VuW+6Z8U0zxp5JnsB
- 5cz3fm6G/uURXzT6kOzER3Sey8Q3ErWTf3u8oTFkHwc8FTktduZ1uzHIkRdOI6vm+t9GGjAdNjahK
- EvZIOW8IPZnPswiUMfVnR2OFUthqyUlTkUhGyF7Yy6kziEjkZEN5S3t9zb6LbVAhOv78=;
-Received: from mail-oi1-f193.google.com ([209.85.167.193])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1jPd0M-002Cnk-S6
- for openipmi-developer@lists.sourceforge.net; Sat, 18 Apr 2020 02:14:56 +0000
-Received: by mail-oi1-f193.google.com with SMTP id r25so3835806oij.4
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 17 Apr 2020 19:14:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to:user-agent;
- bh=umk7gi6BmXUnjeGcg+cvTgVz8SwIa0aokBJtfxL9v1M=;
- b=EQeoZIad3jcvCKEn+qVHBBxOu++l8jW4e8ceH1uK1iCLIq78XMm0bPJfEY+1AZMcCX
- Sk0Phv0mr1NoARtM6HYnryJoDOfe4VS47hsM0Qk+mjUisobW5J0pFRbISFntPIh9qvmE
- xV/r7GFrAVKnB/kBLUzndjrZtT6X93zLCfIKxDVWZf0WuV+KlXjpDcBM+Oz9lIJbofvc
- BFeNuRRP0pte0tDzEHYD7oIxTW4ixjbY48hx0VWHOCM5/42e/jD2+6pRwaqxmiw3qGAM
- qUmP5IRdDACLNPAFkSr7Pb9nkSLhztyOck2Cxwyaf9Zl8hRrD6vSFVbE0blabqQNGhK3
- 5kEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition
- :content-transfer-encoding:in-reply-to:user-agent;
- bh=umk7gi6BmXUnjeGcg+cvTgVz8SwIa0aokBJtfxL9v1M=;
- b=hh5+LD95qblfjxI7rBUWVe0Gyvc3o7YMXzl+5mmhuPKfRCjEkZypB0v2Rrx10RuOFV
- ZJlRcolNK9XdUUp5MknMXjAxGMrDCphHaErG8HGWJyw55zFhzLZKInf0ELK1yq8nk4zu
- V3ZDVuxcobiNbdbZJjHeVmBqPoD1kvHtzN8eQ7KwC/dEuCyGF1n+oz0Hdtnsix+F03+x
- WcRasJfGED+FxXhaBJ1hb8LbPCidld6GttODV9jaftm3ihIYW1ZX1toszygnziKmSNuT
- 2hIQy0Y0AoIT6tv5C97Tv/hIG+dE0IDwjWvWJLTduWWtgIs/mKToX7G/9tOWm9cqFp0x
- 3iAQ==
-X-Gm-Message-State: AGi0PuYmq6INbaeuvq5VfhicQYqX+W01LqVsCR1cm2ffqM8miEaNW/+p
- eVWhVsVqrzi63ItT1DTJxQ==
-X-Google-Smtp-Source: APiQypJ7RSnwBJHE/SOlo0G7WfCYgILarclXrI1zHvgWV3ZckKBwYy2nOTYyRVvseRkdBr4DuXtTnw==
-X-Received: by 2002:a05:6808:3d5:: with SMTP id
- o21mr316400oie.40.1587176084776; 
- Fri, 17 Apr 2020 19:14:44 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id x88sm8377641ota.44.2020.04.17.19.14.43
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 17 Apr 2020 19:14:43 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:8b39:c3f3:f502:5c4e])
- by serve.minyard.net (Postfix) with ESMTPSA id A72E5181888;
- Sat, 18 Apr 2020 02:14:42 +0000 (UTC)
-Date: Fri, 17 Apr 2020 21:14:41 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Tang Bin <tangbin@cmss.chinamobile.com>
-Message-ID: <20200418021441.GC6246@minyard.net>
-References: <20200414141423.4968-1-tangbin@cmss.chinamobile.com>
- <20200414201832.GJ3587@minyard.net>
- <f5a848ae-d19f-5ab6-7c7d-2d0811fc174b@cmss.chinamobile.com>
+ bh=Q7iETbiTSWdmbLBp7m4d87bl5oy94FlxNJJHRALWPSM=; b=D9JQI8emBdpjgJRA+XFaGJccL/
+ OJtt4+6ARCdGMjDCbxtTw3dY89Zt09SZTPHJGN1QFOOSyVDovs4poeX/P6eySjB6Gq9KBNkcx11vR
+ BlJtKz2GSJUXpZ9rK5lf/Pij/FUMxPwDivwzDCvzrfshIgabCS6IsyqgCFuD348FU4Hc=;
+Received: from mail.kernel.org ([198.145.29.99])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1jPnqp-0055nG-M8
+ for openipmi-developer@lists.sourceforge.net; Sat, 18 Apr 2020 13:49:45 +0000
+Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
+ [73.47.72.35])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 3C14F2224E;
+ Sat, 18 Apr 2020 13:49:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1587217778;
+ bh=z5dYLHcHjfsFQ8/0jvOvn36gZiwUOSgHbKRE0i4pM9Y=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=hq44pBD75/jQ+0mI4iw1GD/sIo139vtFSGQUxs4ZL8vizJz8iDzkPibLtlTwKjghQ
+ 6ugx95xRane3mJqzRCqodOE50kTYOsRhK5nRAIegl9t77u2c788CB1TyU81DgJutq5
+ h0Mr5pL0QMcMWYkSUIfGRup1VvPArkeLtMxKev9M=
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Date: Sat, 18 Apr 2020 09:48:08 -0400
+Message-Id: <20200418134815.6519-66-sashal@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20200418134815.6519-1-sashal@kernel.org>
+References: <20200418134815.6519-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f5a848ae-d19f-5ab6-7c7d-2d0811fc174b@cmss.chinamobile.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Spam-Score: -0.2 (/)
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Spam-Score: -0.4 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: chinamobile.com]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.193 listed in list.dnswl.org]
+ for more information. [URIs: mvista.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.8 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.193 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
- 0.1 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jPd0M-002Cnk-S6
-Subject: Re: [Openipmi-developer] [PATCH 3/3] ipmi:bt-bmc: Fix error
- handling and status check
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jPnqp-0055nG-M8
+Subject: [Openipmi-developer] [PATCH AUTOSEL 5.6 66/73] ipmi: fix hung
+ processes in __get_guid()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -126,97 +92,85 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: gregkh@linuxfoundation.org, openipmi-developer@lists.sourceforge.net,
- linux-kernel@vger.kernel.org, arnd@arndb.de
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Corey Minyard <minyard@acm.org>, Corey Minyard <cminyard@mvista.com>,
+ Wen Yang <wenyang@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
+ Sasha Levin <sashal@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T24gV2VkLCBBcHIgMTUsIDIwMjAgYXQgMTA6MTQ6MDZBTSArMDgwMCwgVGFuZyBCaW4gd3JvdGU6
-Cj4gSGkgQ29yZXk6Cj4gCj4gT24gMjAyMC80LzE1IDQ6MTgsIENvcmV5IE1pbnlhcmQgd3JvdGU6
-Cj4gPiBPbiBUdWUsIEFwciAxNCwgMjAyMCBhdCAxMDoxNDoyNFBNICswODAwLCBUYW5nIEJpbiB3
-cm90ZToKPiA+ID4gSWYgdGhlIGZ1bmN0aW9uIHBsYXRmb3JtX2dldF9pcnEoKSBmYWlsZWQsIHRo
-ZSBuZWdhdGl2ZQo+ID4gPiB2YWx1ZSByZXR1cm5lZCB3aWxsIG5vdCBiZSBkZXRlY3RlZCBoZXJl
-LiBTbyBmaXggZXJyb3IKPiA+ID4gaGFuZGxpbmcgaW4gYnRfYm1jX2NvbmZpZ19pcnEoKS4gQW5k
-IGlmIGRldm1fcmVxdWVzdF9pcnEoKQo+ID4gPiBmYWlsZWQsICdidF9ibWMtPmlycScgaXMgYXNz
-aWduZWQgdG8gemVybyBtYXliZSByZWR1bmRhbnQsCj4gPiA+IGl0IG1heSBiZSBtb3JlIHN1aXRh
-YmxlIGZvciB1c2luZyB0aGUgY29ycmVjdCBuZWdhdGl2ZSB2YWx1ZXMKPiA+ID4gdG8gbWFrZSB0
-aGUgc3RhdHVzIGNoZWNrIGluIHRoZSBmdW5jdGlvbiBidF9ibWNfcmVtb3ZlKCkuCj4gPiBDb21t
-ZW50cyBpbmxpbmUuLgo+ID4gCj4gPiA+IFNpZ25lZC1vZmYtYnk6IFRhbmcgQmluIDx0YW5nYmlu
-QGNtc3MuY2hpbmFtb2JpbGUuY29tPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBTaGVuZ2p1IFpoYW5n
-IDx6aGFuZ3NoZW5nanVAY21zcy5jaGluYW1vYmlsZS5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgIGRy
-aXZlcnMvY2hhci9pcG1pL2J0LWJtYy5jIHwgMTIgKysrKystLS0tLS0tCj4gPiA+ICAgMSBmaWxl
-IGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMoLSkKPiA+ID4gCj4gPiA+IGRp
-ZmYgLS1naXQgYS9kcml2ZXJzL2NoYXIvaXBtaS9idC1ibWMuYyBiL2RyaXZlcnMvY2hhci9pcG1p
-L2J0LWJtYy5jCj4gPiA+IGluZGV4IDFkNGJmNWM2NS4uMTc0MGM2ZGM4IDEwMDY0NAo+ID4gPiAt
-LS0gYS9kcml2ZXJzL2NoYXIvaXBtaS9idC1ibWMuYwo+ID4gPiArKysgYi9kcml2ZXJzL2NoYXIv
-aXBtaS9idC1ibWMuYwo+ID4gPiBAQCAtMzk5LDE2ICszOTksMTQgQEAgc3RhdGljIGludCBidF9i
-bWNfY29uZmlnX2lycShzdHJ1Y3QgYnRfYm1jICpidF9ibWMsCj4gPiA+ICAgCXN0cnVjdCBkZXZp
-Y2UgKmRldiA9ICZwZGV2LT5kZXY7Cj4gPiA+ICAgCWludCByYzsKPiA+ID4gLQlidF9ibWMtPmly
-cSA9IHBsYXRmb3JtX2dldF9pcnEocGRldiwgMCk7Cj4gPiA+IC0JaWYgKCFidF9ibWMtPmlycSkK
-PiA+ID4gLQkJcmV0dXJuIC1FTk9ERVY7Cj4gPiA+ICsJYnRfYm1jLT5pcnEgPSBwbGF0Zm9ybV9n
-ZXRfaXJxX29wdGlvbmFsKHBkZXYsIDApOwo+ID4gPiArCWlmIChidF9ibWMtPmlycSA8IDApCj4g
-PiA+ICsJCXJldHVybiBidF9ibWMtPmlycTsKPiBGb3IgdXMsIHRoaXMgcGFydCBvZiBtb2RpZmlj
-YXRpb24gaGF2ZSByZWFjaGVkIGEgY29uc2Vuc3VzLgo+ID4gPiAgIAlyYyA9IGRldm1fcmVxdWVz
-dF9pcnEoZGV2LCBidF9ibWMtPmlycSwgYnRfYm1jX2lycSwgSVJRRl9TSEFSRUQsCj4gPiA+ICAg
-CQkJICAgICAgREVWSUNFX05BTUUsIGJ0X2JtYyk7Cj4gPiA+IC0JaWYgKHJjIDwgMCkgewo+ID4g
-PiAtCQlidF9ibWMtPmlycSA9IDA7Cj4gPiA+ICsJaWYgKHJjIDwgMCkKPiA+ID4gICAJCXJldHVy
-biByYzsKPiA+IEkgZG9uJ3QgdGhpbmsgdGhpcyBwYXJ0IGlzIGNvcnJlY3QuICBZb3Ugd2lsbCB3
-YW50IHRvIHNldCBidF9ibWMtPmlycSB0bwo+ID4gcmMgaGVyZSB0byBtYXRjaCB3aGF0IGlzIGRv
-bmUgZWxzZXdoZXJlIHNvIGl0J3MgdGhlIGVycm9yIGlmIG5lZ2F0aXZlLgo+IAo+IE5vbm9ubywg
-SSBkb24ndCB3YW50IHRvIHNldCBidF9ibWMtPmlycSB0byByYywgSSB0aGluayB0aGV5IGFyZSBp
-cnJlbGV2YW50Lgo+IAo+IFRoZSBsb2dpYyBvZiB0aGUgcHJldmlvdXMgY29kZSB3aWxsIGNvbnRp
-bnVlIHRvIGV4ZWN1dGUgZXZlbiBpZgo+IHBsYXRmb3JtX2dldF9pcnEoKSBmYWlsZWQsd2hpY2gg
-d2lsbCBiZSBicm91Z2h0IGRldm1fcmVxdWVzdF9pcnEoKSBmYWlsZWQKPiB0b28uICJidF9ibWMt
-PmlycSA9IDAiIGhlcmUgaXMganVzdCBmb3IgYnRfYm1jX3JlbW92ZSgpIHRvIGV4ZWN1dGUKPiBk
-ZWxfdGltZXJfc3luYygpLiBPdGhlcndpc2UgdGhlIGZ1bmN0aW9uIGRlbF90aW1lcl9zeW5jKCkg
-d2lsbCBub3QgZXhlY3V0ZQo+IGlmIG5vdCBzZXQgImJ0X2JtYy0+aXJxIiB0byB6ZXJvLCBiZWNh
-dXNlIGl0J3MgbmVnYXRpdmUgYWN0dWFsbHkuCgpTb3JyeSBmb3IgdGhlIGRlbGF5LCBJIGhhdmUg
-aGFkIGEgbG90IG9mIGRpc3RyYWN0aW9ucy4KClRoZSB0cm91YmxlIGlzIHRoYXQgdGhlIGhhbmRs
-aW5nIG9mIGJ0X2JtYy0+aXJxIG5lZWRzIHRvIGJlIGNvbnNpc3RlbnQuCkVpdGhlciBpdCBuZWVk
-cyB0byBiZSBuZWdhdGl2ZSBpZiB0aGUgaXJxIGFsbG9jYXRpb24gZmFpbHMsIG9yIGl0IG5lZWRz
-CnRvIGJlIHplcm8gaWYgdGhlIGlycSBhbGxvY2F0aW9uIGZhaWxzLiAgSSB0aGluayBpdCBuZWVk
-cyB0byBiZSBuZWdhdGl2ZQpiZWNhdXNlIHplcm8gaXMgYSB2YWxpZCBpbnRlcnJ1cHQgaW4gc29t
-ZSBjYXNlcy4KCkNvbnNpZGVyIHRoZSBmb2xsb3dpbmcgY29kZToKCiAgICAgICBidF9ibWNfY29u
-ZmlnX2lycShidF9ibWMsIHBkZXYpOwoKICAgICAgICBpZiAoYnRfYm1jLT5pcnEpIHsKICAgICAg
-ICAgICAgICAgIGRldl9pbmZvKGRldiwgIlVzaW5nIElSUSAlZFxuIiwgYnRfYm1jLT5pcnEpOwog
-ICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAgICBkZXZfaW5mbyhkZXYsICJObyBJUlE7IHVz
-aW5nIHRpbWVyXG4iKTsKICAgICAgICAgICAgICAgIHRpbWVyX3NldHVwKCZidF9ibWMtPnBvbGxf
-dGltZXIsIHBvbGxfdGltZXIsIDApOwoKSWYgYnRfYm1jLT5pcnEgaXMgbmVnYXRpdmUgKGlmIHBs
-YXRmb3JtX2dldF9pcnFfb3B0aW9uYWwoKSBmYWlscyksIGl0CndpbGwgc2F5IGl0J3MgdXNpbmcg
-dGhlIGlycSBhbmQgd29uJ3Qgc3RhcnQgYSB0aW1lciBhbmQgdGhlIGRyaXZlciB3b24ndAp3b3Jr
-LiAgVGhlbiBsYXRlciAoaW4geW91ciBjaGFuZ2UgYmVsb3cpIGl0IHdpbGwgdHJ5IHRvIHN0b3Ag
-dGhlIHRpbWVyCmV2ZW4gdGhvdWdoIGl0J3Mgbm90IHJ1bm5pbmcuCgpJZiBkZXZtX3JlcXVlc3Rf
-aXJxKCkgZmFpbHMsIHRoZW4gdGhlIGludGVycnVwdCBpcyBub3Qgc2V0LCBidXQgc2luY2UKYnRf
-Ym1jLT5pcnEgaXMgbW9zdCBsaWtlbHkgbm90IHplcm8sIGl0IHdpbGwgbm90IHN0YXJ0IHRoZSB0
-aW1lciBhbmQgdGhlCmRyaXZlciB3b24ndCB3b3JrLgoKWW91IHJlYWxseSBuZWVkIHRvIHNldCBi
-dF9ibWMtPmlycSBuZWdhdGl2ZSBpZiBpdCBmYWlscy4gIEFuZCBmaXggdGhlCmNoZWNrIGFib3Zl
-IHRvIGJlIGlmIChidF9ibWMtPmlycSA+PSAwKS4KCi1jb3JleQoKPiAKPiAKPiA+IAo+ID4gQWxz
-bywgSSBiZWxpZXZlIHRoaXMgZnVuY3Rpb24gc2hvdWxkIG5vIGxvbmdlciByZXR1cm4gYW4gZXJy
-b3IuICBJdAo+ID4gc2hvdWxkIGp1c3Qgc2V0IHRoZSBpcnEgdG8gdGhlIGVycm9yIGlmIG9uZSBo
-YXBwZW5zLiAgVGhlIGRyaXZlciBuZWVkcwo+ID4gdG8gY29udGludWUgdG8gb3BlcmF0ZSBldmVu
-IGlmIGl0IGNhbid0IGdldCBpdHMgaW50ZXJydXB0Lgo+ID4gCj4gPiBUaGUgcmVzdCBvZiB0aGUg
-Y2hhbmdlcyBhcmUgY29ycmVjdCwgSSBiZWxpZXZlLgo+ID4gCj4gPiAKPiA+ID4gLQl9Cj4gPiA+
-ICAgCS8qCj4gPiA+ICAgCSAqIENvbmZpZ3VyZSBJUlFzIG9uIHRoZSBibWMgY2xlYXJpbmcgdGhl
-IEgyQiBhbmQgSEJVU1kgYml0czsKPiA+ID4gQEAgLTQ5OSw3ICs0OTcsNyBAQCBzdGF0aWMgaW50
-IGJ0X2JtY19yZW1vdmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiA+ID4gICAJc3Ry
-dWN0IGJ0X2JtYyAqYnRfYm1jID0gZGV2X2dldF9kcnZkYXRhKCZwZGV2LT5kZXYpOwo+ID4gPiAg
-IAltaXNjX2RlcmVnaXN0ZXIoJmJ0X2JtYy0+bWlzY2Rldik7Cj4gPiA+IC0JaWYgKCFidF9ibWMt
-PmlycSkKPiA+ID4gKwlpZiAoYnRfYm1jLT5pcnEgPCAwKQo+ID4gPiAgIAkJZGVsX3RpbWVyX3N5
-bmMoJmJ0X2JtYy0+cG9sbF90aW1lcik7Cj4gPiA+ICAgCXJldHVybiAwOwo+ID4gPiAgIH0KPiAK
-PiBCdXQgbm93LCB0aGUgbG9naWMgaXM6IGlmIHRoZSBwbGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFs
-KCkgZmFpbGVkLCBpdCByZXR1cm5zCj4gaW1tZWRpYXRlbHksIHRoZSBpcnEgYXQgdGhpcyBwb2lu
-dCBpcyBuZWdhdGl2ZSx0aGUgYnRfYm1jX3Byb2JlKCkgY29udGludWUKPiB0byBvcGVyYXRlLiBC
-dXQgaW4gdGhlIGZ1bmN0aW9uIGJ0X2JtY19yZW1vdmUoKSwgd2UgbmVlZCBzdGF0dXMgY2hlY2sg
-aW4KPiBvcmRlciB0byBleGVjdXRlIGRlbF90aW1lcl9zeW5jKCksIHNvIGNoYW5nZSAiIWJ0X2Jt
-Yy0+aXJxIiB0byAiYnRfYm1jLT5pcnEKPiA8IDAiLgo+IAo+IFNvLCB3aGVuIHRoZSBqdWRnbWVu
-dCBvZiAiYnRfYm1jLT5pcnEiIGluIHRoZSBmdW5jdGlvbiBidF9ibWNfcmVtb3ZlKCkgZ29lcwo+
-IGJhY2sgdG/CoCB0aGUgb3JpZ2luYWwgbmVnYXRpdmUgdmFsdWUsIHRoZSAiYnRfYm1jLT5pcnEg
-PSAwIiBpbiB0aGUgbGluZSA0MTAKPiBiZWNvbWUgcmVkdW5kYW50LiBUaGF0J3Mgd2h5IEkgcmVt
-b3ZlIGl0Lgo+IAo+IAo+IAo+IEkgYW0gdmVyeSBnbGFkIHRvIGNvbW11bmljYXRlIGFuZCBkaXNj
-dXNzIHdpdGggeW91IHRoZXNlIGRheXMuCj4gCj4gVGhhbmtzLAo+IAo+IFRhbmcgQmluCj4gCj4g
-Cj4gPiA+IAo+ID4gPiAKPiA+ID4gCj4gCj4gCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVu
-aXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNl
-Zm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+From: Wen Yang <wenyang@linux.alibaba.com>
+
+[ Upstream commit 32830a0534700f86366f371b150b17f0f0d140d7 ]
+
+The wait_event() function is used to detect command completion.
+When send_guid_cmd() returns an error, smi_send() has not been
+called to send data. Therefore, wait_event() should not be used
+on the error path, otherwise it will cause the following warning:
+
+[ 1361.588808] systemd-udevd   D    0  1501   1436 0x00000004
+[ 1361.588813]  ffff883f4b1298c0 0000000000000000 ffff883f4b188000 ffff887f7e3d9f40
+[ 1361.677952]  ffff887f64bd4280 ffffc90037297a68 ffffffff8173ca3b ffffc90000000010
+[ 1361.767077]  00ffc90037297ad0 ffff887f7e3d9f40 0000000000000286 ffff883f4b188000
+[ 1361.856199] Call Trace:
+[ 1361.885578]  [<ffffffff8173ca3b>] ? __schedule+0x23b/0x780
+[ 1361.951406]  [<ffffffff8173cfb6>] schedule+0x36/0x80
+[ 1362.010979]  [<ffffffffa071f178>] get_guid+0x118/0x150 [ipmi_msghandler]
+[ 1362.091281]  [<ffffffff810d5350>] ? prepare_to_wait_event+0x100/0x100
+[ 1362.168533]  [<ffffffffa071f755>] ipmi_register_smi+0x405/0x940 [ipmi_msghandler]
+[ 1362.258337]  [<ffffffffa0230ae9>] try_smi_init+0x529/0x950 [ipmi_si]
+[ 1362.334521]  [<ffffffffa022f350>] ? std_irq_setup+0xd0/0xd0 [ipmi_si]
+[ 1362.411701]  [<ffffffffa0232bd2>] init_ipmi_si+0x492/0x9e0 [ipmi_si]
+[ 1362.487917]  [<ffffffffa0232740>] ? ipmi_pci_probe+0x280/0x280 [ipmi_si]
+[ 1362.568219]  [<ffffffff810021a0>] do_one_initcall+0x50/0x180
+[ 1362.636109]  [<ffffffff812231b2>] ? kmem_cache_alloc_trace+0x142/0x190
+[ 1362.714330]  [<ffffffff811b2ae1>] do_init_module+0x5f/0x200
+[ 1362.781208]  [<ffffffff81123ca8>] load_module+0x1898/0x1de0
+[ 1362.848069]  [<ffffffff811202e0>] ? __symbol_put+0x60/0x60
+[ 1362.913886]  [<ffffffff8130696b>] ? security_kernel_post_read_file+0x6b/0x80
+[ 1362.998514]  [<ffffffff81124465>] SYSC_finit_module+0xe5/0x120
+[ 1363.068463]  [<ffffffff81124465>] ? SYSC_finit_module+0xe5/0x120
+[ 1363.140513]  [<ffffffff811244be>] SyS_finit_module+0xe/0x10
+[ 1363.207364]  [<ffffffff81003c04>] do_syscall_64+0x74/0x180
+
+Fixes: 50c812b2b951 ("[PATCH] ipmi: add full sysfs support")
+Signed-off-by: Wen Yang <wenyang@linux.alibaba.com>
+Cc: Corey Minyard <minyard@acm.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: openipmi-developer@lists.sourceforge.net
+Cc: linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org # 2.6.17-
+Message-Id: <20200403090408.58745-1-wenyang@linux.alibaba.com>
+Signed-off-by: Corey Minyard <cminyard@mvista.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index cad9563f8f485..4c51f794d04ca 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -3188,8 +3188,8 @@ static void __get_guid(struct ipmi_smi *intf)
+ 	if (rv)
+ 		/* Send failed, no GUID available. */
+ 		bmc->dyn_guid_set = 0;
+-
+-	wait_event(intf->waitq, bmc->dyn_guid_set != 2);
++	else
++		wait_event(intf->waitq, bmc->dyn_guid_set != 2);
+ 
+ 	/* dyn_guid_set makes the guid data available. */
+ 	smp_rmb();
+-- 
+2.20.1
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
