@@ -2,76 +2,75 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8CCEF1B3D36
-	for <lists+openipmi-developer@lfdr.de>; Wed, 22 Apr 2020 12:13:29 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id DAC971B45CA
+	for <lists+openipmi-developer@lfdr.de>; Wed, 22 Apr 2020 15:04:03 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1jRCNj-0007hR-RS; Wed, 22 Apr 2020 10:13:27 +0000
+	id 1jRF2n-0002rd-Vt; Wed, 22 Apr 2020 13:04:01 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <gregkh@linuxfoundation.org>) id 1jRCNi-0007h8-Bx
- for openipmi-developer@lists.sourceforge.net; Wed, 22 Apr 2020 10:13:26 +0000
+ (envelope-from <andriy.shevchenko@linux.intel.com>)
+ id 1jRF2m-0002rF-GK
+ for openipmi-developer@lists.sourceforge.net; Wed, 22 Apr 2020 13:04:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Pj7cuQzpyHt2R0Ihk54l5SxTtQtLYeTjiAulWvr3oiw=; b=IDnVYLYkBUqhXUnD+tOQ/8DrvD
- 5ggXy2yzP7A2Tn9MjxPHwg6k4BsNfs5nN+3QX93SxaqqlCxi9eUnwmfJwPtH2YNvWtePxsJGRiiNg
- LFVXiUO3fnueSM5vaqg+nHrz0BBhR4dr5vaizhDcEwIZNhtULTwau05gIOvmFcQzbj+4=;
+ bh=Yd6ZoaSa7+gKOf16+f+JdBYQSA5NQifh2BlQ+sB0L9g=; b=L9tOLmKK8m+S44K/KbU+luA+e1
+ QiQk9n3OgnSP/dVLStSFcJifRGq5/To/EVCUgOxi5kiM7KdY25n3fLov6sKgWDWNJ9TjctJng0h6y
+ WgIOWWFXzGDlj31TZ2IMyW2gnAScLisjVxu+jD/KFHWWAUA/lahfom/qLUYmtoSwWsOk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=Pj7cuQzpyHt2R0Ihk54l5SxTtQtLYeTjiAulWvr3oiw=; b=jAo1IAj58B0jpJ4kEmpONO/eWy
- BURRslT0e1tMQ1/qW+7u83EOz+eOHIuzOvXcPbPX9hT5SFTXiXaR0lW+mrMhc4UtPdhJuMUB5gLil
- jDhRMawuV1OSwXmGfVboYMQl5ywk7tA7pRcGI4EYM/xBvr4Kn+VuifsooOxK6yfz+ucE=;
-Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=Yd6ZoaSa7+gKOf16+f+JdBYQSA5NQifh2BlQ+sB0L9g=; b=g
+ 0VvoKjP0luqFDn7STN4M7rfiDpzk+Ou6SawTFSuhR/VSmEghJAHFSc5BNLRg+k1tsjgB/956zarwj
+ BdWQ73xHmD4mB9gzVh0+ZNglnZ0ox7PNMGVYhadfaAsw89dynXcqcC6imS6JC/HlqnmaWmTMXWHJ6
+ r/gdv4h7qYInm1Sk=;
+Received: from mga02.intel.com ([134.134.136.20])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1jRCNd-009Vtd-O6
- for openipmi-developer@lists.sourceforge.net; Wed, 22 Apr 2020 10:13:26 +0000
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
- [83.86.89.107])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 97FA72077D;
- Wed, 22 Apr 2020 10:13:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1587550396;
- bh=nVeMz1uSldBrbMtlQANPq6nQoTCdnAS5pl29GGePaBI=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=bUOpt7gg62Z1OyCEJERAO4wwl9TONyagXVF3yibjgf5MEo+ZavvTqrM1KlEKi/z4q
- jaXHtKa9HzAdf9wLY+enOEwp5h+JUKCg3ZNu24Zwebf/J6I5jOCD6AimB54m8ZnqMC
- wZQxlA3cDs4FrHppf54Q+721r9OxnJSfT84h/uV0=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: linux-kernel@vger.kernel.org
-Date: Wed, 22 Apr 2020 11:57:08 +0200
-Message-Id: <20200422095108.071555301@linuxfoundation.org>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200422095057.806111593@linuxfoundation.org>
-References: <20200422095057.806111593@linuxfoundation.org>
-User-Agent: quilt/0.66
+ id 1jRF2i-006Ju8-M0
+ for openipmi-developer@lists.sourceforge.net; Wed, 22 Apr 2020 13:04:00 +0000
+IronPort-SDR: DYx7puIlYHIUQWyJGY8P+rw+PPqCuUbML/SBs8DkFVL2IjEMocZ9Ly4GWlg+0sTuRBuBOZkTPZ
+ Xdo+L0cMUlwQ==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+ by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 22 Apr 2020 06:03:51 -0700
+IronPort-SDR: ffzowPJDWuE317LHev9PlVVV7g1ZI+pQKXR9sCISOQAehPBanV2Ke0AfpwsI1lT7SCMLF8tBtu
+ BwdnuNlUgXJw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.72,414,1580803200"; d="scan'208";a="291936127"
+Received: from black.fi.intel.com ([10.237.72.28])
+ by orsmga008.jf.intel.com with ESMTP; 22 Apr 2020 06:03:49 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+ id F1BC058F; Wed, 22 Apr 2020 16:03:48 +0300 (EEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Corey Minyard <minyard@acm.org>, openipmi-developer@lists.sourceforge.net
+Date: Wed, 22 Apr 2020 16:03:48 +0300
+Message-Id: <20200422130348.38749-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.26.1
 MIME-Version: 1.0
-X-Spam-Score: -0.3 (/)
+X-Spam-Score: -0.4 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [134.134.136.20 listed in wl.mailspike.net]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
- -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jRCNd-009Vtd-O6
-Subject: [Openipmi-developer] [PATCH 4.14 102/199] ipmi: fix hung processes
- in __get_guid()
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.4 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jRF2i-006Ju8-M0
+Subject: [Openipmi-developer] [PATCH v1] ipmi: Replace guid_copy() with
+ import_guid() where it makes sense
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -84,82 +83,34 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Corey Minyard <cminyard@mvista.com>,
- Arnd Bergmann <arnd@arndb.de>, Corey Minyard <minyard@acm.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net, Wen Yang <wenyang@linux.alibaba.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: Wen Yang <wenyang@linux.alibaba.com>
+There is a specific API to treat raw data as GUID, i.e. import_guid().
+Use it instead of guid_copy() with explicit casting.
 
-[ Upstream commit 32830a0534700f86366f371b150b17f0f0d140d7 ]
-
-The wait_event() function is used to detect command completion.
-When send_guid_cmd() returns an error, smi_send() has not been
-called to send data. Therefore, wait_event() should not be used
-on the error path, otherwise it will cause the following warning:
-
-[ 1361.588808] systemd-udevd   D    0  1501   1436 0x00000004
-[ 1361.588813]  ffff883f4b1298c0 0000000000000000 ffff883f4b188000 ffff887f7e3d9f40
-[ 1361.677952]  ffff887f64bd4280 ffffc90037297a68 ffffffff8173ca3b ffffc90000000010
-[ 1361.767077]  00ffc90037297ad0 ffff887f7e3d9f40 0000000000000286 ffff883f4b188000
-[ 1361.856199] Call Trace:
-[ 1361.885578]  [<ffffffff8173ca3b>] ? __schedule+0x23b/0x780
-[ 1361.951406]  [<ffffffff8173cfb6>] schedule+0x36/0x80
-[ 1362.010979]  [<ffffffffa071f178>] get_guid+0x118/0x150 [ipmi_msghandler]
-[ 1362.091281]  [<ffffffff810d5350>] ? prepare_to_wait_event+0x100/0x100
-[ 1362.168533]  [<ffffffffa071f755>] ipmi_register_smi+0x405/0x940 [ipmi_msghandler]
-[ 1362.258337]  [<ffffffffa0230ae9>] try_smi_init+0x529/0x950 [ipmi_si]
-[ 1362.334521]  [<ffffffffa022f350>] ? std_irq_setup+0xd0/0xd0 [ipmi_si]
-[ 1362.411701]  [<ffffffffa0232bd2>] init_ipmi_si+0x492/0x9e0 [ipmi_si]
-[ 1362.487917]  [<ffffffffa0232740>] ? ipmi_pci_probe+0x280/0x280 [ipmi_si]
-[ 1362.568219]  [<ffffffff810021a0>] do_one_initcall+0x50/0x180
-[ 1362.636109]  [<ffffffff812231b2>] ? kmem_cache_alloc_trace+0x142/0x190
-[ 1362.714330]  [<ffffffff811b2ae1>] do_init_module+0x5f/0x200
-[ 1362.781208]  [<ffffffff81123ca8>] load_module+0x1898/0x1de0
-[ 1362.848069]  [<ffffffff811202e0>] ? __symbol_put+0x60/0x60
-[ 1362.913886]  [<ffffffff8130696b>] ? security_kernel_post_read_file+0x6b/0x80
-[ 1362.998514]  [<ffffffff81124465>] SYSC_finit_module+0xe5/0x120
-[ 1363.068463]  [<ffffffff81124465>] ? SYSC_finit_module+0xe5/0x120
-[ 1363.140513]  [<ffffffff811244be>] SyS_finit_module+0xe/0x10
-[ 1363.207364]  [<ffffffff81003c04>] do_syscall_64+0x74/0x180
-
-Fixes: 50c812b2b951 ("[PATCH] ipmi: add full sysfs support")
-Signed-off-by: Wen Yang <wenyang@linux.alibaba.com>
-Cc: Corey Minyard <minyard@acm.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: openipmi-developer@lists.sourceforge.net
-Cc: linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org # 2.6.17-
-Message-Id: <20200403090408.58745-1-wenyang@linux.alibaba.com>
-Signed-off-by: Corey Minyard <cminyard@mvista.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/char/ipmi/ipmi_msghandler.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/char/ipmi/ipmi_msghandler.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index c82d9fd2f05af..f72a272eeb9b2 100644
+index 9afd220cd824e..e1b22fe0916cf 100644
 --- a/drivers/char/ipmi/ipmi_msghandler.c
 +++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -2647,7 +2647,9 @@ get_guid(ipmi_smi_t intf)
- 	if (rv)
- 		/* Send failed, no GUID available. */
- 		intf->bmc->guid_set = 0;
--	wait_event(intf->waitq, intf->bmc->guid_set != 2);
-+	else
-+		wait_event(intf->waitq, intf->bmc->guid_set != 2);
-+
- 	intf->null_user_handler = NULL;
- }
+@@ -3172,7 +3172,7 @@ static void guid_handler(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
+ 		goto out;
+ 	}
  
+-	guid_copy(&bmc->fetch_guid, (guid_t *)(msg->msg.data + 1));
++	import_guid(&bmc->fetch_guid, msg->msg.data + 1);
+ 	/*
+ 	 * Make sure the guid data is available before setting
+ 	 * dyn_guid_set.
 -- 
-2.20.1
-
-
+2.26.1
 
 
 
