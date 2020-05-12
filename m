@@ -2,110 +2,106 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CB0EC1D0082
-	for <lists+openipmi-developer@lfdr.de>; Tue, 12 May 2020 23:14:44 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 61AE21D010E
+	for <lists+openipmi-developer@lfdr.de>; Tue, 12 May 2020 23:46:02 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1jYcEX-0004rN-TD; Tue, 12 May 2020 21:14:37 +0000
+	id 1jYciu-0001qp-K3; Tue, 12 May 2020 21:46:00 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1jYcEW-0004r4-9w
- for openipmi-developer@lists.sourceforge.net; Tue, 12 May 2020 21:14:36 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1jYcis-0001qi-NR
+ for openipmi-developer@lists.sourceforge.net; Tue, 12 May 2020 21:45:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=References:In-Reply-To:Message-Id:Date:Subject:Cc:
+ To:From:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mX8ky5JN8pgBa+YKDvrjatRwVe22JYdHF5VmHIVTBlE=; b=R/t+iBCKdpxORRHU0oJXGGWGMt
- sPzbeN7NzhRRMoRp0TbbO6atIiPyvRSxSQzgZfLtXNf23XmniaUpvg8zmKr1U+coL7ViIyZBg0YPr
- aEWXyx7YVY3tqMgXnBLtKGDLTmNF2pMUK98wtlnKqYNvgPli/1CPgxMquRAoWmU1iXiA=;
+ bh=IYUiXiaNBsBZM0iKcHk24e5/fD/U7T1sgmMQxqdI2oM=; b=A8qKT0hcI+1i9tylTX8zdIkzOh
+ xmv4r53LCG/BMY1Egwzh7CutckRHwgSZ67erw8ZfNUso/o6D6FSdXqTE2jqV/XSBF9R9pyNUmT7yj
+ 3iQ1q4FX0TAxOx/7TYuqraRc74KYZmjIzE/Y959lJOycgcXwJq8aNvWWcQLyFZ3cLm8g=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To
+ :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=mX8ky5JN8pgBa+YKDvrjatRwVe22JYdHF5VmHIVTBlE=; b=TauO+mLrldiNauM20bgPsR43jf
- O/fhcl+TQhxb6Zj5c03xhU+mljs38+/RyfZ7k1SJju+8cGPs2gCo2JkwZKZix15kF7W+cbOUo2/We
- iAVQU7MnxtSIPLd3EqHgSM4h8j+7vzkvIcyNEOpKJ+/cx/j60NU2xa99cfjt/UAW6xpI=;
-Received: from mail-oi1-f196.google.com ([209.85.167.196])
+ bh=IYUiXiaNBsBZM0iKcHk24e5/fD/U7T1sgmMQxqdI2oM=; b=MaIY5cCH8H49pPSG3uK5P+Lv/L
+ ntuYCfgF5RI2VY2ZkCyV/HbEuKqUwI9TATgBKfc60AiRlX7MGAbYowVW0cIGvxBD4T1Xhrp0LXUGS
+ 8bp8nNfqZv91NFmoDStEtAG2vBV5Wjbzs7H7ET4pl+Rx59p667KBtfWRm4R/MJkavKgA=;
+Received: from mail-ot1-f67.google.com ([209.85.210.67])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1jYcEU-003jTj-Cc
- for openipmi-developer@lists.sourceforge.net; Tue, 12 May 2020 21:14:36 +0000
-Received: by mail-oi1-f196.google.com with SMTP id p127so67086oia.13
+ id 1jYcip-003mFm-1p
+ for openipmi-developer@lists.sourceforge.net; Tue, 12 May 2020 21:45:58 +0000
+Received: by mail-ot1-f67.google.com with SMTP id 72so11834995otu.1
  for <openipmi-developer@lists.sourceforge.net>;
- Tue, 12 May 2020 14:14:34 -0700 (PDT)
+ Tue, 12 May 2020 14:45:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=mX8ky5JN8pgBa+YKDvrjatRwVe22JYdHF5VmHIVTBlE=;
- b=iV2RPOe2FrnU+h8+Up/ExtrRpnFvfhk+w+IzXzJ1UdFrcVHhC8Q2KU+oNoZrgCVVVj
- UfWmpR8Xrv6YcwnZD7Q/sg/X8UlJpMIXb4/5VzUTAvEDFkYqpOT1/7IALm93B646bOGP
- RQf8yWvZRpLlmbdgE3IgHH1sGeGCbD0y3zslRYAujjoQtxn36UV5NCsTnuQIJzBiN+VL
- ILuab/8Rs5aitKxV6no/fefi31Y4PLJPcDQxnWtGw2NYAKnq/7HgawJVyuFY+NFaMxUN
- pYlfguUMgdRyGrFSjS+3VGExqgpGKsu89IK8ReVUAaE2X5L5B3RneXsIckDYZ5C0d4n8
- kxeQ==
+ h=sender:from:to:cc:subject:date:message-id:in-reply-to:references;
+ bh=IYUiXiaNBsBZM0iKcHk24e5/fD/U7T1sgmMQxqdI2oM=;
+ b=FZ0l+rzzvY68A2zj75Zjc2uCZNGx9Nm07CgzXCbuOsN/VmdEp2Dy7665CJhIXVxlR1
+ S1e/6FqwhzlVKp4mcXpSi+RUjuwE2QeKtSa96x6C6Xa5RA2spGApisbeSwSHRlrtNEx9
+ gIesQySCWLjNXrG9kKvN5zTpqB7nAwuQ+3We5EBukRSq/RQMCl4Hf7n2cu5KFrYJUI+n
+ 1vSBExC5Q5jO5seY64Ep8G3xT4qLaSWhb0O99RtEfHtnKef8CHWOKMGHWQcYlR64twd1
+ oolDvFrzeEXZX8hFjBrkAZgn98X3tvpg7EUpoqMKOi2D8qzJOx0Fe2PbOmL6ckX7kbDC
+ cttw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to
- :user-agent;
- bh=mX8ky5JN8pgBa+YKDvrjatRwVe22JYdHF5VmHIVTBlE=;
- b=HswUFCcoFKSjZ2C9y1K5Txg1FHJQdhGvFU7feTTNi73V9BKVFLMwF7QtiBiu7r6g0f
- EEWKImsG3inR3nGKqzDA60PRpl25NM/2K5QIbsjBe463vDE/+xgbfjPcLBgB2SfdWoun
- W2kZpk9bVWlD2ZSvnXDR2R4C1yGcqNZ0R+ytj1SXsDiH0EkLK9Qjt03YESFvbi2D5n1T
- zP5yV7N/eUfkhb6W6TnmUajkTATI/wDi1nMEfaF3lGRv8GffM+2s6/WibeJQ0d88Y39w
- iu63jvi2Gz/ry+zwa2hQ8Sjn9EPD2EaJ4VqLQuQxMTEqVvkkaNf4EOHVR9gmXfjrl4Hs
- QmAg==
-X-Gm-Message-State: AGi0Pub4I6AuWVSQXZJfekAGwsqPTcFF9U/P4b2YRtu4WxivO4IWs3TI
- uFV1QY8wqxR7+aa2Kvwpsg==
-X-Google-Smtp-Source: APiQypJN7RiCdIUjHWyYpUVmDqReWQY+dqrjR9QQhXITyIFORnps2wrSQiLn3qpmQpwZwzhff2vhDg==
-X-Received: by 2002:aca:4ac3:: with SMTP id x186mr16258452oia.81.1589318068467; 
- Tue, 12 May 2020 14:14:28 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id d19sm2168689ooa.48.2020.05.12.14.14.27
+ h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
+ :in-reply-to:references;
+ bh=IYUiXiaNBsBZM0iKcHk24e5/fD/U7T1sgmMQxqdI2oM=;
+ b=A7Ln/Mhfuiw2lfx4m16r6O32PU1OqCyPPjoysyoWP5Jc78So3/VVf/8fb0czUKSLhW
+ SfJb9wOFBeTdyehQQMjeysFpt2881kDp0a96oGfGYcVaonheFtFztBaXQ6Lg5TbiMPKj
+ p4YD2/jrOgcQuIBGG/gn0z2GxKl3DLxJEFNbr9LIEsvpXpgFJ7XPKllip+CrAGfiYC3C
+ DkuIx4tX8u5aX6ud9jkjNxD2cQdSD3F/pDiNQrB30Q5odvteh3S8GKw74xt2DnZZBbUl
+ 9PwuTDeUS46kSOLrNLaMJdFc5jbIu+YinKpzQul/ZZEcDLODUrv+cC9ldvib5kjkNiVi
+ w5Yw==
+X-Gm-Message-State: AGi0PubAOVH6Yjpw9BNgewBT9/6XOe4rmwb3NWpRF7Z/hz79yAtPVVzg
+ 7JCsrHYFFXGlhZUS7OzRBw==
+X-Google-Smtp-Source: APiQypIZndupecq/vOBzka0g47mBSQ6VZVYzrX+GcUnwFEwKBIoSzgu/MiKU8yydf78/zT7X/JUETg==
+X-Received: by 2002:a9d:6d19:: with SMTP id o25mr17945553otp.294.1589319942164; 
+ Tue, 12 May 2020 14:45:42 -0700 (PDT)
+Received: from serve.minyard.net ([47.184.149.130])
+ by smtp.gmail.com with ESMTPSA id r11sm5547491oib.47.2020.05.12.14.45.40
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 12 May 2020 14:14:27 -0700 (PDT)
-Received: from minyard.net (unknown
+ Tue, 12 May 2020 14:45:41 -0700 (PDT)
+Received: from t560.minyard.net (unknown
  [IPv6:2001:470:b8f6:1b:8b39:c3f3:f502:5c4e])
- by serve.minyard.net (Postfix) with ESMTPSA id 7C54C180051;
- Tue, 12 May 2020 21:14:26 +0000 (UTC)
-Date: Tue, 12 May 2020 16:14:25 -0500
-From: Corey Minyard <minyard@acm.org>
+ by serve.minyard.net (Postfix) with ESMTPA id F3794180051;
+ Tue, 12 May 2020 21:45:39 +0000 (UTC)
+From: minyard@acm.org
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Message-ID: <20200512211425.GQ9902@minyard.net>
-References: <20200326210958.13051-1-wsa+renesas@sang-engineering.com>
- <20200326210958.13051-2-wsa+renesas@sang-engineering.com>
-MIME-Version: 1.0
-Content-Disposition: inline
+Date: Tue, 12 May 2020 16:45:32 -0500
+Message-Id: <20200512214532.14117-1-minyard@acm.org>
+X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200326210958.13051-2-wsa+renesas@sang-engineering.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
+References: <20200326210958.13051-2-wsa+renesas@sang-engineering.com>
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (tcminyard[at]gmail.com)
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.210.67 listed in list.dnswl.org]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.196 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.196 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.67 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
- 0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1jYcEU-003jTj-Cc
-Subject: Re: [Openipmi-developer] [PATCH 1/1] char: ipmi: convert to use
+ -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jYcip-003mFm-1p
+Subject: [Openipmi-developer] [PATCH] char: ipmi: convert to use
  i2c_new_client_device()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -119,49 +115,51 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- openipmi-developer@lists.sourceforge.net, linux-i2c@vger.kernel.org,
- Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ Arnd Bergmann <arnd@arndb.de>, Corey Minyard <cminyard@mvista.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Thu, Mar 26, 2020 at 10:09:58PM +0100, Wolfram Sang wrote:
-> Move away from the deprecated API.
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
-Well, I should have looked a little closer first... comment inline
+Move away from the deprecated API.
 
-> 
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> ---
->  drivers/char/ipmi/ipmi_ssif.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-> index 8ac390c2b514..2791b799e33d 100644
-> --- a/drivers/char/ipmi/ipmi_ssif.c
-> +++ b/drivers/char/ipmi/ipmi_ssif.c
-> @@ -1945,8 +1945,8 @@ static int ssif_adapter_handler(struct device *adev, void *opaque)
->  	if (adev->type != &i2c_adapter_type)
->  		return 0;
->  
-> -	addr_info->added_client = i2c_new_device(to_i2c_adapter(adev),
-> -						 &addr_info->binfo);
-> +	addr_info->added_client = i2c_new_client_device(to_i2c_adapter(adev),
-> +							&addr_info->binfo);
+Based on a patch by Wolfram Sang <wsa+renesas@sang-engineering.com>.
 
-i2c_new_client_device returns an ERR_PTR, not NULL on error.  So this
-needs some more work.  I'll send something out soon.
+Signed-off-by: Corey Minyard <cminyard@mvista.com>
+---
+I think this works.
 
--corey
+ drivers/char/ipmi/ipmi_ssif.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
->  
->  	if (!addr_info->adapter_name)
->  		return 1; /* Only try the first I2C adapter by default. */
-> -- 
-> 2.20.1
-> 
+diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
+index b7145f370d3b..65563e5e5731 100644
+--- a/drivers/char/ipmi/ipmi_ssif.c
++++ b/drivers/char/ipmi/ipmi_ssif.c
+@@ -1943,12 +1943,14 @@ static int ssif_probe(struct i2c_client *client, const struct i2c_device_id *id)
+ static int ssif_adapter_handler(struct device *adev, void *opaque)
+ {
+ 	struct ssif_addr_info *addr_info = opaque;
++	struct i2c_client *cl;
+ 
+ 	if (adev->type != &i2c_adapter_type)
+ 		return 0;
+ 
+-	addr_info->added_client = i2c_new_device(to_i2c_adapter(adev),
+-						 &addr_info->binfo);
++	cl = i2c_new_client_device(to_i2c_adapter(adev), &addr_info->binfo);
++	if (!IS_ERR(cl))
++		addr_info->added_client = cl;
+ 
+ 	if (!addr_info->adapter_name)
+ 		return 1; /* Only try the first I2C adapter by default. */
+-- 
+2.17.1
+
 
 
 _______________________________________________
