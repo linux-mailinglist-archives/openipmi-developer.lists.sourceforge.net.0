@@ -2,110 +2,84 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id D13911F3A83
-	for <lists+openipmi-developer@lfdr.de>; Tue,  9 Jun 2020 14:18:31 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8EE591FDB5E
+	for <lists+openipmi-developer@lfdr.de>; Thu, 18 Jun 2020 03:13:04 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1jidD3-0007KX-I0; Tue, 09 Jun 2020 12:18:29 +0000
+	id 1jlj70-0002Qb-Nc; Thu, 18 Jun 2020 01:13:02 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1jidD2-0007KD-2B
- for openipmi-developer@lists.sourceforge.net; Tue, 09 Jun 2020 12:18:28 +0000
+ (envelope-from <sashal@kernel.org>) id 1jlj70-0002QU-3v
+ for openipmi-developer@lists.sourceforge.net; Thu, 18 Jun 2020 01:13:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=diyIqg/YdYbqBJPOkwtPueBHlI8972XoeD1BVsHLbSU=; b=Gi6GEsEcAYi7XYfgHpyAt2h43v
- QZYnajFCT/BcmIA5ISDmWy4WXL2mNB7tdTPyopmpvhEyo2z9ynRTV1Y2ZzeOptyPIbyjuzo3yfHt8
- 2+nj4A+co26+JF9XzWlYHj1gsj1uM9Jy0XIvg2nyGECxZrC3XPoGfTx0yE4t+wgp5auM=;
+ bh=HqT+Q7WTA5qXT7n2EvrmbpVK3+lkm9jI0E0UKORiVj0=; b=Ea0/Vo3FrqH58791m2LHycmOeA
+ F/T6pawUvSQSBUGOgap8bM3oj8UY3osPi6pEXvjVGtq0o0eZZfMmGCxH8j9CHWIJmSc1lVF1xJdme
+ XFvL9kZpcwZFsvykOXFXz6hjgAEMsErSPptGoUIBS3yB2T5QGtA0XPiFaVq0fuEcbBLA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=diyIqg/YdYbqBJPOkwtPueBHlI8972XoeD1BVsHLbSU=; b=hoEuaWL15GYLBBUfrizzuwGERk
- joVYYz6EcvvwCczI5wem7gMZOEXA7osqiyxbWFabRv+Wb/4Ht/cks1C5BeKVWKFbgtQVf3VPv0aqE
- v62uBPAr6yJLdHECe/8rd2Rz5zsNf41AWmWZaMb0e/EU7PHiNXyt70CiMxePPb2gYnf4=;
-Received: from mail-oi1-f196.google.com ([209.85.167.196])
- by sfi-mx-4.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1jidCz-00HaUv-Hg
- for openipmi-developer@lists.sourceforge.net; Tue, 09 Jun 2020 12:18:28 +0000
-Received: by mail-oi1-f196.google.com with SMTP id p70so18474684oic.12
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 09 Jun 2020 05:18:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=diyIqg/YdYbqBJPOkwtPueBHlI8972XoeD1BVsHLbSU=;
- b=l8nyKnMC7hhus1agO0lNbRDnFc9/loLYlG/KrH6hup+C+q4TFx3cxcds2pr/j8QDPM
- CcEIh15lt+pnPkTiwtOuriZ8bc/P0HHSX9cAK0DJ1BXrHjquME6C1+GbzJKgAzRoxbvU
- 4iPOli1lKZBx5oUC8FPokD2znTrQOWld8GrdZBa3NMoh0RF/dEPpBoYEn8qItkJcoq8I
- KVdyPZcIbMx5J7hxzTMH3HYW54QNc3x3DVZZH4/+EkEDIeCGDO5io0V0S41ks0Jkn0lK
- iHNFmGDTE1uWLHm9EkXlP8CXXY7AgTFIP0Z8/k2mtAFm5u4CofQU+NM3Sgy4VfzlIFMo
- XnuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to
- :user-agent;
- bh=diyIqg/YdYbqBJPOkwtPueBHlI8972XoeD1BVsHLbSU=;
- b=fQcG6BDdwXHbYJxQlg4koJSYkwSJ3BUpJmE2TbxOjMeFPsEcUCeLv3E62CYTYXGbP5
- MwXk4d05PLtFXPmxPoqBwjJ7muZ7B08KqpMgggXVR1muXO/cAqJaf67KtaC0olD6Vq3k
- ogkGZ21tSyvkwPnA3rINXDSPP9tbH8n516VoiwWowUXTgiA5YMqJ6udA4AvJn98V46CR
- /xI3EGvhmURrFyuOYcvFSWWOJgTlSw3Xsi6BvudvtEM7vbb+lrv1eNto8BI082QtAnst
- 59+SlMczkOgkGcznCXLBxjQF9yWBP2zg9e4gZu6UJn4Z80UTjRrj2KHTj1h9eVaXQIyl
- DM1Q==
-X-Gm-Message-State: AOAM532SCtkomPmntL3b7fGiVrUo4BhU+Z46tYU2Kz73SxKHBXepk3mP
- H2/MNfapiNXkPiup61r1rQ==
-X-Google-Smtp-Source: ABdhPJyvR7IKu301M8N4TqZSYI6ZEFPj/D5Lldpot8l0vp+QUU17Eb/9LI6ff0nkiZqBVb/NrExfBQ==
-X-Received: by 2002:a05:6808:b35:: with SMTP id
- t21mr3189220oij.86.1591705099437; 
- Tue, 09 Jun 2020 05:18:19 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id o4sm3130595oib.53.2020.06.09.05.18.18
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 09 Jun 2020 05:18:18 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:fc6b:eb5f:1e23:4ea5])
- by serve.minyard.net (Postfix) with ESMTPSA id AA196180050;
- Tue,  9 Jun 2020 12:18:17 +0000 (UTC)
-Date: Tue, 9 Jun 2020 07:18:16 -0500
-From: Corey Minyard <minyard@acm.org>
-To: wu000273@umn.edu
-Message-ID: <20200609121816.GS2880@minyard.net>
-References: <20200609060410.29700-1-wu000273@umn.edu>
+ bh=HqT+Q7WTA5qXT7n2EvrmbpVK3+lkm9jI0E0UKORiVj0=; b=k36Gh7BlF2mHxt+/HiXqz5QHz1
+ /HBa/Jdi87jM1SL3LZXSRzmJIpXmAwuMB3Fy5oskfEiEpVju5RB1SNKHIn8och8wVAzq4JXp9XJk5
+ 2vbcaVRhGmdL/WWrrdf8wvi1liTY1Vtr0tSDLN93gmWJeuwyavWDslPYOkf3lfz+6gSI=;
+Received: from mail.kernel.org ([198.145.29.99])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1jlj6x-0071Vc-Ux
+ for openipmi-developer@lists.sourceforge.net; Thu, 18 Jun 2020 01:13:02 +0000
+Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
+ [73.47.72.35])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id CD81A21D7E;
+ Thu, 18 Jun 2020 01:12:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1592442767;
+ bh=YoXqK3VwWX/NJk5sqjpoTnUJTm/gb4JObnMUytC2uk8=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=nlJsqIaqZyhgZhOKTa0sm/ptKzCypbD0wVBHD/gZGZvS+xNagDzMeoWwlZqboFnBW
+ agxV8l4Oe7Gcna4AGdjvkz4ItJG2pEIq0bZ4ZdnuLFBAXWs1f4gk3vJTr797EeDrx8
+ P0KzA+t4wihnxEAD7CedsHM97RmaQSMdXImoxAYY=
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Date: Wed, 17 Jun 2020 21:05:13 -0400
+Message-Id: <20200618010805.600873-216-sashal@kernel.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200618010805.600873-1-sashal@kernel.org>
+References: <20200618010805.600873-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200609060410.29700-1-wu000273@umn.edu>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Spam-Score: 0.5 (/)
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Spam-Score: -0.4 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.196 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.196 listed in wl.mailspike.net]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: intel.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
-X-Headers-End: 1jidCz-00HaUv-Hg
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: code cleanup and prevent
- potential issue.
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.3 AWL AWL: Adjusted score from AWL reputation of From: address
+X-Headers-End: 1jlj6x-0071Vc-Ux
+Subject: [Openipmi-developer] [PATCH AUTOSEL 5.7 216/388] ipmi: use vzalloc
+ instead of kmalloc for user creation
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -118,58 +92,94 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- openipmi-developer@lists.sourceforge.net, kjlu@umn.edu,
- linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
+Cc: Sasha Levin <sashal@kernel.org>, Corey Minyard <cminyard@mvista.com>,
+ Feng Tang <feng.tang@intel.com>, openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Jun 09, 2020 at 01:04:10AM -0500, wu000273@umn.edu wrote:
-> From: Qiushi Wu <wu000273@umn.edu>
-> 
-> All the previous get/put operations against intf->refcount are
-> inside the mutex. Thus, put the last kref_put() also inside mutex
-> to make sure get/put functions execute in order and prevent the
-> potential race condition.
+From: Feng Tang <feng.tang@intel.com>
 
-No, this can result in a crash.  intf and intf->bmc_reg_mutex will
-be freed by intf_free.  In fact, every call to kref_put() on intf
-better be outside any mutex/lock in intf.  If you saw any, that
-is a bug, please report that.  kref_get() is fine inside the
-mutex.
+[ Upstream commit 7c47a219b95d0e06b5ef5fcc7bad807895015eac ]
 
-Plus, this is not a race condition.  get/put is atomic.
+We met mulitple times of failure of staring bmc-watchdog,
+due to the runtime memory allocation failure of order 4.
 
--corey
+     bmc-watchdog: page allocation failure: order:4, mode:0x40cc0(GFP_KERNEL|__GFP_COMP), nodemask=(null),cpuset=/,mems_allowed=0-1
+     CPU: 1 PID: 2571 Comm: bmc-watchdog Not tainted 5.5.0-00045-g7d6bb61d6188c #1
+     Hardware name: Intel Corporation S2600WFT/S2600WFT, BIOS SE5C620.86B.00.01.0015.110720180833 11/07/2018
+     Call Trace:
+      dump_stack+0x66/0x8b
+      warn_alloc+0xfe/0x160
+      __alloc_pages_slowpath+0xd3e/0xd80
+      __alloc_pages_nodemask+0x2f0/0x340
+      kmalloc_order+0x18/0x70
+      kmalloc_order_trace+0x1d/0xb0
+      ipmi_create_user+0x55/0x2c0 [ipmi_msghandler]
+      ipmi_open+0x72/0x110 [ipmi_devintf]
+      chrdev_open+0xcb/0x1e0
+      do_dentry_open+0x1ce/0x380
+      path_openat+0x305/0x14f0
+      do_filp_open+0x9b/0x110
+      do_sys_open+0x1bd/0x250
+      do_syscall_64+0x5b/0x1f0
+      entry_SYSCALL_64_after_hwframe+0x44/0xa9
 
-> 
-> Signed-off-by: Qiushi Wu <wu000273@umn.edu>
-> ---
->  drivers/char/ipmi/ipmi_msghandler.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index e1b22fe0916c..d34343e34272 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -2583,10 +2583,11 @@ static int __bmc_get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc,
->  			*guid =  bmc->guid;
->  	}
->  
-> +	kref_put(&intf->refcount, intf_free);
-> +
->  	mutex_unlock(&bmc->dyn_mutex);
->  	mutex_unlock(&intf->bmc_reg_mutex);
->  
-> -	kref_put(&intf->refcount, intf_free);
->  	return rv;
->  }
->  
-> -- 
-> 2.17.1
-> 
+Using vzalloc/vfree for creating ipmi_user heals the
+problem
+
+Thanks to Stephen Rothwell for finding the vmalloc.h
+inclusion issue.
+
+Signed-off-by: Feng Tang <feng.tang@intel.com>
+Signed-off-by: Corey Minyard <cminyard@mvista.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index c48d8f086382..9afd220cd824 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -33,6 +33,7 @@
+ #include <linux/workqueue.h>
+ #include <linux/uuid.h>
+ #include <linux/nospec.h>
++#include <linux/vmalloc.h>
+ 
+ #define IPMI_DRIVER_VERSION "39.2"
+ 
+@@ -1153,7 +1154,7 @@ static void free_user_work(struct work_struct *work)
+ 					      remove_work);
+ 
+ 	cleanup_srcu_struct(&user->release_barrier);
+-	kfree(user);
++	vfree(user);
+ }
+ 
+ int ipmi_create_user(unsigned int          if_num,
+@@ -1185,7 +1186,7 @@ int ipmi_create_user(unsigned int          if_num,
+ 	if (rv)
+ 		return rv;
+ 
+-	new_user = kmalloc(sizeof(*new_user), GFP_KERNEL);
++	new_user = vzalloc(sizeof(*new_user));
+ 	if (!new_user)
+ 		return -ENOMEM;
+ 
+@@ -1232,7 +1233,7 @@ int ipmi_create_user(unsigned int          if_num,
+ 
+ out_kfree:
+ 	srcu_read_unlock(&ipmi_interfaces_srcu, index);
+-	kfree(new_user);
++	vfree(new_user);
+ 	return rv;
+ }
+ EXPORT_SYMBOL(ipmi_create_user);
+-- 
+2.25.1
+
 
 
 _______________________________________________
