@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8EAF124A0E0
+	by mail.lfdr.de (Postfix) with ESMTPS id DF10024A0E3
 	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Aug 2020 15:59:18 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1k8OcW-00018D-Hz; Wed, 19 Aug 2020 13:59:16 +0000
+	id 1k8OcW-00018S-Lj; Wed, 19 Aug 2020 13:59:16 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
  (envelope-from <allen.cryptic@gmail.com>)
- id 1k7bGt-0000mY-Sz; Mon, 17 Aug 2020 09:17:39 +0000
+ id 1k7bH6-0001uV-B9; Mon, 17 Aug 2020 09:17:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=References:In-Reply-To:Message-Id:Date:Subject:Cc:
  To:From:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=UG2QYTpQjXlotAWADPceeuZ+a4WccgODIdL2SjgoSFk=; b=m1/ryrQTCJfL/LfLm2gkb0fGOT
- qVEn0mqIM9cU+4ymycruSkjmS7uybWSqqvMUs64EgRRepgy7BAvbghgDRmp11idVv75Z7TEP/gQeu
- +t9Sj/jlr0cuvpiRUqJMUOa0XMsQlmn4kZWvX1K30ENl2qIqwbLLNUYlreOw/cenoPSs=;
+ bh=Mo6iICj1w8TKwOisUCBNzTZG5p5dM66mXRaY4cwKyZk=; b=eMZbBOE0c2VM+9OVVEasa9brA0
+ FpZhOft/nQ+ugDXCvpt00eXIM0yjOGidQKNQafeQkq0u2MunZhk3kE0cNj8mQ619jb8u3Og3qemCT
+ PieRwjeHUMyKSFDl3xNt+LhmpwbcePte0me4iQdKTdYud6kAUUjSifYSDCi3I01KbK5E=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To
@@ -29,45 +29,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=UG2QYTpQjXlotAWADPceeuZ+a4WccgODIdL2SjgoSFk=; b=ktuy0uOrAeELHTTbUhDWPV3MxQ
- 7PbVQuU04xybZI1bjRRLgHyNLE0fe8ltrU3YC13GU7auaqFQ4zD2ohlFlXrUEmvIR3aX9g8Buik8k
- 5mro++jEXzyaPriCyq1Kspghwol38BiqgYvfWMeWR3Ny2Ab947PQbuA8Q1bCBlohoTjI=;
-Received: from mail-pj1-f65.google.com ([209.85.216.65])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ bh=Mo6iICj1w8TKwOisUCBNzTZG5p5dM66mXRaY4cwKyZk=; b=Yaz99yzu0D/gxuDbkXoRRmdJbQ
+ eqp0zPomX/2bidnAzqla93y4vYftaCkIo/ZbUMnXfJay0wbfv7dGO4BjhN/15qOsP+D93Vu8iNjO4
+ 3B5iYegBrsFY4uWn6dorn8I6vYI6g5R8im4ZHT0/g1QHnl+JlMNUJ37cIICZ9PHrS97M=;
+Received: from mail-pj1-f67.google.com ([209.85.216.67])
+ by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1k7bGs-00E6xk-2G; Mon, 17 Aug 2020 09:17:39 +0000
-Received: by mail-pj1-f65.google.com with SMTP id 2so7505653pjx.5;
- Mon, 17 Aug 2020 02:17:38 -0700 (PDT)
+ id 1k7bH4-00Gwgx-NH; Mon, 17 Aug 2020 09:17:51 +0000
+Received: by mail-pj1-f67.google.com with SMTP id ha11so7405443pjb.1;
+ Mon, 17 Aug 2020 02:17:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=UG2QYTpQjXlotAWADPceeuZ+a4WccgODIdL2SjgoSFk=;
- b=ZeVN/cVui5hARZlV9DLrMIOor7bXGKxDQb3si3ZQHQtGAl+gyHm5RQmQAm+U8a868z
- SfhKCHilsvyZ8k65l+2WpkyRlkzWLDL/jfYAeWhxcLcKyqTMuvwWxny/I711b9K6Ka/c
- qU19D1f4ygPSCnzBkg7vnGsSmAqIN+KJ9YD5vRaZDkEYRec7BEeXUloXtSSjP/h0zdD2
- y8iQKaxZSkBypYVJgugn93siIydTKHNU7nKLc7byOFPl1yL+XlGMjxhnt+Sl4x0xg8E7
- THDBMvKb4FAxdRAPTEm+7Oc0febnTEszLxJacN6Rex2mxZy8ETX+RYUFKr21pcddTk/u
- LBlQ==
+ bh=Mo6iICj1w8TKwOisUCBNzTZG5p5dM66mXRaY4cwKyZk=;
+ b=TzbwEFTqX0QCsBFflLiO6trddpNRzDxFXlyalb8p8shAuNzSqnVRPY8vMtBs1W5gGO
+ YUc9r1hZWkAsv9H25E5N7kwqFWChbTSHzlTwFhWkQtf63DEW68snGk4kLIJ5B50DmJxW
+ MWiO1udraHvmpV1CUmZxnsCDK3iuigHsru9yj+Oquzzzyly4+EM9iRLcN2KRuZWEdlkQ
+ fk0Czl4+kqYHd4k4r0smEt/HwPMvVApbc9poEuzVer5sNiD49xlJWmv3Z+GjWTQ1m5b+
+ aFLAe1vugsFxn+AMoHEAGT8072rZH7m2jZyN/wKgUUmGiQtrTmT5nZIW44CYFt5Ph9RF
+ ifXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=UG2QYTpQjXlotAWADPceeuZ+a4WccgODIdL2SjgoSFk=;
- b=T4myekO7WcBnRm+xtlr9gdaskca/sXoSCWG37r4vtwDM/8Dv7lVsiYsNyqEtUf0yyE
- tu8rQuskDZrxTpGwGZzqxgaYnspyWL9v9ukre4ThpQ8EQ2CGjh6K64VxmY0v/ZgNwTjC
- DHX8PvlnkZeoV4G4+HkFZNH0+9NsgnmHPWmt107g8TJTrQMa9uE0mD3wE55h9QbJUkUg
- rXdDgfN9m9fpcxfbCeBv1+KA26vsflm7Vxw6d2GJC3tos6f5tGR1mJVdIPQe0uGCAPFL
- ROd+HnrZ5cE1KDy+W7Tv2Xe5xWe3n98q2jxzLJMHuQ0FOhZPAtvX+R3vdvBySgcFt1Ii
- CAIw==
-X-Gm-Message-State: AOAM530k9Z+A9RF6MB0PFSBdGCsbxGKZv0HuF8RYjAjermZdv9iEEGJb
- rYo8+p8ZMGpAg1AH7uKqbtI=
-X-Google-Smtp-Source: ABdhPJwBbiijKUiPwWYDQLbl/zO2PUmpUuyYq3nZYKVN2sTG8ZtBy9G/bOlO3xG/4Ws7FpssYE/UHQ==
-X-Received: by 2002:a17:90a:3ae1:: with SMTP id
- b88mr11550846pjc.156.1597655852504; 
- Mon, 17 Aug 2020 02:17:32 -0700 (PDT)
+ bh=Mo6iICj1w8TKwOisUCBNzTZG5p5dM66mXRaY4cwKyZk=;
+ b=Hb78dT0x4vqCRlIYGdQ1VjSGrCAkcSyJnpyTvQGA9gfXt9PekNi27YYXXtUl7t/20W
+ BgveHAJ6vxtaHz5N6u06So7gWfX8hm9S0nXhdVfWfxfHQsmNWZMPe2lBeiZfQ7MdLsjI
+ 1OnMdQWcupGFiyXpt9LnuQ2MXpGLIwerGMfO45NSv+Hqs/QSQCfIkobeNmqPPYnK6SJA
+ BEurvlWWGfCPq2LqKpS5YBXVXQZGJbOEapnjpjmJisuIeRc32DCvfbQPVzjhU3yDI6a6
+ dlikyN5UsomOQzrAkVhdU652GA/3lFTegU6MilBvQBwitAYomXiqnTz4udy0j4uZOgSZ
+ CsFg==
+X-Gm-Message-State: AOAM533NHbqbSEKGI/dOPG4BJv1WmFGcW46gZw5aOXvTwz6/fWxNpsGy
+ JKsjKYJ0I/m3ekIHwaNVeiY=
+X-Google-Smtp-Source: ABdhPJwq6UEku9ZvxUlcSd9v3lLdDcS44qfn7fyf+CsiORE4iW8DsxOdwJSiRT3OcMi8Q3GfQoOtrg==
+X-Received: by 2002:a17:90a:2210:: with SMTP id
+ c16mr12286360pje.65.1597655865119; 
+ Mon, 17 Aug 2020 02:17:45 -0700 (PDT)
 Received: from localhost.localdomain ([49.207.202.98])
- by smtp.gmail.com with ESMTPSA id r25sm15971028pgv.88.2020.08.17.02.17.20
+ by smtp.gmail.com with ESMTPSA id r25sm15971028pgv.88.2020.08.17.02.17.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 17 Aug 2020 02:17:31 -0700 (PDT)
+ Mon, 17 Aug 2020 02:17:44 -0700 (PDT)
 From: Allen Pais <allen.cryptic@gmail.com>
 To: jdike@addtoit.com, richard@nod.at, anton.ivanov@cambridgegreys.com,
  3chas3@gmail.com, axboe@kernel.dk, stefanr@s5r6.in-berlin.de,
@@ -78,8 +78,8 @@ To: jdike@addtoit.com, richard@nod.at, anton.ivanov@cambridgegreys.com,
  ulf.hansson@linaro.org, mporter@kernel.crashing.org, alex.bou9@gmail.com,
  broonie@kernel.org, martyn@welchs.me.uk, manohar.vanga@gmail.com,
  mitch@sfgoth.com, davem@davemloft.net, kuba@kernel.org
-Date: Mon, 17 Aug 2020 14:45:59 +0530
-Message-Id: <20200817091617.28119-5-allen.cryptic@gmail.com>
+Date: Mon, 17 Aug 2020 14:46:00 +0530
+Message-Id: <20200817091617.28119-6-allen.cryptic@gmail.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200817091617.28119-1-allen.cryptic@gmail.com>
 References: <20200817091617.28119-1-allen.cryptic@gmail.com>
@@ -88,23 +88,23 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  1.5 RCVD_IN_SORBS_WEB      RBL: SORBS: sender is an abusable web server
  [49.207.202.98 listed in dnsbl.sorbs.net]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.216.65 listed in wl.mailspike.net]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.216.65 listed in list.dnswl.org]
+ trust [209.85.216.67 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (allen.cryptic[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.216.67 listed in wl.mailspike.net]
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1k7bGs-00E6xk-2G
+X-Headers-End: 1k7bH4-00Gwgx-NH
 X-Mailman-Approved-At: Wed, 19 Aug 2020 13:59:08 +0000
-Subject: [Openipmi-developer] [PATCH] drivers: atm: convert tasklets to use
+Subject: [Openipmi-developer] [PATCH] drivers: ntb: convert tasklets to use
  new tasklet_setup() API
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -144,155 +144,44 @@ and from_tasklet() to pass the tasklet pointer explicitly.
 Signed-off-by: Romain Perier <romain.perier@gmail.com>
 Signed-off-by: Allen Pais <allen.lkml@gmail.com>
 ---
- drivers/atm/eni.c       |  9 +++++----
- drivers/atm/fore200e.c  | 14 +++++++-------
- drivers/atm/he.c        |  8 ++++----
- drivers/atm/solos-pci.c |  8 ++++----
- 4 files changed, 20 insertions(+), 19 deletions(-)
+ drivers/ntb/ntb_transport.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/atm/eni.c b/drivers/atm/eni.c
-index 39be444534d0..540edea0ad7a 100644
---- a/drivers/atm/eni.c
-+++ b/drivers/atm/eni.c
-@@ -1521,10 +1521,11 @@ static irqreturn_t eni_int(int irq,void *dev_id)
+diff --git a/drivers/ntb/ntb_transport.c b/drivers/ntb/ntb_transport.c
+index e6d1f5b298f3..ab3bee2fc803 100644
+--- a/drivers/ntb/ntb_transport.c
++++ b/drivers/ntb/ntb_transport.c
+@@ -273,7 +273,7 @@ enum {
+ #define NTB_QP_DEF_NUM_ENTRIES	100
+ #define NTB_LINK_DOWN_TIMEOUT	10
+ 
+-static void ntb_transport_rxc_db(unsigned long data);
++static void ntb_transport_rxc_db(struct tasklet_struct *t);
+ static const struct ntb_ctx_ops ntb_transport_ops;
+ static struct ntb_client ntb_transport_client;
+ static int ntb_async_tx_submit(struct ntb_transport_qp *qp,
+@@ -1234,8 +1234,7 @@ static int ntb_transport_init_queue(struct ntb_transport_ctx *nt,
+ 	INIT_LIST_HEAD(&qp->rx_free_q);
+ 	INIT_LIST_HEAD(&qp->tx_free_q);
+ 
+-	tasklet_init(&qp->rxc_db_work, ntb_transport_rxc_db,
+-		     (unsigned long)qp);
++	tasklet_setup(&qp->rxc_db_work, ntb_transport_rxc_db);
+ 
+ 	return 0;
+ }
+@@ -1685,9 +1684,9 @@ static int ntb_process_rxc(struct ntb_transport_qp *qp)
+ 	return 0;
  }
  
- 
--static void eni_tasklet(unsigned long data)
-+static void eni_tasklet(struct tasklet_struct *t)
+-static void ntb_transport_rxc_db(unsigned long data)
++static void ntb_transport_rxc_db(struct tasklet_struct *t)
  {
--	struct atm_dev *dev = (struct atm_dev *) data;
--	struct eni_dev *eni_dev = ENI_DEV(dev);
-+	struct eni_dev *eni_dev = from_tasklet(eni_dev, t, task);
-+	struct atm_dev *dev = container_of((void *)eni_dev, typeof(*dev),
-+					  dev_data);
- 	unsigned long flags;
- 	u32 events;
+-	struct ntb_transport_qp *qp = (void *)data;
++	struct ntb_transport_qp *qp = from_tasklet(qp, t, rxc_db_work);
+ 	int rc, i;
  
-@@ -1838,7 +1839,7 @@ static int eni_start(struct atm_dev *dev)
- 	     eni_dev->vci,eni_dev->rx_dma,eni_dev->tx_dma,
- 	     eni_dev->service,buf);
- 	spin_lock_init(&eni_dev->lock);
--	tasklet_init(&eni_dev->task,eni_tasklet,(unsigned long) dev);
-+	tasklet_setup(&eni_dev->task,eni_tasklet);
- 	eni_dev->events = 0;
- 	/* initialize memory management */
- 	buffer_mem = eni_dev->mem - (buf - eni_dev->ram);
-diff --git a/drivers/atm/fore200e.c b/drivers/atm/fore200e.c
-index a81bc49c14ac..8c6226b50e4d 100644
---- a/drivers/atm/fore200e.c
-+++ b/drivers/atm/fore200e.c
-@@ -1180,9 +1180,9 @@ fore200e_interrupt(int irq, void* dev)
- 
- #ifdef FORE200E_USE_TASKLET
- static void
--fore200e_tx_tasklet(unsigned long data)
-+fore200e_tx_tasklet(struct tasklet_struct *t)
- {
--    struct fore200e* fore200e = (struct fore200e*) data;
-+    struct fore200e* fore200e = from_tasklet(fore200e, t, tx_tasklet);
-     unsigned long flags;
- 
-     DPRINTK(3, "tx tasklet scheduled for device %d\n", fore200e->atm_dev->number);
-@@ -1194,15 +1194,15 @@ fore200e_tx_tasklet(unsigned long data)
- 
- 
- static void
--fore200e_rx_tasklet(unsigned long data)
-+fore200e_rx_tasklet(struct tasklet_struct *t)
- {
--    struct fore200e* fore200e = (struct fore200e*) data;
-+    struct fore200e* fore200e = from_tasklet(fore200e, t, rx_tasklet);
-     unsigned long    flags;
- 
-     DPRINTK(3, "rx tasklet scheduled for device %d\n", fore200e->atm_dev->number);
- 
-     spin_lock_irqsave(&fore200e->q_lock, flags);
--    fore200e_rx_irq((struct fore200e*) data);
-+    fore200e_rx_irq(fore200e);
-     spin_unlock_irqrestore(&fore200e->q_lock, flags);
- }
- #endif
-@@ -1943,8 +1943,8 @@ static int fore200e_irq_request(struct fore200e *fore200e)
- 	   fore200e_irq_itoa(fore200e->irq), fore200e->name);
- 
- #ifdef FORE200E_USE_TASKLET
--    tasklet_init(&fore200e->tx_tasklet, fore200e_tx_tasklet, (unsigned long)fore200e);
--    tasklet_init(&fore200e->rx_tasklet, fore200e_rx_tasklet, (unsigned long)fore200e);
-+    tasklet_setup(&fore200e->tx_tasklet, fore200e_tx_tasklet);
-+    tasklet_setup(&fore200e->rx_tasklet, fore200e_rx_tasklet);
- #endif
- 
-     fore200e->state = FORE200E_STATE_IRQ;
-diff --git a/drivers/atm/he.c b/drivers/atm/he.c
-index 8af793f5e811..9c36fea4336f 100644
---- a/drivers/atm/he.c
-+++ b/drivers/atm/he.c
-@@ -100,7 +100,7 @@ static void he_close(struct atm_vcc *vcc);
- static int he_send(struct atm_vcc *vcc, struct sk_buff *skb);
- static int he_ioctl(struct atm_dev *dev, unsigned int cmd, void __user *arg);
- static irqreturn_t he_irq_handler(int irq, void *dev_id);
--static void he_tasklet(unsigned long data);
-+static void he_tasklet(struct tasklet_struct *t);
- static int he_proc_read(struct atm_dev *dev,loff_t *pos,char *page);
- static int he_start(struct atm_dev *dev);
- static void he_stop(struct he_dev *dev);
-@@ -383,7 +383,7 @@ static int he_init_one(struct pci_dev *pci_dev,
- 	he_dev->atm_dev->dev_data = he_dev;
- 	atm_dev->dev_data = he_dev;
- 	he_dev->number = atm_dev->number;
--	tasklet_init(&he_dev->tasklet, he_tasklet, (unsigned long) he_dev);
-+	tasklet_setup(&he_dev->tasklet, he_tasklet);
- 	spin_lock_init(&he_dev->global_lock);
- 
- 	if (he_start(atm_dev)) {
-@@ -1925,10 +1925,10 @@ he_service_rbpl(struct he_dev *he_dev, int group)
- }
- 
- static void
--he_tasklet(unsigned long data)
-+he_tasklet(struct tasklet_struct *t)
- {
- 	unsigned long flags;
--	struct he_dev *he_dev = (struct he_dev *) data;
-+	struct he_dev *he_dev = from_tasklet(he_dev, t, tasklet);
- 	int group, type;
- 	int updated = 0;
- 
-diff --git a/drivers/atm/solos-pci.c b/drivers/atm/solos-pci.c
-index 94fbc3abe60e..f44e1880cb74 100644
---- a/drivers/atm/solos-pci.c
-+++ b/drivers/atm/solos-pci.c
-@@ -167,7 +167,7 @@ static struct atm_vcc* find_vcc(struct atm_dev *dev, short vpi, int vci);
- static int atm_init(struct solos_card *, struct device *);
- static void atm_remove(struct solos_card *);
- static int send_command(struct solos_card *card, int dev, const char *buf, size_t size);
--static void solos_bh(unsigned long);
-+static void solos_bh(struct tasklet_struct *t);
- static int print_buffer(struct sk_buff *buf);
- 
- static inline void solos_pop(struct atm_vcc *vcc, struct sk_buff *skb)
-@@ -754,9 +754,9 @@ static irqreturn_t solos_irq(int irq, void *dev_id)
- 	return IRQ_RETVAL(handled);
- }
- 
--static void solos_bh(unsigned long card_arg)
-+static void solos_bh(struct tasklet_struct *t)
- {
--	struct solos_card *card = (void *)card_arg;
-+	struct solos_card *card = from_tasklet(card, t, tlet);
- 	uint32_t card_flags;
- 	uint32_t rx_done = 0;
- 	int port;
-@@ -1294,7 +1294,7 @@ static int fpga_probe(struct pci_dev *dev, const struct pci_device_id *id)
- 
- 	pci_set_drvdata(dev, card);
- 
--	tasklet_init(&card->tlet, solos_bh, (unsigned long)card);
-+	tasklet_setup(&card->tlet, solos_bh);
- 	spin_lock_init(&card->tx_lock);
- 	spin_lock_init(&card->tx_queue_lock);
- 	spin_lock_init(&card->cli_queue_lock);
+ 	dev_dbg(&qp->ndev->pdev->dev, "%s: doorbell %d received\n",
 -- 
 2.17.1
 
