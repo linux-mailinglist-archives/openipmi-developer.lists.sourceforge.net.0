@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id E429F24A0EB
-	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Aug 2020 15:59:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2129E24A0EE
+	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Aug 2020 15:59:20 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1k8OcX-0001Bp-TU; Wed, 19 Aug 2020 13:59:17 +0000
+	id 1k8OcX-0001C4-Vz; Wed, 19 Aug 2020 13:59:18 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
  (envelope-from <allen.cryptic@gmail.com>)
- id 1k7bJc-0002A1-GQ; Mon, 17 Aug 2020 09:20:28 +0000
+ id 1k7bJj-0002Bn-Ec; Mon, 17 Aug 2020 09:20:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=References:In-Reply-To:Message-Id:Date:Subject:Cc:
  To:From:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=48ZUy5TmzQBYUzPrjZvYPJeHWlYkLbZYovshPbclrcg=; b=mQ0aH56NrTGze7Im1MgSWTSq0A
- 0D8chCX+tJXSD3zUM9v5KhzeTmjmf8kjAYU7+4h+XuvGjSR6qtxPS7AXJYSOXlAw6B1l+en4Brrm6
- pQLV9o7BuZJr/LUNA4D0ZAwZn871GxcZx26uB64fRKEnPCOYJ5mmFBLlZDGivZAaf+wc=;
+ bh=QhPrNAdoeJw7hjMh0pGw+sjN4I+tDKGZ699gTXbu9Pc=; b=GvcxZMnSeI+BKgrYbVaIX+nOZh
+ kVGHQvLoVI03h4FdM10AY2wDvWHMfagkSUglR7UMzQzkA7Lgd338Yqm1tX/ckIh2KpaO/6ZGXWjCu
+ SejmZokrFvnhtwyzXOU+iPBiyDNNKn+l9khRjl8tendkgxoQqO1RIVVp6ZMRKhlOQlVM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To
@@ -29,45 +29,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=48ZUy5TmzQBYUzPrjZvYPJeHWlYkLbZYovshPbclrcg=; b=js3DU3qM+R4P/sB9Hdss3o9Chf
- AcracVkdARxCoPqAs3sOyhtETN1RvGK/MlMdSNShLsqwp64WWS9Hx9LjKqlJbG27CWOcZn0cVs1A2
- UVxHEoLApjjw0/BUTfDyXyGcbQ6ZUQnGh+BOpewqvLYA5XvEORERyAVnQLRADjfC6KAY=;
-Received: from mail-pj1-f68.google.com ([209.85.216.68])
+ bh=QhPrNAdoeJw7hjMh0pGw+sjN4I+tDKGZ699gTXbu9Pc=; b=dTWt1RCg8twXfVwusMlsxIxjIE
+ K1O9rBGihDOy35z0PpMzfdqopAnxPBKVG52l5p5KCAvwyeHoCSMzfXzVu3I+QZSViiRdXT/XpkJz+
+ 922hvqni2htjhTVdszuEeb/NdlBEHcaNFoYcsq33IWC8z2mp1+2E5ZBE3Dba0ymT2w8E=;
+Received: from mail-pf1-f195.google.com ([209.85.210.195])
  by sfi-mx-4.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1k7bJU-00Gwry-EL; Mon, 17 Aug 2020 09:20:21 +0000
-Received: by mail-pj1-f68.google.com with SMTP id mt12so7516537pjb.4;
- Mon, 17 Aug 2020 02:20:20 -0700 (PDT)
+ id 1k7bJi-00Gwss-6i; Mon, 17 Aug 2020 09:20:35 +0000
+Received: by mail-pf1-f195.google.com with SMTP id d188so7931588pfd.2;
+ Mon, 17 Aug 2020 02:20:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=48ZUy5TmzQBYUzPrjZvYPJeHWlYkLbZYovshPbclrcg=;
- b=FoufY+wCt538UGODDBNoxdFMHMLuyZNGQ6MHR7pZXvqvIrAnPj8PHB4pQsWp/mWg6o
- KsvcX8Y87zDteEZApNo70LMlrBVZaBliAR2vLGx60Xbo7CohHtYkdt/Mg+u50DG1h36h
- 9Fwly9brTQHjZlbl7lAqxgOWAbzrsFhJBcqUC23aSRj/VpiU2JCK2mbui+uqvhxhgmrl
- IvuQewyHW9KqIl6MAWFr6dd8dgP34kntnReO4dunTk9vfs81InEHWHE3302xh+V3TqjN
- 5ledaxK7A0foZnhRefzAA6Ra/wxb6d+K7gxqNB1TdKvqBatRR5FaVQrX9ZSt/5m+frdy
- H7BA==
+ bh=QhPrNAdoeJw7hjMh0pGw+sjN4I+tDKGZ699gTXbu9Pc=;
+ b=cTZNXtt7wNfV+e9cJ76fTsPPVQZeYJIEY2TuWXhYA+6rL5+mQtvGCpP7nLFEEHniIY
+ ttRYkgElaSdYzjheNY+aJq+wt2TbwHocg2rHezNcVM8LeXUN8gM2nT5FPn17bkKOZJ/R
+ FpcUeStKvy2IzIoPd11K1+w6c4p381QKwm4Dhy02AfZUx3SzHjBImZSC4gDgffWV6h+v
+ 8YTTF/IpemIy0SQFRYOlz4ZDOq/9HJmYTUqHCVWY4C5ejhmLcUfPEpCe73ql4ONWBhLK
+ UZXD9rMiGnEuf0tCOKH/CAPFPO+ziHa24otJgykW+Fa09Aud/a6J7DqgcJ9+cKbuVreV
+ L6OQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=48ZUy5TmzQBYUzPrjZvYPJeHWlYkLbZYovshPbclrcg=;
- b=PyzKjmsqu2k3fY6elauLdQpT9LLK1b69drWnSq6IkGOk4uUfWeZM2SGXe47+0SQTFM
- NaDUd7+mS8+xNRFfHlxHxubeHjKHt1VeY20QP//6hQJWwsra+Hv8F/8CzaMXzopAFqrH
- sns9Ye0ujQ39VVRXACjmiLK1NTsxmYSNmBDEcAhv/v0LuZ/pHX45h9TBsgUGnx8n8NXg
- pwDzTCeIKsViGSdX8rStNo8Z5BpbqzMPG+VSxE0D3LteY3IDX/geaV3G+nKT6oAYChmK
- xVWUs/mlFMufFblOwKnzUONuBPFCyD97ioFdb+89VM/qa2Hwds5PwjLh+0+q3OQjSy88
- oIpQ==
-X-Gm-Message-State: AOAM532/2+pPiP9Mrrc5J+/GjseP7B+FqREdDNYpUXUleMQp/LjMuTdb
- k65YTgDR46/MHTA9lRJQBdM=
-X-Google-Smtp-Source: ABdhPJzGq3wy6E/Dy/SnfM+UdmLXd8ExYtYFE4LwG7DZVH6d40QHdot/zCUw6TFKmzo3uMNttbjBZg==
-X-Received: by 2002:a17:902:bd85:: with SMTP id
- q5mr9922465pls.99.1597656014891; 
- Mon, 17 Aug 2020 02:20:14 -0700 (PDT)
+ bh=QhPrNAdoeJw7hjMh0pGw+sjN4I+tDKGZ699gTXbu9Pc=;
+ b=msHuAEmZEHUoCNuSfX8xlQEQE//UWl9oREQs3Kt8ydP+jr5PuIqaRTI9eY/HZ5Hq34
+ pNykp79i9pFibqPV90EOUyLYAkPEvKn7UMRRMw+Z58X/n0V7DXHUXsTE4OndPWW3okhf
+ CX2daW2/UjQINUfKY6ZvQPZa3wG2Ttx3Um92KG1bXZjh6aXglJQG24DkYp4/FIIn3OUN
+ b8wsQU7qPlhKaJe0LEme1rIepq7PVohrONYg3si2Gztwj7rQbTqbaCN+tuiZEZgKVbRf
+ k1rhdOc4XD0DXEqWqJpaLMfl6CY2W/yhH+Vksu/slPnG6loZHNq77jI+RVjOQ4cmcb+t
+ 9A9g==
+X-Gm-Message-State: AOAM5331mRrcIhHNdZC8b7X+yt2ze9niXAlJqnw6fJ+CAOau1jd2wsdj
+ CU30lhcqsag/PcSTdQMUyGs=
+X-Google-Smtp-Source: ABdhPJzDyD/NrPXHKKUPdhhRODzrKgFhi3OcVBh0EqkEsk2AwP8x+cz/Kr8PlDriSCVb6p68quAdVw==
+X-Received: by 2002:a63:4545:: with SMTP id u5mr9191366pgk.229.1597656028627; 
+ Mon, 17 Aug 2020 02:20:28 -0700 (PDT)
 Received: from localhost.localdomain ([49.207.202.98])
- by smtp.gmail.com with ESMTPSA id r25sm15971028pgv.88.2020.08.17.02.20.00
+ by smtp.gmail.com with ESMTPSA id r25sm15971028pgv.88.2020.08.17.02.20.15
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 17 Aug 2020 02:20:14 -0700 (PDT)
+ Mon, 17 Aug 2020 02:20:28 -0700 (PDT)
 From: Allen Pais <allen.cryptic@gmail.com>
 To: jdike@addtoit.com, richard@nod.at, anton.ivanov@cambridgegreys.com,
  3chas3@gmail.com, axboe@kernel.dk, stefanr@s5r6.in-berlin.de,
@@ -78,8 +77,8 @@ To: jdike@addtoit.com, richard@nod.at, anton.ivanov@cambridgegreys.com,
  ulf.hansson@linaro.org, mporter@kernel.crashing.org, alex.bou9@gmail.com,
  broonie@kernel.org, martyn@welchs.me.uk, manohar.vanga@gmail.com,
  mitch@sfgoth.com, davem@davemloft.net, kuba@kernel.org
-Date: Mon, 17 Aug 2020 14:46:11 +0530
-Message-Id: <20200817091617.28119-17-allen.cryptic@gmail.com>
+Date: Mon, 17 Aug 2020 14:46:12 +0530
+Message-Id: <20200817091617.28119-18-allen.cryptic@gmail.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200817091617.28119-1-allen.cryptic@gmail.com>
 References: <20200817091617.28119-1-allen.cryptic@gmail.com>
@@ -88,25 +87,25 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  1.5 RCVD_IN_SORBS_WEB      RBL: SORBS: sender is an abusable web server
  [49.207.202.98 listed in dnsbl.sorbs.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.210.195 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (allen.cryptic[at]gmail.com)
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.216.68 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.195 listed in wl.mailspike.net]
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.216.68 listed in wl.mailspike.net]
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  -0.0 AWL AWL: Adjusted score from AWL reputation of From: address
-X-Headers-End: 1k7bJU-00Gwry-EL
+X-Headers-End: 1k7bJi-00Gwss-6i
 X-Mailman-Approved-At: Wed, 19 Aug 2020 13:59:09 +0000
-Subject: [Openipmi-developer] [PATCH] net: atm: convert tasklets callbacks
- to use from_tasklet()
+Subject: [Openipmi-developer] [PATCH] platform: goldfish: convert tasklets
+ to use new tasklet_setup() API
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -137,27 +136,44 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
 From: Allen Pais <allen.lkml@gmail.com>
 
-Update all the callbacks of all tasklets by using
-from_tasklet() and remove .data field.
+In preparation for unconditionally passing the
+struct tasklet_struct pointer to all tasklet
+callbacks, switch to using the new tasklet_setup()
+and from_tasklet() to pass the tasklet pointer explicitly.
 
 Signed-off-by: Romain Perier <romain.perier@gmail.com>
 Signed-off-by: Allen Pais <allen.lkml@gmail.com>
 ---
- net/atm/pppoatm.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/platform/goldfish/goldfish_pipe.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/net/atm/pppoatm.c b/net/atm/pppoatm.c
-index 579b66da1d95..3803be8470f7 100644
---- a/net/atm/pppoatm.c
-+++ b/net/atm/pppoatm.c
-@@ -416,7 +416,6 @@ static int pppoatm_assign_vcc(struct atm_vcc *atmvcc, void __user *arg)
- 	pvcc->chan.mtu = atmvcc->qos.txtp.max_sdu - PPP_HDRLEN -
- 	    (be.encaps == e_vc ? 0 : LLC_LEN);
- 	pvcc->wakeup_tasklet = tasklet_proto;
--	pvcc->wakeup_tasklet.data = (unsigned long) &pvcc->chan;
- 	err = ppp_register_channel(&pvcc->chan);
- 	if (err != 0) {
- 		kfree(pvcc);
+diff --git a/drivers/platform/goldfish/goldfish_pipe.c b/drivers/platform/goldfish/goldfish_pipe.c
+index 1ab207ec9c94..b9bead07760c 100644
+--- a/drivers/platform/goldfish/goldfish_pipe.c
++++ b/drivers/platform/goldfish/goldfish_pipe.c
+@@ -577,10 +577,10 @@ static struct goldfish_pipe *signalled_pipes_pop_front(
+ 	return pipe;
+ }
+ 
+-static void goldfish_interrupt_task(unsigned long dev_addr)
++static void goldfish_interrupt_task(struct tasklet_struct *t)
+ {
+ 	/* Iterate over the signalled pipes and wake them one by one */
+-	struct goldfish_pipe_dev *dev = (struct goldfish_pipe_dev *)dev_addr;
++	struct goldfish_pipe_dev *dev = from_tasklet(dev, t, irq_tasklet);
+ 	struct goldfish_pipe *pipe;
+ 	int wakes;
+ 
+@@ -811,8 +811,7 @@ static int goldfish_pipe_device_init(struct platform_device *pdev,
+ {
+ 	int err;
+ 
+-	tasklet_init(&dev->irq_tasklet, &goldfish_interrupt_task,
+-		     (unsigned long)dev);
++	tasklet_setup(&dev->irq_tasklet, &goldfish_interrupt_task);
+ 
+ 	err = devm_request_irq(&pdev->dev, dev->irq,
+ 			       goldfish_pipe_interrupt,
 -- 
 2.17.1
 
