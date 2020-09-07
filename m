@@ -2,79 +2,81 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1CEC725FFF9
-	for <lists+openipmi-developer@lfdr.de>; Mon,  7 Sep 2020 18:42:16 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DAAEA260008
+	for <lists+openipmi-developer@lfdr.de>; Mon,  7 Sep 2020 18:43:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Cc:Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive
-	:List-Unsubscribe:List-Id:Subject:Message-Id:Date:To:Sender:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9Z3V8WWH9teHTb1GKEOjYIFhltShQOzpBaEhcQM9Jk8=; b=IQVifwWCJMu749cUAN91plGFNF
-	c6bI1MDN+zhtPLyxy1r8TR8SThFov8SDOOi90bs2btT9Y9whEy6gGfxxX1sE6w9SU6gaY2EXg13wI
-	iIT34kRpADt5yf8fta5lk0PcILwF0hk8s/gj3g2X/aFWxU/dZoGVPNL80cTVmb18h+tE=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:Message-Id:Date:To:
+	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9aCbyA420yrO/2Vyk1Z2KEvdHxbl27l5WSiD2QwAplg=; b=NQSVvcH5wqImhWdqzll9dIEKuV
+	/ARPmh8YDw+4d9iluOXFiy14rzB9sqISSE0xhMVlLaMovJTMln4WhU2sRUBBhbfzF/QkcDIDscgls
+	2JvZzblXfhns2X0WpI3otiqhui/foQ2PCE3VbAKVVmyrOgJ+4N5DpWYnqsLrUioHtqd4=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kFKDe-0000LQ-5u; Mon, 07 Sep 2020 16:42:14 +0000
+	id 1kFKEQ-0001b6-6A; Mon, 07 Sep 2020 16:43:02 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
  (envelope-from <prvs=51253d80b=markubo@amazon.com>)
- id 1kFKDc-0000L1-M0
- for openipmi-developer@lists.sourceforge.net; Mon, 07 Sep 2020 16:42:12 +0000
+ id 1kFKEO-0001ap-8E
+ for openipmi-developer@lists.sourceforge.net; Mon, 07 Sep 2020 16:43:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
- MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=References:In-Reply-To:Message-Id:Date:Subject:Cc:
+ To:From:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=VnpGX/rq2G60jYuw3svogFQniQh9VvXUtLdT7zfMxQA=; b=iW1ZHdnzWMz55rC3OA+tP38Pgg
- FrE07LH/k2Jtvsmd0zmuJvi7mQT3BvDkJp3NjgHFmqqHpm2w9bXi9HcsK7qggw2npWs8rGohrWDTM
- jiUFfIJAVHeP7AWla1sXfkqQPVgUSxS4tTgPo76xmjmTGPbRUBRiiKO0Qat94yoDghvc=;
+ bh=4O0QSxUDD3xeMWzO7pM0jb9DlbqpoAGCZgcqvEe0STI=; b=LVhx88geR7WdpeokepCe37D4kX
+ cA1nb2HbcX8PoMnFLOF28shuLTVDWhko9YM1KKEFo6VJczTFAQQIVdW89xVbLL1kbG809eM6T70iY
+ KFUfudpU7kUCQfYRjdxvI+9s6JP9wzEkhzcbY/dfweCvt1UVoIRb46kf6ntFgBlotmME=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:
- Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
- Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
- In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To
+ :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=VnpGX/rq2G60jYuw3svogFQniQh9VvXUtLdT7zfMxQA=; b=RrqSj0NdqBt1yo2FVzCnunAXEC
- xbyXK3gIHBW7E7Fv8FRNYOi1zrUmPcS9dsHrQlRTY7Y0fsF0xF86uzS1XehPfDroaQpB32vLo8YKB
- l34eFi6+wJ5qcpR+NVshzqZ3LDScEoOWuyBMJF67DHQhMnK5nUx4DqGady21Aqm3pyZo=;
-Received: from smtp-fw-4101.amazon.com ([72.21.198.25])
+ bh=4O0QSxUDD3xeMWzO7pM0jb9DlbqpoAGCZgcqvEe0STI=; b=TfsYlRKwmAXOfQfukOsQFPh2ZM
+ DJouUr84RTkv3cCX0b9Viqkc06SyUBzwQrfBmy9aCMTn0DJbyhXIV1wTy9nEXHsMzCmOWcee6atZn
+ /iWz9Ig3HBwdG5HPUMCDvizpKFtmdxa2CJL8QdOLckMQ/tmZMv0cWp8O9xsAPsREwSOQ=;
+Received: from smtp-fw-9102.amazon.com ([207.171.184.29])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kFKDY-00FydB-HE
- for openipmi-developer@lists.sourceforge.net; Mon, 07 Sep 2020 16:42:12 +0000
+ id 1kFKEK-00FyfP-0Q
+ for openipmi-developer@lists.sourceforge.net; Mon, 07 Sep 2020 16:43:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
- t=1599496929; x=1631032929;
- h=from:to:cc:subject:date:message-id;
- bh=VnpGX/rq2G60jYuw3svogFQniQh9VvXUtLdT7zfMxQA=;
- b=NVdwQbK02ROQiZuD38A/ADnG4X4L1pV8Jb2r00VRx1flniBRfGGgiPUo
- 1L9/w2gi7aEd5hEXAcA4Ki+bGQfBiuq57vYwKvf013enoD3UwSmxNcZ3G
- WwEWxk8AWVeISCmxU/Ll/CV12CDtNmMOFqx3oQOibk5CKTmTHZ+hV1++Y Y=;
-X-IronPort-AV: E=Sophos;i="5.76,402,1592870400"; d="scan'208";a="52586337"
-Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO
- email-inbound-relay-1d-5dd976cd.us-east-1.amazon.com) ([10.43.8.6])
- by smtp-border-fw-out-4101.iad4.amazon.com with ESMTP;
- 07 Sep 2020 16:26:24 +0000
+ t=1599496976; x=1631032976;
+ h=from:to:cc:subject:date:message-id:in-reply-to: references;
+ bh=4O0QSxUDD3xeMWzO7pM0jb9DlbqpoAGCZgcqvEe0STI=;
+ b=If83HV7Z3RSpxQ7U6CwyqBEke5lyd4STd1cWKDc9mKwIIuiQ41ZlYrIK
+ rMC6ldYewQjoXPndDU6VMVvilpGT0QiyPdizRmFiKk1QpHRMbEGjhPMzR
+ 3/E+/PMG49K/+CqM7U/4XI2HXly6+w5fcdSjDiHQKLS5J4gGy0qhhfI8U s=;
+X-IronPort-AV: E=Sophos;i="5.76,402,1592870400"; d="scan'208";a="74236825"
+Received: from sea32-co-svc-lb4-vlan3.sea.corp.amazon.com (HELO
+ email-inbound-relay-2b-81e76b79.us-west-2.amazon.com) ([10.47.23.38])
+ by smtp-border-fw-out-9102.sea19.amazon.com with ESMTP;
+ 07 Sep 2020 16:26:46 +0000
 Received: from uc85b769cb7f9591afac0.ant.amazon.com
- (iad7-ws-svc-lb50-vlan2.amazon.com [10.0.93.210])
- by email-inbound-relay-1d-5dd976cd.us-east-1.amazon.com (Postfix) with ESMTPS
- id 06CFDA252B; Mon,  7 Sep 2020 16:26:22 +0000 (UTC)
+ (pdx2-ws-svc-lb17-vlan2.amazon.com [10.247.140.66])
+ by email-inbound-relay-2b-81e76b79.us-west-2.amazon.com (Postfix) with ESMTPS
+ id E3162A045E; Mon,  7 Sep 2020 16:26:44 +0000 (UTC)
 Received: from uc85b769cb7f9591afac0.ant.amazon.com (uc85b769cb7f9591afac0
  [127.0.0.1])
  by uc85b769cb7f9591afac0.ant.amazon.com (8.15.2/8.15.2/Debian-3) with ESMTP id
- 087GQIbD010913; Mon, 7 Sep 2020 18:26:18 +0200
+ 087GQfm3011020; Mon, 7 Sep 2020 18:26:41 +0200
 Received: (from markubo@localhost)
  by uc85b769cb7f9591afac0.ant.amazon.com (8.15.2/8.15.2/Submit) id
- 087GQHcc010906; Mon, 7 Sep 2020 18:26:17 +0200
+ 087GQeTL011013; Mon, 7 Sep 2020 18:26:40 +0200
 To: Corey Minyard <minyard@acm.org>, openipmi-developer@lists.sourceforge.net
-Date: Mon,  7 Sep 2020 18:25:35 +0200
-Message-Id: <1599495937-10654-1-git-send-email-markubo@amazon.com>
+Date: Mon,  7 Sep 2020 18:25:36 +0200
+Message-Id: <1599495937-10654-2-git-send-email-markubo@amazon.com>
 X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1599495937-10654-1-git-send-email-markubo@amazon.com>
+References: <1599495937-10654-1-git-send-email-markubo@amazon.com>
 X-Spam-Score: -7.7 (-------)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
@@ -86,13 +88,12 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [72.21.198.25 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [207.171.184.29 listed in wl.mailspike.net]
  -0.1 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
-X-Headers-End: 1kFKDY-00FydB-HE
-Subject: [Openipmi-developer] [PATCH 1/3] ipmi: Reset response handler when
- failing to send the command
+X-Headers-End: 1kFKEK-00FyfP-0Q
+Subject: [Openipmi-developer] [PATCH 2/3] ipmi: Add timeout waiting for
+ device GUID
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -116,42 +117,56 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-When failing to send a command we don't expect a response. Clear the
-`null_user_handler` like is done in the success path.
+We have observed hosts with misbehaving BMCs that receive a Get Device
+GUID command but don't respond. This leads to an indefinite wait in the
+ipmi_msghandler's __get_guid function, showing up as hung task messages
+for modprobe.
 
+According to IPMI 2.0 specification chapter 20, the implementation of
+the Get Device GUID command is optional. Therefore, add a timeout to
+waiting for its response and treat the lack of one the same as missing a
+device GUID.
+
+Signed-off-by: Stefan Nuernberger <snu@amazon.com>
 Signed-off-by: Markus Boehme <markubo@amazon.com>
 ---
- drivers/char/ipmi/ipmi_msghandler.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/char/ipmi/ipmi_msghandler.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 737c0b6..2b213c9 100644
+index 2b213c9..2a2e8b2 100644
 --- a/drivers/char/ipmi/ipmi_msghandler.c
 +++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -2433,7 +2433,7 @@ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
+@@ -3184,18 +3184,26 @@ static void guid_handler(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
  
- 	rv = send_get_device_id_cmd(intf);
- 	if (rv)
--		return rv;
-+		goto out_reset_handler;
+ static void __get_guid(struct ipmi_smi *intf)
+ {
+-	int rv;
++	long rv;
+ 	struct bmc_device *bmc = intf->bmc;
  
- 	wait_event(intf->waitq, bmc->dyn_id_set != 2);
+ 	bmc->dyn_guid_set = 2;
+ 	intf->null_user_handler = guid_handler;
+ 	rv = send_guid_cmd(intf, 0);
+-	if (rv)
++	if (rv) {
+ 		/* Send failed, no GUID available. */
+ 		bmc->dyn_guid_set = 0;
+-	else
+-		wait_event(intf->waitq, bmc->dyn_guid_set != 2);
++		goto out;
++	}
  
-@@ -2443,6 +2443,7 @@ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
- 	/* dyn_id_set makes the id data available. */
++	rv = wait_event_timeout(intf->waitq, bmc->dyn_guid_set != 2, 5 * HZ);
++	if (rv == 0) {
++		dev_warn_once(intf->si_dev,
++			      "Timed out waiting for GUID. Assuming GUID is not available.\n");
++		bmc->dyn_guid_set = 0;
++	}
++
++out:
+ 	/* dyn_guid_set makes the guid data available. */
  	smp_rmb();
- 
-+out_reset_handler:
- 	intf->null_user_handler = NULL;
- 
- 	return rv;
-@@ -3329,6 +3330,7 @@ static int __scan_channels(struct ipmi_smi *intf, struct ipmi_device_id *id)
- 			dev_warn(intf->si_dev,
- 				 "Error sending channel information for channel 0, %d\n",
- 				 rv);
-+			intf->null_user_handler = NULL;
- 			return -EIO;
- 		}
  
 -- 
 2.7.4
