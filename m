@@ -2,99 +2,110 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 11BCC260001
-	for <lists+openipmi-developer@lfdr.de>; Mon,  7 Sep 2020 18:42:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Cc:Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive
-	:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:Message-Id:Date:To:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nDT5LsfqiC7ikgLD/8sdf8Ah/CqeTk7AJ8lHEBuqRZ0=; b=IE8WlSLisKO6cJQ7BfR53O2HrL
-	vzzReS96EHpy8Tc43oVly5Mr7j8NuEWLTqLCeQwh1cetXsiKtRZ4187yw8GvcAimJQlK9WAGdP3O5
-	k83pLb2IVB41ARKdyFaJCPwweSF1LSRfidgyuHCsGQ5OQL3x1X+nzisc1ww91jG3QPvo=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id F03B5260762
+	for <lists+openipmi-developer@lfdr.de>; Tue,  8 Sep 2020 02:03:46 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kFKE6-00026h-BB; Mon, 07 Sep 2020 16:42:42 +0000
+	id 1kFR6u-0004lN-Jr; Tue, 08 Sep 2020 00:03:44 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <prvs=51253d80b=markubo@amazon.com>)
- id 1kFKE5-00026b-Qt
- for openipmi-developer@lists.sourceforge.net; Mon, 07 Sep 2020 16:42:41 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1kFR6s-0004lF-Lm
+ for openipmi-developer@lists.sourceforge.net; Tue, 08 Sep 2020 00:03:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=References:In-Reply-To:Message-Id:Date:Subject:Cc:
- To:From:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gaoG8GkE3nCA4mq3eby4DI5ttGvtMXjTHUELrf0upLM=; b=lFVVdGUSx2dQxWstyTbsAG0Uhz
- HZI5I1Nl+pO1ujc49Q9ih6MI5w2ETj0dL2fWq79P+wUpt85mBLWQXt/8dkjrSm3gq62zdRpcIea6K
- dl+Q3ZMlMbGNe5O++T8wO942QBAsIVXCsReq2KwRSybu3gh+b2jhNrJUrKym5e2B2NNM=;
+ bh=L8oNMgR3V486OSRxon6NQEkiONwS5O4dd9QWGg4Xngc=; b=CiEXhHNpoiMBq4piZcsSMl/qMd
+ CbKHDkVoEFoXO5tA99JLqmuuEwxPEkq0apAX+Ep3sB2fINdUIjetD9YtVH62eJv3342dBK/QYDnVg
+ faVrKiiRjjW44x5fgwDfokBYgKc3srYyxfEdT4OeWu4UGXmrM6lGWFj4WbrcO5A+tY5Q=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To
- :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=gaoG8GkE3nCA4mq3eby4DI5ttGvtMXjTHUELrf0upLM=; b=ApX05nZbHw8PYlNedjer8yVrpZ
- yt85IYboMsVrSLLkj1YzixEqunjiQwr0j+SvrYHuMV0sjus3/Nb337/pg7t9+iAO3z04fx5p7sBEU
- jzrKNZbHw1bzUzbbUezAmgu53/pAyr4SpttLm/wms/aXmM3FKqCad/c+Q/6h5t6oMCek=;
-Received: from smtp-fw-33001.amazon.com ([207.171.190.10])
+ bh=L8oNMgR3V486OSRxon6NQEkiONwS5O4dd9QWGg4Xngc=; b=NY0OuNRxd8kCQuMHjqH7Ow++yc
+ YSYIma0KRZLZkBrTLgpYHVZDoitFKBHviuCAMBbVDWbdElZ9iOelRESqB6/y9HIHGLePRjlruiwkJ
+ mWW9IGdDcIES747jzmg7pcpeFRrk/tOy125URGXVaafs9U+X7GiU95I5a9hTzdVOaInQ=;
+Received: from mail-ot1-f65.google.com ([209.85.210.65])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kFKE1-00FyeP-GI
- for openipmi-developer@lists.sourceforge.net; Mon, 07 Sep 2020 16:42:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
- t=1599496958; x=1631032958;
- h=from:to:cc:subject:date:message-id:in-reply-to: references;
- bh=gaoG8GkE3nCA4mq3eby4DI5ttGvtMXjTHUELrf0upLM=;
- b=NydwRpgN9JITvS/1QyhsH2J6E27VJOe8TGCnChY0sLs9KhWixdzVV4Ju
- pAVOhEQ1q8OQcoHG0oYP5Y/pYV6PHrMQwAaZDo1koqRFbSYDCRZg1f/gi
- mo0EQwZ+DTgs7j85qPNHBeGrNi+xCOQg3IfHs1pb3KaT3uUPrjXU/njYE 0=;
-X-IronPort-AV: E=Sophos;i="5.76,402,1592870400"; d="scan'208";a="73024410"
-Received: from sea32-co-svc-lb4-vlan3.sea.corp.amazon.com (HELO
- email-inbound-relay-1e-97fdccfd.us-east-1.amazon.com) ([10.47.23.38])
- by smtp-border-fw-out-33001.sea14.amazon.com with ESMTP;
- 07 Sep 2020 16:27:00 +0000
-Received: from uc85b769cb7f9591afac0.ant.amazon.com
- (iad7-ws-svc-lb50-vlan2.amazon.com [10.0.93.210])
- by email-inbound-relay-1e-97fdccfd.us-east-1.amazon.com (Postfix) with ESMTPS
- id BC317A2086; Mon,  7 Sep 2020 16:26:57 +0000 (UTC)
-Received: from uc85b769cb7f9591afac0.ant.amazon.com (uc85b769cb7f9591afac0
- [127.0.0.1])
- by uc85b769cb7f9591afac0.ant.amazon.com (8.15.2/8.15.2/Debian-3) with ESMTP id
- 087GQr5S011096; Mon, 7 Sep 2020 18:26:53 +0200
-Received: (from markubo@localhost)
- by uc85b769cb7f9591afac0.ant.amazon.com (8.15.2/8.15.2/Submit) id
- 087GQqSn011091; Mon, 7 Sep 2020 18:26:52 +0200
-To: Corey Minyard <minyard@acm.org>, openipmi-developer@lists.sourceforge.net
-Date: Mon,  7 Sep 2020 18:25:37 +0200
-Message-Id: <1599495937-10654-3-git-send-email-markubo@amazon.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1599495937-10654-1-git-send-email-markubo@amazon.com>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1kFR6l-00GIcN-R3
+ for openipmi-developer@lists.sourceforge.net; Tue, 08 Sep 2020 00:03:42 +0000
+Received: by mail-ot1-f65.google.com with SMTP id g10so13406358otq.9
+ for <openipmi-developer@lists.sourceforge.net>;
+ Mon, 07 Sep 2020 17:03:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:reply-to:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=L8oNMgR3V486OSRxon6NQEkiONwS5O4dd9QWGg4Xngc=;
+ b=YkrDh/elvp6AlfWLCCw41Cv611AXJ0pzoGq0h2OjJgSu7mW0RuIgIVq6z95Nwih60M
+ A6fnnBhd92YqOAzaTDKqS+GYrNwXvB5VfmeBlOEhmNWVkR05jkeO4mQZU9y/UE56nLst
+ 0L49/h4RwACTfVWL35h9PJTCB0J9e35905HdScsCW/wBqiQFsJeV7lEsrtdJo7ZGioJd
+ obARRG4eFocg1zhdKlmkwkBIhrVvJfcGXLpaD1kg2cWA0S06WALmdka6VqDE0+t5GMsj
+ cQwuzYNC5fJc2GNihar2g7I0AQoaFAE/OS7lS3k03EWj4RKMykZBM44ilb8g1+/Uki4I
+ ITmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :reply-to:references:mime-version:content-disposition:in-reply-to
+ :user-agent;
+ bh=L8oNMgR3V486OSRxon6NQEkiONwS5O4dd9QWGg4Xngc=;
+ b=uKntku3X/nmvXR9AIYZ04oLiMAYefAr5Xf233J66axmY4XImW2V9HEB00koa5GHD4M
+ xdGbQDyoPFlxZ/3yqHmbXjXVdRcRxLfBVjxf1lpV/0PMguq2L+iTb7dYn5l4InPmat49
+ 3jwxlGO2BlkHhEWNN7LugyRfYAE8N/oCfi1948c+561aYOCJbYZZqS836bV4MKEEsDVv
+ Ss4WdgWjfzFop+o5lIBytGHtgLdR/vNGReUAxjonD1idIc1xe7Z51on747h+WHVlyywP
+ JChoSFZCjGcAb1Te8LvkueSwnqBMLBGVKd/pa0435oaXFVbqU5KH/9ivq6EShwstcLSf
+ YM/Q==
+X-Gm-Message-State: AOAM531DtPHa2WMnRZkIVMDPWIxE2RtPkzdUAQt3Oj1snUzAgWIFURn2
+ d6KAgx3j9D/GhGhGsNmT1A==
+X-Google-Smtp-Source: ABdhPJx4xHUKZjAD0PXmb/o0pO/ou6m/g3Z/JN1DNQVsf5+MuZdVc/v6st5nCRnQuvMzYbhOogpweA==
+X-Received: by 2002:a9d:69c9:: with SMTP id v9mr15168348oto.90.1599523410109; 
+ Mon, 07 Sep 2020 17:03:30 -0700 (PDT)
+Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
+ by smtp.gmail.com with ESMTPSA id 91sm3291127otn.18.2020.09.07.17.03.28
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 07 Sep 2020 17:03:29 -0700 (PDT)
+Received: from minyard.net (unknown
+ [IPv6:2001:470:b8f6:1b:84ed:77c1:d49f:5e6b])
+ by serve.minyard.net (Postfix) with ESMTPSA id E63F818003B;
+ Tue,  8 Sep 2020 00:03:27 +0000 (UTC)
+Date: Mon, 7 Sep 2020 19:03:26 -0500
+From: Corey Minyard <minyard@acm.org>
+To: Markus Boehme <markubo@amazon.com>
+Message-ID: <20200908000326.GB15602@minyard.net>
 References: <1599495937-10654-1-git-send-email-markubo@amazon.com>
-X-Spam-Score: -7.7 (-------)
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1599495937-10654-1-git-send-email-markubo@amazon.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (tcminyard[at]gmail.com)
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.65 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.210.65 listed in list.dnswl.org]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -7.5 USER_IN_DEF_SPF_WL     From: address is in the default SPF white-list
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [207.171.190.10 listed in wl.mailspike.net]
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.1 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
-X-Headers-End: 1kFKE1-00FyeP-GI
-Subject: [Openipmi-developer] [PATCH 3/3] ipmi: Add timeout waiting for
- channel information
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
+ freemail headers are different
+X-Headers-End: 1kFR6l-00GIcN-R3
+Subject: Re: [Openipmi-developer] [PATCH 1/3] ipmi: Reset response handler
+ when failing to send the command
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,125 +118,64 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Markus Boehme via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Markus Boehme <markubo@amazon.com>
+Reply-To: minyard@acm.org
 Cc: Stefan Nuernberger <snu@amazon.com>, SeongJae Park <sjpark@amazon.com>,
  Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-kernel@vger.kernel.org, Amit Shah <aams@amazon.com>
-MIME-Version: 1.0
+ linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ Amit Shah <aams@amazon.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-We have observed hosts with misbehaving BMCs that receive a Get Channel
-Info command but don't respond. This leads to an indefinite wait in the
-ipmi_msghandler's __scan_channels function, showing up as hung task
-messages for modprobe.
+On Mon, Sep 07, 2020 at 06:25:35PM +0200, Markus Boehme wrote:
+> When failing to send a command we don't expect a response. Clear the
+> `null_user_handler` like is done in the success path.
 
-Add a timeout waiting for the channel scan to complete. If the scan
-fails to complete within that time, treat that like IPMI 1.0 and only
-assume the presence of the primary IPMB channel at channel number 0.
+This is correct.  I guess, from the next two patches, I know how you
+found this.
 
-Signed-off-by: Stefan Nuernberger <snu@amazon.com>
-Signed-off-by: Markus Boehme <markubo@amazon.com>
----
- drivers/char/ipmi/ipmi_msghandler.c | 72 ++++++++++++++++++++-----------------
- 1 file changed, 39 insertions(+), 33 deletions(-)
+I can incude this, but I will ask some questions in the later patches.
 
-diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 2a2e8b2..9de9ba6 100644
---- a/drivers/char/ipmi/ipmi_msghandler.c
-+++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -3315,46 +3315,52 @@ channel_handler(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
-  */
- static int __scan_channels(struct ipmi_smi *intf, struct ipmi_device_id *id)
- {
--	int rv;
-+	long rv;
-+	unsigned int set;
- 
--	if (ipmi_version_major(id) > 1
--			|| (ipmi_version_major(id) == 1
--			    && ipmi_version_minor(id) >= 5)) {
--		unsigned int set;
-+	if (ipmi_version_major(id) == 1 && ipmi_version_minor(id) < 5) {
-+		set = intf->curr_working_cset;
-+		goto single_ipmb_channel;
-+	}
- 
--		/*
--		 * Start scanning the channels to see what is
--		 * available.
--		 */
--		set = !intf->curr_working_cset;
--		intf->curr_working_cset = set;
--		memset(&intf->wchannels[set], 0,
--		       sizeof(struct ipmi_channel_set));
--
--		intf->null_user_handler = channel_handler;
--		intf->curr_channel = 0;
--		rv = send_channel_info_cmd(intf, 0);
--		if (rv) {
--			dev_warn(intf->si_dev,
--				 "Error sending channel information for channel 0, %d\n",
--				 rv);
--			intf->null_user_handler = NULL;
--			return -EIO;
--		}
-+	/*
-+	 * Start scanning the channels to see what is
-+	 * available.
-+	 */
-+	set = !intf->curr_working_cset;
-+	intf->curr_working_cset = set;
-+	memset(&intf->wchannels[set], 0, sizeof(struct ipmi_channel_set));
- 
--		/* Wait for the channel info to be read. */
--		wait_event(intf->waitq, intf->channels_ready);
-+	intf->null_user_handler = channel_handler;
-+	intf->curr_channel = 0;
-+	rv = send_channel_info_cmd(intf, 0);
-+	if (rv) {
-+		dev_warn(intf->si_dev,
-+			 "Error sending channel information for channel 0, %ld\n",
-+			 rv);
- 		intf->null_user_handler = NULL;
--	} else {
--		unsigned int set = intf->curr_working_cset;
-+		return -EIO;
-+	}
- 
--		/* Assume a single IPMB channel at zero. */
--		intf->wchannels[set].c[0].medium = IPMI_CHANNEL_MEDIUM_IPMB;
--		intf->wchannels[set].c[0].protocol = IPMI_CHANNEL_PROTOCOL_IPMB;
--		intf->channel_list = intf->wchannels + set;
--		intf->channels_ready = true;
-+	/* Wait for the channel info to be read. */
-+	rv = wait_event_timeout(intf->waitq, intf->channels_ready, 5 * HZ);
-+	if (rv == 0) {
-+		dev_warn(intf->si_dev,
-+			 "Timed out waiting for channel information. Assuming a single IPMB channel at 0.\n");
-+		goto single_ipmb_channel;
- 	}
- 
-+	goto out;
-+
-+single_ipmb_channel:
-+	/* Assume a single IPMB channel at zero. */
-+	intf->wchannels[set].c[0].medium = IPMI_CHANNEL_MEDIUM_IPMB;
-+	intf->wchannels[set].c[0].protocol = IPMI_CHANNEL_PROTOCOL_IPMB;
-+	intf->channel_list = intf->wchannels + set;
-+	intf->channels_ready = true;
-+
-+out:
-+	intf->null_user_handler = NULL;
- 	return 0;
- }
- 
--- 
-2.7.4
+-corey
 
+> 
+> Signed-off-by: Markus Boehme <markubo@amazon.com>
+> ---
+>  drivers/char/ipmi/ipmi_msghandler.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+> index 737c0b6..2b213c9 100644
+> --- a/drivers/char/ipmi/ipmi_msghandler.c
+> +++ b/drivers/char/ipmi/ipmi_msghandler.c
+> @@ -2433,7 +2433,7 @@ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
+>  
+>  	rv = send_get_device_id_cmd(intf);
+>  	if (rv)
+> -		return rv;
+> +		goto out_reset_handler;
+>  
+>  	wait_event(intf->waitq, bmc->dyn_id_set != 2);
+>  
+> @@ -2443,6 +2443,7 @@ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
+>  	/* dyn_id_set makes the id data available. */
+>  	smp_rmb();
+>  
+> +out_reset_handler:
+>  	intf->null_user_handler = NULL;
+>  
+>  	return rv;
+> @@ -3329,6 +3330,7 @@ static int __scan_channels(struct ipmi_smi *intf, struct ipmi_device_id *id)
+>  			dev_warn(intf->si_dev,
+>  				 "Error sending channel information for channel 0, %d\n",
+>  				 rv);
+> +			intf->null_user_handler = NULL;
+>  			return -EIO;
+>  		}
+>  
+> -- 
+> 2.7.4
+> 
 
 
 _______________________________________________
