@@ -2,106 +2,112 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 654942607A2
-	for <lists+openipmi-developer@lfdr.de>; Tue,  8 Sep 2020 02:34:35 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 12391264920
+	for <lists+openipmi-developer@lfdr.de>; Thu, 10 Sep 2020 17:54:34 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kFRai-0006Gf-GT; Tue, 08 Sep 2020 00:34:32 +0000
+	id 1kGOu8-0003kQ-0x; Thu, 10 Sep 2020 15:54:32 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1kFRag-0006GW-I4
- for openipmi-developer@lists.sourceforge.net; Tue, 08 Sep 2020 00:34:30 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1kGOu6-0003k7-RG
+ for openipmi-developer@lists.sourceforge.net; Thu, 10 Sep 2020 15:54:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Cc:To:From:In-Reply-To:Message-ID:Subject:Date:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=IzyYGVSiPefOaHIUtuxegpqEgrmuiDQww3Jq/w4wJEQ=; b=SYvKxE3eU3TDlqdnGq2C0V6V5S
- PaWcLQt92hF/wI7JwmsUz6o5AKeRpxPuOShLWgLHmVvwxS30ceZRtCY0GVOjwQBuK7XB6SI6jsxnO
- 9RhD4bzUt6Msca+u4ofNV4q0GUDZzgl0yuA/huZX3TFhqQreOqyougFmQ0W0XTMBUfd0=;
+ bh=1a4WiYaIgmzOIod6TO4GjxTcWFUr+9gJqOS70xBdw4E=; b=WXFfJD5FAwQkAo0vvfe+VOs7Cf
+ 1Pc4VaB+JEkpbM3LA04fzs6ghDdR075JjeM7iUGpo1bIqeABf/UDIwpIp+ybo4KTi1nOGlFcrScrQ
+ PzvBYjr/GB+FJ7Lkp+IzSlpkysyLv8FhTW5oZJGBtaNZg7NEc2vsDXPE+zrsPi85Dv5c=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:To:From:
+ In-Reply-To:Message-ID:Subject:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=IzyYGVSiPefOaHIUtuxegpqEgrmuiDQww3Jq/w4wJEQ=; b=RhIYGkSZ6TEinAhs9q5jfj7Mqs
- G5XxLb7ASpOgLAij1ALuMk/exzaUewBEYPK41o6+7Fvzh+UQ1CA8Wx3UR/2nBEwtUuDtzavd9QtCB
- gGVawbK/oHmkR+RXuZHksyIsi2hRFPTZp980epJH+75rSLzYHVxgxg7NCsP/uQMvtC90=;
-Received: from mail-ot1-f66.google.com ([209.85.210.66])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ :Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=1a4WiYaIgmzOIod6TO4GjxTcWFUr+9gJqOS70xBdw4E=; b=ZqzGAyD9Z/qG4h7gpFVq4mFelc
+ c4V7EwmnjiXwhLRwB91n4U3lDyPPbn6vrof7FvvNPFrxwduKpzrDFPAL1m25ItOrmoV2R+9XIUdUl
+ ECmQJQVaafOfzcJXf0UARxwqgXT4jjeixC3dPnTFhnWEs89f6nEkHhdkZ2GyStjT1FTc=;
+Received: from mail-ot1-f67.google.com ([209.85.210.67])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kFRaX-00G5ki-9N
- for openipmi-developer@lists.sourceforge.net; Tue, 08 Sep 2020 00:34:30 +0000
-Received: by mail-ot1-f66.google.com with SMTP id 60so560991otw.3
+ id 1kGOu0-002Duz-FU
+ for openipmi-developer@lists.sourceforge.net; Thu, 10 Sep 2020 15:54:30 +0000
+Received: by mail-ot1-f67.google.com with SMTP id o6so5779661ota.2
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 07 Sep 2020 17:34:21 -0700 (PDT)
+ Thu, 10 Sep 2020 08:54:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=IzyYGVSiPefOaHIUtuxegpqEgrmuiDQww3Jq/w4wJEQ=;
- b=pgM6rS69oF8ZUeDRqlGRHXpQx7OqSJ3L+sBs04IeFc5CSjMch/OoecjaoXTW1nySBa
- UBpNaQofKmoYgLFXei1vbfk4iPjkbAMDNvXL3pbFt4/qXIyEjsmpApCdbxj8yQh2DVLO
- +riq8alabr3hOvN6/mrmbCoIo6NRvo5sfmIybnIoQsOajrMRIpJWmai2ccgfdSsmQXm1
- t5BuX1iLBCY4Gjf+TY2v4wEw4EUQW14ibLyJ3is+Hm8eHqd+7ku8igt3oHP8b3hjGNUc
- UC2GrV8nseTwqcwAhvf5dpUyw6iMkCSKydMCX9cEYXT66YYzs7qGFNW6vUdbU0X1uXQM
- 788A==
+ h=sender:date:subject:message-id:in-reply-to:from:to:cc:importance
+ :mime-version:content-transfer-encoding;
+ bh=1a4WiYaIgmzOIod6TO4GjxTcWFUr+9gJqOS70xBdw4E=;
+ b=ARFqT93y3w8aBUyqkW+PjCN+DTNOx0M0g6FJJQgr/fjJ5R5zvUQZvAo9R6cFpGKn4c
+ f8ZZXkFkeQ6Jmk5x62B4BZpEiHnqGuw54Dl9SJ1nYViI+rEDLtIYpzV6SbLmUB35Ow5h
+ /W7GuCbC6exvF02Te7ISbf3fHCF/u8dgutkFRMt/M4w09gd2zHXND+RuBiuxBCcIJsfz
+ 8Zeyb8ni/mn7XxAQmlHhTm9M/AlVwa9mJcCPowJpSx96wpHXjSMnI23NL+RV2+UVb9XF
+ bZtB25j02NeOCE8de1Zgho23ATRILP32HV/W2vtJptaFmKn+5mJV18YUy0v54gn8GPgc
+ kmpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to
- :user-agent;
- bh=IzyYGVSiPefOaHIUtuxegpqEgrmuiDQww3Jq/w4wJEQ=;
- b=Moa+SxJojBGTr/JtIoaFcMxAtymDw1ZVSwtQC187zT4RvWwGehzV7eOvyopgUCFuch
- cpUd9LTgU2HNtB7mGd24UrOc/Qr61rCP6IyMV4csbghKhfrpciqT9+JOfN455z5y1wvx
- falq90+bD9NpQvCyq4ncyPlyigj7J6YhF6c2LsG2HtcPspdkCXb2oRdk0wpxbbiFuS9T
- re4vcPdpckLqfiqzR6QKZ1vXKSXG+2ibpQNt3h5qNrVkaua8CYCrUVkiL4SLmNNqjiU+
- lO8xuqNhQVidJqafZBFctNCCxaxNpwX7Ckrl+IXN8uQm+FkveC1WhM4Fi7skEQeuN3NK
- k2pA==
-X-Gm-Message-State: AOAM533st4hsnEv4ahCzYM0+OP8uYIX9xsTKODZFWBO29vOPqHxIKN9L
- iSzI9EgeKAMf2tEtAvqLgg==
-X-Google-Smtp-Source: ABdhPJwC8fMi7Pn4i7STFy7PUABbRXZ2fBsb0bxYPawrSY0cUukelBa64d/F0l5mx4a8MXtmOV2sdg==
-X-Received: by 2002:a9d:2925:: with SMTP id d34mr16024171otb.140.1599525255598; 
- Mon, 07 Sep 2020 17:34:15 -0700 (PDT)
+ h=x-gm-message-state:sender:date:subject:message-id:in-reply-to:from
+ :to:cc:importance:mime-version:content-transfer-encoding;
+ bh=1a4WiYaIgmzOIod6TO4GjxTcWFUr+9gJqOS70xBdw4E=;
+ b=ngj2EMP2nuC+Bo/MJkKN+bHPPVWlQgC/Fe9aiAAkNerl4aYn3Q2Trd50/euiRfVCGb
+ AeDQwDROu+MRBGITdSdtDLnhRmz71SCdf1dkx6rZzQAeFtDJyFMwlgvYOjEaIliVQY0V
+ GJKiJrarZyX/GIWLbGhraNjcA/iK+BrXz9BtUaXWUGHzGIEUKpuAO2a4pWdOsbX2ZgU8
+ dU3nkO/9UPPsW4B4YfAwx5Djr9dsxMxhy7C4yyza8VILfq8dCHvmL1HZbfRuCF1Va7j2
+ R1nks7wyhm627JjHxY0VmpOkkDG32QNmX4Qkrep/ai6j3FHfL8FsKlHCYDcRggdsJZlU
+ xmfA==
+X-Gm-Message-State: AOAM530zVi65uoPaUTIwGGWvCj4EsMvYohR7ZRlhxG+J2+8L/MxXf0Ff
+ UHqcEOntfSKAJCwRA5FF0A==
+X-Google-Smtp-Source: ABdhPJyafh9qQGNqYEFX899Fi504eiZOT6HYhbwhBAxpFFnZfmQ5K40CnsBX0wXtwcUsFBxyXKYkQw==
+X-Received: by 2002:a9d:7459:: with SMTP id p25mr4170148otk.234.1599753258677; 
+ Thu, 10 Sep 2020 08:54:18 -0700 (PDT)
 Received: from serve.minyard.net ([47.184.170.156])
- by smtp.gmail.com with ESMTPSA id j20sm3237061ots.5.2020.09.07.17.34.14
+ by smtp.gmail.com with ESMTPSA id k13sm993120ood.31.2020.09.10.08.54.17
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 07 Sep 2020 17:34:14 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:84ed:77c1:d49f:5e6b])
- by serve.minyard.net (Postfix) with ESMTPSA id D531C18003B;
- Tue,  8 Sep 2020 00:34:13 +0000 (UTC)
-Date: Mon, 7 Sep 2020 19:34:12 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Markus Boehme <markubo@amazon.com>
-Message-ID: <20200908003412.GD15602@minyard.net>
-References: <1599495937-10654-1-git-send-email-markubo@amazon.com>
- <1599495937-10654-3-git-send-email-markubo@amazon.com>
+ Thu, 10 Sep 2020 08:54:17 -0700 (PDT)
+Received: from [IPv6:2001:470:b8f6:1b:c885:b5ff:fe11:3289] (unknown
+ [IPv6:2001:470:b8f6:1b:c885:b5ff:fe11:3289])
+ by serve.minyard.net (Postfix) with ESMTPSA id 8BE4B181C2F;
+ Thu, 10 Sep 2020 15:54:16 +0000 (UTC)
+Date: Thu, 10 Sep 2020 10:54:15 -0500
+Message-ID: <770c581d-751a-4621-a3af-f67ee71d83cc@email.android.com>
+X-Android-Message-ID: <770c581d-751a-4621-a3af-f67ee71d83cc@email.android.com>
+In-Reply-To: <1599736120.29234.12.camel@amazon.de>
+From: minyard@acm.org
+To: "Boehme, Markus" <markubo@amazon.de>
+Importance: Normal
+X-Priority: 3
+X-MSMail-Priority: Normal
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1599495937-10654-3-git-send-email-markubo@amazon.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Spam-Score: 0.5 (/)
+X-Spam-Score: 6.3 (++++++)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.210.67 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (tcminyard[at]gmail.com)
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.66 listed in list.dnswl.org]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.67 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 1.0 HTML_MESSAGE           BODY: HTML included in message
+ 2.3 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
-X-Headers-End: 1kFRaX-00G5ki-9N
+ 1.8 MISSING_MIMEOLE        Message has X-MSMail-Priority, but no X-MimeOLE
+ 0.6 HTML_MIME_NO_HTML_TAG  HTML-only message, but there is no HTML tag
+X-Headers-End: 1kGOu0-002Duz-FU
 Subject: Re: [Openipmi-developer] [PATCH 3/3] ipmi: Add timeout waiting for
  channel information
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -116,154 +122,121 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: Stefan Nuernberger <snu@amazon.com>, SeongJae Park <sjpark@amazon.com>,
- Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
- Amit Shah <aams@amazon.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "Park, Seongjae" <sjpark@amazon.com>, arnd@arndb.de,
+ gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org, "Nuernberger,
+ Stefan" <snu@amazon.de>, openipmi-developer@lists.sourceforge.net, "Shah,
+ Amit" <aams@amazon.de>
+Content-Type: multipart/mixed; boundary="===============7089143247138206187=="
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Sep 07, 2020 at 06:25:37PM +0200, Markus Boehme wrote:
-> We have observed hosts with misbehaving BMCs that receive a Get Channel
-> Info command but don't respond. This leads to an indefinite wait in the
-> ipmi_msghandler's __scan_channels function, showing up as hung task
-> messages for modprobe.
-> 
-> Add a timeout waiting for the channel scan to complete. If the scan
-> fails to complete within that time, treat that like IPMI 1.0 and only
-> assume the presence of the primary IPMB channel at channel number 0.
+--===============7089143247138206187==
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
 
-This patch is a significant rewrite of the function.  This makes me a
-little uncomfortable.  It's generally better to fix the bug in a minimal
-patch.  It would be easier to read if you had two patches, one to
-restructure the code and one to fix the bug.
+PGRpdiBkaXI9J2F1dG8nPjxkaXY+PGJyPjxkaXY+PGJyPjxkaXYgY2xhc3M9ImVsaWRlZC10ZXh0
+Ij5PbiBTZXAgMTAsIDIwMjAgNjowOCBBTSwgIkJvZWhtZSwgTWFya3VzIiAmbHQ7bWFya3Vib0Bh
+bWF6b24uZGUmZ3Q7IHdyb3RlOjxiciB0eXBlPSJhdHRyaWJ1dGlvbiI+PGJsb2NrcXVvdGUgc3R5
+bGU9Im1hcmdpbjowIDAgMCAwLjhleDtib3JkZXItbGVmdDoxcHggI2NjYyBzb2xpZDtwYWRkaW5n
+LWxlZnQ6MWV4Ij48cCBkaXI9Imx0ciI+SGV5IENvcmV5LCB0aGFua3MgZm9yIHRha2luZyBhIGxv
+b2shCjxicj4KCjxicj4KT24gTW9uLCAyMDIwLTA5LTA3IGF0IDE5OjM0IC0wNTAwLCBDb3JleSBN
+aW55YXJkIHdyb3RlOgo8YnI+CiZndDsgT24gTW9uLCBTZXAgMDcsIDIwMjAgYXQgMDY6MjU6MzdQ
+TSArMDIwMCwgTWFya3VzIEJvZWhtZSB3cm90ZToKPGJyPgomZ3Q7ICZndDsgCjxicj4KJmd0OyAm
+Z3Q7IFdlIGhhdmUgb2JzZXJ2ZWQgaG9zdHMgd2l0aCBtaXNiZWhhdmluZyBCTUNzIHRoYXQgcmVj
+ZWl2ZSBhIEdldCBDaGFubmVsCjxicj4KJmd0OyAmZ3Q7IEluZm8gY29tbWFuZCBidXQgZG9uJ3Qg
+cmVzcG9uZC4gVGhpcyBsZWFkcyB0byBhbiBpbmRlZmluaXRlIHdhaXQgaW4gdGhlCjxicj4KJmd0
+OyAmZ3Q7IGlwbWlfbXNnaGFuZGxlcidzIF9fc2Nhbl9jaGFubmVscyBmdW5jdGlvbiwgc2hvd2lu
+ZyB1cCBhcyBodW5nIHRhc2sKPGJyPgomZ3Q7ICZndDsgbWVzc2FnZXMgZm9yIG1vZHByb2JlLgo8
+YnI+CiZndDsgJmd0OyAKPGJyPgomZ3Q7ICZndDsgQWRkIGEgdGltZW91dCB3YWl0aW5nIGZvciB0
+aGUgY2hhbm5lbCBzY2FuIHRvIGNvbXBsZXRlLiBJZiB0aGUgc2Nhbgo8YnI+CiZndDsgJmd0OyBm
+YWlscyB0byBjb21wbGV0ZSB3aXRoaW4gdGhhdCB0aW1lLCB0cmVhdCB0aGF0IGxpa2UgSVBNSSAx
+LjAgYW5kIG9ubHkKPGJyPgomZ3Q7ICZndDsgYXNzdW1lIHRoZSBwcmVzZW5jZSBvZiB0aGUgcHJp
+bWFyeSBJUE1CIGNoYW5uZWwgYXQgY2hhbm5lbCBudW1iZXIgMC4KPGJyPgomZ3Q7IFsuLi5dCjxi
+cj4KJmd0OyBXaGlsZSB0aGlua2luZyBhYm91dCB0aGlzLCBJIHJlYWxpemVkIGFuIGlzc3VlIHdp
+dGggdGhlc2UgcGF0Y2hlcy4KPGJyPgomZ3Q7IFRoZXJlIHNob3VsZCBiZSB0aW1lcnMgaW4gdGhl
+IGxvd2VyIGxheWVycyB0aGF0IGRldGVjdCB0aGF0IHRoZSBCTUMgZG9lcwo8YnI+CiZndDsgbm90
+IHJlc3BvbmQgYW5kIHNob3VsZCByZXR1cm4gYW4gZXJyb3IgcmVzcG9uc2UuJm5ic3A7Jm5ic3A7
+VGhpcyBpcyBzdXBwb3NlZCB0byBiZQo8YnI+CiZndDsgZ3VhcmFudGVlZCBieSB0aGUgbG93ZXIg
+bGF5ZXIsIHlvdSBzaG91bGRuJ3QgbmVlZCB0aW1lcnMgaGVyZS4mbmJzcDsmbmJzcDtJbiBmYWN0
+LAo8YnI+CiZndDsgaWYgeW91IGFib3J0IHdpdGggYSB0aW1lciBoZXJlLCB5b3Ugc2hvdWxkIGdl
+dCBhIGxvd2VyIGxheWVyIHJlcG9uZHMKPGJyPgomZ3Q7IGxhdGVyLCBjYXVzaW5nIG90aGVyIGlz
+c3Vlcy4KPGJyPgomZ3Q7IAo8YnI+CiZndDsgU28sIHRoaXMgaXMgd3JvbmcuJm5ic3A7Jm5ic3A7
+SWYgeW91IGFyZSBuZXZlciBnZXR0aW5nIGEgcmVzcG9uc2UsIHRoZXJlIGlzIGEgYnVnCjxicj4K
+Jmd0OyBpbiB0aGUgbG93ZXIgbGF5ZXIuJm5ic3A7Jm5ic3A7SWYgeW91IGFyZSBub3QgZ2V0dGlu
+ZyB0aGUgZXJyb3IgcmVzcG9uc2UgYXMKPGJyPgomZ3Q7IHF1aWNrbHkgYXMgeW91IHdvdWxkIGxp
+a2UsIEknbSBub3Qgc3VyZSB3aGF0IHRvIGRvIGFib3V0IHRoYXQuCjxicj4KJmd0OyAKPGJyPgoK
+PGJyPgpJIHNlZS4gSSBtaWdodCBub3QgYmUgYWJsZSB0byBnZXQgaG9sZCBvZiBtb3JlIGhvc3Rz
+IGJlaGF2aW5nIHRoaXMgd2F5LAo8YnI+CmJ1dCBpZiBJIGRvLCBJJ2xsIGRpZyBkZWVwZXIgaW50
+byB3aHkgdGhlIGxvd2VyIGxheWVyIHRpbWVvdXRzIGRpZG4ndAo8YnI+CnNhdmUgdXMgaGVyZS4g
+VGhhbmtzIGZvciB0aGUgcG9pbnRlci4KPGJyPgoKPC9wPjwvYmxvY2txdW90ZT48L2Rpdj48L2Rp
+dj48L2Rpdj48ZGl2IGRpcj0iYXV0byI+PGJyPjwvZGl2PjxkaXYgZGlyPSJhdXRvIj5JIGNhbiBz
+aW11bGF0ZSB0aGlzIGluIHFlbXUuJm5ic3A7IENhbiB5b3UgZ2l2ZSBhbiBleGFjdCBkZXNjcmlw
+dGlvbiBvZiB0aGUgaGFyZHdhcmU/IElQTUkgaW50ZXJmYWNlIHR5cGUsIGludGVycnVwdHMsIHJl
+Z2lzdGVyIGxheW91dC48L2Rpdj48ZGl2IGRpcj0iYXV0byI+PGJyPjwvZGl2PjxkaXYgZGlyPSJh
+dXRvIj4tY29yZXk8L2Rpdj48ZGl2IGRpcj0iYXV0byI+PGRpdj48ZGl2IGNsYXNzPSJlbGlkZWQt
+dGV4dCI+PGJsb2NrcXVvdGUgc3R5bGU9Im1hcmdpbjowIDAgMCAwLjhleDtib3JkZXItbGVmdDox
+cHggI2NjYyBzb2xpZDtwYWRkaW5nLWxlZnQ6MWV4Ij48cCBkaXI9Imx0ciI+PGJyPgoKPGJyPgoK
+PGJyPgomZ3Q7ICZndDsgU2lnbmVkLW9mZi1ieTogU3RlZmFuIE51ZXJuYmVyZ2VyICZsdDtzbnVA
+YW1hem9uLmNvbSZndDsKPGJyPgomZ3Q7ICZndDsgU2lnbmVkLW9mZi1ieTogTWFya3VzIEJvZWht
+ZSAmbHQ7bWFya3Vib0BhbWF6b24uY29tJmd0Owo8YnI+CiZndDsgJmd0OyAtLS0KPGJyPgomZ3Q7
+ICZndDsgJm5ic3A7ZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9tc2doYW5kbGVyLmMgfCA3MiArKysr
+KysrKysrKysrKysrKysrKy0tLS0tLS0tLS0tLS0tLS0tCjxicj4KJmd0OyAmZ3Q7ICZuYnNwOzEg
+ZmlsZSBjaGFuZ2VkLCAzOSBpbnNlcnRpb25zKCspLCAzMyBkZWxldGlvbnMoLSkKPGJyPgomZ3Q7
+ICZndDsgCjxicj4KJmd0OyAmZ3Q7IGRpZmYgLS1naXQgYS9kcml2ZXJzL2NoYXIvaXBtaS9pcG1p
+X21zZ2hhbmRsZXIuYyBiL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfbXNnaGFuZGxlci5jCjxicj4K
+Jmd0OyAmZ3Q7IGluZGV4IDJhMmU4YjIuLjlkZTliYTYgMTAwNjQ0Cjxicj4KJmd0OyAmZ3Q7IC0t
+LSBhL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfbXNnaGFuZGxlci5jCjxicj4KJmd0OyAmZ3Q7ICsr
+KyBiL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfbXNnaGFuZGxlci5jCjxicj4KJmd0OyAmZ3Q7IEBA
+IC0zMzE1LDQ2ICszMzE1LDUyIEBAIGNoYW5uZWxfaGFuZGxlcihzdHJ1Y3QgaXBtaV9zbWkgKmlu
+dGYsIHN0cnVjdCBpcG1pX3JlY3ZfbXNnICptc2cpCjxicj4KJmd0OyAmZ3Q7ICZuYnNwOyAqLwo8
+YnI+CiZndDsgJmd0OyAmbmJzcDtzdGF0aWMgaW50IF9fc2Nhbl9jaGFubmVscyhzdHJ1Y3QgaXBt
+aV9zbWkgKmludGYsIHN0cnVjdCBpcG1pX2RldmljZV9pZCAqaWQpCjxicj4KJmd0OyAmZ3Q7ICZu
+YnNwO3sKPGJyPgomZ3Q7ICZndDsgLSZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwO2ludCBy
+djsKPGJyPgomZ3Q7ICZndDsgKyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwO2xvbmcgcnY7
+Cjxicj4KJmd0OyAmZ3Q7ICsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDt1bnNpZ25lZCBp
+bnQgc2V0Owo8YnI+CiZndDsgJmd0OyAKPGJyPgomZ3Q7ICZndDsgLSZuYnNwOyZuYnNwOyZuYnNw
+OyZuYnNwOyZuYnNwO2lmIChpcG1pX3ZlcnNpb25fbWFqb3IoaWQpICZndDsgMQo8YnI+CiZndDsg
+Jmd0OyAtJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5i
+c3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7
+Jm5ic3A7Jm5ic3A7Jm5ic3A7fHwgKGlwbWlfdmVyc2lvbl9tYWpvcihpZCkgPT0gMQo8YnI+CiZn
+dDsgJmd0OyAtJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7
+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5i
+c3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7JmFtcDsmYW1wOyBp
+cG1pX3ZlcnNpb25fbWlub3IoaWQpICZndDs9IDUpKSB7Cjxicj4KJmd0OyAmZ3Q7IC0mbmJzcDsm
+bmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJz
+cDsmbmJzcDsmbmJzcDt1bnNpZ25lZCBpbnQgc2V0Owo8YnI+CiZndDsgJmd0OyArJm5ic3A7Jm5i
+c3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7aWYgKGlwbWlfdmVyc2lvbl9tYWpvcihpZCkgPT0gMSAmYW1w
+OyZhbXA7IGlwbWlfdmVyc2lvbl9taW5vcihpZCkgJmx0OyA1KSB7Cjxicj4KJmd0OyBUaGlzIGlz
+IGluY29ycmVjdCwgaXQgd2lsbCBub3QgY29ycmVjdGx5IGhhbmRsZSBJUE1JIDAueCBCTUNzLiZu
+YnNwOyZuYnNwO1llcywKPGJyPgomZ3Q7IHRoZXkgZXhpc3QuCjxicj4KCjxicj4KSW50ZXJlc3Rp
+bmchIEkgd2Fzbid0IGF3YXJlIG9mIHRob3NlLiBTZWFyY2hpbmcgdGhlIHdlYiBkb2Vzbid0IHR1
+cm4gdXAKPGJyPgptdWNoIGFuZCB0aGUgc3BlYyBkb2Vzbid0IG1lbnRpb24gdGhlbSBlaXRoZXIu
+IEFyZSB0aGVzZSBwcmUtcmVsZWFzZQo8YnI+CmltcGxlbWVudGF0aW9ucyBvZiB0aGUgSVBNSSAx
+LjAgc3BlYyBvciBzb21lIGtpbmQgb2YgIklQTUkgbGlnaHQiPwo8YnI+Cgo8YnI+Ck1hcmt1czxi
+cj48YnI+PC9wPgo8cCBkaXI9Imx0ciI+QW1hem9uIERldmVsb3BtZW50IENlbnRlciBHZXJtYW55
+IEdtYkg8YnI+CktyYXVzZW5zdHIuIDM4PGJyPgoxMDExNyBCZXJsaW48YnI+Ckdlc2NoYWVmdHNm
+dWVocnVuZzogQ2hyaXN0aWFuIFNjaGxhZWdlciwgSm9uYXRoYW4gV2Vpc3M8YnI+CkVpbmdldHJh
+Z2VuIGFtIEFtdHNnZXJpY2h0IENoYXJsb3R0ZW5idXJnIHVudGVyIEhSQiAxNDkxNzMgQjxicj4K
+U2l0ejogQmVybGluPGJyPgpVc3QtSUQ6IERFIDI4OSAyMzcgODc5PGJyPjwvcD4KPC9ibG9ja3F1
+b3RlPjwvZGl2Pjxicj48L2Rpdj48L2Rpdj48L2Rpdj4=
 
-One comment inline, but it doesn't matter, because...
 
-While thinking about this, I realized an issue with these patches.
-There should be timers in the lower layers that detect that the BMC does
-not respond and should return an error response.  This is supposed to be
-guaranteed by the lower layer, you shouldn't need timers here.  In fact,
-if you abort with a timer here, you should get a lower layer reponds
-later, causing other issues.
 
-So, this is wrong.  If you are never getting a response, there is a bug
-in the lower layer.  If you are not getting the error response as
-quickly as you would like, I'm not sure what to do about that.
+--===============7089143247138206187==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
-The first patch, of course, is an obvious bug fix.  I'll include that.
 
--corey
-
-> 
-> Signed-off-by: Stefan Nuernberger <snu@amazon.com>
-> Signed-off-by: Markus Boehme <markubo@amazon.com>
-> ---
->  drivers/char/ipmi/ipmi_msghandler.c | 72 ++++++++++++++++++++-----------------
->  1 file changed, 39 insertions(+), 33 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index 2a2e8b2..9de9ba6 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -3315,46 +3315,52 @@ channel_handler(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
->   */
->  static int __scan_channels(struct ipmi_smi *intf, struct ipmi_device_id *id)
->  {
-> -	int rv;
-> +	long rv;
-> +	unsigned int set;
->  
-> -	if (ipmi_version_major(id) > 1
-> -			|| (ipmi_version_major(id) == 1
-> -			    && ipmi_version_minor(id) >= 5)) {
-> -		unsigned int set;
-> +	if (ipmi_version_major(id) == 1 && ipmi_version_minor(id) < 5) {
-
-This is incorrect, it will not correctly handle IPMI 0.x BMCs.  Yes,
-they exist.
-
-> +		set = intf->curr_working_cset;
-> +		goto single_ipmb_channel;
-> +	}
->  
-> -		/*
-> -		 * Start scanning the channels to see what is
-> -		 * available.
-> -		 */
-> -		set = !intf->curr_working_cset;
-> -		intf->curr_working_cset = set;
-> -		memset(&intf->wchannels[set], 0,
-> -		       sizeof(struct ipmi_channel_set));
-> -
-> -		intf->null_user_handler = channel_handler;
-> -		intf->curr_channel = 0;
-> -		rv = send_channel_info_cmd(intf, 0);
-> -		if (rv) {
-> -			dev_warn(intf->si_dev,
-> -				 "Error sending channel information for channel 0, %d\n",
-> -				 rv);
-> -			intf->null_user_handler = NULL;
-> -			return -EIO;
-> -		}
-> +	/*
-> +	 * Start scanning the channels to see what is
-> +	 * available.
-> +	 */
-> +	set = !intf->curr_working_cset;
-> +	intf->curr_working_cset = set;
-> +	memset(&intf->wchannels[set], 0, sizeof(struct ipmi_channel_set));
->  
-> -		/* Wait for the channel info to be read. */
-> -		wait_event(intf->waitq, intf->channels_ready);
-> +	intf->null_user_handler = channel_handler;
-> +	intf->curr_channel = 0;
-> +	rv = send_channel_info_cmd(intf, 0);
-> +	if (rv) {
-> +		dev_warn(intf->si_dev,
-> +			 "Error sending channel information for channel 0, %ld\n",
-> +			 rv);
->  		intf->null_user_handler = NULL;
-> -	} else {
-> -		unsigned int set = intf->curr_working_cset;
-> +		return -EIO;
-> +	}
->  
-> -		/* Assume a single IPMB channel at zero. */
-> -		intf->wchannels[set].c[0].medium = IPMI_CHANNEL_MEDIUM_IPMB;
-> -		intf->wchannels[set].c[0].protocol = IPMI_CHANNEL_PROTOCOL_IPMB;
-> -		intf->channel_list = intf->wchannels + set;
-> -		intf->channels_ready = true;
-> +	/* Wait for the channel info to be read. */
-> +	rv = wait_event_timeout(intf->waitq, intf->channels_ready, 5 * HZ);
-> +	if (rv == 0) {
-> +		dev_warn(intf->si_dev,
-> +			 "Timed out waiting for channel information. Assuming a single IPMB channel at 0.\n");
-> +		goto single_ipmb_channel;
->  	}
->  
-> +	goto out;
-> +
-> +single_ipmb_channel:
-> +	/* Assume a single IPMB channel at zero. */
-> +	intf->wchannels[set].c[0].medium = IPMI_CHANNEL_MEDIUM_IPMB;
-> +	intf->wchannels[set].c[0].protocol = IPMI_CHANNEL_PROTOCOL_IPMB;
-> +	intf->channel_list = intf->wchannels + set;
-> +	intf->channels_ready = true;
-> +
-> +out:
-> +	intf->null_user_handler = NULL;
->  	return 0;
->  }
->  
-> -- 
-> 2.7.4
-> 
-
+--===============7089143247138206187==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+
+--===============7089143247138206187==--
