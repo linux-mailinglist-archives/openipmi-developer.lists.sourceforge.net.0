@@ -2,80 +2,70 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B2A5286726
+	by mail.lfdr.de (Postfix) with ESMTPS id 22CEF286724
 	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Oct 2020 20:29:35 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQEBx-0007yI-FD; Wed, 07 Oct 2020 18:29:33 +0000
+	id 1kQEBx-0007yV-HQ; Wed, 07 Oct 2020 18:29:33 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <wubo40@huawei.com>) id 1kHovM-00018W-OF
- for openipmi-developer@lists.sourceforge.net; Mon, 14 Sep 2020 13:53:40 +0000
+ (envelope-from <tian.xianting@h3c.com>) id 1kI5Ln-0002vi-OQ
+ for openipmi-developer@lists.sourceforge.net; Tue, 15 Sep 2020 07:26:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:CC:To:Subject:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Message-ID:Date:Subject:
+ CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Ria9C4hNyuYFP+qP1a9JpnGsf1c2UxoMSnhKeigZd0g=; b=kI6DgPajOH8n4UlcrCO+hic35v
- Aiu6fbSujKGwwxdJcsp+CD1iIrsHmD7m/bRWLr/287dqrs50GtYBO1I0p9FwJQQTsl41SIpCj8Q4+
- ueEsbExUJKcHfVIPWBYeKRtYMZLCTC0x6OwY2WNi0jH+VPqEKHPFiPtOSvBql5yl9g9M=;
+ bh=TcKMaEpF6s0KQ8aITnf2y1Tary3WHewPQNgFxIS19jA=; b=DJPqkyWd7m27fgb2fW3D1wLmG3
+ 3xARl5Oi7OPX5LvSQHC4E/y+WUVnFh+3vcdKXR6HDfNdeTzJWdb8d1Gj7o4cnFVUjKJPWFjYTLTXU
+ IBWFC/M3Eoqda0kRfQElZ/6v/0gQRvJ75LgBXUJM4zhZ0jnhwagG5mEENcq+nrBzvmHE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:CC:To:Subject:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=Ria9C4hNyuYFP+qP1a9JpnGsf1c2UxoMSnhKeigZd0g=; b=dgRY/ZjBuncYJw3pwVRR2AZNJi
- Mi69Q4wy5hCkS64h/20SYeIXfBPNyJ7G5tBEse6ivDTuOBRIgHCtr1xck87+nmSdi6u4eYIDUWcrX
- 8AwygH4pY/pOwHi8ybKQ7PR1VkJFsPUI0a+T2hsWw25JOirjdP6bKZ0i2ZLIRz6GijZE=;
-Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:
+ Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=TcKMaEpF6s0KQ8aITnf2y1Tary3WHewPQNgFxIS19jA=; b=m
+ UhYk5Az12ma96WTnZY1iJpoVAWglNjgFGnQKHdQ8HQVvE2laBvGdOIdBaM1jEfrjOebLvpWmsdXp4
+ 4XJ1Z/tnG+dT8KPG+sKfs9cUEnyk4XZxSs/fPJdMokMp9dvw8V5YjNKmC1UTh3G8yicnfta4h41dd
+ 5NUGRa3OJ+1utvyQ=;
+Received: from smtp.h3c.com ([60.191.123.56] helo=h3cspam01-ex.h3c.com)
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kHovI-009Dco-4f
- for openipmi-developer@lists.sourceforge.net; Mon, 14 Sep 2020 13:53:40 +0000
-Received: from DGGEMS402-HUB.china.huawei.com (unknown [172.30.72.58])
- by Forcepoint Email with ESMTP id 242F885A9890506D9930;
- Mon, 14 Sep 2020 21:33:17 +0800 (CST)
-Received: from [127.0.0.1] (10.174.179.35) by DGGEMS402-HUB.china.huawei.com
- (10.3.19.202) with Microsoft SMTP Server id 14.3.487.0; Mon, 14 Sep 2020
- 21:33:08 +0800
-To: =?UTF-8?B?5rKz5ZCI6Iux5a6PIC8gS0FXQUnvvIxISURFSElSTw==?=
- <hidehiro.kawai.ez@hitachi.com>, "minyard@acm.org" <minyard@acm.org>,
- "arnd@arndb.de" <arnd@arndb.de>, "gregkh@linuxfoundation.org"
- <gregkh@linuxfoundation.org>
-References: <1600074602-622893-1-git-send-email-wubo40@huawei.com>
- <TYAPR01MB2429AAE58FF9FF020F657509B5230@TYAPR01MB2429.jpnprd01.prod.outlook.com>
-From: Wu Bo <wubo40@huawei.com>
-Message-ID: <4e1abe31-da85-1b64-f680-b1e91027bff5@huawei.com>
-Date: Mon, 14 Sep 2020 21:33:07 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ id 1kI5Le-009afc-3E
+ for openipmi-developer@lists.sourceforge.net; Tue, 15 Sep 2020 07:26:03 +0000
+Received: from DAG2EX03-BASE.srv.huawei-3com.com ([10.8.0.66])
+ by h3cspam01-ex.h3c.com with ESMTPS id 08F7P7VZ060077
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Tue, 15 Sep 2020 15:25:07 +0800 (GMT-8)
+ (envelope-from tian.xianting@h3c.com)
+Received: from localhost.localdomain (10.99.212.201) by
+ DAG2EX03-BASE.srv.huawei-3com.com (10.8.0.66) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Tue, 15 Sep 2020 15:25:10 +0800
+From: Xianting Tian <tian.xianting@h3c.com>
+To: <minyard@acm.org>, <arnd@arndb.de>, <gregkh@linuxfoundation.org>
+Date: Tue, 15 Sep 2020 15:18:17 +0800
+Message-ID: <20200915071817.4484-1-tian.xianting@h3c.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-In-Reply-To: <TYAPR01MB2429AAE58FF9FF020F657509B5230@TYAPR01MB2429.jpnprd01.prod.outlook.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.179.35]
-X-CFilter-Loop: Reflected
+X-Originating-IP: [10.99.212.201]
+X-ClientProxiedBy: BJSMTP02-EX.srv.huawei-3com.com (10.63.20.133) To
+ DAG2EX03-BASE.srv.huawei-3com.com (10.8.0.66)
+X-DNSRBL: 
+X-MAIL: h3cspam01-ex.h3c.com 08F7P7VZ060077
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: huawei.com]
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [45.249.212.191 listed in wl.mailspike.net]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1kHovI-009Dco-4f
-X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:28 +0000
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: Fix out-of-bounds in
- write_next_byte()
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+X-Headers-End: 1kI5Le-009afc-3E
+X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:26 +0000
+Subject: [Openipmi-developer] [PATCH] [v3] ipmi: retry to get device id when
+ error
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -88,134 +78,155 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "linfeilong@huawei.com" <linfeilong@huawei.com>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
- "liuzhiqiang26@huawei.com" <liuzhiqiang26@huawei.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Xianting Tian <tian.xianting@h3c.com>,
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T24gMjAyMC85LzE0IDIwOjEzLCDmsrPlkIjoi7Hlro8gLyBLQVdBSe+8jEhJREVISVJPIHdyb3Rl
-Ogo+IEhpLCBXdQo+IAo+PiBGcm9tOiBXdSBCbyA8d3VibzQwQGh1YXdlaS5jb20+Cj4+IEluIHRo
-ZSB2aXJ0dWFsIG1hY2hpbmUsIFVzZSBtY2VfaW5qZWN0IHRvIGluamVjdCBlcnJvcnMgaW50byB0
-aGUgc3lzdGVtLgo+PiBBZnRlciBtY2UtaW5qZWN0IGluamVjdHMgYW4gdW5jb3JyZWN0YWJsZSBl
-cnJvciwgdGhlcmUgaXMgYSBwcm9iYWJpbGl0eQo+PiB0aGF0IHRoZSB2aXJ0dWFsIG1hY2hpbmUg
-aXMgbm90IHJlc2V0IGltbWVkaWF0ZWx5LAo+PiBidXQgaGFuZ3MgZm9yIG1vcmUgdGhhbgo+PiAz
-MDAwIHNlY29uZHMuIEFuZCB0aGUgd3JpdGVfZGF0YSBhcnJheSBpcyBhY2Nlc3NlZCBvdXQgb2Yg
-Ym91bmRzLgo+Pgo+PiBUaGUgcmVhbCByZWFzb24gaXMgdGhhdCBzbWlfZXZlbnRfaGFuZGxlciBs
-YWNrIG9mIGxvY2sgcHJvdGVjdGlvbiBpbiB0aGUKPj4gbXVsdGktdGhyZWFkZWQgc2NlbmFyaW8s
-IHdoaWNoIGNhdXNlcyB3cml0ZV9wb3MKPj4gdG8gZXhjZWVkIHRoZSBzaXplIG9mIHRoZSB3cml0
-ZV9kYXRhIGFycmF5Lgo+IAo+IFRoYW5rIHlvdSBmb3IgdGhlIGZpeCwgYnV0IEkgd29uZGVyIHdo
-eSB0aGlzIG11bHRpLXRocmVhZGVkIHNjZW5hcmlvIGhhcHBlbnMuCj4gSWYgbXkgdW5kZXJzdGFu
-ZGluZyBpcyBjb3JyZWN0LCBvbmx5IG9uZSBDUFUgY2FuIHJ1biBwYW5pYyByb3V0aW5lcywgYW5k
-Cj4gdGhpcyBtZWFucyBvbmx5IG9uZSBDUFUgY2FsbHMgZmx1c2hfbWVzc2FnZXMuICBEaWQgSSBt
-aXNzIHNvbWUgY2FsbCBwYXRoPwo+IAo+IEJlc3QgcmVnYXJkcywKPiAKPiBIaWRlaGlybyBLYXdh
-aQo+IEhpdGFjaGksIEx0ZC4gUmVzZWFyY2ggJiBEZXZlbG9wbWVudCBHcm91cAoKSGksCgpZb3Un
-cmUgcmlnaHQsIG9ubHkgb25lIENQVSBjYW4gcnVuIHBhbmljIHJvdXRpbmVzLgpTb3JyeSwgSSBt
-aXNzZWQgYW5vdGhlciBjYWxsIHBhdGguIHdoZW4gdGhlIHBhbmljIG9jY3VycmVkIGFuZCAKaW50
-ZXJydXB0aW9uIG9jY3VycmVkIGF0IHRoZSBzYW1lIHRpbWUuCgpDUFUwCQkgICAgICAgICAgICAg
-ICAgICAgIENQVTMKICAtPm5taV9oYW5kbGUJCQkgICAgIGhhbmRsZV9pcnEKICAgIC0+IG1jZV9y
-YWlzZV9ub3RpZnkJCSAgICAgIC0+IGhhbmRsZV9mYXN0ZW9pX2lycQogICAgICAtPiBwYW5pY19l
-dmVudAkJICAgICAgICAtPiBoYW5kbGVfaXJxX2V2ZW50CiAgICAgICAgLT4gaXBtaV9wYW5pY19y
-ZXF1ZXN0X2FuZF93YWl0ICAgICAgLT4gaGFuZGxlX2lycV9ldmVudF9wZXJjcHUKICAgICAgICAg
-ICAtPmZsdXNoX21lc3NhZ2VzICAgICAgICAgICAgICAgICAgIC0+IGlwbWlfc2lfaXJxX2hhbmRs
-ZXIKICAgICAgICAgICAgICAgLT4gc21pX2V2ZW50X2hhbmRsZXIgICAgICAgICAgICAgIC0+IHNt
-aV9ldmVudF9oYW5kbGVyCgkJLT5rY3NfZXZlbnQoKSAgICAgICAgICAgICAgICAgICAgICAgLT5r
-Y3NfZXZlbnQoKQoKVGhlcmUgaXMgYSBzaW11bHRhbmVvdXMgY2FsbCB0byB0aGUgc21pX2V2ZW50
-X2hhbmRsZXIoKSBmdW5jdGlvbi4KCkluIHRoZSBrY3NfZXZlbnQoKToKY2FzZSBLQ1NfV0FJVF9X
-UklURToKLi4uCmlmIChrY3MtPndyaXRlX2NvdW50ID09IDEpIHsKCXdyaXRlX2NtZChrY3MsIEtD
-U19XUklURV9FTkQpOwoJa2NzLT5zdGF0ZSA9IEtDU19XQUlUX1dSSVRFX0VORDsKfSBlbHNlIHsK
-CXdyaXRlX25leHRfYnl0ZShrY3MpOwp9Ci4uLgoKVGhlIGludGVycnVwdCBjYWxsIHBhdGggaGFz
-IGJlZW4gbG9ja2VkIGFuZCBwcm90ZWN0ZWQuCkJ1dCB0aGUgcGFuaWMgY2FsbCBwYXRoIGlzIG5v
-dCBwcm90ZWN0ZWQgYnkgbG9jay4KVGhlcmUgbWF5IGJlIGtjcy0+d3JpdGVfY291bnQgPT0gMSBp
-cyBub3QgaW52YWxpZC4gU28gd2lsbCBhcHBlYXIKY2FsbCB3cml0ZV9uZXh0X2J5dGUoKSByZXBl
-YXRlZGx5LCByZXN1bHRpbmcgaW4gdGhlIHdyaXRlX2RhdGEgYXJyYXkgaXMgCmFjY2Vzc2VkIG91
-dCBvZiBib3VuZHMuCgpjcmFzaD4gYnQgLWEKUElEOiAwICAgICAgVEFTSzogZmZmZmZmZmY5Njgx
-Mjc4MCAgQ1BVOiAwICAgQ09NTUFORDogInN3YXBwZXIvMCIKICAjMCBbZmZmZmZlMDAwMDAwN2Jj
-MF0gcGFuaWMgYXQgZmZmZmZmZmY5NTZiMmQzZQogICMxIFtmZmZmZmUwMDAwMDA3YzQ4XSB3YWl0
-X2Zvcl9wYW5pYyBhdCBmZmZmZmZmZjk1NjM3Y2EyCiAgIzIgW2ZmZmZmZTAwMDAwMDdjNThdIG1j
-ZV90aW1lZF9vdXQgYXQgZmZmZmZmZmY5NTYzN2Y1ZAogICMzIFtmZmZmZmUwMDAwMDA3YzcwXSBk
-b19tYWNoaW5lX2NoZWNrIGF0IGZmZmZmZmZmOTU2MzhkYjQKICAjNCBbZmZmZmZlMDAwMDAwN2Q4
-MF0gcmFpc2VfZXhjZXB0aW9uIGF0IGZmZmZmZmZmYzA1YjYxMTcgW21jZV9pbmplY3RdCiAgIzUg
-W2ZmZmZmZTAwMDAwMDdlNDhdIG1jZV9yYWlzZV9ub3RpZnkgYXQgZmZmZmZmZmZjMDViNmE5MiBb
-bWNlX2luamVjdF0KICAjNiBbZmZmZmZlMDAwMDAwN2U1OF0gbm1pX2hhbmRsZSBhdCBmZmZmZmZm
-Zjk1NjIxYzczCiAgIzcgW2ZmZmZmZTAwMDAwMDdlYjBdIGRlZmF1bHRfZG9fbm1pIGF0IGZmZmZm
-ZmZmOTU2MjIxM2UKICAjOCBbZmZmZmZlMDAwMDAwN2VkMF0gZG9fbm1pIGF0IGZmZmZmZmZmOTU2
-MjIzMWMKICAjOSBbZmZmZmZlMDAwMDAwN2VmMF0gZW5kX3JlcGVhdF9ubWkgYXQgZmZmZmZmZmY5
-NjAwMTZiNAogICAgIFtleGNlcHRpb24gUklQOiBuYXRpdmVfc2FmZV9oYWx0KzE0XQogICAgIFJJ
-UDogZmZmZmZmZmY5NWU3MjIzZSAgUlNQOiBmZmZmZmZmZjk2ODAzZTkwICBSRkxBR1M6IDAwMDAw
-MjQ2CiAgICAgUkFYOiBmZmZmZmZmZjk1ZTcxZjMwICBSQlg6IDAwMDAwMDAwMDAwMDAwMDAgIFJD
-WDogMDAwMDAwMDAwMDAwMDAwMAogICAgIFJEWDogMDAwMDAwMDAwMDAwMDAwMSAgUlNJOiAwMDAw
-MDAwMDAwMDAwMDAwICBSREk6IDAwMDAwMDAwMDAwMDAwMDAKICAgICBSQlA6IDAwMDAwMDAwMDAw
-MDAwMDAgICBSODogMDAwMDAwMThjZjdjMDY4YSAgIFI5OiAwMDAwMDAwMDAwMDAwMDAxCiAgICAg
-UjEwOiBmZmZmYTIyMmMwYjE3Yjg4ICBSMTE6IDAwMDAwMDAwMDFlMmY4ZmIgIFIxMjogMDAwMDAw
-MDAwMDAwMDAwMAogICAgIFIxMzogMDAwMDAwMDAwMDAwMDAwMCAgUjE0OiAwMDAwMDAwMDAwMDAw
-MDAwICBSMTU6IDAwMDAwMDAwMDAwMDAwMDAKICAgICBPUklHX1JBWDogZmZmZmZmZmZmZmZmZmZm
-ZiAgQ1M6IDAwMTAgIFNTOiAwMDE4Ci0tLSA8Tk1JIGV4Y2VwdGlvbiBzdGFjaz4gLS0tCiMxMCBb
-ZmZmZmZmZmY5NjgwM2U5MF0gbmF0aXZlX3NhZmVfaGFsdCBhdCBmZmZmZmZmZjk1ZTcyMjNlCiMx
-MSBbZmZmZmZmZmY5NjgwM2U5MF0gZGVmYXVsdF9pZGxlIGF0IGZmZmZmZmZmOTVlNzFmNGEKIzEy
-IFtmZmZmZmZmZjk2ODAzZWIwXSBkb19pZGxlIGF0IGZmZmZmZmZmOTU2ZTk1OWEKIzEzIFtmZmZm
-ZmZmZjk2ODAzZWYwXSBjcHVfc3RhcnR1cF9lbnRyeSBhdCBmZmZmZmZmZjk1NmU5ODFmCiMxNCBb
-ZmZmZmZmZmY5NjgwM2YxMF0gc3RhcnRfa2VybmVsIGF0IGZmZmZmZmZmOTZkOWIyMDYKIzE1IFtm
-ZmZmZmZmZjk2ODAzZjUwXSBzZWNvbmRhcnlfc3RhcnR1cF82NCBhdCBmZmZmZmZmZjk1NjAwMGU3
-CgoKUElEOiAwICAgICAgVEFTSzogZmZmZjhiMDZjNzdkYzc0MCAgQ1BVOiAzICAgQ09NTUFORDog
-InN3YXBwZXIvMyIKICAgICBbZXhjZXB0aW9uIFJJUDogcG9ydF9vdXRiKzE3XQogICAgIFJJUDog
-ZmZmZmZmZmZjMDM1ZjFhMSAgUlNQOiBmZmZmOGIwNmZhZDgzZTkwICBSRkxBR1M6IDAwMDAwMDAy
-CiAgICAgUkFYOiAwMDAwMDAwMDAwMDAwMDAwICBSQlg6IGZmZmY4YjA2ZjA4YmVjMDAgIFJDWDog
-MDAwMDAwMDAwMDAwMDAxMAogICAgIFJEWDogMDAwMDAwMDAwMDAwMGNhMiAgUlNJOiAwMDAwMDAw
-MDAwMDAwMDAwICBSREk6IGZmZmY4YjA2ZjBiZDVlNDAKICAgICBSQlA6IDAwMDAwMDAwMDAwMDAw
-MDEgICBSODogZmZmZjhiMDZmYWQ4MDA4MCAgIFI5OiBmZmZmOGIwNmZhZDg0MDAwCiAgICAgUjEw
-OiAwMDAwMDAwMDAwMDAwMDAwICBSMTE6IDAwMDAwMDAwMDAwMDAwMDAgIFIxMjogMDAwMDAwMDAw
-MDAwMDAwMAogICAgIFIxMzogZmZmZjhiMDZmYWQ4M2Y1NCAgUjE0OiAwMDAwMDAwMDAwMDAwMDAw
-ICBSMTU6IDAwMDAwMDAwMDAwMDAwMDAKICAgICBDUzogMDAxMCAgU1M6IDAwMTgKICAjMCBbZmZm
-ZjhiMDZmYWQ4M2U5MF0ga2NzX2V2ZW50IGF0IGZmZmZmZmZmYzAzNWMyYzcgW2lwbWlfc2ldCiAg
-IzEgW2ZmZmY4YjA2ZmFkODNlYjBdIHNtaV9ldmVudF9oYW5kbGVyIGF0IGZmZmZmZmZmYzAzNWFh
-M2YgW2lwbWlfc2ldCiAgIzIgW2ZmZmY4YjA2ZmFkODNlZThdIGlwbWlfc2lfaXJxX2hhbmRsZXIg
-YXQgZmZmZmZmZmZjMDM1YjBjYyBbaXBtaV9zaV0KICAjMyBbZmZmZjhiMDZmYWQ4M2YwOF0gX19o
-YW5kbGVfaXJxX2V2ZW50X3BlcmNwdSBhdCBmZmZmZmZmZjk1NzFkZmMwCiAgIzQgW2ZmZmY4YjA2
-ZmFkODNmNDhdIGhhbmRsZV9pcnFfZXZlbnRfcGVyY3B1IGF0IGZmZmZmZmZmOTU3MWUxNDAKICAj
-NSBbZmZmZjhiMDZmYWQ4M2Y3MF0gaGFuZGxlX2lycV9ldmVudCBhdCBmZmZmZmZmZjk1NzFlMWI2
-CiAgIzYgW2ZmZmY4YjA2ZmFkODNmOTBdIGhhbmRsZV9mYXN0ZW9pX2lycSBhdCBmZmZmZmZmZjk1
-NzIxYjQyCiAgIzcgW2ZmZmY4YjA2ZmFkODNmYjBdIGhhbmRsZV9pcnEgYXQgZmZmZmZmZmY5NTYy
-MDllOAogICM4IFtmZmZmOGIwNmZhZDgzZmMwXSBkb19JUlEgYXQgZmZmZmZmZmY5NjAwMWVlOQot
-LS0gPElSUSBzdGFjaz4gLS0tCiAgIzkgW2ZmZmZmZTAwMDAwODhiOThdIHJldF9mcm9tX2ludHIg
-YXQgZmZmZmZmZmY5NjAwMGE4ZgogICAgIFtleGNlcHRpb24gUklQOiBkZWxheV90c2MrNTJdCiAg
-ICAgUklQOiBmZmZmZmZmZjk1ZTVmYjY0ICBSU1A6IGZmZmZmZTAwMDAwODhjNDggIFJGTEFHUzog
-MDAwMDAyODcKICAgICBSQVg6IDAwMDAyM2ZiNWVkZjRiMTQgIFJCWDogMDAwMDAwMDAwMDNlMDQ1
-MSAgUkNYOiAwMDAwMjNmYjVlZGY0Nzk4CiAgICAgUkRYOiAwMDAwMDAwMDAwMDAwMzdjICBSU0k6
-IDAwMDAwMDAwMDAwMDAwMDMgIFJESTogMDAwMDAwMDAwMDAwMDk1YgogICAgIFJCUDogZmZmZmZl
-MDAwMDA4OGNjMCAgIFI4OiAwMDAwMDAwMDAwMDAwMDA0ICAgUjk6IGZmZmZmZTAwMDAwODhjNWMK
-ICAgICBSMTA6IGZmZmZmZmZmOTZhMDVhZTAgIFIxMTogMDAwMDAwMDAwMDAwMDAwMCAgUjEyOiBm
-ZmZmZmUwMDAwMDg4Y2IwCiAgICAgUjEzOiAwMDAwMDAwMDAwMDAwMDAxICBSMTQ6IGZmZmZmZTAw
-MDAwODhlZjggIFIxNTogZmZmZmZmZmY5NjY2YTJmMAogICAgIE9SSUdfUkFYOiBmZmZmZmZmZmZm
-ZmZmZmQ5ICBDUzogMDAxMCAgU1M6IDAwMTgKIzEwIFtmZmZmZmUwMDAwMDg4YzQ4XSB3YWl0X2Zv
-cl9wYW5pYyBhdCBmZmZmZmZmZjk1NjM3YzZjCiMxMSBbZmZmZmZlMDAwMDA4OGM1OF0gbWNlX3Rp
-bWVkX291dCBhdCBmZmZmZmZmZjk1NjM3ZjVkCiMxMiBbZmZmZmZlMDAwMDA4OGM3MF0gZG9fbWFj
-aGluZV9jaGVjayBhdCBmZmZmZmZmZjk1NjM4ZGI0CiMxMyBbZmZmZmZlMDAwMDA4OGQ4MF0gcmFp
-c2VfZXhjZXB0aW9uIGF0IGZmZmZmZmZmYzA1YjYxMTcgW21jZV9pbmplY3RdCiMxNCBbZmZmZmZl
-MDAwMDA4OGU0OF0gbWNlX3JhaXNlX25vdGlmeSBhdCBmZmZmZmZmZmMwNWI2YTkyIFttY2VfaW5q
-ZWN0XQojMTUgW2ZmZmZmZTAwMDAwODhlNThdIG5taV9oYW5kbGUgYXQgZmZmZmZmZmY5NTYyMWM3
-MwojMTYgW2ZmZmZmZTAwMDAwODhlYjBdIGRlZmF1bHRfZG9fbm1pIGF0IGZmZmZmZmZmOTU2MjIx
-M2UKIzE3IFtmZmZmZmUwMDAwMDg4ZWQwXSBkb19ubWkgYXQgZmZmZmZmZmY5NTYyMjMxYwojMTgg
-W2ZmZmZmZTAwMDAwODhlZjBdIGVuZF9yZXBlYXRfbm1pIGF0IGZmZmZmZmZmOTYwMDE2YjQKICAg
-ICBbZXhjZXB0aW9uIFJJUDogbmF0aXZlX3NhZmVfaGFsdCsxNF0KICAgICBSSVA6IGZmZmZmZmZm
-OTVlNzIyM2UgIFJTUDogZmZmZmEyMjJjMDZhM2ViMCAgUkZMQUdTOiAwMDAwMDI0NgogICAgIFJB
-WDogZmZmZmZmZmY5NWU3MWYzMCAgUkJYOiAwMDAwMDAwMDAwMDAwMDAzICBSQ1g6IDAwMDAwMDAw
-MDAwMDAwMDEKICAgICBSRFg6IDAwMDAwMDAwMDAwMDAwMDEgIFJTSTogMDAwMDAwMDAwMDAwMDA4
-MyAgUkRJOiAwMDAwMDAwMDAwMDAwMDAwCiAgICAgUkJQOiAwMDAwMDAwMDAwMDAwMDAzICAgUjg6
-IDAwMDAwMDE4Y2Y3Y2Q5YTAgICBSOTogMDAwMDAwMDAwMDAwMDAwMQogICAgIFIxMDogMDAwMDAw
-MDAwMDAwMDQwMCAgUjExOiAwMDAwMDAwMDAwMDAwM2ZiICBSMTI6IDAwMDAwMDAwMDAwMDAwMDAK
-ICAgICBSMTM6IDAwMDAwMDAwMDAwMDAwMDAgIFIxNDogMDAwMDAwMDAwMDAwMDAwMCAgUjE1OiAw
-MDAwMDAwMDAwMDAwMDAwCiAgICAgT1JJR19SQVg6IGZmZmZmZmZmZmZmZmZmZmYgIENTOiAwMDEw
-ICBTUzogMDAxOAotLS0gPE5NSSBleGNlcHRpb24gc3RhY2s+IC0tLQojMTkgW2ZmZmZhMjIyYzA2
-YTNlYjBdIG5hdGl2ZV9zYWZlX2hhbHQgYXQgZmZmZmZmZmY5NWU3MjIzZQojMjAgW2ZmZmZhMjIy
-YzA2YTNlYjBdIGRlZmF1bHRfaWRsZSBhdCBmZmZmZmZmZjk1ZTcxZjRhCiMyMSBbZmZmZmEyMjJj
-MDZhM2VkMF0gZG9faWRsZSBhdCBmZmZmZmZmZjk1NmU5NTlhCiMyMiBbZmZmZmEyMjJjMDZhM2Yx
-MF0gY3B1X3N0YXJ0dXBfZW50cnkgYXQgZmZmZmZmZmY5NTZlOTgxZgojMjMgW2ZmZmZhMjIyYzA2
-YTNmMzBdIHN0YXJ0X3NlY29uZGFyeSBhdCBmZmZmZmZmZjk1NjRlNjk3CiMyNCBbZmZmZmEyMjJj
-MDZhM2Y1MF0gc2Vjb25kYXJ5X3N0YXJ0dXBfNjQgYXQgZmZmZmZmZmY5NTYwMDBlNwoKCgoKCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBtaS1k
-ZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3Jn
-ZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3Blbmlw
-bWktZGV2ZWxvcGVyCg==
+We can't get bmc's device id with low probability when loading ipmi driver,
+it caused bmc device register failed. When this issue happened, we got
+below kernel prints:
+	[Wed Sep  9 19:52:03 2020] ipmi_si IPI0001:00: IPMI message handler: device id demangle failed: -22
+	[Wed Sep  9 19:52:03 2020] IPMI BT: using default values
+	[Wed Sep  9 19:52:03 2020] IPMI BT: req2rsp=5 secs retries=2
+	[Wed Sep  9 19:52:03 2020] ipmi_si IPI0001:00: Unable to get the device id: -5
+	[Wed Sep  9 19:52:04 2020] ipmi_si IPI0001:00: Unable to register device: error -5
+
+When this issue happened, we want to manually unload the driver and try to
+load it again, but it can't be unloaded by 'rmmod' as it is already 'in use'.
+
+We add below 'printk' in handle_one_recv_msg(), when this issue happened,
+the msg we received is "Recv: 1c 01 d5", which means the data_len is 1,
+data[0] is 0xd5(completion code), which means "bmc cannot execute command.
+Command, or request parameter(s), not supported in present state".
+	Debug code:
+	static int handle_one_recv_msg(struct ipmi_smi *intf,
+                               struct ipmi_smi_msg *msg) {
+        	printk("Recv: %*ph\n", msg->rsp_size, msg->rsp);
+		... ...
+	}
+Then in ipmi_demangle_device_id(), it returned '-EINVAL' as 'data_len < 7'
+and 'data[0] != 0'.
+
+We used this patch to retry to get device id when error happen, we
+reproduced this issue again and the retry succeed on the first retry, we
+finally got the correct msg and then all is ok:
+Recv: 1c 01 00 01 81 05 84 02 af db 07 00 01 00 b9 00 10 00
+
+So use retry machanism in this patch to give bmc more opportunity to
+correctly response kernel when we received specific completion codes.
+
+Signed-off-by: Xianting Tian <tian.xianting@h3c.com>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 29 +++++++++++++++++++++++++----
+ include/uapi/linux/ipmi_msgdefs.h   |  2 ++
+ 2 files changed, 27 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 737c0b6b2..b9685093e 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -34,6 +34,7 @@
+ #include <linux/uuid.h>
+ #include <linux/nospec.h>
+ #include <linux/vmalloc.h>
++#include <linux/delay.h>
+ 
+ #define IPMI_DRIVER_VERSION "39.2"
+ 
+@@ -60,6 +61,9 @@ enum ipmi_panic_event_op {
+ #else
+ #define IPMI_PANIC_DEFAULT IPMI_SEND_PANIC_EVENT_NONE
+ #endif
++
++#define GET_DEVICE_ID_MAX_RETRY	5
++
+ static enum ipmi_panic_event_op ipmi_send_panic_event = IPMI_PANIC_DEFAULT;
+ 
+ static int panic_op_write_handler(const char *val,
+@@ -317,6 +321,7 @@ struct bmc_device {
+ 	int                    dyn_guid_set;
+ 	struct kref	       usecount;
+ 	struct work_struct     remove_work;
++	char		       cc; /* completion code */
+ };
+ #define to_bmc_device(x) container_of((x), struct bmc_device, pdev.dev)
+ 
+@@ -2381,6 +2386,8 @@ static void bmc_device_id_handler(struct ipmi_smi *intf,
+ 			msg->msg.data, msg->msg.data_len, &intf->bmc->fetch_id);
+ 	if (rv) {
+ 		dev_warn(intf->si_dev, "device id demangle failed: %d\n", rv);
++		/* record completion code when error */
++		intf->bmc->cc = msg->msg.data[0];
+ 		intf->bmc->dyn_id_set = 0;
+ 	} else {
+ 		/*
+@@ -2426,19 +2433,34 @@ send_get_device_id_cmd(struct ipmi_smi *intf)
+ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
+ {
+ 	int rv;
+-
+-	bmc->dyn_id_set = 2;
++	unsigned int retry_count = 0;
+ 
+ 	intf->null_user_handler = bmc_device_id_handler;
+ 
++retry:
++	bmc->cc = 0;
++	bmc->dyn_id_set = 2;
++
+ 	rv = send_get_device_id_cmd(intf);
+ 	if (rv)
+ 		return rv;
+ 
+ 	wait_event(intf->waitq, bmc->dyn_id_set != 2);
+ 
+-	if (!bmc->dyn_id_set)
++	if (!bmc->dyn_id_set) {
++		if ((bmc->cc == IPMI_DEVICE_IN_FW_UPDATE_ERR
++		     || bmc->cc ==  IPMI_DEVICE_IN_INIT_ERR
++		     || bmc->cc ==  IPMI_NOT_IN_MY_STATE_ERR)
++		     && ++retry_count <= GET_DEVICE_ID_MAX_RETRY) {
++			msleep(500);
++			dev_warn(intf->si_dev,
++				"retry to get bmc device id as completion code 0x%x\n",
++				bmc->cc);
++			goto retry;
++		}
++
+ 		rv = -EIO; /* Something went wrong in the fetch. */
++	}
+ 
+ 	/* dyn_id_set makes the id data available. */
+ 	smp_rmb();
+@@ -3245,7 +3267,6 @@ channel_handler(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
+ 		/* It's the one we want */
+ 		if (msg->msg.data[0] != 0) {
+ 			/* Got an error from the channel, just go on. */
+-
+ 			if (msg->msg.data[0] == IPMI_INVALID_COMMAND_ERR) {
+ 				/*
+ 				 * If the MC does not support this
+diff --git a/include/uapi/linux/ipmi_msgdefs.h b/include/uapi/linux/ipmi_msgdefs.h
+index c2b23a9fd..0934af3b8 100644
+--- a/include/uapi/linux/ipmi_msgdefs.h
++++ b/include/uapi/linux/ipmi_msgdefs.h
+@@ -69,6 +69,8 @@
+ #define IPMI_ERR_MSG_TRUNCATED		0xc6
+ #define IPMI_REQ_LEN_INVALID_ERR	0xc7
+ #define IPMI_REQ_LEN_EXCEEDED_ERR	0xc8
++#define IPMI_DEVICE_IN_FW_UPDATE_ERR	0xd1
++#define IPMI_DEVICE_IN_INIT_ERR		0xd2
+ #define IPMI_NOT_IN_MY_STATE_ERR	0xd5	/* IPMI 2.0 */
+ #define IPMI_LOST_ARBITRATION_ERR	0x81
+ #define IPMI_BUS_ERR			0x82
+-- 
+2.17.1
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
