@@ -2,112 +2,112 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 547ED26A792
-	for <lists+openipmi-developer@lfdr.de>; Tue, 15 Sep 2020 16:52:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CCCAF26C228
+	for <lists+openipmi-developer@lfdr.de>; Wed, 16 Sep 2020 13:35:19 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kICK6-0004Ek-Gn; Tue, 15 Sep 2020 14:52:46 +0000
+	id 1kIViX-0005Sl-8t; Wed, 16 Sep 2020 11:35:17 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1kICK5-0004EW-47
- for openipmi-developer@lists.sourceforge.net; Tue, 15 Sep 2020 14:52:45 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1kIViV-0005SA-OQ
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Sep 2020 11:35:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=g23UaXPTp/KzMFvOBy8QL3+B4Ai7P/7KAVUqwSrRY5Q=; b=Zq2iXJQsh3FP8HWkcnHnwjotfl
- Eeb7Nn4llxHLgac3ahsKKJnQ/r5Zi6Dqsl1MQXiEuGDwGYJ9lz2EoJtBycJ0vOvzPxHVwqrqR9OiI
- EBEp8wrVQRe3BOQ5tlzUtzURRy5A8CEFGj6ZeRuBFvRxydiECUGffefVIGvlQ84VooBc=;
+ bh=ObBXEDhtIgdQ4K4kbV90db+cJMLb8iuREEw1mGHmWII=; b=Ivz79Y9p9fvFfOQuKWWgezY3WA
+ S5QXQatpbRASzT8CX83KCpycQfCDx7fQHxiMmCGf4a85ANBSenq3vXoPazjZ2n53B0pWhfXABLDoi
+ gXz6Zth4aWeoremg+LnSBbsdKKg2clloAlw93ETvPT/N8YIje08oiDA3l/3W1llIh5rw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=g23UaXPTp/KzMFvOBy8QL3+B4Ai7P/7KAVUqwSrRY5Q=; b=KJj7TpxH+ZtVxowkw93ULxh27D
- zGLMUz8dHSLjETRJ5Lba1awvxnCA947hjSUk/9yJeFet5sgc9Uml3VoLHwGs/8iBvnFhqda1O8p+g
- s1pmUcfyq7EyGy7IfAV0c3aZSWEQg6tGRQdNjE0lNjq1BpiP9c9JfPFfuT8AK00zks58=;
+ bh=ObBXEDhtIgdQ4K4kbV90db+cJMLb8iuREEw1mGHmWII=; b=GNqzvADZvngPQO4QvHwVmhzvn0
+ CteEqH1mnNJjQBd9HCI4Gin2LksI5UYAoIsd6VrqEOVeTpjyMQKl45tRFJzGk3h5py9tChyMneKij
+ Muo8jeZXLTsvY6s//neC+xEWXt2PEjjISZwEWURNszCOSpvCoMvgV+Jlu5p5DP+ANDL8=;
 Received: from mail-oi1-f195.google.com ([209.85.167.195])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kICJz-00A440-5W
- for openipmi-developer@lists.sourceforge.net; Tue, 15 Sep 2020 14:52:45 +0000
-Received: by mail-oi1-f195.google.com with SMTP id t76so4146284oif.7
+ id 1kIViT-00CL1J-M1
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Sep 2020 11:35:15 +0000
+Received: by mail-oi1-f195.google.com with SMTP id x69so7702693oia.8
  for <openipmi-developer@lists.sourceforge.net>;
- Tue, 15 Sep 2020 07:52:39 -0700 (PDT)
+ Wed, 16 Sep 2020 04:35:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=g23UaXPTp/KzMFvOBy8QL3+B4Ai7P/7KAVUqwSrRY5Q=;
- b=QEENgKN/4gXcmeVnbhjvoea8Opt1UzM0C8zLPYSFTaDd+5hG7sjEUoBYFzv0LlvXZa
- W+1MllKIDwUYPeCjfoirTFlatQQNKpEyZHcebKM7JGQjgf1bQvk/kBUkp0yRPC4WKc4a
- eEkpft0byIvIeGsZFzJsih8RVqTyCCUYBPLKG7SIIFTHN37qhmVnUfN1PNvvX8SOoWBx
- mkowOlgtgNVYwCyRXIg0405DIj/kTfrwBwcrHcPt0kR9s5wM3E+4hdwqJe4nC6YK9KRB
- iV6pdnHnamOIVuQe6YSqEcC3rS74/YmorfZrNMppeTmo4pYzxQGsUjrOnhWHNfsCVckA
- rwxA==
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to:user-agent;
+ bh=ObBXEDhtIgdQ4K4kbV90db+cJMLb8iuREEw1mGHmWII=;
+ b=hSBt5eoUFr7xmr0bA09od5vveIQvtA0kNvHcTUcAe3ewdCv39vLI0tDx0Y+xdBxfJw
+ FFVzYHgNJkFu4Rwgr1rQeSnZSMhQ0dmdx57BQW/sy0O3oJBcauF0uhwde+AObyxueMY/
+ Z561mqBNA8Ui9/vp6/hrdJStxz1SgC3IYVuer7t1vpdSgZDaC0wwl9YHluMzl1T+HLRN
+ iNoDJ2ortDFn8i43h0VPXnGEW6MjAqmHsEoCIs8Dj44DQVE+/gqw8NW69SweN2jbsYSo
+ PD/XINsViFcwkqiWBTdP3xbqgQb2PocZEIKy0a07xo5YpSB5CP91+BeDKohdgKlbJ9i0
+ mCiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to
- :user-agent;
- bh=g23UaXPTp/KzMFvOBy8QL3+B4Ai7P/7KAVUqwSrRY5Q=;
- b=Ao3ezfGjYCBBJ6cQc/QGShfTkAOfZdpZg9yjdGiiTwd7OevlNqFNs3rdgwY/EJQ9eQ
- s9M1DP6Ed4hd+Dx9aAnNnO3a3+9/2wA+P6m3+v3nWWwkxwktAZ5/kolwSJmZ42tLEp3c
- eJIaWxFRR55Ho4Xj/PEPZl27ZBL86qqmrM+8kfCWhzy3EFehVC8c6Q1zghnO15Qu4GtS
- ptBdPjrU7OvTvrnyRoXv1yzKEPsq/aSri49Rly4doWREYxnL1mB8JBlRbtjLNJJppRt1
- PfBjOHuGkgosMbs+5ETBQXX8e64cN2a6gqwa4RxTwynhJQiI1fZJJWCHZY3BzNBpG+4Y
- PUpA==
-X-Gm-Message-State: AOAM533Famhi91qsd88nNgkcImFFD4UHZdQXcT15FmH33BboIyX1zjo2
- BbN2/ix4m2x8B8gcMhq2bunZDkcp6g==
-X-Google-Smtp-Source: ABdhPJwQWIeD8+rgAVJTlDcmuttla6+iSeoiRDYYcST+jWICfb0Cb7Jvbef0T/rULtAyQd+MgEqvkA==
-X-Received: by 2002:a05:6808:1cf:: with SMTP id
- x15mr3546456oic.164.1600181553447; 
- Tue, 15 Sep 2020 07:52:33 -0700 (PDT)
+ :reply-to:references:mime-version:content-disposition
+ :content-transfer-encoding:in-reply-to:user-agent;
+ bh=ObBXEDhtIgdQ4K4kbV90db+cJMLb8iuREEw1mGHmWII=;
+ b=MWAvR658gacfqy1ISC1LP3pxe0Kt37IdV7tOO+c4cL+q/sKn4YObb8p8QROGKlF8DB
+ 9cHTMqddSk83lrYaR5AQR8CnFaMIQpTzMIqLV/OKRUOP2b9BWEdqoCKYzJzBdptr4r80
+ PWkfM/FP/+84SlALWBlrLl9IoZBKCw6zafHK2PSe6y4FYPj2Ani3oR8LrDibmXLp6OpC
+ /rrHViUlalf6WT/o+zUM0ocqWs9DYqaHUvZhPjYtQvs92RjnfAaZWAouisAJcG7VQ9DJ
+ jc2jMmO/Pg86XRv5g5ZNdGUYfH51mMMDo13KmUF+S2OcLQt0WtIL+WlshTCApSXg8ARP
+ +5KA==
+X-Gm-Message-State: AOAM531ocCE65NaRhZht5ATUOZU8d8Udso8nlFJgMmrJNdI2BJaKM09W
+ W3saZwpw1Q4QsoyYw/Qsfw==
+X-Google-Smtp-Source: ABdhPJymarBqdunO0Cx8czJAC2w2L4wyHnOYEOD8ECEWM24942//qDTofhHSiQDZZzchVIYHCtRJAA==
+X-Received: by 2002:aca:c34d:: with SMTP id t74mr2679525oif.0.1600256107905;
+ Wed, 16 Sep 2020 04:35:07 -0700 (PDT)
 Received: from serve.minyard.net ([47.184.170.156])
- by smtp.gmail.com with ESMTPSA id h14sm5678143otr.21.2020.09.15.07.52.31
+ by smtp.gmail.com with ESMTPSA id x15sm10309728oor.33.2020.09.16.04.35.06
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 15 Sep 2020 07:52:32 -0700 (PDT)
+ Wed, 16 Sep 2020 04:35:06 -0700 (PDT)
 Received: from minyard.net (unknown
  [IPv6:2001:470:b8f6:1b:79b7:649a:6598:1c96])
- by serve.minyard.net (Postfix) with ESMTPSA id 3DAEF181C2F;
- Tue, 15 Sep 2020 14:52:31 +0000 (UTC)
-Date: Tue, 15 Sep 2020 09:52:30 -0500
+ by serve.minyard.net (Postfix) with ESMTPSA id D1AB0181C2F;
+ Wed, 16 Sep 2020 11:35:05 +0000 (UTC)
+Date: Wed, 16 Sep 2020 06:35:04 -0500
 From: Corey Minyard <minyard@acm.org>
-To: Tianxianting <tian.xianting@h3c.com>
-Message-ID: <20200915145230.GB3674@minyard.net>
-References: <20200914081313.31450-1-tian.xianting@h3c.com>
- <20200914153937.GL15602@minyard.net>
- <226f9cfc421c49278cad9572bb33ac3a@h3c.com>
+To: Feilong Lin <linfeilong@huawei.com>
+Message-ID: <20200916113504.GD3674@minyard.net>
+References: <1600074602-622893-1-git-send-email-wubo40@huawei.com>
+ <TYAPR01MB2429AAE58FF9FF020F657509B5230@TYAPR01MB2429.jpnprd01.prod.outlook.com>
+ <f420d0bb-24be-c1ec-3d7f-f2ef4b993836@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <226f9cfc421c49278cad9572bb33ac3a@h3c.com>
+In-Reply-To: <f420d0bb-24be-c1ec-3d7f-f2ef4b993836@huawei.com>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (tcminyard[at]gmail.com)
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.195 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.195 listed in wl.mailspike.net]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.195 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.167.195 listed in list.dnswl.org]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
-X-Headers-End: 1kICJz-00A440-5W
-Subject: Re: [Openipmi-developer] [PATCH] [v2] ipmi: retry to get device id
- when error
+X-Headers-End: 1kIViT-00CL1J-M1
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: Fix out-of-bounds in
+ write_next_byte()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -121,221 +121,251 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Reply-To: minyard@acm.org
-Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "openipmi-developer@lists.sourceforge.net"
+Cc: 'Wu Bo' <wubo40@huawei.com>, "arnd@arndb.de" <arnd@arndb.de>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ =?utf-8?B?5rKz5ZCI6Iux5a6PIC8gS0FXQUnvvIxISURFSElSTw==?=
+ <hidehiro.kawai.ez@hitachi.com>, "openipmi-developer@lists.sourceforge.net"
  <openipmi-developer@lists.sourceforge.net>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "arnd@arndb.de" <arnd@arndb.de>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ "liuzhiqiang26@huawei.com" <liuzhiqiang26@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Sep 15, 2020 at 09:40:02AM +0000, Tianxianting wrote:
-> Hi Corey,
-> Thanks for your comments,
-> Please review these two patches, which are based on your guide.
-> 1, [PATCH] ipmi: print current state when error
-> https://lkml.org/lkml/2020/9/15/183 
-> 2, [PATCH] [v3] ipmi: retry to get device id when error
-> https://lkml.org/lkml/2020/9/15/156 
-
-Patches are applied and in my next tree.
-
-> 
-> As you said "You are having the same issue in the ipmi_si code. It's choosing defaults, but that's not ideal.  You probably need to handle this there, too, in a separate patch."
-> I am not sure whether I grasped what you said, 
-> The print ' device id demangle failed: -22' in commit message, is just triggered by bmc_device_id_handler->ipmi_demangle_device_id, this is the issue we met and is solving.
-> I found try_get_dev_id(in drivers/char/ipmi/ipmi_si_intf.c) also called ipmi_demangle_device_id(), do you mean if this ipmi_demangle_device_id() returned error, we also need to retry?
-
-Yes, I think so, retrying in try_get_dev_id() would be a good idea, I
-think.  You are probably getting sub-optimal performance if you don't
-do this.
-
-Thanks,
-
--corey
-
-> 
-> Thanks a lot.
-> 
-> -----Original Message-----
-> From: Corey Minyard [mailto:tcminyard@gmail.com] On Behalf Of Corey Minyard
-> Sent: Monday, September 14, 2020 11:40 PM
-> To: tianxianting (RD) <tian.xianting@h3c.com>
-> Cc: arnd@arndb.de; gregkh@linuxfoundation.org; openipmi-developer@lists.sourceforge.net; linux-kernel@vger.kernel.org
-> Subject: Re: [PATCH] [v2] ipmi: retry to get device id when error
-> 
-> On Mon, Sep 14, 2020 at 04:13:13PM +0800, Xianting Tian wrote:
-> > We can't get bmc's device id with low probability when loading ipmi 
-> > driver, it caused bmc device register failed. When this issue 
-> > happened, we got below kernel printks:
-> 
-> This patch is moving in the right direction.  For the final patch(es), I can clean up the english grammar issues, since that's not your native language.  A few comments:
-> 
-> > 	[Wed Sep  9 19:52:03 2020] ipmi_si IPI0001:00: IPMI message handler: 
-> > device id demangle failed: -22
-> 
-> You are having the same issue in the ipmi_si code.  It's choosing defaults, but that's not ideal.  You probably need to handle this there, too, in a separate patch.
-> 
-> Can you create a separate patch to add a dev_warn() to the BT code when it returns IPMI_NOT_IN_MY_STATE_ERR, like I asked previously?  And print the current state when it happens.  That way we know where this issue is coming from and possibly fix the state machine.  I'm thinking that the BMC is just not responding, but I'd like to be sure.
-> 
-> Other comments inline...
-> 
-> > 	[Wed Sep  9 19:52:03 2020] IPMI BT: using default values
-> > 	[Wed Sep  9 19:52:03 2020] IPMI BT: req2rsp=5 secs retries=2
-> > 	[Wed Sep  9 19:52:03 2020] ipmi_si IPI0001:00: Unable to get the device id: -5
-> > 	[Wed Sep  9 19:52:04 2020] ipmi_si IPI0001:00: Unable to register 
-> > device: error -5
-> > 
-> > When this issue happened, we want to manually unload the driver and 
-> > try to load it again, but it can't be unloaded by 'rmmod' as it is already 'in use'.
-> > 
-> > We add below 'printk' in handle_one_recv_msg(), when this issue 
-> > happened, the msg we received is "Recv: 1c 01 d5", which means the 
-> > data_len is 1, data[0] is 0xd5(completion code), which means "bmc cannot execute command.
-> > Command, or request parameter(s), not supported in present state".
-> > 	Debug code:
-> > 	static int handle_one_recv_msg(struct ipmi_smi *intf,
-> >                                struct ipmi_smi_msg *msg) {
-> >         	printk("Recv: %*ph\n", msg->rsp_size, msg->rsp);
-> > 		... ...
-> > 	}
-> > Then in ipmi_demangle_device_id(), it returned '-EINVAL' as 'data_len < 7'
-> > and 'data[0] != 0'.
-> > 
-> > We used this patch to retry to get device id when error happen, we 
-> > reproduced this issue again and the retry succeed on the first retry, 
-> > we finally got the correct msg and then all is ok:
-> > Recv: 1c 01 00 01 81 05 84 02 af db 07 00 01 00 b9 00 10 00
-> > 
-> > So use retry machanism in this patch to give bmc more opportunity to 
-> > correctly response kernel when we received specific completion code.
-> > 
-> > Signed-off-by: Xianting Tian <tian.xianting@h3c.com>
-> > ---
-> >  drivers/char/ipmi/ipmi_msghandler.c | 29 +++++++++++++++++++++++++----
-> >  include/uapi/linux/ipmi_msgdefs.h   |  2 ++
-> >  2 files changed, 27 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/char/ipmi/ipmi_msghandler.c 
-> > b/drivers/char/ipmi/ipmi_msghandler.c
-> > index 737c0b6b2..07d5be2cd 100644
-> > --- a/drivers/char/ipmi/ipmi_msghandler.c
-> > +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> > @@ -34,6 +34,7 @@
-> >  #include <linux/uuid.h>
-> >  #include <linux/nospec.h>
-> >  #include <linux/vmalloc.h>
-> > +#include <linux/delay.h>
-> >  
-> >  #define IPMI_DRIVER_VERSION "39.2"
-> >  
-> > @@ -60,6 +61,9 @@ enum ipmi_panic_event_op {  #else  #define 
-> > IPMI_PANIC_DEFAULT IPMI_SEND_PANIC_EVENT_NONE  #endif
-> > +
-> > +#define GET_DEVICE_ID_MAX_RETRY	5
-> > +
-> >  static enum ipmi_panic_event_op ipmi_send_panic_event = 
-> > IPMI_PANIC_DEFAULT;
-> >  
-> >  static int panic_op_write_handler(const char *val, @@ -317,6 +321,7 
-> > @@ struct bmc_device {
-> >  	int                    dyn_guid_set;
-> >  	struct kref	       usecount;
-> >  	struct work_struct     remove_work;
-> > +	char		       cc; /* completion code */
-> >  };
-> >  #define to_bmc_device(x) container_of((x), struct bmc_device, 
-> > pdev.dev)
-> >  
-> > @@ -2381,6 +2386,8 @@ static void bmc_device_id_handler(struct ipmi_smi *intf,
-> >  			msg->msg.data, msg->msg.data_len, &intf->bmc->fetch_id);
-> >  	if (rv) {
-> >  		dev_warn(intf->si_dev, "device id demangle failed: %d\n", rv);
-> > +		/* record completion code when error */
-> > +		intf->bmc->cc = msg->msg.data[0];
-> >  		intf->bmc->dyn_id_set = 0;
-> >  	} else {
-> >  		/*
-> > @@ -2426,19 +2433,34 @@ send_get_device_id_cmd(struct ipmi_smi *intf)  
-> > static int __get_device_id(struct ipmi_smi *intf, struct bmc_device 
-> > *bmc)  {
-> >  	int rv;
-> > -
-> > -	bmc->dyn_id_set = 2;
-> > +	unsigned int retry_count = 0;
-> 
-> You need to initialize bmc->cc to 0 here.
-> 
-> >  
-> >  	intf->null_user_handler = bmc_device_id_handler;
-> >  
-> > +retry:
-> > +	bmc->dyn_id_set = 2;
-> > +
-> >  	rv = send_get_device_id_cmd(intf);
-> >  	if (rv)
-> >  		return rv;
-> >  
-> >  	wait_event(intf->waitq, bmc->dyn_id_set != 2);
-> >  
-> > -	if (!bmc->dyn_id_set)
-> > +	if (!bmc->dyn_id_set) {
-> > +		if ((bmc->cc == IPMI_NOT_IN_MY_STATE_ERR
-> > +		     || bmc->cc == IPMI_NOT_IN_MY_STATE_ERR_1
-> > +		     || bmc->cc == IPMI_NOT_IN_MY_STATE_ERR_2)
-> > +		     && ++retry_count <= GET_DEVICE_ID_MAX_RETRY) {
-> > +			msleep(500);
-> > +			dev_warn(intf->si_dev,
-> > +				"retry to get bmc device id as completion code 0x%x\n",
-> > +				bmc->cc);
-> > +			bmc->cc = 0;
-> > +			goto retry;
-> > +		}
-> > +
-> >  		rv = -EIO; /* Something went wrong in the fetch. */
-> > +	}
-> >  
-> >  	/* dyn_id_set makes the id data available. */
-> >  	smp_rmb();
-> > @@ -3245,7 +3267,6 @@ channel_handler(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
-> >  		/* It's the one we want */
-> >  		if (msg->msg.data[0] != 0) {
-> >  			/* Got an error from the channel, just go on. */
-> > -
-> >  			if (msg->msg.data[0] == IPMI_INVALID_COMMAND_ERR) {
-> >  				/*
-> >  				 * If the MC does not support this diff --git 
-> > a/include/uapi/linux/ipmi_msgdefs.h 
-> > b/include/uapi/linux/ipmi_msgdefs.h
-> > index c2b23a9fd..46a0df434 100644
-> > --- a/include/uapi/linux/ipmi_msgdefs.h
-> > +++ b/include/uapi/linux/ipmi_msgdefs.h
-> > @@ -70,6 +70,8 @@
-> >  #define IPMI_REQ_LEN_INVALID_ERR	0xc7
-> >  #define IPMI_REQ_LEN_EXCEEDED_ERR	0xc8
-> >  #define IPMI_NOT_IN_MY_STATE_ERR	0xd5	/* IPMI 2.0 */
-> > +#define IPMI_NOT_IN_MY_STATE_ERR_1	0xd1
-> 
-> For the above name, can you use IPMI_DEVICE_IN_FW_UPDATE_ERR to match the spec?
-> 
-> > +#define IPMI_NOT_IN_MY_STATE_ERR_2	0xd2
-> 
-> For the above name, can you use IPMI_DEVICE_IN_INIT_ERR to match the spec?
-> 
-> Thanks,
-> 
-> -corey
-> 
-> >  #define IPMI_LOST_ARBITRATION_ERR	0x81
-> >  #define IPMI_BUS_ERR			0x82
-> >  #define IPMI_NAK_ON_WRITE_ERR		0x83
-> > --
-> > 2.17.1
-> > 
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gV2VkLCBTZXAgMTYsIDIwMjAgYXQgMDQ6NDY6NTBQTSArMDgwMCwgRmVpbG9uZyBMaW4gd3Jv
+dGU6Cj4gCj4gCj4gT24gMjAyMC85LzE0IDIwOjEzLCDmsrPlkIjoi7Hlro8gLyBLQVdBSe+8jEhJ
+REVISVJPIHdyb3RlOgo+ID4gSGksIFd1Cj4gPiAKPiA+PiBGcm9tOiBXdSBCbyA8d3VibzQwQGh1
+YXdlaS5jb20+Cj4gPj4gSW4gdGhlIHZpcnR1YWwgbWFjaGluZSwgVXNlIG1jZV9pbmplY3QgdG8g
+aW5qZWN0IGVycm9ycyBpbnRvIHRoZSBzeXN0ZW0uCj4gPj4gQWZ0ZXIgbWNlLWluamVjdCBpbmpl
+Y3RzIGFuIHVuY29ycmVjdGFibGUgZXJyb3IsIHRoZXJlIGlzIGEgcHJvYmFiaWxpdHkKPiA+PiB0
+aGF0IHRoZSB2aXJ0dWFsIG1hY2hpbmUgaXMgbm90IHJlc2V0IGltbWVkaWF0ZWx5LAo+ID4+IGJ1
+dCBoYW5ncyBmb3IgbW9yZSB0aGFuCj4gPj4gMzAwMCBzZWNvbmRzLiBBbmQgdGhlIHdyaXRlX2Rh
+dGEgYXJyYXkgaXMgYWNjZXNzZWQgb3V0IG9mIGJvdW5kcy4KPiA+Pgo+ID4+IFRoZSByZWFsIHJl
+YXNvbiBpcyB0aGF0IHNtaV9ldmVudF9oYW5kbGVyIGxhY2sgb2YgbG9jayBwcm90ZWN0aW9uIGlu
+IHRoZQo+ID4+IG11bHRpLXRocmVhZGVkIHNjZW5hcmlvLCB3aGljaCBjYXVzZXMgd3JpdGVfcG9z
+Cj4gPj4gdG8gZXhjZWVkIHRoZSBzaXplIG9mIHRoZSB3cml0ZV9kYXRhIGFycmF5Lgo+ID4gCj4g
+PiBUaGFuayB5b3UgZm9yIHRoZSBmaXgsIGJ1dCBJIHdvbmRlciB3aHkgdGhpcyBtdWx0aS10aHJl
+YWRlZCBzY2VuYXJpbyBoYXBwZW5zLgo+ID4gSWYgbXkgdW5kZXJzdGFuZGluZyBpcyBjb3JyZWN0
+LCBvbmx5IG9uZSBDUFUgY2FuIHJ1biBwYW5pYyByb3V0aW5lcywgYW5kCj4gPiB0aGlzIG1lYW5z
+IG9ubHkgb25lIENQVSBjYWxscyBmbHVzaF9tZXNzYWdlcy4gIERpZCBJIG1pc3Mgc29tZSBjYWxs
+IHBhdGg/Cj4gCj4gZnJvbSB0aGUgbG9nLCB3ZSBjYW4gc2VlIG1jZV9pbmplY3Qgb2NjdXJzIG9u
+IGVhY2ggQ1BVLCBldmVyeSBvbmUgZXhjdXRlcwo+IG5taSBoYW5kbGVyLCB0aGF0IHdpbGwgcHJl
+dmVudCB0aGUgbm1pIGhhbmRsZXIgb2Ygc3RvcHBpbmcgY3B1cywgc28gbXVsdGlwbGUKPiBDUFVz
+IGFyZSBydW5uaW5nIHRoYXQgdGltZS4KClllcywgTUNFcyBnZW5lcmFsbHkgb2NjdXIgb24gYWxs
+IENQVXMuICBCdXQgYm90aCBtY2VfcGFuaWMoKSBhbmQgcGFuaWMoKQpwcmV2ZW50IG1vcmUgdGhh
+biBvbmUgQ1BVIGZyb20gcnVubmluZyB0aGUgcGFuaWMgY29kZS4gIFBsZWFzZSByZWFkIHRoZQpj
+b2RlLgoKLWNvcmV5Cgo+IAo+IEJlc3QgcmVnYXJkcwo+IAo+ID4gCj4gPiBCZXN0IHJlZ2FyZHMs
+Cj4gPiAKPiA+IEhpZGVoaXJvIEthd2FpCj4gPiBIaXRhY2hpLCBMdGQuIFJlc2VhcmNoICYgRGV2
+ZWxvcG1lbnQgR3JvdXAKPiA+IAo+ID4+Cj4gPj4gQ2FsbCBUcmFjZToKPiA+PiBubWlfaGFuZGxl
+Cj4gPj4gICAgLT4gbWNlX3JhaXNlX25vdGlmeQo+ID4+ICAgICAgICAtPiBwYW5pY19ldmVudAo+
+ID4+IAkgICAtPiBpcG1pX3BhbmljX3JlcXVlc3RfYW5kX3dhaXQKPiA+PiAJCS0+IGZsdXNoX21l
+c3NhZ2VzCj4gPj4gCQkgICAgLT4gc21pX2V2ZW50X2hhbmRsZXIKPiA+Pgo+ID4+IFRlc3Qgc3Rl
+cHM6Cj4gPj4gMS4gIyB2aW0gL3RtcC91bmNvcnJlY3RlZAo+ID4+IENQVSAxIEJBTksgNAo+ID4+
+IFNUQVRVUyB1bmNvcnJlY3RlZCAweGMwCj4gPj4gTUNHU1RBVFVTICBFSVBWIE1DSVAKPiA+PiBB
+RERSIDB4MTIzNAo+ID4+IFJJUCAweGRlYWRiYWJlCj4gPj4gUkFJU0lOR0NQVSAwCj4gPj4gTUNH
+Q0FQIFNFUiBDTUNJIFRFUyAweDYKPiA+Pgo+ID4+IDIuICMgbW9kcHJvYmUgbWNlX2luamVjdAo+
+ID4+IDMuICMgY2QgL3RtcAo+ID4+IDQuICMgbWNlLWluamVjdCB1bmNvcnJlY3RlZAo+ID4+Cj4g
+Pj4gVGhlIGxvZyBhcyBmb2xsb3dzOgo+ID4+IFsgICAyOS44MjY4OTJdIGNvcmU6IFtIYXJkd2Fy
+ZSBFcnJvcl06IENQVSAxOiBNYWNoaW5lIENoZWNrIEV4Y2VwdGlvbjogNiBCYW5rIDQ6IGI0MDAw
+MDAwMDAwMDAwYzAKPiA+PiBbICAgMjkuODI2ODkzXSBjb3JlOiBbSGFyZHdhcmUgRXJyb3JdOiBS
+SVAgMDA6PDAwMDAwMDAwZGVhZGJhYmU+Cj4gPj4gWyAgIDI5LjgyNjg5NF0gY29yZTogW0hhcmR3
+YXJlIEVycm9yXTogVFNDIGM1YjYwNGUzZDNhIEFERFIgMTIzNAo+ID4+IFsgICAyOS44MjY4OTZd
+IGNvcmU6IFtIYXJkd2FyZSBFcnJvcl06IFBST0NFU1NPUiAwOjUwNjU0IFRJTUUgMTU5ODAwMTk4
+NiBTT0NLRVQgMCBBUElDIDEgbWljcm9jb2RlIDEKPiA+PiBbICAgMjkuODI2ODk2XSBjb3JlOiBb
+SGFyZHdhcmUgRXJyb3JdOiBSdW4gdGhlIGFib3ZlIHRocm91Z2ggJ21jZWxvZyAtLWFzY2lpJwo+
+ID4+IFsgICAyOS44MjY4OThdIGNvcmU6IFtIYXJkd2FyZSBFcnJvcl06IE1hY2hpbmUgY2hlY2s6
+IEluIGtlcm5lbCBhbmQgbm8gcmVzdGFydCBJUAo+ID4+IFsgICAyOS44MjY4OTldIEtlcm5lbCBw
+YW5pYyAtIG5vdCBzeW5jaW5nOiBGYXRhbCBtYWNoaW5lIGNoZWNrCj4gPj4gWyAgIDI5LjgyNjg5
+OV0ga2VybmVsIGZhdWx0KDB4NSkgbm90aWZpY2F0aW9uIHN0YXJ0aW5nIG9uIENQVSAyCj4gPj4g
+WyAgIDI5LjgyNjkwNF0ga2VybmVsIGZhdWx0KDB4NSkgbm90aWZpY2F0aW9uIGZpbmlzaGVkIG9u
+IENQVSAyCj4gPj4gWyAgIDI5Ljg4OTUzOF0gLS0tLS0tLS0tLS0tWyBjdXQgaGVyZSBdLS0tLS0t
+LS0tLS0tCj4gPj4gWyAgIDI5Ljg4OTU0N10gZG9fSVJRKCk6IHN3YXBwZXIvMCBoYXMgb3ZlcmZs
+b3duIHRoZSBrZXJuZWwgc3RhY2sgKGN1cjpmZmZmZmZmZmI1NDAwMDAwLHNwOmZmZmZmZTAwMDAw
+MDdjNDgsCj4gPj4gICAgICAgICAgICAgICAgaXJxIHN0ayB0b3AtYm90dG9tOmZmZmY5ODA2N2Fj
+MDAwODAtZmZmZjk4MDY3YWMwNDAwMCwgZXhjZXB0aW9uIHN0awo+ID4+IHRvcC1ib3R0b206ZmZm
+ZmZlMDAwMDAwOTA4MC1mZmZmZmUwMDAwMDBiMDAwLGlwOmRlbGF5X3RzYysweDM0LzB4NTApCj4g
+Pj4gWyAgIDI5Ljg4OTU2OV0gV0FSTklORzogQ1BVOiAwIFBJRDogMCBhdCBhcmNoL3g4Ni9rZXJu
+ZWwvaXJxXzY0LmM6NzMgaGFuZGxlX2lycSsweDEwMi8weDExMAo+ID4+IFsgICAyOS44ODk1Njld
+IE1vZHVsZXMgbGlua2VkIGluOiBtY2VfaW5qZWN0IGNvcmVfbW9kdWxlX2ZyYW1lKE9FKSBrYm94
+KE8pIHN5c21vbml0b3IoTykga2JveGRyaXZlcihPKSBzdW5ycGMgbmZpdAo+ID4+IFsgICAyOS44
+ODk2MDRdIEhhcmR3YXJlIG5hbWU6IFFFTVUgU3RhbmRhcmQgUEMgKGk0NDBGWCArIFBJSVgsIDE5
+OTYpLCBCSU9TCj4gPj4gcmVsLTEuMTAuMi0wLWc1ZjRjN2IxLTIwMTgxMjIwXzAwMDAwMC1zenhy
+dG9zY2kxMDAwMCAwNC8wMS8yMDE0Cj4gPj4gWyAgIDI5Ljg4OTYwN10gUklQOiAwMDEwOmhhbmRs
+ZV9pcnErMHgxMDIvMHgxMTAKPiA+PiBbICAgMjkuODg5NjA4XSBDb2RlOiAwMCAwMCA1MCA2NSA0
+YyA4YiAxNCAyNSA4MCA1YyAwMSAwMCA1NyA0OSA4MSBjMiBlMCAwYSAwMCAwMCA0OCBjNyBjNyBm
+OCA1MyAyNiBiNSA0YyA4OSBkNiBjNiAwNSA0ZQo+ID4+IDA4IDNhIDAxIDAxCj4gPj4gWyAgIDI5
+Ljg4OTYwOV0gUlNQOiAwMDE4OmZmZmY5ODA2N2FjMDNmYTAgRUZMQUdTOiAwMDAxMDA4Ngo+ID4+
+IFsgICAyOS44ODk2MTFdIFJBWDogMDAwMDAwMDAwMDAwMDAwMCBSQlg6IGZmZmY5ODA2NzU1Njg4
+MDAgUkNYOiAwMDAwMDAwMDAwMDAwMDA2Cj4gPj4gWyAgIDI5Ljg4OTYxMV0gUkRYOiAwMDAwMDAw
+MDAwMDAwMDA3IFJTSTogMDAwMDAwMDAwMDAwMDAwMCBSREk6IGZmZmY5ODA2N2FjMTZhMDAKPiA+
+PiBbICAgMjkuODg5NjEyXSBSQlA6IDAwMDAwMDAwMDAwMDAwMjcgUjA4OiAwMDAwMDAwYzgzYmRm
+NWNjIFIwOTogMDAwMDAwMDAwMDAwMDJjZgo+ID4+IFsgICAyOS44ODk2MTNdIFIxMDogZmZmZmZm
+ZmZiNTQxMzI2MCBSMTE6IDAwMDAwMDAwMDAwMDAwMDIgUjEyOiBmZmZmZmUwMDAwMDA3Yjk4Cj4g
+Pj4gWyAgIDI5Ljg4OTYxNF0gUjEzOiAwMDAwMDAwMDAwMDAwMDI3IFIxNDogMDAwMDAwMDAwMDAw
+MDAwMCBSMTU6IDAwMDAwMDAwMDAwMDAwMDAKPiA+PiBbICAgMjkuODg5NjE1XSBGUzogIDAwMDAw
+MDAwMDAwMDAwMDAoMDAwMCkgR1M6ZmZmZjk4MDY3YWMwMDAwMCgwMDAwKSBrbmxHUzowMDAwMDAw
+MDAwMDAwMDAwCj4gPj4gWyAgIDI5Ljg4OTYxNl0gQ1M6ICAwMDEwIERTOiAwMDAwIEVTOiAwMDAw
+IENSMDogMDAwMDAwMDA4MDA1MDAzMwo+ID4+IFsgICAyOS44ODk2MTddIENSMjogMDAwMDdmZDM5
+MTk5MmZiOCBDUjM6IDAwMDAwMDAwYTBhMGEwMDUgQ1I0OiAwMDAwMDAwMDAwMzYwNmYwCj4gPj4g
+WyAgIDI5Ljg4OTYyNF0gRFIwOiAwMDAwMDAwMDAwMDAwMDAwIERSMTogMDAwMDAwMDAwMDAwMDAw
+MCBEUjI6IDAwMDAwMDAwMDAwMDAwMDAKPiA+PiBbICAgMjkuODg5NjI0XSBEUjM6IDAwMDAwMDAw
+MDAwMDAwMDAgRFI2OiAwMDAwMDAwMGZmZmUwZmYwIERSNzogMDAwMDAwMDAwMDAwMDQwMAo+ID4+
+IFsgICAyOS44ODk2MjVdIENhbGwgVHJhY2U6Cj4gPj4gWyAgIDI5Ljg4OTYyOV0gIDxJUlE+Cj4g
+Pj4gWyAgIDI5Ljg4OTYzM10gID8gZGVsYXlfdHNjKzB4MzQvMHg1MAo+ID4+IFsgICAyOS44ODk2
+MzhdICBkb19JUlErMHg0OS8weGUwCj4gPj4gWyAgIDI5Ljg4OTY0MV0gIGNvbW1vbl9pbnRlcnJ1
+cHQrMHhmLzB4Zgo+ID4+IFsgICAyOS44ODk2NDJdICA8L0lSUT4KPiA+PiBbICAgMjkuODg5NjQy
+XSAgPE5NST4KPiA+PiBbICAgMjkuODg5NjQ0XSBSSVA6IDAwMTA6ZGVsYXlfdHNjKzB4MzQvMHg1
+MAo+ID4+IFsgICAyOS44ODk2NDZdIENvZGU6IDVhIDRiIDBmIGFlIGU4IDBmIDMxIDQ4IGMxIGUy
+IDIwIDQ4IDg5IGQxIDQ4IDA5IGMxIDBmIGFlIGU4IDBmIDMxIDQ4IGMxIGUyIDIwIDQ4IDA5IGQw
+IDQ4IDg5IGMyIDQ4Cj4gPj4gMjkgY2EgNDggMzkgZmEgNzMgMTUgZjMgOTAgPDY1Pgo+ID4+IFsg
+ICAyOS44ODk2NDddIFJTUDogMDAxODpmZmZmZmUwMDAwMDA3YzQ4IEVGTEFHUzogMDAwMDAyODcg
+T1JJR19SQVg6IGZmZmZmZmZmZmZmZmZmZDgKPiA+PiBbICAgMjkuODg5NjQ4XSBSQVg6IDAwMDAw
+YzViNjgyNWQ2ZWMgUkJYOiAwMDAwMDAwMDAwNGI2YzQ5IFJDWDogMDAwMDBjNWI2ODI1Y2Y2NAo+
+ID4+IFsgICAyOS44ODk2NDldIFJEWDogMDAwMDAwMDAwMDAwMDc4OCBSU0k6IDAwMDAwMDAwMDAw
+MDAwMDAgUkRJOiAwMDAwMDAwMDAwMDAwODM1Cj4gPj4gWyAgIDI5Ljg4OTY0OV0gUkJQOiBmZmZm
+ZmUwMDAwMDA3Y2MwIFIwODogMDAwMDAwMDAwMDAwMDAwNCBSMDk6IGZmZmZmZTAwMDAwMDdjNWMK
+PiA+PiBbICAgMjkuODg5NjUwXSBSMTA6IGZmZmZmZmZmYjU2MDVhZTAgUjExOiAwMDAwMDAwMDAw
+MDAwMDAwIFIxMjogZmZmZmZlMDAwMDAwN2NiMAo+ID4+IFsgICAyOS44ODk2NTFdIFIxMzogMDAw
+MDAwMDAwMDAwMDAwMSBSMTQ6IGZmZmZmZTAwMDAwMDdlZjggUjE1OiBmZmZmZmZmZmI1MjZhMjgw
+Cj4gPj4gWyAgIDI5Ljg4OTY1NF0gID8gX19uZGVsYXkrMHg0MC8weDQwCj4gPj4gWyAgIDI5Ljg4
+OTY1N10gIHdhaXRfZm9yX3BhbmljKzB4MWMvMHg2MAo+ID4+IFsgICAyOS44ODk2NjJdICBtY2Vf
+dGltZWRfb3V0KzB4NmQvMHg5MAo+ID4+IFsgICAyOS44ODk2NjVdICBkb19tYWNoaW5lX2NoZWNr
+KzB4OGQ0LzB4ZGIwCj4gPj4gWyAgIDI5Ljg4OTY3M10gID8gbmF0aXZlX3NhZmVfaGFsdCsweGUv
+MHgxMAo+ID4+IFsgICAyOS44ODk2NzldICByYWlzZV9leGNlcHRpb24rMHg0Ny8weGIwIFttY2Vf
+aW5qZWN0XQo+ID4+IFsgICAyOS44ODk2ODRdICA/IF9faW50ZWxfcG11X2VuYWJsZV9hbGwrMHg0
+Ny8weDgwCj4gPj4gWyAgIDI5Ljg4OTY4OV0gID8gbmF0aXZlX2FwaWNfbXNyX3dyaXRlKzB4Mjcv
+MHgzMAo+ID4+IFsgICAyOS44ODk2OTFdICA/IGludGVsX3BtdV9oYW5kbGVfaXJxKzB4MTBkLzB4
+MTYwCj4gPj4gWyAgIDI5Ljg4OTY5Ml0gIG1jZV9yYWlzZV9ub3RpZnkrMHg2Mi8weDcwIFttY2Vf
+aW5qZWN0XQo+ID4+IFsgICAyOS44ODk2OTRdICA/IHJhaXNlX2xvY2FsKzB4YzAvMHhjMCBbbWNl
+X2luamVjdF0KPiA+PiBbICAgMjkuODg5Njk2XSAgbm1pX2hhbmRsZSsweDYzLzB4MTEwCj4gPj4g
+WyAgIDI5Ljg4OTY5OV0gIGRlZmF1bHRfZG9fbm1pKzB4NGUvMHgxMDAKPiA+PiBbICAgMjkuODg5
+NzAyXSAgZG9fbm1pKzB4MTJjLzB4MTkwCj4gPj4gWyAgIDI5Ljg4OTcwNF0gIGVuZF9yZXBlYXRf
+bm1pKzB4MTYvMHg2YQo+ID4+IFsgICAyOS44ODk3MDddIFJJUDogMDAxMDpuYXRpdmVfc2FmZV9o
+YWx0KzB4ZS8weDEwCj4gPj4gWyAgIDI5Ljg4OTcwOF0gQ29kZTogZWIgYmQgOTAgOTAgOTAgOTAg
+OTAgOTAgOTAgOTAgOTAgOTAgZTkgMDcgMDAgMDAgMDAgMGYgMDAgMmQgNDYgNmIgNTkgMDAgZjQg
+YzMgNjYgOTAKPiA+PiBbICAgMjkuODg5NzA5XSBSU1A6IDAwMTg6ZmZmZmZmZmZiNTQwM2U5MCBF
+RkxBR1M6IDAwMDAwMjQ2Cj4gPj4gWyAgIDI5Ljg4OTcxMF0gUkFYOiBmZmZmZmZmZmI0YTcxZjMw
+IFJCWDogMDAwMDAwMDAwMDAwMDAwMCBSQ1g6IDAwMDAwMDAwMDAwMDAwMDAKPiA+PiBbICAgMjku
+ODg5NzExXSBSRFg6IDAwMDAwMDAwMDAwMDAwMDEgUlNJOiAwMDAwMDAwMDAwMDAwMDAwIFJESTog
+MDAwMDAwMDAwMDAwMDAwMAo+ID4+IFsgICAyOS44ODk3MTJdIFJCUDogMDAwMDAwMDAwMDAwMDAw
+MCBSMDg6IDAwMDAwMDBjN2ZkMDc2NDMgUjA5OiAwMDAwMDAwMDAwMDAwMDAxCj4gPj4gWyAgIDI5
+Ljg4OTcxMl0gUjEwOiAwMDAwMDAwMDAwMDAwNDAxIFIxMTogMDAwMDAwMDAwMDAwMDNmNCBSMTI6
+IDAwMDAwMDAwMDAwMDAwMDAKPiA+PiBbICAgMjkuODg5NzE1XSBSMTM6IDAwMDAwMDAwMDAwMDAw
+MDAgUjE0OiAwMDAwMDAwMDAwMDAwMDAwIFIxNTogMDAwMDAwMDAwMDAwMDAwMAo+ID4+IFsgICAy
+OS44ODk3MTldICA/IF9fY3B1aWRsZV90ZXh0X3N0YXJ0KzB4OC8weDgKPiA+PiBbICAgMjkuODg5
+NzIxXSAgPyBmaXJzdF9ubWkrMHgxZS8weDFlCj4gPj4gWyAgIDI5Ljg4OTcyM10gID8gZGVsYXlf
+dHNjKzB4M2IvMHg1MAo+ID4+IFsgICAyOS44ODk3MjRdICA8L05NST4KPiA+PiBbICAgMjkuODg5
+NzI0XSBXQVJOSU5HOiBzdGFjayByZWN1cnNpb24gb24gc3RhY2sgdHlwZSA2Cj4gPj4gWyAgIDI5
+Ljg4OTcyNV0gLS0tWyBlbmQgdHJhY2UgZTAzZWFmMDEzNGM2ZmNkNiBdLS0tCj4gPj4gWyAzMDg2
+LjQ4ODkwMF0gQlVHOiB1bmFibGUgdG8gaGFuZGxlIGtlcm5lbCBwYWdpbmcgcmVxdWVzdCBhdCBm
+ZmZmOTgwNjgwMDAwMDAxIFsgMzA4Ni40ODg5MDJdIFBHRCBhMTgwMTA2NyBQNEQgYTE4MDEwNjcK
+PiA+PiBQVUQgMCBbIDMwODYuNDg4OTE2XSBPb3BzOiAwMDAwIFsjMV0gU01QIFBUSQo+ID4+IFsg
+MzA4Ni40ODg5MTldIENQVTogMiBQSUQ6IDAgQ29tbTogc3dhcHBlci8yIEtkdW1wOiBsb2FkZWQg
+VGFpbnRlZDogRyAgIE0gICAgVyAgT0UKPiA+PiBbIDMwODYuNDg4OTIwXSBIYXJkd2FyZSBuYW1l
+OiBRRU1VIFN0YW5kYXJkIFBDIChpNDQwRlggKyBQSUlYLCAxOTk2KSwgQklPUwo+ID4+IHJlbC0x
+LjEwLjItMC1nNWY0YzdiMS0yMDE4MTIyMF8wMDAwMDAtc3p4cnRvc2NpMTAwMDAgMDQvMDEvMjAx
+NCBbIDMwODYuNDg4OTI3XSBSSVA6IDAwMTA6a2NzX2V2ZW50KzB4M2MyLzB4ODkwIFtpcG1pX3Np
+XQo+ID4+IFsgMzA4Ni40ODg5MjhdIENvZGU6IDc0IDBlIDQ4IDhiIDdiIDA4IDMxIGY2IDQ4IDhi
+IDA3IGU4IDY4IDBmIDliIGY0IDgzIGJiIDI0IDAxIDAwIDAwIDAxIDQ4IDhiIDdiIDA4IFsgMzA4
+Ni40ODg5MzBdIFJTUDoKPiA+PiAwMDE4OmZmZmZmZTAwMDAwNWQ2NTggRUZMQUdTOiAwMDAxMDA0
+NiBbIDMwODYuNDg4OTMxXSBSQVg6IDAwMDAwMDAwMDlhMjRmZjEgUkJYOiBmZmZmOTgwNjc2NWRi
+MDAwIFJDWDogMDAwMDAwMDAwMDAwMDAwMAo+ID4+IFsgMzA4Ni40ODg5MzFdIFJEWDogMDAwMDAw
+MDAwMDAwMGNhMiBSU0k6IDAwMDAwMDAwMDAwMDAwMDAgUkRJOiBmZmZmOTgwNjc1NTFmYzQwIFsg
+MzA4Ni40ODg5MzJdIFJCUDogMDAwMDAwMDAwMDAwMDAwMQo+ID4+IFIwODogMDAwMDAwMDAwMDAw
+MDAwMCBSMDk6IGZmZmZmZmZmMDAwODAyMDQgWyAzMDg2LjQ4ODkzM10gUjEwOiBmZmZmZmUwMDAw
+MDVkYWU4IFIxMTogZmZmZmZlMDAwMDA1ZGIwMCBSMTI6Cj4gPj4gMDAwMDAwMDAwMDAwMDAwMCBb
+IDMwODYuNDg4OTMzXSBSMTM6IGZmZmZmZTAwMDAwNWRiMjggUjE0OiBmZmZmOTgwNjc0ODcwMDAw
+IFIxNTogMDAwMDAwMDAwMDAwMDAwMCBbIDMwODYuNDg4OTM0XSBGUzoKPiA+PiAwMDAwMDAwMDAw
+MDAwMDAwKDAwMDApIEdTOmZmZmY5ODA2N2FkMDAwMDAoMDAwMCkga25sR1M6MDAwMDAwMDAwMDAw
+MDAwMCBbIDMwODYuNDg4OTM1XSBDUzogIDAwMTAgRFM6IDAwMDAgRVM6IDAwMDAgQ1IwOgo+ID4+
+IDAwMDAwMDAwODAwNTAwMzMgWyAzMDg2LjQ4ODkzNl0gQ1IyOiBmZmZmOTgwNjgwMDAwMDAxIENS
+MzogMDAwMDAwMDBhMGEwYTAwNiBDUjQ6IDAwMDAwMDAwMDAzNjA2ZTAgWyAzMDg2LjQ4ODk0Ml0g
+RFIwOgo+ID4+IDAwMDAwMDAwMDAwMDAwMDAgRFIxOiAwMDAwMDAwMDAwMDAwMDAwIERSMjogMDAw
+MDAwMDAwMDAwMDAwMCBbIDMwODYuNDg4OTQyXSBEUjM6IDAwMDAwMDAwMDAwMDAwMDAgRFI2OiAw
+MDAwMDAwMGZmZmUwZmYwCj4gPj4gRFI3OiAwMDAwMDAwMDAwMDAwNDAwIFsgMzA4Ni40ODg5NDNd
+IENhbGwgVHJhY2U6Cj4gPj4gWyAzMDg2LjQ4ODk0Nl0gIDxOTUk+Cj4gPj4gWyAzMDg2LjQ4ODk1
+MF0gIHNtaV9ldmVudF9oYW5kbGVyKzB4NGYvMHg2OTAgW2lwbWlfc2ldIFsgMzA4Ni40ODg5NTJd
+ICBmbHVzaF9tZXNzYWdlcysweDEwLzB4NDAgW2lwbWlfc2ldIFsgMzA4Ni40ODg5NTddCj4gPj4g
+aXBtaV9wYW5pY19yZXF1ZXN0X2FuZF93YWl0KzB4ZjUvMHgxMDAgW2lwbWlfbXNnaGFuZGxlcl0g
+WyAzMDg2LjQ4ODk2MF0gID8gZHVtbXlfc21pX2RvbmVfaGFuZGxlcisweDEwLzB4MTAKPiA+PiBb
+aXBtaV9tc2doYW5kbGVyXSBbIDMwODYuNDg4OTY3XSAgPyBrdm1fc2NoZWRfY2xvY2tfcmVhZCsw
+eGQvMHgyMCBbIDMwODYuNDg4OTcwXSAgPyBzY2hlZF9jbG9jaysweDUvMHgxMAo+ID4+IFsgMzA4
+Ni40ODg5NzVdICA/IHNjaGVkX2Nsb2NrX2NwdSsweGMvMHhhMCBbIDMwODYuNDg4OTgwXSAgPyBs
+b2dfc3RvcmUrMHgyNzgvMHgyYzAgWyAzMDg2LjQ4ODk4Ml0gID8KPiA+PiBpcG1pX3NpX3BsYXRm
+b3JtX3NodXRkb3duKzB4MjAvMHgyMCBbaXBtaV9zaV0gWyAzMDg2LjQ4ODk4NF0gID8ga2NzX2V2
+ZW50KzB4MjAvMHg4OTAgW2lwbWlfc2ldIFsgMzA4Ni40ODg5ODZdICA/Cj4gPj4gaXBtaV9hZGRy
+X2xlbmd0aCsweDQwLzB4NDAgW2lwbWlfbXNnaGFuZGxlcl0gWyAzMDg2LjQ4ODk4OF0gID8gcGFu
+aWNfZXZlbnQrMHgxZDQvMHgzZTAgW2lwbWlfbXNnaGFuZGxlcl0gWyAzMDg2LjQ4ODk5MF0KPiA+
+PiBwYW5pY19ldmVudCsweDFkNC8weDNlMCBbaXBtaV9tc2doYW5kbGVyXSBbIDMwODYuNDg4OTkz
+XSAgPyB2cHJpbnRrX2RlZmVycmVkKzB4M2EvMHg0MCBbIDMwODYuNDg4OTk0XSAgPwo+ID4+IHBy
+aW50aysweDUyLzB4NmUgWyAzMDg2LjQ4ODk5OF0gID8gY3B1bWFza19uZXh0KzB4MTcvMHgyMCBb
+IDMwODYuNDg5MDAwXSAgbm90aWZpZXJfY2FsbF9jaGFpbisweDQ3LzB4NzAgWyAzMDg2LjQ4OTAw
+NF0KPiA+PiBwYW5pYysweDE3ZC8weDJjMiBbIDMwODYuNDg5MDA3XSAgbWNlX3BhbmljKzB4MjE2
+LzB4MjQwIFsgMzA4Ni40ODkwMDldICBkb19tYWNoaW5lX2NoZWNrKzB4Y2NkLzB4ZGIwIFsgMzA4
+Ni40ODkwMTJdICA/Cj4gPj4gbmF0aXZlX3NhZmVfaGFsdCsweGUvMHgxMCBbIDMwODYuNDg5MDE4
+XSAgcmFpc2VfZXhjZXB0aW9uKzB4NDcvMHhiMCBbbWNlX2luamVjdF0gWyAzMDg2LjQ4OTAyMV0g
+ID8KPiA+PiBfX2ludGVsX3BtdV9lbmFibGVfYWxsKzB4NDcvMHg4MCBbIDMwODYuNDg5MDI0XSAg
+PyBuYXRpdmVfYXBpY19tc3Jfd3JpdGUrMHgyNy8weDMwIFsgMzA4Ni40ODkwMjVdICA/Cj4gPj4g
+aW50ZWxfcG11X2hhbmRsZV9pcnErMHgxMGQvMHgxNjAgWyAzMDg2LjQ4OTAyN10gIG1jZV9yYWlz
+ZV9ub3RpZnkrMHg2Mi8weDcwIFttY2VfaW5qZWN0XSBbIDMwODYuNDg5MDI5XSAgPwo+ID4+IHJh
+aXNlX2xvY2FsKzB4YzAvMHhjMCBbbWNlX2luamVjdF0gWyAzMDg2LjQ4OTAzMl0gIG5taV9oYW5k
+bGUrMHg2My8weDExMCBbIDMwODYuNDg5MDM1XSAgZGVmYXVsdF9kb19ubWkrMHg0ZS8weDEwMAo+
+ID4+IFsgMzA4Ni40ODkwMzddICBkb19ubWkrMHgxMmMvMHgxOTAgWyAzMDg2LjQ4OTAzOF0gIGVu
+ZF9yZXBlYXRfbm1pKzB4MTYvMHg2YSBbIDMwODYuNDg5MDQxXSBSSVA6Cj4gPj4gMDAxMDpuYXRp
+dmVfc2FmZV9oYWx0KzB4ZS8weDEwIFsgMzA4Ni40ODkwNDJdIENvZGU6IGViIGJkIDkwIDkwIDkw
+IDkwIDkwIDkwIDkwIDkwIDkwIDkwIGU5IDA3IDAwIDAwIDAwIDBmIDAwIDJkIDQ2IDZiCj4gPj4g
+WyAzMDg2LjQ4OTA0M10gUlNQOiAwMDE4OmZmZmZiNTQ1YzA2OWJlYjAgRUZMQUdTOiAwMDAwMDI0
+NiBbIDMwODYuNDg5MDQ0XSBSQVg6IGZmZmZmZmZmYjRhNzFmMzAgUkJYOiAwMDAwMDAwMDAwMDAw
+MDAyCj4gPj4gUkNYOiAwMDAwMDAwMDAwMDAwMDAwIFsgMzA4Ni40ODkwNDRdIFJEWDogMDAwMDAw
+MDAwMDAwMDAwMSBSU0k6IDAwMDAwMDAwMDAwMDAwMDAgUkRJOiAwMDAwMDAwMDAwMDAwMDAwIFsg
+MzA4Ni40ODkwNDVdCj4gPj4gUkJQOiAwMDAwMDAwMDAwMDAwMDAyIFIwODogMDAwMDAwMGM3ZmE0
+M2NhZSBSMDk6IDAwMDAwMDAwMDAwMDAwMjcgWyAzMDg2LjQ4OTA0NV0gUjEwOiBmZmZmYjU0NWMw
+NjdiY2UwIFIxMToKPiA+PiAwMDAwMDAwMDAwMDAwMWJhIFIxMjogMDAwMDAwMDAwMDAwMDAwMCBb
+IDMwODYuNDg5MDQ2XSBSMTM6IDAwMDAwMDAwMDAwMDAwMDAgUjE0OiAwMDAwMDAwMDAwMDAwMDAw
+IFIxNTogMDAwMDAwMDAwMDAwMDAwMAo+ID4+IFsgMzA4Ni40ODkwNDhdICA/IF9fY3B1aWRsZV90
+ZXh0X3N0YXJ0KzB4OC8weDggWyAzMDg2LjQ4OTA1MV0gID8gbmF0aXZlX3NhZmVfaGFsdCsweGUv
+MHgxMCBbIDMwODYuNDg5MDUyXSAgPwo+ID4+IG5hdGl2ZV9zYWZlX2hhbHQrMHhlLzB4MTAgWyAz
+MDg2LjQ4OTA1M10gIDwvTk1JPiBbIDMwODYuNDg5MDU0XSAgZGVmYXVsdF9pZGxlKzB4MWEvMHhk
+MCBbIDMwODYuNDg5MDU2XQo+ID4+IGRvX2lkbGUrMHgxYWEvMHgyNTAgWyAzMDg2LjQ4OTA1N10g
+IGNwdV9zdGFydHVwX2VudHJ5KzB4NmYvMHg4MCBbIDMwODYuNDg5MDYwXSAgc3RhcnRfc2Vjb25k
+YXJ5KzB4MWE3LzB4MjAwCj4gPj4gWyAzMDg2LjQ4OTA2NF0gIHNlY29uZGFyeV9zdGFydHVwXzY0
+KzB4YjcvMHhjMCBbIDMwODYuNDg5MDY2XSBNb2R1bGVzIGxpbmtlZCBpbjogbWNlX2luamVjdCBj
+b3JlX21vZHVsZV9mcmFtZShPRSkga2JveChPKQo+ID4+IHN5c21vbml0b3IoTykgWyAzMDg2LjQ4
+OTA4OV0ga2VybmVsIGZhdWx0KDB4MSkgbm90aWZpY2F0aW9uIHN0YXJ0aW5nIG9uIENQVSAyIFsg
+MzA4Ni40ODkwOTRdIGtlcm5lbCBmYXVsdCgweDEpIG5vdGlmaWNhdGlvbgo+ID4+IGZpbmlzaGVk
+IG9uIENQVSAyCj4gPj4KPiA+PiBjcmFzaD4gc3RydWN0IHNpX3NtX2RhdGEgMHhmZmZmOGIwNmYw
+OGJlYzAwCj4gPj4gc3RydWN0IHNpX3NtX2RhdGEgewo+ID4+ICAgc3RhdGUgPSBLQ1NfV0FJVF9X
+UklURSwKPiA+PiAgIGlvID0gMHhmZmZmOGIwNmYwYmQ1ZTQwLAo+ID4+ICAgd3JpdGVfZGF0YSA9
+ICJcMDIwXDAwMkFcMDAzIEZvXDI0MWF0XC4uLi4KPiA+PiAgIHdyaXRlX3BvcyA9IDE4MzMxMTc5
+LCAgICA8LS0tLQo+ID4+ICAgd3JpdGVfY291bnQgPSAtMTgzMzEzNzIsCj4gPj4gICBvcmlnX3dy
+aXRlX2NvdW50ID0gMTAsCj4gPj4gICByZWFkX2RhdGEgPSAiXDAzNEJcMDAwXDAwMFwwMDFcLi4u
+Cj4gPj4gICByZWFkX3BvcyA9IDAsCj4gPj4gICB0cnVuY2F0ZWQgPSAwLAo+ID4+ICAgZXJyb3Jf
+cmV0cmllcyA9IDEsCj4gPj4gICBpYmZfdGltZW91dCA9IDUwMDAwMDAsCj4gPj4gICBvYmZfdGlt
+ZW91dCA9IDUwMDAwMDAsCj4gPj4gICBlcnJvcjBfdGltZW91dCA9IDQyOTQ3MzQ4OTgKPiA+PiB9
+Cj4gPj4KPiA+PiBGaXhlczogODI4MDJmOTY4YmQzMSAoImlwbWk6IERvbid0IGZsdXNoIG1lc3Nh
+Z2VzIGluIHNlbmRlcigpIGluIHJ1bi10by1jb21wbGV0aW9uIG1vZGUiKQo+ID4+IFNpZ25lZC1v
+ZmYtYnk6IFd1IEJvIDx3dWJvNDBAaHVhd2VpLmNvbT4KPiA+PiAtLS0KPiA+PiAgZHJpdmVycy9j
+aGFyL2lwbWkvaXBtaV9zaV9pbnRmLmMgfCAxNyArKysrKysrKysrLS0tLS0tLQo+ID4+ICAxIGZp
+bGUgY2hhbmdlZCwgMTAgaW5zZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMoLSkKPiA+Pgo+ID4+IGRp
+ZmYgLS1naXQgYS9kcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NpX2ludGYuYyBiL2RyaXZlcnMvY2hh
+ci9pcG1pL2lwbWlfc2lfaW50Zi5jCj4gPj4gaW5kZXggNzdiOGQ1NTFhZTdmLi45NjFlN2IwYjEx
+ZmUgMTAwNjQ0Cj4gPj4gLS0tIGEvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zaV9pbnRmLmMKPiA+
+PiArKysgYi9kcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NpX2ludGYuYwo+ID4+IEBAIC04ODIsMTUg
+Kzg4MiwxOCBAQCBzdGF0aWMgdm9pZCBmbHVzaF9tZXNzYWdlcyh2b2lkICpzZW5kX2luZm8pICB7
+Cj4gPj4gIAlzdHJ1Y3Qgc21pX2luZm8gKnNtaV9pbmZvID0gc2VuZF9pbmZvOwo+ID4+ICAJZW51
+bSBzaV9zbV9yZXN1bHQgcmVzdWx0Owo+ID4+ICsJdW5zaWduZWQgbG9uZyBmbGFncyA9IDA7Cj4g
+Pj4gKwlpbnQgdGltZSA9IDA7Cj4gPj4KPiA+PiAtCS8qCj4gPj4gLQkgKiBDdXJyZW50bHksIHRo
+aXMgZnVuY3Rpb24gaXMgY2FsbGVkIG9ubHkgaW4gcnVuLXRvLWNvbXBsZXRpb24KPiA+PiAtCSAq
+IG1vZGUuICBUaGlzIG1lYW5zIHdlIGFyZSBzaW5nbGUtdGhyZWFkZWQsIG5vIG5lZWQgZm9yIGxv
+Y2tzLgo+ID4+IC0JICovCj4gPj4gLQlyZXN1bHQgPSBzbWlfZXZlbnRfaGFuZGxlcihzbWlfaW5m
+bywgMCk7Cj4gPj4gLQl3aGlsZSAocmVzdWx0ICE9IFNJX1NNX0lETEUpIHsKPiA+PiArcmVzdGFy
+dDoKPiA+PiArCXNwaW5fbG9ja19pcnFzYXZlKCZzbWlfaW5mby0+c2lfbG9jaywgZmxhZ3MpOwo+
+ID4+ICsJcmVzdWx0ID0gc21pX2V2ZW50X2hhbmRsZXIoc21pX2luZm8sIHRpbWUpOwo+ID4+ICsJ
+c3Bpbl91bmxvY2tfaXJxcmVzdG9yZSgmc21pX2luZm8tPnNpX2xvY2ssIGZsYWdzKTsKPiA+PiAr
+Cj4gPj4gKwlpZiAocmVzdWx0ICE9IFNJX1NNX0lETEUpIHsKPiA+PiAgCQl1ZGVsYXkoU0lfU0hP
+UlRfVElNRU9VVF9VU0VDKTsKPiA+PiAtCQlyZXN1bHQgPSBzbWlfZXZlbnRfaGFuZGxlcihzbWlf
+aW5mbywgU0lfU0hPUlRfVElNRU9VVF9VU0VDKTsKPiA+PiArCQl0aW1lID0gU0lfU0hPUlRfVElN
+RU9VVF9VU0VDOwo+ID4+ICsJCWdvdG8gcmVzdGFydDsKPiA+PiAgCX0KPiA+PiAgfQo+ID4+Cj4g
+Pj4gLS0KPiA+PiAyLjIzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpPcGVuaXBtaS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVs
+b3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQv
+bGlzdHMvbGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVyCg==
