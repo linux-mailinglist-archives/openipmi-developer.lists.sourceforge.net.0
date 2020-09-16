@@ -2,75 +2,79 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04E9728672C
+	by mail.lfdr.de (Postfix) with ESMTPS id 0D0CF28672D
 	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Oct 2020 20:29:40 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQEC2-00082Y-CF; Wed, 07 Oct 2020 18:29:38 +0000
+	id 1kQEC2-00082q-FY; Wed, 07 Oct 2020 18:29:38 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <wubo40@huawei.com>) id 1kIYns-0007JZ-Kr
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Sep 2020 14:53:00 +0000
+ (envelope-from <tian.xianting@h3c.com>) id 1kIZ34-0001J6-2E
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Sep 2020 15:08:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:CC:To:Subject:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
+ :In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=uUl0LvDH730xAXNHWVpqcpS+NAoB8tsyE65BfyRhbBY=; b=I33BAcktL70ZBL+mijkjtqLFpe
- nM+RK9RyYZ24z6brWs8wR4rikbb4Kr/0sX49T/wgCEs6OTzJKcKf4CPZZzs5OPhk2haJUk7JX7VB9
- FwcXDsXIdaqKbH25vGhodbPzUyDUqSZW/EWNKq94Ja+Gj4/YWAVPWULg3FGZj5uSFkzM=;
+ bh=w71FvJPvHoPqFGdSu0IMq5Ba9vK6nyCZtN5ymVRbCDk=; b=G/7SPdVfrxRwoqXEXhVAiCBziZ
+ i7Q88ozAiPYbCn9torL1X1Iz44ftKzRh3GEXcicT/xJa/sS8/UKj63TwKcSjRVWo43PuLteX541be
+ RQnGfQlkW7ZdAxtH0HQOe2dty13uKEIwg7bPTwQO5S/+sXM0HLUcWjrJArxyZRk5SMpg=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:CC:To:Subject:Sender:Reply-To:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=uUl0LvDH730xAXNHWVpqcpS+NAoB8tsyE65BfyRhbBY=; b=IL4Txy4tynIbfp9N16pRtX2CBO
- +yHAgkqSKdSgD8VdCY6lFRSjRs6y/1o0Q7sLErEC8g3YNtHoAbugzu9jqzOv6vexi4661j2eiRHJ/
- sIb4jeDAr3cVMFgNAHkKBXpEpiC3Toszahh0Nh9OP4J/xAuui9nYtN7EoXdlD/Xfindo=;
-Received: from szxga06-in.huawei.com ([45.249.212.32] helo=huawei.com)
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ bh=w71FvJPvHoPqFGdSu0IMq5Ba9vK6nyCZtN5ymVRbCDk=; b=SgC5OoCqP2HJm0jCi/JJLfNisd
+ XncomwkjEF0Lp1z7UoUlwJB0MGqB4UmCEzNBd7e8h8+lIiTha31v+l5vh7GscSz6YGlWlKnnCfxZu
+ pMiWTFLc0cRIUkS8FrJI/8mLK68Sj0fMKZ2IdO5XoJ9/cnxxDysIlvrGVnY81vm9+oBE=;
+Received: from smtp.h3c.com ([60.191.123.50] helo=h3cspam02-ex.h3c.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kIYnk-00BVrD-7o
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Sep 2020 14:53:00 +0000
-Received: from DGGEMS409-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id B434EAA61EAF09056149;
- Wed, 16 Sep 2020 22:52:38 +0800 (CST)
-Received: from [10.174.179.35] (10.174.179.35) by
- DGGEMS409-HUB.china.huawei.com (10.3.19.209) with Microsoft SMTP Server id
- 14.3.487.0; Wed, 16 Sep 2020 22:52:31 +0800
-To: <minyard@acm.org>
-References: <1600074602-622893-1-git-send-email-wubo40@huawei.com>
- <TYAPR01MB2429AAE58FF9FF020F657509B5230@TYAPR01MB2429.jpnprd01.prod.outlook.com>
- <4e1abe31-da85-1b64-f680-b1e91027bff5@huawei.com>
- <20200914142938.GK15602@minyard.net>
-From: Wu Bo <wubo40@huawei.com>
-Message-ID: <e6e9edcd-14a5-476d-bc56-166c2d10fb41@huawei.com>
-Date: Wed, 16 Sep 2020 22:52:31 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ id 1kIZ2v-00Ca6E-J8
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Sep 2020 15:08:41 +0000
+Received: from DAG2EX01-BASE.srv.huawei-3com.com ([10.8.0.64])
+ by h3cspam02-ex.h3c.com with ESMTPS id 08GF7RNE071408
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Wed, 16 Sep 2020 23:07:27 +0800 (GMT-8)
+ (envelope-from tian.xianting@h3c.com)
+Received: from DAG2EX03-BASE.srv.huawei-3com.com (10.8.0.66) by
+ DAG2EX01-BASE.srv.huawei-3com.com (10.8.0.64) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Wed, 16 Sep 2020 23:07:31 +0800
+Received: from DAG2EX03-BASE.srv.huawei-3com.com ([fe80::5d18:e01c:bbbd:c074])
+ by DAG2EX03-BASE.srv.huawei-3com.com ([fe80::5d18:e01c:bbbd:c074%7])
+ with mapi id 15.01.1713.004; Wed, 16 Sep 2020 23:07:29 +0800
+From: Tianxianting <tian.xianting@h3c.com>
+To: "minyard@acm.org" <minyard@acm.org>
+Thread-Topic: [PATCH] ipmi: add retry in try_get_dev_id()
+Thread-Index: AQHWi/KUv4PaYKMu7k+putdjlQvGRKlqxboAgACX95A=
+Date: Wed, 16 Sep 2020 15:07:29 +0000
+Message-ID: <39fc1fea8847405298e0ce750c3c3569@h3c.com>
+References: <20200916062129.26129-1-tian.xianting@h3c.com>
+ <20200916140126.GE3674@minyard.net>
+In-Reply-To: <20200916140126.GE3674@minyard.net>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.99.141.128]
+x-sender-location: DAG2
 MIME-Version: 1.0
-In-Reply-To: <20200914142938.GK15602@minyard.net>
-Content-Language: en-US
-X-Originating-IP: [10.174.179.35]
-X-CFilter-Loop: Reflected
-X-Spam-Score: -0.1 (/)
+X-DNSRBL: 
+X-MAIL: h3cspam02-ex.h3c.com 08GF7RNE071408
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [45.249.212.32 listed in wl.mailspike.net]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.1 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1kIYnk-00BVrD-7o
-X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:28 +0000
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: Fix out-of-bounds in
- write_next_byte()
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+X-Headers-End: 1kIZ2v-00Ca6E-J8
+X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:26 +0000
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: add retry in try_get_dev_id()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -83,165 +87,115 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "arnd@arndb.de" <arnd@arndb.de>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "linfeilong@huawei.com" <linfeilong@huawei.com>,
- =?UTF-8?B?5rKz5ZCI6Iux5a6PIC8gS0FXQUnvvIxISURFSElSTw==?=
- <hidehiro.kawai.ez@hitachi.com>, "openipmi-developer@lists.sourceforge.net"
+Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "openipmi-developer@lists.sourceforge.net"
  <openipmi-developer@lists.sourceforge.net>,
- "liuzhiqiang26@huawei.com" <liuzhiqiang26@huawei.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "arnd@arndb.de" <arnd@arndb.de>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T24gMjAyMC85LzE0IDIyOjI5LCBDb3JleSBNaW55YXJkIHdyb3RlOgo+IE9uIE1vbiwgU2VwIDE0
-LCAyMDIwIGF0IDA5OjMzOjA3UE0gKzA4MDAsIFd1IEJvIHdyb3RlOgo+PiBPbiAyMDIwLzkvMTQg
-MjA6MTMsIOays+WQiOiLseWujyAvIEtBV0FJ77yMSElERUhJUk8gd3JvdGU6Cj4+PiBIaSwgV3UK
-Pj4+Cj4+Pj4gRnJvbTogV3UgQm8gPHd1Ym80MEBodWF3ZWkuY29tPgo+Pj4+IEluIHRoZSB2aXJ0
-dWFsIG1hY2hpbmUsIFVzZSBtY2VfaW5qZWN0IHRvIGluamVjdCBlcnJvcnMgaW50byB0aGUgc3lz
-dGVtLgo+Pj4+IEFmdGVyIG1jZS1pbmplY3QgaW5qZWN0cyBhbiB1bmNvcnJlY3RhYmxlIGVycm9y
-LCB0aGVyZSBpcyBhIHByb2JhYmlsaXR5Cj4+Pj4gdGhhdCB0aGUgdmlydHVhbCBtYWNoaW5lIGlz
-IG5vdCByZXNldCBpbW1lZGlhdGVseSwKPj4+PiBidXQgaGFuZ3MgZm9yIG1vcmUgdGhhbgo+Pj4+
-IDMwMDAgc2Vjb25kcy4gQW5kIHRoZSB3cml0ZV9kYXRhIGFycmF5IGlzIGFjY2Vzc2VkIG91dCBv
-ZiBib3VuZHMuCj4+Pj4KPj4+PiBUaGUgcmVhbCByZWFzb24gaXMgdGhhdCBzbWlfZXZlbnRfaGFu
-ZGxlciBsYWNrIG9mIGxvY2sgcHJvdGVjdGlvbiBpbiB0aGUKPj4+PiBtdWx0aS10aHJlYWRlZCBz
-Y2VuYXJpbywgd2hpY2ggY2F1c2VzIHdyaXRlX3Bvcwo+Pj4+IHRvIGV4Y2VlZCB0aGUgc2l6ZSBv
-ZiB0aGUgd3JpdGVfZGF0YSBhcnJheS4KPj4+Cj4+PiBUaGFuayB5b3UgZm9yIHRoZSBmaXgsIGJ1
-dCBJIHdvbmRlciB3aHkgdGhpcyBtdWx0aS10aHJlYWRlZCBzY2VuYXJpbyBoYXBwZW5zLgo+Pj4g
-SWYgbXkgdW5kZXJzdGFuZGluZyBpcyBjb3JyZWN0LCBvbmx5IG9uZSBDUFUgY2FuIHJ1biBwYW5p
-YyByb3V0aW5lcywgYW5kCj4+PiB0aGlzIG1lYW5zIG9ubHkgb25lIENQVSBjYWxscyBmbHVzaF9t
-ZXNzYWdlcy4gIERpZCBJIG1pc3Mgc29tZSBjYWxsIHBhdGg/Cj4+Pgo+Pj4gQmVzdCByZWdhcmRz
-LAo+Pj4KPj4+IEhpZGVoaXJvIEthd2FpCj4+PiBIaXRhY2hpLCBMdGQuIFJlc2VhcmNoICYgRGV2
-ZWxvcG1lbnQgR3JvdXAKPj4KPj4gSGksCj4+Cj4+IFlvdSdyZSByaWdodCwgb25seSBvbmUgQ1BV
-IGNhbiBydW4gcGFuaWMgcm91dGluZXMuCj4+IFNvcnJ5LCBJIG1pc3NlZCBhbm90aGVyIGNhbGwg
-cGF0aC4gd2hlbiB0aGUgcGFuaWMgb2NjdXJyZWQgYW5kIGludGVycnVwdGlvbgo+PiBvY2N1cnJl
-ZCBhdCB0aGUgc2FtZSB0aW1lLgo+Pgo+PiBDUFUwCQkgICAgICAgICAgICAgICAgICAgIENQVTMK
-Pj4gICAtPm5taV9oYW5kbGUJCQkgICAgIGhhbmRsZV9pcnEKPj4gICAgIC0+IG1jZV9yYWlzZV9u
-b3RpZnkJCSAgICAgIC0+IGhhbmRsZV9mYXN0ZW9pX2lycQo+PiAgICAgICAtPiBwYW5pY19ldmVu
-dAkJICAgICAgICAtPiBoYW5kbGVfaXJxX2V2ZW50Cj4+ICAgICAgICAgLT4gaXBtaV9wYW5pY19y
-ZXF1ZXN0X2FuZF93YWl0ICAgICAgLT4gaGFuZGxlX2lycV9ldmVudF9wZXJjcHUKPj4gICAgICAg
-ICAgICAtPmZsdXNoX21lc3NhZ2VzICAgICAgICAgICAgICAgICAgIC0+IGlwbWlfc2lfaXJxX2hh
-bmRsZXIKPj4gICAgICAgICAgICAgICAgLT4gc21pX2V2ZW50X2hhbmRsZXIgICAgICAgICAgICAg
-IC0+IHNtaV9ldmVudF9oYW5kbGVyCj4+IAkJLT5rY3NfZXZlbnQoKSAgICAgICAgICAgICAgICAg
-ICAgICAgLT5rY3NfZXZlbnQoKQo+Pgo+PiBUaGVyZSBpcyBhIHNpbXVsdGFuZW91cyBjYWxsIHRv
-IHRoZSBzbWlfZXZlbnRfaGFuZGxlcigpIGZ1bmN0aW9uLgo+IAo+IFdpdGggeW91ciBwYXRjaCwg
-dGhpcyB3aWxsIHJlc3VsdCBpbiBzcGlubmluZyB3YWl0aW5nIGZvciB0aGUgbG9jawo+IGZvcmV2
-ZXIuIFNvIHRoYXQncyBub3Qgd2hhdCBpcyBoYXBwZW5pbmcgaGVyZS4KPiAKPiBUaGUgcGFuaWMg
-ZXZlbnQgc2hvdWxkIHN0b3AgdGhlIG90aGVyIHByb2Nlc3NvcnMgYmVmb3JlIGZsdXNoX21lc3Nh
-Z2VzKCkKPiBoYXBwZW5zLCByaWdodD8gIElmIHNvLCBpdCBpcyBwb3NzaWJsZSB0aGF0IHRoZSBJ
-UE1JIHN0YXRlIG1hY2hpbmUgaXMKPiBydW5uaW5nLCBidXQgdGhpcyBzaG91bGQgcmVzdWx0IGlu
-IHRoZSBzdGF0ZSBtYWNoaW5lIGJlaW5nIHJlc2V0Lgo+IAo+IC1jb3JleQo+IAoKSGksIGNvcmV5
-CgpUaGFua3MgZm9yIHlvdXIgcmVwbHkuIE1DRSBhcHBlYXJzIG9uIGFsbCBDUFVzLApDdXJyZW50
-bHkgYWxsIENQVXMgYXJlIGluIHRoZSBOTUkgaW50ZXJydXB0IGNvbnRleHQuCmNwdTAgaXMgdGhl
-IGZpcnN0IHRvIHNlaXplIHRoZSBvcHBvcnR1bml0eSB0byBydW4gcGFuaWMgcm91dGluZXMsIGFu
-ZCAKcGFuaWMgZXZlbnQgc2hvdWxkIHN0b3AgdGhlIG90aGVyIHByb2Nlc3NvcnMgYmVmb3JlIGZs
-dXNoX21lc3NhZ2VzKCkuIApidXQgY3B1MSwgY3B1MiBhbmQgY3B1MyBoYXMgYWxyZWFkeSBpbiBO
-TUkgaW50ZXJydXB0IGNvbnRleHQsIFNvIHRoZSAKU2Vjb25kIE5NSSBpbnRlcnJ1cHQgd2lsbCBu
-b3QgYmUgcHJvY2Vzc2VkIGFnYWluIGJ5IGNwdTEsIGNwdTIgYW5kIGNwdTMuCmF0IHRoaXMgdGlt
-ZSwgY3B1MSxjcHUyIGFuZCBjcHUzIGRpZCBub3Qgc3RvcGVkLgoKY3B1MSwgY3B1MiBhbmQgY3B1
-MyBhcmUgd2FpdHRpbmcgZm9yIGNwdTAgdG8gZmluaXNoIHRoZSBwYW5pYyBwcm9jZXNzLiAKKGRv
-IHdhaXRfZm9yX3BhbmljKCkpLCB0aGUgaXJxIGlzIGVuYWJsZWQgaW4gdGhlIHdhaXRfZm9yX3Bh
-bmljKCkgZnVuY3Rpb24uCgppcG1pIElSUSBvY2N1cnMgb24gdGhlIGNwdTMsIGFuZCB0aGUgY3B1
-MCBpcyBkb2luZyB0aGUgcGFuaWMsCnRoZXkgaGF2ZSB0aGUgb3Bwb3J0dW5pdHkgdG8gY2FsbCB0
-aGUgc21pX2V2ZW50X2hhbmRsZXIoKSBmdW5jdGlvbiAKY29uY3VycmVudGx5LgoKQmVzdCByZWdh
-cmRzLAoKV3UgQm8KCj4+Cj4+IEluIHRoZSBrY3NfZXZlbnQoKToKPj4gY2FzZSBLQ1NfV0FJVF9X
-UklURToKPj4gLi4uCj4+IGlmIChrY3MtPndyaXRlX2NvdW50ID09IDEpIHsKPj4gCXdyaXRlX2Nt
-ZChrY3MsIEtDU19XUklURV9FTkQpOwo+PiAJa2NzLT5zdGF0ZSA9IEtDU19XQUlUX1dSSVRFX0VO
-RDsKPj4gfSBlbHNlIHsKPj4gCXdyaXRlX25leHRfYnl0ZShrY3MpOwo+PiB9Cj4+IC4uLgo+Pgo+
-PiBUaGUgaW50ZXJydXB0IGNhbGwgcGF0aCBoYXMgYmVlbiBsb2NrZWQgYW5kIHByb3RlY3RlZC4K
-Pj4gQnV0IHRoZSBwYW5pYyBjYWxsIHBhdGggaXMgbm90IHByb3RlY3RlZCBieSBsb2NrLgo+PiBU
-aGVyZSBtYXkgYmUga2NzLT53cml0ZV9jb3VudCA9PSAxIGlzIG5vdCBpbnZhbGlkLiBTbyB3aWxs
-IGFwcGVhcgo+PiBjYWxsIHdyaXRlX25leHRfYnl0ZSgpIHJlcGVhdGVkbHksIHJlc3VsdGluZyBp
-biB0aGUgd3JpdGVfZGF0YSBhcnJheSBpcwo+PiBhY2Nlc3NlZCBvdXQgb2YgYm91bmRzLgo+Pgo+
-PiBjcmFzaD4gYnQgLWEKPj4gUElEOiAwICAgICAgVEFTSzogZmZmZmZmZmY5NjgxMjc4MCAgQ1BV
-OiAwICAgQ09NTUFORDogInN3YXBwZXIvMCIKPj4gICAjMCBbZmZmZmZlMDAwMDAwN2JjMF0gcGFu
-aWMgYXQgZmZmZmZmZmY5NTZiMmQzZQo+PiAgICMxIFtmZmZmZmUwMDAwMDA3YzQ4XSB3YWl0X2Zv
-cl9wYW5pYyBhdCBmZmZmZmZmZjk1NjM3Y2EyCj4+ICAgIzIgW2ZmZmZmZTAwMDAwMDdjNThdIG1j
-ZV90aW1lZF9vdXQgYXQgZmZmZmZmZmY5NTYzN2Y1ZAo+PiAgICMzIFtmZmZmZmUwMDAwMDA3Yzcw
-XSBkb19tYWNoaW5lX2NoZWNrIGF0IGZmZmZmZmZmOTU2MzhkYjQKPj4gICAjNCBbZmZmZmZlMDAw
-MDAwN2Q4MF0gcmFpc2VfZXhjZXB0aW9uIGF0IGZmZmZmZmZmYzA1YjYxMTcgW21jZV9pbmplY3Rd
-Cj4+ICAgIzUgW2ZmZmZmZTAwMDAwMDdlNDhdIG1jZV9yYWlzZV9ub3RpZnkgYXQgZmZmZmZmZmZj
-MDViNmE5MiBbbWNlX2luamVjdF0KPj4gICAjNiBbZmZmZmZlMDAwMDAwN2U1OF0gbm1pX2hhbmRs
-ZSBhdCBmZmZmZmZmZjk1NjIxYzczCj4+ICAgIzcgW2ZmZmZmZTAwMDAwMDdlYjBdIGRlZmF1bHRf
-ZG9fbm1pIGF0IGZmZmZmZmZmOTU2MjIxM2UKPj4gICAjOCBbZmZmZmZlMDAwMDAwN2VkMF0gZG9f
-bm1pIGF0IGZmZmZmZmZmOTU2MjIzMWMKPj4gICAjOSBbZmZmZmZlMDAwMDAwN2VmMF0gZW5kX3Jl
-cGVhdF9ubWkgYXQgZmZmZmZmZmY5NjAwMTZiNAo+PiAgICAgIFtleGNlcHRpb24gUklQOiBuYXRp
-dmVfc2FmZV9oYWx0KzE0XQo+PiAgICAgIFJJUDogZmZmZmZmZmY5NWU3MjIzZSAgUlNQOiBmZmZm
-ZmZmZjk2ODAzZTkwICBSRkxBR1M6IDAwMDAwMjQ2Cj4+ICAgICAgUkFYOiBmZmZmZmZmZjk1ZTcx
-ZjMwICBSQlg6IDAwMDAwMDAwMDAwMDAwMDAgIFJDWDogMDAwMDAwMDAwMDAwMDAwMAo+PiAgICAg
-IFJEWDogMDAwMDAwMDAwMDAwMDAwMSAgUlNJOiAwMDAwMDAwMDAwMDAwMDAwICBSREk6IDAwMDAw
-MDAwMDAwMDAwMDAKPj4gICAgICBSQlA6IDAwMDAwMDAwMDAwMDAwMDAgICBSODogMDAwMDAwMThj
-ZjdjMDY4YSAgIFI5OiAwMDAwMDAwMDAwMDAwMDAxCj4+ICAgICAgUjEwOiBmZmZmYTIyMmMwYjE3
-Yjg4ICBSMTE6IDAwMDAwMDAwMDFlMmY4ZmIgIFIxMjogMDAwMDAwMDAwMDAwMDAwMAo+PiAgICAg
-IFIxMzogMDAwMDAwMDAwMDAwMDAwMCAgUjE0OiAwMDAwMDAwMDAwMDAwMDAwICBSMTU6IDAwMDAw
-MDAwMDAwMDAwMDAKPj4gICAgICBPUklHX1JBWDogZmZmZmZmZmZmZmZmZmZmZiAgQ1M6IDAwMTAg
-IFNTOiAwMDE4Cj4+IC0tLSA8Tk1JIGV4Y2VwdGlvbiBzdGFjaz4gLS0tCj4+ICMxMCBbZmZmZmZm
-ZmY5NjgwM2U5MF0gbmF0aXZlX3NhZmVfaGFsdCBhdCBmZmZmZmZmZjk1ZTcyMjNlCj4+ICMxMSBb
-ZmZmZmZmZmY5NjgwM2U5MF0gZGVmYXVsdF9pZGxlIGF0IGZmZmZmZmZmOTVlNzFmNGEKPj4gIzEy
-IFtmZmZmZmZmZjk2ODAzZWIwXSBkb19pZGxlIGF0IGZmZmZmZmZmOTU2ZTk1OWEKPj4gIzEzIFtm
-ZmZmZmZmZjk2ODAzZWYwXSBjcHVfc3RhcnR1cF9lbnRyeSBhdCBmZmZmZmZmZjk1NmU5ODFmCj4+
-ICMxNCBbZmZmZmZmZmY5NjgwM2YxMF0gc3RhcnRfa2VybmVsIGF0IGZmZmZmZmZmOTZkOWIyMDYK
-Pj4gIzE1IFtmZmZmZmZmZjk2ODAzZjUwXSBzZWNvbmRhcnlfc3RhcnR1cF82NCBhdCBmZmZmZmZm
-Zjk1NjAwMGU3Cj4+Cj4+Cj4+IFBJRDogMCAgICAgIFRBU0s6IGZmZmY4YjA2Yzc3ZGM3NDAgIENQ
-VTogMyAgIENPTU1BTkQ6ICJzd2FwcGVyLzMiCj4+ICAgICAgW2V4Y2VwdGlvbiBSSVA6IHBvcnRf
-b3V0YisxN10KPj4gICAgICBSSVA6IGZmZmZmZmZmYzAzNWYxYTEgIFJTUDogZmZmZjhiMDZmYWQ4
-M2U5MCAgUkZMQUdTOiAwMDAwMDAwMgo+PiAgICAgIFJBWDogMDAwMDAwMDAwMDAwMDAwMCAgUkJY
-OiBmZmZmOGIwNmYwOGJlYzAwICBSQ1g6IDAwMDAwMDAwMDAwMDAwMTAKPj4gICAgICBSRFg6IDAw
-MDAwMDAwMDAwMDBjYTIgIFJTSTogMDAwMDAwMDAwMDAwMDAwMCAgUkRJOiBmZmZmOGIwNmYwYmQ1
-ZTQwCj4+ICAgICAgUkJQOiAwMDAwMDAwMDAwMDAwMDAxICAgUjg6IGZmZmY4YjA2ZmFkODAwODAg
-ICBSOTogZmZmZjhiMDZmYWQ4NDAwMAo+PiAgICAgIFIxMDogMDAwMDAwMDAwMDAwMDAwMCAgUjEx
-OiAwMDAwMDAwMDAwMDAwMDAwICBSMTI6IDAwMDAwMDAwMDAwMDAwMDAKPj4gICAgICBSMTM6IGZm
-ZmY4YjA2ZmFkODNmNTQgIFIxNDogMDAwMDAwMDAwMDAwMDAwMCAgUjE1OiAwMDAwMDAwMDAwMDAw
-MDAwCj4+ICAgICAgQ1M6IDAwMTAgIFNTOiAwMDE4Cj4+ICAgIzAgW2ZmZmY4YjA2ZmFkODNlOTBd
-IGtjc19ldmVudCBhdCBmZmZmZmZmZmMwMzVjMmM3IFtpcG1pX3NpXQo+PiAgICMxIFtmZmZmOGIw
-NmZhZDgzZWIwXSBzbWlfZXZlbnRfaGFuZGxlciBhdCBmZmZmZmZmZmMwMzVhYTNmIFtpcG1pX3Np
-XQo+PiAgICMyIFtmZmZmOGIwNmZhZDgzZWU4XSBpcG1pX3NpX2lycV9oYW5kbGVyIGF0IGZmZmZm
-ZmZmYzAzNWIwY2MgW2lwbWlfc2ldCj4+ICAgIzMgW2ZmZmY4YjA2ZmFkODNmMDhdIF9faGFuZGxl
-X2lycV9ldmVudF9wZXJjcHUgYXQgZmZmZmZmZmY5NTcxZGZjMAo+PiAgICM0IFtmZmZmOGIwNmZh
-ZDgzZjQ4XSBoYW5kbGVfaXJxX2V2ZW50X3BlcmNwdSBhdCBmZmZmZmZmZjk1NzFlMTQwCj4+ICAg
-IzUgW2ZmZmY4YjA2ZmFkODNmNzBdIGhhbmRsZV9pcnFfZXZlbnQgYXQgZmZmZmZmZmY5NTcxZTFi
-Ngo+PiAgICM2IFtmZmZmOGIwNmZhZDgzZjkwXSBoYW5kbGVfZmFzdGVvaV9pcnEgYXQgZmZmZmZm
-ZmY5NTcyMWI0Mgo+PiAgICM3IFtmZmZmOGIwNmZhZDgzZmIwXSBoYW5kbGVfaXJxIGF0IGZmZmZm
-ZmZmOTU2MjA5ZTgKPj4gICAjOCBbZmZmZjhiMDZmYWQ4M2ZjMF0gZG9fSVJRIGF0IGZmZmZmZmZm
-OTYwMDFlZTkKPj4gLS0tIDxJUlEgc3RhY2s+IC0tLQo+PiAgICM5IFtmZmZmZmUwMDAwMDg4Yjk4
-XSByZXRfZnJvbV9pbnRyIGF0IGZmZmZmZmZmOTYwMDBhOGYKPj4gICAgICBbZXhjZXB0aW9uIFJJ
-UDogZGVsYXlfdHNjKzUyXQo+PiAgICAgIFJJUDogZmZmZmZmZmY5NWU1ZmI2NCAgUlNQOiBmZmZm
-ZmUwMDAwMDg4YzQ4ICBSRkxBR1M6IDAwMDAwMjg3Cj4+ICAgICAgUkFYOiAwMDAwMjNmYjVlZGY0
-YjE0ICBSQlg6IDAwMDAwMDAwMDAzZTA0NTEgIFJDWDogMDAwMDIzZmI1ZWRmNDc5OAo+PiAgICAg
-IFJEWDogMDAwMDAwMDAwMDAwMDM3YyAgUlNJOiAwMDAwMDAwMDAwMDAwMDAzICBSREk6IDAwMDAw
-MDAwMDAwMDA5NWIKPj4gICAgICBSQlA6IGZmZmZmZTAwMDAwODhjYzAgICBSODogMDAwMDAwMDAw
-MDAwMDAwNCAgIFI5OiBmZmZmZmUwMDAwMDg4YzVjCj4+ICAgICAgUjEwOiBmZmZmZmZmZjk2YTA1
-YWUwICBSMTE6IDAwMDAwMDAwMDAwMDAwMDAgIFIxMjogZmZmZmZlMDAwMDA4OGNiMAo+PiAgICAg
-IFIxMzogMDAwMDAwMDAwMDAwMDAwMSAgUjE0OiBmZmZmZmUwMDAwMDg4ZWY4ICBSMTU6IGZmZmZm
-ZmZmOTY2NmEyZjAKPj4gICAgICBPUklHX1JBWDogZmZmZmZmZmZmZmZmZmZkOSAgQ1M6IDAwMTAg
-IFNTOiAwMDE4Cj4+ICMxMCBbZmZmZmZlMDAwMDA4OGM0OF0gd2FpdF9mb3JfcGFuaWMgYXQgZmZm
-ZmZmZmY5NTYzN2M2Ywo+PiAjMTEgW2ZmZmZmZTAwMDAwODhjNThdIG1jZV90aW1lZF9vdXQgYXQg
-ZmZmZmZmZmY5NTYzN2Y1ZAo+PiAjMTIgW2ZmZmZmZTAwMDAwODhjNzBdIGRvX21hY2hpbmVfY2hl
-Y2sgYXQgZmZmZmZmZmY5NTYzOGRiNAo+PiAjMTMgW2ZmZmZmZTAwMDAwODhkODBdIHJhaXNlX2V4
-Y2VwdGlvbiBhdCBmZmZmZmZmZmMwNWI2MTE3IFttY2VfaW5qZWN0XQo+PiAjMTQgW2ZmZmZmZTAw
-MDAwODhlNDhdIG1jZV9yYWlzZV9ub3RpZnkgYXQgZmZmZmZmZmZjMDViNmE5MiBbbWNlX2luamVj
-dF0KPj4gIzE1IFtmZmZmZmUwMDAwMDg4ZTU4XSBubWlfaGFuZGxlIGF0IGZmZmZmZmZmOTU2MjFj
-NzMKPj4gIzE2IFtmZmZmZmUwMDAwMDg4ZWIwXSBkZWZhdWx0X2RvX25taSBhdCBmZmZmZmZmZjk1
-NjIyMTNlCj4+ICMxNyBbZmZmZmZlMDAwMDA4OGVkMF0gZG9fbm1pIGF0IGZmZmZmZmZmOTU2MjIz
-MWMKPj4gIzE4IFtmZmZmZmUwMDAwMDg4ZWYwXSBlbmRfcmVwZWF0X25taSBhdCBmZmZmZmZmZjk2
-MDAxNmI0Cj4+ICAgICAgW2V4Y2VwdGlvbiBSSVA6IG5hdGl2ZV9zYWZlX2hhbHQrMTRdCj4+ICAg
-ICAgUklQOiBmZmZmZmZmZjk1ZTcyMjNlICBSU1A6IGZmZmZhMjIyYzA2YTNlYjAgIFJGTEFHUzog
-MDAwMDAyNDYKPj4gICAgICBSQVg6IGZmZmZmZmZmOTVlNzFmMzAgIFJCWDogMDAwMDAwMDAwMDAw
-MDAwMyAgUkNYOiAwMDAwMDAwMDAwMDAwMDAxCj4+ICAgICAgUkRYOiAwMDAwMDAwMDAwMDAwMDAx
-ICBSU0k6IDAwMDAwMDAwMDAwMDAwODMgIFJESTogMDAwMDAwMDAwMDAwMDAwMAo+PiAgICAgIFJC
-UDogMDAwMDAwMDAwMDAwMDAwMyAgIFI4OiAwMDAwMDAxOGNmN2NkOWEwICAgUjk6IDAwMDAwMDAw
-MDAwMDAwMDEKPj4gICAgICBSMTA6IDAwMDAwMDAwMDAwMDA0MDAgIFIxMTogMDAwMDAwMDAwMDAw
-MDNmYiAgUjEyOiAwMDAwMDAwMDAwMDAwMDAwCj4+ICAgICAgUjEzOiAwMDAwMDAwMDAwMDAwMDAw
-ICBSMTQ6IDAwMDAwMDAwMDAwMDAwMDAgIFIxNTogMDAwMDAwMDAwMDAwMDAwMAo+PiAgICAgIE9S
-SUdfUkFYOiBmZmZmZmZmZmZmZmZmZmZmICBDUzogMDAxMCAgU1M6IDAwMTgKPj4gLS0tIDxOTUkg
-ZXhjZXB0aW9uIHN0YWNrPiAtLS0KPj4gIzE5IFtmZmZmYTIyMmMwNmEzZWIwXSBuYXRpdmVfc2Fm
-ZV9oYWx0IGF0IGZmZmZmZmZmOTVlNzIyM2UKPj4gIzIwIFtmZmZmYTIyMmMwNmEzZWIwXSBkZWZh
-dWx0X2lkbGUgYXQgZmZmZmZmZmY5NWU3MWY0YQo+PiAjMjEgW2ZmZmZhMjIyYzA2YTNlZDBdIGRv
-X2lkbGUgYXQgZmZmZmZmZmY5NTZlOTU5YQo+PiAjMjIgW2ZmZmZhMjIyYzA2YTNmMTBdIGNwdV9z
-dGFydHVwX2VudHJ5IGF0IGZmZmZmZmZmOTU2ZTk4MWYKPj4gIzIzIFtmZmZmYTIyMmMwNmEzZjMw
-XSBzdGFydF9zZWNvbmRhcnkgYXQgZmZmZmZmZmY5NTY0ZTY5Nwo+PiAjMjQgW2ZmZmZhMjIyYzA2
-YTNmNTBdIHNlY29uZGFyeV9zdGFydHVwXzY0IGF0IGZmZmZmZmZmOTU2MDAwZTcKPj4KPj4KPj4K
-Pj4KPiAKPiAuCj4gCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVy
-QGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0
-cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
+Thanks you Corey for your kindly guides to me for these three patches :)
+
+-----Original Message-----
+From: Corey Minyard [mailto:tcminyard@gmail.com] On Behalf Of Corey Minyard
+Sent: Wednesday, September 16, 2020 10:01 PM
+To: tianxianting (RD) <tian.xianting@h3c.com>
+Cc: arnd@arndb.de; gregkh@linuxfoundation.org; openipmi-developer@lists.sourceforge.net; linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ipmi: add retry in try_get_dev_id()
+
+On Wed, Sep 16, 2020 at 02:21:29PM +0800, Xianting Tian wrote:
+> Use retry machanism to give device more opportunitys to correctly 
+> response kernel when we received specific completion codes.
+> 
+> This is similar to what we done in __get_device_id().
+
+Thanks.  I moved GET_DEVICE_ID_MAX_RETRY to include/linux/ipmi.h since uapi is for things exported to userspace.  But this is good, it's in my next tree.
+
+-corey
+
+> 
+> Signed-off-by: Xianting Tian <tian.xianting@h3c.com>
+> ---
+>  drivers/char/ipmi/ipmi_msghandler.c |  2 --
+>  drivers/char/ipmi/ipmi_si_intf.c    | 17 +++++++++++++++++
+>  include/uapi/linux/ipmi.h           |  2 ++
+>  3 files changed, 19 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_msghandler.c 
+> b/drivers/char/ipmi/ipmi_msghandler.c
+> index b9685093e..75cb7e062 100644
+> --- a/drivers/char/ipmi/ipmi_msghandler.c
+> +++ b/drivers/char/ipmi/ipmi_msghandler.c
+> @@ -62,8 +62,6 @@ enum ipmi_panic_event_op {  #define 
+> IPMI_PANIC_DEFAULT IPMI_SEND_PANIC_EVENT_NONE  #endif
+>  
+> -#define GET_DEVICE_ID_MAX_RETRY	5
+> -
+>  static enum ipmi_panic_event_op ipmi_send_panic_event = 
+> IPMI_PANIC_DEFAULT;
+>  
+>  static int panic_op_write_handler(const char *val, diff --git 
+> a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
+> index 77b8d551a..beeb705f1 100644
+> --- a/drivers/char/ipmi/ipmi_si_intf.c
+> +++ b/drivers/char/ipmi/ipmi_si_intf.c
+> @@ -1316,6 +1316,7 @@ static int try_get_dev_id(struct smi_info *smi_info)
+>  	unsigned char         *resp;
+>  	unsigned long         resp_len;
+>  	int                   rv = 0;
+> +	unsigned int          retry_count = 0;
+>  
+>  	resp = kmalloc(IPMI_MAX_MSG_LENGTH, GFP_KERNEL);
+>  	if (!resp)
+> @@ -1327,6 +1328,8 @@ static int try_get_dev_id(struct smi_info *smi_info)
+>  	 */
+>  	msg[0] = IPMI_NETFN_APP_REQUEST << 2;
+>  	msg[1] = IPMI_GET_DEVICE_ID_CMD;
+> +
+> +retry:
+>  	smi_info->handlers->start_transaction(smi_info->si_sm, msg, 2);
+>  
+>  	rv = wait_for_msg_done(smi_info);
+> @@ -1339,6 +1342,20 @@ static int try_get_dev_id(struct smi_info *smi_info)
+>  	/* Check and record info from the get device id, in case we need it. */
+>  	rv = ipmi_demangle_device_id(resp[0] >> 2, resp[1],
+>  			resp + 2, resp_len - 2, &smi_info->device_id);
+> +	if (rv) {
+> +		/* record completion code */
+> +		char cc = *(resp + 2);
+> +
+> +		if ((cc == IPMI_DEVICE_IN_FW_UPDATE_ERR
+> +		    || cc == IPMI_DEVICE_IN_INIT_ERR
+> +		    || cc == IPMI_NOT_IN_MY_STATE_ERR)
+> +		    && ++retry_count <= GET_DEVICE_ID_MAX_RETRY) {
+> +			dev_warn(smi_info->io.dev,
+> +				"retry to get device id as completion code 0x%x\n",
+> +				 cc);
+> +			goto retry;
+> +		}
+> +	}
+>  
+>  out:
+>  	kfree(resp);
+> diff --git a/include/uapi/linux/ipmi.h b/include/uapi/linux/ipmi.h 
+> index 32d148309..bc57f07e3 100644
+> --- a/include/uapi/linux/ipmi.h
+> +++ b/include/uapi/linux/ipmi.h
+> @@ -426,4 +426,6 @@ struct ipmi_timing_parms {
+>  #define IPMICTL_GET_MAINTENANCE_MODE_CMD	_IOR(IPMI_IOC_MAGIC, 30, int)
+>  #define IPMICTL_SET_MAINTENANCE_MODE_CMD	_IOW(IPMI_IOC_MAGIC, 31, int)
+>  
+> +#define GET_DEVICE_ID_MAX_RETRY		5
+> +
+>  #endif /* _UAPI__LINUX_IPMI_H */
+> --
+> 2.17.1
+> 
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
