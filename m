@@ -2,92 +2,88 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 557C026C459
-	for <lists+openipmi-developer@lfdr.de>; Wed, 16 Sep 2020 17:39:16 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4074726DF27
+	for <lists+openipmi-developer@lfdr.de>; Thu, 17 Sep 2020 17:10:37 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kIZWb-0002nO-PX; Wed, 16 Sep 2020 15:39:13 +0000
+	id 1kIvYR-00045Z-18; Thu, 17 Sep 2020 15:10:35 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1kIZWa-0002nH-IB
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Sep 2020 15:39:12 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1kIvYO-00045K-OI
+ for openipmi-developer@lists.sourceforge.net; Thu, 17 Sep 2020 15:10:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
- MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=7+zRXg2u+6Q2Hw/2UZ/CYMtDkH9OsrHwCePnCn6p9Y8=; b=KHJJOIS4C3Ip0Hf8OvSv9CyVc8
- Ki7OKKxFPaVGXQlajrlQwN/nySys2iubUkJx0Z20/lsi0tlcOxp9j/YYzfzJFC05wYqPWupmdD/oe
- 29s/w/JJLTAQ9A9WqqjQnRvMv0mlofNntTpchvtqTywQsnNtRkvNwnsZ9QfgTw0vabwo=;
+ bh=B44qJMdY/7TpaOLM5r5sqsm5DAK597ktzOMayNV0bbc=; b=IHlpEYugo6vJVX/GNZBBwSb+uJ
+ 5EkQwT0nue2PIHFXKmpdLVlTmUeMPDI9RfkzTh7H3Z11ybsPGxxcjLS5sD3x7xg9seOLCLTYUmZKZ
+ fMKdeVLbw6879Cpia9ZsEKSKnJNn6RvZ34teBX5KHOC6GM8BelgL8iqR9UIIEFcGvRO0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=7+zRXg2u+6Q2Hw/2UZ/CYMtDkH9OsrHwCePnCn6p9Y8=; b=V7RYPckx4tjryemnQL6KSzwPR9
- TqqJtvzlEQ9CvZGAGUuO3Lpcsw85Vr8N0oxTdtkgErn7QGl2UcQpqTf8I49tdyiOWdNYgj3dsWg6j
- EUOSRYWQGJJWpMbFng7pP+6Iq0hInGSMmE+DsXEiePoh8jq6XzWI5rHDa0UiBT9iE2jE=;
-Received: from mail-oi1-f195.google.com ([209.85.167.195])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ bh=B44qJMdY/7TpaOLM5r5sqsm5DAK597ktzOMayNV0bbc=; b=RxWE5i7UWPpvvUYj+9r+BU8Kba
+ DRqiJ0oj3OdJcNNQGeGxerSQ794ImsPWG86xTkWNgOiP7bnZaLsTazY2QQISwHU18c16jH4kJj2bo
+ sltAnYp4oavm59MUwtuQdd07ZL86NUo45Yi+QH+U+HONIUEjf9u8IyfTMYgpelAjf7ys=;
+Received: from mail-oi1-f194.google.com ([209.85.167.194])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kIZWV-00BYqY-AM
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Sep 2020 15:39:12 +0000
-Received: by mail-oi1-f195.google.com with SMTP id 185so8552523oie.11
+ id 1kIvYI-00EHdD-7E
+ for openipmi-developer@lists.sourceforge.net; Thu, 17 Sep 2020 15:10:32 +0000
+Received: by mail-oi1-f194.google.com with SMTP id i17so2813698oig.10
  for <openipmi-developer@lists.sourceforge.net>;
- Wed, 16 Sep 2020 08:39:07 -0700 (PDT)
+ Thu, 17 Sep 2020 08:10:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to:user-agent;
- bh=7+zRXg2u+6Q2Hw/2UZ/CYMtDkH9OsrHwCePnCn6p9Y8=;
- b=NpwxSTiNpCd8J1bFK9HFLQEIXRRSEyRNwVgeKFFugakUPfsZe+2H7cl5WVSnoPr6mr
- b2Pyftr6L7Aa6/LOCwhqWTXlfUWduoKKjLQA+uL6lcJ7AiURTvHt/pG7DSHlnuUYr5Ul
- sWTi9uUsCIvUGyvwkPqZIISYSd5uJRm0VpRqbd/otrGvn28f63sG/weNVKIUrg1Eh2Eb
- 3Sxk2EuUOqR6ZwGzFGTdG18O5OKxPPfbmZDJnD10a9jMAR+wT4Uga4YMOFA+h/HdZlXT
- pRH25v7yyVOqfolclg5ikxnyICA0pnA3RauScBgg8n8mQN3y0/2CRWHV7kvMIrjGJktu
- VmtA==
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=B44qJMdY/7TpaOLM5r5sqsm5DAK597ktzOMayNV0bbc=;
+ b=UN0XXg7XNfxhWEOSURADvL2uee7V9A9+ty+Q0+IBlExfAeFr6jd+/WJRAmIAYer0qZ
+ 5SFWklRNrOjh8HQdB/5ykrj0WVroBaFc1Wo/zR47MlOQ/Z7E8tAmvhJ/yCBVvaWoXHCb
+ NVoA4q4WoRV0ry7afBg/hWyqF+nskwqW2Y6bA5go9m1N3L6g3TClDZCLX3g+3sWOK6rr
+ aBjNNvc/h19f0+cBpu63owocZa+DcB33S3FvapdXfIzuXggQ+typNEqFLUZ0QiAkJVBo
+ wUuTxGbQCciMOLDIR1BuDjrnBWoe13wxdrhV5qQfmlRFtRhKA/yTGFgWH8E9G3mwXo4H
+ jkBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition
- :content-transfer-encoding:in-reply-to:user-agent;
- bh=7+zRXg2u+6Q2Hw/2UZ/CYMtDkH9OsrHwCePnCn6p9Y8=;
- b=gy7rhuCV3HcairjmBSFQQXvTR0tf8kRAtNaRmn/pggM3rTlsqMX3jmGbWVmUcBLFFf
- z+sNdw+wHlmZhy+lqh/3dE4c1SdC1C8KaNEYhKjIZ2S5qVz31u2CQTdaH5O+9fimRt1S
- LF8Y9G1JxNjEOUUnqaUtTbmHhRjO2uOpRm5hm7zV7udgxD+2ikT40HYOznn8kMLyIEuw
- NRilpDUVAk1U8NStATCgfDizdM6QQYiktUxFcu2LY+Z2eVGOyXd3H1OPV/hzeDxlEGvb
- C1Cv63k7fiRFJx/LHF1lG7ktgWmW5vv+Ywq0lmlQhgJiF2ABM/XtCVNCd4CfJb9lXkZX
- D6dQ==
-X-Gm-Message-State: AOAM533moDaTmIjAJsKGs8D86Ywx3nqNt8PX+SnBFHI7IMtyrZGRARCG
- sUqGShPnGeEpKPLRL0c9AA==
-X-Google-Smtp-Source: ABdhPJwEV7tHfL4YZFMzVuiOkXaSEBUBfjGaT384KaYAuRYCRB4UyrsTIuz3PT7YQuh5/OT9uXBYzg==
-X-Received: by 2002:a54:408d:: with SMTP id i13mr3370115oii.156.1600270741510; 
- Wed, 16 Sep 2020 08:39:01 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id r7sm9360597oij.34.2020.09.16.08.39.00
+ :reply-to:references:mime-version:content-disposition:in-reply-to
+ :user-agent;
+ bh=B44qJMdY/7TpaOLM5r5sqsm5DAK597ktzOMayNV0bbc=;
+ b=S/AlKKFJnmzrnckboRQ9WP85PR9Bcf+gqVz0t3yu4f/rMAyOYYsuQ/kM3jtcc/89qg
+ oTNQUbE8cSb4RjUZGzuFXm4H92kOzFzMLr7tiHSYzCDL79NB1CAVizbTTcycx7KOa+H7
+ kI2lG6Kf7wKTlpw6OlWhNNss9p0TH3VFEbmZWhiDgJakJ+Nh0h4miLZ6GhVz3sTL3ZJi
+ CL/7JT8KzEURp77bf2nuyYzB7Qf6eDs7TlhV5KQYjB232hyHKbede962WACvBTVygCaO
+ X36l2BleqaPboDZO9Z9x36OOJAz3coLN82BcBtODp4shH6YY3vuHWHE6Z7Bl8QCMvGD1
+ mWSQ==
+X-Gm-Message-State: AOAM531zseG9waeAJ07wxsgwHErTfI47CyX2fJyQJqXCNJlfIWqJhWPV
+ 9NKoFGYe00p6Qlv9kk9rJnDK2vt/MkgJ
+X-Google-Smtp-Source: ABdhPJxoIQx7WyrR9q+Au04zendCGLfXtH6O56878TTHnejKcHrh/P/R5OE+Wz9YBJeWiVyBIld7IA==
+X-Received: by 2002:a05:6808:574:: with SMTP id
+ j20mr6849072oig.158.1600355420451; 
+ Thu, 17 Sep 2020 08:10:20 -0700 (PDT)
+Received: from serve.minyard.net ([47.184.170.156])
+ by smtp.gmail.com with ESMTPSA id t7sm111212ooq.0.2020.09.17.08.10.18
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 16 Sep 2020 08:39:00 -0700 (PDT)
+ Thu, 17 Sep 2020 08:10:19 -0700 (PDT)
 Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:ac90:c835:eb77:dac0])
- by serve.minyard.net (Postfix) with ESMTPSA id 66CAF181C2F;
- Wed, 16 Sep 2020 15:38:59 +0000 (UTC)
-Date: Wed, 16 Sep 2020 10:38:58 -0500
+ [IPv6:2001:470:b8f6:1b:594c:cfe8:2636:694a])
+ by serve.minyard.net (Postfix) with ESMTPSA id 1ABDE181C2F;
+ Thu, 17 Sep 2020 15:10:18 +0000 (UTC)
+Date: Thu, 17 Sep 2020 10:10:17 -0500
 From: Corey Minyard <minyard@acm.org>
 To: Wu Bo <wubo40@huawei.com>
-Message-ID: <20200916153858.GG3674@minyard.net>
-References: <1600074602-622893-1-git-send-email-wubo40@huawei.com>
- <TYAPR01MB2429AAE58FF9FF020F657509B5230@TYAPR01MB2429.jpnprd01.prod.outlook.com>
- <4e1abe31-da85-1b64-f680-b1e91027bff5@huawei.com>
- <20200914142938.GK15602@minyard.net>
- <e6e9edcd-14a5-476d-bc56-166c2d10fb41@huawei.com>
+Message-ID: <20200917151016.GH3674@minyard.net>
+References: <1600339070-570840-1-git-send-email-wubo40@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <e6e9edcd-14a5-476d-bc56-166c2d10fb41@huawei.com>
+In-Reply-To: <1600339070-570840-1-git-send-email-wubo40@huawei.com>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
@@ -95,9 +91,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (tcminyard[at]gmail.com)
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.195 listed in list.dnswl.org]
+ trust [209.85.167.194 listed in list.dnswl.org]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.195 listed in wl.mailspike.net]
+ [209.85.167.194 listed in wl.mailspike.net]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -107,9 +103,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  not necessarily valid
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
-X-Headers-End: 1kIZWV-00BYqY-AM
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: Fix out-of-bounds in
- write_next_byte()
+X-Headers-End: 1kIvYI-00EHdD-7E
+Subject: Re: [Openipmi-developer] [RFC PATCH] mce: don't not enable IRQ in
+ wait_for_panic()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -123,188 +119,282 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Reply-To: minyard@acm.org
-Cc: "arnd@arndb.de" <arnd@arndb.de>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "linfeilong@huawei.com" <linfeilong@huawei.com>,
- =?utf-8?B?5rKz5ZCI6Iux5a6PIC8gS0FXQUnvvIxISURFSElSTw==?=
- <hidehiro.kawai.ez@hitachi.com>, "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
- "liuzhiqiang26@huawei.com" <liuzhiqiang26@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: tony.luck@intel.com, arnd@arndb.de, gregkh@linuxfoundation.org,
+ x86@kernel.org, linux-kernel@vger.kernel.org, liuzhiqiang26@huawei.com,
+ linfeilong@huawei.com, andi@firstfloor.org, bp@alien8.de, hpa@zytor.com,
+ hidehiro.kawai.ez@hitachi.com, openipmi-developer@lists.sourceforge.net,
+ mingo@redhat.com, tglx@linutronix.de, linux-edac@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T24gV2VkLCBTZXAgMTYsIDIwMjAgYXQgMTA6NTI6MzFQTSArMDgwMCwgV3UgQm8gd3JvdGU6Cj4g
-T24gMjAyMC85LzE0IDIyOjI5LCBDb3JleSBNaW55YXJkIHdyb3RlOgo+ID4gT24gTW9uLCBTZXAg
-MTQsIDIwMjAgYXQgMDk6MzM6MDdQTSArMDgwMCwgV3UgQm8gd3JvdGU6Cj4gPiA+IE9uIDIwMjAv
-OS8xNCAyMDoxMywg5rKz5ZCI6Iux5a6PIC8gS0FXQUnvvIxISURFSElSTyB3cm90ZToKPiA+ID4g
-PiBIaSwgV3UKPiA+ID4gPiAKPiA+ID4gPiA+IEZyb206IFd1IEJvIDx3dWJvNDBAaHVhd2VpLmNv
-bT4KPiA+ID4gPiA+IEluIHRoZSB2aXJ0dWFsIG1hY2hpbmUsIFVzZSBtY2VfaW5qZWN0IHRvIGlu
-amVjdCBlcnJvcnMgaW50byB0aGUgc3lzdGVtLgo+ID4gPiA+ID4gQWZ0ZXIgbWNlLWluamVjdCBp
-bmplY3RzIGFuIHVuY29ycmVjdGFibGUgZXJyb3IsIHRoZXJlIGlzIGEgcHJvYmFiaWxpdHkKPiA+
-ID4gPiA+IHRoYXQgdGhlIHZpcnR1YWwgbWFjaGluZSBpcyBub3QgcmVzZXQgaW1tZWRpYXRlbHks
-Cj4gPiA+ID4gPiBidXQgaGFuZ3MgZm9yIG1vcmUgdGhhbgo+ID4gPiA+ID4gMzAwMCBzZWNvbmRz
-LiBBbmQgdGhlIHdyaXRlX2RhdGEgYXJyYXkgaXMgYWNjZXNzZWQgb3V0IG9mIGJvdW5kcy4KPiA+
-ID4gPiA+IAo+ID4gPiA+ID4gVGhlIHJlYWwgcmVhc29uIGlzIHRoYXQgc21pX2V2ZW50X2hhbmRs
-ZXIgbGFjayBvZiBsb2NrIHByb3RlY3Rpb24gaW4gdGhlCj4gPiA+ID4gPiBtdWx0aS10aHJlYWRl
-ZCBzY2VuYXJpbywgd2hpY2ggY2F1c2VzIHdyaXRlX3Bvcwo+ID4gPiA+ID4gdG8gZXhjZWVkIHRo
-ZSBzaXplIG9mIHRoZSB3cml0ZV9kYXRhIGFycmF5Lgo+ID4gPiA+IAo+ID4gPiA+IFRoYW5rIHlv
-dSBmb3IgdGhlIGZpeCwgYnV0IEkgd29uZGVyIHdoeSB0aGlzIG11bHRpLXRocmVhZGVkIHNjZW5h
-cmlvIGhhcHBlbnMuCj4gPiA+ID4gSWYgbXkgdW5kZXJzdGFuZGluZyBpcyBjb3JyZWN0LCBvbmx5
-IG9uZSBDUFUgY2FuIHJ1biBwYW5pYyByb3V0aW5lcywgYW5kCj4gPiA+ID4gdGhpcyBtZWFucyBv
-bmx5IG9uZSBDUFUgY2FsbHMgZmx1c2hfbWVzc2FnZXMuICBEaWQgSSBtaXNzIHNvbWUgY2FsbCBw
-YXRoPwo+ID4gPiA+IAo+ID4gPiA+IEJlc3QgcmVnYXJkcywKPiA+ID4gPiAKPiA+ID4gPiBIaWRl
-aGlybyBLYXdhaQo+ID4gPiA+IEhpdGFjaGksIEx0ZC4gUmVzZWFyY2ggJiBEZXZlbG9wbWVudCBH
-cm91cAo+ID4gPiAKPiA+ID4gSGksCj4gPiA+IAo+ID4gPiBZb3UncmUgcmlnaHQsIG9ubHkgb25l
-IENQVSBjYW4gcnVuIHBhbmljIHJvdXRpbmVzLgo+ID4gPiBTb3JyeSwgSSBtaXNzZWQgYW5vdGhl
-ciBjYWxsIHBhdGguIHdoZW4gdGhlIHBhbmljIG9jY3VycmVkIGFuZCBpbnRlcnJ1cHRpb24KPiA+
-ID4gb2NjdXJyZWQgYXQgdGhlIHNhbWUgdGltZS4KPiA+ID4gCj4gPiA+IENQVTAJCSAgICAgICAg
-ICAgICAgICAgICAgQ1BVMwo+ID4gPiAgIC0+bm1pX2hhbmRsZQkJCSAgICAgaGFuZGxlX2lycQo+
-ID4gPiAgICAgLT4gbWNlX3JhaXNlX25vdGlmeQkJICAgICAgLT4gaGFuZGxlX2Zhc3Rlb2lfaXJx
-Cj4gPiA+ICAgICAgIC0+IHBhbmljX2V2ZW50CQkgICAgICAgIC0+IGhhbmRsZV9pcnFfZXZlbnQK
-PiA+ID4gICAgICAgICAtPiBpcG1pX3BhbmljX3JlcXVlc3RfYW5kX3dhaXQgICAgICAtPiBoYW5k
-bGVfaXJxX2V2ZW50X3BlcmNwdQo+ID4gPiAgICAgICAgICAgIC0+Zmx1c2hfbWVzc2FnZXMgICAg
-ICAgICAgICAgICAgICAgLT4gaXBtaV9zaV9pcnFfaGFuZGxlcgo+ID4gPiAgICAgICAgICAgICAg
-ICAtPiBzbWlfZXZlbnRfaGFuZGxlciAgICAgICAgICAgICAgLT4gc21pX2V2ZW50X2hhbmRsZXIK
-PiA+ID4gCQktPmtjc19ldmVudCgpICAgICAgICAgICAgICAgICAgICAgICAtPmtjc19ldmVudCgp
-Cj4gPiA+IAo+ID4gPiBUaGVyZSBpcyBhIHNpbXVsdGFuZW91cyBjYWxsIHRvIHRoZSBzbWlfZXZl
-bnRfaGFuZGxlcigpIGZ1bmN0aW9uLgo+ID4gCj4gPiBXaXRoIHlvdXIgcGF0Y2gsIHRoaXMgd2ls
-bCByZXN1bHQgaW4gc3Bpbm5pbmcgd2FpdGluZyBmb3IgdGhlIGxvY2sKPiA+IGZvcmV2ZXIuIFNv
-IHRoYXQncyBub3Qgd2hhdCBpcyBoYXBwZW5pbmcgaGVyZS4KPiA+IAo+ID4gVGhlIHBhbmljIGV2
-ZW50IHNob3VsZCBzdG9wIHRoZSBvdGhlciBwcm9jZXNzb3JzIGJlZm9yZSBmbHVzaF9tZXNzYWdl
-cygpCj4gPiBoYXBwZW5zLCByaWdodD8gIElmIHNvLCBpdCBpcyBwb3NzaWJsZSB0aGF0IHRoZSBJ
-UE1JIHN0YXRlIG1hY2hpbmUgaXMKPiA+IHJ1bm5pbmcsIGJ1dCB0aGlzIHNob3VsZCByZXN1bHQg
-aW4gdGhlIHN0YXRlIG1hY2hpbmUgYmVpbmcgcmVzZXQuCj4gPiAKPiA+IC1jb3JleQo+ID4gCj4g
-Cj4gSGksIGNvcmV5Cj4gCj4gVGhhbmtzIGZvciB5b3VyIHJlcGx5LiBNQ0UgYXBwZWFycyBvbiBh
-bGwgQ1BVcywKPiBDdXJyZW50bHkgYWxsIENQVXMgYXJlIGluIHRoZSBOTUkgaW50ZXJydXB0IGNv
-bnRleHQuCj4gY3B1MCBpcyB0aGUgZmlyc3QgdG8gc2VpemUgdGhlIG9wcG9ydHVuaXR5IHRvIHJ1
-biBwYW5pYyByb3V0aW5lcywgYW5kIHBhbmljCj4gZXZlbnQgc2hvdWxkIHN0b3AgdGhlIG90aGVy
-IHByb2Nlc3NvcnMgYmVmb3JlIGZsdXNoX21lc3NhZ2VzKCkuIGJ1dCBjcHUxLAo+IGNwdTIgYW5k
-IGNwdTMgaGFzIGFscmVhZHkgaW4gTk1JIGludGVycnVwdCBjb250ZXh0LCBTbyB0aGUgU2Vjb25k
-IE5NSQo+IGludGVycnVwdCB3aWxsIG5vdCBiZSBwcm9jZXNzZWQgYWdhaW4gYnkgY3B1MSwgY3B1
-MiBhbmQgY3B1My4KPiBhdCB0aGlzIHRpbWUsIGNwdTEsY3B1MiBhbmQgY3B1MyBkaWQgbm90IHN0
-b3BlZC4KPiAKPiBjcHUxLCBjcHUyIGFuZCBjcHUzIGFyZSB3YWl0dGluZyBmb3IgY3B1MCB0byBm
-aW5pc2ggdGhlIHBhbmljIHByb2Nlc3MuIChkbwo+IHdhaXRfZm9yX3BhbmljKCkpLCB0aGUgaXJx
-IGlzIGVuYWJsZWQgaW4gdGhlIHdhaXRfZm9yX3BhbmljKCkgZnVuY3Rpb24uCj4gCj4gaXBtaSBJ
-UlEgb2NjdXJzIG9uIHRoZSBjcHUzLCBhbmQgdGhlIGNwdTAgaXMgZG9pbmcgdGhlIHBhbmljLAo+
-IHRoZXkgaGF2ZSB0aGUgb3Bwb3J0dW5pdHkgdG8gY2FsbCB0aGUgc21pX2V2ZW50X2hhbmRsZXIo
-KSBmdW5jdGlvbgo+IGNvbmN1cnJlbnRseS4KCkFoLCBJIHVuZGVyc3RhbmQgbm93LiAgVGhpcyBz
-b3VuZHMgbW9yZSBsaWtlIGEgYnVnIGluIHRoZSB4ODYgZXhjZXB0aW9uCmhhbmRsaW5nLiAgTXkg
-dW5kZXJzdGFuZGluZyBpcyB0aGF0IHBhbmljKCkgcnVucyB3aXRoIG9ubHkgb25lCm9wZXJhdGlv
-bmFsIENQVSBpbiB0aGUgc3lzdGVtLiAgSSB0aGluayB0aGVyZSBpcyBvdGhlciBjb2RlIChsaWtl
-CnByaW50aykgdGhhdCBhbHNvIHJlbGllcyBvbiB0aGlzIGFzc3VtcHRpb24uICBTZWUgYnVzdF9z
-cGlubG9ja3MoKSBhbmQKb29wc19pbl9wcm9ncmVzcy4KCkkgY2FuJ3QgZmluZCBhbnl0aGluZyB0
-aGF0IHNheXMgdGhpcywgYnV0IGl0J3Mgb2J2aW91cyB0aGF0IGJvdGggcGFuaWMoKQphbmQgbWNl
-X3BhbmljKCkgbWFrZSBzcGVjaWFsIGVmZm9ydHMgdG8gZW5zdXJlIHRoaXMuCgpUaGUgdHJvdWJs
-ZSBpcyB0aGF0IGlmIHlvdSBhZGQgdGhlIHNwaW5sb2NrcyBpbiB0aGUgSVBNSSBwYW5pYyBoYW5k
-bGVyLAppZiBhbiBleGNlcHRpb24gb2NjdXJzIHdoaWxlIGEgQ1BVIGhvbGRzIHRoYXQgc3Bpbmxv
-Y2ssIHRoZSBzeXN0ZW0gd2lsbApoYW5nIGZvcmV2ZXIsIG5vdCBqdXN0IGZvciAzMDAwIHNlY29u
-ZHMuICBUaGUgdHJvdWJsZSBpcywgSSBkb24ndCBrbm93Cm9mIGEgZ29vZCBzb2x1dGlvbiBiZXNp
-ZGVzIG1ha2luZyB0aGUgcGFuaWMgaGFuZGluZyB3b3JrIGxpa2UgSSB0aGluayBpdApzaG91bGQu
-CgpUaGFua3MsCgotY29yZXkKCj4gCj4gQmVzdCByZWdhcmRzLAo+IAo+IFd1IEJvCj4gCj4gPiA+
-IAo+ID4gPiBJbiB0aGUga2NzX2V2ZW50KCk6Cj4gPiA+IGNhc2UgS0NTX1dBSVRfV1JJVEU6Cj4g
-PiA+IC4uLgo+ID4gPiBpZiAoa2NzLT53cml0ZV9jb3VudCA9PSAxKSB7Cj4gPiA+IAl3cml0ZV9j
-bWQoa2NzLCBLQ1NfV1JJVEVfRU5EKTsKPiA+ID4gCWtjcy0+c3RhdGUgPSBLQ1NfV0FJVF9XUklU
-RV9FTkQ7Cj4gPiA+IH0gZWxzZSB7Cj4gPiA+IAl3cml0ZV9uZXh0X2J5dGUoa2NzKTsKPiA+ID4g
-fQo+ID4gPiAuLi4KPiA+ID4gCj4gPiA+IFRoZSBpbnRlcnJ1cHQgY2FsbCBwYXRoIGhhcyBiZWVu
-IGxvY2tlZCBhbmQgcHJvdGVjdGVkLgo+ID4gPiBCdXQgdGhlIHBhbmljIGNhbGwgcGF0aCBpcyBu
-b3QgcHJvdGVjdGVkIGJ5IGxvY2suCj4gPiA+IFRoZXJlIG1heSBiZSBrY3MtPndyaXRlX2NvdW50
-ID09IDEgaXMgbm90IGludmFsaWQuIFNvIHdpbGwgYXBwZWFyCj4gPiA+IGNhbGwgd3JpdGVfbmV4
-dF9ieXRlKCkgcmVwZWF0ZWRseSwgcmVzdWx0aW5nIGluIHRoZSB3cml0ZV9kYXRhIGFycmF5IGlz
-Cj4gPiA+IGFjY2Vzc2VkIG91dCBvZiBib3VuZHMuCj4gPiA+IAo+ID4gPiBjcmFzaD4gYnQgLWEK
-PiA+ID4gUElEOiAwICAgICAgVEFTSzogZmZmZmZmZmY5NjgxMjc4MCAgQ1BVOiAwICAgQ09NTUFO
-RDogInN3YXBwZXIvMCIKPiA+ID4gICAjMCBbZmZmZmZlMDAwMDAwN2JjMF0gcGFuaWMgYXQgZmZm
-ZmZmZmY5NTZiMmQzZQo+ID4gPiAgICMxIFtmZmZmZmUwMDAwMDA3YzQ4XSB3YWl0X2Zvcl9wYW5p
-YyBhdCBmZmZmZmZmZjk1NjM3Y2EyCj4gPiA+ICAgIzIgW2ZmZmZmZTAwMDAwMDdjNThdIG1jZV90
-aW1lZF9vdXQgYXQgZmZmZmZmZmY5NTYzN2Y1ZAo+ID4gPiAgICMzIFtmZmZmZmUwMDAwMDA3Yzcw
-XSBkb19tYWNoaW5lX2NoZWNrIGF0IGZmZmZmZmZmOTU2MzhkYjQKPiA+ID4gICAjNCBbZmZmZmZl
-MDAwMDAwN2Q4MF0gcmFpc2VfZXhjZXB0aW9uIGF0IGZmZmZmZmZmYzA1YjYxMTcgW21jZV9pbmpl
-Y3RdCj4gPiA+ICAgIzUgW2ZmZmZmZTAwMDAwMDdlNDhdIG1jZV9yYWlzZV9ub3RpZnkgYXQgZmZm
-ZmZmZmZjMDViNmE5MiBbbWNlX2luamVjdF0KPiA+ID4gICAjNiBbZmZmZmZlMDAwMDAwN2U1OF0g
-bm1pX2hhbmRsZSBhdCBmZmZmZmZmZjk1NjIxYzczCj4gPiA+ICAgIzcgW2ZmZmZmZTAwMDAwMDdl
-YjBdIGRlZmF1bHRfZG9fbm1pIGF0IGZmZmZmZmZmOTU2MjIxM2UKPiA+ID4gICAjOCBbZmZmZmZl
-MDAwMDAwN2VkMF0gZG9fbm1pIGF0IGZmZmZmZmZmOTU2MjIzMWMKPiA+ID4gICAjOSBbZmZmZmZl
-MDAwMDAwN2VmMF0gZW5kX3JlcGVhdF9ubWkgYXQgZmZmZmZmZmY5NjAwMTZiNAo+ID4gPiAgICAg
-IFtleGNlcHRpb24gUklQOiBuYXRpdmVfc2FmZV9oYWx0KzE0XQo+ID4gPiAgICAgIFJJUDogZmZm
-ZmZmZmY5NWU3MjIzZSAgUlNQOiBmZmZmZmZmZjk2ODAzZTkwICBSRkxBR1M6IDAwMDAwMjQ2Cj4g
-PiA+ICAgICAgUkFYOiBmZmZmZmZmZjk1ZTcxZjMwICBSQlg6IDAwMDAwMDAwMDAwMDAwMDAgIFJD
-WDogMDAwMDAwMDAwMDAwMDAwMAo+ID4gPiAgICAgIFJEWDogMDAwMDAwMDAwMDAwMDAwMSAgUlNJ
-OiAwMDAwMDAwMDAwMDAwMDAwICBSREk6IDAwMDAwMDAwMDAwMDAwMDAKPiA+ID4gICAgICBSQlA6
-IDAwMDAwMDAwMDAwMDAwMDAgICBSODogMDAwMDAwMThjZjdjMDY4YSAgIFI5OiAwMDAwMDAwMDAw
-MDAwMDAxCj4gPiA+ICAgICAgUjEwOiBmZmZmYTIyMmMwYjE3Yjg4ICBSMTE6IDAwMDAwMDAwMDFl
-MmY4ZmIgIFIxMjogMDAwMDAwMDAwMDAwMDAwMAo+ID4gPiAgICAgIFIxMzogMDAwMDAwMDAwMDAw
-MDAwMCAgUjE0OiAwMDAwMDAwMDAwMDAwMDAwICBSMTU6IDAwMDAwMDAwMDAwMDAwMDAKPiA+ID4g
-ICAgICBPUklHX1JBWDogZmZmZmZmZmZmZmZmZmZmZiAgQ1M6IDAwMTAgIFNTOiAwMDE4Cj4gPiA+
-IC0tLSA8Tk1JIGV4Y2VwdGlvbiBzdGFjaz4gLS0tCj4gPiA+ICMxMCBbZmZmZmZmZmY5NjgwM2U5
-MF0gbmF0aXZlX3NhZmVfaGFsdCBhdCBmZmZmZmZmZjk1ZTcyMjNlCj4gPiA+ICMxMSBbZmZmZmZm
-ZmY5NjgwM2U5MF0gZGVmYXVsdF9pZGxlIGF0IGZmZmZmZmZmOTVlNzFmNGEKPiA+ID4gIzEyIFtm
-ZmZmZmZmZjk2ODAzZWIwXSBkb19pZGxlIGF0IGZmZmZmZmZmOTU2ZTk1OWEKPiA+ID4gIzEzIFtm
-ZmZmZmZmZjk2ODAzZWYwXSBjcHVfc3RhcnR1cF9lbnRyeSBhdCBmZmZmZmZmZjk1NmU5ODFmCj4g
-PiA+ICMxNCBbZmZmZmZmZmY5NjgwM2YxMF0gc3RhcnRfa2VybmVsIGF0IGZmZmZmZmZmOTZkOWIy
-MDYKPiA+ID4gIzE1IFtmZmZmZmZmZjk2ODAzZjUwXSBzZWNvbmRhcnlfc3RhcnR1cF82NCBhdCBm
-ZmZmZmZmZjk1NjAwMGU3Cj4gPiA+IAo+ID4gPiAKPiA+ID4gUElEOiAwICAgICAgVEFTSzogZmZm
-ZjhiMDZjNzdkYzc0MCAgQ1BVOiAzICAgQ09NTUFORDogInN3YXBwZXIvMyIKPiA+ID4gICAgICBb
-ZXhjZXB0aW9uIFJJUDogcG9ydF9vdXRiKzE3XQo+ID4gPiAgICAgIFJJUDogZmZmZmZmZmZjMDM1
-ZjFhMSAgUlNQOiBmZmZmOGIwNmZhZDgzZTkwICBSRkxBR1M6IDAwMDAwMDAyCj4gPiA+ICAgICAg
-UkFYOiAwMDAwMDAwMDAwMDAwMDAwICBSQlg6IGZmZmY4YjA2ZjA4YmVjMDAgIFJDWDogMDAwMDAw
-MDAwMDAwMDAxMAo+ID4gPiAgICAgIFJEWDogMDAwMDAwMDAwMDAwMGNhMiAgUlNJOiAwMDAwMDAw
-MDAwMDAwMDAwICBSREk6IGZmZmY4YjA2ZjBiZDVlNDAKPiA+ID4gICAgICBSQlA6IDAwMDAwMDAw
-MDAwMDAwMDEgICBSODogZmZmZjhiMDZmYWQ4MDA4MCAgIFI5OiBmZmZmOGIwNmZhZDg0MDAwCj4g
-PiA+ICAgICAgUjEwOiAwMDAwMDAwMDAwMDAwMDAwICBSMTE6IDAwMDAwMDAwMDAwMDAwMDAgIFIx
-MjogMDAwMDAwMDAwMDAwMDAwMAo+ID4gPiAgICAgIFIxMzogZmZmZjhiMDZmYWQ4M2Y1NCAgUjE0
-OiAwMDAwMDAwMDAwMDAwMDAwICBSMTU6IDAwMDAwMDAwMDAwMDAwMDAKPiA+ID4gICAgICBDUzog
-MDAxMCAgU1M6IDAwMTgKPiA+ID4gICAjMCBbZmZmZjhiMDZmYWQ4M2U5MF0ga2NzX2V2ZW50IGF0
-IGZmZmZmZmZmYzAzNWMyYzcgW2lwbWlfc2ldCj4gPiA+ICAgIzEgW2ZmZmY4YjA2ZmFkODNlYjBd
-IHNtaV9ldmVudF9oYW5kbGVyIGF0IGZmZmZmZmZmYzAzNWFhM2YgW2lwbWlfc2ldCj4gPiA+ICAg
-IzIgW2ZmZmY4YjA2ZmFkODNlZThdIGlwbWlfc2lfaXJxX2hhbmRsZXIgYXQgZmZmZmZmZmZjMDM1
-YjBjYyBbaXBtaV9zaV0KPiA+ID4gICAjMyBbZmZmZjhiMDZmYWQ4M2YwOF0gX19oYW5kbGVfaXJx
-X2V2ZW50X3BlcmNwdSBhdCBmZmZmZmZmZjk1NzFkZmMwCj4gPiA+ICAgIzQgW2ZmZmY4YjA2ZmFk
-ODNmNDhdIGhhbmRsZV9pcnFfZXZlbnRfcGVyY3B1IGF0IGZmZmZmZmZmOTU3MWUxNDAKPiA+ID4g
-ICAjNSBbZmZmZjhiMDZmYWQ4M2Y3MF0gaGFuZGxlX2lycV9ldmVudCBhdCBmZmZmZmZmZjk1NzFl
-MWI2Cj4gPiA+ICAgIzYgW2ZmZmY4YjA2ZmFkODNmOTBdIGhhbmRsZV9mYXN0ZW9pX2lycSBhdCBm
-ZmZmZmZmZjk1NzIxYjQyCj4gPiA+ICAgIzcgW2ZmZmY4YjA2ZmFkODNmYjBdIGhhbmRsZV9pcnEg
-YXQgZmZmZmZmZmY5NTYyMDllOAo+ID4gPiAgICM4IFtmZmZmOGIwNmZhZDgzZmMwXSBkb19JUlEg
-YXQgZmZmZmZmZmY5NjAwMWVlOQo+ID4gPiAtLS0gPElSUSBzdGFjaz4gLS0tCj4gPiA+ICAgIzkg
-W2ZmZmZmZTAwMDAwODhiOThdIHJldF9mcm9tX2ludHIgYXQgZmZmZmZmZmY5NjAwMGE4Zgo+ID4g
-PiAgICAgIFtleGNlcHRpb24gUklQOiBkZWxheV90c2MrNTJdCj4gPiA+ICAgICAgUklQOiBmZmZm
-ZmZmZjk1ZTVmYjY0ICBSU1A6IGZmZmZmZTAwMDAwODhjNDggIFJGTEFHUzogMDAwMDAyODcKPiA+
-ID4gICAgICBSQVg6IDAwMDAyM2ZiNWVkZjRiMTQgIFJCWDogMDAwMDAwMDAwMDNlMDQ1MSAgUkNY
-OiAwMDAwMjNmYjVlZGY0Nzk4Cj4gPiA+ICAgICAgUkRYOiAwMDAwMDAwMDAwMDAwMzdjICBSU0k6
-IDAwMDAwMDAwMDAwMDAwMDMgIFJESTogMDAwMDAwMDAwMDAwMDk1Ygo+ID4gPiAgICAgIFJCUDog
-ZmZmZmZlMDAwMDA4OGNjMCAgIFI4OiAwMDAwMDAwMDAwMDAwMDA0ICAgUjk6IGZmZmZmZTAwMDAw
-ODhjNWMKPiA+ID4gICAgICBSMTA6IGZmZmZmZmZmOTZhMDVhZTAgIFIxMTogMDAwMDAwMDAwMDAw
-MDAwMCAgUjEyOiBmZmZmZmUwMDAwMDg4Y2IwCj4gPiA+ICAgICAgUjEzOiAwMDAwMDAwMDAwMDAw
-MDAxICBSMTQ6IGZmZmZmZTAwMDAwODhlZjggIFIxNTogZmZmZmZmZmY5NjY2YTJmMAo+ID4gPiAg
-ICAgIE9SSUdfUkFYOiBmZmZmZmZmZmZmZmZmZmQ5ICBDUzogMDAxMCAgU1M6IDAwMTgKPiA+ID4g
-IzEwIFtmZmZmZmUwMDAwMDg4YzQ4XSB3YWl0X2Zvcl9wYW5pYyBhdCBmZmZmZmZmZjk1NjM3YzZj
-Cj4gPiA+ICMxMSBbZmZmZmZlMDAwMDA4OGM1OF0gbWNlX3RpbWVkX291dCBhdCBmZmZmZmZmZjk1
-NjM3ZjVkCj4gPiA+ICMxMiBbZmZmZmZlMDAwMDA4OGM3MF0gZG9fbWFjaGluZV9jaGVjayBhdCBm
-ZmZmZmZmZjk1NjM4ZGI0Cj4gPiA+ICMxMyBbZmZmZmZlMDAwMDA4OGQ4MF0gcmFpc2VfZXhjZXB0
-aW9uIGF0IGZmZmZmZmZmYzA1YjYxMTcgW21jZV9pbmplY3RdCj4gPiA+ICMxNCBbZmZmZmZlMDAw
-MDA4OGU0OF0gbWNlX3JhaXNlX25vdGlmeSBhdCBmZmZmZmZmZmMwNWI2YTkyIFttY2VfaW5qZWN0
-XQo+ID4gPiAjMTUgW2ZmZmZmZTAwMDAwODhlNThdIG5taV9oYW5kbGUgYXQgZmZmZmZmZmY5NTYy
-MWM3Mwo+ID4gPiAjMTYgW2ZmZmZmZTAwMDAwODhlYjBdIGRlZmF1bHRfZG9fbm1pIGF0IGZmZmZm
-ZmZmOTU2MjIxM2UKPiA+ID4gIzE3IFtmZmZmZmUwMDAwMDg4ZWQwXSBkb19ubWkgYXQgZmZmZmZm
-ZmY5NTYyMjMxYwo+ID4gPiAjMTggW2ZmZmZmZTAwMDAwODhlZjBdIGVuZF9yZXBlYXRfbm1pIGF0
-IGZmZmZmZmZmOTYwMDE2YjQKPiA+ID4gICAgICBbZXhjZXB0aW9uIFJJUDogbmF0aXZlX3NhZmVf
-aGFsdCsxNF0KPiA+ID4gICAgICBSSVA6IGZmZmZmZmZmOTVlNzIyM2UgIFJTUDogZmZmZmEyMjJj
-MDZhM2ViMCAgUkZMQUdTOiAwMDAwMDI0Ngo+ID4gPiAgICAgIFJBWDogZmZmZmZmZmY5NWU3MWYz
-MCAgUkJYOiAwMDAwMDAwMDAwMDAwMDAzICBSQ1g6IDAwMDAwMDAwMDAwMDAwMDEKPiA+ID4gICAg
-ICBSRFg6IDAwMDAwMDAwMDAwMDAwMDEgIFJTSTogMDAwMDAwMDAwMDAwMDA4MyAgUkRJOiAwMDAw
-MDAwMDAwMDAwMDAwCj4gPiA+ICAgICAgUkJQOiAwMDAwMDAwMDAwMDAwMDAzICAgUjg6IDAwMDAw
-MDE4Y2Y3Y2Q5YTAgICBSOTogMDAwMDAwMDAwMDAwMDAwMQo+ID4gPiAgICAgIFIxMDogMDAwMDAw
-MDAwMDAwMDQwMCAgUjExOiAwMDAwMDAwMDAwMDAwM2ZiICBSMTI6IDAwMDAwMDAwMDAwMDAwMDAK
-PiA+ID4gICAgICBSMTM6IDAwMDAwMDAwMDAwMDAwMDAgIFIxNDogMDAwMDAwMDAwMDAwMDAwMCAg
-UjE1OiAwMDAwMDAwMDAwMDAwMDAwCj4gPiA+ICAgICAgT1JJR19SQVg6IGZmZmZmZmZmZmZmZmZm
-ZmYgIENTOiAwMDEwICBTUzogMDAxOAo+ID4gPiAtLS0gPE5NSSBleGNlcHRpb24gc3RhY2s+IC0t
-LQo+ID4gPiAjMTkgW2ZmZmZhMjIyYzA2YTNlYjBdIG5hdGl2ZV9zYWZlX2hhbHQgYXQgZmZmZmZm
-ZmY5NWU3MjIzZQo+ID4gPiAjMjAgW2ZmZmZhMjIyYzA2YTNlYjBdIGRlZmF1bHRfaWRsZSBhdCBm
-ZmZmZmZmZjk1ZTcxZjRhCj4gPiA+ICMyMSBbZmZmZmEyMjJjMDZhM2VkMF0gZG9faWRsZSBhdCBm
-ZmZmZmZmZjk1NmU5NTlhCj4gPiA+ICMyMiBbZmZmZmEyMjJjMDZhM2YxMF0gY3B1X3N0YXJ0dXBf
-ZW50cnkgYXQgZmZmZmZmZmY5NTZlOTgxZgo+ID4gPiAjMjMgW2ZmZmZhMjIyYzA2YTNmMzBdIHN0
-YXJ0X3NlY29uZGFyeSBhdCBmZmZmZmZmZjk1NjRlNjk3Cj4gPiA+ICMyNCBbZmZmZmEyMjJjMDZh
-M2Y1MF0gc2Vjb25kYXJ5X3N0YXJ0dXBfNjQgYXQgZmZmZmZmZmY5NTYwMDBlNwo+ID4gPiAKPiA+
-ID4gCj4gPiA+IAo+ID4gPiAKPiA+IAo+ID4gLgo+ID4gCj4gCgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcg
-bGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlz
-dHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+On Thu, Sep 17, 2020 at 06:37:50PM +0800, Wu Bo wrote:
+> In my virtual machine (have 4 cpus), Use mce_inject to inject errors
+> into the system. After mce-inject injects an uncorrectable error, 
+> there is a probability that the virtual machine is not reset immediately, 
+> but hangs for more than 3000 seconds, and appeared unable to 
+> handle kernel paging request.
+> 
+> The analysis reasons are as follows:
+> 1) MCE appears on all CPUs, Currently all CPUs are in the NMI interrupt 
+>    context. cpu0 is the first to seize the opportunity to run panic 
+>    routines, and panic event should stop the other processors before 
+>    do ipmi flush_messages(). but cpu1, cpu2 and cpu3 has already 
+>    in NMI interrupt context, So the Second NMI interrupt(IPI) 
+>    will not be processed again by cpu1, cpu2 and cpu3.
+>    At this time, cpu1,cpu2 and cpu3 did not stopped.
+> 
+> 2) cpu1, cpu2 and cpu3 are waitting for cpu0 to finish the panic process. 
+>    if a timeout waiting for other CPUs happened, do wait_for_panic(), 
+>    the irq is enabled in the wait_for_panic() function.
+> 
+> 3) ipmi IRQ occurs on the cpu3, and the cpu0 is doing the panic, 
+>    they have the opportunity to call the smi_event_handler() 
+>    function concurrently. the ipmi IRQ affects the panic process of cpu0.
+> 
+>   CPU0                                    CPU3
+> 
+>    |-nmi_handle do mce_panic               |-nmi_handle do_machine_check
+>    |                                       |
+>    |-panic()                               |-wait_for_panic()
+>    |                                       |
+>    |-stop other cpus ---- NMI ------> (Ignore, already in nmi interrupt)
+>    |                                       |
+>    |-notifier call(ipmi panic_event)       |<-ipmi IRQ occurs
+>    |                                       |
+>   \|/                                     \|/
+> do smi_event_handler()             do smi_event_handler()
+> 
+> My understanding is that panic() runs with only one operational CPU 
+> in the system, other CPUs should be stopped, if other CPUs does not stop, 
+> at least IRQ interrupts should be disabled. The x86 architecture, 
+> disable IRQ interrupt will not affect IPI when do mce panic, 
+> because IPI is notified through NMI interrupt. If my analysis
+> is not right, please correct me, thanks.
+
+I'm not sure this is the right fix, but I'm not sure what the right fix
+is.  I think this will prevent the other CPUs from being interrupted to
+disable them in some cases.
+
+The group at Huawei has an issue with the IPMI driver's panic handling
+running while the other CPUs are sitting in "wait_for_panic()" with
+interrupt on, and IPMI interrupts interfering with the panic handling,
+as they describe above.
+
+It is my understanding that in a panic all other CPUs should be in a
+state where they won't do anything and won't take interrupts.  Is that
+a correct assumption?  If not, I have some work to do.
+
+-corey
+
+> 
+> Steps to reproduce (Have a certain probability):
+> 1. # vim /tmp/uncorrected
+> CPU 1 BANK 4
+> STATUS uncorrected 0xc0
+> MCGSTATUS  EIPV MCIP
+> ADDR 0x1234
+> RIP 0xdeadbabe
+> RAISINGCPU 0
+> MCGCAP SER CMCI TES 0x6
+>  
+> 2. # modprobe mce_inject
+> 3. # cd /tmp
+> 4. # mce-inject uncorrected
+> 
+> The logs:
+> [   55.086670] core: [Hardware Error]: RIP 00:<00000000deadbabe>
+> [   55.086671] core: [Hardware Error]: TSC 2e11aff65eea ADDR 1234
+> [   55.086673] core: [Hardware Error]: PROCESSOR 0:50654 TIME 1598967234 SOCKET 0 APIC 1 microcode 1
+> [   55.086674] core: [Hardware Error]: Run the above through 'mcelog --ascii'
+> [   55.086675] core: [Hardware Error]: Machine check: In kernel and no restart IP
+> [   55.086676] Kernel panic - not syncing: Fatal machine check
+> [   55.086677] kernel fault(0x5) notification starting on CPU 0
+> [   55.086682] kernel fault(0x5) notification finished on CPU 0
+> [ 4767.947960] BUG: unable to handle kernel paging request at ffff893e40000000
+> [ 4767.947962] PGD 13c001067 P4D 13c001067 PUD 0
+> [ 4767.947965] Oops: 0000 [#1] SMP PTI
+> [ 4767.947967] CPU: 0 PID: 0 Comm: swapper/0
+> [ 4767.947968] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.10.2-0-g5f4c7b1-20181220_000000-szxrtosci10000 04/01/2014
+> [ 4767.947972] RIP: 0010:kcs_event+0x3c2/0x890 [ipmi_si]
+> [ 4767.947974] Code: 74 0e 48 8b 7b 08 31 f6 48 8b 07 e8 98 4f 44 cd 83 bb 24 01
+> [ 4767.947975] RSP: 0018:fffffe0000007658 EFLAGS: 00010046
+> [ 4767.947976] RAX: 000000000c7c5ff0 RBX: ffff893e3383a000 RCX: 0000000000000000
+> [ 4767.947976] RDX: 0000000000000ca2 RSI: 0000000000000000 RDI: ffff893e2fdf6e40
+> [ 4767.947977] RBP: 0000000000000001 R08: 0000000000000000 R09: 0000000000000a35
+> [ 4767.947978] R10: 0000000000000002 R11: 0000000000000006 R12: 0000000000000000
+> [ 4767.947978] R13: fffffe0000007b28 R14: ffff893e34bd0000 R15: 0000000000000000
+> [ 4767.947979] FS:  0000000000000000(0000) GS:ffff893e3ec00000(0000) knlGS:0000000000000000
+> [ 4767.947980] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> [ 4767.947981] CR2: ffff893e40000000 CR3: 000000013b20a002 CR4: 00000000003606f0
+> [ 4767.947987] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+> [ 4767.947988] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+> [ 4767.947988] Call Trace:
+> [ 4767.947991]  <NMI>
+> [ 4767.947994]  smi_event_handler+0x62/0x660 [ipmi_si]
+> [ 4767.947997]  flush_messages+0x10/0x40 [ipmi_si]
+> [ 4767.948001]  ipmi_panic_request_and_wait+0xf5/0x100 [ipmi_msghandler]
+> [ 4767.948005]  ? symbol_string+0x5a/0x90
+> [ 4767.948007]  ? dummy_smi_done_handler+0x10/0x10 [ipmi_msghandler]
+> [ 4767.948011]  ? kvm_sched_clock_read+0xd/0x20
+> [ 4767.948014]  ? sched_clock+0x5/0x10
+> [ 4767.948017]  ? sched_clock_cpu+0xc/0xa0
+> [ 4767.948019]  ? kvm_sched_clock_read+0xd/0x20
+> [ 4767.948020]  ? sched_clock+0x5/0x10
+> [ 4767.948022]  ? sched_clock_cpu+0xc/0xa0
+> [ 4767.948026]  ? log_store+0x278/0x2c0
+> [ 4767.948027]  ? kvm_sched_clock_read+0xd/0x20
+> [ 4767.948029]  ? sched_clock+0x5/0x10
+> [ 4767.948030]  ? sched_clock_cpu+0xc/0xa0
+> [ 4767.948032]  ? log_store+0x278/0x2c0
+> [ 4767.948034]  ? vprintk_emit+0x1dd/0x470
+> [ 4767.948035]  ? vprintk_emit+0x234/0x470
+> [ 4767.948039]  ? secondary_startup_64+0xb7/0xc0
+> [ 4767.948040]  ? vprintk_deferred+0x3a/0x40
+> [ 4767.948042]  ? kvm_sched_clock_read+0xd/0x20
+> [ 4767.948043]  ? sched_clock+0x5/0x10
+> [ 4767.948045]  ? sched_clock_cpu+0xc/0xa0
+> [ 4767.948046]  ? log_store+0x278/0x2c0
+> [ 4767.948048]  ? vprintk_emit+0x1dd/0x470
+> [ 4767.948049]  ? vprintk_emit+0x234/0x470
+> [ 4767.948051]  ? vprintk_deferred+0x3a/0x40
+> [ 4767.948053]  ? printk+0x52/0x6e
+> [ 4767.948055]  ? ipmi_addr_length+0x40/0x40 [ipmi_msghandler]
+> [ 4767.948057]  ? panic_event+0x1d4/0x3e0 [ipmi_msghandler]
+> [ 4767.948059]  panic_event+0x1d4/0x3e0 [ipmi_msghandler]
+> [ 4767.948062]  ? vprintk_deferred+0x3a/0x40
+> [ 4767.948063]  ? printk+0x52/0x6e
+> [ 4767.948065]  ? cpumask_next+0x17/0x20
+> [ 4767.948067]  notifier_call_chain+0x47/0x70
+> [ 4767.948070]  panic+0x17d/0x2c2
+> [ 4767.948075]  mce_panic+0x216/0x240
+> [ 4767.948077]  do_machine_check+0xccd/0xdb0
+> [ 4767.948082]  ? native_safe_halt+0xe/0x10
+> [ 4767.948086]  raise_exception+0x47/0xb0 [mce_inject]
+> [ 4767.948089]  ? __intel_pmu_enable_all+0x47/0x80
+> [ 4767.948092]  ? native_apic_msr_write+0x27/0x30
+> [ 4767.948093]  ? intel_pmu_handle_irq+0x10d/0x160
+> [ 4767.948095]  mce_raise_notify+0x62/0x70 [mce_inject]
+> [ 4767.948097]  ? raise_local+0xc0/0xc0 [mce_inject]
+> [ 4767.948100]  nmi_handle+0x63/0x110
+> [ 4767.948103]  default_do_nmi+0x4e/0x100
+> [ 4767.948105]  do_nmi+0x12c/0x190
+> [ 4767.948107]  end_repeat_nmi+0x16/0x6a
+> 
+> Call Trace:
+> crash> bt -a
+> PID: 0      TASK: ffffffff91c12780  CPU: 0   COMMAND: "swapper/0"
+>  #0 [fffffe0000007ba0] panic at ffffffff90ab2e4b
+>  #1 [fffffe0000007c28] mce_panic at ffffffff90a37ec6
+>  #2 [fffffe0000007c70] do_machine_check at ffffffff90a391ad
+>  #3 [fffffe0000007d80] raise_exception at ffffffffc0642117 [mce_inject]
+>  #4 [fffffe0000007e48] mce_raise_notify at ffffffffc0642a92 [mce_inject]
+>  #5 [fffffe0000007e58] nmi_handle at ffffffff90a21c73
+>  #6 [fffffe0000007eb0] default_do_nmi at ffffffff90a2213e
+>  #7 [fffffe0000007ed0] do_nmi at ffffffff90a2231c
+>  #8 [fffffe0000007ef0] end_repeat_nmi at ffffffff914016b4
+>     [exception RIP: native_safe_halt+14]
+>     RIP: ffffffff9127223e  RSP: ffffffff91c03e90  RFLAGS: 00000246
+>     RAX: ffffffff91271f30  RBX: 0000000000000000  RCX: 0000000000000000
+>     RDX: 0000000000000001  RSI: 0000000000000000  RDI: 0000000000000000
+>     RBP: 0000000000000000   R8: 00000031237ac86a   R9: 0000000000000001
+>     R10: ffff9f7c01397b88  R11: 0000000002a3fabf  R12: 0000000000000000
+>     R13: 0000000000000000  R14: 0000000000000000  R15: 0000000000000000
+>     ORIG_RAX: ffffffffffffffff  CS: 0010  SS: 0018
+> --- <NMI exception stack> ---
+>  #9 [ffffffff91c03e90] native_safe_halt at ffffffff9127223e
+>  #10 [ffffffff91c03e90] default_idle at ffffffff91271f4a
+>  #11 [ffffffff91c03eb0] do_idle at ffffffff90ae959a
+>  #12 [ffffffff91c03ef0] cpu_startup_entry at ffffffff90ae981f
+>  #13 [ffffffff91c03f10] start_kernel at ffffffff9219b206
+>  #14 [ffffffff91c03f50] secondary_startup_64 at ffffffff90a000e7
+> 
+> 
+> PID: 0      TASK: ffff8b06c77dc740  CPU: 3   COMMAND: "swapper/3"
+>      [exception RIP: port_outb+17]
+>      RIP: ffffffffc035f1a1  RSP: ffff8b06fad83e90  RFLAGS: 00000002
+>      RAX: 0000000000000000  RBX: ffff8b06f08bec00  RCX: 0000000000000010
+>      RDX: 0000000000000ca2  RSI: 0000000000000000  RDI: ffff8b06f0bd5e40
+>      RBP: 0000000000000001   R8: ffff8b06fad80080   R9: ffff8b06fad84000
+>      R10: 0000000000000000  R11: 0000000000000000  R12: 0000000000000000
+>      R13: ffff8b06fad83f54  R14: 0000000000000000  R15: 0000000000000000
+>      CS: 0010  SS: 0018
+>   #0 [ffff8b06fad83e90] kcs_event at ffffffffc035c2c7 [ipmi_si]
+>   #1 [ffff8b06fad83eb0] smi_event_handler at ffffffffc035aa3f [ipmi_si]
+>   #2 [ffff8b06fad83ee8] ipmi_si_irq_handler at ffffffffc035b0cc [ipmi_si]
+>   #3 [ffff8b06fad83f08] __handle_irq_event_percpu at ffffffff9571dfc0
+>   #4 [ffff8b06fad83f48] handle_irq_event_percpu at ffffffff9571e140
+>   #5 [ffff8b06fad83f70] handle_irq_event at ffffffff9571e1b6
+>   #6 [ffff8b06fad83f90] handle_fasteoi_irq at ffffffff95721b42
+>   #7 [ffff8b06fad83fb0] handle_irq at ffffffff956209e8
+>   #8 [ffff8b06fad83fc0] do_IRQ at ffffffff96001ee9
+> --- <IRQ stack> ---
+>   #9 [fffffe0000088b98] ret_from_intr at ffffffff96000a8f
+>      [exception RIP: delay_tsc+52]
+>      RIP: ffffffff95e5fb64  RSP: fffffe0000088c48  RFLAGS: 00000287
+>      RAX: 000023fb5edf4b14  RBX: 00000000003e0451  RCX: 000023fb5edf4798
+>      RDX: 000000000000037c  RSI: 0000000000000003  RDI: 000000000000095b
+>      RBP: fffffe0000088cc0   R8: 0000000000000004   R9: fffffe0000088c5c
+>      R10: ffffffff96a05ae0  R11: 0000000000000000  R12: fffffe0000088cb0
+>      R13: 0000000000000001  R14: fffffe0000088ef8  R15: ffffffff9666a2f0
+>      ORIG_RAX: ffffffffffffffd9  CS: 0010  SS: 0018
+>  #10 [fffffe0000088c48] wait_for_panic at ffffffff95637c6c
+>  #11 [fffffe0000088c58] mce_timed_out at ffffffff95637f5d
+>  #12 [fffffe0000088c70] do_machine_check at ffffffff95638db4
+>  #13 [fffffe0000088d80] raise_exception at ffffffffc05b6117 [mce_inject]
+>  #14 [fffffe0000088e48] mce_raise_notify at ffffffffc05b6a92 [mce_inject]
+>  #15 [fffffe0000088e58] nmi_handle at ffffffff95621c73
+>  #16 [fffffe0000088eb0] default_do_nmi at ffffffff9562213e
+>  #17 [fffffe0000088ed0] do_nmi at ffffffff9562231c
+>  #18 [fffffe0000088ef0] end_repeat_nmi at ffffffff960016b4
+>      [exception RIP: native_safe_halt+14]
+>      RIP: ffffffff95e7223e  RSP: ffffa222c06a3eb0  RFLAGS: 00000246
+>      RAX: ffffffff95e71f30  RBX: 0000000000000003  RCX: 0000000000000001
+>      RDX: 0000000000000001  RSI: 0000000000000083  RDI: 0000000000000000
+>      RBP: 0000000000000003   R8: 00000018cf7cd9a0   R9: 0000000000000001
+>      R10: 0000000000000400  R11: 00000000000003fb  R12: 0000000000000000
+>      R13: 0000000000000000  R14: 0000000000000000  R15: 0000000000000000
+>      ORIG_RAX: ffffffffffffffff  CS: 0010  SS: 0018
+>  --- <NMI exception stack> ---
+>  #19 [ffffa222c06a3eb0] native_safe_halt at ffffffff95e7223e
+>  #20 [ffffa222c06a3eb0] default_idle at ffffffff95e71f4a
+>  #21 [ffffa222c06a3ed0] do_idle at ffffffff956e959a
+>  #22 [ffffa222c06a3f10] cpu_startup_entry at ffffffff956e981f
+>  #23 [ffffa222c06a3f30] start_secondary at ffffffff9564e697
+>  #24 [ffffa222c06a3f50] secondary_startup_64 at ffffffff956000e7
+> 
+> 
+> Signed-off-by: Feilong Lin <linfeilong@huawei.com>
+> Signed-off-by: Wu Bo <wubo40@huawei.com>
+> ---
+>  arch/x86/kernel/cpu/mce/core.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/arch/x86/kernel/cpu/mce/core.c b/arch/x86/kernel/cpu/mce/core.c
+> index f43a78b..738f582 100644
+> --- a/arch/x86/kernel/cpu/mce/core.c
+> +++ b/arch/x86/kernel/cpu/mce/core.c
+> @@ -281,13 +281,12 @@ static void print_mce(struct mce *m)
+>  static int fake_panic;
+>  static atomic_t mce_fake_panicked;
+>  
+> -/* Panic in progress. Enable interrupts and wait for final IPI */
+> +/* Panic in progress. Wait for final IPI */
+>  static void wait_for_panic(void)
+>  {
+>  	long timeout = PANIC_TIMEOUT*USEC_PER_SEC;
+>  
+>  	preempt_disable();
+> -	local_irq_enable();
+>  	while (timeout-- > 0)
+>  		udelay(1);
+>  	if (panic_timeout == 0)
+> -- 
+> 1.8.3.1
+> 
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
