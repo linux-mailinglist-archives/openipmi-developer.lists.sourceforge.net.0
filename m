@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F25E270861
-	for <lists+openipmi-developer@lfdr.de>; Fri, 18 Sep 2020 23:35:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B2B67274314
+	for <lists+openipmi-developer@lfdr.de>; Tue, 22 Sep 2020 15:32:07 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kJO2e-0000Ny-9w; Fri, 18 Sep 2020 21:35:40 +0000
+	id 1kKiOo-00056h-Dq; Tue, 22 Sep 2020 13:32:02 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1kJO2c-0000Nj-Dw
- for openipmi-developer@lists.sourceforge.net; Fri, 18 Sep 2020 21:35:38 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1kKiOn-00056G-Bn
+ for openipmi-developer@lists.sourceforge.net; Tue, 22 Sep 2020 13:32:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=G8fXqWszh3SrJ+vmT464jX1vRmpstqfB1t8xeqTC0Yo=; b=QfyioNgn0D0VG5E/mTg+EZVFrX
- RiI857vE4rE85S9fgT5dvu9qTZeS3KDRam2AcQIcIIjYBkOlpVQpZkdcHgU0+Z/ZhLWrbqJ5nzv7V
- 7KlHePukQydws/rlldHbNy6i9eAxkVjRziITdmFj70EaN3aE7bdzGUTCJqJA1xaVgf6Y=;
+ bh=DaUszIIiqX2buJ5rNmrv1SiRP1elqhVleijjedgq/Uc=; b=BSOTf2dxEIJVhJ3dOPcimB3X+G
+ KtEK4lkF/U22EtwyDHStjT7sTI9fjHv+PItYBptjOWrcwjR+ahhlfBuwm4KjJ+M3bO7b6szd0xc2a
+ lCaQzq5fBDLQK9BjXwa48N2g7pxKzeeUZiXB3t2udBhZt/uIm59NvNE9k33ddcHIpfTs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
@@ -29,67 +29,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=G8fXqWszh3SrJ+vmT464jX1vRmpstqfB1t8xeqTC0Yo=; b=aqsiIRz4DPpvvuQMbYJ2lQQTnC
- lBU+ZyLqgsZQSsmlu0AYRzjvYCpiz8g7F/Yyw1cs1FQHJTkIfZ2kOAGq3rpaZHMBkgwmWC8ZHcCNW
- b6ffmQuQOV6tmxf2luurWWph21sg2Fo8TaQOcBTjJCBUcW6VXsakx0Gi8P5DkGpKVBsY=;
+ bh=DaUszIIiqX2buJ5rNmrv1SiRP1elqhVleijjedgq/Uc=; b=AwbJ6go4bR7cenybUgNNSCNz/G
+ XbjzfsrGJGY+PrLH0XtdpMd0C8GDFQax/Yaz8IDqlmfuU533JyJD1gqC+XfZ6TSSVmeutyhIBX+jc
+ ieNen5rv/Rez2dSPTelLxAEIguuPKGk2YztQI1md5lGGAljj7Dbm0i8qOqSBA3ZmJqXg=;
 Received: from mail-ot1-f67.google.com ([209.85.210.67])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kJO2a-00G5VP-1S
- for openipmi-developer@lists.sourceforge.net; Fri, 18 Sep 2020 21:35:38 +0000
-Received: by mail-ot1-f67.google.com with SMTP id o8so6737345otl.4
+ id 1kKiOf-001Lap-Km
+ for openipmi-developer@lists.sourceforge.net; Tue, 22 Sep 2020 13:32:01 +0000
+Received: by mail-ot1-f67.google.com with SMTP id e23so15597735otk.7
  for <openipmi-developer@lists.sourceforge.net>;
- Fri, 18 Sep 2020 14:35:36 -0700 (PDT)
+ Tue, 22 Sep 2020 06:31:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=sender:date:from:to:cc:subject:message-id:reply-to:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=G8fXqWszh3SrJ+vmT464jX1vRmpstqfB1t8xeqTC0Yo=;
- b=GdO/Ghgzwl/Mhx/Xegq0ztWcGn8p4oIE76uu4RFFmou2d26T2pwnGilkiqr2Uo+Ypp
- 6Nk2rwgH4GQFCzbU1QeBkeG93BhilQ2RVbHWDeLT3lj5+ttqX5X0wGDFpFs4tceNBLxt
- xlItl9igEqFtSxauRLIsXCGvYcEBvnlIu8I/G4Kq6sVlgIT6lmy0iz35pdLhiGmgiB/f
- k8qfvOKNjz/4ZWdloLbAFVxuNCCD52WIXTfBCJFxawD35jgoSCszdSep+CavaMwv1iDy
- XW6YqpsCkZnTWzRxquZPevlqswxRRFK+Iv6wimN33U/hUCyoQojd1WpLpb/XS5mT5zTr
- 3rZA==
+ bh=DaUszIIiqX2buJ5rNmrv1SiRP1elqhVleijjedgq/Uc=;
+ b=WuuKuUxhC9IUTTUGmqbRg24V5l1zfY5WKxR/+8ne5OOC3GH0XPkpM3DMWeDFaayn0a
+ FoUObCJgJ8I4p3UCNZTRGw7NHYAycYSbrt+3lFOZGWWNE8qt8MMnA9RJj5Zqt7y/APPX
+ 1SgprrqpTJYTwnHmBSf97amQsmy7RspJhO9WDM0zy/nXrF8FTdvj2J7rSUZumrcFmgSS
+ pHiBGRrofkyK1DjG0nhHwI1YWvHZ+FuNSecXeexu50tPjXqrykuCK2yzT/pKNcCUcmuQ
+ 8gLEXXehfMCwjZktnSy++665FCSKTdlTuBc/8P3l9xFN+uEmGjzFyp4y0wm+RUwpHHrQ
+ eX1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
  :reply-to:references:mime-version:content-disposition:in-reply-to
  :user-agent;
- bh=G8fXqWszh3SrJ+vmT464jX1vRmpstqfB1t8xeqTC0Yo=;
- b=Lb49C71bwAfmf2gUgK5gUOUQJTww3mS7jQc2fzn2yyE9nr60TZT60fSteBlqulDBHK
- xNqXksASD2/r9ple2Eycq9oxIhJgNPqOv9NCn/qKuy54W0oHs4O8j8chYrA2p9kxxyQL
- FFx+S1fgCfvslF/T8lcixVEzN5H2EqzJjbVAFz3XlT94hxDBGDpWoLszb9WAvJz8tRTs
- tMQKLokEPmu61jWd0+Brb4JCEHVlUcbnd8k7jCf7r6b4aCjsxdLB1CPcGTBQ08CVH9HD
- oEGJEARm2ZAyMFEbyNK30vsFJGTlydgctuHeKa45CaraunA+SIaTCL6CMuGoc0X4+dlf
- wASA==
-X-Gm-Message-State: AOAM533QnntOduFRejjuCe/ME1kbIcCKgjPXBRpGp5WRUgsue4z+/sn/
- EMyZDhewysuuT+Ki005Pag==
-X-Google-Smtp-Source: ABdhPJzzQ3LbdTJlkgrLikXmhfwIDmXRGv9uIUSccKLWD7kSt7QdteRSDu9/sZnp3WYvQ66bw4dvzg==
-X-Received: by 2002:a9d:3983:: with SMTP id y3mr9819323otb.71.1600464923116;
- Fri, 18 Sep 2020 14:35:23 -0700 (PDT)
-Received: from serve.minyard.net ([47.184.170.156])
- by smtp.gmail.com with ESMTPSA id c25sm4095600oot.42.2020.09.18.14.35.22
+ bh=DaUszIIiqX2buJ5rNmrv1SiRP1elqhVleijjedgq/Uc=;
+ b=b+VPbMcY9K7vTRZoS1Mx0HsgQZ0yyGade5N0pSqruB3X8qIHb//hTU1rWP8/EgBGp7
+ 6rgep5Wu/0DbpAKo7XdLsJAEG8+PHMxkHIcaVF2FDDuf9zimtqkw2kfzWC8kA/opbkVq
+ 8pdbNmlcqZHwBqxUKrpezUXjRMwAw+/XJ39GdYfTbKnanQslcpoNGWPASBwJwe8KrBnP
+ ORIHWof0tuIZDUakhJaO3ebvbVMmdJeFzVTf0GOW9g1aG/Cf+wT1/JvreivJQQK+B6DO
+ 76jyszrJ75dfihEfHwK724cOoQAckuCMskLFdfnBPXWBEoY9tkH8/R7Ehlc3sbmE6ffK
+ cAvQ==
+X-Gm-Message-State: AOAM531lqDbhIKRXRNvlxYby9TS/WXMCvPNSD2uFosTh9wUfhh1fu6LZ
+ TrVxWJ1P8bDDuwcWgI9qbA==
+X-Google-Smtp-Source: ABdhPJwYQh0hFY7m2eV32Ricj5DEOkqkVVLl7a+x5rp+9eBFDcKPCSv299c3B3g33p9bcwoYAK1y/A==
+X-Received: by 2002:a05:6830:101:: with SMTP id
+ i1mr2916715otp.300.1600781507778; 
+ Tue, 22 Sep 2020 06:31:47 -0700 (PDT)
+Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
+ by smtp.gmail.com with ESMTPSA id x15sm8069144oor.33.2020.09.22.06.31.46
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 18 Sep 2020 14:35:22 -0700 (PDT)
-Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:790b:9ad:25b1:4b44])
- by serve.minyard.net (Postfix) with ESMTPSA id 5703518003B;
- Fri, 18 Sep 2020 21:35:20 +0000 (UTC)
-Date: Fri, 18 Sep 2020 16:35:19 -0500
+ Tue, 22 Sep 2020 06:31:46 -0700 (PDT)
+Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:b947:d467:298:a358])
+ by serve.minyard.net (Postfix) with ESMTPSA id 6B81B18003B;
+ Tue, 22 Sep 2020 13:31:45 +0000 (UTC)
+Date: Tue, 22 Sep 2020 08:31:44 -0500
 From: Corey Minyard <minyard@acm.org>
-To: Dan Carpenter <dan.carpenter@oracle.com>
-Message-ID: <20200918213519.GK3674@minyard.net>
-References: <20200918142756.GB909725@mwanda>
+To: Wu Bo <wubo40@huawei.com>
+Message-ID: <20200922133144.GP3674@minyard.net>
+References: <1600696808-613951-1-git-send-email-wubo40@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200918142756.GB909725@mwanda>
+In-Reply-To: <1600696808-613951-1-git-send-email-wubo40@huawei.com>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: huawei.com]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
  trust [209.85.210.67 listed in list.dnswl.org]
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (tcminyard[at]gmail.com)
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
  [209.85.210.67 listed in wl.mailspike.net]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
@@ -102,9 +107,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
-X-Headers-End: 1kJO2a-00G5VP-1S
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: msghandler: Fix a signedness
- bug
+X-Headers-End: 1kKiOf-001Lap-Km
+Subject: Re: [Openipmi-developer] [RFC PATCH V2] ipmi: ssif: Fix out of
+ bounds in write_next_byte()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -118,62 +123,292 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Reply-To: minyard@acm.org
-Cc: Xianting Tian <tian.xianting@h3c.com>,
- openipmi-developer@lists.sourceforge.net, kernel-janitors@vger.kernel.org,
- Arnd Bergmann <arnd@arndb.de>
+Cc: arnd@arndb.de, gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
+ linfeilong@huawei.com, hidehiro.kawai.ez@hitachi.com,
+ openipmi-developer@lists.sourceforge.net, liuzhiqiang26@huawei.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Sep 18, 2020 at 05:27:56PM +0300, Dan Carpenter wrote:
-> The type for the completion codes should be unsigned char instead of
-> char.  If it is declared as a normal char then the conditions in
-> __get_device_id() are impossible because the IPMI_DEVICE_IN_FW_UPDATE_ERR
-> error codes are higher than 127.
+On Mon, Sep 21, 2020 at 10:00:08PM +0800, Wu Bo wrote:
+> In my virtual machine (have 4 cpus), Use mce_inject to inject errors
+> into the system. After mce-inject injects an uncorrectable error,
+> there is a probability that the virtual machine is not reset immediately,
+> but hangs for more than 3000 seconds, and appeared unable to
+> handle kernel paging request.
 > 
->     drivers/char/ipmi/ipmi_msghandler.c:2449 __get_device_id()
->     warn: impossible condition '(bmc->cc == 209) => ((-128)-127 == 209)'
+> The analysis reasons are as follows:
+> 1) MCE appears on all CPUs, Currently all CPUs are in the NMI interrupt
+>    context. cpu0 is the first to seize the opportunity to run panic
+>    routines, and panic event should stop the other processors before
+>    do ipmi flush_messages(). but cpu1, cpu2 and cpu3 has already
+>    in NMI interrupt context, So the Second NMI interrupt(IPI)
+>    will not be processed again by cpu1, cpu2 and cpu3.
+>    At this time, cpu1,cpu2 and cpu3 did not stopped.
+> 
+> 2) cpu1, cpu2 and cpu3 are waitting for cpu0 to finish the panic process.
+>    if a timeout waiting for other CPUs happened, do wait_for_panic(),
+>    the irq is enabled in the wait_for_panic() function.
+> 
+> 3) ipmi IRQ occurs on the cpu3, and the cpu0 is doing the panic,
+>    they have the opportunity to call the smi_event_handler()
+>    function concurrently. the ipmi IRQ affects the panic process of cpu0.
+> 
+>   CPU0                                    CPU3
+> 
+>    |-nmi_handle do mce_panic               |-nmi_handle do_machine_check
+>    |                                       |
+>    |-panic()                               |-wait_for_panic()
+>    |                                       |
+>    |-stop other cpus ---- NMI ------> (Ignore, already in nmi interrupt)
 
-Dang, I should have spotted that.  Thanks, it's applied.
+There is a step that happens before this.  In native_stop_other_cpus()
+it uses the REBOOT_VECTOR irq to stop the other CPUs before it does the
+NMI.
+
+The question is: Why isn't that working?  That's why irqs are enabled in
+wait_for_panic, so this REBOOT_VECTOR will work.
+
+Again, changing the IPMI driver to account for this is ignoring the root
+problem, and the root problem will cause other issues.
+
+You mention you are running in a VM, but you don't mention which one.
+Maybe the problem is in the VM?  I can't see how this is an issue unless
+you are not using native_stop_other_cpus() (using Xen?) or you have
+other kernel code changes.
 
 -corey
 
+>    |                                       |
+>    |-notifier call(ipmi panic_event)       |<-ipmi IRQ occurs
+>    |                                       |
+>   \|/                                     \|/
+> do smi_event_handler()             do smi_event_handler()
 > 
-> Fixes: f8910ffa81b0 ("ipmi:msghandler: retry to get device id on an error")
-> Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
+> 
+> The current scene encountered is a simulation injection error of the mce software, 
+> and it is not confirmed whether there are other similar scenes. 
+> 
+> so add the try spinlocks in the IPMI panic handler to solve the concurrency problem of 
+> panic process and IRQ process, and also to prevent the panic process from deadlock.
+> 
+> Steps to reproduce (Have a certain probability):
+> 1. # vim /tmp/uncorrected
+> CPU 1 BANK 4
+> STATUS uncorrected 0xc0
+> MCGSTATUS  EIPV MCIP
+> ADDR 0x1234
+> RIP 0xdeadbabe
+> RAISINGCPU 0
+> MCGCAP SER CMCI TES 0x6
+> 
+> 2. # modprobe mce_inject
+> 3. # cd /tmp
+> 4. # mce-inject uncorrected
+> 
+> The logs:
+> [   55.086670] core: [Hardware Error]: RIP 00:<00000000deadbabe>
+> [   55.086671] core: [Hardware Error]: TSC 2e11aff65eea ADDR 1234
+> [   55.086673] core: [Hardware Error]: PROCESSOR 0:50654 TIME 1598967234 SOCKET 0 APIC 1 microcode 1
+> [   55.086674] core: [Hardware Error]: Run the above through 'mcelog --ascii'
+> [   55.086675] core: [Hardware Error]: Machine check: In kernel and no restart IP
+> [   55.086676] Kernel panic - not syncing: Fatal machine check
+> [   55.086677] kernel fault(0x5) notification starting on CPU 0
+> [   55.086682] kernel fault(0x5) notification finished on CPU 0
+> [ 4767.947960] BUG: unable to handle kernel paging request at ffff893e40000000
+> [ 4767.947962] PGD 13c001067 P4D 13c001067 PUD 0
+> [ 4767.947965] Oops: 0000 [#1] SMP PTI
+> [ 4767.947967] CPU: 0 PID: 0 Comm: swapper/0
+> [ 4767.947968] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.10.2-0-g5f4c7b1-20181220_000000-szxrtosci10000 04/01/2014
+> [ 4767.947972] RIP: 0010:kcs_event+0x3c2/0x890 [ipmi_si]
+> [ 4767.947974] Code: 74 0e 48 8b 7b 08 31 f6 48 8b 07 e8 98 4f 44 cd 83 bb 24 01
+> [ 4767.947975] RSP: 0018:fffffe0000007658 EFLAGS: 00010046
+> [ 4767.947976] RAX: 000000000c7c5ff0 RBX: ffff893e3383a000 RCX: 0000000000000000
+> [ 4767.947976] RDX: 0000000000000ca2 RSI: 0000000000000000 RDI: ffff893e2fdf6e40
+> [ 4767.947977] RBP: 0000000000000001 R08: 0000000000000000 R09: 0000000000000a35
+> [ 4767.947978] R10: 0000000000000002 R11: 0000000000000006 R12: 0000000000000000
+> [ 4767.947978] R13: fffffe0000007b28 R14: ffff893e34bd0000 R15: 0000000000000000
+> [ 4767.947979] FS:  0000000000000000(0000) GS:ffff893e3ec00000(0000) knlGS:0000000000000000
+> [ 4767.947980] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> [ 4767.947981] CR2: ffff893e40000000 CR3: 000000013b20a002 CR4: 00000000003606f0
+> [ 4767.947987] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+> [ 4767.947988] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+> [ 4767.947988] Call Trace:
+> [ 4767.947991]  <NMI>
+> [ 4767.947994]  smi_event_handler+0x62/0x660 [ipmi_si]
+> [ 4767.947997]  flush_messages+0x10/0x40 [ipmi_si]
+> [ 4767.948001]  ipmi_panic_request_and_wait+0xf5/0x100 [ipmi_msghandler]
+> [ 4767.948005]  ? symbol_string+0x5a/0x90
+> [ 4767.948007]  ? dummy_smi_done_handler+0x10/0x10 [ipmi_msghandler]
+> [ 4767.948011]  ? kvm_sched_clock_read+0xd/0x20
+> [ 4767.948014]  ? sched_clock+0x5/0x10
+> [ 4767.948017]  ? sched_clock_cpu+0xc/0xa0
+> [ 4767.948019]  ? kvm_sched_clock_read+0xd/0x20
+> [ 4767.948020]  ? sched_clock+0x5/0x10
+> [ 4767.948022]  ? sched_clock_cpu+0xc/0xa0
+> [ 4767.948026]  ? log_store+0x278/0x2c0
+> [ 4767.948027]  ? kvm_sched_clock_read+0xd/0x20
+> [ 4767.948029]  ? sched_clock+0x5/0x10
+> [ 4767.948030]  ? sched_clock_cpu+0xc/0xa0
+> [ 4767.948032]  ? log_store+0x278/0x2c0
+> [ 4767.948034]  ? vprintk_emit+0x1dd/0x470
+> [ 4767.948035]  ? vprintk_emit+0x234/0x470
+> [ 4767.948039]  ? secondary_startup_64+0xb7/0xc0
+> [ 4767.948040]  ? vprintk_deferred+0x3a/0x40
+> [ 4767.948042]  ? kvm_sched_clock_read+0xd/0x20
+> [ 4767.948043]  ? sched_clock+0x5/0x10
+> [ 4767.948045]  ? sched_clock_cpu+0xc/0xa0
+> [ 4767.948046]  ? log_store+0x278/0x2c0
+> [ 4767.948048]  ? vprintk_emit+0x1dd/0x470
+> [ 4767.948049]  ? vprintk_emit+0x234/0x470
+> [ 4767.948051]  ? vprintk_deferred+0x3a/0x40
+> [ 4767.948053]  ? printk+0x52/0x6e
+> [ 4767.948055]  ? ipmi_addr_length+0x40/0x40 [ipmi_msghandler]
+> [ 4767.948057]  ? panic_event+0x1d4/0x3e0 [ipmi_msghandler]
+> [ 4767.948059]  panic_event+0x1d4/0x3e0 [ipmi_msghandler]
+> [ 4767.948062]  ? vprintk_deferred+0x3a/0x40
+> [ 4767.948063]  ? printk+0x52/0x6e
+> [ 4767.948065]  ? cpumask_next+0x17/0x20
+> [ 4767.948067]  notifier_call_chain+0x47/0x70
+> [ 4767.948070]  panic+0x17d/0x2c2
+> [ 4767.948075]  mce_panic+0x216/0x240
+> [ 4767.948077]  do_machine_check+0xccd/0xdb0
+> [ 4767.948082]  ? native_safe_halt+0xe/0x10
+> [ 4767.948086]  raise_exception+0x47/0xb0 [mce_inject]
+> [ 4767.948089]  ? __intel_pmu_enable_all+0x47/0x80
+> [ 4767.948092]  ? native_apic_msr_write+0x27/0x30
+> [ 4767.948093]  ? intel_pmu_handle_irq+0x10d/0x160
+> [ 4767.948095]  mce_raise_notify+0x62/0x70 [mce_inject]
+> [ 4767.948097]  ? raise_local+0xc0/0xc0 [mce_inject]
+> [ 4767.948100]  nmi_handle+0x63/0x110
+> [ 4767.948103]  default_do_nmi+0x4e/0x100
+> [ 4767.948105]  do_nmi+0x12c/0x190
+> [ 4767.948107]  end_repeat_nmi+0x16/0x6a
+> 
+> Call Trace:
+> crash> bt -a
+> PID: 0      TASK: ffffffff91c12780  CPU: 0   COMMAND: "swapper/0"
+>  #0 [fffffe0000007ba0] panic at ffffffff90ab2e4b
+>  #1 [fffffe0000007c28] mce_panic at ffffffff90a37ec6
+>  #2 [fffffe0000007c70] do_machine_check at ffffffff90a391ad
+>  #3 [fffffe0000007d80] raise_exception at ffffffffc0642117 [mce_inject]
+>  #4 [fffffe0000007e48] mce_raise_notify at ffffffffc0642a92 [mce_inject]
+>  #5 [fffffe0000007e58] nmi_handle at ffffffff90a21c73
+>  #6 [fffffe0000007eb0] default_do_nmi at ffffffff90a2213e
+>  #7 [fffffe0000007ed0] do_nmi at ffffffff90a2231c
+>  #8 [fffffe0000007ef0] end_repeat_nmi at ffffffff914016b4
+>     [exception RIP: native_safe_halt+14]
+>     RIP: ffffffff9127223e  RSP: ffffffff91c03e90  RFLAGS: 00000246
+>     RAX: ffffffff91271f30  RBX: 0000000000000000  RCX: 0000000000000000
+>     RDX: 0000000000000001  RSI: 0000000000000000  RDI: 0000000000000000
+>     RBP: 0000000000000000   R8: 00000031237ac86a   R9: 0000000000000001
+>     R10: ffff9f7c01397b88  R11: 0000000002a3fabf  R12: 0000000000000000
+>     R13: 0000000000000000  R14: 0000000000000000  R15: 0000000000000000
+>     ORIG_RAX: ffffffffffffffff  CS: 0010  SS: 0018
+> --- <NMI exception stack> ---
+>  #9 [ffffffff91c03e90] native_safe_halt at ffffffff9127223e
+>  #10 [ffffffff91c03e90] default_idle at ffffffff91271f4a
+>  #11 [ffffffff91c03eb0] do_idle at ffffffff90ae959a
+>  #12 [ffffffff91c03ef0] cpu_startup_entry at ffffffff90ae981f
+>  #13 [ffffffff91c03f10] start_kernel at ffffffff9219b206
+>  #14 [ffffffff91c03f50] secondary_startup_64 at ffffffff90a000e7
+> 
+> 
+> PID: 0      TASK: ffff8b06c77dc740  CPU: 3   COMMAND: "swapper/3"
+>      [exception RIP: port_outb+17]
+>      RIP: ffffffffc035f1a1  RSP: ffff8b06fad83e90  RFLAGS: 00000002
+>      RAX: 0000000000000000  RBX: ffff8b06f08bec00  RCX: 0000000000000010
+>      RDX: 0000000000000ca2  RSI: 0000000000000000  RDI: ffff8b06f0bd5e40
+>      RBP: 0000000000000001   R8: ffff8b06fad80080   R9: ffff8b06fad84000
+>      R10: 0000000000000000  R11: 0000000000000000  R12: 0000000000000000
+>      R13: ffff8b06fad83f54  R14: 0000000000000000  R15: 0000000000000000
+>      CS: 0010  SS: 0018
+>   #0 [ffff8b06fad83e90] kcs_event at ffffffffc035c2c7 [ipmi_si]
+>   #1 [ffff8b06fad83eb0] smi_event_handler at ffffffffc035aa3f [ipmi_si]
+>   #2 [ffff8b06fad83ee8] ipmi_si_irq_handler at ffffffffc035b0cc [ipmi_si]
+>   #3 [ffff8b06fad83f08] __handle_irq_event_percpu at ffffffff9571dfc0
+>   #4 [ffff8b06fad83f48] handle_irq_event_percpu at ffffffff9571e140
+>   #5 [ffff8b06fad83f70] handle_irq_event at ffffffff9571e1b6
+>   #6 [ffff8b06fad83f90] handle_fasteoi_irq at ffffffff95721b42
+>   #7 [ffff8b06fad83fb0] handle_irq at ffffffff956209e8
+>   #8 [ffff8b06fad83fc0] do_IRQ at ffffffff96001ee9
+> --- <IRQ stack> ---
+>   #9 [fffffe0000088b98] ret_from_intr at ffffffff96000a8f
+>      [exception RIP: delay_tsc+52]
+>      RIP: ffffffff95e5fb64  RSP: fffffe0000088c48  RFLAGS: 00000287
+>      RAX: 000023fb5edf4b14  RBX: 00000000003e0451  RCX: 000023fb5edf4798
+>      RDX: 000000000000037c  RSI: 0000000000000003  RDI: 000000000000095b
+>      RBP: fffffe0000088cc0   R8: 0000000000000004   R9: fffffe0000088c5c
+>      R10: ffffffff96a05ae0  R11: 0000000000000000  R12: fffffe0000088cb0
+>      R13: 0000000000000001  R14: fffffe0000088ef8  R15: ffffffff9666a2f0
+>      ORIG_RAX: ffffffffffffffd9  CS: 0010  SS: 0018
+>  #10 [fffffe0000088c48] wait_for_panic at ffffffff95637c6c
+>  #11 [fffffe0000088c58] mce_timed_out at ffffffff95637f5d
+>  #12 [fffffe0000088c70] do_machine_check at ffffffff95638db4
+>  #13 [fffffe0000088d80] raise_exception at ffffffffc05b6117 [mce_inject]
+>  #14 [fffffe0000088e48] mce_raise_notify at ffffffffc05b6a92 [mce_inject]
+>  #15 [fffffe0000088e58] nmi_handle at ffffffff95621c73
+>  #16 [fffffe0000088eb0] default_do_nmi at ffffffff9562213e
+>  #17 [fffffe0000088ed0] do_nmi at ffffffff9562231c
+>  #18 [fffffe0000088ef0] end_repeat_nmi at ffffffff960016b4
+>      [exception RIP: native_safe_halt+14]
+>      RIP: ffffffff95e7223e  RSP: ffffa222c06a3eb0  RFLAGS: 00000246
+>      RAX: ffffffff95e71f30  RBX: 0000000000000003  RCX: 0000000000000001
+>      RDX: 0000000000000001  RSI: 0000000000000083  RDI: 0000000000000000
+>      RBP: 0000000000000003   R8: 00000018cf7cd9a0   R9: 0000000000000001
+>      R10: 0000000000000400  R11: 00000000000003fb  R12: 0000000000000000
+>      R13: 0000000000000000  R14: 0000000000000000  R15: 0000000000000000
+>      ORIG_RAX: ffffffffffffffff  CS: 0010  SS: 0018
+>  --- <NMI exception stack> ---
+>  #19 [ffffa222c06a3eb0] native_safe_halt at ffffffff95e7223e
+>  #20 [ffffa222c06a3eb0] default_idle at ffffffff95e71f4a
+>  #21 [ffffa222c06a3ed0] do_idle at ffffffff956e959a
+>  #22 [ffffa222c06a3f10] cpu_startup_entry at ffffffff956e981f
+>  #23 [ffffa222c06a3f30] start_secondary at ffffffff9564e697
+>  #24 [ffffa222c06a3f50] secondary_startup_64 at ffffffff956000e7
+> 
+> Fixes: e45361d73 ("Factor out message flushing procedure")
+> Signed-off-by: Feilong Lin <linfeilong@huawei.com>
+> Signed-off-by: Wu Bo <wubo40@huawei.com>
 > ---
->  drivers/char/ipmi/ipmi_msghandler.c | 2 +-
->  drivers/char/ipmi/ipmi_si_intf.c    | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
+>  drivers/char/ipmi/ipmi_si_intf.c | 21 ++++++++++++---------
+>  1 file changed, 12 insertions(+), 9 deletions(-)
 > 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index 555c3b1e4926..8774a3b8ff95 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -319,7 +319,7 @@ struct bmc_device {
->  	int                    dyn_guid_set;
->  	struct kref	       usecount;
->  	struct work_struct     remove_work;
-> -	char		       cc; /* completion code */
-> +	unsigned char	       cc; /* completion code */
->  };
->  #define to_bmc_device(x) container_of((x), struct bmc_device, pdev.dev)
->  
 > diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-> index 164f85007080..0b3dbc7e39fd 100644
+> index 77b8d55..44ba9b6 100644
 > --- a/drivers/char/ipmi/ipmi_si_intf.c
 > +++ b/drivers/char/ipmi/ipmi_si_intf.c
-> @@ -1344,7 +1344,7 @@ static int try_get_dev_id(struct smi_info *smi_info)
->  			resp + 2, resp_len - 2, &smi_info->device_id);
->  	if (rv) {
->  		/* record completion code */
-> -		char cc = *(resp + 2);
-> +		unsigned char cc = *(resp + 2);
+> @@ -882,16 +882,19 @@ static void flush_messages(void *send_info)
+>  {
+>  	struct smi_info *smi_info = send_info;
+>  	enum si_sm_result result;
+> +	unsigned long flags = 0;
+> +	int time = 0;
 >  
->  		if ((cc == IPMI_DEVICE_IN_FW_UPDATE_ERR
->  		    || cc == IPMI_DEVICE_IN_INIT_ERR
+> -	/*
+> -	 * Currently, this function is called only in run-to-completion
+> -	 * mode.  This means we are single-threaded, no need for locks.
+> -	 */
+> -	result = smi_event_handler(smi_info, 0);
+> -	while (result != SI_SM_IDLE) {
+> -		udelay(SI_SHORT_TIMEOUT_USEC);
+> -		result = smi_event_handler(smi_info, SI_SHORT_TIMEOUT_USEC);
+> -	}
+> +restart:
+> +        if (!spin_trylock_irqsave(&smi_info->si_lock, flags))
+> +                return;
+> +        result = smi_event_handler(smi_info, time);
+> +        spin_unlock_irqrestore(&smi_info->si_lock, flags);
+> +        if (result != SI_SM_IDLE) {
+> +                udelay(SI_SHORT_TIMEOUT_USEC);
+> +                time = SI_SHORT_TIMEOUT_USEC;
+> +                goto restart;
+> +        }
+>  }
+>  
+>  static void sender(void                *send_info,
 > -- 
-> 2.28.0
+> 1.8.3.1
 > 
 
 
