@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B07A6286735
+	by mail.lfdr.de (Postfix) with ESMTPS id C4BBF286737
 	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Oct 2020 20:29:40 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQEC3-00084w-3T; Wed, 07 Oct 2020 18:29:39 +0000
+	id 1kQEC3-00085N-5w; Wed, 07 Oct 2020 18:29:39 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <wubo40@huawei.com>) id 1kKyxI-0000pX-8G
- for openipmi-developer@lists.sourceforge.net; Wed, 23 Sep 2020 07:12:44 +0000
+ (envelope-from <wubo40@huawei.com>) id 1kL0Sz-0000WN-Sf
+ for openipmi-developer@lists.sourceforge.net; Wed, 23 Sep 2020 08:49:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  MIME-Version:Date:Message-ID:From:References:CC:To:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Ui9X4ge7vyPtqWc7q5ruITVBglLRlZMwU7BJvo4UPgM=; b=AQRvlCbcg+7VOynuMSAqk827rI
- f6zsJOf+sslXeOVL4JnMPtNmR0MI8DcNCWOptqEnfLIlXb5TT16qGKE8r9uArwKWk0DVZMrSM4mRL
- sXfgXlboJjrg65KnI2GkbnBhWZBo2UHRxdZlBAFvUJIe1UAcpp8BJEPJQ3YtvzDGy9yw=;
+ bh=VQ0aQnL2FvvqrqKWy/0UdyEctHvlBdh2SvHlebjG90M=; b=cWqDerRqv3JRB3vh47LxEWjw/Q
+ e82YEme8QzX1z2Z55wLdTAEZITJ7kzlol5v+WWAr4DGH+Cms/QDh5jqn6wf3yfNIFBk8bMWF9GWAg
+ WVeYAUntLgL9FwY0ctc4+U3FtokbjxCTcqtQ8JfVrfvic/uml4VgeUtcmBZeQKyMxWm8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
@@ -29,34 +29,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Ui9X4ge7vyPtqWc7q5ruITVBglLRlZMwU7BJvo4UPgM=; b=XrlMcgpRhBmst1kBDpOJPMz+mM
- 2MECLueEi456njKXNB19Mn+gX++NXSinyYQcw1w9+ZrjB+iTqs+ybmSYkD76dr3vEYUM56Vy1lBGt
- PdQw2RqWHX7kCJLA8o3JOLlF9mgzxDQxRBqETo0fqsFqiQttvrqvAV79Pf5SKp1h28KE=;
+ bh=VQ0aQnL2FvvqrqKWy/0UdyEctHvlBdh2SvHlebjG90M=; b=VPwgGhZZ+8+JP/cCkoITBPm4+t
+ 6aHnyWD7n5iFz7JEROZzjmOv8SvaW3+dJkIF7X8V8HqriWQ1pZcM5aCHpKmts8zfhPUjMgExafEau
+ z1FgYK7YgCQLgWKeRuLjGsNcg3K/gQX19BpOceaYtPmJSRbd+aHDItfny8EN6/uXB3SY=;
 Received: from szxga04-in.huawei.com ([45.249.212.190] helo=huawei.com)
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kKyx2-0047mi-2N
- for openipmi-developer@lists.sourceforge.net; Wed, 23 Sep 2020 07:12:43 +0000
-Received: from DGGEMS408-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id 4E74F26F73F1C048E02A;
- Wed, 23 Sep 2020 15:12:16 +0800 (CST)
+ id 1kL0SX-004DeI-Py
+ for openipmi-developer@lists.sourceforge.net; Wed, 23 Sep 2020 08:49:32 +0000
+Received: from DGGEMS409-HUB.china.huawei.com (unknown [172.30.72.59])
+ by Forcepoint Email with ESMTP id 99245D33C459C597CA47;
+ Wed, 23 Sep 2020 16:48:42 +0800 (CST)
 Received: from [10.174.179.35] (10.174.179.35) by
- DGGEMS408-HUB.china.huawei.com (10.3.19.208) with Microsoft SMTP Server id
- 14.3.487.0; Wed, 23 Sep 2020 15:12:09 +0800
+ DGGEMS409-HUB.china.huawei.com (10.3.19.209) with Microsoft SMTP Server id
+ 14.3.487.0; Wed, 23 Sep 2020 16:48:32 +0800
 To: <minyard@acm.org>
-References: <1600696808-613951-1-git-send-email-wubo40@huawei.com>
- <20200922133144.GP3674@minyard.net> <20200922161311.GQ3674@minyard.net>
+References: <20200922161311.GQ3674@minyard.net>
+ <20200922182940.31843-1-minyard@acm.org> <20200922184332.GT3674@minyard.net>
 From: Wu Bo <wubo40@huawei.com>
-Message-ID: <6e932418-3fe8-8f62-90b6-11f11c4bfb5a@huawei.com>
-Date: Wed, 23 Sep 2020 15:12:09 +0800
+Message-ID: <29448f27-12f7-82a1-7483-80471c36d48c@huawei.com>
+Date: Wed, 23 Sep 2020 16:48:31 +0800
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
  Thunderbird/78.2.2
 MIME-Version: 1.0
-In-Reply-To: <20200922161311.GQ3674@minyard.net>
+In-Reply-To: <20200922184332.GT3674@minyard.net>
 Content-Language: en-US
 X-Originating-IP: [10.174.179.35]
 X-CFilter-Loop: Reflected
-X-Spam-Score: 1.0 (+)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
@@ -64,17 +64,12 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: huawei.com]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 1.0 FORGED_SPF_HELO        No description available.
- -0.0 NICE_REPLY_A           Looks like a legit reply (A)
+ for more information. [URIs: acm.org]
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1kKyx2-0047mi-2N
+X-Headers-End: 1kL0SX-004DeI-Py
 X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:28 +0000
-Subject: Re: [Openipmi-developer] [RFC PATCH V2] ipmi: ssif: Fix out of
- bounds in write_next_byte()
+Subject: Re: [Openipmi-developer] [PATCH] x86: Fix MCE error handing when
+ kdump is enabled
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -87,323 +82,287 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: arnd@arndb.de, gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
+Cc: Corey Minyard <cminyard@mvista.com>, arnd@arndb.de,
+ gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
  linfeilong@huawei.com, hidehiro.kawai.ez@hitachi.com,
  openipmi-developer@lists.sourceforge.net, liuzhiqiang26@huawei.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 2020/9/23 0:13, Corey Minyard wrote:
-> On Tue, Sep 22, 2020 at 08:31:44AM -0500, Corey Minyard wrote:
->> On Mon, Sep 21, 2020 at 10:00:08PM +0800, Wu Bo wrote:
->>> In my virtual machine (have 4 cpus), Use mce_inject to inject errors
->>> into the system. After mce-inject injects an uncorrectable error,
->>> there is a probability that the virtual machine is not reset immediately,
->>> but hangs for more than 3000 seconds, and appeared unable to
->>> handle kernel paging request.
->>>
->>> The analysis reasons are as follows:
->>> 1) MCE appears on all CPUs, Currently all CPUs are in the NMI interrupt
->>>     context. cpu0 is the first to seize the opportunity to run panic
->>>     routines, and panic event should stop the other processors before
->>>     do ipmi flush_messages(). but cpu1, cpu2 and cpu3 has already
->>>     in NMI interrupt context, So the Second NMI interrupt(IPI)
->>>     will not be processed again by cpu1, cpu2 and cpu3.
->>>     At this time, cpu1,cpu2 and cpu3 did not stopped.
->>>
->>> 2) cpu1, cpu2 and cpu3 are waitting for cpu0 to finish the panic process.
->>>     if a timeout waiting for other CPUs happened, do wait_for_panic(),
->>>     the irq is enabled in the wait_for_panic() function.
->>>
->>> 3) ipmi IRQ occurs on the cpu3, and the cpu0 is doing the panic,
->>>     they have the opportunity to call the smi_event_handler()
->>>     function concurrently. the ipmi IRQ affects the panic process of cpu0.
->>>
->>>    CPU0                                    CPU3
->>>
->>>     |-nmi_handle do mce_panic               |-nmi_handle do_machine_check
->>>     |                                       |
->>>     |-panic()                               |-wait_for_panic()
->>>     |                                       |
->>>     |-stop other cpus ---- NMI ------> (Ignore, already in nmi interrupt)
+On 2020/9/23 2:43, Corey Minyard wrote:
+> On Tue, Sep 22, 2020 at 01:29:40PM -0500, minyard@acm.org wrote:
+>> From: Corey Minyard <cminyard@mvista.com>
 >>
->> There is a step that happens before this.  In native_stop_other_cpus()
->> it uses the REBOOT_VECTOR irq to stop the other CPUs before it does the
->> NMI.
+>> If kdump is enabled, the handling of shooting down CPUs does not use the
+>> RESET_VECTOR irq before trying to use NMIs to shoot down the CPUs.
 >>
->> The question is: Why isn't that working?  That's why irqs are enabled in
->> wait_for_panic, so this REBOOT_VECTOR will work.
+>> For normal errors that is fine.  MCEs, however, are already running in
+>> an NMI, so sending them an NMI won't do anything.  The MCE code is set
+>> up to receive the RESET_VECTOR because it disables CPUs, but it won't
+>                                              ^ should be "enables irqs"
+>> work on the NMI-only case.
 >>
->> Again, changing the IPMI driver to account for this is ignoring the root
->> problem, and the root problem will cause other issues.
+>> There is already code in place to scan for the NMI callback being ready,
+>> simply call that from the MCE's wait_for_panic() code so it will pick up
+>> and handle it if an NMI shootdown is requested.  This required
+>> propagating the registers down to wait_for_panic().
 >>
->> You mention you are running in a VM, but you don't mention which one.
->> Maybe the problem is in the VM?  I can't see how this is an issue unless
->> you are not using native_stop_other_cpus() (using Xen?) or you have
->> other kernel code changes.
-> 
-> I looked a bit more, and I'm guessing you are using kdump.
-> kdump_nmi_shuutdown_cpus() does not have the same handling for sending
-> the REBOOT_VECTOR interrupts as native_stop_other_cpus().
-> 
-> The kdump version of the code is not going to work with an MCE as it
-> only uses the NMI, and the NMI is not going to work.
-> 
-> I'm still not sure of the right way to fix this.  I can see two options:
-> 
-> * Do the REBOOT_VECTOR handling in kdump_nmi_shuutdown_cpus().
-> 
-> * In mce_panic, detect if you are going to do a kdump and handle it
->    appropriately there.
-> 
-> We really need to get the x86 maintainers to see the issue and fix it.
-> 
-> -corey
-> 
-Hi, corey
+>> Signed-off-by: Corey Minyard <cminyard@mvista.com>
+>> ---
+>> After looking at it a bit, I think this is the proper way to fix the
+>> issue, though I'm not an expert on this code so I'm not sure.
+>>
+>> I have not even tested this patch, I have only compiled it.  But from
+>> what I can tell, things waiting in NMIs for a shootdown should call
+>> run_crash_ipi_callback() in their wait loop.
 
-Your guess is correct. Kdump is enabled in my VM (using qemu-kvm).
-The panic process use kdump_nmi_shootdown_cpus() to stop other cpus.
+Hi,
+
+In my VM (using qemu-kvm), Kump is enabled, used mce-inject injects an 
+uncorrectable error. I has an issue with the IPMI driver's panic 
+handling running while the other CPUs are sitting in "wait_for_panic()" 
+with interrupt on, and IPMI interrupts interfering with the panic 
+handling, As a result, IPMI panic hangs for more than 3000 seconds.
+
+After I has patched and tested this patch, the problem of IPMI hangs has 
+disappeared. It should be a solution to the problem.
 
 
 Thanks,
 
-Wu Bo.
+Wu Bo
+
 >>
->> -corey
+>>   arch/x86/kernel/cpu/mce/core.c | 67 ++++++++++++++++++++++------------
+>>   1 file changed, 44 insertions(+), 23 deletions(-)
 >>
->>>     |                                       |
->>>     |-notifier call(ipmi panic_event)       |<-ipmi IRQ occurs
->>>     |                                       |
->>>    \|/                                     \|/
->>> do smi_event_handler()             do smi_event_handler()
->>>
->>>
->>> The current scene encountered is a simulation injection error of the mce software,
->>> and it is not confirmed whether there are other similar scenes.
->>>
->>> so add the try spinlocks in the IPMI panic handler to solve the concurrency problem of
->>> panic process and IRQ process, and also to prevent the panic process from deadlock.
->>>
->>> Steps to reproduce (Have a certain probability):
->>> 1. # vim /tmp/uncorrected
->>> CPU 1 BANK 4
->>> STATUS uncorrected 0xc0
->>> MCGSTATUS  EIPV MCIP
->>> ADDR 0x1234
->>> RIP 0xdeadbabe
->>> RAISINGCPU 0
->>> MCGCAP SER CMCI TES 0x6
->>>
->>> 2. # modprobe mce_inject
->>> 3. # cd /tmp
->>> 4. # mce-inject uncorrected
->>>
->>> The logs:
->>> [   55.086670] core: [Hardware Error]: RIP 00:<00000000deadbabe>
->>> [   55.086671] core: [Hardware Error]: TSC 2e11aff65eea ADDR 1234
->>> [   55.086673] core: [Hardware Error]: PROCESSOR 0:50654 TIME 1598967234 SOCKET 0 APIC 1 microcode 1
->>> [   55.086674] core: [Hardware Error]: Run the above through 'mcelog --ascii'
->>> [   55.086675] core: [Hardware Error]: Machine check: In kernel and no restart IP
->>> [   55.086676] Kernel panic - not syncing: Fatal machine check
->>> [   55.086677] kernel fault(0x5) notification starting on CPU 0
->>> [   55.086682] kernel fault(0x5) notification finished on CPU 0
->>> [ 4767.947960] BUG: unable to handle kernel paging request at ffff893e40000000
->>> [ 4767.947962] PGD 13c001067 P4D 13c001067 PUD 0
->>> [ 4767.947965] Oops: 0000 [#1] SMP PTI
->>> [ 4767.947967] CPU: 0 PID: 0 Comm: swapper/0
->>> [ 4767.947968] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.10.2-0-g5f4c7b1-20181220_000000-szxrtosci10000 04/01/2014
->>> [ 4767.947972] RIP: 0010:kcs_event+0x3c2/0x890 [ipmi_si]
->>> [ 4767.947974] Code: 74 0e 48 8b 7b 08 31 f6 48 8b 07 e8 98 4f 44 cd 83 bb 24 01
->>> [ 4767.947975] RSP: 0018:fffffe0000007658 EFLAGS: 00010046
->>> [ 4767.947976] RAX: 000000000c7c5ff0 RBX: ffff893e3383a000 RCX: 0000000000000000
->>> [ 4767.947976] RDX: 0000000000000ca2 RSI: 0000000000000000 RDI: ffff893e2fdf6e40
->>> [ 4767.947977] RBP: 0000000000000001 R08: 0000000000000000 R09: 0000000000000a35
->>> [ 4767.947978] R10: 0000000000000002 R11: 0000000000000006 R12: 0000000000000000
->>> [ 4767.947978] R13: fffffe0000007b28 R14: ffff893e34bd0000 R15: 0000000000000000
->>> [ 4767.947979] FS:  0000000000000000(0000) GS:ffff893e3ec00000(0000) knlGS:0000000000000000
->>> [ 4767.947980] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->>> [ 4767.947981] CR2: ffff893e40000000 CR3: 000000013b20a002 CR4: 00000000003606f0
->>> [ 4767.947987] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
->>> [ 4767.947988] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
->>> [ 4767.947988] Call Trace:
->>> [ 4767.947991]  <NMI>
->>> [ 4767.947994]  smi_event_handler+0x62/0x660 [ipmi_si]
->>> [ 4767.947997]  flush_messages+0x10/0x40 [ipmi_si]
->>> [ 4767.948001]  ipmi_panic_request_and_wait+0xf5/0x100 [ipmi_msghandler]
->>> [ 4767.948005]  ? symbol_string+0x5a/0x90
->>> [ 4767.948007]  ? dummy_smi_done_handler+0x10/0x10 [ipmi_msghandler]
->>> [ 4767.948011]  ? kvm_sched_clock_read+0xd/0x20
->>> [ 4767.948014]  ? sched_clock+0x5/0x10
->>> [ 4767.948017]  ? sched_clock_cpu+0xc/0xa0
->>> [ 4767.948019]  ? kvm_sched_clock_read+0xd/0x20
->>> [ 4767.948020]  ? sched_clock+0x5/0x10
->>> [ 4767.948022]  ? sched_clock_cpu+0xc/0xa0
->>> [ 4767.948026]  ? log_store+0x278/0x2c0
->>> [ 4767.948027]  ? kvm_sched_clock_read+0xd/0x20
->>> [ 4767.948029]  ? sched_clock+0x5/0x10
->>> [ 4767.948030]  ? sched_clock_cpu+0xc/0xa0
->>> [ 4767.948032]  ? log_store+0x278/0x2c0
->>> [ 4767.948034]  ? vprintk_emit+0x1dd/0x470
->>> [ 4767.948035]  ? vprintk_emit+0x234/0x470
->>> [ 4767.948039]  ? secondary_startup_64+0xb7/0xc0
->>> [ 4767.948040]  ? vprintk_deferred+0x3a/0x40
->>> [ 4767.948042]  ? kvm_sched_clock_read+0xd/0x20
->>> [ 4767.948043]  ? sched_clock+0x5/0x10
->>> [ 4767.948045]  ? sched_clock_cpu+0xc/0xa0
->>> [ 4767.948046]  ? log_store+0x278/0x2c0
->>> [ 4767.948048]  ? vprintk_emit+0x1dd/0x470
->>> [ 4767.948049]  ? vprintk_emit+0x234/0x470
->>> [ 4767.948051]  ? vprintk_deferred+0x3a/0x40
->>> [ 4767.948053]  ? printk+0x52/0x6e
->>> [ 4767.948055]  ? ipmi_addr_length+0x40/0x40 [ipmi_msghandler]
->>> [ 4767.948057]  ? panic_event+0x1d4/0x3e0 [ipmi_msghandler]
->>> [ 4767.948059]  panic_event+0x1d4/0x3e0 [ipmi_msghandler]
->>> [ 4767.948062]  ? vprintk_deferred+0x3a/0x40
->>> [ 4767.948063]  ? printk+0x52/0x6e
->>> [ 4767.948065]  ? cpumask_next+0x17/0x20
->>> [ 4767.948067]  notifier_call_chain+0x47/0x70
->>> [ 4767.948070]  panic+0x17d/0x2c2
->>> [ 4767.948075]  mce_panic+0x216/0x240
->>> [ 4767.948077]  do_machine_check+0xccd/0xdb0
->>> [ 4767.948082]  ? native_safe_halt+0xe/0x10
->>> [ 4767.948086]  raise_exception+0x47/0xb0 [mce_inject]
->>> [ 4767.948089]  ? __intel_pmu_enable_all+0x47/0x80
->>> [ 4767.948092]  ? native_apic_msr_write+0x27/0x30
->>> [ 4767.948093]  ? intel_pmu_handle_irq+0x10d/0x160
->>> [ 4767.948095]  mce_raise_notify+0x62/0x70 [mce_inject]
->>> [ 4767.948097]  ? raise_local+0xc0/0xc0 [mce_inject]
->>> [ 4767.948100]  nmi_handle+0x63/0x110
->>> [ 4767.948103]  default_do_nmi+0x4e/0x100
->>> [ 4767.948105]  do_nmi+0x12c/0x190
->>> [ 4767.948107]  end_repeat_nmi+0x16/0x6a
->>>
->>> Call Trace:
->>> crash> bt -a
->>> PID: 0      TASK: ffffffff91c12780  CPU: 0   COMMAND: "swapper/0"
->>>   #0 [fffffe0000007ba0] panic at ffffffff90ab2e4b
->>>   #1 [fffffe0000007c28] mce_panic at ffffffff90a37ec6
->>>   #2 [fffffe0000007c70] do_machine_check at ffffffff90a391ad
->>>   #3 [fffffe0000007d80] raise_exception at ffffffffc0642117 [mce_inject]
->>>   #4 [fffffe0000007e48] mce_raise_notify at ffffffffc0642a92 [mce_inject]
->>>   #5 [fffffe0000007e58] nmi_handle at ffffffff90a21c73
->>>   #6 [fffffe0000007eb0] default_do_nmi at ffffffff90a2213e
->>>   #7 [fffffe0000007ed0] do_nmi at ffffffff90a2231c
->>>   #8 [fffffe0000007ef0] end_repeat_nmi at ffffffff914016b4
->>>      [exception RIP: native_safe_halt+14]
->>>      RIP: ffffffff9127223e  RSP: ffffffff91c03e90  RFLAGS: 00000246
->>>      RAX: ffffffff91271f30  RBX: 0000000000000000  RCX: 0000000000000000
->>>      RDX: 0000000000000001  RSI: 0000000000000000  RDI: 0000000000000000
->>>      RBP: 0000000000000000   R8: 00000031237ac86a   R9: 0000000000000001
->>>      R10: ffff9f7c01397b88  R11: 0000000002a3fabf  R12: 0000000000000000
->>>      R13: 0000000000000000  R14: 0000000000000000  R15: 0000000000000000
->>>      ORIG_RAX: ffffffffffffffff  CS: 0010  SS: 0018
->>> --- <NMI exception stack> ---
->>>   #9 [ffffffff91c03e90] native_safe_halt at ffffffff9127223e
->>>   #10 [ffffffff91c03e90] default_idle at ffffffff91271f4a
->>>   #11 [ffffffff91c03eb0] do_idle at ffffffff90ae959a
->>>   #12 [ffffffff91c03ef0] cpu_startup_entry at ffffffff90ae981f
->>>   #13 [ffffffff91c03f10] start_kernel at ffffffff9219b206
->>>   #14 [ffffffff91c03f50] secondary_startup_64 at ffffffff90a000e7
->>>
->>>
->>> PID: 0      TASK: ffff8b06c77dc740  CPU: 3   COMMAND: "swapper/3"
->>>       [exception RIP: port_outb+17]
->>>       RIP: ffffffffc035f1a1  RSP: ffff8b06fad83e90  RFLAGS: 00000002
->>>       RAX: 0000000000000000  RBX: ffff8b06f08bec00  RCX: 0000000000000010
->>>       RDX: 0000000000000ca2  RSI: 0000000000000000  RDI: ffff8b06f0bd5e40
->>>       RBP: 0000000000000001   R8: ffff8b06fad80080   R9: ffff8b06fad84000
->>>       R10: 0000000000000000  R11: 0000000000000000  R12: 0000000000000000
->>>       R13: ffff8b06fad83f54  R14: 0000000000000000  R15: 0000000000000000
->>>       CS: 0010  SS: 0018
->>>    #0 [ffff8b06fad83e90] kcs_event at ffffffffc035c2c7 [ipmi_si]
->>>    #1 [ffff8b06fad83eb0] smi_event_handler at ffffffffc035aa3f [ipmi_si]
->>>    #2 [ffff8b06fad83ee8] ipmi_si_irq_handler at ffffffffc035b0cc [ipmi_si]
->>>    #3 [ffff8b06fad83f08] __handle_irq_event_percpu at ffffffff9571dfc0
->>>    #4 [ffff8b06fad83f48] handle_irq_event_percpu at ffffffff9571e140
->>>    #5 [ffff8b06fad83f70] handle_irq_event at ffffffff9571e1b6
->>>    #6 [ffff8b06fad83f90] handle_fasteoi_irq at ffffffff95721b42
->>>    #7 [ffff8b06fad83fb0] handle_irq at ffffffff956209e8
->>>    #8 [ffff8b06fad83fc0] do_IRQ at ffffffff96001ee9
->>> --- <IRQ stack> ---
->>>    #9 [fffffe0000088b98] ret_from_intr at ffffffff96000a8f
->>>       [exception RIP: delay_tsc+52]
->>>       RIP: ffffffff95e5fb64  RSP: fffffe0000088c48  RFLAGS: 00000287
->>>       RAX: 000023fb5edf4b14  RBX: 00000000003e0451  RCX: 000023fb5edf4798
->>>       RDX: 000000000000037c  RSI: 0000000000000003  RDI: 000000000000095b
->>>       RBP: fffffe0000088cc0   R8: 0000000000000004   R9: fffffe0000088c5c
->>>       R10: ffffffff96a05ae0  R11: 0000000000000000  R12: fffffe0000088cb0
->>>       R13: 0000000000000001  R14: fffffe0000088ef8  R15: ffffffff9666a2f0
->>>       ORIG_RAX: ffffffffffffffd9  CS: 0010  SS: 0018
->>>   #10 [fffffe0000088c48] wait_for_panic at ffffffff95637c6c
->>>   #11 [fffffe0000088c58] mce_timed_out at ffffffff95637f5d
->>>   #12 [fffffe0000088c70] do_machine_check at ffffffff95638db4
->>>   #13 [fffffe0000088d80] raise_exception at ffffffffc05b6117 [mce_inject]
->>>   #14 [fffffe0000088e48] mce_raise_notify at ffffffffc05b6a92 [mce_inject]
->>>   #15 [fffffe0000088e58] nmi_handle at ffffffff95621c73
->>>   #16 [fffffe0000088eb0] default_do_nmi at ffffffff9562213e
->>>   #17 [fffffe0000088ed0] do_nmi at ffffffff9562231c
->>>   #18 [fffffe0000088ef0] end_repeat_nmi at ffffffff960016b4
->>>       [exception RIP: native_safe_halt+14]
->>>       RIP: ffffffff95e7223e  RSP: ffffa222c06a3eb0  RFLAGS: 00000246
->>>       RAX: ffffffff95e71f30  RBX: 0000000000000003  RCX: 0000000000000001
->>>       RDX: 0000000000000001  RSI: 0000000000000083  RDI: 0000000000000000
->>>       RBP: 0000000000000003   R8: 00000018cf7cd9a0   R9: 0000000000000001
->>>       R10: 0000000000000400  R11: 00000000000003fb  R12: 0000000000000000
->>>       R13: 0000000000000000  R14: 0000000000000000  R15: 0000000000000000
->>>       ORIG_RAX: ffffffffffffffff  CS: 0010  SS: 0018
->>>   --- <NMI exception stack> ---
->>>   #19 [ffffa222c06a3eb0] native_safe_halt at ffffffff95e7223e
->>>   #20 [ffffa222c06a3eb0] default_idle at ffffffff95e71f4a
->>>   #21 [ffffa222c06a3ed0] do_idle at ffffffff956e959a
->>>   #22 [ffffa222c06a3f10] cpu_startup_entry at ffffffff956e981f
->>>   #23 [ffffa222c06a3f30] start_secondary at ffffffff9564e697
->>>   #24 [ffffa222c06a3f50] secondary_startup_64 at ffffffff956000e7
->>>
->>> Fixes: e45361d73 ("Factor out message flushing procedure")
->>> Signed-off-by: Feilong Lin <linfeilong@huawei.com>
->>> Signed-off-by: Wu Bo <wubo40@huawei.com>
->>> ---
->>>   drivers/char/ipmi/ipmi_si_intf.c | 21 ++++++++++++---------
->>>   1 file changed, 12 insertions(+), 9 deletions(-)
->>>
->>> diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
->>> index 77b8d55..44ba9b6 100644
->>> --- a/drivers/char/ipmi/ipmi_si_intf.c
->>> +++ b/drivers/char/ipmi/ipmi_si_intf.c
->>> @@ -882,16 +882,19 @@ static void flush_messages(void *send_info)
->>>   {
->>>   	struct smi_info *smi_info = send_info;
->>>   	enum si_sm_result result;
->>> +	unsigned long flags = 0;
->>> +	int time = 0;
->>>   
->>> -	/*
->>> -	 * Currently, this function is called only in run-to-completion
->>> -	 * mode.  This means we are single-threaded, no need for locks.
->>> -	 */
->>> -	result = smi_event_handler(smi_info, 0);
->>> -	while (result != SI_SM_IDLE) {
->>> -		udelay(SI_SHORT_TIMEOUT_USEC);
->>> -		result = smi_event_handler(smi_info, SI_SHORT_TIMEOUT_USEC);
->>> -	}
->>> +restart:
->>> +        if (!spin_trylock_irqsave(&smi_info->si_lock, flags))
->>> +                return;
->>> +        result = smi_event_handler(smi_info, time);
->>> +        spin_unlock_irqrestore(&smi_info->si_lock, flags);
->>> +        if (result != SI_SM_IDLE) {
->>> +                udelay(SI_SHORT_TIMEOUT_USEC);
->>> +                time = SI_SHORT_TIMEOUT_USEC;
->>> +                goto restart;
->>> +        }
->>>   }
->>>   
->>>   static void sender(void                *send_info,
->>> -- 
->>> 1.8.3.1
->>>
+>> diff --git a/arch/x86/kernel/cpu/mce/core.c b/arch/x86/kernel/cpu/mce/core.c
+>> index f43a78bde670..3a842b3773b3 100644
+>> --- a/arch/x86/kernel/cpu/mce/core.c
+>> +++ b/arch/x86/kernel/cpu/mce/core.c
+>> @@ -282,20 +282,35 @@ static int fake_panic;
+>>   static atomic_t mce_fake_panicked;
+>>   
+>>   /* Panic in progress. Enable interrupts and wait for final IPI */
+>> -static void wait_for_panic(void)
+>> +static void wait_for_panic(struct pt_regs *regs)
+>>   {
+>>   	long timeout = PANIC_TIMEOUT*USEC_PER_SEC;
+>>   
+>>   	preempt_disable();
+>>   	local_irq_enable();
+>> -	while (timeout-- > 0)
+>> +	while (timeout-- > 0) {
+>> +		/*
+>> +		 * We are in an NMI waiting to be stopped by the
+>> +		 * handing processor.  For kdump handling, we need to
+>> +		 * be monitoring crash_ipi_issued since that is what
+>> +		 * is used for an NMI stop used by kdump.  But we also
+>> +		 * need to have interrupts enabled some so that
+>> +		 * RESET_VECTOR will interrupt us on a normal
+>> +		 * shutdown.
+>> +		 */
+>> +		local_irq_disable();
+>> +		run_crash_ipi_callback(regs);
+>> +		local_irq_enable();
+>> +
+>>   		udelay(1);
+>> +	}
+>>   	if (panic_timeout == 0)
+>>   		panic_timeout = mca_cfg.panic_timeout;
+>>   	panic("Panicing machine check CPU died");
+>>   }
+>>   
+>> -static void mce_panic(const char *msg, struct mce *final, char *exp)
+>> +static void mce_panic(const char *msg, struct mce *final, char *exp,
+>> +		      struct pt_regs *regs)
+>>   {
+>>   	int apei_err = 0;
+>>   	struct llist_node *pending;
+>> @@ -306,7 +321,7 @@ static void mce_panic(const char *msg, struct mce *final, char *exp)
+>>   		 * Make sure only one CPU runs in machine check panic
+>>   		 */
+>>   		if (atomic_inc_return(&mce_panicked) > 1)
+>> -			wait_for_panic();
+>> +			wait_for_panic(regs);
+>>   		barrier();
+>>   
+>>   		bust_spinlocks(1);
+>> @@ -817,7 +832,7 @@ static atomic_t mce_callin;
+>>   /*
+>>    * Check if a timeout waiting for other CPUs happened.
+>>    */
+>> -static int mce_timed_out(u64 *t, const char *msg)
+>> +static int mce_timed_out(u64 *t, const char *msg, struct pt_regs *regs)
+>>   {
+>>   	/*
+>>   	 * The others already did panic for some reason.
+>> @@ -827,12 +842,12 @@ static int mce_timed_out(u64 *t, const char *msg)
+>>   	 */
+>>   	rmb();
+>>   	if (atomic_read(&mce_panicked))
+>> -		wait_for_panic();
+>> +		wait_for_panic(regs);
+>>   	if (!mca_cfg.monarch_timeout)
+>>   		goto out;
+>>   	if ((s64)*t < SPINUNIT) {
+>>   		if (mca_cfg.tolerant <= 1)
+>> -			mce_panic(msg, NULL, NULL);
+>> +			mce_panic(msg, NULL, NULL, regs);
+>>   		cpu_missing = 1;
+>>   		return 1;
+>>   	}
+>> @@ -866,7 +881,7 @@ static int mce_timed_out(u64 *t, const char *msg)
+>>    * All the spin loops have timeouts; when a timeout happens a CPU
+>>    * typically elects itself to be Monarch.
+>>    */
+>> -static void mce_reign(void)
+>> +static void mce_reign(struct pt_regs *regs)
+>>   {
+>>   	int cpu;
+>>   	struct mce *m = NULL;
+>> @@ -896,7 +911,7 @@ static void mce_reign(void)
+>>   	 * other CPUs.
+>>   	 */
+>>   	if (m && global_worst >= MCE_PANIC_SEVERITY && mca_cfg.tolerant < 3)
+>> -		mce_panic("Fatal machine check", m, msg);
+>> +		mce_panic("Fatal machine check", m, msg, regs);
+>>   
+>>   	/*
+>>   	 * For UC somewhere we let the CPU who detects it handle it.
+>> @@ -909,7 +924,8 @@ static void mce_reign(void)
+>>   	 * source or one CPU is hung. Panic.
+>>   	 */
+>>   	if (global_worst <= MCE_KEEP_SEVERITY && mca_cfg.tolerant < 3)
+>> -		mce_panic("Fatal machine check from unknown source", NULL, NULL);
+>> +		mce_panic("Fatal machine check from unknown source", NULL, NULL,
+>> +			  regs);
+>>   
+>>   	/*
+>>   	 * Now clear all the mces_seen so that they don't reappear on
+>> @@ -928,7 +944,7 @@ static atomic_t global_nwo;
+>>    * in the entry order.
+>>    * TBD double check parallel CPU hotunplug
+>>    */
+>> -static int mce_start(int *no_way_out)
+>> +static int mce_start(int *no_way_out, struct pt_regs *regs)
+>>   {
+>>   	int order;
+>>   	int cpus = num_online_cpus();
+>> @@ -949,7 +965,8 @@ static int mce_start(int *no_way_out)
+>>   	 */
+>>   	while (atomic_read(&mce_callin) != cpus) {
+>>   		if (mce_timed_out(&timeout,
+>> -				  "Timeout: Not all CPUs entered broadcast exception handler")) {
+>> +				  "Timeout: Not all CPUs entered broadcast exception handler",
+>> +				  regs)) {
+>>   			atomic_set(&global_nwo, 0);
+>>   			return -1;
+>>   		}
+>> @@ -975,7 +992,8 @@ static int mce_start(int *no_way_out)
+>>   		 */
+>>   		while (atomic_read(&mce_executing) < order) {
+>>   			if (mce_timed_out(&timeout,
+>> -					  "Timeout: Subject CPUs unable to finish machine check processing")) {
+>> +					  "Timeout: Subject CPUs unable to finish machine check processing",
+>> +					  regs)) {
+>>   				atomic_set(&global_nwo, 0);
+>>   				return -1;
+>>   			}
+>> @@ -995,7 +1013,7 @@ static int mce_start(int *no_way_out)
+>>    * Synchronize between CPUs after main scanning loop.
+>>    * This invokes the bulk of the Monarch processing.
+>>    */
+>> -static int mce_end(int order)
+>> +static int mce_end(int order, struct pt_regs *regs)
+>>   {
+>>   	int ret = -1;
+>>   	u64 timeout = (u64)mca_cfg.monarch_timeout * NSEC_PER_USEC;
+>> @@ -1020,12 +1038,13 @@ static int mce_end(int order)
+>>   		 */
+>>   		while (atomic_read(&mce_executing) <= cpus) {
+>>   			if (mce_timed_out(&timeout,
+>> -					  "Timeout: Monarch CPU unable to finish machine check processing"))
+>> +					  "Timeout: Monarch CPU unable to finish machine check processing",
+>> +					  regs))
+>>   				goto reset;
+>>   			ndelay(SPINUNIT);
+>>   		}
+>>   
+>> -		mce_reign();
+>> +		mce_reign(regs);
+>>   		barrier();
+>>   		ret = 0;
+>>   	} else {
+>> @@ -1034,7 +1053,8 @@ static int mce_end(int order)
+>>   		 */
+>>   		while (atomic_read(&mce_executing) != 0) {
+>>   			if (mce_timed_out(&timeout,
+>> -					  "Timeout: Monarch CPU did not finish machine check processing"))
+>> +					  "Timeout: Monarch CPU did not finish machine check processing",
+>> +					  regs))
+>>   				goto reset;
+>>   			ndelay(SPINUNIT);
+>>   		}
+>> @@ -1286,9 +1306,9 @@ noinstr void do_machine_check(struct pt_regs *regs)
+>>   	 */
+>>   	if (lmce) {
+>>   		if (no_way_out)
+>> -			mce_panic("Fatal local machine check", &m, msg);
+>> +			mce_panic("Fatal local machine check", &m, msg, regs);
+>>   	} else {
+>> -		order = mce_start(&no_way_out);
+>> +		order = mce_start(&no_way_out, regs);
+>>   	}
+>>   
+>>   	__mc_scan_banks(&m, final, toclear, valid_banks, no_way_out, &worst);
+>> @@ -1301,7 +1321,7 @@ noinstr void do_machine_check(struct pt_regs *regs)
+>>   	 * When there's any problem use only local no_way_out state.
+>>   	 */
+>>   	if (!lmce) {
+>> -		if (mce_end(order) < 0)
+>> +		if (mce_end(order, regs) < 0)
+>>   			no_way_out = worst >= MCE_PANIC_SEVERITY;
+>>   	} else {
+>>   		/*
+>> @@ -1314,7 +1334,7 @@ noinstr void do_machine_check(struct pt_regs *regs)
+>>   		 */
+>>   		if (worst >= MCE_PANIC_SEVERITY && mca_cfg.tolerant < 3) {
+>>   			mce_severity(&m, cfg->tolerant, &msg, true);
+>> -			mce_panic("Local fatal machine check!", &m, msg);
+>> +			mce_panic("Local fatal machine check!", &m, msg, regs);
+>>   		}
+>>   	}
+>>   
+>> @@ -1325,7 +1345,7 @@ noinstr void do_machine_check(struct pt_regs *regs)
+>>   	if (cfg->tolerant == 3)
+>>   		kill_it = 0;
+>>   	else if (no_way_out)
+>> -		mce_panic("Fatal machine check on current CPU", &m, msg);
+>> +		mce_panic("Fatal machine check on current CPU", &m, msg, regs);
+>>   
+>>   	if (worst > 0)
+>>   		irq_work_queue(&mce_irq_work);
+>> @@ -1361,7 +1381,8 @@ noinstr void do_machine_check(struct pt_regs *regs)
+>>   		 */
+>>   		if (m.kflags & MCE_IN_KERNEL_RECOV) {
+>>   			if (!fixup_exception(regs, X86_TRAP_MC, 0, 0))
+>> -				mce_panic("Failed kernel mode recovery", &m, msg);
+>> +				mce_panic("Failed kernel mode recovery", &m,
+>> +					  msg, regs);
+>>   		}
+>>   	}
+>>   }
+>> -- 
+>> 2.17.1
+>>
+>>
+>>
+>> _______________________________________________
+>> Openipmi-developer mailing list
+>> Openipmi-developer@lists.sourceforge.net
+>> https://lists.sourceforge.net/lists/listinfo/openipmi-developer
 > .
 > 
 
