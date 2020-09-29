@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CAC1428674A
+	by mail.lfdr.de (Postfix) with ESMTPS id D6A1728674B
 	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Oct 2020 20:29:42 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQEC5-0008CM-5q; Wed, 07 Oct 2020 18:29:41 +0000
+	id 1kQEC5-0008Ci-96; Wed, 07 Oct 2020 18:29:41 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <julia.lawall@inria.fr>) id 1kNEzz-0001sp-PM
- for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 12:44:51 +0000
+ (envelope-from <julia.lawall@inria.fr>) id 1kNF2l-0003I5-W8
+ for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 12:47:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Message-ID:
  In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mmE6oyYdECbr5Lc294XVbWDBQqcPRDGze+6GLC3Mq5E=; b=GQpx0mNz2R8dxpl/15Mujk5YTV
- LA9OAckELaLgUkL0cdTOc0FYJs2FujsuECeIS640j4RFdr9feJzYz6ToIzDJrQne0xKW8WAjnv0Jn
- 4nho15F+g1DMEEputI/mgogG0ZQ5G6kf0VU5Oe2Ss2lnQh2m74yA9ihGxbyImqfaXwqU=;
+ bh=SuIyYn/vWMrNClRjh9sSEQxKCtwZd44BRCSE+wBW9lI=; b=FsfapzpZE9D0qjvUuf+W9cIHrd
+ 3zB3R/PxZ9tyaoFC4Ygyoui6OW+PG7M8xdyccc7WxYe97J4qR3eFJFh5QxI9D25aF2eOt2wZkCsbI
+ vG3osYGLCwT/CGBE/YoWlO86ghMo4i1t+FWDii361RbGSwOvktLu3ewEfVlYz30+Vh+4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To
@@ -29,41 +29,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=mmE6oyYdECbr5Lc294XVbWDBQqcPRDGze+6GLC3Mq5E=; b=ZDdWgwg8TP2kOAYgiMWA8/khKT
- WoPLWlt9YOOIZMyyrXQrNi1WzqMteWPOV4Pa1omvFHkrSdqtIXYl2AyMRfCq8QfzIG5rcTW1QN/Nf
- mbA5FvVAUIk2tlC1lR6NENBSWQT7zeH+9TALbpEjv8ZFQ6ZKHHIJAjk24ILjkHX52Oy0=;
+ bh=SuIyYn/vWMrNClRjh9sSEQxKCtwZd44BRCSE+wBW9lI=; b=EhbkvytpKB1kBl8hav0I++eTBO
+ JginFON6FPtwZKAN9izsJ1sxjr6O6OPezZzsJIEMkyiuyiEjGbA/097RbxovhdkIjs3xURu2nYNfh
+ x4fy7DJ9Ss73b/fhaKxe64eoxeqG1Ah0DZMfIVWaLp5WTZVIJ1BzwSIj1BDZdlTr1k2s=;
 Received: from mail2-relais-roc.national.inria.fr ([192.134.164.83])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kNEzr-00A4Z5-Ty
- for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 12:44:51 +0000
-X-IronPort-AV: E=Sophos;i="5.77,318,1596492000"; d="scan'208";a="470059088"
+ id 1kNF2e-00A4kt-SA
+ for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 12:47:43 +0000
+X-IronPort-AV: E=Sophos;i="5.77,318,1596492000"; d="scan'208";a="470060117"
 Received: from abo-173-121-68.mrs.modulonet.fr (HELO hadrien) ([85.68.121.173])
  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 29 Sep 2020 14:44:29 +0200
-Date: Tue, 29 Sep 2020 14:44:29 +0200 (CEST)
+ 29 Sep 2020 14:47:29 +0200
+Date: Tue, 29 Sep 2020 14:47:29 +0200 (CEST)
 From: Julia Lawall <julia.lawall@inria.fr>
 X-X-Sender: jll@hadrien
-To: Mark Brown <broonie@kernel.org>
-In-Reply-To: <20200929123734.GC4799@sirena.org.uk>
-Message-ID: <alpine.DEB.2.22.394.2009291441530.2808@hadrien>
+To: Dan Carpenter <dan.carpenter@oracle.com>
+In-Reply-To: <20200929124108.GY4282@kadam>
+Message-ID: <alpine.DEB.2.22.394.2009291445050.2808@hadrien>
 References: <1601233948-11629-1-git-send-email-Julia.Lawall@inria.fr>
- <160132172369.55460.9237357219623604216.b4-ty@kernel.org>
- <b1174f9be2ce65f6b5ebefcba0b48e792926abbc.camel@perches.com>
- <20200929113745.GB4799@sirena.org.uk>
- <alpine.DEB.2.22.394.2009291344590.2808@hadrien>
- <20200929123734.GC4799@sirena.org.uk>
+ <CAMj1kXGh+CzuXkAnqsoMO2A3T1p=D6uFOV347Ym5+VFn5U1gWg@mail.gmail.com>
+ <20200929124108.GY4282@kadam>
 User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
 MIME-Version: 1.0
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: inria.fr]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
  [192.134.164.83 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1kNEzr-00A4Z5-Ty
+X-Headers-End: 1kNF2e-00A4kt-SA
 X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:29 +0000
 Subject: Re: [Openipmi-developer] [PATCH 00/18] use semicolons rather than
  commas to separate statements
@@ -79,18 +80,22 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-iio@vger.kernel.org,
+Cc: Neil Armstrong <narmstrong@baylibre.com>, linux-iio@vger.kernel.org,
  kernel-janitors@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-clk@vger.kernel.org, drbd-dev@lists.linbit.com,
- Neil Armstrong <narmstrong@baylibre.com>,
- linux-stm32@st-md-mailman.stormreply.com, linux-acpi@vger.kernel.org,
- Jerome Brunet <jbrunet@baylibre.com>, David Lechner <david@lechnology.com>,
+ linux-clk@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, David Lechner <david@lechnology.com>,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-block@vger.kernel.org, linux-amlogic@lists.infradead.org,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, drbd-dev@tron.linbit.com,
+ linux-amlogic@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
  =?UTF-8?Q?Valdis_Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
- linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
- Julia Lawall <julia.lawall@inria.fr>, linux-crypto@vger.kernel.org,
+ linux-wireless@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Julia Lawall <Julia.Lawall@inria.fr>,
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
  Joe Perches <joe@perches.com>, openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -98,33 +103,40 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
 
 
-On Tue, 29 Sep 2020, Mark Brown wrote:
+On Tue, 29 Sep 2020, Dan Carpenter wrote:
 
-> On Tue, Sep 29, 2020 at 01:46:19PM +0200, Julia Lawall wrote:
-> > On Tue, 29 Sep 2020, Mark Brown wrote:
+> On Tue, Sep 29, 2020 at 02:20:00PM +0200, Ard Biesheuvel wrote:
+> > On Sun, 27 Sep 2020 at 21:56, Julia Lawall <Julia.Lawall@inria.fr> wrote:
+> > >
+> > > These patches replace commas by semicolons.
+> >
+> >
+> > Why?
+> >
 >
-> > > Feel free to submit patches to b4.  Ideally things like this wouldn't be
-> > > being sent as serieses in the first place, there's no dependencies or
-> > > interactions between the patches.
+> In the best case, these commas are just uninitentional mess, like typing
+> an extra space character or something.  I've looked at them before and
+> one case I see where they are introduced is when people convert a
+> struct initializer to code.
 >
-> > It was suggested (a long time ago, not with respect to this patch in
-> > particular) that sending such patches in a series is useful because it
-> > allows people who are not interested in the 18 patches to skip over them
-> > more easily.  So there are two conflicting needs...
+> -	struct foo {
+> -		.a = 1,
+> -		.b = 2,
+>  		...
+> +	foo.a = 1,
+> +	foo.b = 2,
 >
-> I'm not convinced that there are huge numbers of people reading LKML as
-> a list TBH, and if you are sending things as a series then the way
-> you're doing it at the minute where you don't CC the cover letter to
-> people makes things confusing as it's unclear if there are dependencies
-> to worry about.
+> The times where commas are used deliberately to replace curly braces are
+> just evil.  Either way the code is cleaner with semi-colons.
 
-The cover letter goes to all of the specific mailing lists affected by the
-patch, or if there is no list, then to at least one developer.  Sending
-the cover letter to everyone would lead to too many recipients for some
-lists.
+I also found exaamples like the following to be particularly unforunate:
 
-If there is a preference for the rest of these patches to be sent one by
-one, then that is possible.
+                                fprintf(stderr,
+                                        "page_nr %lu wrong count %Lu %Lu\n",
+                                       page_nr, count,
+                                       count_verify[page_nr]), exit(1);
+
+The exit is very hard to see, unless you know to look for it.
 
 julia
 
