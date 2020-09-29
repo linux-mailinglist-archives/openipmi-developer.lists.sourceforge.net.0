@@ -2,99 +2,85 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 66BB727B859
-	for <lists+openipmi-developer@lfdr.de>; Tue, 29 Sep 2020 01:40:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D295127B903
+	for <lists+openipmi-developer@lfdr.de>; Tue, 29 Sep 2020 02:45:46 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kN2kb-0002HV-Ki; Mon, 28 Sep 2020 23:40:09 +0000
+	id 1kN3m4-00052M-Q7; Tue, 29 Sep 2020 00:45:44 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <keescook@chromium.org>) id 1kN2ka-0002HO-Ip
- for openipmi-developer@lists.sourceforge.net; Mon, 28 Sep 2020 23:40:08 +0000
+ (envelope-from <joe@perches.com>) id 1kN3m3-00052D-73
+ for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 00:45:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Content-Type
+ :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=NftyTi1bwuaE14e4XfgcQF93EOxKUsMOEEQqaDTCXJ4=; b=GBTfNtVnAH3O9wkgYW4iVofiO3
- ujwwclRk9jGqix0x+mi3jpb//Umhn/cZMMwj3g1Uz5fnCqTMpU5MijxhGiKKYg4v1t2bkX0fwHEaf
- mxN/5L+5KZbcm5P09XTfqJo8Jesh1wS6nwPajBUrXSLByzrS9+atp4iJYrWkOR2ds25g=;
+ bh=xSqNyV3B7/fEDfZGeTEZHM8CfkHO2R9wUjKX3S5/n58=; b=Xee8qia0hynn7cO1cLP4FWtP1a
+ wdmuVMO+fOZrYtJMmRpDQ8CbmcN8kezLf6k8S7QzTNMJR/3oiHijGeKanFEhhVPrEeDROZZeo1R2k
+ syT8OP1H5ANeJ/djAXCsBW6sGIn7nA7BYzJCrDPTk38WJpm6orpLPwfObswQWTjFfgfQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:MIME-Version:Content-Type:References:
+ In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=NftyTi1bwuaE14e4XfgcQF93EOxKUsMOEEQqaDTCXJ4=; b=BkKzpHFtpJjXHGalvZIIPVI82b
- rXnaqFt01Bax+BPtbKVR/QiIio3VxlQMv+Rhtmja4wYlbNv58pxlLOKnfLnviuvTW++V/UFK0Ehg4
- 69Xp/3seibzzQvMhmK3lGEHqwKXmZAQ4VGQlx71P2+lIvJ2wfj8CLCXqIJdlWOw191DY=;
-Received: from mail-il1-f193.google.com ([209.85.166.193])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kN2kL-00CBfD-9s
- for openipmi-developer@lists.sourceforge.net; Mon, 28 Sep 2020 23:40:08 +0000
-Received: by mail-il1-f193.google.com with SMTP id y2so3094961ila.0
- for <openipmi-developer@lists.sourceforge.net>;
- Mon, 28 Sep 2020 16:39:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=NftyTi1bwuaE14e4XfgcQF93EOxKUsMOEEQqaDTCXJ4=;
- b=gb3PRHELtfh8s0n7btbKHS7gdHecLDH27/WSx/dTaEZqzwAyfLHcApZT5c+IqoShdm
- 0LEtidHDj3nYkCuzJeB2PL+jPZX/ntrn70g8bHDhQFR+CUPr0IDYs3hxi4tZpkrlg6d9
- hrDzPZTP54zHmpmIZZBNppWuJmHgMncA/mXvQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=NftyTi1bwuaE14e4XfgcQF93EOxKUsMOEEQqaDTCXJ4=;
- b=k94IrjcKkIZCCz8gefT9Yv88oPGNOE4dSYCAKlyVlms5M/UuAj7qr4ODQh732L6Sm7
- py4zhsfnDCBtXjbu2Uu/vMQJ2K2Z+9legO6RZcXpkN46vvMPTVWfQMnfcJcdO7oAGHB0
- SnXjDqp3GkgWyrf4ewPcpQK0mryxJh46j+uYkEhHqff2qUH28v7lUQjU38dSVBhRV/eO
- oSwvzWd8eMp/y82j7BOeDSIIP7Tm/nbPwYw0xZmDbowgYjT/DVav8dsc88JiSxE3oBJ1
- 3XeSXSTnDYTFcjbssc1GJfl0MT5uuFmm5LqbHsGwfLX8UpM88kBh93ikUG+tDv6pFkmB
- AlsQ==
-X-Gm-Message-State: AOAM533OdjQrefFp9hwiUzGhvmnXSkfno3L5WW2UULqQniB1dCZq5OqL
- ZVsu+Q+kLaU1Xk/0fwLY0+UCjW+YVznG+a82
-X-Google-Smtp-Source: ABdhPJwQDKOxa8hqpizwqXPcIZmf1ybA5/FNT7GiN+5miNLUE3lYvrdUP8suk6yqrm6piIZGkrVe3g==
-X-Received: by 2002:a65:494e:: with SMTP id q14mr1006851pgs.281.1601334788954; 
- Mon, 28 Sep 2020 16:13:08 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id z23sm2835217pfj.177.2020.09.28.16.13.07
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 28 Sep 2020 16:13:08 -0700 (PDT)
-Date: Mon, 28 Sep 2020 16:13:07 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Shuah Khan <skhan@linuxfoundation.org>
-Message-ID: <202009281612.EDC1C0078@keescook>
-References: <cover.1601073127.git.skhan@linuxfoundation.org>
- <202009260923.9A2606CFF6@keescook>
- <3929a023-eb7a-509c-50e1-ee72dca05191@linuxfoundation.org>
+ bh=xSqNyV3B7/fEDfZGeTEZHM8CfkHO2R9wUjKX3S5/n58=; b=An/6FL+YrCNztJZ5fc3hrfh8I7
+ 73rlt8wlNpRGiNSh4Qdv6YfP5EabB+FB8l4FVlFdVKgrA2018aA2+XBTT+OlcjaDjq7/b27IShAci
+ 39B0pexrlomRl8eHpx2cxq+BHViKqsM56MKk215Rnd76l1NrKeYK0ytEoWjfdBGw7Evo=;
+Received: from smtprelay0091.hostedemail.com ([216.40.44.91]
+ helo=smtprelay.hostedemail.com)
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1kN3lu-009Sbv-Ej
+ for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 00:45:43 +0000
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay01.hostedemail.com (Postfix) with ESMTP id 780A9100E7B40;
+ Tue, 29 Sep 2020 00:45:28 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 50, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
+ RULES_HIT:41:355:379:599:967:973:988:989:1260:1263:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2525:2553:2561:2564:2682:2685:2693:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3352:3622:3865:3866:3867:3870:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:4362:4605:5007:6248:6742:7903:9025:9040:10004:10400:10848:10967:11232:11658:11914:12043:12266:12295:12297:12438:12740:12760:12895:13069:13071:13161:13229:13311:13357:13439:14180:14181:14659:14721:14777:21060:21080:21365:21433:21451:21627:30054:30090:30091,
+ 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
+ DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
+ LFtime:1, LUA_SUMMARY:none
+X-HE-Tag: self77_011759527186
+X-Filterd-Recvd-Size: 2723
+Received: from XPS-9350.home (unknown [47.151.133.149])
+ (Authenticated sender: joe@perches.com)
+ by omf03.hostedemail.com (Postfix) with ESMTPA;
+ Tue, 29 Sep 2020 00:45:25 +0000 (UTC)
+Message-ID: <b1174f9be2ce65f6b5ebefcba0b48e792926abbc.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Mark Brown <broonie@kernel.org>, linux-iio@vger.kernel.org, Julia Lawall
+ <Julia.Lawall@inria.fr>
+Date: Mon, 28 Sep 2020 17:45:24 -0700
+In-Reply-To: <160132172369.55460.9237357219623604216.b4-ty@kernel.org>
+References: <1601233948-11629-1-git-send-email-Julia.Lawall@inria.fr>
+ <160132172369.55460.9237357219623604216.b4-ty@kernel.org>
+User-Agent: Evolution 3.36.4-0ubuntu1 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3929a023-eb7a-509c-50e1-ee72dca05191@linuxfoundation.org>
-X-Spam-Score: -1.4 (-)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.166.193 listed in list.dnswl.org]
- -0.6 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.193 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ trust [216.40.44.91 listed in list.dnswl.org]
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: lip6.fr]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [216.40.44.91 listed in wl.mailspike.net]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1kN2kL-00CBfD-9s
-Subject: Re: [Openipmi-developer] [PATCH 00/11] Introduce Simple atomic and
- non-atomic counters
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1kN3lu-009Sbv-Ej
+Subject: Re: [Openipmi-developer] [PATCH 00/18] use semicolons rather than
+ commas to separate statements
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,43 +93,55 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: rafael@kernel.org, linux-kselftest@vger.kernel.org, joel@joelfernandes.org,
- shuah@kernel.org, devel@driverdev.osuosl.org, minyard@acm.org, corbet@lwn.net,
- surenb@google.com, linux-doc@vger.kernel.org, linux-acpi@vger.kernel.org,
- lenb@kernel.org, tkjos@android.com, arnd@arndb.de, bp@alien8.de,
- openipmi-developer@lists.sourceforge.net, mchehab@kernel.org, maco@android.com,
- christian@brauner.io, linux-edac@vger.kernel.org, tony.luck@intel.com,
- gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org, arve@android.com,
- james.morse@arm.com, hridya@google.com, johannes@sipsolutions.net
+Cc: linux-ide@vger.kernel.org,
+ Valdis =?UTF-8?Q?Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
+ David Lechner <david@lechnology.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-wireless@vger.kernel.org, Neil Armstrong <narmstrong@baylibre.com>,
+ kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-block@vger.kernel.org,
+ linux-acpi@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+ linux-crypto@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ openipmi-developer@lists.sourceforge.net, drbd-dev@lists.linbit.com,
+ linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org,
+ Jerome Brunet <jbrunet@baylibre.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Sep 28, 2020 at 04:41:47PM -0600, Shuah Khan wrote:
-> On 9/26/20 10:29 AM, Kees Cook wrote:
-> > On Fri, Sep 25, 2020 at 05:47:14PM -0600, Shuah Khan wrote:
-> > >     7. Verified that the test module compiles in kunit env. and test
-> > >        module can be loaded to run the test.
+On Mon, 2020-09-28 at 20:35 +0100, Mark Brown wrote:
+> On Sun, 27 Sep 2020 21:12:10 +0200, Julia Lawall wrote:
+> > These patches replace commas by semicolons.  This was done using the
+> > Coccinelle semantic patch (http://coccinelle.lip6.fr/) shown below.
 > > 
-> > I meant write it using KUnit interfaces (e.g. KUNIT_EXPECT*(),
-> > kunit_test_suite(), etc):
-> > https://www.kernel.org/doc/html/latest/dev-tools/kunit/
+> > This semantic patch ensures that commas inside for loop headers will not be
+> > transformed.  It also doesn't touch macro definitions.
 > > 
-> > Though I see the docs are still not updated[1] to reflect the Kconfig
-> > (CONFIG_foo_KUNIT_TEST) and file naming conventions (foo_kunit.c).
+> > Coccinelle ensures that braces are added as needed when a single-statement
+> > branch turns into a multi-statement one.
 > > 
+> > [...]
 > 
-> I would like to be able to run this test outside Kunit env., hence the
-> choice to go with a module and kselftest script. It makes it easier to
-> test as part of my workflow as opposed to doing a kunit and build and
-> running it that way.
+> Applied to
+> 
+>    https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regmap.git for-next
+> 
+> Thanks!
+> 
+> [1/1] regmap: debugfs: use semicolons rather than commas to separate statements
+>       commit: 7f4a122d0b50b40c64d24a5cf7aafe26dd9487ee
 
-It does -- you just load it normally like before and it prints out
-everything just fine. This is how I use the lib/test_user_copy.c and
-lib/test_overflow.c before/after their conversions.
+Hi Mark.
 
--- 
-Kees Cook
+Rather than replying to the 0/n cover letter to a patch
+series, can you reply to each of the specific patches in
+the patch series you are applying?
+
+Otherwise, it's a bit difficult to figure out which patches
+you are applying.
+
+thanks
+
 
 
 _______________________________________________
