@@ -2,87 +2,68 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 70763286747
+	by mail.lfdr.de (Postfix) with ESMTPS id BD5F4286749
 	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Oct 2020 20:29:42 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQEC4-0008BB-QL; Wed, 07 Oct 2020 18:29:40 +0000
+	id 1kQEC4-0008BW-VB; Wed, 07 Oct 2020 18:29:40 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <ardb@kernel.org>) id 1kNEcQ-00021N-BD
- for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 12:20:30 +0000
+ (envelope-from <julia.lawall@inria.fr>) id 1kNEsb-0002ok-Ut
+ for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 12:37:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:Message-ID:
+ In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=BtHPTwzO/d5SyVrSIlx+m1KP6wn7dp6eklEO/z4+KYA=; b=I7mS9KpCG8t63CBsOacmLn+pbp
- ARRKA2QwegHwSJCbs8GUDT2qr9/Rtl5stuIH8Fp2RE6LspmkcWvQEBNZx5jjkV4+Siihyz/FzG1Af
- hpoT3+4nnzI83tLTK3aALISuO14E+wCDDaFdyoRgOMpGlxavjCA4pI+auxVxDrY0f6Hk=;
+ bh=gqfAcs/xL4Hbo5/6BvBKUp1/s7KW3A6jYHcSAWmoXeE=; b=ZrGlEL8DMH604TdP5SV9t77vPB
+ CHVFj/k2BBkRI4rrmj38gO9M6DPIA4yIrMgMGRxmVXUoY2Fj5pNS577NkxG9DR1+D+CeGwbFprpAz
+ Ak8bt3/dUZqvmuZiLapH8qzjl2ERqozLObcbbjEaYnL22V+59dPaxHMwPgnzyI7QQNCE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=BtHPTwzO/d5SyVrSIlx+m1KP6wn7dp6eklEO/z4+KYA=; b=gWHh3kQLfiOl0lfYDdjtE3udR+
- wIvDc8ft34r1V0xLZyFAvse/gDtcgWvoEQcpbiDlX9Gr6/skQpM5wfz+xJ2LTZQU9IJ1or8jbY54o
- TrT4SoLBoFg+E9GvO+H6VCMZW+bIHYj+8a9S3+163ebMIVfjM/9kypJY5ajpnP+Q/QOk=;
-Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=gqfAcs/xL4Hbo5/6BvBKUp1/s7KW3A6jYHcSAWmoXeE=; b=UB98hL0j0czLSk0FYRb5cBWrbz
+ UHAVpbzNcDzakA3qyYSMJ21gCIvwNJRx4MhU0K3GfRC+sqS44+GZCtVKEO6eivR3e8Kw6w5On3rMo
+ 2+Xlw4n74XAGsOTXQ26XWJSo/FUSEGFSp8V4lvwNWp5opGLwt1s/Darjo7jwfG7y8xZI=;
+Received: from mail3-relais-sop.national.inria.fr ([192.134.164.104])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kNEcE-00CuMJ-Bp
- for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 12:20:30 +0000
-Received: from mail-oi1-f170.google.com (mail-oi1-f170.google.com
- [209.85.167.170])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id A07BF21D46
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 29 Sep 2020 12:20:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1601382012;
- bh=ov1elNoAqvpAgkFdDCEUFjYQTLHr/ttO0TQvEJAVa9I=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=jvmD222GUH8GXZXMqLgvR5A2+dOAEZWZqu4PegoCrdYQdzBlMInSen1U/TUqJEq8O
- ceT34IkdoHIcZvgHpI88n6jirXc5UQcpO8Qz6F77lDrlzzwk0iFCge1wnf1OTx3Elx
- zfbRYdhsjG0Yv1fzcUprrD5yQS1C84H7eKuBhHBY=
-Received: by mail-oi1-f170.google.com with SMTP id w16so5198816oia.2
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 29 Sep 2020 05:20:12 -0700 (PDT)
-X-Gm-Message-State: AOAM533O8ayryIG6CNY/V9qYLTt7K5gIAwY0FM+DjL0q/sEfx83PXhRK
- dvpDaod4T/p7P6jWl8Yj56zY1fEi1ogMLWggBkU=
-X-Google-Smtp-Source: ABdhPJxHjqLRU0igLQr7uKep0t1UD6JefrmIRI4HIWmkx+yCU9/FWYtVU2YD0jwBcbkAVEkIIOoN6IXn5rWs3UBmGUQ=
-X-Received: by 2002:a54:4517:: with SMTP id l23mr2509374oil.174.1601382011805; 
- Tue, 29 Sep 2020 05:20:11 -0700 (PDT)
-MIME-Version: 1.0
+ id 1kNEsW-00A48W-Kf
+ for openipmi-developer@lists.sourceforge.net; Tue, 29 Sep 2020 12:37:13 +0000
+X-IronPort-AV: E=Sophos;i="5.77,318,1596492000"; d="scan'208";a="360346486"
+Received: from abo-173-121-68.mrs.modulonet.fr (HELO hadrien) ([85.68.121.173])
+ by mail3-relais-sop.national.inria.fr with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 29 Sep 2020 14:36:52 +0200
+Date: Tue, 29 Sep 2020 14:36:52 +0200 (CEST)
+From: Julia Lawall <julia.lawall@inria.fr>
+X-X-Sender: jll@hadrien
+To: Ard Biesheuvel <ardb@kernel.org>
+In-Reply-To: <CAMj1kXGh+CzuXkAnqsoMO2A3T1p=D6uFOV347Ym5+VFn5U1gWg@mail.gmail.com>
+Message-ID: <alpine.DEB.2.22.394.2009291428020.2808@hadrien>
 References: <1601233948-11629-1-git-send-email-Julia.Lawall@inria.fr>
-In-Reply-To: <1601233948-11629-1-git-send-email-Julia.Lawall@inria.fr>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 29 Sep 2020 14:20:00 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGh+CzuXkAnqsoMO2A3T1p=D6uFOV347Ym5+VFn5U1gWg@mail.gmail.com>
-Message-ID: <CAMj1kXGh+CzuXkAnqsoMO2A3T1p=D6uFOV347Ym5+VFn5U1gWg@mail.gmail.com>
-To: Julia Lawall <Julia.Lawall@inria.fr>
-X-Spam-Score: -0.8 (/)
+ <CAMj1kXGh+CzuXkAnqsoMO2A3T1p=D6uFOV347Ym5+VFn5U1gWg@mail.gmail.com>
+User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+MIME-Version: 1.0
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: infradead.org]
+ for more information. [URIs: lip6.fr]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [192.134.164.104 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1kNEcE-00CuMJ-Bp
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1kNEsW-00A48W-Kf
 X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:29 +0000
 Subject: Re: [Openipmi-developer] [PATCH 00/18] use semicolons rather than
  commas to separate statements
@@ -118,169 +99,194 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Sun, 27 Sep 2020 at 21:56, Julia Lawall <Julia.Lawall@inria.fr> wrote:
->
-> These patches replace commas by semicolons.
 
 
-Why?
+On Tue, 29 Sep 2020, Ard Biesheuvel wrote:
+
+> On Sun, 27 Sep 2020 at 21:56, Julia Lawall <Julia.Lawall@inria.fr> wrote:
+> >
+> > These patches replace commas by semicolons.
+>
+>
+> Why?
+
+Among the complete 5000 lines of changes there is one probable bug where
+an if branch ends with a comma and thus pulls the subsequent statement
+under the if branch, in contradiction to what is indicated by the
+indentation.
+
+The use of comma often appears to be random, with a sequence of similar
+statements where some have commas and some don't.
+
+From a self-interested point of view, commas are not good for Coccinelle,
+because multiple statements are put into one.  Any problems involving them
+are thus likely to be overlooked unless one thinks of looking for them
+explicitly.  As an example, Christophe Jaillet noticed that one sequence
+of comma assignments would be better written using swap.  If one looked
+for opportunities for using swap in the most obvious way, one wouldn't
+find it.
+
+julia
 
 
-> This was done using the
-> Coccinelle semantic patch (http://coccinelle.lip6.fr/) shown below.
 >
-> This semantic patch ensures that commas inside for loop headers will not be
-> transformed.  It also doesn't touch macro definitions.
 >
-> Coccinelle ensures that braces are added as needed when a single-statement
-> branch turns into a multi-statement one.
+> > This was done using the
+> > Coccinelle semantic patch (http://coccinelle.lip6.fr/) shown below.
+> >
+> > This semantic patch ensures that commas inside for loop headers will not be
+> > transformed.  It also doesn't touch macro definitions.
+> >
+> > Coccinelle ensures that braces are added as needed when a single-statement
+> > branch turns into a multi-statement one.
+> >
+> > This semantic patch has a few false positives, for variable delcarations
+> > such as:
+> >
+> > LIST_HEAD(x), *y;
+> >
+> > The semantic patch could be improved to avoid these, but for the moment
+> > they have been removed manually (2 occurrences).
+> >
+> > // <smpl>
+> > @initialize:ocaml@
+> > @@
+> >
+> > let infunction p =
+> >   (* avoid macros *)
+> >   (List.hd p).current_element <> "something_else"
+> >
+> > let combined p1 p2 =
+> >   (List.hd p1).line_end = (List.hd p2).line ||
+> >   (((List.hd p1).line_end < (List.hd p2).line) &&
+> >    ((List.hd p1).col < (List.hd p2).col))
+> >
+> > @bad@
+> > statement S;
+> > declaration d;
+> > position p;
+> > @@
+> >
+> > S@p
+> > d
+> >
+> > // special cases where newlines are needed (hope for no more than 5)
+> > @@
+> > expression e1,e2;
+> > statement S;
+> > position p != bad.p;
+> > position p1;
+> > position p2 :
+> >     script:ocaml(p1) { infunction p1 && combined p1 p2 };
+> > @@
+> >
+> > - e1@p1,@S@p e2@p2;
+> > + e1; e2;
+> >
+> > @@
+> > expression e1,e2;
+> > statement S;
+> > position p != bad.p;
+> > position p1;
+> > position p2 :
+> >     script:ocaml(p1) { infunction p1 && combined p1 p2 };
+> > @@
+> >
+> > - e1@p1,@S@p e2@p2;
+> > + e1; e2;
+> >
+> > @@
+> > expression e1,e2;
+> > statement S;
+> > position p != bad.p;
+> > position p1;
+> > position p2 :
+> >     script:ocaml(p1) { infunction p1 && combined p1 p2 };
+> > @@
+> >
+> > - e1@p1,@S@p e2@p2;
+> > + e1; e2;
+> >
+> > @@
+> > expression e1,e2;
+> > statement S;
+> > position p != bad.p;
+> > position p1;
+> > position p2 :
+> >     script:ocaml(p1) { infunction p1 && combined p1 p2 };
+> > @@
+> >
+> > - e1@p1,@S@p e2@p2;
+> > + e1; e2;
+> >
+> > @@
+> > expression e1,e2;
+> > statement S;
+> > position p != bad.p;
+> > position p1;
+> > position p2 :
+> >     script:ocaml(p1) { infunction p1 && combined p1 p2 };
+> > @@
+> >
+> > - e1@p1,@S@p e2@p2;
+> > + e1; e2;
+> >
+> > @r@
+> > expression e1,e2;
+> > statement S;
+> > position p != bad.p;
+> > @@
+> >
+> > e1 ,@S@p e2;
+> >
+> > @@
+> > expression e1,e2;
+> > position p1;
+> > position p2 :
+> >     script:ocaml(p1) { infunction p1 && not(combined p1 p2) };
+> > statement S;
+> > position r.p;
+> > @@
+> >
+> > e1@p1
+> > -,@S@p
+> > +;
+> > e2@p2
+> > ... when any
+> > // </smpl>
+> >
+> > ---
+> >
+> >  drivers/acpi/processor_idle.c               |    4 +++-
+> >  drivers/ata/pata_icside.c                   |   21 +++++++++++++--------
+> >  drivers/base/regmap/regmap-debugfs.c        |    2 +-
+> >  drivers/bcma/driver_pci_host.c              |    4 ++--
+> >  drivers/block/drbd/drbd_receiver.c          |    6 ++++--
+> >  drivers/char/agp/amd-k7-agp.c               |    2 +-
+> >  drivers/char/agp/nvidia-agp.c               |    2 +-
+> >  drivers/char/agp/sworks-agp.c               |    2 +-
+> >  drivers/char/hw_random/iproc-rng200.c       |    8 ++++----
+> >  drivers/char/hw_random/mxc-rnga.c           |    6 +++---
+> >  drivers/char/hw_random/stm32-rng.c          |    8 ++++----
+> >  drivers/char/ipmi/bt-bmc.c                  |    6 +++---
+> >  drivers/clk/meson/meson-aoclk.c             |    2 +-
+> >  drivers/clk/mvebu/ap-cpu-clk.c              |    2 +-
+> >  drivers/clk/uniphier/clk-uniphier-cpugear.c |    2 +-
+> >  drivers/clk/uniphier/clk-uniphier-mux.c     |    2 +-
+> >  drivers/clocksource/mps2-timer.c            |    6 +++---
+> >  drivers/clocksource/timer-armada-370-xp.c   |    8 ++++----
+> >  drivers/counter/ti-eqep.c                   |    2 +-
+> >  drivers/crypto/amcc/crypto4xx_alg.c         |    2 +-
+> >  drivers/crypto/atmel-tdes.c                 |    2 +-
+> >  drivers/crypto/hifn_795x.c                  |    4 ++--
+> >  drivers/crypto/talitos.c                    |    8 ++++----
+> >  23 files changed, 60 insertions(+), 51 deletions(-)
+> >
+> > _______________________________________________
+> > linux-arm-kernel mailing list
+> > linux-arm-kernel@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
 >
-> This semantic patch has a few false positives, for variable delcarations
-> such as:
->
-> LIST_HEAD(x), *y;
->
-> The semantic patch could be improved to avoid these, but for the moment
-> they have been removed manually (2 occurrences).
->
-> // <smpl>
-> @initialize:ocaml@
-> @@
->
-> let infunction p =
->   (* avoid macros *)
->   (List.hd p).current_element <> "something_else"
->
-> let combined p1 p2 =
->   (List.hd p1).line_end = (List.hd p2).line ||
->   (((List.hd p1).line_end < (List.hd p2).line) &&
->    ((List.hd p1).col < (List.hd p2).col))
->
-> @bad@
-> statement S;
-> declaration d;
-> position p;
-> @@
->
-> S@p
-> d
->
-> // special cases where newlines are needed (hope for no more than 5)
-> @@
-> expression e1,e2;
-> statement S;
-> position p != bad.p;
-> position p1;
-> position p2 :
->     script:ocaml(p1) { infunction p1 && combined p1 p2 };
-> @@
->
-> - e1@p1,@S@p e2@p2;
-> + e1; e2;
->
-> @@
-> expression e1,e2;
-> statement S;
-> position p != bad.p;
-> position p1;
-> position p2 :
->     script:ocaml(p1) { infunction p1 && combined p1 p2 };
-> @@
->
-> - e1@p1,@S@p e2@p2;
-> + e1; e2;
->
-> @@
-> expression e1,e2;
-> statement S;
-> position p != bad.p;
-> position p1;
-> position p2 :
->     script:ocaml(p1) { infunction p1 && combined p1 p2 };
-> @@
->
-> - e1@p1,@S@p e2@p2;
-> + e1; e2;
->
-> @@
-> expression e1,e2;
-> statement S;
-> position p != bad.p;
-> position p1;
-> position p2 :
->     script:ocaml(p1) { infunction p1 && combined p1 p2 };
-> @@
->
-> - e1@p1,@S@p e2@p2;
-> + e1; e2;
->
-> @@
-> expression e1,e2;
-> statement S;
-> position p != bad.p;
-> position p1;
-> position p2 :
->     script:ocaml(p1) { infunction p1 && combined p1 p2 };
-> @@
->
-> - e1@p1,@S@p e2@p2;
-> + e1; e2;
->
-> @r@
-> expression e1,e2;
-> statement S;
-> position p != bad.p;
-> @@
->
-> e1 ,@S@p e2;
->
-> @@
-> expression e1,e2;
-> position p1;
-> position p2 :
->     script:ocaml(p1) { infunction p1 && not(combined p1 p2) };
-> statement S;
-> position r.p;
-> @@
->
-> e1@p1
-> -,@S@p
-> +;
-> e2@p2
-> ... when any
-> // </smpl>
->
-> ---
->
->  drivers/acpi/processor_idle.c               |    4 +++-
->  drivers/ata/pata_icside.c                   |   21 +++++++++++++--------
->  drivers/base/regmap/regmap-debugfs.c        |    2 +-
->  drivers/bcma/driver_pci_host.c              |    4 ++--
->  drivers/block/drbd/drbd_receiver.c          |    6 ++++--
->  drivers/char/agp/amd-k7-agp.c               |    2 +-
->  drivers/char/agp/nvidia-agp.c               |    2 +-
->  drivers/char/agp/sworks-agp.c               |    2 +-
->  drivers/char/hw_random/iproc-rng200.c       |    8 ++++----
->  drivers/char/hw_random/mxc-rnga.c           |    6 +++---
->  drivers/char/hw_random/stm32-rng.c          |    8 ++++----
->  drivers/char/ipmi/bt-bmc.c                  |    6 +++---
->  drivers/clk/meson/meson-aoclk.c             |    2 +-
->  drivers/clk/mvebu/ap-cpu-clk.c              |    2 +-
->  drivers/clk/uniphier/clk-uniphier-cpugear.c |    2 +-
->  drivers/clk/uniphier/clk-uniphier-mux.c     |    2 +-
->  drivers/clocksource/mps2-timer.c            |    6 +++---
->  drivers/clocksource/timer-armada-370-xp.c   |    8 ++++----
->  drivers/counter/ti-eqep.c                   |    2 +-
->  drivers/crypto/amcc/crypto4xx_alg.c         |    2 +-
->  drivers/crypto/atmel-tdes.c                 |    2 +-
->  drivers/crypto/hifn_795x.c                  |    4 ++--
->  drivers/crypto/talitos.c                    |    8 ++++----
->  23 files changed, 60 insertions(+), 51 deletions(-)
->
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
 
 
 _______________________________________________
