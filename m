@@ -2,69 +2,100 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 673B528674E
+	by mail.lfdr.de (Postfix) with ESMTPS id 7886428674F
 	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Oct 2020 20:29:43 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQEC5-0008E5-Ls; Wed, 07 Oct 2020 18:29:41 +0000
+	id 1kQEC5-0008EZ-PR; Wed, 07 Oct 2020 18:29:41 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <broonie@kernel.org>) id 1kNwMu-0008TC-37
- for openipmi-developer@lists.sourceforge.net; Thu, 01 Oct 2020 11:03:24 +0000
+ (envelope-from <skhan@linuxfoundation.org>) id 1kOODZ-0007q0-NP
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Oct 2020 16:47:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=GnPPuYDByCZH4wdCICFRd3N/LgirXY0nGm3IKjz5mEg=; b=C8J2G8LLcDsvwyi4SuyyObNdgk
- JhOXe3Zqcs539aGgD6tC0MTyhzCG9hrh55K71PVHK1hUPE4cOiDtl8XKxIOp3uHBdka4eB56pOjYQ
- 4JhZhOGHweqb/1FvIoQWDvQrwegbI+ec13jg7emHI6JP2OE/CqKgMiH1ogPIW1qrN7hc=;
+ bh=Li4M3GK5y6x0SzTfqjxLLA9AT+ROiUGVRcFqRzm5Djg=; b=ZI1hhBq9JDatNFLP+JdO1IpkKk
+ 7B0nQZdcGlUKz5s69D2SNo9rppEYOIlT/vGcHqnP9bzOY/jv7R4afCCMp3X702ArFPlGWXMTjLHNn
+ 4Aq0805rcIn+7MsNvOnxFpNkBtMmAchc6yd+hJgbEAjxXivfsG0gVLuTyI1RoAVzrbyQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=GnPPuYDByCZH4wdCICFRd3N/LgirXY0nGm3IKjz5mEg=; b=SYLzWC3MRkhDfUPEWkttJfnWEV
- Z5AEXODHeIMMfiFxHGqsAT+rGzVgs225iGiAvDg64f7Cq49UrheMWSwLBPWQX0TRYFr+C76oxJ0XE
- I1tZu87vvu673w+blF6wci8LLFVxfFJq81sZIZYf6E3Cc9/w7yweM9sdwDznOM4y+Heg=;
-Received: from mail.kernel.org ([198.145.29.99])
+ bh=Li4M3GK5y6x0SzTfqjxLLA9AT+ROiUGVRcFqRzm5Djg=; b=K+9fI32UR/nGzKXm4PbyaFVXg9
+ ixtQ6rWbuRiyBJ2ockPBD0hmXHcGUrA6+XULlLJaEQpGwRydBY8GWBetoywMmdj+t/TiIJWwrleb1
+ +l47gim/aHG5IEj3oT8R7yUFmKZsIxVSxfv1So/OIZqLwc668sjkVHQpwDensx0kcGCo=;
+Received: from mail-io1-f67.google.com ([209.85.166.67])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kNwMd-00Fr7S-SF
- for openipmi-developer@lists.sourceforge.net; Thu, 01 Oct 2020 11:03:22 +0000
-Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id D93AE20B1F;
- Thu,  1 Oct 2020 11:02:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1601550170;
- bh=xYiMC3INrKF34oEyrsmUUrqjbwI/zSijaQlQHN9HorA=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=KEei53PbBIIkdzQLDb/7K/52YSbflBQYn3bG/m713eKa8/9nV0fPPDI4yq6H+/fvV
- xVqht4hR38nzz4Qgnh/AAp0mk+5WyFzIOOYfEFPMoUP75ral06RLc43LxHUnNG4hb1
- tZZP4hijlYOR/icBsCoZV1jH7RB2VuKegMZKFfws=
-Date: Thu, 1 Oct 2020 12:01:50 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Joe Perches <joe@perches.com>
-Message-ID: <20201001110150.GA6715@sirena.org.uk>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1kOODQ-0002ND-Sl
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Oct 2020 16:47:35 +0000
+Received: by mail-io1-f67.google.com with SMTP id g7so2203271iov.13
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 02 Oct 2020 09:47:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linuxfoundation.org; s=google;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=Li4M3GK5y6x0SzTfqjxLLA9AT+ROiUGVRcFqRzm5Djg=;
+ b=a1gXL5toNpXLmacnL7yhtJtYu+HmO+zq2HSfVRcyZ9z5aGYPOUMcOsxSjRxLjTiwhj
+ zJBgESeE1qI3ToOAsK8MZWwKmHt51a3nMoD6FLDGupRKEjHEktpPC4yX8sNz7w/nKYtr
+ hL0t3LhSNNDXOlNOrlInWA796iaMFGVw4FjQQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=Li4M3GK5y6x0SzTfqjxLLA9AT+ROiUGVRcFqRzm5Djg=;
+ b=q1SSAay8cr/3wbq+TZ4t+8Oo0msWlaWqolvUNmrfKWCrNgJkr+995FvNleeoxzf9Bo
+ JNSb0Ci3xgf8pnUslQm0wM+hnF7WxTXIww7TsW/IAwAiL6OHi4QV8ILjLvAlRVaabXVg
+ fscTJyC00T/dTiSCsml30UCCMOeyvRQ0ZMl+vPXPva/N4zbTYlNbKrDTugoSaqSg+3Pn
+ mhLOf4FOsFdclEbpMWJs7f5BHzzyF0++xWWET/C4MTuZR7NnXdFq3+39SCFYstMa5Lvu
+ A5Iv8v2NKbaNl3ECNS7UwmkxwFTaQxCfoXIlIJ3P0YNSJqFsAhHK7pTgwQYD7AlSm6R6
+ K3Kw==
+X-Gm-Message-State: AOAM5303B1Ls2IKXEeIwR/k3jKLtZdjqz4ocA9fE8kL85KzI81P3TMJj
+ Rb1fZDZ5TAgpWP0I5cOSkH2qSQ==
+X-Google-Smtp-Source: ABdhPJzrfRpNIYzV2uFrhJdCHt/QTSYBKDnpK2pS6zKI5Da6BP91uaqOQt3S2LEYZ+yKmaDKjo66AQ==
+X-Received: by 2002:a05:6638:10e9:: with SMTP id
+ g9mr2960820jae.139.1601657236070; 
+ Fri, 02 Oct 2020 09:47:16 -0700 (PDT)
+Received: from [192.168.1.112] (c-24-9-64-241.hsd1.co.comcast.net.
+ [24.9.64.241])
+ by smtp.gmail.com with ESMTPSA id h2sm932771ioj.5.2020.10.02.09.47.14
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 02 Oct 2020 09:47:15 -0700 (PDT)
+To: Joe Perches <joe@perches.com>, Julia Lawall <julia.lawall@inria.fr>,
+ Dan Carpenter <dan.carpenter@oracle.com>, Shuah Khan <shuah@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
 References: <1601233948-11629-1-git-send-email-Julia.Lawall@inria.fr>
- <160132172369.55460.9237357219623604216.b4-ty@kernel.org>
- <b1174f9be2ce65f6b5ebefcba0b48e792926abbc.camel@perches.com>
- <20200929113745.GB4799@sirena.org.uk>
- <db26d49401dc0bd6b9013a603a155f9827f404a4.camel@perches.com>
+ <CAMj1kXGh+CzuXkAnqsoMO2A3T1p=D6uFOV347Ym5+VFn5U1gWg@mail.gmail.com>
+ <20200929124108.GY4282@kadam>
+ <alpine.DEB.2.22.394.2009291445050.2808@hadrien>
+ <5f0d2b20f5088281363bb4a35c5652a2c087f159.camel@perches.com>
+ <cd75e2d1-9923-b725-78cd-fd5611431584@linuxfoundation.org>
+From: Shuah Khan <skhan@linuxfoundation.org>
+Message-ID: <81b94c3a-43d6-c9f5-0bc0-43bf65b3d5fc@linuxfoundation.org>
+Date: Fri, 2 Oct 2020 10:47:13 -0600
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
-In-Reply-To: <db26d49401dc0bd6b9013a603a155f9827f404a4.camel@perches.com>
-X-Cookie: Stay away from flying saucers today.
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Score: -0.1 (/)
+In-Reply-To: <cd75e2d1-9923-b725-78cd-fd5611431584@linuxfoundation.org>
+Content-Language: en-US
+X-Spam-Score: -0.4 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.67 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.166.67 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
@@ -72,9 +103,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1kNwMd-00Fr7S-SF
-X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:27 +0000
+ -0.3 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1kOODQ-0002ND-Sl
+X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:24 +0000
 Subject: Re: [Openipmi-developer] [PATCH 00/18] use semicolons rather than
  commas to separate statements
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -89,80 +120,58 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-iio@vger.kernel.org,
- kernel-janitors@vger.kernel.org, linux-ide@vger.kernel.org,
- linux-clk@vger.kernel.org, drbd-dev@lists.linbit.com,
- Neil Armstrong <narmstrong@baylibre.com>,
- linux-stm32@st-md-mailman.stormreply.com, linux-acpi@vger.kernel.org,
- Jerome Brunet <jbrunet@baylibre.com>, David Lechner <david@lechnology.com>,
+Cc: linux-ide@vger.kernel.org, linux-clk@vger.kernel.org,
+ =?UTF-8?Q?Valdis_Kl=c4=93tnieks?= <valdis.kletnieks@vt.edu>,
+ David Lechner <david@lechnology.com>, Neil Armstrong <narmstrong@baylibre.com>,
+ linux-iio@vger.kernel.org, kernel-janitors@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, linux-wireless@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-stm32@st-md-mailman.stormreply.com, linux-block@vger.kernel.org,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-block@vger.kernel.org, linux-amlogic@lists.infradead.org,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Valdis =?utf-8?Q?Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
- linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
- Julia Lawall <Julia.Lawall@inria.fr>, linux-crypto@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net
-Content-Type: multipart/mixed; boundary="===============8355065859087220408=="
+ Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+ drbd-dev@tron.linbit.com, linux-amlogic@lists.infradead.org,
+ Thomas Gleixner <tglx@linutronix.de>,
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Jerome Brunet <jbrunet@baylibre.com>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============8355065859087220408==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="CE+1k2dSO48ffgeK"
-Content-Disposition: inline
-
-
---CE+1k2dSO48ffgeK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Wed, Sep 30, 2020 at 12:33:39PM -0700, Joe Perches wrote:
-> On Tue, 2020-09-29 at 12:37 +0100, Mark Brown wrote:
-
-> > Feel free to submit patches to b4.
-
-> Have you tried the existing option to send
-> thank you's on a specific ranges of patches?
-
-I am relying on b4 to identify which patches that I've downloaded are in
-the pushed branches.  Given that it explicitly lists the patches that
-are applied it appears to be doing an OK job here.
-
---CE+1k2dSO48ffgeK
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl91tx4ACgkQJNaLcl1U
-h9D1IAf/a6Dh+mjW+LjpuCd+hkWCJa8iJTLmYSy9suf32mX9fM1T/gbOLQ1RJtu4
-ZQP0A5w52htIbRIWtYHrgtZQGXrq2SIm+peRmnKP0DXly+Fj0/G0zxg4lqxKzXtV
-+XpQjLbvcjF6JIV1ok5ScRg5HH8bfLJQvbGBbpmL9pvI+WniF4smB5bQRwd3qWEf
-MrBNI79S+kr1Cvjxnya+/TP7O4TtOQzzpB695ejEGvqxlTJQM5GGaZTLNJlBivOz
-ygXvOFlrffOajvN1K7URe41xznaDG4+c8pfziFXllSoEGp3yzANBNTtCGEvny0SY
-Nx0W3O8/sebfFJPHQ89w2atWG/nVEQ==
-=onQ8
------END PGP SIGNATURE-----
-
---CE+1k2dSO48ffgeK--
-
-
---===============8355065859087220408==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============8355065859087220408==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============8355065859087220408==--
-
+T24gOS8yOS8yMCA3OjQyIEFNLCBTaHVhaCBLaGFuIHdyb3RlOgo+IE9uIDkvMjkvMjAgNzozNCBB
+TSwgSm9lIFBlcmNoZXMgd3JvdGU6Cj4+IE9uIFR1ZSwgMjAyMC0wOS0yOSBhdCAxNDo0NyArMDIw
+MCwgSnVsaWEgTGF3YWxsIHdyb3RlOgo+Pj4gT24gVHVlLCAyOSBTZXAgMjAyMCwgRGFuIENhcnBl
+bnRlciB3cm90ZToKPj4+PiBUaGUgdGltZXMgd2hlcmUgY29tbWFzIGFyZSB1c2VkIGRlbGliZXJh
+dGVseSB0byByZXBsYWNlIGN1cmx5IGJyYWNlcyAKPj4+PiBhcmUKPj4+PiBqdXN0IGV2aWwuwqAg
+RWl0aGVyIHdheSB0aGUgY29kZSBpcyBjbGVhbmVyIHdpdGggc2VtaS1jb2xvbnMuCj4+Pgo+Pj4g
+SSBhbHNvIGZvdW5kIGV4YWFtcGxlcyBsaWtlIHRoZSBmb2xsb3dpbmcgdG8gYmUgcGFydGljdWxh
+cmx5IHVuZm9ydW5hdGU6Cj4+Pgo+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBmcHJpbnRmKHN0ZGVyciwKPj4+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgICJwYWdlX25yICVsdSB3cm9uZyBjb3VudCAlTHUgCj4+PiAlTHVc
+biIsCj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcGFnZV9uciwgY291bnQsCj4+PiDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgY291bnRfdmVyaWZ5W3BhZ2VfbnJdKSwgZXhpdCgxKTsKPj4+Cj4+PiBU
+aGUgZXhpdCBpcyB2ZXJ5IGhhcmQgdG8gc2VlLCB1bmxlc3MgeW91IGtub3cgdG8gbG9vayBmb3Ig
+aXQuCj4+Cj4+IEkgc2VudCB0aGF0IHBhdGNoIGxhc3QgbW9udGguCj4+IGh0dHBzOi8vcGF0Y2h3
+b3JrLmtlcm5lbC5vcmcvcGF0Y2gvMTE3MzQ4NzcvCj4+Cj4gCj4gSSBzZWUgd2hhdCBoYXBwZW5l
+ZC4gVGhpcyBwYXRjaCB0b3VjaGVzIGxpYiwgY3B1cG93ZXIsIGFuZCBzZWxmdGVzdHMuCj4gR3Vl
+c3MgbG9zdCBpbiB0aGUgbGltYm8gb2Ygd2hvIHRha2VzIGl0Lgo+IAo+ICDCoHRvb2xzL2xpYi9z
+dWJjbWQvaGVscC5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDEw
+ICstCj4gIMKgdG9vbHMvcG93ZXIvY3B1cG93ZXIvdXRpbHMvY3B1ZnJlcS1zZXQuY8KgwqAgfMKg
+IDE0ICstCj4gIMKgdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvdm0vZ3VwX2JlbmNobWFyay5jIHzC
+oCAxOCArLQo+ICDCoHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3ZtL3VzZXJmYXVsdGZkLmPCoMKg
+IHwgMjk2ICsrKysrKysrKysrKystLS0tLS0tLQo+ICDCoDQgZmlsZXMgY2hhbmdlZCwgMjEwIGlu
+c2VydGlvbnMoKyksIDEyOCBkZWxldGlvbnMoLSkKPiAKPiBJIGNhbiB0YWtlIGl0IHRocm91Z2gg
+b25lIG9mIG15IHRyZWVzLgo+IAoKUmFmYWVsLCBBbmRyZXcsCgpUaGlzIHBhdGNoIGlzIG5vdyBh
+cHBsaWVkIHRvCmh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0
+L3NodWFoL2xpbnV4LWtzZWxmdGVzdC5naXQgCmZpeGVzIGJyYW5jaC4KClRoaXMgc3BhbnMgcG0s
+IGtzZWxmdGVzdC1tbSB0ZXN0cyBhbmQgdG9vbHMvbGliIGFuZCBoYXMgYmVlbgppbiBsaW1ibyBm
+b3IgYSBmZXcgd2Vla3MgZm9yIHRoYXQgcmVhc29uLgoKSSBkZWNpZGVkIHRvIHRha2UgdGhpcyB0
+aHJvdWdoIGtzZWxmdGVzdCB0cmVlIHRvIGF2b2lkIGhhdmluZwpKb2Ugc3BsaXQgdGhlIHBhdGNo
+ZXMuCgp0aGFua3MsCi0tIFNodWFoCgoKCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3Blbmlw
+bWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZv
+cmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
