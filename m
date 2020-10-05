@@ -2,92 +2,70 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5DD5B286755
+	by mail.lfdr.de (Postfix) with ESMTPS id 369EC286754
 	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Oct 2020 20:29:44 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQEC6-0008Gr-Fo; Wed, 07 Oct 2020 18:29:42 +0000
+	id 1kQEC6-0008HJ-IZ; Wed, 07 Oct 2020 18:29:42 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <ulf.hansson@linaro.org>) id 1kPMHZ-0006Oa-AF
- for openipmi-developer@lists.sourceforge.net; Mon, 05 Oct 2020 08:55:45 +0000
+ (envelope-from <jonathan.cameron@huawei.com>) id 1kPNAn-0007Lr-Ku
+ for openipmi-developer@lists.sourceforge.net; Mon, 05 Oct 2020 09:52:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=41Y6sjMmjcMlV2JauZyN/TxOh6umZ/keewCU2mb8LIc=; b=c+xt+n/ihQPSlW3KcEigutj8RD
- oRPgFhoeAP5+aWIKTDE2VH+PGNTRp+omRf5dUbPO40dTe/Kz1CZk9dvGoETvWYZZzdm8R5N0HuIxv
- BGuTqzR4YH5ImNH6gtiwEZAGZGgkDmezcfBGjS/vfeUj9Q+Bvcj89pamw8qLftEK/y2s=;
+ bh=nnVC011+6U1zMI1P0NRyd8QMIbASAbm9Ud65uXxOM1k=; b=AUV75p4fqP2aVJwqsFPgzDMLJY
+ hSyEdc4xGvKa0xBNSkQzNVvtPmNz2+t8ynp0rISaM7rwdlOJzcKuFLF8LgoKrf1j8bKINLvi4adZE
+ mqtiycoNV94dqH6Ask1rSjp9MrGGezVBNfMyF+oQ0/bxjhqaDVCsul6RVwKvv7BDr1PM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
+ In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=41Y6sjMmjcMlV2JauZyN/TxOh6umZ/keewCU2mb8LIc=; b=Gy6IK+q7L0+TxE4hpDcXld4Rky
- bDQO6Pr3CkgX0xd/TjKqQa0NcPWsUzJZALQI3gOX705sXYvIW1vcV8SZ4rJ5py/gf3/G4lbbR5qUh
- s7vNadiRN58nSyqIh5bk8S2Ep0X+/MC8aF6eSPnNHw3ejnNsRb9x1gJkO5AFDQJRTeJI=;
-Received: from mail-qv1-f68.google.com ([209.85.219.68])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kPMHS-00H5bN-Ez
- for openipmi-developer@lists.sourceforge.net; Mon, 05 Oct 2020 08:55:45 +0000
-Received: by mail-qv1-f68.google.com with SMTP id w5so1487327qvn.12
- for <openipmi-developer@lists.sourceforge.net>;
- Mon, 05 Oct 2020 01:55:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=41Y6sjMmjcMlV2JauZyN/TxOh6umZ/keewCU2mb8LIc=;
- b=AXAmvxEcZgWulidtPjWzcdr2Qm2OYOtZA0wDa8FmovT91MPeLRIwIVCT8lx9v5UNlG
- SctQfxm1GmrUHlaNPX+RFUQtBHXdidJ0/CU1C9clQS0l30cTxEkteaWVnvPQuLuFSdee
- 4MV2Fpon9L5TsVQGS1K3gSKttvhofJOiwA9P0bVAeb/tNn5WAcwRk5Be/IAOdU2QkdYn
- VFrey16k5OCZxA1L7Q1xqspPxsd/+WYGgx9scKUGZYuyhxSBuKF1PhH1KfSOoQx2J5OY
- 401UuKSNx0/BKxG4Vky36hMzFvsFJwDUWIuAQewHgLK5qqZWGGWEkqztdK9+VC+FKpcj
- S9OA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=41Y6sjMmjcMlV2JauZyN/TxOh6umZ/keewCU2mb8LIc=;
- b=o513UCdn9H39DQsG6FnY8B470peOyT4aSuNMnjLwAuC7fUyu3J0W9fDRJ1vmw4+eRs
- GRdVtlyBowsuFNU7G1aGXrqfkSOECarbMg2EKncym2F/Mqz4CWnIEfxV4Flt64nr+wqq
- Za2/j0qzHHSeB2fLkNi0awskkKUKxiTk7veQdny6CJexOs0bQIZlQJ9V25ewTG8F8V1K
- 9wvopuNLrytSrkuKZQ4J3PW6YwOiIx+g+GvzcidOTx3SrR/pe4Hb+mDymbHSBlW/sckm
- tUgc9Zx1xy1R40H651lFpKB1Ay3FH/1n0G4u/rNzaWvgiwOMOH6MANeonmGSREtrmuyj
- d6pw==
-X-Gm-Message-State: AOAM531x4a01h6PKzYRWbSHDvCzBBUL2cYFDB+DnWGezsieNxIZb+0Yb
- q14opBW9/AX5ok3ykn/rG/ZvApC1R1EZbIvQHHwQKeuud4oblw==
-X-Google-Smtp-Source: ABdhPJxlPMGygHVTcnGIf5MQvmk2y9YM/OMFZ7y/LPtKUwwQZxTgA80YvlEMQPDfoWIYZailBQzIdWarus99WB2IvNI=
-X-Received: by 2002:a67:ec9a:: with SMTP id h26mr6751269vsp.34.1601886397228; 
- Mon, 05 Oct 2020 01:26:37 -0700 (PDT)
-MIME-Version: 1.0
-References: <20201002234143.3570746-1-robh@kernel.org>
-In-Reply-To: <20201002234143.3570746-1-robh@kernel.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 5 Oct 2020 10:26:01 +0200
-Message-ID: <CAPDyKFq=ZUiYhm0-K5ZVYS1FH2O5e-+Gt6Dftf=LmL9ABa7CaA@mail.gmail.com>
+ bh=nnVC011+6U1zMI1P0NRyd8QMIbASAbm9Ud65uXxOM1k=; b=QTTNXP8+PawGYbtYDuUKwsidjb
+ YSbOyPOP8UYHEwvMZr2iNMxSSvI1AXniuR2g9Ct5RLe0bdhWzIUxtCbxzTbDX1Vx5FVd91P9Xk/Gv
+ r+dM+Av3HPCW2XpAfDQYu0RUGz6+4Gfv2FgNiwDjXPHTbo8CVySYdZsam9w3ccBT1iBE=;
+Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1kPNAa-003CNW-Mt
+ for openipmi-developer@lists.sourceforge.net; Mon, 05 Oct 2020 09:52:48 +0000
+Received: from lhreml710-chm.china.huawei.com (unknown [172.18.7.107])
+ by Forcepoint Email with ESMTP id 094B3ABD20918B3B41D5;
+ Mon,  5 Oct 2020 10:36:23 +0100 (IST)
+Received: from localhost (10.52.124.175) by lhreml710-chm.china.huawei.com
+ (10.201.108.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1913.5; Mon, 5 Oct 2020
+ 10:36:21 +0100
+Date: Mon, 5 Oct 2020 10:34:36 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Rob Herring <robh@kernel.org>
-X-Spam-Score: -0.1 (/)
+Message-ID: <20201005093436.00004913@Huawei.com>
+In-Reply-To: <20201002234143.3570746-1-robh@kernel.org>
+References: <20201002234143.3570746-1-robh@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; i686-w64-mingw32)
+MIME-Version: 1.0
+X-Originating-IP: [10.52.124.175]
+X-ClientProxiedBy: lhreml730-chm.china.huawei.com (10.201.108.81) To
+ lhreml710-chm.china.huawei.com (10.201.108.61)
+X-CFilter-Loop: Reflected
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.219.68 listed in list.dnswl.org]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.219.68 listed in wl.mailspike.net]
+ [185.176.76.210 listed in wl.mailspike.net]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
-X-Headers-End: 1kPMHS-00H5bN-Ez
-X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:26 +0000
+X-Headers-End: 1kPNAa-003CNW-Mt
+X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:29 +0000
 Subject: Re: [Openipmi-developer] [PATCH] dt-bindings: Another round of
  adding missing 'additionalProperties'
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -102,44 +80,41 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: alsa-devel@alsa-project.org, linux-iio@vger.kernel.org,
- Linux PCI <linux-pci@vger.kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, linux-remoteproc@vger.kernel.org,
- dri-devel <dri-devel@lists.freedesktop.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Thierry Reding <thierry.reding@gmail.com>, Lee Jones <lee.jones@linaro.org>,
- linux-clk <linux-clk@vger.kernel.org>, linux-leds@vger.kernel.org,
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, linux-iio@vger.kernel.org,
+ linux-pci@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>,
+ linux-remoteproc@vger.kernel.org, alsa-devel@alsa-project.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, Thierry
+ Reding <thierry.reding@gmail.com>, Lee Jones <lee.jones@linaro.org>,
+ linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
  Daniel Lezcano <daniel.lezcano@linaro.org>,
- linux-stm32@st-md-mailman.stormreply.com,
- "open list:ARM/Rockchip SoC..." <linux-rockchip@lists.infradead.org>,
+ linux-stm32@st-md-mailman.stormreply.com, linux-rockchip@lists.infradead.org,
  linux-serial@vger.kernel.org, linux-mips@vger.kernel.org,
- Guenter Roeck <linux@roeck-us.net>,
- Linux Media Mailing List <linux-media@vger.kernel.org>,
- DTML <devicetree@vger.kernel.org>, Linux PM <linux-pm@vger.kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Guenter Roeck <linux@roeck-us.net>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, linux-gpio@vger.kernel.org,
  Mark Brown <broonie@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
  openipmi-developer@lists.sourceforge.net,
  Bjorn Andersson <bjorn.andersson@linaro.org>, linux-hwmon@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linux USB List <linux-usb@vger.kernel.org>,
- "linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, linux-spi@vger.kernel.org,
- Vinod Koul <vkoul@kernel.org>, netdev <netdev@vger.kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
+ linux-mmc@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>,
+ linux-spi@vger.kernel.org, Vinod
+ Koul <vkoul@kernel.org>, netdev@vger.kernel.org,
  Baolin Wang <baolin.wang7@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- "David S. Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
+ "David S.
+ Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Sat, 3 Oct 2020 at 01:41, Rob Herring <robh@kernel.org> wrote:
->
+On Fri, 2 Oct 2020 18:41:43 -0500
+Rob Herring <robh@kernel.org> wrote:
+
 > Another round of wack-a-mole. The json-schema default is additional
 > unknown properties are allowed, but for DT all properties should be
 > defined.
->
+> 
 > Cc: Thierry Reding <thierry.reding@gmail.com>
 > Cc: Linus Walleij <linus.walleij@linaro.org>
 > Cc: Stephen Boyd <sboyd@kernel.org>
@@ -181,20 +156,56 @@ On Sat, 3 Oct 2020 at 01:41, Rob Herring <robh@kernel.org> wrote:
 > Cc: linux-usb@vger.kernel.org
 > Signed-off-by: Rob Herring <robh@kernel.org>
 > ---
->
-> I'll take this thru the DT tree.
->
 
-[...]
+Hi Rob,
 
->  .../bindings/mmc/mmc-pwrseq-emmc.yaml         |  2 ++
->  .../bindings/mmc/mmc-pwrseq-sd8787.yaml       |  2 ++
->  .../bindings/mmc/mmc-pwrseq-simple.yaml       |  2 ++
+Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> # for iio
 
-Acked-by: Ulf Hansson <ulf.hansson@linaro.org>
 
-Kind regards
-Uffe
+However, one of these made me wonder if the binding was simply wrong...
+(definitely highlights why we should have additionalProperties: false
+where ever possible).
+
+...
+
+
+> diff --git a/Documentation/devicetree/bindings/iio/imu/invensense,icm42600.yaml b/Documentation/devicetree/bindings/iio/imu/invensense,icm42600.yaml
+> index abd8d25e1136..4c1c083d0e92 100644
+> --- a/Documentation/devicetree/bindings/iio/imu/invensense,icm42600.yaml
+> +++ b/Documentation/devicetree/bindings/iio/imu/invensense,icm42600.yaml
+> @@ -47,11 +47,17 @@ properties:
+>    vddio-supply:
+>      description: Regulator that provides power to the bus
+>  
+> +  spi-max-frequency: true
+> +  spi-cpha: true
+> +  spi-cpol: true
+
+It isn't completely unheard of for a device to operate in multiple SPI modes, but
+it does seem to be fairly unusual.  I took a look at the datasheet and at least
+from the provided timing diagrams, these are both required in SPI mode.
+
+http://invensense.tdk.com/wp-content/uploads/2020/09/DS-000292-ICM-42605-v1.5.pdf
+
+That doesn't make the binding wrong as such, but we could be tighter in checking this!
+
+I'll add this to my list to take a closer look at sometime soonish.
+
+Thanks.
+
+Jonathan
+
+> +
+>  required:
+>    - compatible
+>    - reg
+>    - interrupts
+>  
+> +additionalProperties: false
+> +
+>  examples:
+>    - |
+
 
 
 _______________________________________________
