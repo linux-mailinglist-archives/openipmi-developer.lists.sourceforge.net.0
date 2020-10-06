@@ -2,84 +2,81 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4174E28675C
+	by mail.lfdr.de (Postfix) with ESMTPS id 70BB028675D
 	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Oct 2020 20:29:45 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQEC7-0008KT-Ek; Wed, 07 Oct 2020 18:29:43 +0000
+	id 1kQEC7-0008Lf-SW; Wed, 07 Oct 2020 18:29:43 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <skhan@linuxfoundation.org>) id 1kPtpb-0003mX-V9
- for openipmi-developer@lists.sourceforge.net; Tue, 06 Oct 2020 20:45:07 +0000
+ (envelope-from <skhan@linuxfoundation.org>) id 1kPtqk-0001kD-B1
+ for openipmi-developer@lists.sourceforge.net; Tue, 06 Oct 2020 20:46:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=FAVTd4/uhiW60aPw+XvSmqORkXupHL87bPyGbV0HsYw=; b=dpJuc6etMf1KWllYzITjoRQ1M8
- Rt0LHM8DvKqz1zj7xXR+r7gmgYKHVxxnWIyUlBZLB2fkifLzv5ec2AQyIwzwllDvjhIeESGcS6Gn4
- c1DZpK3rLwKSiZgHouhYZbH7VIPaHw++qgHusXULkqeP8cP43Vngesy92K+TY0JSS5oU=;
+ bh=RHZTRJT51Q1gCe/RuqWMReg34aOwoIWVUt687pWI7oU=; b=DQkOImKUqOZQ0h1PrgIt9+idHN
+ nfTUaQvrLjcidARZAcVjapLfRKMjd7FPcmkIDMd5bdzb3AaDZibsODf29v9RCbzIZCKDrZ98MvkvG
+ zZryuHUmKnYIAs8JIsKfVIpItiKJgXRQCg0rQHUHi58yrxyNtSzNdO07xAKqz76gLqpI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=FAVTd4/uhiW60aPw+XvSmqORkXupHL87bPyGbV0HsYw=; b=H
- VQFZM+dOsI97XdZpngBo6HyClzk1KUey6Sv4PHI3vC9iLixF3QBuvGLgPK6BI3l4nfBspzD3LgIGK
- ghn/VGKlFaNxHM+Sm7b91rdmy9bLzaw0bZicTkIOe+ozHNq9nu8uEUMgj9El3lvWbigb8+MZtTXpK
- ROUQILYk6fVkXnrA=;
-Received: from mail-il1-f193.google.com ([209.85.166.193])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=RHZTRJT51Q1gCe/RuqWMReg34aOwoIWVUt687pWI7oU=; b=grLKO48vteCvTlBtO6OG5pUf6W
+ dBR0Bb7U4xmtXO7X4WOW7FGPMvwvJfAV7l0yMEi3jWxFRnYaaH4VBBxP4HsZ0WY+OlEyVfGCNyLvz
+ ampxxOqUblFiViQiHXmrRYEhCDYhRa8+S0AfzCREMpKpRiwHCmwfj+dzWZR29DnhOVS8=;
+Received: from mail-io1-f67.google.com ([209.85.166.67])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kPtpR-001Mx2-NU
- for openipmi-developer@lists.sourceforge.net; Tue, 06 Oct 2020 20:45:07 +0000
-Received: by mail-il1-f193.google.com with SMTP id u9so117805ilj.7
+ id 1kPtqf-005DsQ-3q
+ for openipmi-developer@lists.sourceforge.net; Tue, 06 Oct 2020 20:46:18 +0000
+Received: by mail-io1-f67.google.com with SMTP id k25so14544700ioh.7
  for <openipmi-developer@lists.sourceforge.net>;
- Tue, 06 Oct 2020 13:44:57 -0700 (PDT)
+ Tue, 06 Oct 2020 13:46:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=linuxfoundation.org; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=FAVTd4/uhiW60aPw+XvSmqORkXupHL87bPyGbV0HsYw=;
- b=U8RRNn9buGpyfeQW5lvmH3Wmzq2YD8O1mN7x0FY+53p4cXKgvqPJy505TkImeSvG5u
- vPqk7VPNdpjJ6qSCnY+aBFwsvl58Pzzg7PMB9AE+AL+AfTUxXgRReKKC4MwkcYRN5fQj
- kFbcmpk7KiSko4YptwdL9RjK32FM9VmUFsc+s=
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=RHZTRJT51Q1gCe/RuqWMReg34aOwoIWVUt687pWI7oU=;
+ b=Bq75TiatYOqp+eUjMSpBFAops8oYp6Wx1FPXdjbZ1kSTfPCofy70mVRb+qZW9JT0OK
+ Sv/V6Jx8ibgkAkn1H9zkKY6Jfnik6IxsqPhc9++vRcHRdO0T515jrKK+tWs23+xyV9kl
+ nqNtFbkyKXu0YXGLJWXsE/pIv7Q4T1opgjUaA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=FAVTd4/uhiW60aPw+XvSmqORkXupHL87bPyGbV0HsYw=;
- b=r4qK85akqK9HfQrIq1p4eO+fZ2ExeOV1HhpyTPUk3xSzjkDEcDKoXtDv4NtWDGUp0U
- u5iE/1N9IkRES13iOiKTUk+VgANa8axJvk70/YmxF0BmeUNur2/HEm31cyX6dXZEsMnB
- VjNRDLNbO/ZpD/1MpVQJ8fWoAaVIAMu0k67hMoU007dFMi7kgtHfhYrqoyixAv8O1x9u
- pxWf/6zHcA5QxXs0qOLRZIZ4QYyAcr3zLD3rhtjqKmg1d+I87rTqoHsMB+6jvn2viMap
- TANPw+NZ7hgA+wElT5KYh/70NzffNFVoSq+4a/PQESO0mcQOEowN3y/d9KDh7TNNgH28
- f93A==
-X-Gm-Message-State: AOAM533pizMxKZXkU5oQsROk9fCUcX8NeHvZ0KDYeZC1hb/9nnoltksG
- kcw4ZQjWEnUh7FlKSdTPeeQ0dw==
-X-Google-Smtp-Source: ABdhPJyYiB/m/jo1bQRIrsuVzVlWXVEm/AoM5jDHZ7E+dxaOLQnEmcXEJ+hfYOVO3MBQ5PqFH2fXzQ==
-X-Received: by 2002:a92:b30c:: with SMTP id p12mr9703ilh.35.1602017092051;
- Tue, 06 Oct 2020 13:44:52 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=RHZTRJT51Q1gCe/RuqWMReg34aOwoIWVUt687pWI7oU=;
+ b=Yqz+7dDpSNV1A8DtF6xrDZfUQeKmVBrIStkgyPKmtdvNgDX8JFXLuGZlhpTAE6lPyP
+ NhD0LzMv9/wXN0Or06pgaGRWwVEvrnzFapxLv6584WvD/c2u/TTajL6JTo/MjUEmNxqL
+ yY7uXv1rQPD5uxOwhuU3fi3JVZXBmOVB4SWLqINXxhFRboQ6vqFAox4QayPg3pvBgIge
+ iRPOdFsW89euH/96vUA7r3sIGG55coAZmIVkHPBAtHoIV5ff7AG8sHnirkw5DJ8eT5HC
+ XU63XQ9ZtcHWaZHkjS6cOvcgAA2Kjt7JuAaaE07cW+693M+wCuK8rYrMtnmfut44c9k2
+ 2NjA==
+X-Gm-Message-State: AOAM531sdyVhSkoUd6ZWzS3IIo5vniGa+C8RBo0Cql48OwZ1PlliNJ7g
+ AZ9h91KQKktneLcCAXwVjY0MdA==
+X-Google-Smtp-Source: ABdhPJzA8T0sZcnPN0HFhL0Ym1eN9j+jbzpy/r8A6eJhVkklsuejvF5Y1hur2HAvO2Kw9wr9e9cJ8A==
+X-Received: by 2002:a02:7350:: with SMTP id a16mr12862jae.53.1602017160442;
+ Tue, 06 Oct 2020 13:46:00 -0700 (PDT)
 Received: from shuah-t480s.internal (c-24-9-64-241.hsd1.co.comcast.net.
  [24.9.64.241])
- by smtp.gmail.com with ESMTPSA id s69sm1665627ili.54.2020.10.06.13.44.50
+ by smtp.gmail.com with ESMTPSA id s69sm1665627ili.54.2020.10.06.13.45.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 06 Oct 2020 13:44:51 -0700 (PDT)
+ Tue, 06 Oct 2020 13:45:59 -0700 (PDT)
 From: Shuah Khan <skhan@linuxfoundation.org>
-To: corbet@lwn.net, keescook@chromium.org, gregkh@linuxfoundation.org,
- shuah@kernel.org, rafael@kernel.org, johannes@sipsolutions.net,
- lenb@kernel.org, james.morse@arm.com, tony.luck@intel.com, bp@alien8.de,
- arve@android.com, tkjos@android.com, maco@android.com,
- joel@joelfernandes.org, christian@brauner.io, hridya@google.com,
- surenb@google.com, minyard@acm.org, arnd@arndb.de, mchehab@kernel.org,
- rric@kernel.org
-Date: Tue,  6 Oct 2020 14:44:31 -0600
-Message-Id: <cover.1602011710.git.skhan@linuxfoundation.org>
+To: minyard@acm.org, arnd@arndb.de, gregkh@linuxfoundation.org,
+ keescook@chromium.org
+Date: Tue,  6 Oct 2020 14:44:40 -0600
+Message-Id: <46fcf1d28532868abd1c2dedaab221be56736db9.1602011710.git.skhan@linuxfoundation.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1602011710.git.skhan@linuxfoundation.org>
+References: <cover.1602011710.git.skhan@linuxfoundation.org>
 MIME-Version: 1.0
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
@@ -87,11 +84,11 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: test_counters.sh]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.193 listed in wl.mailspike.net]
+ for more information. [URIs: linuxfoundation.org]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.166.193 listed in list.dnswl.org]
+ trust [209.85.166.67 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.67 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
@@ -99,10 +96,10 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1kPtpR-001Mx2-NU
+X-Headers-End: 1kPtqf-005DsQ-3q
 X-Mailman-Approved-At: Wed, 07 Oct 2020 18:29:25 +0000
-Subject: [Openipmi-developer] [PATCH v2 00/11] Introduce Simple atomic
- counters
+Subject: [Openipmi-developer] [PATCH v2 09/11] drivers/char/ipmi: convert
+ stats to use counter_atomic32
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -115,134 +112,117 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-kselftest@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>,
- openipmi-developer@lists.sourceforge.net, linux-edac@vger.kernel.org
+Cc: Corey Minyard <cminyard@mvista.com>,
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-This patch series is a result of discussion at the refcount_t BOF
-the Linux Plumbers Conference. In this discussion, we identified
-a need for looking closely and investigating atomic_t usages in
-the kernel when it is used strictly as a counter without it
-controlling object lifetimes and state changes.
+counter_atomic* is introduced to be used when a variable is used as
+a simple counter and doesn't guard object lifetimes. This clearly
+differentiates atomic_t usages that guard object lifetimes.
 
-There are a number of atomic_t usages in the kernel where atomic_t api
-is used strictly for counting and not for managing object lifetime. In
-some cases, atomic_t might not even be needed.
+counter_atomic* variables will wrap around to 0 when it overflows and
+should not be used to guard resource lifetimes, device usage and
+open counts that control state changes, and pm states.
 
-The purpose of these counters is to clearly differentiate atomic_t
-counters from atomic_t usages that guard object lifetimes, hence prone
-to overflow and underflow errors. It allows tools that scan for underflow
-and overflow on atomic_t usages to detect overflow and underflows to scan
-just the cases that are prone to errors.
+atomic_t variables used for stats are atomic counters. Overflow will
+wrap around and reset the stats and no change with the conversion.
 
-Simple atomic counters api provides interfaces for simple atomic counters
-that just count, and don't guard resource lifetimes. Counter will wrap
-around to 0 when it overflows and should not be used to guard resource
-lifetimes, device usage and open counts that control state changes, and
-pm states.
+Convert them to use counter_atomic32.
 
-Using counter_atomic* to guard lifetimes could lead to use-after free
-when it overflows and undefined behavior when used to manage state
-changes and device usage/open states.
+Reviewed-by: Corey Minyard <cminyard@mvista.com>
+Signed-off-by: Shuah Khan <skhan@linuxfoundation.org>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 9 +++++----
+ drivers/char/ipmi/ipmi_si_intf.c    | 9 +++++----
+ 2 files changed, 10 insertions(+), 8 deletions(-)
 
-This patch series introduces Simple atomic counters. Counter atomic ops
-leverage atomic_t and provide a sub-set of atomic_t ops.
-
-In addition this patch series converts a few drivers to use the new api.
-The following criteria is used for select variables for conversion:
-
-1. Variable doesn't guard object lifetimes, manage state changes e.g:
-   device usage counts, device open counts, and pm states.
-2. Variable is used for stats and counters.
-3. The conversion doesn't change the overflow behavior.
-
-Changes since Patch v1
--- Thanks for reviews and reviewed-by, and Acked-by tags. Updated
-   the patches with the tags.
--- Addressed Kees's  and Joel's comments:
-   1. Removed dec_return interfaces (Patch 1/11)
-   2. Removed counter_simple interfaces to be added later with changes
-      to drivers that use them (if any) (Patch 1/11)
-   3. Comment and Changelogs updates to Patch 2/11
-
-Kees, if this series is good, would you like to take this through your
-tree or would you like to take this through mine?
-
-Changes since RFC:
--- Thanks for reviews and reviewed-by, and Acked-by tags. Updated
-   the patches with the tags.
--- Addressed Kees's comments:
-   1. Non-atomic counters renamed to counter_simple32 and counter_simple64
-      to clearly indicate size.
-   2. Added warning for counter_simple* usage and it should be used only
-      when there is no need for atomicity.
-   3. Renamed counter_atomic to counter_atomic32 to clearly indicate size.
-   4. Renamed counter_atomic_long to counter_atomic64 and it now uses
-      atomic64_t ops and indicates size.
-   5. Test updated for the API renames.
-   6. Added helper functions for test results printing
-   7. Verified that the test module compiles in kunit env. and test
-      module can be loaded to run the test.
-   8. Updated Documentation to reflect the intent to make the API
-      restricted so it can never be used to guard object lifetimes
-      and state management. I left _return ops for now, inc_return
-      is necessary for now as per the discussion we had on this topic.
--- Updated driver patches with API name changes.
--- We discussed if binder counters can be non-atomic. For now I left
-   them the same as the RFC patch - using counter_atomic32
--- Unrelated to this patch series:
-   The patch series review uncovered improvements could be made to
-   test_async_driver_probe and vmw_vmci/vmci_guest. I will track
-   these for fixing later.
-
-Shuah Khan (11):
-  counters: Introduce counter_atomic* counters
-  selftests:lib:test_counters: add new test for counters
-  drivers/base: convert deferred_trigger_count and probe_count to
-    counter_atomic32
-  drivers/base/devcoredump: convert devcd_count to counter_atomic32
-  drivers/acpi: convert seqno counter_atomic32
-  drivers/acpi/apei: convert seqno counter_atomic32
-  drivers/android/binder: convert stats, transaction_log to
-    counter_atomic32
-  drivers/base/test/test_async_driver_probe: convert to use
-    counter_atomic32
-  drivers/char/ipmi: convert stats to use counter_atomic32
-  drivers/misc/vmw_vmci: convert num guest devices counter to
-    counter_atomic32
-  drivers/edac: convert pci counters to counter_atomic32
-
- Documentation/core-api/counters.rst          | 103 +++++++++++
- MAINTAINERS                                  |   8 +
- drivers/acpi/acpi_extlog.c                   |   5 +-
- drivers/acpi/apei/ghes.c                     |   5 +-
- drivers/android/binder.c                     |  41 ++---
- drivers/android/binder_internal.h            |   3 +-
- drivers/base/dd.c                            |  19 +-
- drivers/base/devcoredump.c                   |   5 +-
- drivers/base/test/test_async_driver_probe.c  |  23 +--
- drivers/char/ipmi/ipmi_msghandler.c          |   9 +-
- drivers/char/ipmi/ipmi_si_intf.c             |   9 +-
- drivers/edac/edac_pci.h                      |   5 +-
- drivers/edac/edac_pci_sysfs.c                |  28 +--
- drivers/misc/vmw_vmci/vmci_guest.c           |   9 +-
- include/linux/counters.h                     | 173 +++++++++++++++++++
- lib/Kconfig                                  |  10 ++
- lib/Makefile                                 |   1 +
- lib/test_counters.c                          | 157 +++++++++++++++++
- tools/testing/selftests/lib/Makefile         |   1 +
- tools/testing/selftests/lib/config           |   1 +
- tools/testing/selftests/lib/test_counters.sh |   5 +
- 21 files changed, 546 insertions(+), 74 deletions(-)
- create mode 100644 Documentation/core-api/counters.rst
- create mode 100644 include/linux/counters.h
- create mode 100644 lib/test_counters.c
- create mode 100755 tools/testing/selftests/lib/test_counters.sh
-
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 737c0b6b24ea..36c0b1be22fb 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -34,6 +34,7 @@
+ #include <linux/uuid.h>
+ #include <linux/nospec.h>
+ #include <linux/vmalloc.h>
++#include <linux/counters.h>
+ 
+ #define IPMI_DRIVER_VERSION "39.2"
+ 
+@@ -584,7 +585,7 @@ struct ipmi_smi {
+ 	struct ipmi_my_addrinfo addrinfo[IPMI_MAX_CHANNELS];
+ 	bool channels_ready;
+ 
+-	atomic_t stats[IPMI_NUM_STATS];
++	struct counter_atomic32 stats[IPMI_NUM_STATS];
+ 
+ 	/*
+ 	 * run_to_completion duplicate of smb_info, smi_info
+@@ -630,9 +631,9 @@ static LIST_HEAD(smi_watchers);
+ static DEFINE_MUTEX(smi_watchers_mutex);
+ 
+ #define ipmi_inc_stat(intf, stat) \
+-	atomic_inc(&(intf)->stats[IPMI_STAT_ ## stat])
++	counter_atomic32_inc(&(intf)->stats[IPMI_STAT_ ## stat])
+ #define ipmi_get_stat(intf, stat) \
+-	((unsigned int) atomic_read(&(intf)->stats[IPMI_STAT_ ## stat]))
++	((unsigned int) counter_atomic32_read(&(intf)->stats[IPMI_STAT_ ## stat]))
+ 
+ static const char * const addr_src_to_str[] = {
+ 	"invalid", "hotmod", "hardcoded", "SPMI", "ACPI", "SMBIOS", "PCI",
+@@ -3448,7 +3449,7 @@ int ipmi_add_smi(struct module         *owner,
+ 	INIT_LIST_HEAD(&intf->cmd_rcvrs);
+ 	init_waitqueue_head(&intf->waitq);
+ 	for (i = 0; i < IPMI_NUM_STATS; i++)
+-		atomic_set(&intf->stats[i], 0);
++		counter_atomic32_set(&intf->stats[i], 0);
+ 
+ 	mutex_lock(&ipmi_interfaces_mutex);
+ 	/* Look for a hole in the numbers. */
+diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
+index 77b8d551ae7f..0909a3461f05 100644
+--- a/drivers/char/ipmi/ipmi_si_intf.c
++++ b/drivers/char/ipmi/ipmi_si_intf.c
+@@ -43,6 +43,7 @@
+ #include "ipmi_si_sm.h"
+ #include <linux/string.h>
+ #include <linux/ctype.h>
++#include <linux/counters.h>
+ 
+ /* Measure times between events in the driver. */
+ #undef DEBUG_TIMING
+@@ -237,7 +238,7 @@ struct smi_info {
+ 	bool dev_group_added;
+ 
+ 	/* Counters and things for the proc filesystem. */
+-	atomic_t stats[SI_NUM_STATS];
++	struct counter_atomic32 stats[SI_NUM_STATS];
+ 
+ 	struct task_struct *thread;
+ 
+@@ -245,9 +246,9 @@ struct smi_info {
+ };
+ 
+ #define smi_inc_stat(smi, stat) \
+-	atomic_inc(&(smi)->stats[SI_STAT_ ## stat])
++	counter_atomic32_inc(&(smi)->stats[SI_STAT_ ## stat])
+ #define smi_get_stat(smi, stat) \
+-	((unsigned int) atomic_read(&(smi)->stats[SI_STAT_ ## stat]))
++	((unsigned int) counter_atomic32_read(&(smi)->stats[SI_STAT_ ## stat]))
+ 
+ #define IPMI_MAX_INTFS 4
+ static int force_kipmid[IPMI_MAX_INTFS];
+@@ -2013,7 +2014,7 @@ static int try_smi_init(struct smi_info *new_smi)
+ 	atomic_set(&new_smi->req_events, 0);
+ 	new_smi->run_to_completion = false;
+ 	for (i = 0; i < SI_NUM_STATS; i++)
+-		atomic_set(&new_smi->stats[i], 0);
++		counter_atomic32_set(&new_smi->stats[i], 0);
+ 
+ 	new_smi->interrupt_disabled = true;
+ 	atomic_set(&new_smi->need_watch, 0);
 -- 
 2.25.1
 
