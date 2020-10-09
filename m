@@ -2,93 +2,77 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2036E28919D
-	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Oct 2020 21:11:38 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id C67182891D6
+	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Oct 2020 21:38:51 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kQxnj-0007tt-W8; Fri, 09 Oct 2020 19:11:35 +0000
+	id 1kQyE6-0000Gs-0q; Fri, 09 Oct 2020 19:38:50 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <skhan@linuxfoundation.org>) id 1kQxne-0007tO-3L
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Oct 2020 19:11:30 +0000
+ (envelope-from <peterz@infradead.org>) id 1kQyE5-0000Gl-8C
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Oct 2020 19:38:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=baW1j40oyrw0/DNHh12A7dHdJ/z3IBrTCGUzSy2Qt0U=; b=VS9hrs0FJcSgx/oegOLNcebjq+
- Lk+2VtCUgyLGIseaa1i2BpHGk1q8iFiOL0KPxW1pxRPPGiaMJRWHG1A/b+iwxxMbsOBRoz9W85DBq
- cXqNOlz6Lt/lJHXDBEGQyL1QyKbTyTIZQuwlVsV6LcBXW/Cuvn+u/I9znVS8yvF3rDc8=;
+ bh=zLIUwi6of4TVrIDqm7ubPP1mBc2NCjeZDMTgFgFGRzs=; b=AeWwMB1ou+A03MijaHp0viyyE6
+ 2NClT/54vMOxDErR5O2wTxB80r4wtcl/h2pB0EoiU1xovja25fBAShCjMaGkOJ8yOb7PsHA5n6X5Y
+ hgO5bPJEG7V5isXC7sXdxXoXQMFLJVRNRnw2CLbarYuWeNq8KLKPX46gemA81xfh1Ukk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=baW1j40oyrw0/DNHh12A7dHdJ/z3IBrTCGUzSy2Qt0U=; b=FqiGu8o9eH+vhtBbw8chjhlPf5
- Hqc1u4dkoTaLoYJHzD3GfHCsxDYQlkGokTAwYziOXEIlvOcFjkGtcfViK4rv+mrsC5YAqa5ZmPltD
- o7RxcNuSSDl02GY+kcpr4NI1Xc3vdhRVoj2uKqsVfquSJgSFhOeGQfm0frk7MTooU2jI=;
-Received: from mail-ot1-f65.google.com ([209.85.210.65])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kQxnT-008pS8-DW
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Oct 2020 19:11:27 +0000
-Received: by mail-ot1-f65.google.com with SMTP id n61so9943843ota.10
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 09 Oct 2020 12:11:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=linuxfoundation.org; s=google;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=baW1j40oyrw0/DNHh12A7dHdJ/z3IBrTCGUzSy2Qt0U=;
- b=LuV4RossWWWXsKmwY82qfvFub19Uko9+f82C66MWZzlHewluwlddL6Ng5uIlyVUujU
- 7he0hdbrv2QoTpWj/BjRl3+E8Fgqdqc9v+hiKB/oiiNO9/XGGP3Y5D+ijhz4yxfXBglR
- 8VWVsO7kW6GmEUCVWOwofF2kCvJG2GGJslM6Q=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=baW1j40oyrw0/DNHh12A7dHdJ/z3IBrTCGUzSy2Qt0U=;
- b=twiO9GjF0pbYvmBDx7+DGn9q0/Hnp3o6rT9JcllxqUlZ/tJQxynJJr6R+orglhKDzq
- nIKDJ1pveK399xF0uMfIFxl1FoWFwBcYT3/Y8YUOAmyydbrWCYrtHTARkOArAbWvoQyg
- 0LAg/rV5Pkf+zUEJCeZ+QZ/qqD/T8gDufesSxn37T2yVEqJOl9UpGiSo+JEvZPFh+60w
- xsOUv13u4fVz899xBpUrq1cWeRHoiinGIA4tvIDEbED8PZT4kKdwRDeIAQSNmvZSl2RO
- rfmsEjiH9n7RIh+eRmN8cTSPdBKT9KRx64yrbe9N9tzVAFdk9GdIkS7CW4auj5jwRbaE
- OOzQ==
-X-Gm-Message-State: AOAM530zgwAn6TE/z3fHbMJO6pQo4/Yj+xbTgfpuQr5AAg2TqT/ybDzK
- zUL/2PFYq2pWLhs96xAbVM2PVtFDOlzAMw==
-X-Google-Smtp-Source: ABdhPJxv030p5ja0y94Ai5/nITr9cpyq/0eTrPjpyWHsIwF3zqGECh6eEbU8oCnYLS5HMWOrAMlbbA==
-X-Received: by 2002:a4a:e758:: with SMTP id n24mr2076315oov.62.1602270180802; 
- Fri, 09 Oct 2020 12:03:00 -0700 (PDT)
-Received: from [192.168.1.112] (c-24-9-64-241.hsd1.co.comcast.net.
- [24.9.64.241])
- by smtp.gmail.com with ESMTPSA id o16sm7608048oic.27.2020.10.09.12.02.59
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Fri, 09 Oct 2020 12:03:00 -0700 (PDT)
-To: Kees Cook <keescook@chromium.org>
+ bh=zLIUwi6of4TVrIDqm7ubPP1mBc2NCjeZDMTgFgFGRzs=; b=HlF6mbGL9hB2nOCURnuiX6D5EF
+ 1WAEOWtFhbw9VhjHtcR8dWpzcaiYJzxeAnQ1D0P5y4uek95Ddn3m/5wqBgGT9cQ9gBldj0RCf7PHh
+ UDbyE13JEz4nItkrqegVOPITIyHaTG3Gn75cD+leXXLzrwpuC3Tk/is2TPxVOhkefSZ0=;
+Received: from merlin.infradead.org ([205.233.59.134])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1kQyDp-004Ziq-18
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Oct 2020 19:38:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=merlin.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=zLIUwi6of4TVrIDqm7ubPP1mBc2NCjeZDMTgFgFGRzs=; b=I6zPCWGlxvFkdnxvrDnYKEl/Ki
+ DXahwbFmj8CjDIv2zMKJsaj6l/PlLp8BW5A0fPAU4uqSuQGhJS3sD1uqSXqLZsZPfeunh4DOuvE5n
+ xcAkyW8lqrSSh5xrEFlC41DOYpQEF9SrAicmyGJ430dnnoVtcX/QPBM62kwEDMrJAwz/sPodMxPwi
+ rniweX1LZSEw/l1kQK555JY2mb9g3xfm5vkM0coqpPB85Q8CpKpM5X//PwBU8gQO6FVTQsZoJPZW5
+ 4oQFUewmHOTq8XMVe/CMjko1SUyh1NgLkQG9fMzAroffdR7hY8fxRacfuL07WCx65S+XYIFoHiMvo
+ T+yGDamA==;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=noisy.programming.kicks-ass.net)
+ by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kQyDC-0007fm-TI; Fri, 09 Oct 2020 19:37:55 +0000
+Received: from hirez.programming.kicks-ass.net
+ (hirez.programming.kicks-ass.net [192.168.1.225])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (Client did not present a certificate)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id D9571300B22;
+ Fri,  9 Oct 2020 21:37:46 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 9CBE320AEA644; Fri,  9 Oct 2020 21:37:46 +0200 (CEST)
+Date: Fri, 9 Oct 2020 21:37:46 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Shuah Khan <skhan@linuxfoundation.org>
+Message-ID: <20201009193746.GA1073957@hirez.programming.kicks-ass.net>
 References: <cover.1602209970.git.skhan@linuxfoundation.org>
- <202010091103.5E435B42@keescook>
-From: Shuah Khan <skhan@linuxfoundation.org>
-Message-ID: <beca7980-9796-9b7b-3ae8-cdd0eb022bb6@linuxfoundation.org>
-Date: Fri, 9 Oct 2020 13:02:58 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
 MIME-Version: 1.0
-In-Reply-To: <202010091103.5E435B42@keescook>
-Content-Language: en-US
-X-Spam-Score: -0.3 (/)
+Content-Disposition: inline
+In-Reply-To: <cover.1602209970.git.skhan@linuxfoundation.org>
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.65 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.65 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ [205.233.59.134 listed in wl.mailspike.net]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
@@ -96,8 +80,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.2 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1kQxnT-008pS8-DW
+X-Headers-End: 1kQyDp-004Ziq-18
 Subject: Re: [Openipmi-developer] [PATCH v3 00/11] Introduce Simple atomic
  counters
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -112,39 +95,63 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: rafael@kernel.org, linux-kselftest@vger.kernel.org, joel@joelfernandes.org,
- shuah@kernel.org, devel@driverdev.osuosl.org, minyard@acm.org, corbet@lwn.net,
- surenb@google.com, linux-doc@vger.kernel.org, linux-acpi@vger.kernel.org,
- lenb@kernel.org, tkjos@android.com, arnd@arndb.de, bp@alien8.de,
- Shuah Khan <skhan@linuxfoundation.org>,
+Cc: rafael@kernel.org, Will Deacon <will@kernel.org>,
+ linux-kselftest@vger.kernel.org, joel@joelfernandes.org, shuah@kernel.org,
+ devel@driverdev.osuosl.org, arnd@arndb.de, corbet@lwn.net, surenb@google.com,
+ linux-doc@vger.kernel.org, linux-acpi@vger.kernel.org, lenb@kernel.org,
+ tkjos@android.com, keescook@chromium.org, minyard@acm.org, bp@alien8.de,
  openipmi-developer@lists.sourceforge.net, mchehab@kernel.org, maco@android.com,
  christian@brauner.io, linux-edac@vger.kernel.org, tony.luck@intel.com,
  gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org, arve@android.com,
  james.morse@arm.com, hridya@google.com, johannes@sipsolutions.net
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 10/9/20 12:03 PM, Kees Cook wrote:
-> On Fri, Oct 09, 2020 at 09:55:55AM -0600, Shuah Khan wrote:
->> Note: Would like to get this into Linux 5.10-rc1 so we can continue
->> updating drivers that can be updated to use this API. If this all looks
->> good, Kees, would you like to take this through your tree or would you
->> like to take this through mine.
+On Fri, Oct 09, 2020 at 09:55:55AM -0600, Shuah Khan wrote:
+> This patch series is a result of discussion at the refcount_t BOF
+> the Linux Plumbers Conference. In this discussion, we identified
+> a need for looking closely and investigating atomic_t usages in
+> the kernel when it is used strictly as a counter without it
+> controlling object lifetimes and state changes.
 > 
-> I'd mentioned this in the v2, but yes, please take via your trees. :)
+> There are a number of atomic_t usages in the kernel where atomic_t api
+> is used strictly for counting and not for managing object lifetime. In
+> some cases, atomic_t might not even be needed.
+
+Then the right patch is to not user atomic_t in those cases.
+
+> The purpose of these counters is to clearly differentiate atomic_t
+> counters from atomic_t usages that guard object lifetimes, hence prone
+> to overflow and underflow errors. It allows tools that scan for underflow
+> and overflow on atomic_t usages to detect overflow and underflows to scan
+> just the cases that are prone to errors.
+
+Guarding lifetimes is what we got refcount_t for.
+
+> Simple atomic counters api provides interfaces for simple atomic counters
+> that just count, and don't guard resource lifetimes. The interfaces are
+> built on top of atomic_t api, providing a smaller subset of atomic_t
+> interfaces necessary to support simple counters.
+
+To what actual purpose?!? AFACIT its pointless wrappery, it gets us
+nothing.
+
+> Counter wraps around to INT_MIN when it overflows and should not be used
+> to guard resource lifetimes, device usage and open counts that control
+> state changes, and pm states. Overflowing to INT_MIN is consistent with
+> the atomic_t api, which it is built on top of.
+>     
+> Using counter_atomic* to guard lifetimes could lead to use-after free
+> when it overflows and undefined behavior when used to manage state
+> changes and device usage/open states.
 > 
+> This patch series introduces Simple atomic counters. Counter atomic ops
+> leverage atomic_t and provide a sub-set of atomic_t ops.
 
-Sorry. I missed that. I will get take this through my trees.
+Thanks for Cc'ing the atomic maintainers :/
 
-> I'm glad to see this landing!
-> 
-
-Thanks for reviews and brainstorming ideas. It has been lot of fun
-doing this work.
-
-thanks,
--- Shuah
+NAK.
 
 
 _______________________________________________
