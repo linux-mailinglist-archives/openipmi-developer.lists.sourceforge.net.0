@@ -2,88 +2,75 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B993428DCAE
-	for <lists+openipmi-developer@lfdr.de>; Wed, 14 Oct 2020 11:18:08 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id CF78B28E90A
+	for <lists+openipmi-developer@lfdr.de>; Thu, 15 Oct 2020 01:02:28 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kScv8-0005rO-KO; Wed, 14 Oct 2020 09:18:06 +0000
+	id 1kSpms-0004Lp-J8; Wed, 14 Oct 2020 23:02:26 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <peterz@infradead.org>) id 1kScv7-0005r7-QI
- for openipmi-developer@lists.sourceforge.net; Wed, 14 Oct 2020 09:18:05 +0000
+ (envelope-from <pr-tracker-bot@kernel.org>) id 1kSpmr-0004Li-8X
+ for openipmi-developer@lists.sourceforge.net; Wed, 14 Oct 2020 23:02:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Cc:To:Date:Message-Id:References:In-Reply-To:From:
+ Subject:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=oSoCzew+YknB0dx5EoXOzxp1GOMgWSJZPnYxGNWDbHw=; b=WhH0nOx3NDbLgXy/I0ycUyUdyW
- aeSe/4GIfwgbPRFa31AiEyO4hEJEgOT23OyJQhWKFPm9k6MCuzz469x1oxuBHosknoVo9oTmfNUWm
- b01CzQDRl+m1ECnP3Ogk1AYfurud2qIMCl1ayiNj3eNdPEkbiAFEbIRREVEAuNUkMriY=;
+ bh=ClSDIa5rWmHO7IYJ/sMd6v5Q9yiWPfBLY8vxeMou8Hk=; b=gGDPJWvVFZqGNaCaB4ZHFd4GsE
+ FbAXw9RyeHC2lR39R6DFvPENJa2SMNlyd/iQTPMxRHpwacbgJtRlUPBTCJnBS+pogSLLwskAg0YpP
+ ykrSBLcs12GoPJwGTRFOqzGIXyQCInNf60zk3gGnFLLJ8is71AXYCNqC0sHCgZe14U14=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Cc:To:Date:Message-Id:References:In-Reply-To:From:Subject:Sender:Reply-To
+ :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=oSoCzew+YknB0dx5EoXOzxp1GOMgWSJZPnYxGNWDbHw=; b=M8ydkm80pXub0SOQMEfXmFJL5J
- L00S9+lmMjT/MyfZWNg2gaB7Tei7n1+/o1J70TI02PrF+vDKLQ7ev0O9/bkpZs9nzDuRi6VYQ1+Ny
- 5Hs96IDh/umZcXdODN+sYWWGLt38MPAv28LJTqF1dh+S8aEJbVytNpbsxe2R3S+yyRdU=;
-Received: from casper.infradead.org ([90.155.50.34])
+ bh=ClSDIa5rWmHO7IYJ/sMd6v5Q9yiWPfBLY8vxeMou8Hk=; b=mJKsfRDfL64Tv3h+RRBvc2nBYT
+ 9ayCuPfTSfeLo9zUQOAA08Pujhikcq3U3XfVm2iMbpXQqHMIZHRQ/FUzl5D4/InbvR0X2ZZH99hA9
+ ukdiNFk4v5Eox11ylq7mFaS34FLLCNx/5OzrEtzFb6obdiNlUsrQkEc4ybF4bHOAJaS4=;
+Received: from mail.kernel.org ([198.145.29.99])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kScuu-009ttS-NH
- for openipmi-developer@lists.sourceforge.net; Wed, 14 Oct 2020 09:18:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=oSoCzew+YknB0dx5EoXOzxp1GOMgWSJZPnYxGNWDbHw=; b=bbHVobEMV+gxKJvM2yym+cXIBq
- fr+AXG56PjCs1dnTUCUFhA1KXpxjWdj+INB1pvURTaabIE118jh6jK8Ie8/ARC+Pmgp45nmv/ifqS
- mqDWYvAzc8+sJ/BAxkz2sVSKdNFeujBFY8Ovj+C/cNykURt2cFMx2UNiPpfD9qHUfsCmiLFejXHxP
- emit1XplFzfQI+kL4BAibB+Bb6r/6UqlL6KbtRTBCtsFKGKALZpQ7G5AGARKpVFfX42onYfwZPB/b
- F0er87EC0E3DR0lqy3cCSF/VE4aSvCn+U9OI1AMBf4CG5GRBlyMf0BFwjrx22xyBB8UuD8IQ0wcrM
- uSW/YzsA==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kScuP-0000Ui-V4; Wed, 14 Oct 2020 09:17:22 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 46051304E03;
- Wed, 14 Oct 2020 11:17:20 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 21495201A8541; Wed, 14 Oct 2020 11:17:20 +0200 (CEST)
-Date: Wed, 14 Oct 2020 11:17:20 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Shuah Khan <skhan@linuxfoundation.org>
-Message-ID: <20201014091720.GC2628@hirez.programming.kicks-ass.net>
-References: <cover.1602209970.git.skhan@linuxfoundation.org>
- <20201009193746.GA1073957@hirez.programming.kicks-ass.net>
- <202010091255.246395A6@keescook>
- <20201010110920.GQ2628@hirez.programming.kicks-ass.net>
- <6e1dd408-653e-817e-b659-23649259a929@linuxfoundation.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6e1dd408-653e-817e-b659-23649259a929@linuxfoundation.org>
+ id 1kSpmk-00AsrI-9A
+ for openipmi-developer@lists.sourceforge.net; Wed, 14 Oct 2020 23:02:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1602716532;
+ bh=r66+gnK4K1JduHZ8qq9lsATuQvic+/G0xAakhAXKkBg=;
+ h=From:In-Reply-To:References:Date:To:Cc:From;
+ b=qjURLnce21EuLqvhjOVWOwQroMkg+fFAIdOV8G94tGxTgtHauY8bxPk/5rohP+jbM
+ fX/Ee6suEt+wh6oglKGDoMKji9KK/gw+QZ61Gbo1i+kzm+Hu6rT5Sns5ED1agFMHF1
+ YmDmOlAara4ubkllQSxr1nhkDzg74wpL0BjFDLTQ=
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20201013155649.GD66562@minyard.net>
+References: <20201013155649.GD66562@minyard.net>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20201013155649.GD66562@minyard.net>
+X-PR-Tracked-Remote: https://github.com/cminyard/linux-ipmi.git
+ tags/for-linus-5.10-1
+X-PR-Tracked-Commit-Id: 8fe7990ceda8597e407d06bffc4bdbe835a93ece
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 6e4dc3d59284ea3bc7c3e40694bce84d988b01af
+Message-Id: <160271653272.18101.4301117588051458594.pr-tracker-bot@kernel.org>
+Date: Wed, 14 Oct 2020 23:02:12 +0000
+To: Corey Minyard <minyard@acm.org>
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1kScuu-009ttS-NH
-Subject: Re: [Openipmi-developer] [PATCH v3 00/11] Introduce Simple atomic
- counters
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1kSpmk-00AsrI-9A
+Subject: Re: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 5.10
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,91 +83,26 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: rafael@kernel.org, Will Deacon <will@kernel.org>,
- linux-kselftest@vger.kernel.org, joel@joelfernandes.org, shuah@kernel.org,
- devel@driverdev.osuosl.org, arnd@arndb.de, corbet@lwn.net, surenb@google.com,
- linux-doc@vger.kernel.org, linux-acpi@vger.kernel.org, lenb@kernel.org,
- tkjos@android.com, Kees Cook <keescook@chromium.org>, minyard@acm.org,
- bp@alien8.de, openipmi-developer@lists.sourceforge.net, mchehab@kernel.org,
- maco@android.com, christian@brauner.io, linux-edac@vger.kernel.org,
- tony.luck@intel.com, gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
- arve@android.com, james.morse@arm.com, hridya@google.com,
- johannes@sipsolutions.net
+Cc: OpenIPMI Developers <openipmi-developer@lists.sourceforge.net>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ LKML <linux-kernel@vger.kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Oct 13, 2020 at 08:12:20PM -0600, Shuah Khan wrote:
+The pull request you sent on Tue, 13 Oct 2020 10:56:49 -0500:
 
-> They don't add any new behavior, As Kees mentioned they do give us a
-> way to clearly differentiate atomic usages that can wrap.
+> https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.10-1
 
-No it doesn't! atomic_t can wrap, this thing can wrap, no distinction.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/6e4dc3d59284ea3bc7c3e40694bce84d988b01af
 
-All it does is fragment the API and sow confusion. FOR NO BENEFIT.
+Thank you!
 
-> > Worse, it mixes 2 unrelated cases into one type, which just makes a
-> > mockery of things (all the inc_return users are not statistics, some
-> > might even mis-behave if they wrap).
-> > 
-> 
-> You are right that all inc_return usages aren't statistics. There are
-> 3 distinct usages:
-> 
-> 1. Stats
-> 2. Cases where wrapping is fine
-> 3. Cases where wrapping could be a problem. In which case, this API
->    shouldn't be used.
-
-And yet, afaict patch 4 is case 3...
-
-> There is no need to keep inc_return in this API as such. I included it
-> so it can be used for above cases 1 and 2, so the users don't have to
-> call inc() followed by read(). It can be left out of the API.
-> 
-> The atomic_t usages in the kernel fall into the following categories:
-> 
-> 1. Stats (tolerance for accuracy determines whether they need to be
->    atomic or not). RFC version included non-atomic API for cases
->    when lossiness is acceptable. All these cases use/need just init
->    and inc. There are two variations in this case:
-> 
->    a. No checks for wrapping. Use signed value.
->    b. No checks for wrapping, but return unsigned.
-> 
-> 2. Reference counters that release resource and rapping could result
->    in use-after-free type problems. There are two variations in this
->    case:
-> 
->    a. Increments and decrements aren't bounded.
->    b. Increments and decrements are bounded.
-> 
->    Currently tools that flag unsafe atomic_t usages that are candidates
->    for refcount_t conversions don't make a distinction between the two.
-> 
->    The second case, since increments and decrements are bounded, it is
->    safe to continue to use it. At the moment there is no good way to
->    tell them apart other than looking at each of these cases.
-> 
-> 3. Reference counters that manage/control states. Wrapping is a problem
->    in this case, as it could lead to undefined behavior. These cases
->    don't use test and free, use inc/dec. At the moment there is no good
->    way to tell them apart other than looking at each of these cases.
->    This is addressed by REFCOUNT_SATURATED case.
-
-Wrong! The atomic usage in mutex doesn't fall in any of those
-categories.
-
-
-The only thing you're all saying that makes sense is that unintentional
-wrapping can have bad consequences, the rest is pure confusion.
-
-Focus on the non-wrapping cases, _everything_ else is not going
-anywhere.
-
-So audit the kernel, find the cases that should not wrap, categorize and
-create APIs for them that trap the wrapping. But don't go around
-confusing things that don't need confusion.
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 
 _______________________________________________
