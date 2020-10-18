@@ -2,76 +2,62 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9E1C3296FF3
-	for <lists+openipmi-developer@lfdr.de>; Fri, 23 Oct 2020 15:09:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5BEA9296FEA
+	for <lists+openipmi-developer@lfdr.de>; Fri, 23 Oct 2020 15:09:44 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kVwpC-0006py-S1; Fri, 23 Oct 2020 13:09:42 +0000
+	id 1kVwpB-0006pB-5c; Fri, 23 Oct 2020 13:09:41 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <James.Bottomley@HansenPartnership.com>)
- id 1kUEOg-0004ya-41; Sun, 18 Oct 2020 19:31:14 +0000
+ (envelope-from <willy@infradead.org>)
+ id 1kUEAr-0008Nf-IJ; Sun, 18 Oct 2020 19:16:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Content-Type
- :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=WoZTZ49BFrPlyX2/qYQABE9fub5z580pCFQ1pWgk/48=; b=P5XnjxU9cI+NDaWOqXKI05TF1H
- pVXR8ujuBI5OGAiS/sMsIpyKvVldERkR1x/upyWr8Vb6UubPIuOUDV/3jb6ycugOfr2/zCezPT6/8
- 6UBbTpxHyPs9H3lP459bJ4Fo3jDdpkPw1XvAcHUrCY5mraxk6vwDMOSLzIB2uliJmGIw=;
+ bh=jSZ48E7Pk5au6oJE5B/SpoPyGzHAu2LHc5e92XLrkbA=; b=Yg69LXJqzwumBHwgjvJFoIjP8H
+ ofZ/4UcSjTwe1z4eNzTLs19pxlmcOc/wSGTK+QpwPJzAV26zkiwRhD1EVc4/cggM5ty7B8qjSj45T
+ ITPall8idM8G+XE9O+ork4bVH+isxBtqlVEJxqupR6po74s3totharnNl/PtrrlB4LiM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Content-Type:References:
- In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=WoZTZ49BFrPlyX2/qYQABE9fub5z580pCFQ1pWgk/48=; b=NanbZWZHn82B3dLJ0RPFIltxtS
- y0NzCYKe/SKweazV9fsU6twhvLtUiJdiibYj0NZz0b8ntJw6ju5HjuslO+PThJF1jeErbhpYDw9Yw
- W4VrxDil3CyenXDi17xniPrrr+yCO7fgjn76SYv4qmJej2tEAXvcSCX+nj545e9uUqpg=;
-Received: from bedivere.hansenpartnership.com ([96.44.175.130])
- by sfi-mx-3.v28.lw.sourceforge.com with esmtps
+ bh=jSZ48E7Pk5au6oJE5B/SpoPyGzHAu2LHc5e92XLrkbA=; b=kyvyn/hmSEXizyFDn9ojVByicf
+ OriCZd1w4iQRAsP2dV2Pw+YiEL24yOqHlgAU1zqMP8KXqmq6UF20Ex1qw/SiSGo0ha0vFaM2slOYU
+ LzxxEOoAYR3/PONLG9iK12hPCYaae3YSiNPgS0XNZ+DtlHcZTA5S/InegnlsYoMuVJf8=;
+Received: from casper.infradead.org ([90.155.50.34])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kUEOZ-00EtLC-CB; Sun, 18 Oct 2020 19:31:14 +0000
-Received: from localhost (localhost [127.0.0.1])
- by bedivere.hansenpartnership.com (Postfix) with ESMTP id 6E9191280300;
- Sun, 18 Oct 2020 12:13:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
- s=20151216; t=1603048418;
- bh=z260bBy56dgN8y3lDRHRQeuKrIr1eALRZNoNPoXlSSo=;
- h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
- b=QOZMzgTQH16i5avnDNVW0Ktw3okhOk0UWDzTWl7121p+F93A1Quw31cCRVLQH+SGW
- zn7QBaZkwCTKpROUCnm6j2wnXTspVYtdUU68F1++PaWc9wHgdj5YeqG30CVReBaxSQ
- 7zgTTXbB0BvsKBkgxIK2UI/Iu/DopS5PndAYThf8=
-Received: from bedivere.hansenpartnership.com ([127.0.0.1])
- by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new,
- port 10024)
- with ESMTP id JsjuUxZpqgrR; Sun, 18 Oct 2020 12:13:38 -0700 (PDT)
-Received: from jarvis.int.hansenpartnership.com (unknown
- [IPv6:2601:600:8280:66d1::c447])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id 1ED2912802BA;
- Sun, 18 Oct 2020 12:13:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
- s=20151216; t=1603048418;
- bh=z260bBy56dgN8y3lDRHRQeuKrIr1eALRZNoNPoXlSSo=;
- h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
- b=QOZMzgTQH16i5avnDNVW0Ktw3okhOk0UWDzTWl7121p+F93A1Quw31cCRVLQH+SGW
- zn7QBaZkwCTKpROUCnm6j2wnXTspVYtdUU68F1++PaWc9wHgdj5YeqG30CVReBaxSQ
- 7zgTTXbB0BvsKBkgxIK2UI/Iu/DopS5PndAYThf8=
-Message-ID: <45efa7780c79972eae9ca9bdeb9f7edbab4f3643.camel@HansenPartnership.com>
-From: James Bottomley <James.Bottomley@HansenPartnership.com>
-To: Matthew Wilcox <willy@infradead.org>, trix@redhat.com
-Date: Sun, 18 Oct 2020 12:13:35 -0700
-In-Reply-To: <20201018185943.GM20115@casper.infradead.org>
+ id 1kUEAm-002scz-7h; Sun, 18 Oct 2020 19:16:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=jSZ48E7Pk5au6oJE5B/SpoPyGzHAu2LHc5e92XLrkbA=; b=iJ9Ua4Sb+7c2gBb5X093C2g3JF
+ uPXvpy94QM9OfF4QdLHnbdoyPK+foTfLSCfptUIJX1L1QmBGwqRRLC+FO4yttdeacV1S+hl8hKo0C
+ WTqtwQkEZQTbeO+X3m7Juje7eQPdNT7ZY2bxJ15gxf5bGTukHh/PFeI2Wotfd6qSzqn3KwhwiSJ8q
+ nHMmLI1n6mOTyu1OQHnDgD5bqj+pk9E7DasCqQG55sL9hd/rW8umvQBQI/4FGFQAjFO02dSWITtwv
+ yXkpHo9Iys1nXXFCivdyuKxTY6HM4UcykOYUxv1R/rziPsZPtETfWCfkBycLom8Snu0zA9/3jwQkF
+ l4f6J+YQ==;
+Received: from willy by casper.infradead.org with local (Exim 4.92.3 #3 (Red
+ Hat Linux)) id 1kUEAE-0008Qi-Sy; Sun, 18 Oct 2020 19:16:19 +0000
+Date: Sun, 18 Oct 2020 20:16:18 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: James Bottomley <James.Bottomley@hansenpartnership.com>
+Message-ID: <20201018191618.GO20115@casper.infradead.org>
 References: <20201017160928.12698-1-trix@redhat.com>
  <20201018185943.GM20115@casper.infradead.org>
-User-Agent: Evolution 3.34.4 
+ <45efa7780c79972eae9ca9bdeb9f7edbab4f3643.camel@HansenPartnership.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <45efa7780c79972eae9ca9bdeb9f7edbab4f3643.camel@HansenPartnership.com>
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
@@ -79,14 +65,14 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: urldefense.com]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1kUEOZ-00EtLC-CB
+X-Headers-End: 1kUEAm-002scz-7h
 X-Mailman-Approved-At: Fri, 23 Oct 2020 13:09:39 +0000
 Subject: Re: [Openipmi-developer] [Ocfs2-devel] [RFC] treewide: cleanup
  unreachable breaks
@@ -102,8 +88,8 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: alsa-devel@alsa-project.org, linux-iio@vger.kernel.org,
- nouveau@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+Cc: alsa-devel@alsa-project.org, linux-iio@vger.kernel.org, trix@redhat.com,
+ linux-pci@vger.kernel.org, dri-devel@lists.freedesktop.org,
  virtualization@lists.linux-foundation.org, keyrings@vger.kernel.org,
  linux-mtd@lists.infradead.org, amd-gfx@lists.freedesktop.org,
  linux-stm32@st-md-mailman.stormreply.com, usb-storage@lists.one-eyed-alien.net,
@@ -112,7 +98,7 @@ Cc: alsa-devel@alsa-project.org, linux-iio@vger.kernel.org,
  linux-nvdimm@lists.01.org, linux-pm@vger.kernel.org,
  ath10k@lists.infradead.org, linux-acpi@vger.kernel.org,
  intel-wired-lan@lists.osuosl.org, industrypack-devel@lists.sourceforge.net,
- linux-pci@vger.kernel.org, spice-devel@lists.freedesktop.org,
+ nouveau@lists.freedesktop.org, spice-devel@lists.freedesktop.org,
  MPT-FusionLinux.pdl@broadcom.com, linux-media@vger.kernel.org,
  linux-watchdog@vger.kernel.org, linux-nfc@lists.01.org,
  linux-serial@vger.kernel.org, linux-can@vger.kernel.org,
@@ -130,30 +116,30 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Sun, 2020-10-18 at 19:59 +0100, Matthew Wilcox wrote:
-> On Sat, Oct 17, 2020 at 09:09:28AM -0700, trix@redhat.com wrote:
-> > clang has a number of useful, new warnings see
-> > https://urldefense.com/v3/__https://clang.llvm.org/docs/DiagnosticsReference.html__;!!GqivPVa7Brio!Krxz78O3RKcB9JBMVo_F98FupVhj_jxX60ddN6tKGEbv_cnooXc1nnBmchm-e_O9ieGnyQ$ 
+On Sun, Oct 18, 2020 at 12:13:35PM -0700, James Bottomley wrote:
+> On Sun, 2020-10-18 at 19:59 +0100, Matthew Wilcox wrote:
+> > On Sat, Oct 17, 2020 at 09:09:28AM -0700, trix@redhat.com wrote:
+> > > clang has a number of useful, new warnings see
+> > > https://urldefense.com/v3/__https://clang.llvm.org/docs/DiagnosticsReference.html__;!!GqivPVa7Brio!Krxz78O3RKcB9JBMVo_F98FupVhj_jxX60ddN6tKGEbv_cnooXc1nnBmchm-e_O9ieGnyQ$ 
+> > 
+> > Please get your IT department to remove that stupidity.  If you
+> > can't, please send email from a non-Red Hat email address.
 > 
-> Please get your IT department to remove that stupidity.  If you
-> can't, please send email from a non-Red Hat email address.
+> Actually, the problem is at Oracle's end somewhere in the ocfs2 list
+> ... if you could fix it, that would be great.  The usual real mailing
+> lists didn't get this transformation
+> 
+> https://lore.kernel.org/bpf/20201017160928.12698-1-trix@redhat.com/
+> 
+> but the ocfs2 list archive did:
+> 
+> https://oss.oracle.com/pipermail/ocfs2-devel/2020-October/015330.html
+> 
+> I bet Oracle IT has put some spam filter on the list that mangles URLs
+> this way.
 
-Actually, the problem is at Oracle's end somewhere in the ocfs2 list
-... if you could fix it, that would be great.  The usual real mailing
-lists didn't get this transformation
-
-https://lore.kernel.org/bpf/20201017160928.12698-1-trix@redhat.com/
-
-but the ocfs2 list archive did:
-
-https://oss.oracle.com/pipermail/ocfs2-devel/2020-October/015330.html
-
-I bet Oracle IT has put some spam filter on the list that mangles URLs
-this way.
-
-James
-
-
+*sigh*.  I'm sure there's a way.  I've raised it with someone who should
+be able to fix it.
 
 
 _______________________________________________
