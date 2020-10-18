@@ -2,75 +2,81 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A4456296FE7
-	for <lists+openipmi-developer@lfdr.de>; Fri, 23 Oct 2020 15:09:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 975DE296FF2
+	for <lists+openipmi-developer@lfdr.de>; Fri, 23 Oct 2020 15:09:46 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kVwpB-0006p1-40; Fri, 23 Oct 2020 13:09:41 +0000
+	id 1kVwpE-0006sE-Hy; Fri, 23 Oct 2020 13:09:44 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <willy@infradead.org>)
- id 1kUDuz-0007gk-9H; Sun, 18 Oct 2020 19:00:33 +0000
+ (envelope-from <joe@perches.com>)
+ id 1kUE1G-0005K9-Ei; Sun, 18 Oct 2020 19:07:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Content-Type
+ :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=q0BhqrN3gbd6Z80uxUuHxnuOGNa3MQpvn/ujKpbjoKc=; b=PuYLz0rApqBdJB19B0Ean1Slyf
- wWgeMOeRkd9TJm4ewTPeH/YUqRxmBQZ2PhW5Rv1v1C6c7M1xmr19XWcd7cHGecpjLzB/aJXTepRKu
- jy6M5RGh89AWGpmwm4iKB7fRSDH89QyUHId/zrBFBUKEk0cFYxHWdGT49isPVcwH52MQ=;
+ bh=/QwTUSq7BgMaRqiior2i8kwbxtay/fFh+RYZWTOwdns=; b=dcPBHry9ewF7SDps7Qt0PH2i/f
+ 887GjljE6/IP61FPKIdmrQGggxCLFDDoLx78k+Ij/1O1TILX1WDCSqbdkfRm98e9QDSFtVYweptrf
+ mjcieWsFaL+JJhI0i0HR965SW+mm2AYwoXkHRPpKoIAMqlOgaC9DLm9FRV/ZVV11bYPs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:MIME-Version:Content-Type:References:
+ In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=q0BhqrN3gbd6Z80uxUuHxnuOGNa3MQpvn/ujKpbjoKc=; b=QgYrit7hDVxom4vmZalUwRAunP
- YO0Ug6MZTAByPxT6XquwkTctRYlcbkHSVcitLHKnYMOEC11MPf8v8nRSP1AHfN6Njgndj6XpZ+y5L
- ccfBF5OWiTL+P+YW75Xk3GaHRlUvmgoFFP1qcAOS+rT8WV0XDgoW92yjeVbHqWPTwIps=;
-Received: from casper.infradead.org ([90.155.50.34])
+ bh=/QwTUSq7BgMaRqiior2i8kwbxtay/fFh+RYZWTOwdns=; b=kN1yvKql8PHWkw8N3Beb5iNMPb
+ Q2JFfcGMfk7vz0mRwRlqq/1yG+otYxoisH8Sc0dHAz/e9Abg4T2y5T/XVCnl6kmPwDgor++gJLzcM
+ OhKNG673AFqSvqsk+v8YFU88v4WkJMV1+ULMcqy58T8ygmryf916efPgfR+7s6OtuXJs=;
+Received: from smtprelay0193.hostedemail.com ([216.40.44.193]
+ helo=smtprelay.hostedemail.com)
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kUDus-002rt8-76; Sun, 18 Oct 2020 19:00:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=q0BhqrN3gbd6Z80uxUuHxnuOGNa3MQpvn/ujKpbjoKc=; b=qhWiWAYm9fZ2KNDR/Yk3WeXFl4
- HF2RciAjYHBQMCf3sjKhvFkXSfibnOaNYa7rSxO4GAjMdOb5lKFie8w5W48ySlrw8CCYSSnOZO0Xg
- 5v+vzHZ7K/VxCxY2aBAso6UvZLXpaapi00aBgR18RXogoXyWfK3p9m9265NrgW55bmABmFf/ljB+D
- 9Af5uL1UZOzL5n8T3eza+cGiO5HDs2I27gnorvuwnA1XSsP05jdLks+n6C8PrE6p/2IOOkRu9s0Qf
- 2gQIITEDGF8BYWCD3hQsOGqb9beW/Q62vFU/IQef0kDvAQTCEweywjgtWsVjiKxR3wbF0iuVRtPwK
- m1h79KbA==;
-Received: from willy by casper.infradead.org with local (Exim 4.92.3 #3 (Red
- Hat Linux)) id 1kUDuB-0007Wk-NT; Sun, 18 Oct 2020 18:59:43 +0000
-Date: Sun, 18 Oct 2020 19:59:43 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: trix@redhat.com
-Message-ID: <20201018185943.GM20115@casper.infradead.org>
+ id 1kUE19-002sCX-GQ; Sun, 18 Oct 2020 19:07:02 +0000
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
+ [216.40.38.60])
+ by smtprelay01.hostedemail.com (Postfix) with ESMTP id 70CB3100E7B40;
+ Sun, 18 Oct 2020 19:06:49 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 50, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
+ RULES_HIT:41:355:379:599:800:967:968:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1540:1593:1594:1711:1730:1747:1777:1792:2194:2199:2393:2525:2553:2561:2564:2682:2685:2692:2828:2859:2905:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3352:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4250:4321:5007:6119:6742:6743:7903:8957:8985:9025:10004:10400:10848:11232:11658:11914:12043:12295:12297:12438:12555:12740:12760:12895:12986:13069:13072:13311:13357:13439:14096:14097:14181:14659:14721:14777:21080:21347:21433:21451:21627:21811:21819:30003:30012:30022:30034:30054:30083:30090:30091,
+ 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
+ DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
+ LFtime:1, LUA_SUMMARY:none
+X-HE-Tag: year67_630d5f827230
+X-Filterd-Recvd-Size: 3209
+Received: from XPS-9350.home (unknown [47.151.133.149])
+ (Authenticated sender: joe@perches.com)
+ by omf09.hostedemail.com (Postfix) with ESMTPA;
+ Sun, 18 Oct 2020 19:06:42 +0000 (UTC)
+Message-ID: <18981cad4ac27b4a22b2e38d40bd112432d4a4e7.camel@perches.com>
+From: Joe Perches <joe@perches.com>
+To: Matthew Wilcox <willy@infradead.org>, trix@redhat.com
+Date: Sun, 18 Oct 2020 12:06:40 -0700
+In-Reply-To: <20201018185943.GM20115@casper.infradead.org>
 References: <20201017160928.12698-1-trix@redhat.com>
+ <20201018185943.GM20115@casper.infradead.org>
+User-Agent: Evolution 3.36.4-0ubuntu1 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201017160928.12698-1-trix@redhat.com>
-X-Spam-Score: -0.1 (/)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: llvm.org]
+ for more information. [URIs: urldefense.com]
+ -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [216.40.44.193 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [216.40.44.193 listed in list.dnswl.org]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
-X-Headers-End: 1kUDus-002rt8-76
+ -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1kUE19-002sCX-GQ
 X-Mailman-Approved-At: Fri, 23 Oct 2020 13:09:39 +0000
 Subject: Re: [Openipmi-developer] [Ocfs2-devel] [RFC] treewide: cleanup
  unreachable breaks
@@ -114,26 +120,28 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Sat, Oct 17, 2020 at 09:09:28AM -0700, trix@redhat.com wrote:
-> clang has a number of useful, new warnings see
-> https://urldefense.com/v3/__https://clang.llvm.org/docs/DiagnosticsReference.html__;!!GqivPVa7Brio!Krxz78O3RKcB9JBMVo_F98FupVhj_jxX60ddN6tKGEbv_cnooXc1nnBmchm-e_O9ieGnyQ$ 
-
-Please get your IT department to remove that stupidity.  If you can't,
-please send email from a non-Red Hat email address.
-
-I don't understand why this is a useful warning to fix.  What actual
-problem is caused by the code below?
-
-> return and break
+On Sun, 2020-10-18 at 19:59 +0100, Matthew Wilcox wrote:
+> On Sat, Oct 17, 2020 at 09:09:28AM -0700, trix@redhat.com wrote:
+> > clang has a number of useful, new warnings see
+> > https://urldefense.com/v3/__https://clang.llvm.org/docs/DiagnosticsReference.html__;!!GqivPVa7Brio!Krxz78O3RKcB9JBMVo_F98FupVhj_jxX60ddN6tKGEbv_cnooXc1nnBmchm-e_O9ieGnyQ$ 
 > 
->  	switch (c->x86_vendor) {
->  	case X86_VENDOR_INTEL:
->  		intel_p5_mcheck_init(c);
->  		return 1;
-> -		break;
+> Please get your IT department to remove that stupidity.  If you can't,
+> please send email from a non-Red Hat email address.
 
-Sure, it's unnecessary, but it's not masking a bug.  It's not unclear.
-Why do we want to enable this warning?
+I didn't get it this way, neither did lore.
+It's on your end.
+
+https://lore.kernel.org/lkml/20201017160928.12698-1-trix@redhat.com/
+
+> I don't understand why this is a useful warning to fix.
+
+Precision in coding style intent and code minimization
+would be the biggest factors IMO.
+
+> What actual problem is caused by the code below?
+
+Obviously none.
+
 
 
 
