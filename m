@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 975DE296FF2
+	by mail.lfdr.de (Postfix) with ESMTPS id 9E1C3296FF3
 	for <lists+openipmi-developer@lfdr.de>; Fri, 23 Oct 2020 15:09:46 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kVwpE-0006sE-Hy; Fri, 23 Oct 2020 13:09:44 +0000
+	id 1kVwpC-0006py-S1; Fri, 23 Oct 2020 13:09:42 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <joe@perches.com>)
- id 1kUE1G-0005K9-Ei; Sun, 18 Oct 2020 19:07:02 +0000
+ (envelope-from <James.Bottomley@HansenPartnership.com>)
+ id 1kUEOg-0004ya-41; Sun, 18 Oct 2020 19:31:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Content-Type
  :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=/QwTUSq7BgMaRqiior2i8kwbxtay/fFh+RYZWTOwdns=; b=dcPBHry9ewF7SDps7Qt0PH2i/f
- 887GjljE6/IP61FPKIdmrQGggxCLFDDoLx78k+Ij/1O1TILX1WDCSqbdkfRm98e9QDSFtVYweptrf
- mjcieWsFaL+JJhI0i0HR965SW+mm2AYwoXkHRPpKoIAMqlOgaC9DLm9FRV/ZVV11bYPs=;
+ bh=WoZTZ49BFrPlyX2/qYQABE9fub5z580pCFQ1pWgk/48=; b=P5XnjxU9cI+NDaWOqXKI05TF1H
+ pVXR8ujuBI5OGAiS/sMsIpyKvVldERkR1x/upyWr8Vb6UubPIuOUDV/3jb6ycugOfr2/zCezPT6/8
+ 6UBbTpxHyPs9H3lP459bJ4Fo3jDdpkPw1XvAcHUrCY5mraxk6vwDMOSLzIB2uliJmGIw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:Content-Type:References:
@@ -29,54 +29,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=/QwTUSq7BgMaRqiior2i8kwbxtay/fFh+RYZWTOwdns=; b=kN1yvKql8PHWkw8N3Beb5iNMPb
- Q2JFfcGMfk7vz0mRwRlqq/1yG+otYxoisH8Sc0dHAz/e9Abg4T2y5T/XVCnl6kmPwDgor++gJLzcM
- OhKNG673AFqSvqsk+v8YFU88v4WkJMV1+ULMcqy58T8ygmryf916efPgfR+7s6OtuXJs=;
-Received: from smtprelay0193.hostedemail.com ([216.40.44.193]
- helo=smtprelay.hostedemail.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=WoZTZ49BFrPlyX2/qYQABE9fub5z580pCFQ1pWgk/48=; b=NanbZWZHn82B3dLJ0RPFIltxtS
+ y0NzCYKe/SKweazV9fsU6twhvLtUiJdiibYj0NZz0b8ntJw6ju5HjuslO+PThJF1jeErbhpYDw9Yw
+ W4VrxDil3CyenXDi17xniPrrr+yCO7fgjn76SYv4qmJej2tEAXvcSCX+nj545e9uUqpg=;
+Received: from bedivere.hansenpartnership.com ([96.44.175.130])
+ by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kUE19-002sCX-GQ; Sun, 18 Oct 2020 19:07:02 +0000
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
- [216.40.38.60])
- by smtprelay01.hostedemail.com (Postfix) with ESMTP id 70CB3100E7B40;
- Sun, 18 Oct 2020 19:06:49 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 50, 0, 0, , d41d8cd98f00b204, joe@perches.com, ,
- RULES_HIT:41:355:379:599:800:967:968:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1540:1593:1594:1711:1730:1747:1777:1792:2194:2199:2393:2525:2553:2561:2564:2682:2685:2692:2828:2859:2905:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3352:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4250:4321:5007:6119:6742:6743:7903:8957:8985:9025:10004:10400:10848:11232:11658:11914:12043:12295:12297:12438:12555:12740:12760:12895:12986:13069:13072:13311:13357:13439:14096:14097:14181:14659:14721:14777:21080:21347:21433:21451:21627:21811:21819:30003:30012:30022:30034:30054:30083:30090:30091,
- 0, RBL:none, CacheIP:none, Bayesian:0.5, 0.5, 0.5, Netcheck:none,
- DomainCache:0, MSF:not bulk, SPF:, MSBL:0, DNSBL:none, Custom_rules:0:0:0,
- LFtime:1, LUA_SUMMARY:none
-X-HE-Tag: year67_630d5f827230
-X-Filterd-Recvd-Size: 3209
-Received: from XPS-9350.home (unknown [47.151.133.149])
- (Authenticated sender: joe@perches.com)
- by omf09.hostedemail.com (Postfix) with ESMTPA;
- Sun, 18 Oct 2020 19:06:42 +0000 (UTC)
-Message-ID: <18981cad4ac27b4a22b2e38d40bd112432d4a4e7.camel@perches.com>
-From: Joe Perches <joe@perches.com>
+ id 1kUEOZ-00EtLC-CB; Sun, 18 Oct 2020 19:31:14 +0000
+Received: from localhost (localhost [127.0.0.1])
+ by bedivere.hansenpartnership.com (Postfix) with ESMTP id 6E9191280300;
+ Sun, 18 Oct 2020 12:13:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
+ s=20151216; t=1603048418;
+ bh=z260bBy56dgN8y3lDRHRQeuKrIr1eALRZNoNPoXlSSo=;
+ h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+ b=QOZMzgTQH16i5avnDNVW0Ktw3okhOk0UWDzTWl7121p+F93A1Quw31cCRVLQH+SGW
+ zn7QBaZkwCTKpROUCnm6j2wnXTspVYtdUU68F1++PaWc9wHgdj5YeqG30CVReBaxSQ
+ 7zgTTXbB0BvsKBkgxIK2UI/Iu/DopS5PndAYThf8=
+Received: from bedivere.hansenpartnership.com ([127.0.0.1])
+ by localhost (bedivere.hansenpartnership.com [127.0.0.1]) (amavisd-new,
+ port 10024)
+ with ESMTP id JsjuUxZpqgrR; Sun, 18 Oct 2020 12:13:38 -0700 (PDT)
+Received: from jarvis.int.hansenpartnership.com (unknown
+ [IPv6:2601:600:8280:66d1::c447])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by bedivere.hansenpartnership.com (Postfix) with ESMTPSA id 1ED2912802BA;
+ Sun, 18 Oct 2020 12:13:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=hansenpartnership.com;
+ s=20151216; t=1603048418;
+ bh=z260bBy56dgN8y3lDRHRQeuKrIr1eALRZNoNPoXlSSo=;
+ h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+ b=QOZMzgTQH16i5avnDNVW0Ktw3okhOk0UWDzTWl7121p+F93A1Quw31cCRVLQH+SGW
+ zn7QBaZkwCTKpROUCnm6j2wnXTspVYtdUU68F1++PaWc9wHgdj5YeqG30CVReBaxSQ
+ 7zgTTXbB0BvsKBkgxIK2UI/Iu/DopS5PndAYThf8=
+Message-ID: <45efa7780c79972eae9ca9bdeb9f7edbab4f3643.camel@HansenPartnership.com>
+From: James Bottomley <James.Bottomley@HansenPartnership.com>
 To: Matthew Wilcox <willy@infradead.org>, trix@redhat.com
-Date: Sun, 18 Oct 2020 12:06:40 -0700
+Date: Sun, 18 Oct 2020 12:13:35 -0700
 In-Reply-To: <20201018185943.GM20115@casper.infradead.org>
 References: <20201017160928.12698-1-trix@redhat.com>
  <20201018185943.GM20115@casper.infradead.org>
-User-Agent: Evolution 3.36.4-0ubuntu1 
+User-Agent: Evolution 3.34.4 
 MIME-Version: 1.0
-X-Spam-Score: -0.0 (/)
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: urldefense.com]
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [216.40.44.193 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [216.40.44.193 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1kUE19-002sCX-GQ
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+X-Headers-End: 1kUEOZ-00EtLC-CB
 X-Mailman-Approved-At: Fri, 23 Oct 2020 13:09:39 +0000
 Subject: Re: [Openipmi-developer] [Ocfs2-devel] [RFC] treewide: cleanup
  unreachable breaks
@@ -125,22 +135,23 @@ On Sun, 2020-10-18 at 19:59 +0100, Matthew Wilcox wrote:
 > > clang has a number of useful, new warnings see
 > > https://urldefense.com/v3/__https://clang.llvm.org/docs/DiagnosticsReference.html__;!!GqivPVa7Brio!Krxz78O3RKcB9JBMVo_F98FupVhj_jxX60ddN6tKGEbv_cnooXc1nnBmchm-e_O9ieGnyQ$ 
 > 
-> Please get your IT department to remove that stupidity.  If you can't,
-> please send email from a non-Red Hat email address.
+> Please get your IT department to remove that stupidity.  If you
+> can't, please send email from a non-Red Hat email address.
 
-I didn't get it this way, neither did lore.
-It's on your end.
+Actually, the problem is at Oracle's end somewhere in the ocfs2 list
+... if you could fix it, that would be great.  The usual real mailing
+lists didn't get this transformation
 
-https://lore.kernel.org/lkml/20201017160928.12698-1-trix@redhat.com/
+https://lore.kernel.org/bpf/20201017160928.12698-1-trix@redhat.com/
 
-> I don't understand why this is a useful warning to fix.
+but the ocfs2 list archive did:
 
-Precision in coding style intent and code minimization
-would be the biggest factors IMO.
+https://oss.oracle.com/pipermail/ocfs2-devel/2020-October/015330.html
 
-> What actual problem is caused by the code below?
+I bet Oracle IT has put some spam filter on the list that mangles URLs
+this way.
 
-Obviously none.
+James
 
 
 
