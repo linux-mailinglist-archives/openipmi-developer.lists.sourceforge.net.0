@@ -2,92 +2,77 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B89CD296FF5
-	for <lists+openipmi-developer@lfdr.de>; Fri, 23 Oct 2020 15:09:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6C18B296FEC
+	for <lists+openipmi-developer@lfdr.de>; Fri, 23 Oct 2020 15:09:45 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kVwpE-0006sR-Ks; Fri, 23 Oct 2020 13:09:44 +0000
+	id 1kVwpC-0006qC-Td; Fri, 23 Oct 2020 13:09:42 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <richard.weinberger@gmail.com>)
- id 1kUGZL-0003ov-3t; Sun, 18 Oct 2020 21:50:23 +0000
+ (envelope-from <anton.ivanov@cambridgegreys.com>)
+ id 1kUQ9Q-0003eW-5M; Mon, 19 Oct 2020 08:04:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=LW7NtPMGJ2R8VOhKgzw6sjc10vh2YbY8kQEEkfju8fA=; b=FlAhluguZ2NnJq0iLCv8og/D2r
- 34slfbP1//XF5mQZ8Ld84QD4jNxCe5w28cItUKo01r1ePgu5wKRL6OP5oPaciEY0ry9JGXGHdZRSg
- Vedcz48hUKRq6J4pTOrE60mFpZu23hOhcX46hOXFNtc+ntayNpTxadJ4zVRYNFS19kcA=;
+ bh=MLH7Dbj4cQvC0DidW70abQge9Sd1ltNA1lZKaIWLHoE=; b=ApYAUQU43J4xCBB2n0xI1Rychi
+ 31PVKamvmrHlQO5VszLdYbbnUXrEcD36lDbfIWBC8eaIYQkQaZxgnMbf1XAuyxFTXIOc9IPDbkRfv
+ bN+8F7ZWGlDXcuhm/sMeDxvSBDSkwqe8y6Z6C/nal1/LwC8Qz8poaoTM6LdYAamQO3jM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=LW7NtPMGJ2R8VOhKgzw6sjc10vh2YbY8kQEEkfju8fA=; b=a4wmtD2KQhwKUh3+uPqSMUnQAV
- 4T/Ia7bDuWF4EiKG99n9GM3pFjon0O8yG5RX4W1V5fZ0ELVeL7mQcw8PT+lxL/WKtDkWgpRnYZph6
- K/3ZkufKgWR8L4MVl1nlqX/BBpYfFXXh0ZM9SQOMfB2ncspqMuTDoTCuPd7HEAdtGWr8=;
-Received: from mail-qt1-f195.google.com ([209.85.160.195])
+ bh=MLH7Dbj4cQvC0DidW70abQge9Sd1ltNA1lZKaIWLHoE=; b=K3Wpf73fqBUk6+50H72dVuJ1hu
+ wJ1vgpDG9zqJKM8mExYktP6uPOph7SFNQMODY21/PcEX+2x18awwBANemO0RrgYBSWCL9qraRjFQb
+ bzJJaYpEscGBLzVeIPgMcs9yzPGFzLT1rNdOZ7J0GCZ4d0MxSMEUW1JGHxevQfpTm0FA=;
+Received: from ivanoab7.miniserver.com ([37.128.132.42]
+ helo=www.kot-begemot.co.uk)
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kUGZG-002zb1-SN; Sun, 18 Oct 2020 21:50:23 +0000
-Received: by mail-qt1-f195.google.com with SMTP id j62so5026951qtd.0;
- Sun, 18 Oct 2020 14:50:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=LW7NtPMGJ2R8VOhKgzw6sjc10vh2YbY8kQEEkfju8fA=;
- b=BT6sX70H+s8KhgIkqlKxOTyt7nLW9Zkkp/pWMqwoIwpRPwASphI99ISJJY/DrRq4YB
- tuxxuQta89p2LltScao7kwUamcV10d6qq0/0GsMri9Y5uCbzF0DQIPVBZym6oh2w8IRp
- jGv4FzahYM8UB3UvXODpIfq1ilK2uqq9Xd/9k1Vp0D25EYeZvsrsLMiSOVKbh0jHo8ly
- ZwpyiDfjYzQI7omWM6lYTXWC4WxC4zXCwovEKbG2sVh0lXA3kgHlfvQ9kncK/jS7lzXB
- WtZ4PQbPMGBo2Fvzsm14b4aTThFD0/Vsyl0CynTIq6qQwMl+W5yJA342KaaYBMt5xICG
- NkkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=LW7NtPMGJ2R8VOhKgzw6sjc10vh2YbY8kQEEkfju8fA=;
- b=BuvCfOtaZcTB9TsogeaM6NOaspb3UTFr6M4IQbqClByq3BTHOYf+xENKp2AMlC9Igd
- 7mhNc1d1RePzS+TuREwyUDobD5YI3okoEv0C+KXxuicAa8QaKanQlep7ZJ16ITvil/H+
- 8Nc9ormzsSY51bIpDvhn9NSOM+g6auFG63NSrBlwjVx8RzPw29Vqr2ivfVxixny64D/W
- KDS8BwevmyHdomsP323d4NgUIk0NGW0UBHlMQJ8PcYTIdnIAX3Ub6vIlwPTYlMl2gceh
- 0uMlNAV/iFvRWLPfli0oxFPa5eu3dgT4t4nju+BENC9zSe157URobSpHBrTRDw2/oj+y
- VQPg==
-X-Gm-Message-State: AOAM530p6xtcibMmWiVTbBBEpDtaRY5uJXvBTIQWKPW+q1NpqLVZVgKN
- yjaEZaM4PtKbdorZq4i71LlmmqtTgluzwj5KzUw=
-X-Google-Smtp-Source: ABdhPJw59Z9ZSI7YkUnrDX/NzYUwLZIQMERPV41io/elXdvNyA/Ph+eIMdFGNAEYy/TP8jUOuq9oIUb3paHWMlURueE=
-X-Received: by 2002:aed:2983:: with SMTP id o3mr12423656qtd.285.1603057812125; 
- Sun, 18 Oct 2020 14:50:12 -0700 (PDT)
-MIME-Version: 1.0
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1kUQ9A-003Tbh-K9; Mon, 19 Oct 2020 08:04:16 +0000
+Received: from tun252.jain.kot-begemot.co.uk ([192.168.18.6]
+ helo=jain.kot-begemot.co.uk)
+ by www.kot-begemot.co.uk with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <anton.ivanov@cambridgegreys.com>)
+ id 1kUPl5-0003bi-LB; Mon, 19 Oct 2020 07:39:07 +0000
+Received: from jain.kot-begemot.co.uk ([192.168.3.3])
+ by jain.kot-begemot.co.uk with esmtp (Exim 4.92)
+ (envelope-from <anton.ivanov@cambridgegreys.com>)
+ id 1kUPl3-00080t-CR; Mon, 19 Oct 2020 08:39:07 +0100
+To: Allen Pais <allen.cryptic@gmail.com>, jdike@addtoit.com, richard@nod.at,
+ 3chas3@gmail.com, axboe@kernel.dk, stefanr@s5r6.in-berlin.de,
+ airlied@linux.ie, daniel@ffwll.ch, sre@kernel.org,
+ James.Bottomley@HansenPartnership.com, kys@microsoft.com, deller@gmx.de,
+ dmitry.torokhov@gmail.com, jassisinghbrar@gmail.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, maximlevitsky@gmail.com, oakad@yahoo.com,
+ ulf.hansson@linaro.org, mporter@kernel.crashing.org, alex.bou9@gmail.com,
+ broonie@kernel.org, martyn@welchs.me.uk, manohar.vanga@gmail.com,
+ mitch@sfgoth.com, davem@davemloft.net, kuba@kernel.org
 References: <20200817091617.28119-1-allen.cryptic@gmail.com>
+From: Anton Ivanov <anton.ivanov@cambridgegreys.com>
+Message-ID: <3359192b-8f02-feb4-a9a7-a13b5d876998@cambridgegreys.com>
+Date: Mon, 19 Oct 2020 08:39:05 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.3.1
+MIME-Version: 1.0
 In-Reply-To: <20200817091617.28119-1-allen.cryptic@gmail.com>
-From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Sun, 18 Oct 2020 23:50:00 +0200
-Message-ID: <CAFLxGvxsHD6zvTJSHeo2gaoRQfjUPZ6M=5BirOObHFjGqnzfew@mail.gmail.com>
-To: Allen Pais <allen.cryptic@gmail.com>
-X-Spam-Score: -0.1 (/)
+Content-Language: en-US
+X-Spam-Score: -1.0
+X-Spam-Score: -1.0
+X-Clacks-Overhead: GNU Terry Pratchett
+X-Spam-Score: 0.4 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.160.195 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (richard.weinberger[at]gmail.com)
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.160.195 listed in wl.mailspike.net]
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1kUGZG-002zb1-SN
+ 0.4 NO_DNS_FOR_FROM        DNS: Envelope sender has no MX or A DNS records
+ 0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
+X-Headers-End: 1kUQ9A-003Tbh-K9
 X-Mailman-Approved-At: Fri, 23 Oct 2020 13:09:39 +0000
 Subject: Re: [Openipmi-developer] [PATCH] arch: um: convert tasklets to use
  new tasklet_setup() API
@@ -103,56 +88,70 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
- linux-atm-general@lists.sourceforge.net, manohar.vanga@gmail.com,
- Dave Airlie <airlied@linux.ie>, Allen Pais <allen.lkml@gmail.com>,
- linux-hyperv@vger.kernel.org,
- DRI mailing list <dri-devel@lists.freedesktop.org>,
- LKML <linux-kernel@vger.kernel.org>,
- James Bottomley <James.Bottomley@hansenpartnership.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, devel@driverdev.osuosl.org,
- linux-s390@vger.kernel.org, linux1394-devel@lists.sourceforge.net,
- Maxim Levitsky <maximlevitsky@gmail.com>, Richard Weinberger <richard@nod.at>,
- Helge Deller <deller@gmx.de>, jassisinghbrar@gmail.com, 3chas3@gmail.com,
- intel-gfx@lists.freedesktop.org, kuba@kernel.org, mporter@kernel.crashing.org,
- Jeff Dike <jdike@addtoit.com>, Kees Cook <keescook@chromium.org>,
- Alex Dubov <oakad@yahoo.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- linux-input@vger.kernel.org, linux-um <linux-um@lists.infradead.org>,
- linux-block@vger.kernel.org, Mark Brown <broonie@kernel.org>,
- openipmi-developer@lists.sourceforge.net, mitch@sfgoth.com,
- linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
- linux-parisc@vger.kernel.org, netdev@vger.kernel.org, martyn@welchs.me.uk,
- dmitry.torokhov@gmail.com, linux-mmc@vger.kernel.org,
- Sebastian Reichel <sre@kernel.org>,
- "open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>, alex.bou9@gmail.com,
- stefanr@s5r6.in-berlin.de, Daniel Vetter <daniel@ffwll.ch>,
- linux-ntb@googlegroups.com, Romain Perier <romain.perier@gmail.com>,
- Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="us-ascii"
+Cc: devel@driverdev.osuosl.org, linux-s390@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, linux1394-devel@lists.sourceforge.net,
+ keescook@chromium.org, linux-parisc@vger.kernel.org, linux-mmc@vger.kernel.org,
+ netdev@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+ linux-atm-general@lists.sourceforge.net, linux-um@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-spi@vger.kernel.org, linux-block@vger.kernel.org,
+ Allen Pais <allen.lkml@gmail.com>, linux-ntb@googlegroups.com,
+ openipmi-developer@lists.sourceforge.net,
+ Romain Perier <romain.perier@gmail.com>, linux-input@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Aug 17, 2020 at 11:17 AM Allen Pais <allen.cryptic@gmail.com> wrote:
->
+
+
+On 17/08/2020 10:15, Allen Pais wrote:
 > From: Allen Pais <allen.lkml@gmail.com>
->
+> 
 > In preparation for unconditionally passing the
 > struct tasklet_struct pointer to all tasklet
 > callbacks, switch to using the new tasklet_setup()
 > and from_tasklet() to pass the tasklet pointer explicitly.
->
+> 
 > Signed-off-by: Romain Perier <romain.perier@gmail.com>
 > Signed-off-by: Allen Pais <allen.lkml@gmail.com>
 > ---
->  arch/um/drivers/vector_kern.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+>   arch/um/drivers/vector_kern.c | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/um/drivers/vector_kern.c b/arch/um/drivers/vector_kern.c
+> index 8735c468230a..06980870ae23 100644
+> --- a/arch/um/drivers/vector_kern.c
+> +++ b/arch/um/drivers/vector_kern.c
+> @@ -1196,9 +1196,9 @@ static int vector_net_close(struct net_device *dev)
+>   
+>   /* TX tasklet */
+>   
+> -static void vector_tx_poll(unsigned long data)
+> +static void vector_tx_poll(struct tasklet_struct *t)
+>   {
+> -	struct vector_private *vp = (struct vector_private *)data;
+> +	struct vector_private *vp = from_tasklet(vp, t, tx_poll);
+>   
+>   	vp->estats.tx_kicks++;
+>   	vector_send(vp->tx_queue);
+> @@ -1629,7 +1629,7 @@ static void vector_eth_configure(
+>   	});
+>   
+>   	dev->features = dev->hw_features = (NETIF_F_SG | NETIF_F_FRAGLIST);
+> -	tasklet_init(&vp->tx_poll, vector_tx_poll, (unsigned long)vp);
+> +	tasklet_setup(&vp->tx_poll, vector_tx_poll);
+>   	INIT_WORK(&vp->reset_tx, vector_reset_tx);
+>   
+>   	timer_setup(&vp->tl, vector_timer_expire, 0);
+> 
 
-Anton, can you please review this patch?
+Acked-By: Anton Ivanov <anton.ivanov@cambridgegreys.com>
 
 -- 
-Thanks,
-//richard
+Anton R. Ivanov
+Cambridgegreys Limited. Registered in England. Company Number 10273661
+https://www.cambridgegreys.com/
 
 
 _______________________________________________
