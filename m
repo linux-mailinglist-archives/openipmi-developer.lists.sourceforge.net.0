@@ -2,119 +2,104 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6C9C92ADEB7
-	for <lists+openipmi-developer@lfdr.de>; Tue, 10 Nov 2020 19:50:32 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 88E2C2AE045
+	for <lists+openipmi-developer@lfdr.de>; Tue, 10 Nov 2020 20:54:57 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kcYiq-0001kQ-E2; Tue, 10 Nov 2020 18:50:28 +0000
+	id 1kcZjC-0006U6-8h; Tue, 10 Nov 2020 19:54:54 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <dan.carpenter@oracle.com>) id 1kcYip-0001kB-5u
- for openipmi-developer@lists.sourceforge.net; Tue, 10 Nov 2020 18:50:27 +0000
+ (envelope-from <skhan@linuxfoundation.org>) id 1kcZjA-0006Th-EN
+ for openipmi-developer@lists.sourceforge.net; Tue, 10 Nov 2020 19:54:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=wC2jbd2NkDz1nAFghaaz9PjGpzDIDHVMI1YpVUVpkYY=; b=WN4ijry+rG/aUAeTzf8h5qxgfe
- 5fyDmTbwVar3QLcWLtLdCgv568HiCDqA31RIMNKoVwykF1JhLPHAAokeslTfKDntkXH1Mevm/F3pG
- olUbA7WFGmISFpTMe202pxibQba217vYRAmcCuVVEMYqMcF4p1+CiCHPOYNyfEkZVpzc=;
+ bh=Vdba1It8LuruBRXATlGs5ogDOu37tb0jUQlcsfQ+i94=; b=UpFD7bijw7CJaWjTjyKMqd+On4
+ 8mCHGTYlOZRYwVoes4HiMG5M0fgpFR1E0umJ/bf8midgGxi4A3OYrG7VuyDES0L7kxaX6HcXzp4fd
+ T/qHlsWgLvQJHeq5EmD9QmCDxJG7ZyAZ7Oicu21a9o9IvXs4Uymw7ozSnc28Q6CVuwXM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=wC2jbd2NkDz1nAFghaaz9PjGpzDIDHVMI1YpVUVpkYY=; b=XueAsqVQqpE42rW4maTQ5oXRhT
- JM43dowLBqVbXViZcKId5icOH/8W/1ZkcPD1LdyxbNOO+a2LZg/l8yl7s+MZqUEdrviywGYgsD0+8
- WeabYmtcgFfoNgVoJXc2xqTfg2PkpEkUhUxOQT9c5xgDeZg2yTtpGV4qe8mG+isfIrZQ=;
-Received: from aserp2130.oracle.com ([141.146.126.79])
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=Vdba1It8LuruBRXATlGs5ogDOu37tb0jUQlcsfQ+i94=; b=U
+ /4NBopdhCK9S2zY141AXTSRKZWWtLkVdzkPlgIhs2kfFdASYRELoo1fuY7Ev3RCFyrya0TAIQ6PR2
+ tD+3//HpIoE14pWWJEecd7TGkFeEHJFYN/qVDpPPnnAdgt+QE9ZgGKB++XlWgY2SPrJPu2Ul82+Zr
+ rPNxZeF81cTcIvdY=;
+Received: from mail-io1-f68.google.com ([209.85.166.68])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kcYie-00FqDj-Tt
- for openipmi-developer@lists.sourceforge.net; Tue, 10 Nov 2020 18:50:26 +0000
-Received: from pps.filterd (aserp2130.oracle.com [127.0.0.1])
- by aserp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 0AAIhtQS121445;
- Tue, 10 Nov 2020 18:49:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=date : from : to : cc
- : subject : message-id : references : mime-version : content-type :
- in-reply-to; s=corp-2020-01-29;
- bh=wC2jbd2NkDz1nAFghaaz9PjGpzDIDHVMI1YpVUVpkYY=;
- b=mDk3bgC77SfyTsIQJmoA4JjlK+ELV0wEf+2ALlkHf8NY161gdBZxGBHOYExrMjvufFeo
- OopSm1adJ8Aesyn8ejvl+87ql2LgllSnVHTXjmYP8GNn63AYB4x8fKdDOCYsHs5joHiX
- qzPixFaNPY9xtTFmDz8NCUvr1fD21rPU953PcFmPi5czUZAU0IP7f3ANi85nkvSEeDWT
- qM+f3rjlv72E5qJZ+3J+8G9hBM7Pdjzno6nUG4jR80eC3UZLzxRgLWqUFXLiCOGYgqbo
- QqwuiYoTzAHt8QkyZTOEOTKYKX1s2wTQlkhsEEgl4PGpJTU8kTKTuGf0EM4EseGZWe5n IA== 
-Received: from aserp3030.oracle.com (aserp3030.oracle.com [141.146.126.71])
- by aserp2130.oracle.com with ESMTP id 34nh3awgb5-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
- Tue, 10 Nov 2020 18:49:28 +0000
-Received: from pps.filterd (aserp3030.oracle.com [127.0.0.1])
- by aserp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 0AAIjCpC145314;
- Tue, 10 Nov 2020 18:49:28 GMT
-Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
- by aserp3030.oracle.com with ESMTP id 34p55p04dn-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 10 Nov 2020 18:49:27 +0000
-Received: from abhmp0019.oracle.com (abhmp0019.oracle.com [141.146.116.25])
- by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 0AAInIFC014602;
- Tue, 10 Nov 2020 18:49:19 GMT
-Received: from kadam (/41.57.98.10) by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Tue, 10 Nov 2020 10:49:18 -0800
-Date: Tue, 10 Nov 2020 21:49:03 +0300
-From: Dan Carpenter <dan.carpenter@oracle.com>
-To: Kees Cook <keescook@chromium.org>
-Message-ID: <20201110184903.GG29398@kadam>
-References: <cover.1602209970.git.skhan@linuxfoundation.org>
- <20201009193746.GA1073957@hirez.programming.kicks-ass.net>
- <202010091255.246395A6@keescook>
- <20201010110920.GQ2628@hirez.programming.kicks-ass.net>
- <6e1dd408-653e-817e-b659-23649259a929@linuxfoundation.org>
- <20201014091720.GC2628@hirez.programming.kicks-ass.net>
- <202010141611.70B7A38@keescook>
- <20201016105313.GJ2611@hirez.programming.kicks-ass.net>
- <202010161541.6DD2D1E@keescook>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1kcZit-00FuTD-11
+ for openipmi-developer@lists.sourceforge.net; Tue, 10 Nov 2020 19:54:52 +0000
+Received: by mail-io1-f68.google.com with SMTP id t8so11075372iov.8
+ for <openipmi-developer@lists.sourceforge.net>;
+ Tue, 10 Nov 2020 11:54:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linuxfoundation.org; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Vdba1It8LuruBRXATlGs5ogDOu37tb0jUQlcsfQ+i94=;
+ b=erhpGeuR4YZoPxfbaOj6VRTo5qEDTaMnmy8kz3XZUQlHcvUC5PAMnd4vRUgcWhnCY4
+ HmjHbSPgIj5umTnUKC8XvX1IvbsCFZxMBGUdUE7TrHhyO2iCd6OhgwKqfD97WQg1umxw
+ JFTX/vqjOOD2aZVjcPXZOK3wm7m2rMYTBiYoY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Vdba1It8LuruBRXATlGs5ogDOu37tb0jUQlcsfQ+i94=;
+ b=DIPRrkHcC/GLCNHNgry3kCHhtFhxoSQ0WXVArJhuyrcxQQ//lasW8HKuZFy65SRybX
+ axiZW6W/+NOtcCnTZAtufl0C8nboplLXaZqUTbTOK4pvGYdQ8xOiajf/88ROtAOEni0U
+ wddShPzobr2MjmY0ID8pLjsoE79DdEm9rRCmyZogoTvrtREYWxuanDCjO3lgw0oemQ+f
+ al5XkgJtyFmE9ZshmiNEHLF2XnYgalOuG0L3FWyUNM5TtkcoV3qqMAvvmSb1+JrFNng7
+ TrNDr4cpwqZnZBhlGHBf7nBYmuXg9aFFRlvuu3Wck4F7Ilt7MOiMEZL2Is+EyEr7s9RF
+ Cx7Q==
+X-Gm-Message-State: AOAM533mi9ty6yfeQ+MHomUZaPICsFgC6cQpDuIp6QI5FM/Y7WuXV7ss
+ x2maupyqbVRm5TWxoiUyXaIpGA==
+X-Google-Smtp-Source: ABdhPJzSoGm8gSgvRaSBerc+sxmFJLhfNH27ldXelE/5n3b7bzL48Ie7m56QLtjKLU/yXqTHWYQj8w==
+X-Received: by 2002:a6b:b30b:: with SMTP id c11mr15269551iof.175.1605038069386; 
+ Tue, 10 Nov 2020 11:54:29 -0800 (PST)
+Received: from shuah-t480s.internal (c-24-9-64-241.hsd1.co.comcast.net.
+ [24.9.64.241])
+ by smtp.gmail.com with ESMTPSA id o14sm123971ilg.71.2020.11.10.11.54.27
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 10 Nov 2020 11:54:28 -0800 (PST)
+From: Shuah Khan <skhan@linuxfoundation.org>
+To: corbet@lwn.net, keescook@chromium.org, gregkh@linuxfoundation.org,
+ peterz@infradead.org, rafael@kernel.org, lenb@kernel.org,
+ james.morse@arm.com, tony.luck@intel.com, bp@alien8.de, minyard@acm.org,
+ arnd@arndb.de, mchehab@kernel.org, rric@kernel.org,
+ valentina.manea.m@gmail.com, shuah@kernel.org, zohar@linux.ibm.com,
+ dmitry.kasatkin@gmail.com, jmorris@namei.org, serge@hallyn.com
+Date: Tue, 10 Nov 2020 12:53:26 -0700
+Message-Id: <cover.1605027593.git.skhan@linuxfoundation.org>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <202010161541.6DD2D1E@keescook>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9801
- signatures=668682
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- spamscore=0 phishscore=0
- mlxlogscore=999 mlxscore=0 malwarescore=0 bulkscore=0 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
- definitions=main-2011100129
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9801
- signatures=668682
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
- lowpriorityscore=0 priorityscore=1501
- clxscore=1011 malwarescore=0 mlxscore=0 spamscore=0 suspectscore=0
- mlxlogscore=999 impostorscore=0 phishscore=0 adultscore=0 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
- definitions=main-2011100129
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.166.68 listed in list.dnswl.org]
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: test_seqnum_ops.sh]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [141.146.126.79 listed in wl.mailspike.net]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ [209.85.166.68 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.0 UNPARSEABLE_RELAY Informational: message has unparseable relay lines
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1kcYie-00FqDj-Tt
-Subject: Re: [Openipmi-developer] [PATCH v3 00/11] Introduce Simple atomic
- counters
+X-Headers-End: 1kcZit-00FuTD-11
+Subject: [Openipmi-developer] [PATCH 00/13] Introduce seqnum_ops
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -127,46 +112,143 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: rafael@kernel.org, Peter Zijlstra <peterz@infradead.org>,
- Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
- joel@joelfernandes.org, tkjos@android.com, shuah@kernel.org,
- devel@driverdev.osuosl.org, minyard@acm.org, corbet@lwn.net, surenb@google.com,
- linux-doc@vger.kernel.org, linux-acpi@vger.kernel.org, lenb@kernel.org,
- arnd@arndb.de, bp@alien8.de, Shuah Khan <skhan@linuxfoundation.org>,
- openipmi-developer@lists.sourceforge.net, mchehab@kernel.org, maco@android.com,
- christian@brauner.io, linux-edac@vger.kernel.org, tony.luck@intel.com,
- gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org, arve@android.com,
- james.morse@arm.com, hridya@google.com, johannes@sipsolutions.net
+Cc: linux-doc@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>,
+ openipmi-developer@lists.sourceforge.net, linux-integrity@vger.kernel.org,
+ linux-edac@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Oct 16, 2020 at 03:51:25PM -0700, Kees Cook wrote:
-> On Fri, Oct 16, 2020 at 12:53:13PM +0200, Peter Zijlstra wrote:
-> > That's like saying: "I'm too lazy to track what I've looked at already".
-> > You're basically proposing to graffiti "Kees was here -- 16/10/2020" all
-> > over the kernel. Just so you can see where you still need to go.
-> > 
-> > It says the code was (assuming your audit was correct) good at that
-> > date, but has no guarantees for any moment after that.
-> 
-> That kind of bit-rot marking is exactly what I would like to avoid: just
-> putting a comment in is pointless. Making the expectations of the usage
-> become _enforced_ is the goal. And having it enforced by the _compiler_
-> is key. Just adding a meaningless attribute that a static checker
-> will notice some time and hope people fix them doesn't scale either
-> (just look at how many sparse warnings there are).
+There are a number of atomic_t usages in the kernel where atomic_t api
+is used strictly for counting sequence numbers and other statistical
+counters and not for managing object lifetime.
 
-Most Sparse warnings are false positives.  People do actually fix the
-ones which matter.
+The purpose of these Sequence Number Ops is to clearly differentiate
+atomic_t counter usages from atomic_t usages that guard object lifetimes,
+hence prone to overflow and underflow errors.
 
-I think this patchset could be useful.  I'm working on a refcounting
-check for Smatch.  I want to warn about when we forget to drop a
-reference on an error path.  Right now I just assume that anything with
-"error", "drop" or "->stats->" in the name is just a counter.
+The atomic_t api provides a wide range of atomic operations as a base
+api to implement atomic counters, bitops, spinlock interfaces. The usages
+also evolved into being used for resource lifetimes and state management.
+The refcount_t api was introduced to address resource lifetime problems
+related to atomic_t wrapping. There is a large overlap between the
+atomic_t api used for resource lifetimes and just counters, stats, and
+sequence numbers. It has become difficult to differentiate between the
+atomic_t usages that should be converted to refcount_t and the ones that
+can be left alone. Introducing seqnum_ops to wrap the usages that are
+stats, counters, sequence numbers makes it easier for tools that scan
+for underflow and overflow on atomic_t usages to detect overflow and
+underflows to scan just the cases that are prone to errors.
 
-regards,
-dan carpenter
+Sequence Number api provides interfaces for simple atomic_t counter usages
+that just count, and don't guard resource lifetimes. The seqnum_ops are
+built on top of atomic_t api, providing a smaller subset of atomic_t
+interfaces necessary to support atomic_t usages as simple counters.
+This api has init/set/inc/dec/read and doesn't support any other atomic_t
+ops with the intent to restrict the use of these interfaces as simple
+counting usages.
+
+Sequence Numbers wrap around to INT_MIN when it overflows and should not
+be used to guard resource lifetimes, device usage and open counts that
+control state changes, and pm states. Overflowing to INT_MIN is consistent
+with the atomic_t api, which it is built on top of.
+
+Using seqnum to guard lifetimes could lead to use-after free when it
+overflows and undefined behavior when used to manage state changes and
+device usage/open states.
+
+In addition this patch series converts a few drivers to use the new api.
+The following criteria is used for select variables for conversion:
+
+1. Variable doesn't guard object lifetimes, manage state changes e.g:
+   device usage counts, device open counts, and pm states.
+2. Variable is used for stats and counters.
+3. The conversion doesn't change the overflow behavior.
+4. Note: inc_return() usages are changed to _inc() followed by _read()
+   Patches: 03/13, 04/13, 09/13, 10/13, 11/13
+5. drivers/acpi and drivers/acpi/apei patches have been reviewed
+   before the rename, however in addition to rename, inc_return()
+   usages are changed to _inc() followed by _read()
+6. test_async_driver_probe, char/ipmi, and edac patches have been
+   reviewed and no changes other than the rename to seqnum_ops.
+7. security/integrity/ima: Okay to depend on CONFIG_64BIT? 
+
+The work for this is a follow-on to the discussion and review of
+Introduce Simple atomic counters patch series:
+
+//lore.kernel.org/lkml/cover.1602209970.git.skhan@linuxfoundation.org/
+
+Based on the feedback to restrict and limit the scope:
+- dropped inc_return()
+- renamed interfaces to match the intent and also shorten the
+  interface names.
+
+Shuah Khan (13):
+  seqnum_ops: Introduce Sequence Number Ops
+  selftests: lib:test_seqnum_ops: add new test for seqnum_ops
+  drivers/acpi: convert seqno seqnum_ops
+  drivers/acpi/apei: convert seqno to seqnum_ops
+  drivers/base/test/test_async_driver_probe: convert to use seqnum_ops
+  drivers/char/ipmi: convert stats to use seqnum_ops
+  drivers/edac: convert pci counters to seqnum_ops
+  drivers/oprofile: convert stats to use seqnum_ops
+  drivers/staging/rtl8723bs: convert stats to use seqnum_ops
+  usb: usbip/vhci: convert seqno to seqnum_ops
+  drivers/staging/rtl8188eu: convert stats to use seqnum_ops
+  drivers/staging/unisys/visorhba: convert stats to use seqnum_ops
+  security/integrity/ima: converts stats to seqnum_ops
+
+ Documentation/core-api/atomic_ops.rst         |   4 +
+ Documentation/core-api/index.rst              |   1 +
+ Documentation/core-api/seqnum_ops.rst         | 126 ++++++++++++++
+ MAINTAINERS                                   |   8 +
+ drivers/acpi/acpi_extlog.c                    |   6 +-
+ drivers/acpi/apei/ghes.c                      |   6 +-
+ drivers/base/test/test_async_driver_probe.c   |  26 +--
+ drivers/char/ipmi/ipmi_msghandler.c           |   9 +-
+ drivers/char/ipmi/ipmi_si_intf.c              |   9 +-
+ drivers/char/ipmi/ipmi_ssif.c                 |   9 +-
+ drivers/edac/edac_pci.h                       |   5 +-
+ drivers/edac/edac_pci_sysfs.c                 |  28 ++--
+ drivers/oprofile/buffer_sync.c                |   9 +-
+ drivers/oprofile/event_buffer.c               |   3 +-
+ drivers/oprofile/oprof.c                      |   3 +-
+ drivers/oprofile/oprofile_stats.c             |  11 +-
+ drivers/oprofile/oprofile_stats.h             |  11 +-
+ drivers/oprofile/oprofilefs.c                 |   3 +-
+ drivers/staging/rtl8188eu/core/rtw_mlme_ext.c |  23 ++-
+ .../staging/rtl8188eu/include/rtw_mlme_ext.h  |   3 +-
+ drivers/staging/rtl8723bs/core/rtw_cmd.c      |   3 +-
+ drivers/staging/rtl8723bs/core/rtw_mlme_ext.c |  33 ++--
+ drivers/staging/rtl8723bs/include/rtw_cmd.h   |   3 +-
+ .../staging/rtl8723bs/include/rtw_mlme_ext.h  |   3 +-
+ .../staging/unisys/visorhba/visorhba_main.c   |  37 +++--
+ drivers/usb/usbip/vhci.h                      |   3 +-
+ drivers/usb/usbip/vhci_hcd.c                  |   9 +-
+ drivers/usb/usbip/vhci_rx.c                   |   3 +-
+ include/linux/oprofile.h                      |   3 +-
+ include/linux/seqnum_ops.h                    | 154 ++++++++++++++++++
+ lib/Kconfig                                   |   9 +
+ lib/Makefile                                  |   1 +
+ lib/test_seqnum_ops.c                         | 154 ++++++++++++++++++
+ security/integrity/ima/ima.h                  |   5 +-
+ security/integrity/ima/ima_api.c              |   2 +-
+ security/integrity/ima/ima_fs.c               |   4 +-
+ security/integrity/ima/ima_queue.c            |   7 +-
+ tools/testing/selftests/lib/Makefile          |   1 +
+ tools/testing/selftests/lib/config            |   1 +
+ .../testing/selftests/lib/test_seqnum_ops.sh  |  10 ++
+ 40 files changed, 637 insertions(+), 111 deletions(-)
+ create mode 100644 Documentation/core-api/seqnum_ops.rst
+ create mode 100644 include/linux/seqnum_ops.h
+ create mode 100644 lib/test_seqnum_ops.c
+ create mode 100755 tools/testing/selftests/lib/test_seqnum_ops.sh
+
+-- 
+2.27.0
 
 
 
