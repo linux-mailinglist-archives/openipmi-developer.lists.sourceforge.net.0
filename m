@@ -2,106 +2,119 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id DF6CA29CAFB
-	for <lists+openipmi-developer@lfdr.de>; Tue, 27 Oct 2020 22:09:23 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6C9C92ADEB7
+	for <lists+openipmi-developer@lfdr.de>; Tue, 10 Nov 2020 19:50:32 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kXWDX-0008HD-GH; Tue, 27 Oct 2020 21:09:19 +0000
+	id 1kcYiq-0001kQ-E2; Tue, 10 Nov 2020 18:50:28 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1kXWDW-0008H6-Bj
- for openipmi-developer@lists.sourceforge.net; Tue, 27 Oct 2020 21:09:18 +0000
+ (envelope-from <dan.carpenter@oracle.com>) id 1kcYip-0001kB-5u
+ for openipmi-developer@lists.sourceforge.net; Tue, 10 Nov 2020 18:50:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=IyeUUlifhfZxzl2tT4e9734IrQJyyl3i93GsvUKGcEw=; b=OOl+U69jdwZddTosTsyQFtZWLM
- W3In/Yv6nBStxhHEq9rPD7jRXIEO27bBaXSmoLkJVamv59p4NoWTLSlZzflksWuNNnYiNSJdbGDAo
- m0wcpdYMcNkc7KoUKgXH3q8FtL/miNwTF2pQ07xiZE/UlJjKDtcSln95EhzbqqHe431Q=;
+ bh=wC2jbd2NkDz1nAFghaaz9PjGpzDIDHVMI1YpVUVpkYY=; b=WN4ijry+rG/aUAeTzf8h5qxgfe
+ 5fyDmTbwVar3QLcWLtLdCgv568HiCDqA31RIMNKoVwykF1JhLPHAAokeslTfKDntkXH1Mevm/F3pG
+ olUbA7WFGmISFpTMe202pxibQba217vYRAmcCuVVEMYqMcF4p1+CiCHPOYNyfEkZVpzc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=IyeUUlifhfZxzl2tT4e9734IrQJyyl3i93GsvUKGcEw=; b=IbhBGVHbErM4g9+I5c3WOSXEVe
- 3c9+s8hADmavQkdcvFhCGaTXHhOupLF8Fem1USfddX01dWINkMjDdBgOt3snc6ls1+0mrmhJen9pK
- mOsRe8iTwP42qgaYPctqBJ04J8PRyGuxPyYAGYOjrAmQqGI4upaUNkLw2l6xqq4wOX6E=;
-Received: from mail-oi1-f193.google.com ([209.85.167.193])
+ bh=wC2jbd2NkDz1nAFghaaz9PjGpzDIDHVMI1YpVUVpkYY=; b=XueAsqVQqpE42rW4maTQ5oXRhT
+ JM43dowLBqVbXViZcKId5icOH/8W/1ZkcPD1LdyxbNOO+a2LZg/l8yl7s+MZqUEdrviywGYgsD0+8
+ WeabYmtcgFfoNgVoJXc2xqTfg2PkpEkUhUxOQT9c5xgDeZg2yTtpGV4qe8mG+isfIrZQ=;
+Received: from aserp2130.oracle.com ([141.146.126.79])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1kXWDP-00G60g-VW
- for openipmi-developer@lists.sourceforge.net; Tue, 27 Oct 2020 21:09:18 +0000
-Received: by mail-oi1-f193.google.com with SMTP id x1so2756823oic.13
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 27 Oct 2020 14:09:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to;
- bh=IyeUUlifhfZxzl2tT4e9734IrQJyyl3i93GsvUKGcEw=;
- b=GiBT7+ON30FfoAOLKQ53SgUHxMqtECM6jHWF5pFGimGhlxjx3XCHV3Y2yVx2GW/+q9
- q2dBl9oBF4Na/wAkamYeYMAVeIctFqnbCmibXbdeEZEF/TUXmyNxtvdIzdALICpDDVta
- teMmZaP/O+Uzc+GYrCjCEXMKlHPz+paOMdtsBtWa9uQDcFhSXLCEdF+3xgKoKr7Bd8pv
- R3yHorYr5TZnacKiYd0f5K82Ea/N6H9CEigO4em0MjcldsOxrjC9m2DgJMoD/rwlX02T
- 0nGeOhvA6x/MK2dES467jSGPjVxyx2KEAWpN93LCFcYxQ75hcA2sc4ub6VO1goVRSfwl
- tKPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=IyeUUlifhfZxzl2tT4e9734IrQJyyl3i93GsvUKGcEw=;
- b=Oh0ii3xZH7LTG1OCzA9FGlTMQhcRSeyiPeFPyZvwyIkqciMoiQrhNZzUpi0m3w5wg4
- S7x1tsoE5VhyBFsJ09teDFSLQFfP/lCEV0/uqG1FFcoc+Go2IjduO5EUrX4+6fE7dNE6
- t/RTYId2sK8LGzQ/x2vLEbsI3Qq3qFQp7leQODGtp5zAIw8+0akYzK6+dR5Baw4LSMOL
- L4qUhzBVpuoEbtuNroJKcxWb32fzmuFlnfyYGyLEcBKEFINA71jVKhMHYJKvr0Cw3yyW
- AvBCbOZJIbeXTJsTu5D8wvVtEie3UxDW8phe6OtZx54pFS6ybbGqrZq5o7ozXtag+Gup
- 0RfA==
-X-Gm-Message-State: AOAM531mAq6pBKbXUvA1lD/bFkrYRD812+scFqapvN3LCZRtwkMoJX4E
- 0dQ30clFigOQfG/vkYzImF/rNc2ZRknz
-X-Google-Smtp-Source: ABdhPJyMkVlmKLcg/Xv0n4DztP+V7NTTeLWFOeh8RcBXAiSm6PPMkNn+hEa+Q4YUyTFwT4XqJDVxyQ==
-X-Received: by 2002:aca:e186:: with SMTP id y128mr2796940oig.25.1603832945949; 
- Tue, 27 Oct 2020 14:09:05 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id f124sm1938131oia.27.2020.10.27.14.09.04
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 27 Oct 2020 14:09:05 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:64b8:c481:9aa8:415f])
- by serve.minyard.net (Postfix) with ESMTPSA id 1E1BD180057;
- Tue, 27 Oct 2020 21:09:04 +0000 (UTC)
-Date: Tue, 27 Oct 2020 16:09:02 -0500
-From: Corey Minyard <minyard@acm.org>
-To: trix@redhat.com
-Message-ID: <20201027210902.GN4296@minyard.net>
-References: <20201019194805.14996-1-trix@redhat.com>
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1kcYie-00FqDj-Tt
+ for openipmi-developer@lists.sourceforge.net; Tue, 10 Nov 2020 18:50:26 +0000
+Received: from pps.filterd (aserp2130.oracle.com [127.0.0.1])
+ by aserp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 0AAIhtQS121445;
+ Tue, 10 Nov 2020 18:49:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=date : from : to : cc
+ : subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=corp-2020-01-29;
+ bh=wC2jbd2NkDz1nAFghaaz9PjGpzDIDHVMI1YpVUVpkYY=;
+ b=mDk3bgC77SfyTsIQJmoA4JjlK+ELV0wEf+2ALlkHf8NY161gdBZxGBHOYExrMjvufFeo
+ OopSm1adJ8Aesyn8ejvl+87ql2LgllSnVHTXjmYP8GNn63AYB4x8fKdDOCYsHs5joHiX
+ qzPixFaNPY9xtTFmDz8NCUvr1fD21rPU953PcFmPi5czUZAU0IP7f3ANi85nkvSEeDWT
+ qM+f3rjlv72E5qJZ+3J+8G9hBM7Pdjzno6nUG4jR80eC3UZLzxRgLWqUFXLiCOGYgqbo
+ QqwuiYoTzAHt8QkyZTOEOTKYKX1s2wTQlkhsEEgl4PGpJTU8kTKTuGf0EM4EseGZWe5n IA== 
+Received: from aserp3030.oracle.com (aserp3030.oracle.com [141.146.126.71])
+ by aserp2130.oracle.com with ESMTP id 34nh3awgb5-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Tue, 10 Nov 2020 18:49:28 +0000
+Received: from pps.filterd (aserp3030.oracle.com [127.0.0.1])
+ by aserp3030.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 0AAIjCpC145314;
+ Tue, 10 Nov 2020 18:49:28 GMT
+Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
+ by aserp3030.oracle.com with ESMTP id 34p55p04dn-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 10 Nov 2020 18:49:27 +0000
+Received: from abhmp0019.oracle.com (abhmp0019.oracle.com [141.146.116.25])
+ by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id 0AAInIFC014602;
+ Tue, 10 Nov 2020 18:49:19 GMT
+Received: from kadam (/41.57.98.10) by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Tue, 10 Nov 2020 10:49:18 -0800
+Date: Tue, 10 Nov 2020 21:49:03 +0300
+From: Dan Carpenter <dan.carpenter@oracle.com>
+To: Kees Cook <keescook@chromium.org>
+Message-ID: <20201110184903.GG29398@kadam>
+References: <cover.1602209970.git.skhan@linuxfoundation.org>
+ <20201009193746.GA1073957@hirez.programming.kicks-ass.net>
+ <202010091255.246395A6@keescook>
+ <20201010110920.GQ2628@hirez.programming.kicks-ass.net>
+ <6e1dd408-653e-817e-b659-23649259a929@linuxfoundation.org>
+ <20201014091720.GC2628@hirez.programming.kicks-ass.net>
+ <202010141611.70B7A38@keescook>
+ <20201016105313.GJ2611@hirez.programming.kicks-ass.net>
+ <202010161541.6DD2D1E@keescook>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20201019194805.14996-1-trix@redhat.com>
-X-Spam-Score: 0.5 (/)
+In-Reply-To: <202010161541.6DD2D1E@keescook>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9801
+ signatures=668682
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
+ spamscore=0 phishscore=0
+ mlxlogscore=999 mlxscore=0 malwarescore=0 bulkscore=0 suspectscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
+ definitions=main-2011100129
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9801
+ signatures=668682
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ lowpriorityscore=0 priorityscore=1501
+ clxscore=1011 malwarescore=0 mlxscore=0 spamscore=0 suspectscore=0
+ mlxlogscore=999 impostorscore=0 phishscore=0 adultscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
+ definitions=main-2011100129
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.193 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.193 listed in list.dnswl.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ [141.146.126.79 listed in wl.mailspike.net]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
-X-Headers-End: 1kXWDP-00G60g-VW
-Subject: Re: [Openipmi-developer] [PATCH] char: ipmi: remove unneeded break
+ 0.0 UNPARSEABLE_RELAY Informational: message has unparseable relay lines
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1kcYie-00FqDj-Tt
+Subject: Re: [Openipmi-developer] [PATCH v3 00/11] Introduce Simple atomic
+ counters
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -114,44 +127,47 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Cc: rafael@kernel.org, Peter Zijlstra <peterz@infradead.org>,
+ Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
+ joel@joelfernandes.org, tkjos@android.com, shuah@kernel.org,
+ devel@driverdev.osuosl.org, minyard@acm.org, corbet@lwn.net, surenb@google.com,
+ linux-doc@vger.kernel.org, linux-acpi@vger.kernel.org, lenb@kernel.org,
+ arnd@arndb.de, bp@alien8.de, Shuah Khan <skhan@linuxfoundation.org>,
+ openipmi-developer@lists.sourceforge.net, mchehab@kernel.org, maco@android.com,
+ christian@brauner.io, linux-edac@vger.kernel.org, tony.luck@intel.com,
+ gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org, arve@android.com,
+ james.morse@arm.com, hridya@google.com, johannes@sipsolutions.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Oct 19, 2020 at 12:48:05PM -0700, trix@redhat.com wrote:
-> From: Tom Rix <trix@redhat.com>
+On Fri, Oct 16, 2020 at 03:51:25PM -0700, Kees Cook wrote:
+> On Fri, Oct 16, 2020 at 12:53:13PM +0200, Peter Zijlstra wrote:
+> > That's like saying: "I'm too lazy to track what I've looked at already".
+> > You're basically proposing to graffiti "Kees was here -- 16/10/2020" all
+> > over the kernel. Just so you can see where you still need to go.
+> > 
+> > It says the code was (assuming your audit was correct) good at that
+> > date, but has no guarantees for any moment after that.
 > 
-> A break is not needed if it is preceded by a return
+> That kind of bit-rot marking is exactly what I would like to avoid: just
+> putting a comment in is pointless. Making the expectations of the usage
+> become _enforced_ is the goal. And having it enforced by the _compiler_
+> is key. Just adding a meaningless attribute that a static checker
+> will notice some time and hope people fix them doesn't scale either
+> (just look at how many sparse warnings there are).
 
-Ok, it's in my next tree.
+Most Sparse warnings are false positives.  People do actually fix the
+ones which matter.
 
-Thanks,
+I think this patchset could be useful.  I'm working on a refcounting
+check for Smatch.  I want to warn about when we forget to drop a
+reference on an error path.  Right now I just assume that anything with
+"error", "drop" or "->stats->" in the name is just a counter.
 
--corey
+regards,
+dan carpenter
 
-> 
-> Signed-off-by: Tom Rix <trix@redhat.com>
-> ---
->  drivers/char/ipmi/ipmi_devintf.c | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_devintf.c b/drivers/char/ipmi/ipmi_devintf.c
-> index f7b1c004a12b..3dd1d5abb298 100644
-> --- a/drivers/char/ipmi/ipmi_devintf.c
-> +++ b/drivers/char/ipmi/ipmi_devintf.c
-> @@ -490,7 +490,6 @@ static long ipmi_ioctl(struct file   *file,
->  		}
->  
->  		return ipmi_set_my_address(priv->user, val.channel, val.value);
-> -		break;
->  	}
->  
->  	case IPMICTL_GET_MY_CHANNEL_ADDRESS_CMD:
-> -- 
-> 2.18.1
-> 
 
 
 _______________________________________________
