@@ -2,72 +2,105 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0ADBC2DF2A8
-	for <lists+openipmi-developer@lfdr.de>; Sun, 20 Dec 2020 02:49:48 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id ECACA2DC22B
+	for <lists+openipmi-developer@lfdr.de>; Wed, 16 Dec 2020 15:31:18 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1kqnqx-0005x6-4A; Sun, 20 Dec 2020 01:49:43 +0000
+	id 1kpXpj-0007zK-Jt; Wed, 16 Dec 2020 14:31:15 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <zhengyongjun3@huawei.com>) id 1kpWom-0005FO-Ed
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Dec 2020 13:26:12 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1kpXos-0007sU-QT
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Dec 2020 14:30:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
- :Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mrPmWwN0Jx894HBx3YZf4Hp1aGOC4EJBoH2pXW/cVAg=; b=UShDk7jWpEU2jd1z4Wcrr6jQVT
- HX+1Bz/J2/3CAu8Zc40TdaMWiV34OvQNa2yUoPvCNISyxS/71bHf4UiEP7lqlDC2m0AcCoilbcMRx
- GkpBJBsSmThm/efxBYG5q5zwP/W7h7f3ld7UhBu4VS5y+Pjihs/Cc/uCbk0Dt4oMLFHw=;
+ bh=qvfIzg0tm1m+AFhSUpAZevgD7eFyHsFFNkS9ttpBzhw=; b=HIjduaF44bX2YQUFWUYy/bvUSs
+ KFR2nWlqBX428c7hbqn578wNhGZRzLtJ2UFP6BBjMx3ZIt0zoI3HFFcsC9FyhwpdHnsou/oEOW11I
+ 3RA80Dr/BYPumS3Jkz0HazUZdg1llP5LywZbAPgIkjVqCw+/t9cPT8jjRweTyZkEW8z4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
- Subject:CC:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
- :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ h=Content-Type:MIME-Version:Reply-To:Message-ID:Subject:Cc:To:From:Date:
+ Sender:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
  References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=mrPmWwN0Jx894HBx3YZf4Hp1aGOC4EJBoH2pXW/cVAg=; b=j
- b3B1WCCjnEsWz+wpGwxQBRAgCYFmBQzBOiFbKC3Wf7P1r6uyIALhnXSqGW6KkJ4X/gTfMsFgG+/lh
- 6B0dt/BvBqdGGlUat00ZborIOeOYQCDCewuv5Me2aR1qyjW9K1Jt7oO8Ex0+m7PGakLpMBuaYwRqR
- S7kIGiiSNszKgohU=;
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+ List-Owner:List-Archive; bh=qvfIzg0tm1m+AFhSUpAZevgD7eFyHsFFNkS9ttpBzhw=; b=G
+ bfqAW2Rd5XmIWDqEAcO+qmpEhQKkEJdlcOLFdsXnNZjQnQtnKRiOFI9yUW12f9gETgA0ay1wPesFl
+ 1sjK3sendfowjg/d51JgjeiX0Ubo0TdRXP2kONp95cQ2OFG5oXOQKqLSIhfY+iycn4IL2LuPFe8D+
+ gxMWJ6j1L6Q/cTd0=;
+Received: from mail-oi1-f182.google.com ([209.85.167.182])
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1kpWoi-00GPwW-0N
- for openipmi-developer@lists.sourceforge.net; Wed, 16 Dec 2020 13:26:12 +0000
-Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.58])
- by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Cwwpx5QfMz15ZnH;
- Wed, 16 Dec 2020 21:25:13 +0800 (CST)
-Received: from ubuntu.network (10.175.138.68) by
- DGGEMS412-HUB.china.huawei.com (10.3.19.212) with Microsoft SMTP Server id
- 14.3.498.0; Wed, 16 Dec 2020 21:25:43 +0800
-From: Zheng Yongjun <zhengyongjun3@huawei.com>
-To: <minyard@acm.org>, <openipmi-developer@lists.sourceforge.net>,
- <linux-kernel@vger.kernel.org>
-Date: Wed, 16 Dec 2020 21:26:15 +0800
-Message-ID: <20201216132615.15529-1-zhengyongjun3@huawei.com>
-X-Mailer: git-send-email 2.22.0
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1kpXoe-00GTC1-J3
+ for openipmi-developer@lists.sourceforge.net; Wed, 16 Dec 2020 14:30:22 +0000
+Received: by mail-oi1-f182.google.com with SMTP id w124so24540175oia.6
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 16 Dec 2020 06:30:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:reply-to:mime-version
+ :content-disposition;
+ bh=qvfIzg0tm1m+AFhSUpAZevgD7eFyHsFFNkS9ttpBzhw=;
+ b=nxFTfemYmcqfVVLjl2TgjmdpttZMv16V1QEhRs+u7AMK4z2VGIsmNstm6C+OI9rmgE
+ XKfJqt+QS0E0EdkDaNoDLKTSNj/2H6VXH+TOZxaMFcNewd5yFSr5U3yCpRwBKh+Ba9xo
+ ao8lPl2JzYhl7RbHXQjMQn+UsIR3UTTTB3DziR8IxhksgJOQfPf/u+yTtGN71Eszks+1
+ mmdmR2uyzpYtL4AjPQ6Lrbyq+xkRqQM9gSPwDV7PnA7nS2DprYlBeYRcyLKaeh+EEtyW
+ fqY45+94MAuNoVh8D2UGuUqQxK+VZqN17pY1QUdIlzxG4MqNfstpLiPPY/d4jZTHlybt
+ x3/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :reply-to:mime-version:content-disposition;
+ bh=qvfIzg0tm1m+AFhSUpAZevgD7eFyHsFFNkS9ttpBzhw=;
+ b=mEGICOdXRyzx2YB+vVJxmsCSPRIjGpgAwmH6sAnvevoxrVYpA+SzoX6g8AhLGnXno/
+ dh/y8Van2j9a6lePq07CIoViVvM17NQABBxBTAl3Kc7/fRnHQcyDTQcbOa1yQ93/reL1
+ IL63gqz3pcEaAH3ieMVujsVv0MdjG1lsyY0a2kcKg3wcGz1YpS294essBZOjMwVIo960
+ r0L8rg/hXxaLxSGZU7UtmqoAJkEGgnYtRNOBLqkRCCdKSJDUZjfF55cksfoawhiT+mEX
+ qZ7kacz64+h43mNFfsMBNaKZbtR0MtGV1kkLlKuQg92VLfU3vGBg5m1LobKENFClZ6JH
+ /hqw==
+X-Gm-Message-State: AOAM532uWMYT9RzT+S0kjqMSo32d+htg7Qi53X/WqgHnzARnBxp/Ekol
+ rD1eDvE1BgkT2tElv48DIRnL2pGMPyy9
+X-Google-Smtp-Source: ABdhPJzn9nDryX5P9U3DaMm5P9SBGvs2OVal3OfZCQdQ/sba4N0BfVYIHO20zGj/wpq4W9ZRPdR1oA==
+X-Received: by 2002:a05:6808:a1a:: with SMTP id
+ n26mr2160993oij.94.1608129002941; 
+ Wed, 16 Dec 2020 06:30:02 -0800 (PST)
+Received: from serve.minyard.net ([47.184.170.156])
+ by smtp.gmail.com with ESMTPSA id b82sm421325oif.49.2020.12.16.06.30.01
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 16 Dec 2020 06:30:01 -0800 (PST)
+Received: from minyard.net (unknown
+ [IPv6:2001:470:b8f6:1b:e0f1:f928:86e0:426e])
+ by serve.minyard.net (Postfix) with ESMTPSA id C2E57181D94;
+ Wed, 16 Dec 2020 14:30:00 +0000 (UTC)
+Date: Wed, 16 Dec 2020 08:29:59 -0600
+From: Corey Minyard <minyard@acm.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <20201216142959.GT11017@minyard.net>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.138.68]
-X-CFilter-Loop: Reflected
-X-Spam-Score: 0.0 (/)
+Content-Disposition: inline
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: huawei.com]
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [45.249.212.190 listed in wl.mailspike.net]
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (tcminyard[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1kpWoi-00GPwW-0N
-X-Mailman-Approved-At: Sun, 20 Dec 2020 01:49:41 +0000
-Subject: [Openipmi-developer] [PATCH -next] char: ipmi: convert comma to
- semicolon
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.182 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.167.182 listed in list.dnswl.org]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
+ freemail headers are different
+X-Headers-End: 1kpXoe-00GTC1-J3
+Subject: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 5.11
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -80,37 +113,53 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Zheng Yongjun <zhengyongjun3@huawei.com>
+Reply-To: minyard@acm.org
+Cc: openipmi-developer@lists.sourceforge.net,
+ linux-kernel <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Replace a comma between expression statements by a semicolon.
+Some very minor fixes.  One came it today, but it was just changing
+some commas to semicolons.  The rest have been lying around a month or
+more.
 
-Signed-off-by: Zheng Yongjun <zhengyongjun3@huawei.com>
----
- drivers/char/ipmi/bt-bmc.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+The following changes since commit 9ff9b0d392ea08090cd1780fb196f36dbb586529:
 
-diff --git a/drivers/char/ipmi/bt-bmc.c b/drivers/char/ipmi/bt-bmc.c
-index a395e2e70dc5..6e3d247b55d1 100644
---- a/drivers/char/ipmi/bt-bmc.c
-+++ b/drivers/char/ipmi/bt-bmc.c
-@@ -462,9 +462,9 @@ static int bt_bmc_probe(struct platform_device *pdev)
- 	mutex_init(&bt_bmc->mutex);
- 	init_waitqueue_head(&bt_bmc->queue);
- 
--	bt_bmc->miscdev.minor	= MISC_DYNAMIC_MINOR,
--	bt_bmc->miscdev.name	= DEVICE_NAME,
--	bt_bmc->miscdev.fops	= &bt_bmc_fops,
-+	bt_bmc->miscdev.minor	= MISC_DYNAMIC_MINOR;
-+	bt_bmc->miscdev.name	= DEVICE_NAME;
-+	bt_bmc->miscdev.fops	= &bt_bmc_fops;
- 	bt_bmc->miscdev.parent = dev;
- 	rc = misc_register(&bt_bmc->miscdev);
- 	if (rc) {
--- 
-2.22.0
+  Merge tag 'net-next-5.10' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next (2020-10-15 18:42:13 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.11-1
+
+for you to fetch changes up to fad0319cacdf02a8d4d31aa1d8dc18c5bd5e397e:
+
+  char: ipmi: convert comma to semicolon (2020-12-16 07:54:54 -0600)
+
+----------------------------------------------------------------
+Some very minor changes
+
+Nothing functional, just little syntax cleanups and a RCU warning
+suppression.
+
+----------------------------------------------------------------
+Qinglang Miao (1):
+      ipmi: msghandler: Suppress suspicious RCU usage warning
+
+Tom Rix (1):
+      char: ipmi: remove unneeded break
+
+Yejune Deng (1):
+      ipmi/watchdog: replace atomic_add() and atomic_sub()
+
+Zheng Yongjun (1):
+      char: ipmi: convert comma to semicolon
+
+ drivers/char/ipmi/bt-bmc.c          | 6 +++---
+ drivers/char/ipmi/ipmi_devintf.c    | 1 -
+ drivers/char/ipmi/ipmi_msghandler.c | 3 ++-
+ drivers/char/ipmi/ipmi_watchdog.c   | 8 ++++----
+ 4 files changed, 9 insertions(+), 9 deletions(-)
 
 
 
