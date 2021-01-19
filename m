@@ -2,77 +2,64 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B766C2FA254
-	for <lists+openipmi-developer@lfdr.de>; Mon, 18 Jan 2021 15:00:06 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 13C6A2FB4FC
+	for <lists+openipmi-developer@lfdr.de>; Tue, 19 Jan 2021 10:39:43 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1l1V4c-0001BC-Mw; Mon, 18 Jan 2021 14:00:02 +0000
+	id 1l1nUC-0002lY-2o; Tue, 19 Jan 2021 09:39:40 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
  (envelope-from <wsa+renesas@sang-engineering.com>)
- id 1l03El-0001nC-8j
- for openipmi-developer@lists.sourceforge.net; Thu, 14 Jan 2021 14:04:31 +0000
+ id 1l1nUB-0002l0-23
+ for openipmi-developer@lists.sourceforge.net; Tue, 19 Jan 2021 09:39:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=d2lXb/N+Awz6le1TWtmOeOjpaOVKpL4iekl7ArC7X9M=; b=TGSNeZnugsgqJHcU4+2FH8KtjE
- cSk3U7vrco8r0K3kQyKCUhwC8DwcorCVczwTL7hAFNmjUX0xvdq3iPaTF2pPES8yHxK1tWEEdKGtb
- W/gSho4RWA4XpdcAVf/nklmWmh6lQ7WtVm+9QVtO6axy2HunzOrFmj4biYxxhwSovwnk=;
+ bh=ZLxT2U8mlNW+4K/A6xHCAV/UV0+m049uDGvmvnSpfPs=; b=Zth1IFVlcM/StlncOlilDlErtB
+ rTCWLCa4D1TWVYD/NEiFry5zjsfgNhODIt2ltfRrtleOdsn5vUwzxyp9ptEkgPO4oPf8mA/XFHjFc
+ RV0nWaYcvZ2X7ehpjNoitL0WtbuFsUmATd5mZ9kcsq5EI9ib8OZuAnLQiYV1N8ofwi24=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=d2lXb/N+Awz6le1TWtmOeOjpaOVKpL4iekl7ArC7X9M=; b=BAW0XaOISn1mejIco0RFHee0rZ
- IOYLXMZYC7+wBR8Q3nF6sG1nRjDNXzlgHPpY1YeFaN04mFoMNzPK7aFivin6+1PF3mIS5+dap29nB
- iwoBHJ7FD51OsyaBfd/vqIpBM8ESPMFrM4/pVFR245kgkU/F55yiRcvi1oCic2Ua52Ds=;
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=ZLxT2U8mlNW+4K/A6xHCAV/UV0+m049uDGvmvnSpfPs=; b=C
+ 0YbyF1yDWggU2HgemXpS6rRgIImDCG2F8L8s76tPzv+h9k8J36qrbMofpSxgaV8VGoQr0vgdDWjzK
+ goTB0/uLTPMY0BWVQ6unGmq6t8M2PxrM0/rnZtDWwHHITt1KblQfrbs9V2u3LhFMcC4yxUiMLfuVN
+ Cocb4z+SRFnDLqMc=;
 Received: from www.zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
  by sfi-mx-3.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1l03Ea-00G97J-L7
- for openipmi-developer@lists.sourceforge.net; Thu, 14 Jan 2021 14:04:31 +0000
+ id 1l1nU2-00EPF7-1r
+ for openipmi-developer@lists.sourceforge.net; Tue, 19 Jan 2021 09:39:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple; d=sang-engineering.com; h=
- date:from:to:cc:subject:message-id:references:mime-version
- :content-type:in-reply-to; s=k1; bh=XYkIYw8kXYr0WVS9+2HEs7b4ExRD
- AHL7hAMoLwRnuhs=; b=jEynJZOCa0wXW6Sxo/cdadXQbmnkFb0zCbxSlq2NLVRp
- FzkLrNbJwFB7vC59c7YZuCwh+o3/amsZmNp05TKfzLoQecioj4Gk2I1AKYcZP3MH
- m4JSAw6v+6MIYVmCwKAwjQ9fzSbCpPsEHXqLlvk016S5fIltsCfEkZZK0vQGbu8=
-Received: (qmail 3538568 invoked from network); 14 Jan 2021 15:04:04 +0100
+ from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding; s=k1; bh=rKwj1AfOLCGXOesf4eVBjnn2gVf
+ wi0SlaspsyM9LG+I=; b=oee3ecn0uienirp2jDwWU+e7Y5MuiH5+fUUSnG1B98l
+ uag0O9R6618Ou5swlFlhnVVLeDxqpJh6tpiUnJaYetAWPBy0nSexXtazuqWvjN/E
+ +DQfSEaiuBH9Tipikok+JclDS0eyMAV15EO+WUdH0oF5tm4Fsxt19iRrnxTMU148
+ =
+Received: (qmail 1003424 invoked from network); 19 Jan 2021 10:39:19 +0100
 Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted,
- authenticated); 14 Jan 2021 15:04:04 +0100
-X-UD-Smtp-Session: l3s3148p1@3JJSuty4NNMgAwDPXwjsANskl+1DI0tg
-Date: Thu, 14 Jan 2021 15:04:01 +0100
+ authenticated); 19 Jan 2021 10:39:19 +0100
+X-UD-Smtp-Session: l3s3148p1@dCTXnD257NkgAwDPXyX1ACWcscxtZ2TX
 From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Corey Minyard <minyard@acm.org>
-Message-ID: <20210114140401.GA973@kunai>
-Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Corey Minyard <minyard@acm.org>, linux-i2c@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net,
- linux-kernel@vger.kernel.org,
- Colin Ian King <colin.king@canonical.com>,
- Vijay Khemka <vijaykhemka@fb.com>,
- Asmaa Mnebhi <Asmaa@mellanox.com>
-References: <20210112164130.47895-1-wsa+renesas@sang-engineering.com>
- <20210112164130.47895-4-wsa+renesas@sang-engineering.com>
- <20210114004822.GY3348@minyard.net>
+To: linux-i2c@vger.kernel.org
+Date: Tue, 19 Jan 2021 10:39:07 +0100
+Message-Id: <20210119093912.1838-1-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-In-Reply-To: <20210114004822.GY3348@minyard.net>
 X-Spam-Score: 0.9 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
  [194.117.254.33 listed in wl.mailspike.net]
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: lkml.org]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
  trust [194.117.254.33 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
@@ -84,10 +71,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  not necessarily valid
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  1.0 FORGED_SPF_HELO        No description available.
-X-Headers-End: 1l03Ea-00G97J-L7
-X-Mailman-Approved-At: Mon, 18 Jan 2021 14:00:01 +0000
-Subject: Re: [Openipmi-developer] [PATCH RFC 3/3] ipmi: remove open coded
- version of SMBus block write
+X-Headers-End: 1l1nU2-00EPF7-1r
+Subject: [Openipmi-developer] [PATCH 0/3] treewide: remove open coded SMBus
+ block transfers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,79 +86,44 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- Colin Ian King <colin.king@canonical.com>,
- openipmi-developer@lists.sourceforge.net, Vijay Khemka <vijaykhemka@fb.com>
-Content-Type: multipart/mixed; boundary="===============7410890376273613612=="
+Cc: linux-renesas-soc@vger.kernel.org,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
+The bigger picture is that I want to extend the maximum block length for
+SMBus block transfers from 32 (SMBus2) to 255 (SMBus3). That needs some
+cleanups and refactoring first. To make that easier, it would be helpful
+if all in-kernel users would call the helper functions of the I2C core
+for SMBus block transfers and not open code it via the generic
+smbus_xfer.
 
---===============7410890376273613612==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tThc/1wpZn/ma/RB"
-Content-Disposition: inline
+This series converts the three users doing that. I don't have the
+hardware, so these patches are only build tested. Please let me know
+what you think.
 
+Changes since RFC:
+* addressed review comments, see individual patches
 
---tThc/1wpZn/ma/RB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Wolfram Sang (3):
+  media: i2c: adv7842: remove open coded version of SMBus block write
+  media: i2c: adv7511: remove open coded version of SMBus block read
+  ipmi: remove open coded version of SMBus block write
 
+ drivers/char/ipmi/ipmb_dev_int.c | 24 +++++++++----------
+ drivers/media/i2c/adv7511-v4l2.c | 41 ++++++++++++--------------------
+ drivers/media/i2c/adv7842.c      | 24 ++++---------------
+ 3 files changed, 32 insertions(+), 57 deletions(-)
 
-> I asked the original authors of this about the change, and apparently is
-> results in a stack size warning.  Arnd Bergmann ask for it to be changed
-> from what you are suggesting to what it currently is.  See:
->=20
-> https://www.lkml.org/lkml/2019/6/19/440
->=20
-> So apparently this change will cause compile warnings due to the size of
-> struct i2c_client.
-
-Wow, didn't know that my patch was actually a revert. I replaced now the
-stack usage with kmemdup and will have a second thought about this
-patch. Thanks for the heads up!
-
-
---tThc/1wpZn/ma/RB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmAAT0kACgkQFA3kzBSg
-KbYBKA/+KGwiJWaUiU0+N17bTU/45Nmz2omMARKtrKFuDnxqUBSvbp0QVpMvtXvV
-IP9YN0TVopn2OQ4TbUssjPKeF/bsRK9La45lvdDHOpeFKYdXQcTD2O+EWVKGneXR
-Qp8dGNO0aMHcSi1Gmexd0OycizF9NbQ8vGSxXzvMgoLqjTe1RCFCNEEXgYQ+8sgW
-3QMDPYVrDo53A5+d0au3PEvFdJtTI7yZuiG1M9+pn9j/awM26yIDU4+VCsQxoxic
-6oh5DJVQUSzUL2VpEIlwbp32Jl7eDKTz7lrgSIObAY/IFz/siWlwFvaTxbQb9t6V
-4hgZQ0ts4xX/OL64PlA706d6wHajmQ1rxDl0tSrhPMEyxVI20gIn/NxMkWeYVwv3
-pI7FmNqqfHamZM6QTpODv4edzcNgYQvlXjVlFFe67mjmKVzTTsj8hRwVSM77WIct
-FhozjJTQ1nL28UJwqYcbxd4NCUK7xmv/XbG/0LHdgEOE8J0QOwmj9S5CJoyRjz+A
-hVv2elcCtEXFb5UxhZcwdD2lTExbzfJ2LmP54eTHR5iwLcS/HHLmEmMEDiQFbMBt
-1iD5KZNjif+Ep2A3L2+o3AE/QzIMOfutwcZh0WcYw//WnHMbLzIc3pjjBt5l9+dl
-u7Oqn7CsmdtU70IKAUjRFM/jwYMk3jaZwVKMU11ki6NyXZqQ59A=
-=hJuM
------END PGP SIGNATURE-----
-
---tThc/1wpZn/ma/RB--
+-- 
+2.29.2
 
 
---===============7410890376273613612==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============7410890376273613612==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============7410890376273613612==--
-
