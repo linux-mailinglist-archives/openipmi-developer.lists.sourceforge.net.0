@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F19DD31FB57
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A60631FB56
 	for <lists+openipmi-developer@lfdr.de>; Fri, 19 Feb 2021 15:51:35 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lD781-0005E1-Jm; Fri, 19 Feb 2021 14:51:33 +0000
+	id 1lD781-0000kT-Fh; Fri, 19 Feb 2021 14:51:33 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <andrew@aj.id.au>) id 1lD780-0005Dj-1V
- for openipmi-developer@lists.sourceforge.net; Fri, 19 Feb 2021 14:51:32 +0000
+ (envelope-from <andrew@aj.id.au>) id 1lD77v-0000j3-S1
+ for openipmi-developer@lists.sourceforge.net; Fri, 19 Feb 2021 14:51:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=8f7naV3t492m26tJiqvpMdtN6bec5zlRMxz/eLIINok=; b=d/jfg8fuHLqGOgJAAVpJW9beRy
- pVG+3myPSfOOUzeSrjzj7etk9QnRHgeCTDSqIndxaqI/ytYXOvWjes439jSVQEKWUmq6+QwCsKCPY
- /W5kPySX4iHRWqBuOErYybkGE/8cSPc+D7zlILPUxUvTusFhw1RulcuP2I9tFW6QJg60=;
+ bh=ZNJkDZPQZ4qRn0dZpJLR1k4wVs6r2KrWIHEsDySJPvg=; b=b0bx790k4Suma0TZ5W2uVcWDcm
+ QNNscsJHIP9Ben4MMvNPU2psXKW2XKOCggTz2h2p9N0bGrdJmWqPbLo0C+p17fR74RLf1IeIy2h3B
+ Qn8s+abolWrzG/vkqPAZ3emmvC2tInYmE9HuercE6Mn8pqntTgQ5tNf3wuJiLmeGa2LI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,43 +29,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=8f7naV3t492m26tJiqvpMdtN6bec5zlRMxz/eLIINok=; b=lcnp5laRo49MIPQglPCS7BXh/f
- fRHULaXVoUBP9FEGSLfFr8KlXVPXCVH8g4hb/xDy7Dy7oW1yTRcjppOapEW0LFGLH2OB5/2r84j/q
- QSXixaIvrJnRmXb+oRw6Tuys4KejhJjo+qI05CqOVjQ0yZXAoYMQ2u9TdzhQRqz1xwPg=;
+ bh=ZNJkDZPQZ4qRn0dZpJLR1k4wVs6r2KrWIHEsDySJPvg=; b=YXryVAmaP190IjsK+ikAddsjYw
+ lgrrfilXSy3JEPlOS/Nd0v2Doky9Djw65DGFuArNfwIM/iUWqULXPVawglvYrEGE+V4IcVnUu1aAc
+ UDs/8AQYE75de0ZV++RIvOWwajqJ7xxc6ySnb+iJhxVg30RTlmDZ7cERDKKZKu2tip7s=;
 Received: from new3-smtp.messagingengine.com ([66.111.4.229])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1lD77q-00FPps-U0
- for openipmi-developer@lists.sourceforge.net; Fri, 19 Feb 2021 14:51:31 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailnew.nyi.internal (Postfix) with ESMTP id 1654E580367;
- Fri, 19 Feb 2021 09:26:06 -0500 (EST)
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1lD77i-0000qy-Vb
+ for openipmi-developer@lists.sourceforge.net; Fri, 19 Feb 2021 14:51:23 +0000
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+ by mailnew.nyi.internal (Postfix) with ESMTP id DFD7A5802B3;
+ Fri, 19 Feb 2021 09:26:10 -0500 (EST)
 Received: from mailfrontend1 ([10.202.2.162])
- by compute4.internal (MEProxy); Fri, 19 Feb 2021 09:26:06 -0500
+ by compute1.internal (MEProxy); Fri, 19 Feb 2021 09:26:10 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=from
  :to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding; s=fm2; bh=8f7naV3t492m2
- 6tJiqvpMdtN6bec5zlRMxz/eLIINok=; b=RTO8+duai9Z/7ITJpiq/rzQF2B5hL
- XkHKHOwbu4qF95ISU+FRiS5cEsC/sDJcsMVLzjgHCVKG3I4ywSaasp96PKJ5j5CW
- CsanyzcHQA/6YAk2RytYu0XKPCannn1wjgU2t3QpcDtkKxw1GU2OVmdntVFwIN8B
- pjtlUfYfHb+FuWEjwUIQqhn3auNxfH0g6WxJsu0fdps58sFCgDn/0ALJ/bskja+K
- aJXMt1AYpaRLCvJwJFFCmeV6GK4qyZqvr84PnYhNU7GIx026rrpXJ75ujHN+VM04
- n0eBsLVfESzi2VNET8+KQuCKZ6Wqeo/A7HwbOXBF20QVeO1pzqvyVjkYg==
+ :mime-version:content-transfer-encoding; s=fm2; bh=ZNJkDZPQZ4qRn
+ 0dZpJLR1k4wVs6r2KrWIHEsDySJPvg=; b=DoEoen05zG2OW4jmMQPm7XJzX77J6
+ S4Afnemd+rSyIi8BHWoJfFzWR1a8fBk/0liurwyUZK6tEtVS3lpMEjjGFRwHgv0Y
+ WBVDlNGmmpP13evFb6Hzv/ZVBmeWq83yRiIwt3rfUOUjIJSGa7PAsJ/GtDUKHfT6
+ zNn+Xfx8SlZ+glr7vBVuA6H14uglsMOs5qjfz1uwYzKOz5xml4YJj+SpMNGFFhmz
+ efcLLEI2bRr25BmulLf6ifYt/dHPzURuEN/kMlHy5jFGJUufXAIvEeMO42ljT13v
+ hulBKH0cvWDWVUfS9OxKpzROSOZkarBZGvFSz5XI+ruDGeyGrMupkJt1w==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:content-transfer-encoding:date:from
  :in-reply-to:message-id:mime-version:references:subject:to
  :x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
- fm2; bh=8f7naV3t492m26tJiqvpMdtN6bec5zlRMxz/eLIINok=; b=BBO74844
- UPCEhEG0ST207xR0WwS6wMF0xQQsbC3zW0TLFVtanMzQ28yS0nD4gHHAhcIbiGcZ
- Ry06MJD9FPMJL+6qyr3BZsdMZp1dtdnDeYUANY+7BYgPUk8HI7COHkPhz7j799bU
- 4+MzgNwyuoBx+IscnoJo3fl9z41mH3nJ0fGcK/Vgo+DXcGPv4ShFsfvrTm/FOuSk
- 3+tozBNYzKcz1p8wDCn35Q7KfMo5tdHKawBE2+mx7Y15gl7jyf8im1piPMMzJ3op
- cBWanLWK3QXQ07NqHwJ4gXo69xsDnqVLGDvNyXsAE/uJEEJfqGWEdcTPfOI7lU8d
- vlrxBRZdwk6A7g==
-X-ME-Sender: <xms:e8ovYGr_PuI4SR3VfsyJU0da_rsZYDaraE2Y8TV0AFgW_sMdSZbS1w>
- <xme:e8ovYCcKJCk4uJhaelSd24cSunyLRjcioG9zcOQrdfTeMXQ6EHMmCX1Bn9l1sUgLM
- HBXebSBK-M4SbX0Lg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrjeeigdeifecutefuodetggdotefrodftvf
+ fm2; bh=ZNJkDZPQZ4qRn0dZpJLR1k4wVs6r2KrWIHEsDySJPvg=; b=cv6gwc+I
+ PJYNfTbWFHNDC8wHujEONVxLP2J2jpvpKpCUjiYYJJWnawgtBd2EzdxXS6i4qUqF
+ dw/fYsuopEyyvq9YJHp3MKZWjxsWNeU/JvaNHLm4AJ6nsbEOdgxmLZiH1sKvRmxp
+ xG9LZDSv0KOQawHXNxInNxA+XpDv0t8wTBNNAJKFxEnrwJ0ze/28+QBjpAbgSrnN
+ FHoKonT8VTWnPIi4G/vwnw2L5IsSdeTELoikwx6KSBK/jtyg7BDYX2xD6nCkHXaB
+ t1U9cMdqQKKI28iBZjn3XmT6NNVzjY7mDJyYQn2xFlxXLWJetxLV83PCOtEWkEHk
+ xshzwQw2bXIcZw==
+X-ME-Sender: <xms:gsovYI4vK-eLGP39pVPqfpF8X_q2u47E0hukAx5MGM6wX64G9UI58Q>
+ <xme:gsovYPLcA0S1G0eJECoUq0suxIScElGHWat_XMvQuBkViES1OQ6xCirbty3a6g8b3
+ SpxJMTZfd8zDLMewQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrjeeigdeigecutefuodetggdotefrodftvf
  curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
  uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
  fjughrpefhvffufffkofgjfhgggfestdekredtredttdenucfhrhhomheptehnughrvgif
@@ -73,19 +73,19 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrjeeigdeifecutefuodetggdote
  hrnhepjefgvdevheetkeevgeegleelgfelteetjeffleffvdduudevieffgeetleevhfet
  necukfhppedugedrvddrledurdefjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
  grmhepmhgrihhlfhhrohhmpegrnhgurhgvfiesrghjrdhiugdrrghu
-X-ME-Proxy: <xmx:e8ovYFqSrMDeerYToCsMINUzXkvsNVK0yyZrC7g2aOH3VHnjWfFUJQ>
- <xmx:e8ovYDF6hVpK6fdezL13A_Vk0Y8mJprnpEY8fH4MqdaleZq4TuvfPA>
- <xmx:e8ovYFsgtCFP2UatsCf1lUVL9FAD982wivtUnmuK7a8C0NNUy8aWJQ>
- <xmx:fsovYGwGVuzH-t7ZP3lMJ24oV_lO2ekhCESebRxFL0v8TAxEdeZiwQ>
+X-ME-Proxy: <xmx:gsovYJIe0tF9hhD1Ouan36CpSbJ9X9gKxgs0mQJNbXGAolr4Czkf8g>
+ <xmx:gsovYFUmzxx0HN6c9vHLJWt2FGmEO0MXD6Y0RCmkryydZu_RZ_YOpQ>
+ <xmx:gsovYDj52ZQpbcYl3lfu_uoTs3c1s8wUkjF6LkMWDOYZ4_SUL4borw>
+ <xmx:gsovYA6diHl5i84xvvE-jEBPZ2ZLjCAlSX_pNrX5KFYGl45hP1fDQQ>
 Received: from localhost.localdomain
  (ppp14-2-91-37.adl-apt-pir-bras31.tpg.internode.on.net [14.2.91.37])
- by mail.messagingengine.com (Postfix) with ESMTPA id 19385240064;
- Fri, 19 Feb 2021 09:25:56 -0500 (EST)
+ by mail.messagingengine.com (Postfix) with ESMTPA id 8D7AC24005A;
+ Fri, 19 Feb 2021 09:26:04 -0500 (EST)
 From: Andrew Jeffery <andrew@aj.id.au>
 To: openipmi-developer@lists.sourceforge.net, openbmc@lists.ozlabs.org,
  minyard@acm.org
-Date: Sat, 20 Feb 2021 00:55:07 +1030
-Message-Id: <20210219142523.3464540-4-andrew@aj.id.au>
+Date: Sat, 20 Feb 2021 00:55:08 +1030
+Message-Id: <20210219142523.3464540-5-andrew@aj.id.au>
 X-Mailer: git-send-email 2.27.0
 In-Reply-To: <20210219142523.3464540-1-andrew@aj.id.au>
 References: <20210219142523.3464540-1-andrew@aj.id.au>
@@ -96,7 +96,7 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: intel.com]
+ for more information. [URIs: aspeedtech.com]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
  [66.111.4.229 listed in wl.mailspike.net]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
@@ -107,9 +107,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1lD77q-00FPps-U0
-Subject: [Openipmi-developer] [PATCH 03/19] ipmi: kcs: aspeed: Adapt to new
- LPC DTS layout
+X-Headers-End: 1lD77i-0000qy-Vb
+Subject: [Openipmi-developer] [PATCH 04/19] pinctrl: aspeed-g5: Adapt to new
+ LPC device tree layout
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -122,14 +122,13 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Haiyue Wang <haiyue.wang@linux.intel.com>,
- tmaimon77@gmail.com, linux-aspeed@lists.ozlabs.org, linux-gpio@vger.kernel.org,
+Cc: devicetree@vger.kernel.org, tmaimon77@gmail.com,
+ linux-aspeed@lists.ozlabs.org, linux-gpio@vger.kernel.org,
  avifishman70@gmail.com, venture@google.com, "Chia-Wei,
  Wang" <chiawei_wang@aspeedtech.com>, linux-kernel@vger.kernel.org,
  tali.perry1@gmail.com, yuenn@google.com, robh+dt@kernel.org,
- Corey Minyard <cminyard@mvista.com>, lee.jones@linaro.org,
- linus.walleij@linaro.org, linux-arm-kernel@lists.infradead.org,
- benjaminfair@google.com
+ lee.jones@linaro.org, linus.walleij@linaro.org,
+ linux-arm-kernel@lists.infradead.org, benjaminfair@google.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
@@ -142,69 +141,50 @@ The LPC register offsets are also fixed accordingly.
 
 Signed-off-by: Chia-Wei Wang <chiawei_wang@aspeedtech.com>
 Reviewed-by: Andrew Jeffery <andrew@aj.id.au>
-Acked-by: Haiyue Wang <haiyue.wang@linux.intel.com>
-Acked-by: Corey Minyard <cminyard@mvista.com>
+Tested-by: Andrew Jeffery <andrew@aj.id.au>
+Acked-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- drivers/char/ipmi/kcs_bmc_aspeed.c | 27 ++++++++++++++++-----------
- 1 file changed, 16 insertions(+), 11 deletions(-)
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
-index a140203c079b..eefe362f65f0 100644
---- a/drivers/char/ipmi/kcs_bmc_aspeed.c
-+++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
-@@ -27,7 +27,6 @@
+diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
+index 0cab4c2576e2..996ebcba4d38 100644
+--- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
++++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
+@@ -60,7 +60,7 @@
+ #define COND2		{ ASPEED_IP_SCU, SCU94, GENMASK(1, 0), 0, 0 }
  
- #define KCS_CHANNEL_MAX     4
+ /* LHCR0 is offset from the end of the H8S/2168-compatible registers */
+-#define LHCR0		0x20
++#define LHCR0		0xa0
+ #define GFX064		0x64
  
--/* mapped to lpc-bmc@0 IO space */
- #define LPC_HICR0            0x000
- #define     LPC_HICR0_LPC3E          BIT(7)
- #define     LPC_HICR0_LPC2E          BIT(6)
-@@ -52,15 +51,13 @@
- #define LPC_STR1             0x03C
- #define LPC_STR2             0x040
- #define LPC_STR3             0x044
--
--/* mapped to lpc-host@80 IO space */
--#define LPC_HICRB            0x080
-+#define LPC_HICRB            0x100
- #define     LPC_HICRB_IBFIF4         BIT(1)
- #define     LPC_HICRB_LPC4E          BIT(0)
--#define LPC_LADR4            0x090
--#define LPC_IDR4             0x094
--#define LPC_ODR4             0x098
--#define LPC_STR4             0x09C
-+#define LPC_LADR4            0x110
-+#define LPC_IDR4             0x114
-+#define LPC_ODR4             0x118
-+#define LPC_STR4             0x11C
+ #define B14 0
+@@ -2648,14 +2648,19 @@ static struct regmap *aspeed_g5_acquire_regmap(struct aspeed_pinmux_data *ctx,
+ 	}
  
- struct aspeed_kcs_bmc {
- 	struct regmap *map;
-@@ -348,12 +345,20 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
- 	struct device_node *np;
- 	int rc;
+ 	if (ip == ASPEED_IP_LPC) {
+-		struct device_node *node;
++		struct device_node *np;
+ 		struct regmap *map;
  
--	np = pdev->dev.of_node;
-+	np = dev->of_node->parent;
-+	if (!of_device_is_compatible(np, "aspeed,ast2400-lpc-v2") &&
-+	    !of_device_is_compatible(np, "aspeed,ast2500-lpc-v2") &&
-+	    !of_device_is_compatible(np, "aspeed,ast2600-lpc-v2")) {
-+		dev_err(dev, "unsupported LPC device binding\n");
-+		return -ENODEV;
-+	}
+-		node = of_parse_phandle(ctx->dev->of_node,
++		np = of_parse_phandle(ctx->dev->of_node,
+ 					"aspeed,external-nodes", 1);
+-		if (node) {
+-			map = syscon_node_to_regmap(node->parent);
+-			of_node_put(node);
++		if (np) {
++			if (!of_device_is_compatible(np->parent, "aspeed,ast2400-lpc-v2") &&
++			    !of_device_is_compatible(np->parent, "aspeed,ast2500-lpc-v2") &&
++			    !of_device_is_compatible(np->parent, "aspeed,ast2600-lpc-v2"))
++				return ERR_PTR(-ENODEV);
 +
-+	np = dev->of_node;
- 	if (of_device_is_compatible(np, "aspeed,ast2400-kcs-bmc") ||
--			of_device_is_compatible(np, "aspeed,ast2500-kcs-bmc"))
-+	    of_device_is_compatible(np, "aspeed,ast2500-kcs-bmc"))
- 		kcs_bmc = aspeed_kcs_probe_of_v1(pdev);
- 	else if (of_device_is_compatible(np, "aspeed,ast2400-kcs-bmc-v2") ||
--			of_device_is_compatible(np, "aspeed,ast2500-kcs-bmc-v2"))
-+		 of_device_is_compatible(np, "aspeed,ast2500-kcs-bmc-v2"))
- 		kcs_bmc = aspeed_kcs_probe_of_v2(pdev);
- 	else
- 		return -EINVAL;
++			map = syscon_node_to_regmap(np->parent);
++			of_node_put(np);
+ 			if (IS_ERR(map))
+ 				return map;
+ 		} else
 -- 
 2.27.0
 
