@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5AC52328244
-	for <lists+openipmi-developer@lfdr.de>; Mon,  1 Mar 2021 16:21:10 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B826328261
+	for <lists+openipmi-developer@lfdr.de>; Mon,  1 Mar 2021 16:24:39 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lGkM6-0003XN-Gw; Mon, 01 Mar 2021 15:21:06 +0000
+	id 1lGkPU-0001wY-EO; Mon, 01 Mar 2021 15:24:36 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1lGkKx-0003U4-U9
- for openipmi-developer@lists.sourceforge.net; Mon, 01 Mar 2021 15:19:55 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1lGkOt-0001qC-V0
+ for openipmi-developer@lists.sourceforge.net; Mon, 01 Mar 2021 15:23:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=IRSmv6pm33jZ1fIt/qwKgNm0CYbFandFAlC2eldA35w=; b=GzNfW+uIed8NI8hEY4zVs8gtsg
- 8bvTT941GwiMotWvpOy6MehOsamp+KZbghtSATFnFuudY9Xtyh+whCHXt/K2VVmfipLHS0gzCBGgq
- Q2fWTqBPciI45qnijXozHMYIa6rZsSSsMNjotqNfPeDv2sdA6oAYMMf/pLN18CjuaNo0=;
+ bh=zLRiotorNgODtDczOZ0iNSSFs1Gejj1kj1CcN2zNn84=; b=aWNnPcmzfUQvEKKCSxfxIFBJj0
+ 0QoRBWPg9M50bKLBIQ781/6bZc/ayHora8zCjdNniKdWlPXxzkGzWANJWw/xoJATCSjeUcFviOuLU
+ tS21xK9fhh353wB0lvFEBC8oTMn3LAy0ORJEs7rGPSdOHisL7cgtqR2Dt1JktFitGsIw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
@@ -29,67 +29,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=IRSmv6pm33jZ1fIt/qwKgNm0CYbFandFAlC2eldA35w=; b=m9ktxsQSpsSSoddixgVw7ziSEe
- bGBsmGo9e5FXqjKplOCG5yfowYzLYto784eR4ATaTBkkjRaPHkRmtZcrPEp/NWEdv9EacGgwB2h/S
- cAV0iiPdch9ZuFVd1O0dyXwP6MB4B5XEGUw6SNPjC/mkHbvcNQjqFH+payE/jDMsKavg=;
-Received: from mail-ot1-f50.google.com ([209.85.210.50])
+ bh=zLRiotorNgODtDczOZ0iNSSFs1Gejj1kj1CcN2zNn84=; b=Dq1/gvHwf39EWRmif/SB2nGijg
+ SbuZKzp1Q8wtkgFPt92BTYIHeDNiE93y8nQQJhKm7p7ZkgeoZ6IDU+/9WGZP0kc5C30yNy0NaQQnt
+ AmA04Lqaa/qmruYUjcwvwgYReM0FvOQ9bPgiLUDcpgi3LkjsGBHsr7w0Uih9/JlT4Nmo=;
+Received: from mail-oo1-f42.google.com ([209.85.161.42])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1lGkKs-00A2D9-GD
- for openipmi-developer@lists.sourceforge.net; Mon, 01 Mar 2021 15:19:55 +0000
-Received: by mail-ot1-f50.google.com with SMTP id v12so15664578ott.10
+ id 1lGkOp-00A2Rp-1X
+ for openipmi-developer@lists.sourceforge.net; Mon, 01 Mar 2021 15:23:59 +0000
+Received: by mail-oo1-f42.google.com with SMTP id e17so4029817oow.4
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 01 Mar 2021 07:19:50 -0800 (PST)
+ Mon, 01 Mar 2021 07:23:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=sender:date:from:to:cc:subject:message-id:reply-to:references
  :mime-version:content-disposition:in-reply-to;
- bh=IRSmv6pm33jZ1fIt/qwKgNm0CYbFandFAlC2eldA35w=;
- b=KzCEra775BJWsu0HMqPkDaWU/SYJU0JDhq+MnZsfuTXIu9jjJPtoIHM7/15ijsVZ/3
- kEslpvrbKZHjP7BEPUAIZBKqbMVYMKGiolt+uNsPRgzrVflKF+YVwkNq7+ee70/P80pa
- zRuNy8bb0HMCzf8W+Uo/LOO1KgQ29kRF5l9v0Ifoa34+kZKSl6k3U7G+pLhxhfuNx9MD
- C8geHP8Z5egl5oB/iNErIUwfz/n1FQqOvkItIgQjYkYkpaOG7mT4aj08kdBKTxxlXT0B
- IlAAg3npF5PMJIYdtJsktWpaqF27UPD9QcavatXT/TNrlwTaWDmpCwnvgHdjbz8JFgVc
- KVOw==
+ bh=zLRiotorNgODtDczOZ0iNSSFs1Gejj1kj1CcN2zNn84=;
+ b=QU73XM3X8IDYcmxx90iCfLY9YxgupK64FI6pigTuAiWDsELid4fNOces4PQkxkxtp8
+ wITTnYCRYn3i5/FAnNrKa71eH5CAniuejvYkqKB/qE3stdA1gAjUIl1CsVBPlCC1YFku
+ nVvJ0dy5Gm/74z0dpqXi6GgQR2WIvxNEx8SDtfHP3r2upB8wKEtVsHBl9MzXxzpGJhnZ
+ qp5YUJ/wgS+WN7fEAmQKKNe0XR7K+hTbW2GNoL7EUDMrY0V1Z/08mPIpadogXcZSfCsO
+ TNwQyPkrYkeovB25Uak1A/zZD4okPwAZbPi6fZumtXaG7JTKaRKBN+Qxk5H6A5c96sXE
+ dOBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
  :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=IRSmv6pm33jZ1fIt/qwKgNm0CYbFandFAlC2eldA35w=;
- b=J+Gevn7OhkW1llN5a4iMLphCmgnBhq6RgSfHzevoIbopC3firx79My20p34VVKY09y
- g1enJBjsAD0xEKY/empGLcJP+ZSqTtiPiQKfxtOfrfPqT78LG9yvvyFibqgfwmnZgEjv
- APH/PVEw2did5MbSXIiHdmU7sVaUuhRaGkGzVZq8WmlCQuD8v7OUKXcKNYZA1wM7w9rR
- ZPna1HF5Hu1bKRQT+S5WMvhQWwA4R0Q1EF3H54vO++UjptZ2D+YKdKOGXhN1ypQeL0La
- Xoojt2cRqUJv2Cn7g2IziKJA+QW/UkJWfOK+l+n5l0RBfDc5Et92FkDbc0kjfNlXoIkh
- iviw==
-X-Gm-Message-State: AOAM53266r77mxqe3jqyQOfF+2+8ZVifyexdzHp6dwydQys9MKqdvkPw
- RhWAXZ2mmZoXLezrKfpWLw==
-X-Google-Smtp-Source: ABdhPJzH0QZqKennTMOTsyUNz5eU+FFKi+lUPBFs/kKZHYJHjJRUtPW4Hr0oB+Sd93W1ALZkaRKS6A==
-X-Received: by 2002:a9d:648f:: with SMTP id g15mr2410490otl.188.1614611984840; 
- Mon, 01 Mar 2021 07:19:44 -0800 (PST)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id a23sm3829768otf.20.2021.03.01.07.19.42
+ bh=zLRiotorNgODtDczOZ0iNSSFs1Gejj1kj1CcN2zNn84=;
+ b=EhxMlq0TPVDPdOK+FcfsDt7reUOTsrRADphPKs2arTqeDHLCXF4e6v9iYzfiQsJNvM
+ zBEnNh87wIVvu5QFIq6dGG7Z79g9O6E6BurmI5uSnN19dw2adDOznkdQyIV6iknL3UBx
+ g1GRNp5PZEdawVDUpO4I5LkgCt+6UOoR4nhiCsuGz6m8yEo4A6/xikOHbt5FIqcF1vP0
+ K17FIm8m7cVqnBh/z5/KgBWM88bWwUP0HYZ92wveJXBzuU1iC8T8zuYe324PeyToNAa4
+ 20CSWgRMHl3tlIIq3wDjPUnu81SjEnZHm0GzQdjWk8wgVQ317Mhllevs2qJyx5BnYd6K
+ zW/A==
+X-Gm-Message-State: AOAM531NmuRlc0w5/R+thLgv4roqmLfOPU4wtzSfUztQrELJBdQQFOhe
+ AdlQb6G0Rru/TWppEZm07Q==
+X-Google-Smtp-Source: ABdhPJzjTLQqvNd6iK0LOi+tng/XkcMkbFQBe36o8UAsc1lmbxczqYzNQPVMhaGiL7qkXGpv/MjdCA==
+X-Received: by 2002:a4a:c706:: with SMTP id n6mr13091254ooq.19.1614612229322; 
+ Mon, 01 Mar 2021 07:23:49 -0800 (PST)
+Received: from serve.minyard.net ([47.184.156.158])
+ by smtp.gmail.com with ESMTPSA id q131sm3141333oic.45.2021.03.01.07.23.48
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 01 Mar 2021 07:19:43 -0800 (PST)
+ Mon, 01 Mar 2021 07:23:48 -0800 (PST)
 Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:dd2:7224:e6c:fce5])
- by serve.minyard.net (Postfix) with ESMTPSA id E6FD7180059;
- Mon,  1 Mar 2021 15:19:41 +0000 (UTC)
-Date: Mon, 1 Mar 2021 09:19:40 -0600
+ by serve.minyard.net (Postfix) with ESMTPSA id 14BBB180059;
+ Mon,  1 Mar 2021 15:23:48 +0000 (UTC)
+Date: Mon, 1 Mar 2021 09:23:46 -0600
 From: Corey Minyard <minyard@acm.org>
-To: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
-Message-ID: <20210301151940.GC507977@minyard.net>
-References: <20210225045027.9344-1-jae.hyun.yoo@linux.intel.com>
+To: Liguang Zhang <zhangliguang@linux.alibaba.com>
+Message-ID: <20210301152346.GD507977@minyard.net>
+References: <20210301140515.18951-1-zhangliguang@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210225045027.9344-1-jae.hyun.yoo@linux.intel.com>
+In-Reply-To: <20210301140515.18951-1-zhangliguang@linux.alibaba.com>
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (tcminyard[at]gmail.com)
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.50 listed in list.dnswl.org]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.50 listed in wl.mailspike.net]
+ [209.85.161.42 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.161.42 listed in list.dnswl.org]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -100,9 +100,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
  freemail headers are different
-X-Headers-End: 1lGkKs-00A2D9-GD
-Subject: Re: [Openipmi-developer] [PATCH v2] ipmi: Refine retry conditions
- for getting device id
+X-Headers-End: 1lGkOp-00A2Rp-1X
+Subject: Re: [Openipmi-developer] [PATCH] ipmi:ssif: make ssif_i2c_send()
+ void
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -116,72 +116,186 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Reply-To: minyard@acm.org
-Cc: Xianting Tian <tian.xianting@h3c.com>,
- openipmi-developer@lists.sourceforge.net,
- Terry Duncan <terry.s.duncan@intel.com>
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-This is queued for 5.12.
+This looks ok, it's queued for 5.12.
 
-Thanks!
+Thanks,
 
 -corey
 
-On Wed, Feb 24, 2021 at 08:50:27PM -0800, Jae Hyun Yoo wrote:
-> From: Terry Duncan <terry.s.duncan@intel.com>
+On Mon, Mar 01, 2021 at 10:05:15PM +0800, Liguang Zhang wrote:
+> This function actually needs no return value. So remove the unneeded
+> check and make it void.
 > 
-> Rarely but still failures are observed while getting BMC device ID
-> so this commit changes the condition to retry to get device id
-> when cc is not IPMI_CC_NO_ERROR.
-> 
-> Signed-off-by: Terry Duncan <terry.s.duncan@intel.com>
-> Signed-off-by: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
+> Signed-off-by: Liguang Zhang <zhangliguang@linux.alibaba.com>
 > ---
-> Changes since v1:
->  - Changed the condition to make it retry when cc isn't IPMI_CC_NO_ERROR.
+>  drivers/char/ipmi/ipmi_ssif.c | 81 +++++++++--------------------------
+>  1 file changed, 20 insertions(+), 61 deletions(-)
 > 
->  drivers/char/ipmi/ipmi_msghandler.c | 6 ++----
->  drivers/char/ipmi/ipmi_si_intf.c    | 6 ++----
->  2 files changed, 4 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index c44ad18464f1..f19f0f967e28 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -2447,10 +2447,8 @@ static int __get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc)
->  	wait_event(intf->waitq, bmc->dyn_id_set != 2);
+> diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
+> index 0416b9c9d410..20d5af92966d 100644
+> --- a/drivers/char/ipmi/ipmi_ssif.c
+> +++ b/drivers/char/ipmi/ipmi_ssif.c
+> @@ -510,7 +510,7 @@ static int ipmi_ssif_thread(void *data)
+>  	return 0;
+>  }
 >  
->  	if (!bmc->dyn_id_set) {
-> -		if ((bmc->cc == IPMI_DEVICE_IN_FW_UPDATE_ERR
-> -		     || bmc->cc ==  IPMI_DEVICE_IN_INIT_ERR
-> -		     || bmc->cc ==  IPMI_NOT_IN_MY_STATE_ERR)
-> -		     && ++retry_count <= GET_DEVICE_ID_MAX_RETRY) {
-> +		if (bmc->cc != IPMI_CC_NO_ERROR &&
-> +		    ++retry_count <= GET_DEVICE_ID_MAX_RETRY) {
->  			msleep(500);
->  			dev_warn(intf->si_dev,
->  			    "BMC returned 0x%2.2x, retry get bmc device id\n",
-> diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-> index 5eac94cf4ff8..be41a473e3c2 100644
-> --- a/drivers/char/ipmi/ipmi_si_intf.c
-> +++ b/drivers/char/ipmi/ipmi_si_intf.c
-> @@ -1346,10 +1346,8 @@ static int try_get_dev_id(struct smi_info *smi_info)
->  		/* record completion code */
->  		unsigned char cc = *(resp + 2);
+> -static int ssif_i2c_send(struct ssif_info *ssif_info,
+> +static void ssif_i2c_send(struct ssif_info *ssif_info,
+>  			ssif_i2c_done handler,
+>  			int read_write, int command,
+>  			unsigned char *data, unsigned int size)
+> @@ -522,7 +522,6 @@ static int ssif_i2c_send(struct ssif_info *ssif_info,
+>  	ssif_info->i2c_data = data;
+>  	ssif_info->i2c_size = size;
+>  	complete(&ssif_info->wake_thread);
+> -	return 0;
+>  }
 >  
-> -		if ((cc == IPMI_DEVICE_IN_FW_UPDATE_ERR
-> -		    || cc == IPMI_DEVICE_IN_INIT_ERR
-> -		    || cc == IPMI_NOT_IN_MY_STATE_ERR)
-> -		    && ++retry_count <= GET_DEVICE_ID_MAX_RETRY) {
-> +		if (cc != IPMI_CC_NO_ERROR &&
-> +		    ++retry_count <= GET_DEVICE_ID_MAX_RETRY) {
->  			dev_warn(smi_info->io.dev,
->  			    "BMC returned 0x%2.2x, retry get bmc device id\n",
->  			    cc);
+>  
+> @@ -531,22 +530,12 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+>  
+>  static void start_get(struct ssif_info *ssif_info)
+>  {
+> -	int rv;
+> -
+>  	ssif_info->rtc_us_timer = 0;
+>  	ssif_info->multi_pos = 0;
+>  
+> -	rv = ssif_i2c_send(ssif_info, msg_done_handler, I2C_SMBUS_READ,
+> -			  SSIF_IPMI_RESPONSE,
+> -			  ssif_info->recv, I2C_SMBUS_BLOCK_DATA);
+> -	if (rv < 0) {
+> -		/* request failed, just return the error. */
+> -		if (ssif_info->ssif_debug & SSIF_DEBUG_MSG)
+> -			dev_dbg(&ssif_info->client->dev,
+> -				"Error from i2c_non_blocking_op(5)\n");
+> -
+> -		msg_done_handler(ssif_info, -EIO, NULL, 0);
+> -	}
+> +	ssif_i2c_send(ssif_info, msg_done_handler, I2C_SMBUS_READ,
+> +		  SSIF_IPMI_RESPONSE,
+> +		  ssif_info->recv, I2C_SMBUS_BLOCK_DATA);
+>  }
+>  
+>  static void retry_timeout(struct timer_list *t)
+> @@ -620,7 +609,6 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+>  {
+>  	struct ipmi_smi_msg *msg;
+>  	unsigned long oflags, *flags;
+> -	int rv;
+>  
+>  	/*
+>  	 * We are single-threaded here, so no need for a lock until we
+> @@ -666,17 +654,10 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+>  		ssif_info->multi_len = len;
+>  		ssif_info->multi_pos = 1;
+>  
+> -		rv = ssif_i2c_send(ssif_info, msg_done_handler, I2C_SMBUS_READ,
+> -				  SSIF_IPMI_MULTI_PART_RESPONSE_MIDDLE,
+> -				  ssif_info->recv, I2C_SMBUS_BLOCK_DATA);
+> -		if (rv < 0) {
+> -			if (ssif_info->ssif_debug & SSIF_DEBUG_MSG)
+> -				dev_dbg(&ssif_info->client->dev,
+> -					"Error from i2c_non_blocking_op(1)\n");
+> -
+> -			result = -EIO;
+> -		} else
+> -			return;
+> +		ssif_i2c_send(ssif_info, msg_done_handler, I2C_SMBUS_READ,
+> +			 SSIF_IPMI_MULTI_PART_RESPONSE_MIDDLE,
+> +			 ssif_info->recv, I2C_SMBUS_BLOCK_DATA);
+> +		return;
+>  	} else if (ssif_info->multi_pos) {
+>  		/* Middle of multi-part read.  Start the next transaction. */
+>  		int i;
+> @@ -738,19 +719,12 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+>  
+>  			ssif_info->multi_pos++;
+>  
+> -			rv = ssif_i2c_send(ssif_info, msg_done_handler,
+> -					   I2C_SMBUS_READ,
+> -					   SSIF_IPMI_MULTI_PART_RESPONSE_MIDDLE,
+> -					   ssif_info->recv,
+> -					   I2C_SMBUS_BLOCK_DATA);
+> -			if (rv < 0) {
+> -				if (ssif_info->ssif_debug & SSIF_DEBUG_MSG)
+> -					dev_dbg(&ssif_info->client->dev,
+> -						"Error from ssif_i2c_send\n");
+> -
+> -				result = -EIO;
+> -			} else
+> -				return;
+> +			ssif_i2c_send(ssif_info, msg_done_handler,
+> +				  I2C_SMBUS_READ,
+> +				  SSIF_IPMI_MULTI_PART_RESPONSE_MIDDLE,
+> +				  ssif_info->recv,
+> +				  I2C_SMBUS_BLOCK_DATA);
+> +			return;
+>  		}
+>  	}
+>  
+> @@ -908,8 +882,6 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+>  static void msg_written_handler(struct ssif_info *ssif_info, int result,
+>  				unsigned char *data, unsigned int len)
+>  {
+> -	int rv;
+> -
+>  	/* We are single-threaded here, so no need for a lock. */
+>  	if (result < 0) {
+>  		ssif_info->retries_left--;
+> @@ -972,18 +944,9 @@ static void msg_written_handler(struct ssif_info *ssif_info, int result,
+>  			ssif_info->multi_data = NULL;
+>  		}
+>  
+> -		rv = ssif_i2c_send(ssif_info, msg_written_handler,
+> -				   I2C_SMBUS_WRITE, cmd,
+> -				   data_to_send, I2C_SMBUS_BLOCK_DATA);
+> -		if (rv < 0) {
+> -			/* request failed, just return the error. */
+> -			ssif_inc_stat(ssif_info, send_errors);
+> -
+> -			if (ssif_info->ssif_debug & SSIF_DEBUG_MSG)
+> -				dev_dbg(&ssif_info->client->dev,
+> -					"Error from i2c_non_blocking_op(3)\n");
+> -			msg_done_handler(ssif_info, -EIO, NULL, 0);
+> -		}
+> +		ssif_i2c_send(ssif_info, msg_written_handler,
+> +			  I2C_SMBUS_WRITE, cmd,
+> +			  data_to_send, I2C_SMBUS_BLOCK_DATA);
+>  	} else {
+>  		/* Ready to request the result. */
+>  		unsigned long oflags, *flags;
+> @@ -1012,7 +975,6 @@ static void msg_written_handler(struct ssif_info *ssif_info, int result,
+>  
+>  static int start_resend(struct ssif_info *ssif_info)
+>  {
+> -	int rv;
+>  	int command;
+>  
+>  	ssif_info->got_alert = false;
+> @@ -1034,12 +996,9 @@ static int start_resend(struct ssif_info *ssif_info)
+>  		ssif_info->data[0] = ssif_info->data_len;
+>  	}
+>  
+> -	rv = ssif_i2c_send(ssif_info, msg_written_handler, I2C_SMBUS_WRITE,
+> -			  command, ssif_info->data, I2C_SMBUS_BLOCK_DATA);
+> -	if (rv && (ssif_info->ssif_debug & SSIF_DEBUG_MSG))
+> -		dev_dbg(&ssif_info->client->dev,
+> -			"Error from i2c_non_blocking_op(4)\n");
+> -	return rv;
+> +	ssif_i2c_send(ssif_info, msg_written_handler, I2C_SMBUS_WRITE,
+> +		   command, ssif_info->data, I2C_SMBUS_BLOCK_DATA);
+> +	return 0;
+>  }
+>  
+>  static int start_send(struct ssif_info *ssif_info,
 > -- 
-> 2.17.1
+> 2.19.1.6.gb485710b
 > 
 
 
