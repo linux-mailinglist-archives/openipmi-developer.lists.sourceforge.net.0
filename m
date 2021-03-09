@@ -2,100 +2,112 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 265C632F663
-	for <lists+openipmi-developer@lfdr.de>; Sat,  6 Mar 2021 00:10:15 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id B76FD331D15
+	for <lists+openipmi-developer@lfdr.de>; Tue,  9 Mar 2021 03:45:35 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lIJaG-00035m-Mf; Fri, 05 Mar 2021 23:10:12 +0000
+	id 1lJSNH-0006jD-1h; Tue, 09 Mar 2021 02:45:31 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <robherring2@gmail.com>) id 1lIJZz-00034Q-A1
- for openipmi-developer@lists.sourceforge.net; Fri, 05 Mar 2021 23:09:55 +0000
+ (envelope-from <andrew@aj.id.au>) id 1lJSNF-0006ix-7E
+ for openipmi-developer@lists.sourceforge.net; Tue, 09 Mar 2021 02:45:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Date:References:
+ In-Reply-To:Message-Id:Mime-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=XrYODSIj7UXVI1uCbWVvuJ9MDvf1FusiVZYMMI3JkzE=; b=aae5DV64JQyjxgGvo2zqeS75qy
- HSjsQHLB+MGpRqPYwkUEXW4WpmuQUq/ZG+yO3mKU47Zs/rfV8KRnCNUZiJ7runo2yHmg2WVp8M1w4
- 6ztgyzwqNty7jLArYgeJmGG3Vimc311/RU5ud1N6gAxtbEdO8/dIUTI2acdkoumWb2xo=;
+ bh=qRybQhRN/O0nr4FGzlsF5grYQeYZu8ucrJLcVTZ+qd0=; b=J0QE0fTwwu1p+eYF4VzrrbGuq+
+ n9YB1fvGtaex6KWIpK8g4VERYFOL804ultd/Q0sZsPcy8duXkbplN2pL1miFFiYSmkSZA5kbcywcA
+ N0NUJvqTUzZqsHXknFd/6+CuVUii4NJtd0jAvQrZmpGNOaceJn8VtaeE9Tg6CBn37Efs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Subject:Cc:To:From:Date:References:In-Reply-To:Message-Id:
+ Mime-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=XrYODSIj7UXVI1uCbWVvuJ9MDvf1FusiVZYMMI3JkzE=; b=CJNEfanni/MoOiDh+nTQoPff1Y
- g4N12B/fZC1mXc5yhe0mSa4jjPvldrJIZinb3cXQ+wFnTRy0K86vwWR7y9qbm3sMTGkFnGI1Rxtip
- tsFIaaxR4kSGDaZ+tPH841Onmb5EJ2+nQus40rO/Tw1Oqy6iSbv/gfVurC7JQiM1hfVo=;
-Received: from mail-oi1-f171.google.com ([209.85.167.171])
+ bh=qRybQhRN/O0nr4FGzlsF5grYQeYZu8ucrJLcVTZ+qd0=; b=TTMX4as52s4s4GbbuDJU3NpN6I
+ XZwbGRpJfKyEpZJV3LeDyL5Hky1aa0CwsoP/pI9fyhlw0MiYfYSQA94VwI0HawnL8of20RxB+PiGc
+ 4WaKIFVziFktICqRke3IVlW5t3WooappliAmwHa5gc7qFIzlv//GZf0hAhZ01awbXnoY=;
+Received: from new4-smtp.messagingengine.com ([66.111.4.230])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1lIJZs-0002Rn-7O
- for openipmi-developer@lists.sourceforge.net; Fri, 05 Mar 2021 23:09:55 +0000
-Received: by mail-oi1-f171.google.com with SMTP id z126so4320692oiz.6
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 05 Mar 2021 15:09:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=XrYODSIj7UXVI1uCbWVvuJ9MDvf1FusiVZYMMI3JkzE=;
- b=mncmmdCpy61dwBKzudJ/tEH3tawWmZ5uON/XNiiKcXSm/SLwNg2+kKstV01v6LK5P7
- 7Hi6Jey8//apQkSyghnVTqYTwr1Qa4ioWIpvrDDSMjW7kV79T0aRReghfZxR7iYtoONu
- P9BDAVlyYicb5ZjBFg8TICd3UcN/Jo+Hfkk22jMnQKQKoOKmmmn6jSq2p0/K8yfLFKxe
- 4l0/tllUxiINTwHUUjGx4FXeYvjIDH8az/2CoGzYoNNxmd+/Sxcj4/X0J/g3m9LLOyU5
- gioViL6xDaIv2U2aW0egvIt5ek9gtp4J6U+BY8y3wyapFDQvxOIWqEFcT7Yph503atCj
- cKtA==
-X-Gm-Message-State: AOAM530Krp/uSHp0IBohOAghkBK/l3Ss5M6mkltbeEXqsvKJRPtAoPpz
- FkiuN6UiR4FlvT303QxtQAfeHPIDJw==
-X-Google-Smtp-Source: ABdhPJxEV9cNQ+u/FV083e8uupzMrx3E3n1YaYFtT8S202fGkWxSE3FlaHA0lY05b966tc3KmXUmRA==
-X-Received: by 2002:aca:4587:: with SMTP id s129mr8889344oia.133.1614985782649; 
- Fri, 05 Mar 2021 15:09:42 -0800 (PST)
-Received: from robh.at.kernel.org (24-155-109-49.dyn.grandenetworks.net.
- [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id r13sm853187oot.41.2021.03.05.15.09.40
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 05 Mar 2021 15:09:41 -0800 (PST)
-Received: (nullmailer pid 813032 invoked by uid 1000);
- Fri, 05 Mar 2021 23:09:40 -0000
-Date: Fri, 5 Mar 2021 17:09:40 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andrew Jeffery <andrew@aj.id.au>
-Message-ID: <20210305230940.GA809870@robh.at.kernel.org>
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1lJSN8-0002N0-UH
+ for openipmi-developer@lists.sourceforge.net; Tue, 09 Mar 2021 02:45:28 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+ by mailnew.nyi.internal (Postfix) with ESMTP id C9CE5580795;
+ Mon,  8 Mar 2021 21:45:14 -0500 (EST)
+Received: from imap2 ([10.202.2.52])
+ by compute3.internal (MEProxy); Mon, 08 Mar 2021 21:45:14 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=
+ mime-version:message-id:in-reply-to:references:date:from:to:cc
+ :subject:content-type; s=fm2; bh=qRybQhRN/O0nr4FGzlsF5grYQeYZu8u
+ crJLcVTZ+qd0=; b=QOXTD5AO8JgTi78Gox3qd+o0cQCodeaVASzuajwdav5Y2hC
+ 4avnt+mIqAteWzqQDJl9a+QBx+HWM83Gk8XIX3u3/8IoOxIpfAhVm0FteiFTDHU8
+ UwnYHebv1bSlVT/QLDChvmP7j9MwiX+8RFkMT4zCiclkKaUOimes4zpaPZa94zB7
+ BAu4JaRJB3JUe2FFr1s9ti6JN1lAbNCqTKBqSjZjKFnT5CkATt6/FEDBe1Fbe4gJ
+ D0U2yfwxYdj1M8DA7OVJ8w0HqvbaDOcrNGrDuwksoN/ZhLutauiUsz50QyJjeiYI
+ pceRzncgFai4/nRAJK/s+SQqGIgjF/NUaPhONoA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=qRybQh
+ RN/O0nr4FGzlsF5grYQeYZu8ucrJLcVTZ+qd0=; b=aDdpVZRzVu/fS0qCUO6nOt
+ oEgpCu/QYslFEzpsvzX7ndTe8eRiqTfW1+F4Fv5rSljjXczfv7nrbqAWr3zapAW0
+ OjefFWXSx9RK3x20MIrnZcNoti7tW/oJNtSA/IV7IGOQHDvleipPI09EiprnhU9o
+ kt5scxewJhaB6Qq51S97vCJklRMPZ9wqdCDkJp6r7hTpTZ25zNabBWCCaBJG9QKb
+ 9u6RelhaplCmdQf+JB8koj+J5GNSUsr4cXpmXqevWGEjrvMfmV3DRpgqVTIImVfo
+ ECd+27HzMXYje4l4PuXUIUPvFoestcAbxKMjRp5oAEw7dxy3qsvV9LfT+/Sh16IA
+ ==
+X-ME-Sender: <xms:OeFGYDnuPNqO225nJFIOksYE4N-W8_TT57d--pKiJK5IItujip51ng>
+ <xme:OeFGYG3AevxgNkp6GBMoCi17lsCIk0UfPd4Zb0S2-1acVmFRKmVe3pjedveEy_gHz
+ CwHMO254a3PIWOkOA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrudduhedggeeiucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepofgfggfkjghffffhvffutgesthdtredtreerjeenucfhrhhomhepfdetnhgu
+ rhgvficulfgvfhhfvghrhidfuceorghnughrvgifsegrjhdrihgurdgruheqnecuggftrf
+ grthhtvghrnhepuddttdekueeggedvtddtueekiedutdfguedutdefieeuteefieelteet
+ vddthfeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+ eprghnughrvgifsegrjhdrihgurdgruh
+X-ME-Proxy: <xmx:OeFGYJo0AqsS8xJQPVQeyVcw51jBuDXitZCYSpimI6GuXdKxDCpt9g>
+ <xmx:OeFGYLktDhp7hqaYr6namfV8BupM_mzss-zlC4J7CcD3HGisilXfhg>
+ <xmx:OeFGYB1y7aWjmsX_j2hoYnrsWZ1vIeNG-hTGQDkdrPZnB18ZfhWOxQ>
+ <xmx:OuFGYLM4Nh9o6VssFPquDGq2opK0-qo-dL8LHWiAIMvmBVsXSXAgUg>
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+ id 45659A00064; Mon,  8 Mar 2021 21:45:13 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.5.0-alpha0-206-g078a48fda5-fm-20210226.001-g078a48fd
+Mime-Version: 1.0
+Message-Id: <331c242b-cf22-4d0e-a08c-b9dbb06f2f32@www.fastmail.com>
+In-Reply-To: <20210305230940.GA809870@robh.at.kernel.org>
 References: <20210219142523.3464540-1-andrew@aj.id.au>
  <20210219142523.3464540-18-andrew@aj.id.au>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210219142523.3464540-18-andrew@aj.id.au>
-X-Spam-Score: 0.8 (/)
+ <20210305230940.GA809870@robh.at.kernel.org>
+Date: Tue, 09 Mar 2021 13:14:52 +1030
+From: "Andrew Jeffery" <andrew@aj.id.au>
+To: "Rob Herring" <robh@kernel.org>
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: aj.id.au]
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (robherring2[at]gmail.com)
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends in
- digit (robherring2[at]gmail.com)
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.171 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.167.171 listed in list.dnswl.org]
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
-X-Headers-End: 1lIJZs-0002Rn-7O
-Subject: Re: [Openipmi-developer] [PATCH 17/19] dt-bindings: ipmi: Add
- optional SerIRQ property to ASPEED KCS devices
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+X-Headers-End: 1lJSN8-0002N0-UH
+Subject: Re: [Openipmi-developer] 
+ =?utf-8?q?=5BPATCH_17/19=5D_dt-bindings=3A_?=
+ =?utf-8?q?ipmi=3A_Add_optional_SerIRQ_property_to_ASPEED_KCS_devices?=
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -108,70 +120,53 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree@vger.kernel.org, chiawei_wang@aspeedtech.com,
- tmaimon77@gmail.com, minyard@acm.org, linux-gpio@vger.kernel.org,
- avifishman70@gmail.com, venture@google.com, openbmc@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, tali.perry1@gmail.com, yuenn@google.com,
- linux-aspeed@lists.ozlabs.org, openipmi-developer@lists.sourceforge.net,
- lee.jones@linaro.org, linus.walleij@linaro.org,
- linux-arm-kernel@lists.infradead.org, benjaminfair@google.com
+Cc: devicetree@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>,
+ Tomer Maimon <tmaimon77@gmail.com>, Corey Minyard <minyard@acm.org>,
+ Avi Fishman <avifishman70@gmail.com>, Patrick Venture <venture@google.com>,
+ "Chia-Wei, Wang" <chiawei_wang@aspeedtech.com>, linux-kernel@vger.kernel.org,
+ Tali Perry <tali.perry1@gmail.com>, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, openipmi-developer@lists.sourceforge.net,
+ Lee Jones <lee.jones@linaro.org>, openbmc@lists.ozlabs.org,
+ linux-aspeed@lists.ozlabs.org, Benjamin Fair <benjaminfair@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Sat, Feb 20, 2021 at 12:55:21AM +1030, Andrew Jeffery wrote:
-> Allocating IO and IRQ resources to LPC devices is in-theory an operation
-> for the host, however ASPEED don't appear to expose this capability
-> outside the BMC (e.g. SuperIO). Instead, we are left with BMC-internal
-> registers for managing these resources, so introduce a devicetree
-> property for KCS devices to describe SerIRQ properties.
-> 
-> Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
-> ---
->  .../bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml      | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
-> index 1c1cc4265948..808475a2c2ca 100644
-> --- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
-> +++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
-> @@ -47,6 +47,18 @@ properties:
->        channels the status address is derived from the data address, but the
->        status address may be optionally provided.
->  
-> +  aspeed,lpc-interrupts:
-> +    $ref: "/schemas/types.yaml#/definitions/uint32-matrix"
-> +    minItems: 1
-> +    maxItems: 1
-> +    description: |
-> +      A 2-cell property expressing the LPC SerIRQ number and the interrupt
-> +      level/sense encoding (specified in the standard fashion).
 
-That would be uint32-array with 'maxItems: 2'.
 
-> +
-> +      Note that the generated interrupt is issued from the BMC to the host, and
-> +      thus the target interrupt controller is not captured by the BMC's
-> +      devicetree.
-> +
->    kcs_chan:
->      deprecated: true
->      $ref: '/schemas/types.yaml#/definitions/uint32'
-> @@ -84,9 +96,11 @@ allOf:
->  
->  examples:
->    - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
->      kcs3: kcs@24 {
->          compatible = "aspeed,ast2600-kcs-bmc";
->          reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
->          aspeed,lpc-io-reg = <0xca2>;
-> +        aspeed,lpc-interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
->          interrupts = <8>;
->      };
-> -- 
-> 2.27.0
+On Sat, 6 Mar 2021, at 09:39, Rob Herring wrote:
+> On Sat, Feb 20, 2021 at 12:55:21AM +1030, Andrew Jeffery wrote:
+> > Allocating IO and IRQ resources to LPC devices is in-theory an operation
+> > for the host, however ASPEED don't appear to expose this capability
+> > outside the BMC (e.g. SuperIO). Instead, we are left with BMC-internal
+> > registers for managing these resources, so introduce a devicetree
+> > property for KCS devices to describe SerIRQ properties.
+> > 
+> > Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
+> > ---
+> >  .../bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml      | 14 ++++++++++++++
+> >  1 file changed, 14 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
+> > index 1c1cc4265948..808475a2c2ca 100644
+> > --- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
+> > +++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
+> > @@ -47,6 +47,18 @@ properties:
+> >        channels the status address is derived from the data address, but the
+> >        status address may be optionally provided.
+> >  
+> > +  aspeed,lpc-interrupts:
+> > +    $ref: "/schemas/types.yaml#/definitions/uint32-matrix"
+> > +    minItems: 1
+> > +    maxItems: 1
+> > +    description: |
+> > +      A 2-cell property expressing the LPC SerIRQ number and the interrupt
+> > +      level/sense encoding (specified in the standard fashion).
 > 
+> That would be uint32-array with 'maxItems: 2'.
+> 
+
+Ah, thanks.
 
 
 _______________________________________________
