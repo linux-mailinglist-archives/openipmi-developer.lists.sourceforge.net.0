@@ -2,16 +2,16 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CD86A3415A4
-	for <lists+openipmi-developer@lfdr.de>; Fri, 19 Mar 2021 07:30:32 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 571023415B6
+	for <lists+openipmi-developer@lfdr.de>; Fri, 19 Mar 2021 07:30:58 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lN8eU-0008Dx-CI; Fri, 19 Mar 2021 06:30:30 +0000
+	id 1lN8ei-0006Eg-GF; Fri, 19 Mar 2021 06:30:51 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <andrew@aj.id.au>) id 1lN8eT-0008Dn-6c
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ (envelope-from <andrew@aj.id.au>) id 1lN8eO-0006Du-TD
  for openipmi-developer@lists.sourceforge.net; Fri, 19 Mar 2021 06:30:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
@@ -19,9 +19,9 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=oezH8d9IZwsC6Zot9Yj8OXXCheexp/7uKg5VoRs1yuA=; b=d95bPOgBL34LXnwGNivWi1OoWf
- H6wFIDaWyR2ZDPx5sPKKD23zxMXuZWcYzv1QcYdcXA2AY8UBnoHx9lgd+mPSsBQFs3jYc0XUZcou3
- nMak42sY46J+LOwCTV2z9BxeYtN0E/jqVxOUa0xf7dHbdRuYlF8JpRKi5WylQfIrV+mQ=;
+ bh=5oH72UxBPItkLoFd6WxftMKWTkqg+oELaFqx3t9Isv4=; b=CwCz9I9uAImUhxUuX7y0qZ7s5U
+ SMy5tTxmKMqDBfwVPrwqh2b0V3Dtz8AuTTxmhZD3/SkaJ+qx7nKH30w6e8n0EjdelCMmk5bLut0jZ
+ i37TOUYnKvyxZPGEhXvlH0o2A/vlLIoKvhdLKh7Qn6qth5mSXCkicsuPzgnTtTC0KvUM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,63 +29,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=oezH8d9IZwsC6Zot9Yj8OXXCheexp/7uKg5VoRs1yuA=; b=V9QYsELe4U83YnHFgvqhLMNyb/
- 1k8EEmZuKmCdcsuS0FoD7AiOxnFPVpIoPUdposjz9a8910jdCWNEybzZABWk9OtaoVhWeO7p3Kclo
- Aa+G2rmZg7ATiZwcpZA8DL+8Iw8JpVlnYyWBX6oJLUOHySJvP0C5gwuEC2fI4iCJLX7M=;
+ bh=5oH72UxBPItkLoFd6WxftMKWTkqg+oELaFqx3t9Isv4=; b=XMAHDXpzje7Ga5suOpinrYozHO
+ IMvz7cbOjnPQ/aMRYxHgjnDLYNnD7dn1fH7hDtma1URmAyYu/o1Z/30T4+LyNX+ae8xEpTlxbMcr5
+ 9IIFOhN1AiBQhVvuGKnMn6iJxWcDXMFy+HwPW26ty6EabpHcnJ5WnfdyAjoefz50tVss=;
 Received: from new4-smtp.messagingengine.com ([66.111.4.230])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1lN8eO-0004a0-H6
- for openipmi-developer@lists.sourceforge.net; Fri, 19 Mar 2021 06:30:29 +0000
+ id 1lN8e6-0004Yp-IB
+ for openipmi-developer@lists.sourceforge.net; Fri, 19 Mar 2021 06:30:17 +0000
 Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
- by mailnew.nyi.internal (Postfix) with ESMTP id 0103C580A7C;
- Fri, 19 Mar 2021 02:30:19 -0400 (EDT)
+ by mailnew.nyi.internal (Postfix) with ESMTP id 09A5E580A82;
+ Fri, 19 Mar 2021 02:30:01 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
- by compute3.internal (MEProxy); Fri, 19 Mar 2021 02:30:19 -0400
+ by compute3.internal (MEProxy); Fri, 19 Mar 2021 02:30:01 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=from
  :to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding; s=fm2; bh=oezH8d9IZwsC6
- Zot9Yj8OXXCheexp/7uKg5VoRs1yuA=; b=sJveB98kLtGHnIDcqCzg5OGrboV4I
- QOaVUYvRlnY3prqLVUiLO+2dbZ4Vd2i+euB2HLVzlyEO6BqQbIJmDRghzmInTXnv
- BikE9VczGoJ8KRNRnlK7Qvowm3uoVL3KDPYFEAHd6+JFWRruFFQGW7WBdceYUvA+
- xwx5CGwGxEU8X3nHMealxGLtyI/LnTuVOiJxDyIVQRE1xE88FVcKc9ln+THsH2ll
- hpFDS1ATTPVIaNtrWczwJtQPmG6JlyZq8f+Pje4GJUzyHUGPskZcdU9ZXq4GHxgm
- Xbnb3jPDqcp6S+PHK6AZohYMnGsqnbQR9j9XEIW66rqKPhEHHBuEv1gMg==
+ :mime-version:content-transfer-encoding; s=fm2; bh=5oH72UxBPItkL
+ oFd6WxftMKWTkqg+oELaFqx3t9Isv4=; b=pLi8bbgzq0NFo60Xqb1DadiWgiMls
+ Pb/V3jQk6WETOMg75ytPqsfh2mVvyUBbopCOUNqDSuzgSMl+KoLEhxiHCjegk5zM
+ j8/Z1jI2CWansfOmHKshN6INyUlihKbvPaZXb9GJdnQ/G8NADL9VlyqbklDy0jMy
+ CCllKEVFdIPL5bkQBKw3lTS0fZjNFReFLJPiN+LyefmkNbW6maLSOrOomUCbdWyG
+ cb8ERlp8SK/W16HrTCNCI9mB/Iyzr/s0FUAY/FgRgJxeOU2ZgmExixEE/2P4/Xiz
+ FxtSKXHT28+UkGdDhZEslhL3J8JU0mUUlUHX+5SEUVnEJYSbe7at8resA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:content-transfer-encoding:date:from
  :in-reply-to:message-id:mime-version:references:subject:to
  :x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
- fm2; bh=oezH8d9IZwsC6Zot9Yj8OXXCheexp/7uKg5VoRs1yuA=; b=TP7Ee5/k
- 6akEI5Ra2r2ZM8aJc/WQelxqtmzblxHkl8eKKrumx/Qyd3S14Xu5ssLWhtYnLcI3
- ZFEi/Xm6Qarn/mxmApSk5kznwItcYlM1JLptaho5o/S42XXQZ6fi66BG0SpDm/Fs
- 8ZR6Tm8eeZ8Q3pFE6gyMz+XwdTuMgvmAUzFQwD470AcUwoPXDP1Ua8x9Hfkw0fdv
- qUjhRuwrBg6LzvfWc9i/fV3+msgeJMQyxwRsnU9M5zzZuk2w9glYMxa0v7IPwXGm
- bF7GFNfSFhJrOl0xToDqju3XoArKAzmhOzFQfi8eehZ14nICZQbFtdLuhXT3EDrz
- FcyhsOvTRpLtbg==
-X-ME-Sender: <xms:-kRUYD6TkD3wpKYOK4UjFbytt7Oz9-zwK_fnaLKFnPBqEsC_egf2EA>
- <xme:-kRUYI6B9uNVGKm0ORSM2YQYSfmCYBPeqxmrM_Yw2UAeAfjEWl46P8N_sochlsmil
- DUcETj0V31jpfhcRw>
+ fm2; bh=5oH72UxBPItkLoFd6WxftMKWTkqg+oELaFqx3t9Isv4=; b=FdRKCSBx
+ Eahm0Ck+tyEfJ5SLdBOsRsYs+hKCUAVOPIfRWYgOWeP7dWWy8NKkiGq0VPsnxtVX
+ IG9r92So6Biv8DXhzG9Xmuh0t226GKATX8C8GnFCBH7iUAw41EiDjArWJW45pLGY
+ j36t8Qao3rykRrRXqr/QIGae8tQ1OO8Gs2zyY/GWxqa+w2KlEMWvZjtAOkr3pn/k
+ xc632J6cF8gpQAnaSlr1OJB3+d5YVI1YdmDqXz4GqyxgEXeqROYt34518pkYX9Zb
+ 73crvzj4qx5sqT88mRV6nExs7DHfjH1qHF6JK/jC4VZbm9BUjn9VtzJvKW45bZbc
+ nw69al8hM1t/Dw==
+X-ME-Sender: <xms:6ERUYHpblTfYAGoT3zAe9FhU9ivCd9cXszp5wdmarVFL8fmeNjeHYg>
+ <xme:6ERUYBqrNUMvO6CbVUBtED2VLnPn5JN_SqouxWhYSSZrysVDxx_e8iWa7wZwORkrP
+ 5zz0P8le_3zPLQcNQ>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrudefjedgleeiucetufdoteggodetrfdotf
  fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
  uceurghilhhouhhtmecufedttdenucenucfjughrpefhvffufffkofgjfhgggfestdekre
  dtredttdenucfhrhhomheptehnughrvgifucflvghffhgvrhihuceorghnughrvgifsegr
- jhdrihgurdgruheqnecuggftrfgrthhtvghrnhepjefgvdevheetkeevgeegleelgfelte
- etjeffleffvdduudevieffgeetleevhfetnecukfhppeduudekrddvuddtrddukedurdeh
- heenucevlhhushhtvghrufhiiigvpeeknecurfgrrhgrmhepmhgrihhlfhhrohhmpegrnh
- gurhgvfiesrghjrdhiugdrrghu
-X-ME-Proxy: <xmx:-kRUYKcVoxKihyjx_sHTnTXG1BrEUUa89ZkTWMwLth_hk3inKOzpKg>
- <xmx:-kRUYEKuu4HxUXux_akhkw467FfXI-s_YzZgOEwFyV67kIAGBVPoGg>
- <xmx:-kRUYHJClPgqZcNW9x4VprJh5CcIPHu7NSgWe0PcBG5kmhgPcuyqjA>
- <xmx:-kRUYA5P9idgkrOVTPhuHvlSewT_3O9NwW_7KzuOUethPTOoilWnUw>
+ jhdrihgurdgruheqnecuggftrfgrthhtvghrnhepleeuvdevtdfggfeggffgueegvefghf
+ ejfeeitddvhedvhfetffetffefiefhvedvnecuffhomhgrihhnpeguvghvihgtvghtrhgv
+ vgdrohhrghenucfkphepuddukedrvddutddrudekuddrheehnecuvehluhhsthgvrhfuih
+ iivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghnughrvgifsegrjhdrihgurdgr
+ uh
+X-ME-Proxy: <xmx:6ERUYEOO6xTVtpjCCrypItKwnHNPI6XUMWojnBbb4RJKP35BJSxtgg>
+ <xmx:6ERUYK4www73o6y44TCFqaWlZfs1Puqc0WMA153pLGF4XPPnVZaNGA>
+ <xmx:6ERUYG7Sg6fHOyb4IZp3cz3yZUHz1pb8N0eFvk7uBrrN9rnJerl7JA>
+ <xmx:6URUYCr-buEXlZ4_LbPW4jY--HSAE4cjmGrB73ORkqLjwGwyZzm5Fg>
 Received: from localhost.localdomain
  (ppp118-210-181-55.adl-adc-lon-bras34.tpg.internode.on.net [118.210.181.55])
- by mail.messagingengine.com (Postfix) with ESMTPA id 64A3C24005E;
- Fri, 19 Mar 2021 02:30:13 -0400 (EDT)
+ by mail.messagingengine.com (Postfix) with ESMTPA id 720E0240057;
+ Fri, 19 Mar 2021 02:29:55 -0400 (EDT)
 From: Andrew Jeffery <andrew@aj.id.au>
 To: openipmi-developer@lists.sourceforge.net, openbmc@lists.ozlabs.org,
  minyard@acm.org
-Date: Fri, 19 Mar 2021 16:57:51 +1030
-Message-Id: <20210319062752.145730-20-andrew@aj.id.au>
+Date: Fri, 19 Mar 2021 16:57:48 +1030
+Message-Id: <20210319062752.145730-17-andrew@aj.id.au>
 X-Mailer: git-send-email 2.27.0
 In-Reply-To: <20210319062752.145730-1-andrew@aj.id.au>
 References: <20210319062752.145730-1-andrew@aj.id.au>
@@ -98,15 +99,15 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: aj.id.au]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1lN8eO-0004a0-H6
-Subject: [Openipmi-developer] [PATCH v2 20/21] ipmi: kcs_bmc_aspeed: Fix
- IBFIE typo from datasheet
+X-Headers-End: 1lN8e6-0004Yp-IB
+Subject: [Openipmi-developer] [PATCH v2 17/21] dt-bindings: ipmi: Convert
+ ASPEED KCS binding to schema
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -129,69 +130,156 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Input Buffer Full Interrupt Enable (IBFIE) is typoed as IBFIF for some
-registers in the datasheet. Fix the driver to use the sensible acronym.
+Given the deprecated binding, improve the ability to detect issues in
+the platform devicetrees. Further, a subsequent patch will introduce a
+new interrupts property for specifying SerIRQ behaviour, so convert
+before we do any further additions.
 
 Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
 ---
- drivers/char/ipmi/kcs_bmc_aspeed.c | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ .../bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml | 92 +++++++++++++++++++
+ .../bindings/ipmi/aspeed-kcs-bmc.txt          | 33 -------
+ 2 files changed, 92 insertions(+), 33 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
+ delete mode 100644 Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt
 
-diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
-index 3782aef4eb73..7334b1f51dcc 100644
---- a/drivers/char/ipmi/kcs_bmc_aspeed.c
-+++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
-@@ -50,9 +50,9 @@
- #define     LPC_HICR0_LPC2E          BIT(6)
- #define     LPC_HICR0_LPC1E          BIT(5)
- #define LPC_HICR2            0x008
--#define     LPC_HICR2_IBFIF3         BIT(3)
--#define     LPC_HICR2_IBFIF2         BIT(2)
--#define     LPC_HICR2_IBFIF1         BIT(1)
-+#define     LPC_HICR2_IBFIE3         BIT(3)
-+#define     LPC_HICR2_IBFIE2         BIT(2)
-+#define     LPC_HICR2_IBFIE1         BIT(1)
- #define LPC_HICR4            0x010
- #define     LPC_HICR4_LADR12AS       BIT(7)
- #define     LPC_HICR4_KCSENBL        BIT(2)
-@@ -83,7 +83,7 @@
- #define LPC_STR2             0x040
- #define LPC_STR3             0x044
- #define LPC_HICRB            0x100
--#define     LPC_HICRB_IBFIF4         BIT(1)
-+#define     LPC_HICRB_IBFIE4         BIT(1)
- #define     LPC_HICRB_LPC4E          BIT(0)
- #define LPC_HICRC            0x104
- #define     LPC_HICRC_ID4IRQX_MASK   GENMASK(7, 4)
-@@ -383,20 +383,20 @@ static void aspeed_kcs_irq_mask_update(struct kcs_bmc_device *kcs_bmc, u8 mask,
- 
- 		switch (kcs_bmc->channel) {
- 		case 1:
--			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIF1,
--					   enable * LPC_HICR2_IBFIF1);
-+			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIE1,
-+					   enable * LPC_HICR2_IBFIE1);
- 			return;
- 		case 2:
--			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIF2,
--					   enable * LPC_HICR2_IBFIF2);
-+			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIE2,
-+					   enable * LPC_HICR2_IBFIE2);
- 			return;
- 		case 3:
--			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIF3,
--					   enable * LPC_HICR2_IBFIF3);
-+			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIE3,
-+					   enable * LPC_HICR2_IBFIE3);
- 			return;
- 		case 4:
--			regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_IBFIF4,
--					   enable * LPC_HICRB_IBFIF4);
-+			regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_IBFIE4,
-+					   enable * LPC_HICRB_IBFIE4);
- 			return;
- 		default:
- 			pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
+diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
+new file mode 100644
+index 000000000000..697ca575454f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
+@@ -0,0 +1,92 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED BMC KCS Devices
++
++maintainers:
++  - Andrew Jeffery <andrew@aj.id.au>
++
++description: |
++  The Aspeed BMC SoCs typically use the Keyboard-Controller-Style (KCS)
++  interfaces on the LPC bus for in-band IPMI communication with their host.
++
++properties:
++  compatible:
++    oneOf:
++      - description: Channel ID derived from reg
++        items:
++          enum:
++            - aspeed,ast2400-kcs-bmc-v2
++            - aspeed,ast2500-kcs-bmc-v2
++            - aspeed,ast2600-kcs-bmc
++
++      - description: Old-style with explicit channel ID, no reg
++        deprecated: true
++        items:
++          enum:
++            - aspeed,ast2400-kcs-bmc
++            - aspeed,ast2500-kcs-bmc
++
++  interrupts:
++    maxItems: 1
++
++  reg:
++    # maxItems: 3
++    items:
++      - description: IDR register
++      - description: ODR register
++      - description: STR register
++
++  aspeed,lpc-io-reg:
++    $ref: '/schemas/types.yaml#/definitions/uint32-array'
++    minItems: 1
++    maxItems: 2
++    description: |
++      The host CPU LPC IO data and status addresses for the device. For most
++      channels the status address is derived from the data address, but the
++      status address may be optionally provided.
++
++  kcs_chan:
++    deprecated: true
++    $ref: '/schemas/types.yaml#/definitions/uint32'
++    description: The LPC channel number in the controller
++
++  kcs_addr:
++    deprecated: true
++    $ref: '/schemas/types.yaml#/definitions/uint32'
++    description: The host CPU IO map address
++
++required:
++  - compatible
++  - interrupts
++
++additionalProperties: false
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - aspeed,ast2400-kcs-bmc
++              - aspeed,ast2500-kcs-bmc
++    then:
++      required:
++        - kcs_chan
++        - kcs_addr
++    else:
++      required:
++        - reg
++        - aspeed,lpc-io-reg
++
++examples:
++  - |
++    kcs3: kcs@24 {
++        compatible = "aspeed,ast2600-kcs-bmc";
++        reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
++        aspeed,lpc-io-reg = <0xca2>;
++        interrupts = <8>;
++    };
+diff --git a/Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt b/Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt
+deleted file mode 100644
+index 193e71ca96b0..000000000000
+--- a/Documentation/devicetree/bindings/ipmi/aspeed-kcs-bmc.txt
++++ /dev/null
+@@ -1,33 +0,0 @@
+-# Aspeed KCS (Keyboard Controller Style) IPMI interface
+-
+-The Aspeed SOCs (AST2400 and AST2500) are commonly used as BMCs
+-(Baseboard Management Controllers) and the KCS interface can be
+-used to perform in-band IPMI communication with their host.
+-
+-## v1
+-Required properties:
+-- compatible : should be one of
+-    "aspeed,ast2400-kcs-bmc"
+-    "aspeed,ast2500-kcs-bmc"
+-- interrupts : interrupt generated by the controller
+-- kcs_chan : The LPC channel number in the controller
+-- kcs_addr : The host CPU IO map address
+-
+-## v2
+-Required properties:
+-- compatible : should be one of
+-    "aspeed,ast2400-kcs-bmc-v2"
+-    "aspeed,ast2500-kcs-bmc-v2"
+-- reg : The address and size of the IDR, ODR and STR registers
+-- interrupts : interrupt generated by the controller
+-- aspeed,lpc-io-reg : The host CPU LPC IO address for the device
+-
+-Example:
+-
+-    kcs3: kcs@24 {
+-        compatible = "aspeed,ast2500-kcs-bmc-v2";
+-        reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
+-        aspeed,lpc-reg = <0xca2>;
+-        interrupts = <8>;
+-        status = "okay";
+-    };
 -- 
 2.27.0
 
