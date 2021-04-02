@@ -2,78 +2,103 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 55F35352AC2
-	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Apr 2021 14:44:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 34F02352B1A
+	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Apr 2021 15:46:48 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lSJAE-0001eo-Ph; Fri, 02 Apr 2021 12:44:38 +0000
+	id 1lSK8J-0003eV-SB; Fri, 02 Apr 2021 13:46:43 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <pza@pengutronix.de>) id 1lSIuD-0002u3-Hm
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 12:28:05 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1lSK8G-0003dT-Uf
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 13:46:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=U4gxWfN7RjMVM5AzR3HWa8R+7ItDHftZDRl6noH+hL0=; b=I3UKJSc1uX8i9tMsNylzce0iLL
- gqniHyMV+J6g82jLA7o7SiFNSySnEJMf5duXPAy9IuLlFhldutf24zvoSQExJtHgLvpqbm2PGEwRb
- RgEx5wQ9xVb2ws9N0+98tX+onwpy3+NQgBBQ1tYJ1zGHLSYDkttd6ppA+vIqPPsy0wQA=;
+ bh=ADNosmB7KqYRCGME6xSqXcXbOymz1SCXHTBXbg7niS0=; b=b10Gr63j5mUe7m7la0+eVlMLgC
+ JeQdC4CqM8/5vVYA6wcohWvpQ+khvxBBlk6gHPhQf5JBamRSLZboxIXD+Ef7UfCQj2Td0+exZ9jgb
+ 6oE8BZ6ftBGaUsTh19TlyXmtPN+SgWTkWb75In+yy8SLmdB5lGJKErao+66aE7nM+qBk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=U4gxWfN7RjMVM5AzR3HWa8R+7ItDHftZDRl6noH+hL0=; b=DKdBaGcLuN0eHjpX5nEz4XNQ8b
- f0IsnkeRuW08vIDIHNXJHgnWC1iawyXYGhNpMEzFv9f1mhvuLyVy5DJNDwD/HxwbjGdQALwARmx4I
- GZ+txkcMTKePRSjIJ5z7kfaQYY3pY59czDInCnKKrvG6o1hUUF4bN6K7q8OAaKW25S28=;
-Received: from metis.ext.pengutronix.de ([85.220.165.71])
+ bh=ADNosmB7KqYRCGME6xSqXcXbOymz1SCXHTBXbg7niS0=; b=DaTxVMV5qzN82StArtWHCojP5s
+ KUwQZuectePP2vh7GhG0cxiBv6JVIcolc7P6lD6C3++mrIi1tckB+Y6ZwVdgGnYV8f2OqXVmSFcBH
+ 2Aw0k7OdUdXeeGuZPKaCldRjeHcE0s/U7febY/rcmFoMtrjr7f3XHaYKD98UWZN566mc=;
+Received: from mail-oi1-f175.google.com ([209.85.167.175])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1lSIln-006jMF-Pz
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 12:19:46 +0000
-Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <pza@pengutronix.de>)
- id 1lSIUg-0007y7-6w; Fri, 02 Apr 2021 14:01:42 +0200
-Received: from pza by ptx.hi.pengutronix.de with local (Exim 4.92)
- (envelope-from <pza@pengutronix.de>)
- id 1lSIUb-0007gY-Hi; Fri, 02 Apr 2021 14:01:37 +0200
-Date: Fri, 2 Apr 2021 14:01:37 +0200
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Quan Nguyen <quan@os.amperecomputing.com>
-Message-ID: <20210402120137.GA26002@pengutronix.de>
-References: <20210330141029.20412-1-quan@os.amperecomputing.com>
- <20210330141029.20412-3-quan@os.amperecomputing.com>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
+ id 1lSK7f-006y6A-Oc
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 13:46:39 +0000
+Received: by mail-oi1-f175.google.com with SMTP id m13so4967235oiw.13
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 02 Apr 2021 06:46:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:reply-to:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=ADNosmB7KqYRCGME6xSqXcXbOymz1SCXHTBXbg7niS0=;
+ b=NB8vLhzIbb5iqa4PaD/2cCkxUYSLlZ/gObM+9XAbLTnK2ujaEMV/lZoRiG62bpwU9X
+ Oj8xvWweuAjLIgpglsHVtdMu25RLNubcvr3iVj1bh+WUTcayG15+gRXj28cWlXuYnc9Q
+ UfCjEQ/3LOmwhPLCZcPj5OeMnYA87c7zFAQTYADvI8+FZyKSDEf/laKkPiU0j3r9cBEn
+ MQfrR69kcycazMF+QzsMTU8RpU7bmNFm8GAgt2I/15BVSDAuOVflUntbZGHu15WkIv9F
+ PVtXdNIJLmVO08+AwzmnVxqXF3zaSvJGJvkPdCkNkb/rB0K7H4TC3QlpS7JY1QoTRvS7
+ LZ0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :reply-to:references:mime-version:content-disposition:in-reply-to;
+ bh=ADNosmB7KqYRCGME6xSqXcXbOymz1SCXHTBXbg7niS0=;
+ b=PnbnvIx1R6jMOyexoYUavLybvyI7udO06Pth9FMrzvF+VKCus4tsQ6ltH0f4YQz3++
+ KGMhjoHyUSwaUgPk0KzgwBRp5nbBPfJEbHgl7EGGK7Z9FDG6t5qFSaEvrr4raKlWVC6K
+ Y720ieq7hTKzLtMSAeEECncVsF7NKnI8y9Uoj4UGvEc2QXnIVO1+BS//FX3BEca4o5d/
+ jg+nIDnSA488jx7syRtX8FqgGSSPZwM+qhmgvpR3plBiJkdy3rv2zCS6urZh+/ujW6XL
+ wtxuovmUwIEcscHZBESr0Md4555dX4fdELEN0jIlzuaIapqZ18fGAsPURC2++ezPcofU
+ X9jA==
+X-Gm-Message-State: AOAM5321KJmolLEUuUYP0oKBndXo2Exng6GzhrmSqsn32MRnyLfZBJpv
+ vPqzAk8pIF9ets0M7RTn0w==
+X-Google-Smtp-Source: ABdhPJy5x6lVCyoXhsF3MC6WUGa30ePxVN63d+FDsLnKibf7aDKgFTI00f4/E4t2Li1pAuRB+NPfLA==
+X-Received: by 2002:aca:2106:: with SMTP id 6mr9858857oiz.150.1617371158022;
+ Fri, 02 Apr 2021 06:45:58 -0700 (PDT)
+Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
+ by smtp.gmail.com with ESMTPSA id n6sm1747174oop.48.2021.04.02.06.45.57
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 02 Apr 2021 06:45:57 -0700 (PDT)
+Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:f99f:823a:495e:5af])
+ by serve.minyard.net (Postfix) with ESMTPSA id 4F029180570;
+ Fri,  2 Apr 2021 13:45:56 +0000 (UTC)
+Date: Fri, 2 Apr 2021 08:45:55 -0500
+From: Corey Minyard <minyard@acm.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Message-ID: <20210402134555.GR507977@minyard.net>
+References: <20210330181649.66496-1-andriy.shevchenko@linux.intel.com>
+ <20210330181649.66496-3-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210330141029.20412-3-quan@os.amperecomputing.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-IRC: #ptxdist @freenode
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-Uptime: 13:57:27 up 43 days, 15:21, 66 users,  load average: 0.04, 0.10, 0.09
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
-X-SA-Exim-Mail-From: pza@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: openipmi-developer@lists.sourceforge.net
-X-Spam-Score: 0.0 (/)
+In-Reply-To: <20210330181649.66496-3-andriy.shevchenko@linux.intel.com>
+X-Spam-Score: 0.3 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (tcminyard[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.175 listed in wl.mailspike.net]
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: intel.com]
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lSIln-006jMF-Pz
-X-Mailman-Approved-At: Fri, 02 Apr 2021 12:44:37 +0000
-Subject: Re: [Openipmi-developer] [PATCH v2 2/3] drivers: char: ipmi: Add
- Aspeed SSIF BMC driver
+X-Headers-End: 1lSK7f-006y6A-Oc
+Subject: Re: [Openipmi-developer] [PATCH v1 03/10] ipmi_si: Utilize
+ temporary variable to hold device pointer
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -86,81 +111,95 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
- Corey Minyard <minyard@acm.org>, Andrew Jeffery <andrew@aj.id.au>,
- openbmc@lists.ozlabs.org, "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
- linux-kernel@vger.kernel.org, Phong Vo <phong@os.amperecomputing.com>,
- Wolfram Sang <wsa@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- openipmi-developer@lists.sourceforge.net,
- Open Source Submission <patches@amperecomputing.com>,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org
+Reply-To: minyard@acm.org
+Cc: Corey Minyard <cminyard@mvista.com>,
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi Quan,
+On Tue, Mar 30, 2021 at 09:16:42PM +0300, Andy Shevchenko wrote:
+> By one of the previous clean up change we got a temporary variable to hold
+> a device pointer. It can be utilized in other calls in the ->probe() and
+> save a bit of LOCs.
 
-On Tue, Mar 30, 2021 at 09:10:28PM +0700, Quan Nguyen wrote:
-> The SMBus system interface (SSIF) IPMI BMC driver can be used to perform
-> in-band IPMI communication with their host in management (BMC) side.
+The description here isn't accurate, there is no previous change where a
+temporary variable comes in.  This change adds the temporary variable.
+
+This change is ok, but doesn't add much value.
+
+-corey
+
 > 
-> This commits adds support specifically for Aspeed AST2500 which commonly
-> used as Board Management Controllers.
-> 
-> Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > ---
-[...]
-> diff --git a/drivers/char/ipmi/ssif_bmc_aspeed.c b/drivers/char/ipmi/ssif_bmc_aspeed.c
-> new file mode 100644
-> index 000000000000..a563fcff5acc
-> --- /dev/null
-> +++ b/drivers/char/ipmi/ssif_bmc_aspeed.c
-> @@ -0,0 +1,132 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * The driver for BMC side of Aspeed SSIF interface
-> + *
-> + * Copyright (c) 2021, Ampere Computing LLC
-> + *
-> + * This program is free software; you can redistribute it and/or
-> + * modify it under the terms of the GNU General Public License as
-> + * published by the Free Software Foundation; either version 2 of
-> + * the License, or (at your option) any later version.
-> + *
-> + * This program is distributed in the hope that it will be useful,
-> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> + * GNU General Public License for more details.
-> + *
-> + * You should have received a copy of the GNU General Public License
-> + * along with this program.  If not, see <https://www.gnu.org/licenses/>.
-> + */
-> +
-> +#include <linux/i2c.h>
-> +#include <linux/miscdevice.h>
-> +#include <linux/module.h>
-> +#include <linux/poll.h>
-> +#include <linux/iopoll.h>
-> +
-> +#include "ssif_bmc.h"
-> +
-> +struct aspeed_i2c_bus {
-> +	struct i2c_adapter              adap;
-> +	struct device                   *dev;
-
-This device handle is apparently unused.
-
-> +	void __iomem                    *base;
-> +	struct reset_control            *rst;
-
-This reset control handle is unused as well.
-
-> +	/* Synchronizes I/O mem access to base. */
-> +	spinlock_t                      lock;
-> +};
-
-regards
-Philipp
+>  drivers/char/ipmi/ipmi_si_platform.c | 15 +++++++--------
+>  1 file changed, 7 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_si_platform.c b/drivers/char/ipmi/ipmi_si_platform.c
+> index 009563073d30..954c297b459b 100644
+> --- a/drivers/char/ipmi/ipmi_si_platform.c
+> +++ b/drivers/char/ipmi/ipmi_si_platform.c
+> @@ -309,6 +309,7 @@ static int find_slave_address(struct si_sm_io *io, int slave_addr)
+>  
+>  static int acpi_ipmi_probe(struct platform_device *pdev)
+>  {
+> +	struct device *dev = &pdev->dev;
+>  	struct si_sm_io io;
+>  	acpi_handle handle;
+>  	acpi_status status;
+> @@ -318,21 +319,20 @@ static int acpi_ipmi_probe(struct platform_device *pdev)
+>  	if (!si_tryacpi)
+>  		return -ENODEV;
+>  
+> -	handle = ACPI_HANDLE(&pdev->dev);
+> +	handle = ACPI_HANDLE(dev);
+>  	if (!handle)
+>  		return -ENODEV;
+>  
+>  	memset(&io, 0, sizeof(io));
+>  	io.addr_source = SI_ACPI;
+> -	dev_info(&pdev->dev, "probing via ACPI\n");
+> +	dev_info(dev, "probing via ACPI\n");
+>  
+>  	io.addr_info.acpi_info.acpi_handle = handle;
+>  
+>  	/* _IFT tells us the interface type: KCS, BT, etc */
+>  	status = acpi_evaluate_integer(handle, "_IFT", NULL, &tmp);
+>  	if (ACPI_FAILURE(status)) {
+> -		dev_err(&pdev->dev,
+> -			"Could not find ACPI IPMI interface type\n");
+> +		dev_err(dev, "Could not find ACPI IPMI interface type\n");
+>  		return -EINVAL;
+>  	}
+>  
+> @@ -349,10 +349,11 @@ static int acpi_ipmi_probe(struct platform_device *pdev)
+>  	case 4: /* SSIF, just ignore */
+>  		return -ENODEV;
+>  	default:
+> -		dev_info(&pdev->dev, "unknown IPMI type %lld\n", tmp);
+> +		dev_info(dev, "unknown IPMI type %lld\n", tmp);
+>  		return -EINVAL;
+>  	}
+>  
+> +	io.dev = dev;
+>  	io.regsize = DEFAULT_REGSIZE;
+>  	io.regshift = 0;
+>  
+> @@ -376,9 +377,7 @@ static int acpi_ipmi_probe(struct platform_device *pdev)
+>  
+>  	io.slave_addr = find_slave_address(&io, io.slave_addr);
+>  
+> -	io.dev = &pdev->dev;
+> -
+> -	dev_info(io.dev, "%pR regsize %d spacing %d irq %d\n",
+> +	dev_info(dev, "%pR regsize %d spacing %d irq %d\n",
+>  		 res, io.regsize, io.regspacing, io.irq);
+>  
+>  	request_module("acpi_ipmi");
+> -- 
+> 2.30.2
+> 
 
 
 _______________________________________________
