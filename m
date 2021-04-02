@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 370A4352BDC
+	by mail.lfdr.de (Postfix) with ESMTPS id 22D73352BDB
 	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Apr 2021 17:47:29 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lSM17-0006Fw-Gh; Fri, 02 Apr 2021 15:47:25 +0000
+	id 1lSM17-0006Fl-DT; Fri, 02 Apr 2021 15:47:25 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <andy.shevchenko@gmail.com>) id 1lSL2A-0000bq-AN
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 14:44:26 +0000
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ (envelope-from <andy.shevchenko@gmail.com>) id 1lSL23-0007uX-8X
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 14:44:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
  References:In-Reply-To:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=myrU00cnpEa++I/YwuZzRQ3Hl0WEqeeShx+eSYKz+xM=; b=QwMfBu8f5St5eeLhmEl++j7wzg
- pbHJxOkVSR13m2K2AMLCSc9YO24o5bYkRXTMpgRD54ebP0aVDWXoIYAWbzagscNiSiuq8lxwXI5hn
- BGggXzfXMkZN2kUAgLNEpDVINoERYG5ajHFI5LTpTYtV8aNCKJ2NYrwnBNdAjBMB+Ox8=;
+ bh=9uMS4w6OGkmHY/H4EzAITErTwWDQ+SmtKHXMN1koJ0g=; b=Dv9+1VNSA8BkhwzT2aXIJ50rfA
+ 7LGqjR6kF1L2Ka6gYIYuRu/dXI1q0RgHn454B3KBOE4TbiMS6dqJMA55wPvUynay3sqdXmPq3G3DT
+ 1/D1meaQMb2qkWnv+T00SfzQijU7Qo/OLGDGYlCI3UNeBOlXjsPdvo95l93NXJqLIAgY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:Cc:To:Subject:Message-ID:Date:From:References:In-Reply-To:
@@ -29,55 +29,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=myrU00cnpEa++I/YwuZzRQ3Hl0WEqeeShx+eSYKz+xM=; b=IuxwBu0qCTcMXfwWVgBA0RN0AF
- RvXHcqijNoqA/29YvDNwk2+JvX8gewjQ2b39jB6PdR2LJ4+Y+Tdl2Kvwdxs4XdgSvLNGm2vPQEQP/
- KvwEqjMS2kMUa3l8eoaPpTMd9J4T4dyUTV/cZBlrH2BqJLl60go02iijdcEjtZY3Myyc=;
-Received: from mail-pg1-f173.google.com ([209.85.215.173])
+ bh=9uMS4w6OGkmHY/H4EzAITErTwWDQ+SmtKHXMN1koJ0g=; b=LHjqT6bGlGc5BUGo0miSxrmHOr
+ lqki/AYEuCQIlo7z1RdijJxu2y8gbx+G0GEPXQhYhMN0089E5BTVqT01F3ht1GIXYSXN0zLWVquxL
+ U8ceuyE2U7RA+Hx3p9k9BCYErqvt7ApRqg3wT1GUsV7XIlIPeCtORW/+VoY7P1yIjy7Q=;
+Received: from mail-pl1-f182.google.com ([209.85.214.182])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1lSKoy-0077Tl-UA
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 14:31:09 +0000
-Received: by mail-pg1-f173.google.com with SMTP id i6so3687067pgs.1
+ id 1lSKqN-0077ab-BI
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 14:32:34 +0000
+Received: by mail-pl1-f182.google.com with SMTP id v8so2589405plz.10
  for <openipmi-developer@lists.sourceforge.net>;
- Fri, 02 Apr 2021 07:30:48 -0700 (PDT)
+ Fri, 02 Apr 2021 07:32:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:in-reply-to:references:from:date:message-id:subject:to
- :cc; bh=myrU00cnpEa++I/YwuZzRQ3Hl0WEqeeShx+eSYKz+xM=;
- b=OW7ssR5zx0kyjuQR43bB0jYrP5/BWYT4+Msy9hXhQlEUpbj9hrcivvY/LmJUSPU6Oe
- Al9EvbV4R8zYhBIIYL8L5wFUvOYLFgSFNgNgbs4x8K+1NjnFlcsfOW1PBDZ0r1ShdKMv
- vT+aPbB5Jxlbe7/1A30t0tA6VOXLuPvRn/PhlniPDqRTcZ7tEMfqkGaC568DJMntXWrr
- ZesK44XNy7y7dqFCHWfjgcPgjcX9R6C3idIgFofnSXFcSipsfh4OnwyKVgQlEmv8Nydc
- Lw01tcRxmrJ/VUQSwQw2De5s/0vY+GoP8BWFrg++9xqK6So9INmi+CpLiuvDfuFYAETI
- ynKA==
+ :cc; bh=9uMS4w6OGkmHY/H4EzAITErTwWDQ+SmtKHXMN1koJ0g=;
+ b=f2pTrvgsecVBkgGaSuV6jOFU/IeH+OwT8d9VeeKaUZrwJB19GgHknEvl63VldZnFir
+ eN5nteSlVllNN78rSRoA05gGsp1YYE9UQkva+WnLEOyS2LpRCZjwtUTAZl8hO6M2rx4C
+ xmOid2aS21nCKC27A3hHfKXWEU+6SPjROpMHj8TEs/kom+RHhHNMq5P9kUHKvC9sCxop
+ zn0BFWe12A/jUas+lNz12FxJGTbCJySpZPrd5K4bB+NAoCsygM55Jn7z1SCFiskwyT8r
+ AOoqRqBNFLPt4nN5iXnAQKbRoLYV1W74mKQghHK9jWUoCQG5T1y9XlhWyrtPBNe7reav
+ zCww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:in-reply-to:references:from:date
  :message-id:subject:to:cc;
- bh=myrU00cnpEa++I/YwuZzRQ3Hl0WEqeeShx+eSYKz+xM=;
- b=oij65t+1jOeIkYMO2BlDotNMkUnXytAXO/YhIn+jKaWAEslvsmlkbZ92YMu7oPGiuD
- cCB8oK5Mkl3dkq1wiffhYT02qFM4YHWZ48dAzZuOZi6HkdZJA5Lg1XMKWyeex7VhJv9S
- NXTJH5jL7q07gVu1VXuED2PzHSv8IMZYaQiFmMyVWKpVNikinFVRWkLosLzNcKLnRJoe
- 8Uzgq+El5Z6VeuumhxF886JuZ7IbHK2Dy2oLWaF+m3vpALABZhNrNQB0g7ArXGYl/zch
- fpnhgZ6DCJx4R8wIOU/BAKXt1Sm7DCOPqZG9/9RUjP+oQ4itPswN7Dhl5brhBixSlvQJ
- cGGg==
-X-Gm-Message-State: AOAM532sKDyyDgNeY1OOy65PTAicnyQC8b36wG9ve8zBRl9TnUWhk++H
- encCwKp3uZVNkLP5WtBqwVvUI0Df1IHaUKkdl60=
-X-Google-Smtp-Source: ABdhPJyB8RGqDVP950wmbiRsDOaGKxi0uELGD9TfxE1gJ/8Sf9kMX0HeD3z9cJbZX8iIpv5p/kektNobTwPMHYkmAmU=
-X-Received: by 2002:a62:7c43:0:b029:1ef:20ce:ba36 with SMTP id
- x64-20020a627c430000b02901ef20ceba36mr12578259pfc.40.1617373843297; Fri, 02
- Apr 2021 07:30:43 -0700 (PDT)
+ bh=9uMS4w6OGkmHY/H4EzAITErTwWDQ+SmtKHXMN1koJ0g=;
+ b=TT5obBfdXD96m00RGRJERTg8lJ9KAaBQHAehEjJQM0q3hH8/z/JNPrKneFFm4LOhu7
+ X8uHEgsXuKcivoCthuEDRs3FGq0cecVC4nQ28Bimkr1aHgRj7/5iczbt+XCewoT1iP8I
+ AT6UU6l/5nxDVpFiLusdEW7osEYxc8Mzzm+6vRgWd9UhLPNzpFldmp1UjnWcsD5W2eQ5
+ UK4HM/uza4o5XVWth4OBgMmJ+qAHbruN+AgwW6fqMMrU7AmRwysGllh7DHGT8aMKLVhc
+ F1Vbdm2ecY3TM6vpm9I7znJdQHHAWZQ92eH+AXXvtBU1RiuT1lABnPpycFIw0c4xpAkC
+ hXig==
+X-Gm-Message-State: AOAM530NnvUu7rToFBJdhkdWGwJXB328DhXyudqgq+TtUKnUtB5dlbTL
+ jASSqvUf3CQ3yxEvQZnu+vXGL+z6AwDuZt5Ouck=
+X-Google-Smtp-Source: ABdhPJxRTNe1BXPNv1sN80lkzPj5pwgP8bHsk6pyWvbDwk/Kkyh77iz6YTw03uv4vHXQOdysFLrm/UKqvd3aAhjsKao=
+X-Received: by 2002:a17:90a:db49:: with SMTP id
+ u9mr14585616pjx.181.1617373929705; 
+ Fri, 02 Apr 2021 07:32:09 -0700 (PDT)
 MIME-Version: 1.0
-Received: by 2002:a17:90a:7184:0:0:0:0 with HTTP; Fri, 2 Apr 2021 07:30:42
+Received: by 2002:a17:90a:7184:0:0:0:0 with HTTP; Fri, 2 Apr 2021 07:32:09
  -0700 (PDT)
-In-Reply-To: <20210402135349.GT507977@minyard.net>
+In-Reply-To: <20210402134555.GR507977@minyard.net>
 References: <20210330181649.66496-1-andriy.shevchenko@linux.intel.com>
- <20210330181649.66496-6-andriy.shevchenko@linux.intel.com>
- <20210402135349.GT507977@minyard.net>
+ <20210330181649.66496-3-andriy.shevchenko@linux.intel.com>
+ <20210402134555.GR507977@minyard.net>
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Fri, 2 Apr 2021 17:30:42 +0300
-Message-ID: <CAHp75Vd3GLpzHBzzHfOkRrotwS6hDH8PfoFiWBXMxE_0+uwD+A@mail.gmail.com>
+Date: Fri, 2 Apr 2021 17:32:09 +0300
+Message-ID: <CAHp75VePveSzzGCEizb9fEzHKrLtikviLWYv_U_KZE8BdwkekA@mail.gmail.com>
 To: "minyard@acm.org" <minyard@acm.org>
-X-Spam-Score: 0.0 (/)
+X-Spam-Score: 0.9 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
@@ -86,14 +86,22 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: intel.com]
- 0.0 DKIM_ADSP_CUSTOM_MED   No valid author signature, adsp_override is
- CUSTOM_MED
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.214.182 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.214.182 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 1.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lSKoy-0077Tl-UA
+X-Headers-End: 1lSKqN-0077ab-BI
 X-Mailman-Approved-At: Fri, 02 Apr 2021 15:47:24 +0000
-Subject: Re: [Openipmi-developer] [PATCH v1 06/10] ipmi_si: Reuse si_to_str
- array in ipmi_hardcode_init_one()
+Subject: Re: [Openipmi-developer] [PATCH v1 03/10] ipmi_si: Utilize
+ temporary variable to hold device pointer
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -111,281 +119,261 @@ Cc: Corey Minyard <cminyard@mvista.com>,
  <openipmi-developer@lists.sourceforge.net>,
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Content-Type: multipart/mixed; boundary="===============7196303851649976007=="
+Content-Type: multipart/mixed; boundary="===============0749573113352643798=="
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
---===============7196303851649976007==
-Content-Type: multipart/alternative; boundary="0000000000006619c505befe319b"
+--===============0749573113352643798==
+Content-Type: multipart/alternative; boundary="0000000000008c95e805befe36ab"
 
---0000000000006619c505befe319b
+--0000000000008c95e805befe36ab
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
 On Friday, April 2, 2021, Corey Minyard <minyard@acm.org> wrote:
 
-> On Tue, Mar 30, 2021 at 09:16:45PM +0300, Andy Shevchenko wrote:
-> > Instead of making the comparison one by one, reuse si_to_str array
-> > in ipmi_hardcode_init_one() in conjunction with match_string() API.
-> >
-> > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> > ---
-> >  drivers/char/ipmi/ipmi_si.h          |  3 +++
-> >  drivers/char/ipmi/ipmi_si_hardcode.c | 23 +++++++++--------------
-> >  drivers/char/ipmi/ipmi_si_intf.c     |  2 --
-> >  3 files changed, 12 insertions(+), 16 deletions(-)
-> >
-> > diff --git a/drivers/char/ipmi/ipmi_si.h b/drivers/char/ipmi/ipmi_si.h
-> > index bac0ff86e48e..fd3167d1e1e9 100644
-> > --- a/drivers/char/ipmi/ipmi_si.h
-> > +++ b/drivers/char/ipmi/ipmi_si.h
-> > @@ -22,6 +22,9 @@ enum si_type {
-> >       SI_TYPE_INVALID, SI_KCS, SI_SMIC, SI_BT
-> >  };
-> >
-> > +/* 'invalid' to allow a firmware-specified interface to be disabled */
-> > +static __maybe_unused const char *const si_to_str[] =3D { "invalid",
-> "kcs", "smic", "bt" };
+> On Tue, Mar 30, 2021 at 09:16:42PM +0300, Andy Shevchenko wrote:
+> > By one of the previous clean up change we got a temporary variable to
+> hold
+> > a device pointer. It can be utilized in other calls in the ->probe() and
+> > save a bit of LOCs.
 >
-> Can we just make this non-static and leave the definition where it is?
-> That would save a little space and wouldn't affect performance at all.
+> The description here isn't accurate, there is no previous change where a
+> temporary variable comes in.  This change adds the temporary variable.
 >
 >
+Oops, it has leftovers from similar change done by me somewhere else.
 
-We can=E2=80=99t. In such case we must export two symbols, including the si=
-ze of an
-array. I prefer to have it in the header. Another possibility is to add a
-terminator to the array and adapt respective code. But still we will need
-to export one symbol. I haven=E2=80=99t checked if this is simply local exp=
-ort, or
-modules included.
+
+> This change is ok, but doesn't add much value.
+>
+>
+One line less and better readability.
+
 
 
 > -corey
 >
-> > +
-> >  enum ipmi_addr_space {
-> >       IPMI_IO_ADDR_SPACE, IPMI_MEM_ADDR_SPACE
-> >  };
-> > diff --git a/drivers/char/ipmi/ipmi_si_hardcode.c
-> b/drivers/char/ipmi/ipmi_si_hardcode.c
-> > index f6ece7569504..cf3797523469 100644
-> > --- a/drivers/char/ipmi/ipmi_si_hardcode.c
-> > +++ b/drivers/char/ipmi/ipmi_si_hardcode.c
-> > @@ -80,26 +80,21 @@ static void __init ipmi_hardcode_init_one(const cha=
-r
-> *si_type_str,
-> >                                         enum ipmi_addr_space addr_space=
-)
+> >
+> > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> > ---
+> >  drivers/char/ipmi/ipmi_si_platform.c | 15 +++++++--------
+> >  1 file changed, 7 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/drivers/char/ipmi/ipmi_si_platform.c
+> b/drivers/char/ipmi/ipmi_si_platform.c
+> > index 009563073d30..954c297b459b 100644
+> > --- a/drivers/char/ipmi/ipmi_si_platform.c
+> > +++ b/drivers/char/ipmi/ipmi_si_platform.c
+> > @@ -309,6 +309,7 @@ static int find_slave_address(struct si_sm_io *io,
+> int slave_addr)
+> >
+> >  static int acpi_ipmi_probe(struct platform_device *pdev)
 > >  {
-> >       struct ipmi_plat_data p;
-> > +     int t;
+> > +     struct device *dev = &pdev->dev;
+> >       struct si_sm_io io;
+> >       acpi_handle handle;
+> >       acpi_status status;
+> > @@ -318,21 +319,20 @@ static int acpi_ipmi_probe(struct platform_device
+> *pdev)
+> >       if (!si_tryacpi)
+> >               return -ENODEV;
 > >
-> >       memset(&p, 0, sizeof(p));
+> > -     handle = ACPI_HANDLE(&pdev->dev);
+> > +     handle = ACPI_HANDLE(dev);
+> >       if (!handle)
+> >               return -ENODEV;
 > >
-> >       p.iftype =3D IPMI_PLAT_IF_SI;
-> > -     if (!si_type_str || !*si_type_str || strcmp(si_type_str, "kcs") =
-=3D=3D
-> 0) {
-> > +     if (!si_type_str || !*si_type_str) {
-> >               p.type =3D SI_KCS;
-> > -     } else if (strcmp(si_type_str, "smic") =3D=3D 0) {
-> > -             p.type =3D SI_SMIC;
-> > -     } else if (strcmp(si_type_str, "bt") =3D=3D 0) {
-> > -             p.type =3D SI_BT;
-> > -     } else if (strcmp(si_type_str, "invalid") =3D=3D 0) {
-> > -             /*
-> > -              * Allow a firmware-specified interface to be
-> > -              * disabled.
-> > -              */
-> > -             p.type =3D SI_TYPE_INVALID;
-> >       } else {
-> > -             pr_warn("Interface type specified for interface %d, was
-> invalid: %s\n",
-> > -                     i, si_type_str);
-> > -             return;
-> > +             t =3D match_string(si_to_str, ARRAY_SIZE(si_to_str),
-> si_type_str);
-> > +             if (t < 0) {
-> > +                     pr_warn("Interface type specified for interface
-> %d, was invalid: %s\n",
-> > +                             i, si_type_str);
-> > +                     return;
-> > +             }
-> > +             p.type =3D t;
+> >       memset(&io, 0, sizeof(io));
+> >       io.addr_source = SI_ACPI;
+> > -     dev_info(&pdev->dev, "probing via ACPI\n");
+> > +     dev_info(dev, "probing via ACPI\n");
+> >
+> >       io.addr_info.acpi_info.acpi_handle = handle;
+> >
+> >       /* _IFT tells us the interface type: KCS, BT, etc */
+> >       status = acpi_evaluate_integer(handle, "_IFT", NULL, &tmp);
+> >       if (ACPI_FAILURE(status)) {
+> > -             dev_err(&pdev->dev,
+> > -                     "Could not find ACPI IPMI interface type\n");
+> > +             dev_err(dev, "Could not find ACPI IPMI interface type\n");
+> >               return -EINVAL;
 > >       }
 > >
-> >       p.regsize =3D regsizes[i];
-> > diff --git a/drivers/char/ipmi/ipmi_si_intf.c
-> b/drivers/char/ipmi/ipmi_si_intf.c
-> > index be41a473e3c2..ff448098f185 100644
-> > --- a/drivers/char/ipmi/ipmi_si_intf.c
-> > +++ b/drivers/char/ipmi/ipmi_si_intf.c
-> > @@ -70,8 +70,6 @@ enum si_intf_state {
-> >  #define IPMI_BT_INTMASK_CLEAR_IRQ_BIT        2
-> >  #define IPMI_BT_INTMASK_ENABLE_IRQ_BIT       1
+> > @@ -349,10 +349,11 @@ static int acpi_ipmi_probe(struct platform_device
+> *pdev)
+> >       case 4: /* SSIF, just ignore */
+> >               return -ENODEV;
+> >       default:
+> > -             dev_info(&pdev->dev, "unknown IPMI type %lld\n", tmp);
+> > +             dev_info(dev, "unknown IPMI type %lld\n", tmp);
+> >               return -EINVAL;
+> >       }
 > >
-> > -static const char * const si_to_str[] =3D { "invalid", "kcs", "smic",
-> "bt" };
+> > +     io.dev = dev;
+> >       io.regsize = DEFAULT_REGSIZE;
+> >       io.regshift = 0;
+> >
+> > @@ -376,9 +377,7 @@ static int acpi_ipmi_probe(struct platform_device
+> *pdev)
+> >
+> >       io.slave_addr = find_slave_address(&io, io.slave_addr);
+> >
+> > -     io.dev = &pdev->dev;
 > > -
-> >  static bool initialized;
+> > -     dev_info(io.dev, "%pR regsize %d spacing %d irq %d\n",
+> > +     dev_info(dev, "%pR regsize %d spacing %d irq %d\n",
+> >                res, io.regsize, io.regspacing, io.irq);
 > >
-> >  /*
+> >       request_module("acpi_ipmi");
 > > --
 > > 2.30.2
 > >
 >
 
 
---=20
+-- 
 With Best Regards,
 Andy Shevchenko
 
---0000000000006619c505befe319b
+--0000000000008c95e805befe36ab
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 <br><br>On Friday, April 2, 2021, Corey Minyard &lt;<a href=3D"mailto:minya=
 rd@acm.org">minyard@acm.org</a>&gt; wrote:<br><blockquote class=3D"gmail_qu=
 ote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex=
-">On Tue, Mar 30, 2021 at 09:16:45PM +0300, Andy Shevchenko wrote:<br>
-&gt; Instead of making the comparison one by one, reuse si_to_str array<br>
-&gt; in ipmi_hardcode_init_one() in conjunction with match_string() API.<br=
->
+">On Tue, Mar 30, 2021 at 09:16:42PM +0300, Andy Shevchenko wrote:<br>
+&gt; By one of the previous clean up change we got a temporary variable to =
+hold<br>
+&gt; a device pointer. It can be utilized in other calls in the -&gt;probe(=
+) and<br>
+&gt; save a bit of LOCs.<br>
+<br>
+The description here isn&#39;t accurate, there is no previous change where =
+a<br>
+temporary variable comes in.=C2=A0 This change adds the temporary variable.=
+<br>
+<br></blockquote><div><br></div><div>Oops, it has leftovers from similar ch=
+ange done by me somewhere else.</div><div>=C2=A0</div><blockquote class=3D"=
+gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-=
+left:1ex">
+This change is ok, but doesn&#39;t add much value.<br>
+<br></blockquote><div><br></div><div>One line less and better readability.<=
+/div><div><br></div><div>=C2=A0</div><blockquote class=3D"gmail_quote" styl=
+e=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+-corey<br>
+<br>
 &gt; <br>
 &gt; Signed-off-by: Andy Shevchenko &lt;<a href=3D"mailto:andriy.shevchenko=
 @linux.intel.com">andriy.shevchenko@linux.<wbr>intel.com</a>&gt;<br>
 &gt; ---<br>
-&gt;=C2=A0 drivers/char/ipmi/ipmi_si.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 |=
-=C2=A0 3 +++<br>
-&gt;=C2=A0 drivers/char/ipmi/ipmi_si_<wbr>hardcode.c | 23 +++++++++--------=
-------<br>
-&gt;=C2=A0 drivers/char/ipmi/ipmi_si_<wbr>intf.c=C2=A0 =C2=A0 =C2=A0|=C2=A0=
- 2 --<br>
-&gt;=C2=A0 3 files changed, 12 insertions(+), 16 deletions(-)<br>
-&gt; <br>
-&gt; diff --git a/drivers/char/ipmi/ipmi_si.h b/drivers/char/ipmi/ipmi_si.h=
-<br>
-&gt; index bac0ff86e48e..fd3167d1e1e9 100644<br>
-&gt; --- a/drivers/char/ipmi/ipmi_si.h<br>
-&gt; +++ b/drivers/char/ipmi/ipmi_si.h<br>
-&gt; @@ -22,6 +22,9 @@ enum si_type {<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0SI_TYPE_INVALID, SI_KCS, SI_SMIC, SI_BT<br>
-&gt;=C2=A0 };<br>
-&gt;=C2=A0 <br>
-&gt; +/* &#39;invalid&#39; to allow a firmware-specified interface to be di=
-sabled */<br>
-&gt; +static __maybe_unused const char *const si_to_str[] =3D { &quot;inval=
-id&quot;, &quot;kcs&quot;, &quot;smic&quot;, &quot;bt&quot; };<br>
-<br>
-Can we just make this non-static and leave the definition where it is?<br>
-That would save a little space and wouldn&#39;t affect performance at all.<=
-br>
-<br></blockquote><div><br></div><div><br></div><div>We can=E2=80=99t. In su=
-ch case we must export two symbols, including the size of an array. I prefe=
-r to have it in the header. Another possibility is to add a terminator to t=
-he array and adapt respective code. But still we will need to export one sy=
-mbol. I haven=E2=80=99t checked if this is simply local export, or modules =
-included.</div><div>=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"=
-margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
--corey<br>
-<br>
-&gt; +<br>
-&gt;=C2=A0 enum ipmi_addr_space {<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0IPMI_IO_ADDR_SPACE, IPMI_MEM_ADDR_SPACE<br>
-&gt;=C2=A0 };<br>
-&gt; diff --git a/drivers/char/ipmi/ipmi_si_<wbr>hardcode.c b/drivers/char/=
-ipmi/ipmi_si_<wbr>hardcode.c<br>
-&gt; index f6ece7569504..cf3797523469 100644<br>
-&gt; --- a/drivers/char/ipmi/ipmi_si_<wbr>hardcode.c<br>
-&gt; +++ b/drivers/char/ipmi/ipmi_si_<wbr>hardcode.c<br>
-&gt; @@ -80,26 +80,21 @@ static void __init ipmi_hardcode_init_one(const ch=
-ar *si_type_str,<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0enum ipmi_addr_space addr_space)<br>
-&gt;=C2=A0 {<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0struct ipmi_plat_data p;<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0int t;<br>
-&gt;=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0memset(&amp;p, 0, sizeof(p));<br>
-&gt;=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0p.iftype =3D IPMI_PLAT_IF_SI;<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0if (!si_type_str || !*si_type_str || strcmp(si_ty=
-pe_str, &quot;kcs&quot;) =3D=3D 0) {<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0if (!si_type_str || !*si_type_str) {<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0p.type =3D SI_KC=
-S;<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0} else if (strcmp(si_type_str, &quot;smic&quot;) =
-=3D=3D 0) {<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0p.type =3D SI_SMIC;<b=
+&gt;=C2=A0 drivers/char/ipmi/ipmi_si_<wbr>platform.c | 15 +++++++--------<b=
 r>
-&gt; -=C2=A0 =C2=A0 =C2=A0} else if (strcmp(si_type_str, &quot;bt&quot;) =
-=3D=3D 0) {<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0p.type =3D SI_BT;<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0} else if (strcmp(si_type_str, &quot;invalid&quot=
-;) =3D=3D 0) {<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0/*<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 * Allow a firmware-s=
-pecified interface to be<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 * disabled.<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 */<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0p.type =3D SI_TYPE_IN=
-VALID;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0} else {<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0pr_warn(&quot;Interfa=
-ce type specified for interface %d, was invalid: %s\n&quot;,<br>
+&gt;=C2=A0 1 file changed, 7 insertions(+), 8 deletions(-)<br>
+&gt; <br>
+&gt; diff --git a/drivers/char/ipmi/ipmi_si_<wbr>platform.c b/drivers/char/=
+ipmi/ipmi_si_<wbr>platform.c<br>
+&gt; index 009563073d30..954c297b459b 100644<br>
+&gt; --- a/drivers/char/ipmi/ipmi_si_<wbr>platform.c<br>
+&gt; +++ b/drivers/char/ipmi/ipmi_si_<wbr>platform.c<br>
+&gt; @@ -309,6 +309,7 @@ static int find_slave_address(struct si_sm_io *io,=
+ int slave_addr)<br>
+&gt;=C2=A0 <br>
+&gt;=C2=A0 static int acpi_ipmi_probe(struct platform_device *pdev)<br>
+&gt;=C2=A0 {<br>
+&gt; +=C2=A0 =C2=A0 =C2=A0struct device *dev =3D &amp;pdev-&gt;dev;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0struct si_sm_io io;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0acpi_handle handle;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0acpi_status status;<br>
+&gt; @@ -318,21 +319,20 @@ static int acpi_ipmi_probe(struct platform_devic=
+e *pdev)<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0if (!si_tryacpi)<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return -ENODEV;<=
+br>
+&gt;=C2=A0 <br>
+&gt; -=C2=A0 =C2=A0 =C2=A0handle =3D ACPI_HANDLE(&amp;pdev-&gt;dev);<br>
+&gt; +=C2=A0 =C2=A0 =C2=A0handle =3D ACPI_HANDLE(dev);<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0if (!handle)<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return -ENODEV;<=
+br>
+&gt;=C2=A0 <br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0memset(&amp;io, 0, sizeof(io));<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0io.addr_source =3D SI_ACPI;<br>
+&gt; -=C2=A0 =C2=A0 =C2=A0dev_info(&amp;pdev-&gt;dev, &quot;probing via ACP=
+I\n&quot;);<br>
+&gt; +=C2=A0 =C2=A0 =C2=A0dev_info(dev, &quot;probing via ACPI\n&quot;);<br=
+>
+&gt;=C2=A0 <br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0io.addr_info.acpi_info.acpi_<wbr>handle =3D =
+handle;<br>
+&gt;=C2=A0 <br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0/* _IFT tells us the interface type: KCS, BT=
+, etc */<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0status =3D acpi_evaluate_integer(handle, &qu=
+ot;_IFT&quot;, NULL, &amp;tmp);<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0if (ACPI_FAILURE(status)) {<br>
+&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0dev_err(&amp;pdev-&gt=
+;dev,<br>
 &gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0i, si_type_str);<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return;<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0t =3D match_string(si=
-_to_str, ARRAY_SIZE(si_to_str), si_type_str);<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0if (t &lt; 0) {<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0pr_warn(&quot;Interface type specified for interface %d, was invalid=
-: %s\n&quot;,<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0i, si_type_str);<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0return;<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0}<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0p.type =3D t;<br>
+ =C2=A0&quot;Could not find ACPI IPMI interface type\n&quot;);<br>
+&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0dev_err(dev, &quot;Co=
+uld not find ACPI IPMI interface type\n&quot;);<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return -EINVAL;<=
+br>
 &gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0}<br>
 &gt;=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0p.regsize =3D regsizes[i];<br>
-&gt; diff --git a/drivers/char/ipmi/ipmi_si_<wbr>intf.c b/drivers/char/ipmi=
-/ipmi_si_<wbr>intf.c<br>
-&gt; index be41a473e3c2..ff448098f185 100644<br>
-&gt; --- a/drivers/char/ipmi/ipmi_si_<wbr>intf.c<br>
-&gt; +++ b/drivers/char/ipmi/ipmi_si_<wbr>intf.c<br>
-&gt; @@ -70,8 +70,6 @@ enum si_intf_state {<br>
-&gt;=C2=A0 #define IPMI_BT_INTMASK_CLEAR_IRQ_BIT=C2=A0 =C2=A0 =C2=A0 =C2=A0=
- 2<br>
-&gt;=C2=A0 #define IPMI_BT_INTMASK_ENABLE_IRQ_BIT=C2=A0 =C2=A0 =C2=A0 =C2=
-=A01<br>
+&gt; @@ -349,10 +349,11 @@ static int acpi_ipmi_probe(struct platform_devic=
+e *pdev)<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0case 4: /* SSIF, just ignore */<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return -ENODEV;<=
+br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0default:<br>
+&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0dev_info(&amp;pdev-&g=
+t;dev, &quot;unknown IPMI type %lld\n&quot;, tmp);<br>
+&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0dev_info(dev, &quot;u=
+nknown IPMI type %lld\n&quot;, tmp);<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return -EINVAL;<=
+br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0}<br>
 &gt;=C2=A0 <br>
-&gt; -static const char * const si_to_str[] =3D { &quot;invalid&quot;, &quo=
-t;kcs&quot;, &quot;smic&quot;, &quot;bt&quot; };<br>
+&gt; +=C2=A0 =C2=A0 =C2=A0<a href=3D"http://io.dev" target=3D"_blank">io.de=
+v</a> =3D dev;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0io.regsize =3D DEFAULT_REGSIZE;<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0io.regshift =3D 0;<br>
+&gt;=C2=A0 <br>
+&gt; @@ -376,9 +377,7 @@ static int acpi_ipmi_probe(struct platform_device =
+*pdev)<br>
+&gt;=C2=A0 <br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0io.slave_addr =3D find_slave_address(&amp;io=
+, io.slave_addr);<br>
+&gt;=C2=A0 <br>
+&gt; -=C2=A0 =C2=A0 =C2=A0<a href=3D"http://io.dev" target=3D"_blank">io.de=
+v</a> =3D &amp;pdev-&gt;dev;<br>
 &gt; -<br>
-&gt;=C2=A0 static bool initialized;<br>
+&gt; -=C2=A0 =C2=A0 =C2=A0dev_info(<a href=3D"http://io.dev" target=3D"_bla=
+nk">io.dev</a>, &quot;%pR regsize %d spacing %d irq %d\n&quot;,<br>
+&gt; +=C2=A0 =C2=A0 =C2=A0dev_info(dev, &quot;%pR regsize %d spacing %d irq=
+ %d\n&quot;,<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 res, io.regsize=
+, io.regspacing, io.irq);<br>
 &gt;=C2=A0 <br>
-&gt;=C2=A0 /*<br>
+&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0request_module(&quot;acpi_ipmi&quot;);<br>
 &gt; -- <br>
 &gt; 2.30.2<br>
 &gt; <br>
 </blockquote><br><br>-- <br>With Best Regards,<br>Andy Shevchenko<br><br><b=
 r>
 
---0000000000006619c505befe319b--
+--0000000000008c95e805befe36ab--
 
 
---===============7196303851649976007==
+--===============0749573113352643798==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 Content-Disposition: inline
 
 
---===============7196303851649976007==
+--===============0749573113352643798==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -396,5 +384,5 @@ Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
 
---===============7196303851649976007==--
+--===============0749573113352643798==--
 
