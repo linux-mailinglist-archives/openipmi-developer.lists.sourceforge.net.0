@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 98753352B44
-	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Apr 2021 16:11:41 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 202FA352B43
+	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Apr 2021 16:11:40 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lSKWR-0007eg-50; Fri, 02 Apr 2021 14:11:39 +0000
+	id 1lSKWP-0006IV-7G; Fri, 02 Apr 2021 14:11:37 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1lSKWP-0007dJ-Tp
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 14:11:38 +0000
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ (envelope-from <tcminyard@gmail.com>) id 1lSKWN-0006Ga-BF
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 14:11:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=2yK7rm1SM45KlY6SqRkaMT4FE5qHsW5WepD3GZ3b0dU=; b=BGek49CXxt+4qf1E114ypDjmYl
- 3dK3rRuCX4jlcJitVzDbE+G+Y7fQS1ozzTOUvP0LJCQjU/iR8uWLzpgkjBnt2D/BbWsjlHKbeheKl
- IaEeF2d1j2Q51r0EnglGhssseQF7+ZGYtras6QHrQMYOns7IoDfzinBIA2pBf4OR9Olo=;
+ bh=aluSn6bb33bhahqntft67ApwfyZT9WoQvHp/xBnQ0Zs=; b=CKmPRWR+7wW7dQJBNjC06Ah5CD
+ fi9cuVCuDrBdW5rL0mnLqjoa1kjyvhzSpwzHecsEq6euz6EGkW9l4fM2VRrZ+M0ogvrL5Fb1pvo0g
+ FCj+VVs45Aj6DtAhzZmlW+YBAHUD8MM3DNTuurV6dYvQywhtu810sXfS2pmtHVhc1Fbs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
@@ -29,60 +29,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=2yK7rm1SM45KlY6SqRkaMT4FE5qHsW5WepD3GZ3b0dU=; b=Gd5EpPVR4j1e+KURYuRoFWc3Dv
- ZIUhfrI0UvVLNHNSx7EGpNCHQSvN7tE3QpttyGMwPTQ1GcX+LJN9Gx2u4J7a0DPeaKEkXJaaeBs/d
- xV5Gpe3o3W1XvIlJIOnL8Z6OK1Lwb5bND9q8WGjSppiMUF6ZZn3wFN5eHa39fS54B/Oo=;
-Received: from mail-oi1-f180.google.com ([209.85.167.180])
+ bh=aluSn6bb33bhahqntft67ApwfyZT9WoQvHp/xBnQ0Zs=; b=BhihlNk+QZAr163flrVNLL3MDc
+ PiVF52f4fc5E7LVInRNcfe3KuoR5a6XXCMsxkxg5lGcvTe9w6jQp8vjhxPQI9ti1NjDp9V6BsclgN
+ sUgOB4Oe4U1s+sm3DhIgAxhwpOLvdFsHZszToLIZafIjflD0lLo8D5Se8XJ7Cr6Yvjps=;
+Received: from mail-ot1-f43.google.com ([209.85.210.43])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1lSKAT-0002Ua-Gy
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 13:49:13 +0000
-Received: by mail-oi1-f180.google.com with SMTP id a8so4982254oic.11
+ id 1lSKFJ-0002fO-RP
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 13:54:18 +0000
+Received: by mail-ot1-f43.google.com with SMTP id
+ k14-20020a9d7dce0000b02901b866632f29so5027130otn.1
  for <openipmi-developer@lists.sourceforge.net>;
- Fri, 02 Apr 2021 06:48:57 -0700 (PDT)
+ Fri, 02 Apr 2021 06:53:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=sender:date:from:to:cc:subject:message-id:reply-to:references
  :mime-version:content-disposition:in-reply-to;
- bh=2yK7rm1SM45KlY6SqRkaMT4FE5qHsW5WepD3GZ3b0dU=;
- b=RbLAOqMC7HszBDlNPOG98rxCTiJ0MRRhmMbiJ6qaA8mKqs5/DcrYmqqXOK8RzZ4HJ3
- aqokeRryxpPWArZBT+2iiNBIgk2iTjtBcurGISZGHcwY5boBbIQd+URYFwBm1+CqD0+p
- donP8z0PccPij0nfh8wIApUYKCHrzoBWFHSB4mTVhgrjsDh/AXzlGAz8dLZUgJzwRP+e
- l6EWUvnudSvZTJLXcY6ERHmPip/MVufpsUSoUQTXDcnoX32oo3HZxk5cOa+76XU0dG7m
- D/xOW839i4ND4Y2HTl9yahD2UngGyOQye/f8JKw8Xcbn+9JdegwN/17DzQyt5MufCYGi
- Lcng==
+ bh=aluSn6bb33bhahqntft67ApwfyZT9WoQvHp/xBnQ0Zs=;
+ b=NEF/K2uB4Mkvy4QQ/Kz6ySI07BGzqJjrxihzA78nyYMoJrTXY3mmnlqkQhs+0ESiFJ
+ lhWgvwKJfeK1jJACRmBuCn48dzqK95k08G3Mi2VpaLMczEfgAMgIQWiKSZ0b67ayG8r5
+ WoTuSjVz6jgZ3y2IZ7DY5D10o3R2u1GKeiuh8xbD3TdxJxkl41B0Igiq9kECa5/1lcnH
+ aHnNoKk9nK1ynBbHn9Y3qWdx/UXpb04kOqWNl43OMKQ9c5vK4v3foO0C44NifgIQOkQt
+ ZdMp+84iAKwZvJrw9lgetF+HYzQkiKUC2ZBC4C5+AmCIv4nnfi0HjVHZZNn7gVl6EUFW
+ n9hA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
  :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=2yK7rm1SM45KlY6SqRkaMT4FE5qHsW5WepD3GZ3b0dU=;
- b=ta+DLoHyuk+OmLc2Os3Vaii1HPG14hW+jOHz10mkAr11vm1cGCizO4o1RSzU6XAnc2
- SverwTRLFBsJ0WZeJ1+gscAS9ghiO9gEIuhkL9T/A3W4aAoZlubRCh9uwmPuC8bNrqH3
- 9EHN99+Rejhm1la59AqVa+rRwtgEJiR28ckt18lbF9kZHP/C2yO4X+TsaNy8WZlSoMF1
- AbaZhkWExmS70nSgey3KDB7zMM7ou8t18MAY4zYgCv0PrdSnRvfKPfWnVEEyjk2OCfhF
- Xeq8yaCBnbITza3W7YpFiIKj/UB1zO5qPXVMNA/FlSzYX8K8LzCYNUmq/OwyA/8zd3ZW
- TtkA==
-X-Gm-Message-State: AOAM532WRjYRKxGguKf0OucX8YI/9Q74B3EqYW+0H60Iq1qk9lrMM0ww
- Ia/TsCbKEztLQrTkCNDz+A==
-X-Google-Smtp-Source: ABdhPJzz2l/ptU6vIEdESbU3tRX8OFHXfmSJreQs3EPCUXlS41PfBS8PHrITFJ+dzMVVYJLd77Kn4w==
-X-Received: by 2002:aca:1c18:: with SMTP id c24mr9609059oic.7.1617371331832;
- Fri, 02 Apr 2021 06:48:51 -0700 (PDT)
+ bh=aluSn6bb33bhahqntft67ApwfyZT9WoQvHp/xBnQ0Zs=;
+ b=Ri83/2Y0NUxbBoAR0yZGXoeOrDdnHS7EWC272BxLnsbkoTPDVy7WPmuXQC5HhuS/0w
+ hpGozLEoqHN3iqQ7qy1YeEa3iGy2QSwpwyXZF2Doypsb35fPrB7eWCoObc8jok9zEYnc
+ 8lYXyU6NGxCBNrLUoCBr8afou6pSzRKpFya013D76hoCzIIbq9jPxiXWrBcqhBhM6xkg
+ F4ieFIGXWCiWy77YG/IYkvvbgC7nImDINpX1Rn9YY6MEEGFmEcw3nkE/K1gxzOcIZ7uZ
+ cBrL3zu8DwdoPSp6zyRk+ptqQKlcnCYToGyz+7jnehcywF0Btot2MIbOEJ2Zibt/IYQL
+ DvQw==
+X-Gm-Message-State: AOAM533COhPhHI7eaI8FiOutIVxgb4n+tPKGj4jh2EtjW8VF2NJvqzeh
+ WRJnQSFvOs6TM8u0gqbkXQ==
+X-Google-Smtp-Source: ABdhPJz7MN4hCAKS98a9/hIkc17VjCgo2vzjBNphOKi6TxpqwqAE5RzY8Xd0LdBkig2rqsxJHUSCJQ==
+X-Received: by 2002:a05:6830:1d45:: with SMTP id
+ p5mr11219852oth.340.1617371631930; 
+ Fri, 02 Apr 2021 06:53:51 -0700 (PDT)
 Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id i4sm1816327otj.56.2021.04.02.06.48.51
+ by smtp.gmail.com with ESMTPSA id w23sm1768704oow.25.2021.04.02.06.53.51
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 02 Apr 2021 06:48:51 -0700 (PDT)
+ Fri, 02 Apr 2021 06:53:51 -0700 (PDT)
 Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:f99f:823a:495e:5af])
- by serve.minyard.net (Postfix) with ESMTPSA id 56604180570;
- Fri,  2 Apr 2021 13:48:50 +0000 (UTC)
-Date: Fri, 2 Apr 2021 08:48:49 -0500
+ by serve.minyard.net (Postfix) with ESMTPSA id 93DA3180570;
+ Fri,  2 Apr 2021 13:53:50 +0000 (UTC)
+Date: Fri, 2 Apr 2021 08:53:49 -0500
 From: Corey Minyard <minyard@acm.org>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Message-ID: <20210402134849.GS507977@minyard.net>
+Message-ID: <20210402135349.GT507977@minyard.net>
 References: <20210330181649.66496-1-andriy.shevchenko@linux.intel.com>
- <20210330181649.66496-5-andriy.shevchenko@linux.intel.com>
+ <20210330181649.66496-6-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210330181649.66496-5-andriy.shevchenko@linux.intel.com>
-X-Spam-Score: 0.5 (/)
+In-Reply-To: <20210330181649.66496-6-andriy.shevchenko@linux.intel.com>
+X-Spam-Score: 0.3 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
@@ -91,20 +93,14 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  for more information. [URIs: intel.com]
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
  (tcminyard[at]gmail.com)
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.180 listed in wl.mailspike.net]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.43 listed in wl.mailspike.net]
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lSKAT-0002Ua-Gy
-Subject: Re: [Openipmi-developer] [PATCH v1 05/10] ipmi_si: Introduce
- panic_event_str array
+X-Headers-End: 1lSKFJ-0002fO-RP
+Subject: Re: [Openipmi-developer] [PATCH v1 06/10] ipmi_si: Reuse si_to_str
+ array in ipmi_hardcode_init_one()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -124,99 +120,90 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Mar 30, 2021 at 09:16:44PM +0300, Andy Shevchenko wrote:
-> Instead of twice repeat the constant literals, introduce
-> panic_event_str array. It allows to simplify the code with
-> help of match_string() API.
+On Tue, Mar 30, 2021 at 09:16:45PM +0300, Andy Shevchenko wrote:
+> Instead of making the comparison one by one, reuse si_to_str array
+> in ipmi_hardcode_init_one() in conjunction with match_string() API.
 > 
 > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > ---
->  drivers/char/ipmi/ipmi_msghandler.c | 49 ++++++++++-------------------
->  1 file changed, 17 insertions(+), 32 deletions(-)
+>  drivers/char/ipmi/ipmi_si.h          |  3 +++
+>  drivers/char/ipmi/ipmi_si_hardcode.c | 23 +++++++++--------------
+>  drivers/char/ipmi/ipmi_si_intf.c     |  2 --
+>  3 files changed, 12 insertions(+), 16 deletions(-)
 > 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index f19f0f967e28..c7d37366d7bb 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -52,8 +52,12 @@ static bool drvregistered;
->  enum ipmi_panic_event_op {
->  	IPMI_SEND_PANIC_EVENT_NONE,
->  	IPMI_SEND_PANIC_EVENT,
-> -	IPMI_SEND_PANIC_EVENT_STRING
-> +	IPMI_SEND_PANIC_EVENT_STRING,
-> +	IPMI_SEND_PANIC_EVENT_MAX
+> diff --git a/drivers/char/ipmi/ipmi_si.h b/drivers/char/ipmi/ipmi_si.h
+> index bac0ff86e48e..fd3167d1e1e9 100644
+> --- a/drivers/char/ipmi/ipmi_si.h
+> +++ b/drivers/char/ipmi/ipmi_si.h
+> @@ -22,6 +22,9 @@ enum si_type {
+>  	SI_TYPE_INVALID, SI_KCS, SI_SMIC, SI_BT
 >  };
+>  
+> +/* 'invalid' to allow a firmware-specified interface to be disabled */
+> +static __maybe_unused const char *const si_to_str[] = { "invalid", "kcs", "smic", "bt" };
 
-This is a nice change.  Can you add a comment here so that readers know
-that the above enum and the following array are tied numerically?
+Can we just make this non-static and leave the definition where it is?
+That would save a little space and wouldn't affect performance at all.
 
 -corey
 
 > +
-> +static const char *const panic_event_str[] = { "none", "event", "string", NULL };
-> +
->  #ifdef CONFIG_IPMI_PANIC_STRING
->  #define IPMI_PANIC_DEFAULT IPMI_SEND_PANIC_EVENT_STRING
->  #elif defined(CONFIG_IPMI_PANIC_EVENT)
-> @@ -68,46 +72,27 @@ static int panic_op_write_handler(const char *val,
->  				  const struct kernel_param *kp)
+>  enum ipmi_addr_space {
+>  	IPMI_IO_ADDR_SPACE, IPMI_MEM_ADDR_SPACE
+>  };
+> diff --git a/drivers/char/ipmi/ipmi_si_hardcode.c b/drivers/char/ipmi/ipmi_si_hardcode.c
+> index f6ece7569504..cf3797523469 100644
+> --- a/drivers/char/ipmi/ipmi_si_hardcode.c
+> +++ b/drivers/char/ipmi/ipmi_si_hardcode.c
+> @@ -80,26 +80,21 @@ static void __init ipmi_hardcode_init_one(const char *si_type_str,
+>  					  enum ipmi_addr_space addr_space)
 >  {
->  	char valcp[16];
-> -	char *s;
+>  	struct ipmi_plat_data p;
+> +	int t;
+>  
+>  	memset(&p, 0, sizeof(p));
+>  
+>  	p.iftype = IPMI_PLAT_IF_SI;
+> -	if (!si_type_str || !*si_type_str || strcmp(si_type_str, "kcs") == 0) {
+> +	if (!si_type_str || !*si_type_str) {
+>  		p.type = SI_KCS;
+> -	} else if (strcmp(si_type_str, "smic") == 0) {
+> -		p.type = SI_SMIC;
+> -	} else if (strcmp(si_type_str, "bt") == 0) {
+> -		p.type = SI_BT;
+> -	} else if (strcmp(si_type_str, "invalid") == 0) {
+> -		/*
+> -		 * Allow a firmware-specified interface to be
+> -		 * disabled.
+> -		 */
+> -		p.type = SI_TYPE_INVALID;
+>  	} else {
+> -		pr_warn("Interface type specified for interface %d, was invalid: %s\n",
+> -			i, si_type_str);
+> -		return;
+> +		t = match_string(si_to_str, ARRAY_SIZE(si_to_str), si_type_str);
+> +		if (t < 0) {
+> +			pr_warn("Interface type specified for interface %d, was invalid: %s\n",
+> +				i, si_type_str);
+> +			return;
+> +		}
+> +		p.type = t;
+>  	}
+>  
+>  	p.regsize = regsizes[i];
+> diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
+> index be41a473e3c2..ff448098f185 100644
+> --- a/drivers/char/ipmi/ipmi_si_intf.c
+> +++ b/drivers/char/ipmi/ipmi_si_intf.c
+> @@ -70,8 +70,6 @@ enum si_intf_state {
+>  #define IPMI_BT_INTMASK_CLEAR_IRQ_BIT	2
+>  #define IPMI_BT_INTMASK_ENABLE_IRQ_BIT	1
+>  
+> -static const char * const si_to_str[] = { "invalid", "kcs", "smic", "bt" };
 > -
-> -	strncpy(valcp, val, 15);
-> -	valcp[15] = '\0';
-> +	int e;
+>  static bool initialized;
 >  
-> -	s = strstrip(valcp);
-> -
-> -	if (strcmp(s, "none") == 0)
-> -		ipmi_send_panic_event = IPMI_SEND_PANIC_EVENT_NONE;
-> -	else if (strcmp(s, "event") == 0)
-> -		ipmi_send_panic_event = IPMI_SEND_PANIC_EVENT;
-> -	else if (strcmp(s, "string") == 0)
-> -		ipmi_send_panic_event = IPMI_SEND_PANIC_EVENT_STRING;
-> -	else
-> -		return -EINVAL;
-> +	strscpy(valcp, val, sizeof(valcp));
-> +	e = match_string(panic_event_str, -1, strstrip(valcp));
-> +	if (e < 0)
-> +		return e;
->  
-> +	ipmi_send_panic_event = e;
->  	return 0;
->  }
->  
->  static int panic_op_read_handler(char *buffer, const struct kernel_param *kp)
->  {
-> -	switch (ipmi_send_panic_event) {
-> -	case IPMI_SEND_PANIC_EVENT_NONE:
-> -		strcpy(buffer, "none\n");
-> -		break;
-> -
-> -	case IPMI_SEND_PANIC_EVENT:
-> -		strcpy(buffer, "event\n");
-> -		break;
-> -
-> -	case IPMI_SEND_PANIC_EVENT_STRING:
-> -		strcpy(buffer, "string\n");
-> -		break;
-> +	const char *event_str;
->  
-> -	default:
-> -		strcpy(buffer, "???\n");
-> -		break;
-> -	}
-> +	if (ipmi_send_panic_event >= IPMI_SEND_PANIC_EVENT_MAX)
-> +		event_str = "???";
-> +	else
-> +		event_str = panic_event_str[ipmi_send_panic_event];
->  
-> -	return strlen(buffer);
-> +	return sprintf(buffer, "%s\n", event_str);
->  }
->  
->  static const struct kernel_param_ops panic_op_ops = {
+>  /*
 > -- 
 > 2.30.2
 > 
