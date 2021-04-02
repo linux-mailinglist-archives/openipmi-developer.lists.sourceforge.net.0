@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 202FA352B43
-	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Apr 2021 16:11:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 64A9A352B42
+	for <lists+openipmi-developer@lfdr.de>; Fri,  2 Apr 2021 16:11:38 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lSKWP-0006IV-7G; Fri, 02 Apr 2021 14:11:37 +0000
+	id 1lSKWM-0006HE-Je; Fri, 02 Apr 2021 14:11:34 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <tcminyard@gmail.com>) id 1lSKWN-0006Ga-BF
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 14:11:35 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1lSKWK-0006Ga-Ly
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 14:11:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=aluSn6bb33bhahqntft67ApwfyZT9WoQvHp/xBnQ0Zs=; b=CKmPRWR+7wW7dQJBNjC06Ah5CD
- fi9cuVCuDrBdW5rL0mnLqjoa1kjyvhzSpwzHecsEq6euz6EGkW9l4fM2VRrZ+M0ogvrL5Fb1pvo0g
- FCj+VVs45Aj6DtAhzZmlW+YBAHUD8MM3DNTuurV6dYvQywhtu810sXfS2pmtHVhc1Fbs=;
+ bh=ylm6gpqeWvw+/HjVuWe1JAQMxGl3Tdm7u6ALrI9wXPg=; b=lv/QNeZP1XuSCpzKKe5AYgYHvg
+ kZPG9e0ogd0kIsZVRMsrkkYqaEmc7OemmWfgu45AcLA2xNSEyzH8AdK/hAa2+r157IRKCyJw05wxo
+ bHzfMRgYn/g9xfbaEncmMEof93j9r24Grh/7ny6+lReY+QN1EDVYUhisyi1xk09X2PrI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
@@ -29,78 +29,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=aluSn6bb33bhahqntft67ApwfyZT9WoQvHp/xBnQ0Zs=; b=BhihlNk+QZAr163flrVNLL3MDc
- PiVF52f4fc5E7LVInRNcfe3KuoR5a6XXCMsxkxg5lGcvTe9w6jQp8vjhxPQI9ti1NjDp9V6BsclgN
- sUgOB4Oe4U1s+sm3DhIgAxhwpOLvdFsHZszToLIZafIjflD0lLo8D5Se8XJ7Cr6Yvjps=;
-Received: from mail-ot1-f43.google.com ([209.85.210.43])
+ bh=ylm6gpqeWvw+/HjVuWe1JAQMxGl3Tdm7u6ALrI9wXPg=; b=TUNCcta7GGbVsihtJ5M1BOF5pd
+ N0fMzfDEBWvAix/i6Z8RjhmiIMz7MigwLUu1T79uiFe9w185aWzIcuDi9DhgVC2KLQl+AZdOH/JB9
+ /I4VMP2Q2oP1BI4QpsdMhFyN7C+zrK/8FBZQY/1SqYi2dxcl+LOvi7t76HWgtsJ01Etc=;
+Received: from mail-oi1-f174.google.com ([209.85.167.174])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1lSKFJ-0002fO-RP
- for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 13:54:18 +0000
-Received: by mail-ot1-f43.google.com with SMTP id
- k14-20020a9d7dce0000b02901b866632f29so5027130otn.1
+ id 1lSKJI-0002mP-Ss
+ for openipmi-developer@lists.sourceforge.net; Fri, 02 Apr 2021 13:58:20 +0000
+Received: by mail-oi1-f174.google.com with SMTP id n8so4999552oie.10
  for <openipmi-developer@lists.sourceforge.net>;
- Fri, 02 Apr 2021 06:53:57 -0700 (PDT)
+ Fri, 02 Apr 2021 06:58:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=sender:date:from:to:cc:subject:message-id:reply-to:references
  :mime-version:content-disposition:in-reply-to;
- bh=aluSn6bb33bhahqntft67ApwfyZT9WoQvHp/xBnQ0Zs=;
- b=NEF/K2uB4Mkvy4QQ/Kz6ySI07BGzqJjrxihzA78nyYMoJrTXY3mmnlqkQhs+0ESiFJ
- lhWgvwKJfeK1jJACRmBuCn48dzqK95k08G3Mi2VpaLMczEfgAMgIQWiKSZ0b67ayG8r5
- WoTuSjVz6jgZ3y2IZ7DY5D10o3R2u1GKeiuh8xbD3TdxJxkl41B0Igiq9kECa5/1lcnH
- aHnNoKk9nK1ynBbHn9Y3qWdx/UXpb04kOqWNl43OMKQ9c5vK4v3foO0C44NifgIQOkQt
- ZdMp+84iAKwZvJrw9lgetF+HYzQkiKUC2ZBC4C5+AmCIv4nnfi0HjVHZZNn7gVl6EUFW
- n9hA==
+ bh=ylm6gpqeWvw+/HjVuWe1JAQMxGl3Tdm7u6ALrI9wXPg=;
+ b=Sj034CJIi3VnMuZiMqKsL5hC3zzp2N52bcqqe9luhYTARnp6LmGMqyP6XOMZEVJsr5
+ Ufyz9lz0puhkH6aRFnLB/O7cyzMIJ5S1ibV+E7xeLFzv1582dQzMoJYpD58LM0Le1EmI
+ NSv4VAHxaQCae1/zBN9SCZ28lQSKBiF4DZeSYgAfEgd5DLfbc57d4Twcz9lyfZBWn/qU
+ DvzHTFZxtvuwexVbDh6DZ/pzRYW6lXWrkFm9ZYDy7Qcsv7ZuNVJfQHiFFXAtsNnd8M5y
+ MLyYEdxM9DsO06Ua49kF7Ju7IMZFfOrLUI4efdhQx64y6vy2e1h8ljLE1XjSgjJzjLBY
+ 2AVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
  :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=aluSn6bb33bhahqntft67ApwfyZT9WoQvHp/xBnQ0Zs=;
- b=Ri83/2Y0NUxbBoAR0yZGXoeOrDdnHS7EWC272BxLnsbkoTPDVy7WPmuXQC5HhuS/0w
- hpGozLEoqHN3iqQ7qy1YeEa3iGy2QSwpwyXZF2Doypsb35fPrB7eWCoObc8jok9zEYnc
- 8lYXyU6NGxCBNrLUoCBr8afou6pSzRKpFya013D76hoCzIIbq9jPxiXWrBcqhBhM6xkg
- F4ieFIGXWCiWy77YG/IYkvvbgC7nImDINpX1Rn9YY6MEEGFmEcw3nkE/K1gxzOcIZ7uZ
- cBrL3zu8DwdoPSp6zyRk+ptqQKlcnCYToGyz+7jnehcywF0Btot2MIbOEJ2Zibt/IYQL
- DvQw==
-X-Gm-Message-State: AOAM533COhPhHI7eaI8FiOutIVxgb4n+tPKGj4jh2EtjW8VF2NJvqzeh
- WRJnQSFvOs6TM8u0gqbkXQ==
-X-Google-Smtp-Source: ABdhPJz7MN4hCAKS98a9/hIkc17VjCgo2vzjBNphOKi6TxpqwqAE5RzY8Xd0LdBkig2rqsxJHUSCJQ==
-X-Received: by 2002:a05:6830:1d45:: with SMTP id
- p5mr11219852oth.340.1617371631930; 
- Fri, 02 Apr 2021 06:53:51 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id w23sm1768704oow.25.2021.04.02.06.53.51
+ bh=ylm6gpqeWvw+/HjVuWe1JAQMxGl3Tdm7u6ALrI9wXPg=;
+ b=HViHlUMdPpVzNqi/eoZu8cewL+AYBoeB/NyzS1ENiaRyIJYOSftlwy27njXRpRR2xO
+ by/kbBW1H4/WpGkzdeyKAh3wy46/cgOxlj1iv5+o023049zp3oK+ndI9Kvl+DLazSyVW
+ M2pFqOGuL0xMXEH/MBnPzjOGC8dEoKcSMKOl/cH5rU7ML9HOQmg36Jv8ru5h1pH9lVUe
+ EYEoi8XItu1t+6hoHKjC0RMpGS4zIr4T/xQLrjxH1YcopyvmYXJvrcsZxE7HhIVP8t07
+ wPADaenwNAPeJfv60PcYM+QRhQnDUl2foTL53Y6wnAwe3+Z3AexnW/xzmQsLvzG7FrLP
+ P8Ag==
+X-Gm-Message-State: AOAM5335K6kZOHeXfBdMFep1eeBBLiH3QicvA1Z3OgM6P+KeIh5hvgbs
+ AOl2kSZg4r6v9org7oST5Q==
+X-Google-Smtp-Source: ABdhPJwPPPNj2VpHypzZIPQ8aJF0JlMzBORKo8KJpEx0heLQgj2IgvzbO3x1kFLGObizH/Up+c7q8w==
+X-Received: by 2002:aca:f041:: with SMTP id o62mr10103290oih.114.1617371879329; 
+ Fri, 02 Apr 2021 06:57:59 -0700 (PDT)
+Received: from serve.minyard.net ([47.184.156.158])
+ by smtp.gmail.com with ESMTPSA id d13sm1861185otk.74.2021.04.02.06.57.58
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 02 Apr 2021 06:53:51 -0700 (PDT)
+ Fri, 02 Apr 2021 06:57:58 -0700 (PDT)
 Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:f99f:823a:495e:5af])
- by serve.minyard.net (Postfix) with ESMTPSA id 93DA3180570;
- Fri,  2 Apr 2021 13:53:50 +0000 (UTC)
-Date: Fri, 2 Apr 2021 08:53:49 -0500
+ by serve.minyard.net (Postfix) with ESMTPSA id DC72D180570;
+ Fri,  2 Apr 2021 13:57:57 +0000 (UTC)
+Date: Fri, 2 Apr 2021 08:57:56 -0500
 From: Corey Minyard <minyard@acm.org>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Message-ID: <20210402135349.GT507977@minyard.net>
+Message-ID: <20210402135756.GU507977@minyard.net>
 References: <20210330181649.66496-1-andriy.shevchenko@linux.intel.com>
- <20210330181649.66496-6-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210330181649.66496-6-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20210330181649.66496-1-andriy.shevchenko@linux.intel.com>
 X-Spam-Score: 0.3 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (tcminyard[at]gmail.com)
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.174 listed in wl.mailspike.net]
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: intel.com]
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.43 listed in wl.mailspike.net]
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lSKFJ-0002fO-RP
-Subject: Re: [Openipmi-developer] [PATCH v1 06/10] ipmi_si: Reuse si_to_str
- array in ipmi_hardcode_init_one()
+X-Headers-End: 1lSKJI-0002mP-Ss
+Subject: Re: [Openipmi-developer] [PATCH v1 01/10] ipmi_si: Switch to use
+ platform_get_mem_or_io()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -120,90 +117,90 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Mar 30, 2021 at 09:16:45PM +0300, Andy Shevchenko wrote:
-> Instead of making the comparison one by one, reuse si_to_str array
-> in ipmi_hardcode_init_one() in conjunction with match_string() API.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
->  drivers/char/ipmi/ipmi_si.h          |  3 +++
->  drivers/char/ipmi/ipmi_si_hardcode.c | 23 +++++++++--------------
->  drivers/char/ipmi/ipmi_si_intf.c     |  2 --
->  3 files changed, 12 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_si.h b/drivers/char/ipmi/ipmi_si.h
-> index bac0ff86e48e..fd3167d1e1e9 100644
-> --- a/drivers/char/ipmi/ipmi_si.h
-> +++ b/drivers/char/ipmi/ipmi_si.h
-> @@ -22,6 +22,9 @@ enum si_type {
->  	SI_TYPE_INVALID, SI_KCS, SI_SMIC, SI_BT
->  };
->  
-> +/* 'invalid' to allow a firmware-specified interface to be disabled */
-> +static __maybe_unused const char *const si_to_str[] = { "invalid", "kcs", "smic", "bt" };
+On Tue, Mar 30, 2021 at 09:16:40PM +0300, Andy Shevchenko wrote:
+> Switch to use new platform_get_mem_or_io() instead of home grown analogue.
+> Note, we also introduce ipmi_set_addr_data_and_space() helper here.
 
-Can we just make this non-static and leave the definition where it is?
-That would save a little space and wouldn't affect performance at all.
+You didn't send a part 0 that I saw, so just using this.  This is a nice
+cleanup set, I just had a few very minor nits.  Thanks for this.
 
 -corey
 
+> 
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> ---
+>  drivers/char/ipmi/ipmi_si_platform.c | 40 +++++++++++-----------------
+>  1 file changed, 16 insertions(+), 24 deletions(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_si_platform.c b/drivers/char/ipmi/ipmi_si_platform.c
+> index 129b5713f187..d7bd093f80e9 100644
+> --- a/drivers/char/ipmi/ipmi_si_platform.c
+> +++ b/drivers/char/ipmi/ipmi_si_platform.c
+> @@ -100,35 +100,32 @@ static int acpi_gpe_irq_setup(struct si_sm_io *io)
+>  }
+>  #endif
+>  
+> +static void ipmi_set_addr_data_and_space(struct resource *r, struct si_sm_io *io)
+> +{
+> +	io->addr_data = r->start;
+> +	if (resource_type(r) == IORESOURCE_IO)
+> +		io->addr_space = IPMI_IO_ADDR_SPACE;
+> +	else
+> +		io->addr_space = IPMI_MEM_ADDR_SPACE;
+> +}
 > +
->  enum ipmi_addr_space {
->  	IPMI_IO_ADDR_SPACE, IPMI_MEM_ADDR_SPACE
->  };
-> diff --git a/drivers/char/ipmi/ipmi_si_hardcode.c b/drivers/char/ipmi/ipmi_si_hardcode.c
-> index f6ece7569504..cf3797523469 100644
-> --- a/drivers/char/ipmi/ipmi_si_hardcode.c
-> +++ b/drivers/char/ipmi/ipmi_si_hardcode.c
-> @@ -80,26 +80,21 @@ static void __init ipmi_hardcode_init_one(const char *si_type_str,
->  					  enum ipmi_addr_space addr_space)
+>  static struct resource *
+>  ipmi_get_info_from_resources(struct platform_device *pdev,
+>  			     struct si_sm_io *io)
 >  {
->  	struct ipmi_plat_data p;
-> +	int t;
+> -	struct resource *res, *res_second;
+> +	struct resource *res, *second;
 >  
->  	memset(&p, 0, sizeof(p));
->  
->  	p.iftype = IPMI_PLAT_IF_SI;
-> -	if (!si_type_str || !*si_type_str || strcmp(si_type_str, "kcs") == 0) {
-> +	if (!si_type_str || !*si_type_str) {
->  		p.type = SI_KCS;
-> -	} else if (strcmp(si_type_str, "smic") == 0) {
-> -		p.type = SI_SMIC;
-> -	} else if (strcmp(si_type_str, "bt") == 0) {
-> -		p.type = SI_BT;
-> -	} else if (strcmp(si_type_str, "invalid") == 0) {
-> -		/*
-> -		 * Allow a firmware-specified interface to be
-> -		 * disabled.
-> -		 */
-> -		p.type = SI_TYPE_INVALID;
->  	} else {
-> -		pr_warn("Interface type specified for interface %d, was invalid: %s\n",
-> -			i, si_type_str);
-> -		return;
-> +		t = match_string(si_to_str, ARRAY_SIZE(si_to_str), si_type_str);
-> +		if (t < 0) {
-> +			pr_warn("Interface type specified for interface %d, was invalid: %s\n",
-> +				i, si_type_str);
-> +			return;
-> +		}
-> +		p.type = t;
+> -	res = platform_get_resource(pdev, IORESOURCE_IO, 0);
+> -	if (res) {
+> -		io->addr_space = IPMI_IO_ADDR_SPACE;
+> -	} else {
+> -		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> -		if (res)
+> -			io->addr_space = IPMI_MEM_ADDR_SPACE;
+> -	}
+> +	res = platform_get_mem_or_io(pdev, 0);
+>  	if (!res) {
+>  		dev_err(&pdev->dev, "no I/O or memory address\n");
+>  		return NULL;
 >  	}
+> -	io->addr_data = res->start;
+> +	ipmi_set_addr_data_and_space(res, io);
 >  
->  	p.regsize = regsizes[i];
-> diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-> index be41a473e3c2..ff448098f185 100644
-> --- a/drivers/char/ipmi/ipmi_si_intf.c
-> +++ b/drivers/char/ipmi/ipmi_si_intf.c
-> @@ -70,8 +70,6 @@ enum si_intf_state {
->  #define IPMI_BT_INTMASK_CLEAR_IRQ_BIT	2
->  #define IPMI_BT_INTMASK_ENABLE_IRQ_BIT	1
+>  	io->regspacing = DEFAULT_REGSPACING;
+> -	res_second = platform_get_resource(pdev,
+> -			       (io->addr_space == IPMI_IO_ADDR_SPACE) ?
+> -					IORESOURCE_IO : IORESOURCE_MEM,
+> -			       1);
+> -	if (res_second) {
+> -		if (res_second->start > io->addr_data)
+> -			io->regspacing = res_second->start - io->addr_data;
+> -	}
+> +	second = platform_get_mem_or_io(pdev, 1);
+> +	if (second && resource_type(second) == resource_type(res) && second->start > io->addr_data)
+> +		io->regspacing = second->start - io->addr_data;
 >  
-> -static const char * const si_to_str[] = { "invalid", "kcs", "smic", "bt" };
+>  	return res;
+>  }
+> @@ -275,12 +272,7 @@ static int of_ipmi_probe(struct platform_device *pdev)
+>  	io.addr_source	= SI_DEVICETREE;
+>  	io.irq_setup	= ipmi_std_irq_setup;
+>  
+> -	if (resource.flags & IORESOURCE_IO)
+> -		io.addr_space = IPMI_IO_ADDR_SPACE;
+> -	else
+> -		io.addr_space = IPMI_MEM_ADDR_SPACE;
 > -
->  static bool initialized;
+> -	io.addr_data	= resource.start;
+> +	ipmi_set_addr_data_and_space(&resource, &io);
 >  
->  /*
+>  	io.regsize	= regsize ? be32_to_cpup(regsize) : DEFAULT_REGSIZE;
+>  	io.regspacing	= regspacing ? be32_to_cpup(regspacing) : DEFAULT_REGSPACING;
 > -- 
 > 2.30.2
 > 
