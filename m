@@ -2,140 +2,86 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 46C53355460
-	for <lists+openipmi-developer@lfdr.de>; Tue,  6 Apr 2021 14:59:13 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id F00D7355537
+	for <lists+openipmi-developer@lfdr.de>; Tue,  6 Apr 2021 15:32:59 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lTlIT-0006dn-Hk; Tue, 06 Apr 2021 12:59:09 +0000
+	id 1lTlpA-0003Vq-Ui; Tue, 06 Apr 2021 13:32:56 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <chiawei_wang@aspeedtech.com>) id 1lTfSF-0000Zd-Ub
- for openipmi-developer@lists.sourceforge.net; Tue, 06 Apr 2021 06:44:52 +0000
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
+ (envelope-from <andriy.shevchenko@linux.intel.com>)
+ id 1lTlop-0003V7-PC
+ for openipmi-developer@lists.sourceforge.net; Tue, 06 Apr 2021 13:32:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=8RaYoeKY4LG7cfN1Y4s7AoP/rWst4MVjFqq55TFmQRI=; b=KastYbCPdLhCDguMge0FMQYY6K
- 713tAzuJfG8/MZSzITlNTpLodqYSRMrhFCIyc3PzDqTOO9TjfMtQXoHmJ+x5pwutV70quiC/W5vd+
- Ui07lutGoiaXl8lEJscuFhi3bQFQJNGuZ4U1WfXDNC+7n3QayHKyD69vVYSusxsvOqLY=;
+ bh=kXWwq1GFlBZod084XfGTnMSWhYghAiWOiiKNeS9qiAo=; b=l5vUds0HdlMUgoGx4eYrQm7zbO
+ V+s9oRtKIG7BCo4axA/4oe66PuvNW+3GMUt3s6ZmYKds+g/Prnb6ih3Kspme/nNhyHc7d9qaNTRmn
+ 8ZaZ5uIUwUcCiKadVCwZ3WfjdsSLmyxXc6HwiLvPys99T40E+7CE0i5K7aH9Euto9MCI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:
- References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=8RaYoeKY4LG7cfN1Y4s7AoP/rWst4MVjFqq55TFmQRI=; b=GpvB9V9hFSZdMbIOq0tP2vjDjl
- jyTgfyJL14Gcm17HmmZseN6xlWX6cFZ9agJ/3CLqE3wKnhKbbLmd0yR+V+CdKeW9lRL3/OF2+SGY+
- bVTypk4+J07F31fynRYHJxcQXncJrvlwuYB1F6Lb/RorhTiakXZLHjr4yNHRbfJcUWu4=;
-Received: from mail-eopbgr1320107.outbound.protection.outlook.com
- ([40.107.132.107] helo=APC01-PU1-obe.outbound.protection.outlook.com)
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=kXWwq1GFlBZod084XfGTnMSWhYghAiWOiiKNeS9qiAo=; b=V
+ yl7DkGd9BX+x+gjdujTCa7o+kRvdl8re3NTLvJG2UO133L0t1vetqL6FQg+YoryHfn36xhlrOccNq
+ 0REAisxg5dLZtGFkwtsgtUraydtkF/oiWT2nmcAFWdsr+nCssvGlIHsz/iYw9gobmbeYdN/qm7SNB
+ grFiswDqU/eU6u50=;
+Received: from mga09.intel.com ([134.134.136.24])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1lTf7m-0005Bj-Qy
- for openipmi-developer@lists.sourceforge.net; Tue, 06 Apr 2021 06:23:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=bquQJVI/VdaU+tBsrbc1CHkB7Ia2boqq8mbi6pW6IWppoQclpQcJoa5uaXII3fSeu9OW3VwLee/tQteOrXsmlup2Ppvd7S4KOEznfN5OPPqcWSmu4PDNmqweq/oW/Fg/UXJBNzWSGRPncwiYIyUGwyoHCMGvNtR3o4ZU/veLfy5t4rWO8f8A8i1sIyZBDW+LgkoNY2hpqczpA2tzkntDRGsSRc0pVZKcsyYyva4qXkKC+vxijQA4Y5EVpPuKOc+SvfBE3DxAkfSVj4rLIqqZ21+uEAr4haaBpRsGLlvFEKiuod7PK8r90Ip7x8n+4WosxO+fg+qsmhGaOPfVr7rhEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8RaYoeKY4LG7cfN1Y4s7AoP/rWst4MVjFqq55TFmQRI=;
- b=nqgaAO4fxVpiclU88fS2oHlTJQGQB31O7taYk8uAp4E2wNUEmTHX8qjNpNjmxFTCHuHjZ+2eQOm69/ZtWLb1c6J8t2moCscwvfhuvN4p+rdsY8y3iWMjyr511Nk88k5E2st6pXm2dFapDdF7VQRLIp3Hi0smOt+TGCQMthCcziIaUO1/jN/ogfP3+gTRiANjOhnfh3qhginOaWjgAqpsvCJRcUmJsbq/000WEt9DPBmmLW+Fs2HsHWVtW1kAp5hccNoZlVHk2rSjcep1igcDWeYIAUV/gMhL0u2tQa21xZPOb00JkRaPdYzndxaw/gaW5vqCHasLD/Ijzuzxbt58zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-Received: from HK0PR06MB3779.apcprd06.prod.outlook.com (2603:1096:203:b8::10)
- by HK0PR06MB3668.apcprd06.prod.outlook.com (2603:1096:203:b7::17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3999.32; Tue, 6 Apr
- 2021 06:09:12 +0000
-Received: from HK0PR06MB3779.apcprd06.prod.outlook.com
- ([fe80::20c8:80da:5b1d:fc06]) by HK0PR06MB3779.apcprd06.prod.outlook.com
- ([fe80::20c8:80da:5b1d:fc06%4]) with mapi id 15.20.3999.032; Tue, 6 Apr 2021
- 06:09:12 +0000
-From: ChiaWei Wang <chiawei_wang@aspeedtech.com>
-To: Andrew Jeffery <andrew@aj.id.au>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>, "openbmc@lists.ozlabs.org"
- <openbmc@lists.ozlabs.org>, "minyard@acm.org" <minyard@acm.org>
-Thread-Topic: [PATCH v2 21/21] ipmi: kcs_bmc_aspeed: Optionally apply status
- address
-Thread-Index: AQHXHIla9MoZtxcSoU+tfUZbCeW/RaqnHWVA
-Date: Tue, 6 Apr 2021 06:09:12 +0000
-Message-ID: <HK0PR06MB3779BE4C5C6E2758DC60FDCA91769@HK0PR06MB3779.apcprd06.prod.outlook.com>
-References: <20210319062752.145730-1-andrew@aj.id.au>
- <20210319062752.145730-21-andrew@aj.id.au>
-In-Reply-To: <20210319062752.145730-21-andrew@aj.id.au>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: aj.id.au; dkim=none (message not signed)
- header.d=none;aj.id.au; dmarc=none action=none header.from=aspeedtech.com;
-x-originating-ip: [211.20.114.70]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 128f78fe-39c3-4749-9615-08d8f8c27fef
-x-ms-traffictypediagnostic: HK0PR06MB3668:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <HK0PR06MB366809CEB906989F6582ABC091769@HK0PR06MB3668.apcprd06.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:7691;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: gaeEJXIs4gLScJaF2uQCCwh3DTzjWOckUa2zW/LkDVQvZ8e9Tf+V/+MHyl/BSnObsPz89tEzfHeK+TnXIHai6Z5XFNz8p9HMPdC+Nqfyu/4kzKnZN87sUdoufjbdrOK0lwZp4aq5Iukd6nBsSy24dC+GRc8YunMIL0dSGmkv/eqIgkUf0jAcP8HZNe9zq7OvFayCjGOGGyA/6YbfH3fRYxFJlqQKqyHoJ7YmWGs8OqsOQADCyCmqKIxKl6pX42+LaKpMVOk4j7TeiCxA/odbl8RYsM9C7LVjjV5n6y2TAl34+KCV0bHdYMBT34KahiM/CIj/+CxQcLanjHs2S9nZ+6c7ObSk15x68coqpH7c64Igf1K2778YNGb9L6t+YmZAhsmOSyDOw+hND0/ooFTUFP6p3XcFpGucXdn0vysKwgbdiGqKnuPZQj0ny/+4n0gTBNs9CVNIDRMBGtZFUH/8lrCi7kIggYUQeE6LRqncVTfEZwduJ3nTGfNGNbK55URTrBXUJ24pyA3nMs0XCcKZ6bhSTx12DhfFMvgQrWE+shwowL5cVyWLDiBYs3bZFXaMPqH4j7En0kBhDwFfA+rsZlrKO/BV56oj77deOIuGxm4y03/MvJxJiRRYH7y+upAErtih4TD2CI4iV9mAAgS9RfNtoozRvbzfO4WGrBwxuRI=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:HK0PR06MB3779.apcprd06.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(39840400004)(376002)(346002)(366004)(136003)(396003)(76116006)(52536014)(64756008)(53546011)(38100700001)(66446008)(2906002)(66556008)(66476007)(55236004)(83380400001)(66946007)(7696005)(26005)(8676002)(7416002)(54906003)(86362001)(186003)(4326008)(33656002)(55016002)(316002)(110136005)(6506007)(71200400001)(5660300002)(9686003)(8936002)(478600001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?XzwimQh/hnyMcABh7YONLUoco53Gavsm5VDbw1aNq7oyO/ZivQBTb3BxDGw0?=
- =?us-ascii?Q?D/p3cK7b/37BdbQ1kD8xqDY7UsxC5PQD8Sy2eeb9bo7y0dcg86809z1M7hPf?=
- =?us-ascii?Q?2aBG0jSSlr1SH2y6I0ZMD1+wbT3KhdDv7/JIfrZUsv5S/ruk2cTQuhK60Z6x?=
- =?us-ascii?Q?JEe642u7f+/F2INotw3xfDQj082Y3W6Yor/p2ZkxWJtmgm18oEIqDC3yZv21?=
- =?us-ascii?Q?dmGbNomP9tbi/jmMD1L3ICAcyv6ccb+VaEt7BEQQOTCTm/ZGX4q3wZuLPGmz?=
- =?us-ascii?Q?KFYrD+io5Ql6v+uQk72P4R+BAd1Df+W3ck0XavOBNO1fQ7AJgq+iKR8HYMpX?=
- =?us-ascii?Q?KDZHFbL81pjCrEDqQzTXGr7EBxLzWZbTRZ8yf4mDsIr0spz9X0g4/YD32Sry?=
- =?us-ascii?Q?FTB0PmPEh5/hQLrZb1A4Pckixo7caorCAxtwGboNX/y/vkfikKKGHzj3JslA?=
- =?us-ascii?Q?Rmw5wgEirbtBzpF/woBpQffAXcv28RR7o5s2pNmHJOU0a6PvGqFVmy8zAzUa?=
- =?us-ascii?Q?qdy0793eGJtfCD5y8kiNsbGki/eoPokeoh8PuO7vdin+YnHp37HIfvRXx88Q?=
- =?us-ascii?Q?HgzrcfRNczraeDH4N3oeA8Yh1HFMHKiC7CKlb4w6p3WN9yG9duhy6fReoX8p?=
- =?us-ascii?Q?OvZHAYG8W+CUGbj6qXqbeW8y3Hp0b9UMR+Ht2RZfkLVAL+dn0QPDep2rAVno?=
- =?us-ascii?Q?vsYi3tywMlRFJkvsA/ShUYkniGXGX29DndxONV63LHqiXMnk7NAs3C78SrzW?=
- =?us-ascii?Q?lY6kG3VpjWeGADv/Dpi4uW8qhOy7WhHbyB7luO3XTczSU1usW8YOVpqCXfQr?=
- =?us-ascii?Q?q/qKIDDPZD/Kxmt70JYiONpF9yxQQ8e2KjLnbH/6fHk3/vKCGLwwPS5GmtbX?=
- =?us-ascii?Q?pf/nFJzhEk6bvMKiGpz7albWUuexncjV1hC2tvD9tDVKhTKUGhXwGaKaWiLY?=
- =?us-ascii?Q?mzG87MCTpCS2We7kyRXKVKN2XZrdGni1dojNXGhZyY7pN+uXxtjJaMCiHZOo?=
- =?us-ascii?Q?uG7ok7lZP51wr+BzG4bGU3BhgXw79nafYtLIlEXdj4DjKxgLTjKKQ0tENjiJ?=
- =?us-ascii?Q?0ppHyeolpF4+5bNyJxOmAfiXWK+TSgcK1xkuseU6K6EzGYauhCTVVYWhfJCC?=
- =?us-ascii?Q?d1ePag+QTUypZRET3xyDpK9TAMRkzO3h+sVwkXhm/MlOB+yTCAzuB/6I3ysl?=
- =?us-ascii?Q?P3xWD2ov3ACNS73Zh+7hU813Iu9F9byn/Bn15gDG1ADuHJXQwz0ToscgpP05?=
- =?us-ascii?Q?g9cWH1VT9Qx0ziJjvLF4JhNOXzBnxKUsO8VGq8gfqNC8lNMjbsIF/s8I2PhZ?=
- =?us-ascii?Q?a7Uce2uf2se4PwBwepD+EFer?=
+ id 1lTloY-0002nX-SI
+ for openipmi-developer@lists.sourceforge.net; Tue, 06 Apr 2021 13:32:35 +0000
+IronPort-SDR: C6FnfmKVANoqKh3Whr5vakNd2HtWq1l01mA1VU31z6Fn6CSS63GPSCc6S/UdAcfzdndqnNkyEp
+ pgNidJK1Rs5w==
+X-IronPort-AV: E=McAfee;i="6000,8403,9946"; a="193176093"
+X-IronPort-AV: E=Sophos;i="5.81,309,1610438400"; d="scan'208";a="193176093"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+ by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 06 Apr 2021 06:32:12 -0700
+IronPort-SDR: jtMOa4mD5dYKwnCEQwrRNFvdx2wdv8anVlaUnlD6ffpa3InIRgZR06tCD5GLvkIjPd/LeQclQ5
+ EOsXyxHp6HQQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.81,309,1610438400"; d="scan'208";a="386575513"
+Received: from black.fi.intel.com ([10.237.72.28])
+ by fmsmga007.fm.intel.com with ESMTP; 06 Apr 2021 06:32:03 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+ id 00BDCB7; Tue,  6 Apr 2021 16:32:18 +0300 (EEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Michael Ellerman <mpe@ellerman.id.au>, Joerg Roedel <jroedel@suse.de>,
+ Wei Liu <wei.liu@kernel.org>, Michael Kelley <mikelley@microsoft.com>,
+ Mike Rapoport <rppt@kernel.org>, Corey Minyard <cminyard@mvista.com>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
+ Vlastimil Babka <vbabka@suse.cz>, "Paul E. McKenney" <paulmck@kernel.org>,
+ "Steven Rostedt (VMware)" <rostedt@goodmis.org>,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ linux-remoteproc@vger.kernel.org, linux-arch@vger.kernel.org,
+ kexec@lists.infradead.org, rcu@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+Date: Tue,  6 Apr 2021 16:31:58 +0300
+Message-Id: <20210406133158.73700-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: HK0PR06MB3779.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 128f78fe-39c3-4749-9615-08d8f8c27fef
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Apr 2021 06:09:12.5427 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: AYey/+Gh5z2DY5L8NKMPLcQIjBY3/drh4GXTtiZWtfHRZqTGofSA9M4nOvLWOiCs4BDTY78H7Pc1F/bfEoh6TDacJoydY0N/l7tpQSavz/Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: HK0PR06MB3668
-X-Spam-Score: 1.0 (+)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [40.107.132.107 listed in wl.mailspike.net]
- 1.0 PDS_BAD_THREAD_QP_64   Bad thread header - short QP
-X-Headers-End: 1lTf7m-0005Bj-Qy
-X-Mailman-Approved-At: Tue, 06 Apr 2021 12:58:49 +0000
-Subject: Re: [Openipmi-developer] [PATCH v2 21/21] ipmi: kcs_bmc_aspeed:
- Optionally apply status address
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [134.134.136.24 listed in wl.mailspike.net]
+ 0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
+X-Headers-End: 1lTloY-0002nX-SI
+Subject: [Openipmi-developer] [PATCH v1 1/1] kernel.h: Split out panic and
+ oops helpers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -148,285 +94,460 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Ryan Chen <ryan_chen@aspeedtech.com>,
- "tmaimon77@gmail.com" <tmaimon77@gmail.com>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "avifishman70@gmail.com" <avifishman70@gmail.com>,
- "venture@google.com" <venture@google.com>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "tali.perry1@gmail.com" <tali.perry1@gmail.com>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "lee.jones@linaro.org" <lee.jones@linaro.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "benjaminfair@google.com" <benjaminfair@google.com>
+Cc: Ohad Ben-Cohen <ohad@wizery.com>, Iurii Zaikin <yzaikin@google.com>,
+ Stephen Hemminger <sthemmin@microsoft.com>, Arnd Bergmann <arnd@arndb.de>,
+ Corey Minyard <minyard@acm.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Haiyang Zhang <haiyangz@microsoft.com>, x86@kernel.org,
+ Lai Jiangshan <jiangshanlai@gmail.com>, Josh Triplett <josh@joshtriplett.org>,
+ Joel Fernandes <joel@joelfernandes.org>, Luis Chamberlain <mcgrof@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Eric Biederman <ebiederm@xmission.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Paul Mackerras <paulus@samba.org>, Thomas Gleixner <tglx@linutronix.de>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Kees Cook <keescook@chromium.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Reviewed-by: Chia-Wei Wang <chiawei_wang@aspeedtech.com>
+kernel.h is being used as a dump for all kinds of stuff for a long time.
+Here is the attempt to start cleaning it up by splitting out panic and
+oops helpers.
 
-> -----Original Message-----
-> From: Andrew Jeffery <andrew@aj.id.au>
-> Sent: Friday, March 19, 2021 2:28 PM
-> To: openipmi-developer@lists.sourceforge.net; openbmc@lists.ozlabs.org;
-> minyard@acm.org
-> Subject: [PATCH v2 21/21] ipmi: kcs_bmc_aspeed: Optionally apply status
-> address
-> 
-> Some Aspeed KCS devices can derive the status register address from the
-> address of the data register. As such, the address of the status register can be
-> implicit in the configuration if desired. On the other hand, sometimes address
-> schemes might be requested that are incompatible with the default addressing
-> scheme. Allow these requests where possible if the devicetree specifies the
-> status register address.
-> 
-> Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
-> ---
->  drivers/char/ipmi/kcs_bmc_aspeed.c | 113 +++++++++++++++++++++--------
->  1 file changed, 81 insertions(+), 32 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c
-> b/drivers/char/ipmi/kcs_bmc_aspeed.c
-> index 7334b1f51dcc..98789b837690 100644
-> --- a/drivers/char/ipmi/kcs_bmc_aspeed.c
-> +++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
-> @@ -83,6 +83,8 @@
->  #define LPC_STR2             0x040
->  #define LPC_STR3             0x044
->  #define LPC_HICRB            0x100
-> +#define     LPC_HICRB_EN16LADR2      BIT(5)
-> +#define     LPC_HICRB_EN16LADR1      BIT(4)
->  #define     LPC_HICRB_IBFIE4         BIT(1)
->  #define     LPC_HICRB_LPC4E          BIT(0)
->  #define LPC_HICRC            0x104
-> @@ -96,6 +98,11 @@
->  #define LPC_IDR4             0x114
->  #define LPC_ODR4             0x118
->  #define LPC_STR4             0x11C
-> +#define LPC_LSADR12	     0x120
-> +#define     LPC_LSADR12_LSADR2_MASK  GENMASK(31, 16)
-> +#define     LPC_LSADR12_LSADR2_SHIFT 16
-> +#define     LPC_LSADR12_LSADR1_MASK  GENMASK(15, 0)
-> +#define     LPC_LSADR12_LSADR1_SHIFT 0
-> 
->  #define OBE_POLL_PERIOD	     (HZ / 2)
-> 
-> @@ -123,7 +130,7 @@ struct aspeed_kcs_bmc {
-> 
->  struct aspeed_kcs_of_ops {
->  	int (*get_channel)(struct platform_device *pdev);
-> -	int (*get_io_address)(struct platform_device *pdev);
-> +	int (*get_io_address)(struct platform_device *pdev, u32 addrs[2]);
->  };
-> 
->  static inline struct aspeed_kcs_bmc *to_aspeed_kcs_bmc(struct
-> kcs_bmc_device *kcs_bmc) @@ -217,38 +224,64 @@ static void
-> aspeed_kcs_updateb(struct kcs_bmc_device *kcs_bmc, u32 reg, u8 mask,
->   *     C. KCS4
->   *        D / C : CA4h / CA5h
->   */
-> -static void aspeed_kcs_set_address(struct kcs_bmc_device *kcs_bmc, u16
-> addr)
-> +static int aspeed_kcs_set_address(struct kcs_bmc_device *kcs_bmc, u32
-> +addrs[2], int nr_addrs)
->  {
->  	struct aspeed_kcs_bmc *priv = to_aspeed_kcs_bmc(kcs_bmc);
-> 
-> -	switch (kcs_bmc->channel) {
-> +	if (WARN_ON(nr_addrs < 1 || nr_addrs > 2))
-> +		return -EINVAL;
-> +
-> +	switch (priv->kcs_bmc.channel) {
->  	case 1:
-> -		regmap_update_bits(priv->map, LPC_HICR4,
-> -				LPC_HICR4_LADR12AS, 0);
-> -		regmap_write(priv->map, LPC_LADR12H, addr >> 8);
-> -		regmap_write(priv->map, LPC_LADR12L, addr & 0xFF);
-> +		regmap_update_bits(priv->map, LPC_HICR4, LPC_HICR4_LADR12AS,
-> 0);
-> +		regmap_write(priv->map, LPC_LADR12H, addrs[0] >> 8);
-> +		regmap_write(priv->map, LPC_LADR12L, addrs[0] & 0xFF);
-> +		if (nr_addrs == 2) {
-> +			regmap_update_bits(priv->map, LPC_LSADR12,
-> LPC_LSADR12_LSADR1_MASK,
-> +					   addrs[1] << LPC_LSADR12_LSADR1_SHIFT);
-> +
-> +			regmap_update_bits(priv->map, LPC_HICRB,
-> LPC_HICRB_EN16LADR1,
-> +					   LPC_HICRB_EN16LADR1);
-> +		}
->  		break;
-> 
->  	case 2:
-> -		regmap_update_bits(priv->map, LPC_HICR4,
-> -				LPC_HICR4_LADR12AS, LPC_HICR4_LADR12AS);
-> -		regmap_write(priv->map, LPC_LADR12H, addr >> 8);
-> -		regmap_write(priv->map, LPC_LADR12L, addr & 0xFF);
-> +		regmap_update_bits(priv->map, LPC_HICR4, LPC_HICR4_LADR12AS,
-> LPC_HICR4_LADR12AS);
-> +		regmap_write(priv->map, LPC_LADR12H, addrs[0] >> 8);
-> +		regmap_write(priv->map, LPC_LADR12L, addrs[0] & 0xFF);
-> +		if (nr_addrs == 2) {
-> +			regmap_update_bits(priv->map, LPC_LSADR12,
-> LPC_LSADR12_LSADR2_MASK,
-> +					   addrs[1] << LPC_LSADR12_LSADR2_SHIFT);
-> +
-> +			regmap_update_bits(priv->map, LPC_HICRB,
-> LPC_HICRB_EN16LADR2,
-> +					   LPC_HICRB_EN16LADR2);
-> +		}
->  		break;
-> 
->  	case 3:
-> -		regmap_write(priv->map, LPC_LADR3H, addr >> 8);
-> -		regmap_write(priv->map, LPC_LADR3L, addr & 0xFF);
-> +		if (nr_addrs == 2) {
-> +			dev_err(priv->kcs_bmc.dev,
-> +				"Channel 3 only supports inferred status IO address\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		regmap_write(priv->map, LPC_LADR3H, addrs[0] >> 8);
-> +		regmap_write(priv->map, LPC_LADR3L, addrs[0] & 0xFF);
->  		break;
-> 
->  	case 4:
-> -		regmap_write(priv->map, LPC_LADR4, ((addr + 1) << 16) |
-> -			addr);
-> +		if (nr_addrs == 1)
-> +			regmap_write(priv->map, LPC_LADR4, ((addrs[0] + 1) << 16) |
-> addrs[0]);
-> +		else
-> +			regmap_write(priv->map, LPC_LADR4, (addrs[1] << 16) |
-> addrs[0]);
-> +
->  		break;
-> 
->  	default:
-> -		break;
-> +		return -EINVAL;
->  	}
-> +
-> +	return 0;
->  }
-> 
->  static inline int aspeed_kcs_map_serirq_type(u32 dt_type) @@ -462,18
-> +495,18 @@ static int aspeed_kcs_of_v1_get_channel(struct platform_device
-> *pdev)
->  	return channel;
->  }
-> 
-> -static int aspeed_kcs_of_v1_get_io_address(struct platform_device *pdev)
-> +static int
-> +aspeed_kcs_of_v1_get_io_address(struct platform_device *pdev, u32
-> +addrs[2])
->  {
-> -	u32 slave;
->  	int rc;
-> 
-> -	rc = of_property_read_u32(pdev->dev.of_node, "kcs_addr", &slave);
-> -	if (rc || slave > 0xffff) {
-> +	rc = of_property_read_u32(pdev->dev.of_node, "kcs_addr", addrs);
-> +	if (rc || addrs[0] > 0xffff) {
->  		dev_err(&pdev->dev, "no valid 'kcs_addr' configured\n");
->  		return -EINVAL;
->  	}
-> 
-> -	return slave;
-> +	return 1;
->  }
-> 
->  static int aspeed_kcs_of_v2_get_channel(struct platform_device *pdev) @@
-> -509,16 +542,27 @@ static int aspeed_kcs_of_v2_get_channel(struct
-> platform_device *pdev)
->  	return -EINVAL;
->  }
-> 
-> -static int aspeed_kcs_of_v2_get_io_address(struct platform_device *pdev)
-> +static int
-> +aspeed_kcs_of_v2_get_io_address(struct platform_device *pdev, u32
-> +addrs[2])
->  {
-> -	uint32_t slave;
->  	int rc;
-> 
-> -	rc = of_property_read_u32(pdev->dev.of_node, "aspeed,lpc-io-reg",
-> &slave);
-> -	if (rc || slave > 0xffff)
-> +	rc = of_property_read_variable_u32_array(pdev->dev.of_node,
-> +						 "aspeed,lpc-io-reg",
-> +						 addrs, 1, 2);
-> +	if (rc < 0)
-> +		return rc;
-> +
-> +	if (WARN_ON(rc == 0))
-> +		return -EINVAL;
-> +
-> +	if (addrs[0] > 0xffff)
-> +		return -EINVAL;
-> +
-> +	if (rc == 2 && addrs[1] > 0xffff)
->  		return -EINVAL;
-> 
-> -	return slave;
-> +	return rc;
->  }
-> 
->  static int aspeed_kcs_probe(struct platform_device *pdev) @@ -527,9
-> +571,11 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
->  	struct kcs_bmc_device *kcs_bmc;
->  	struct aspeed_kcs_bmc *priv;
->  	struct device_node *np;
-> -	int rc, channel, addr;
->  	bool have_upstream_irq;
->  	u32 upstream_irq[2];
-> +	int rc, channel;
-> +	int nr_addrs;
-> +	u32 addrs[2];
-> 
->  	np = pdev->dev.of_node->parent;
->  	if (!of_device_is_compatible(np, "aspeed,ast2400-lpc-v2") && @@ -547,9
-> +593,9 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
->  	if (channel < 0)
->  		return channel;
-> 
-> -	addr = ops->get_io_address(pdev);
-> -	if (addr < 0)
-> -		return addr;
-> +	nr_addrs = ops->get_io_address(pdev, addrs);
-> +	if (nr_addrs < 0)
-> +		return nr_addrs;
-> 
->  	np = pdev->dev.of_node;
->  	rc = of_property_read_u32_array(np, "aspeed,lpc-interrupts",
-> upstream_irq, 2); @@ -578,7 +624,9 @@ static int aspeed_kcs_probe(struct
-> platform_device *pdev)
->  	priv->obe.remove = false;
->  	timer_setup(&priv->obe.timer, aspeed_kcs_check_obe, 0);
-> 
-> -	aspeed_kcs_set_address(kcs_bmc, addr);
-> +	rc = aspeed_kcs_set_address(kcs_bmc, addrs, nr_addrs);
-> +	if (rc)
-> +		return rc;
-> 
->  	/* Host to BMC IRQ */
->  	rc = aspeed_kcs_config_downstream_irq(kcs_bmc, pdev); @@ -600,7
-> +648,8 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
->  	if (rc < 0)
->  		return rc;
-> 
-> -	dev_info(&pdev->dev, "Initialised channel %d at 0x%x\n",
-> kcs_bmc->channel, addr);
-> +	dev_info(&pdev->dev, "Initialised channel %d at 0x%x\n",
-> +			kcs_bmc->channel, addrs[0]);
-> 
->  	return 0;
->  }
-> --
-> 2.27.0
+At the same time convert users in header and lib folder to use new header.
+Though for time being include new header back to kernel.h to avoid twisted
+indirected includes for existing users.
+
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ arch/powerpc/kernel/setup-common.c   |  1 +
+ arch/x86/include/asm/desc.h          |  1 +
+ arch/x86/kernel/cpu/mshyperv.c       |  1 +
+ arch/x86/kernel/setup.c              |  1 +
+ drivers/char/ipmi/ipmi_msghandler.c  |  1 +
+ drivers/remoteproc/remoteproc_core.c |  1 +
+ include/asm-generic/bug.h            |  3 +-
+ include/linux/kernel.h               | 84 +-----------------------
+ include/linux/panic.h                | 98 ++++++++++++++++++++++++++++
+ include/linux/panic_notifier.h       | 12 ++++
+ kernel/hung_task.c                   |  1 +
+ kernel/kexec_core.c                  |  1 +
+ kernel/panic.c                       |  1 +
+ kernel/rcu/tree.c                    |  2 +
+ kernel/sysctl.c                      |  1 +
+ kernel/trace/trace.c                 |  1 +
+ 16 files changed, 126 insertions(+), 84 deletions(-)
+ create mode 100644 include/linux/panic.h
+ create mode 100644 include/linux/panic_notifier.h
+
+diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
+index 74a98fff2c2f..046fe21b5c3b 100644
+--- a/arch/powerpc/kernel/setup-common.c
++++ b/arch/powerpc/kernel/setup-common.c
+@@ -9,6 +9,7 @@
+ #undef DEBUG
+ 
+ #include <linux/export.h>
++#include <linux/panic_notifier.h>
+ #include <linux/string.h>
+ #include <linux/sched.h>
+ #include <linux/init.h>
+diff --git a/arch/x86/include/asm/desc.h b/arch/x86/include/asm/desc.h
+index 476082a83d1c..ceb12683b6d1 100644
+--- a/arch/x86/include/asm/desc.h
++++ b/arch/x86/include/asm/desc.h
+@@ -9,6 +9,7 @@
+ #include <asm/irq_vectors.h>
+ #include <asm/cpu_entry_area.h>
+ 
++#include <linux/debug_locks.h>
+ #include <linux/smp.h>
+ #include <linux/percpu.h>
+ 
+diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+index 22f13343b5da..9e5c6f2b044d 100644
+--- a/arch/x86/kernel/cpu/mshyperv.c
++++ b/arch/x86/kernel/cpu/mshyperv.c
+@@ -17,6 +17,7 @@
+ #include <linux/irq.h>
+ #include <linux/kexec.h>
+ #include <linux/i8253.h>
++#include <linux/panic_notifier.h>
+ #include <linux/random.h>
+ #include <asm/processor.h>
+ #include <asm/hypervisor.h>
+diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+index 59e5e0903b0c..570699eecf90 100644
+--- a/arch/x86/kernel/setup.c
++++ b/arch/x86/kernel/setup.c
+@@ -14,6 +14,7 @@
+ #include <linux/initrd.h>
+ #include <linux/iscsi_ibft.h>
+ #include <linux/memblock.h>
++#include <linux/panic_notifier.h>
+ #include <linux/pci.h>
+ #include <linux/root_dev.h>
+ #include <linux/hugetlb.h>
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 8a0e97b33cae..e96cb5c4f97a 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -16,6 +16,7 @@
+ 
+ #include <linux/module.h>
+ #include <linux/errno.h>
++#include <linux/panic_notifier.h>
+ #include <linux/poll.h>
+ #include <linux/sched.h>
+ #include <linux/seq_file.h>
+diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+index 626a6b90fba2..76dd8e2b1e7e 100644
+--- a/drivers/remoteproc/remoteproc_core.c
++++ b/drivers/remoteproc/remoteproc_core.c
+@@ -20,6 +20,7 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/device.h>
++#include <linux/panic_notifier.h>
+ #include <linux/slab.h>
+ #include <linux/mutex.h>
+ #include <linux/dma-map-ops.h>
+diff --git a/include/asm-generic/bug.h b/include/asm-generic/bug.h
+index 76a10e0dca9f..719410b93f99 100644
+--- a/include/asm-generic/bug.h
++++ b/include/asm-generic/bug.h
+@@ -17,7 +17,8 @@
+ #endif
+ 
+ #ifndef __ASSEMBLY__
+-#include <linux/kernel.h>
++#include <linux/panic.h>
++#include <linux/printk.h>
+ 
+ #ifdef CONFIG_BUG
+ 
+diff --git a/include/linux/kernel.h b/include/linux/kernel.h
+index 09035ac67d4b..6c5a05ac1ecb 100644
+--- a/include/linux/kernel.h
++++ b/include/linux/kernel.h
+@@ -14,6 +14,7 @@
+ #include <linux/math.h>
+ #include <linux/minmax.h>
+ #include <linux/typecheck.h>
++#include <linux/panic.h>
+ #include <linux/printk.h>
+ #include <linux/build_bug.h>
+ #include <linux/static_call_types.h>
+@@ -70,7 +71,6 @@
+ #define lower_32_bits(n) ((u32)((n) & 0xffffffff))
+ 
+ struct completion;
+-struct pt_regs;
+ struct user;
+ 
+ #ifdef CONFIG_PREEMPT_VOLUNTARY
+@@ -175,14 +175,6 @@ void __might_fault(const char *file, int line);
+ static inline void might_fault(void) { }
+ #endif
+ 
+-extern struct atomic_notifier_head panic_notifier_list;
+-extern long (*panic_blink)(int state);
+-__printf(1, 2)
+-void panic(const char *fmt, ...) __noreturn __cold;
+-void nmi_panic(struct pt_regs *regs, const char *msg);
+-extern void oops_enter(void);
+-extern void oops_exit(void);
+-extern bool oops_may_print(void);
+ void do_exit(long error_code) __noreturn;
+ void complete_and_exit(struct completion *, long) __noreturn;
+ 
+@@ -368,52 +360,8 @@ extern int __kernel_text_address(unsigned long addr);
+ extern int kernel_text_address(unsigned long addr);
+ extern int func_ptr_is_kernel_text(void *ptr);
+ 
+-#ifdef CONFIG_SMP
+-extern unsigned int sysctl_oops_all_cpu_backtrace;
+-#else
+-#define sysctl_oops_all_cpu_backtrace 0
+-#endif /* CONFIG_SMP */
+-
+ extern void bust_spinlocks(int yes);
+-extern int panic_timeout;
+-extern unsigned long panic_print;
+-extern int panic_on_oops;
+-extern int panic_on_unrecovered_nmi;
+-extern int panic_on_io_nmi;
+-extern int panic_on_warn;
+-extern unsigned long panic_on_taint;
+-extern bool panic_on_taint_nousertaint;
+-extern int sysctl_panic_on_rcu_stall;
+-extern int sysctl_max_rcu_stall_to_panic;
+-extern int sysctl_panic_on_stackoverflow;
+-
+-extern bool crash_kexec_post_notifiers;
+ 
+-/*
+- * panic_cpu is used for synchronizing panic() and crash_kexec() execution. It
+- * holds a CPU number which is executing panic() currently. A value of
+- * PANIC_CPU_INVALID means no CPU has entered panic() or crash_kexec().
+- */
+-extern atomic_t panic_cpu;
+-#define PANIC_CPU_INVALID	-1
+-
+-/*
+- * Only to be used by arch init code. If the user over-wrote the default
+- * CONFIG_PANIC_TIMEOUT, honor it.
+- */
+-static inline void set_arch_panic_timeout(int timeout, int arch_default_timeout)
+-{
+-	if (panic_timeout == arch_default_timeout)
+-		panic_timeout = timeout;
+-}
+-extern const char *print_tainted(void);
+-enum lockdep_ok {
+-	LOCKDEP_STILL_OK,
+-	LOCKDEP_NOW_UNRELIABLE
+-};
+-extern void add_taint(unsigned flag, enum lockdep_ok);
+-extern int test_taint(unsigned flag);
+-extern unsigned long get_taint(void);
+ extern int root_mountflags;
+ 
+ extern bool early_boot_irqs_disabled;
+@@ -432,36 +380,6 @@ extern enum system_states {
+ 	SYSTEM_SUSPEND,
+ } system_state;
+ 
+-/* This cannot be an enum because some may be used in assembly source. */
+-#define TAINT_PROPRIETARY_MODULE	0
+-#define TAINT_FORCED_MODULE		1
+-#define TAINT_CPU_OUT_OF_SPEC		2
+-#define TAINT_FORCED_RMMOD		3
+-#define TAINT_MACHINE_CHECK		4
+-#define TAINT_BAD_PAGE			5
+-#define TAINT_USER			6
+-#define TAINT_DIE			7
+-#define TAINT_OVERRIDDEN_ACPI_TABLE	8
+-#define TAINT_WARN			9
+-#define TAINT_CRAP			10
+-#define TAINT_FIRMWARE_WORKAROUND	11
+-#define TAINT_OOT_MODULE		12
+-#define TAINT_UNSIGNED_MODULE		13
+-#define TAINT_SOFTLOCKUP		14
+-#define TAINT_LIVEPATCH			15
+-#define TAINT_AUX			16
+-#define TAINT_RANDSTRUCT		17
+-#define TAINT_FLAGS_COUNT		18
+-#define TAINT_FLAGS_MAX			((1UL << TAINT_FLAGS_COUNT) - 1)
+-
+-struct taint_flag {
+-	char c_true;	/* character printed when tainted */
+-	char c_false;	/* character printed when not tainted */
+-	bool module;	/* also show as a per-module taint flag */
+-};
+-
+-extern const struct taint_flag taint_flags[TAINT_FLAGS_COUNT];
+-
+ extern const char hex_asc[];
+ #define hex_asc_lo(x)	hex_asc[((x) & 0x0f)]
+ #define hex_asc_hi(x)	hex_asc[((x) & 0xf0) >> 4]
+diff --git a/include/linux/panic.h b/include/linux/panic.h
+new file mode 100644
+index 000000000000..f5844908a089
+--- /dev/null
++++ b/include/linux/panic.h
+@@ -0,0 +1,98 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_PANIC_H
++#define _LINUX_PANIC_H
++
++#include <linux/compiler_attributes.h>
++#include <linux/types.h>
++
++struct pt_regs;
++
++extern long (*panic_blink)(int state);
++__printf(1, 2)
++void panic(const char *fmt, ...) __noreturn __cold;
++void nmi_panic(struct pt_regs *regs, const char *msg);
++extern void oops_enter(void);
++extern void oops_exit(void);
++extern bool oops_may_print(void);
++
++#ifdef CONFIG_SMP
++extern unsigned int sysctl_oops_all_cpu_backtrace;
++#else
++#define sysctl_oops_all_cpu_backtrace 0
++#endif /* CONFIG_SMP */
++
++extern int panic_timeout;
++extern unsigned long panic_print;
++extern int panic_on_oops;
++extern int panic_on_unrecovered_nmi;
++extern int panic_on_io_nmi;
++extern int panic_on_warn;
++
++extern unsigned long panic_on_taint;
++extern bool panic_on_taint_nousertaint;
++
++extern int sysctl_panic_on_rcu_stall;
++extern int sysctl_max_rcu_stall_to_panic;
++extern int sysctl_panic_on_stackoverflow;
++
++extern bool crash_kexec_post_notifiers;
++
++/*
++ * panic_cpu is used for synchronizing panic() and crash_kexec() execution. It
++ * holds a CPU number which is executing panic() currently. A value of
++ * PANIC_CPU_INVALID means no CPU has entered panic() or crash_kexec().
++ */
++extern atomic_t panic_cpu;
++#define PANIC_CPU_INVALID	-1
++
++/*
++ * Only to be used by arch init code. If the user over-wrote the default
++ * CONFIG_PANIC_TIMEOUT, honor it.
++ */
++static inline void set_arch_panic_timeout(int timeout, int arch_default_timeout)
++{
++	if (panic_timeout == arch_default_timeout)
++		panic_timeout = timeout;
++}
++
++/* This cannot be an enum because some may be used in assembly source. */
++#define TAINT_PROPRIETARY_MODULE	0
++#define TAINT_FORCED_MODULE		1
++#define TAINT_CPU_OUT_OF_SPEC		2
++#define TAINT_FORCED_RMMOD		3
++#define TAINT_MACHINE_CHECK		4
++#define TAINT_BAD_PAGE			5
++#define TAINT_USER			6
++#define TAINT_DIE			7
++#define TAINT_OVERRIDDEN_ACPI_TABLE	8
++#define TAINT_WARN			9
++#define TAINT_CRAP			10
++#define TAINT_FIRMWARE_WORKAROUND	11
++#define TAINT_OOT_MODULE		12
++#define TAINT_UNSIGNED_MODULE		13
++#define TAINT_SOFTLOCKUP		14
++#define TAINT_LIVEPATCH			15
++#define TAINT_AUX			16
++#define TAINT_RANDSTRUCT		17
++#define TAINT_FLAGS_COUNT		18
++#define TAINT_FLAGS_MAX			((1UL << TAINT_FLAGS_COUNT) - 1)
++
++struct taint_flag {
++	char c_true;	/* character printed when tainted */
++	char c_false;	/* character printed when not tainted */
++	bool module;	/* also show as a per-module taint flag */
++};
++
++extern const struct taint_flag taint_flags[TAINT_FLAGS_COUNT];
++
++enum lockdep_ok {
++	LOCKDEP_STILL_OK,
++	LOCKDEP_NOW_UNRELIABLE,
++};
++
++extern const char *print_tainted(void);
++extern void add_taint(unsigned flag, enum lockdep_ok);
++extern int test_taint(unsigned flag);
++extern unsigned long get_taint(void);
++
++#endif	/* _LINUX_PANIC_H */
+diff --git a/include/linux/panic_notifier.h b/include/linux/panic_notifier.h
+new file mode 100644
+index 000000000000..41e32483d7a7
+--- /dev/null
++++ b/include/linux/panic_notifier.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_PANIC_NOTIFIERS_H
++#define _LINUX_PANIC_NOTIFIERS_H
++
++#include <linux/notifier.h>
++#include <linux/types.h>
++
++extern struct atomic_notifier_head panic_notifier_list;
++
++extern bool crash_kexec_post_notifiers;
++
++#endif	/* _LINUX_PANIC_NOTIFIERS_H */
+diff --git a/kernel/hung_task.c b/kernel/hung_task.c
+index bb2e3e15c84c..2871076e4d29 100644
+--- a/kernel/hung_task.c
++++ b/kernel/hung_task.c
+@@ -15,6 +15,7 @@
+ #include <linux/kthread.h>
+ #include <linux/lockdep.h>
+ #include <linux/export.h>
++#include <linux/panic_notifier.h>
+ #include <linux/sysctl.h>
+ #include <linux/suspend.h>
+ #include <linux/utsname.h>
+diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
+index f099baee3578..4b34a9aa32bc 100644
+--- a/kernel/kexec_core.c
++++ b/kernel/kexec_core.c
+@@ -26,6 +26,7 @@
+ #include <linux/suspend.h>
+ #include <linux/device.h>
+ #include <linux/freezer.h>
++#include <linux/panic_notifier.h>
+ #include <linux/pm.h>
+ #include <linux/cpu.h>
+ #include <linux/uaccess.h>
+diff --git a/kernel/panic.c b/kernel/panic.c
+index 332736a72a58..edad89660a2b 100644
+--- a/kernel/panic.c
++++ b/kernel/panic.c
+@@ -23,6 +23,7 @@
+ #include <linux/reboot.h>
+ #include <linux/delay.h>
+ #include <linux/kexec.h>
++#include <linux/panic_notifier.h>
+ #include <linux/sched.h>
+ #include <linux/sysrq.h>
+ #include <linux/init.h>
+diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
+index ce5b4cd6bd18..a58c9c86fa13 100644
+--- a/kernel/rcu/tree.c
++++ b/kernel/rcu/tree.c
+@@ -32,6 +32,8 @@
+ #include <linux/export.h>
+ #include <linux/completion.h>
+ #include <linux/moduleparam.h>
++#include <linux/panic.h>
++#include <linux/panic_notifier.h>
+ #include <linux/percpu.h>
+ #include <linux/notifier.h>
+ #include <linux/cpu.h>
+diff --git a/kernel/sysctl.c b/kernel/sysctl.c
+index 3601786ddaeb..e5cf9c4ef5e1 100644
+--- a/kernel/sysctl.c
++++ b/kernel/sysctl.c
+@@ -27,6 +27,7 @@
+ #include <linux/sysctl.h>
+ #include <linux/bitmap.h>
+ #include <linux/signal.h>
++#include <linux/panic.h>
+ #include <linux/printk.h>
+ #include <linux/proc_fs.h>
+ #include <linux/security.h>
+diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+index 507a30bf26e4..9612a1d8fa13 100644
+--- a/kernel/trace/trace.c
++++ b/kernel/trace/trace.c
+@@ -39,6 +39,7 @@
+ #include <linux/slab.h>
+ #include <linux/ctype.h>
+ #include <linux/init.h>
++#include <linux/panic_notifier.h>
+ #include <linux/poll.h>
+ #include <linux/nmi.h>
+ #include <linux/fs.h>
+-- 
+2.30.2
 
 
 
