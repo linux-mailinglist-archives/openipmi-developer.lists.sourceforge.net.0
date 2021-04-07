@@ -2,178 +2,98 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id D4D273565DB
-	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Apr 2021 09:57:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Type:Content-Transfer-Encoding:Cc:
-	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:MIME-Version:In-Reply-To:Date:Message-ID:
-	References:To:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eo7IIi3lLyTXCuhGx6hoaFU9HUMaDOy1dEXJGH/YQuU=; b=A+UEcAMEEgWBP7w8NwTD1XNhyl
-	+WP1Ou5Tu2iTZVSFS4XUjTT0G8uYfdx7OyFR0bSkPbmDVD0pQdmGgGOBobdyYHrjKEJPNPNyHi33O
-	2gfUZozxBNZ88Okf+0bgqioyeXy4667eN9O/wjooU7N12hh/+1v+RtzJfaJZFq9Dl0Nw=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1C7F335654E
+	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Apr 2021 09:34:21 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lU344-0001JE-DX; Wed, 07 Apr 2021 07:57:28 +0000
+	id 1lU2hc-0004I9-6g; Wed, 07 Apr 2021 07:34:16 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <quan@os.amperecomputing.com>) id 1lU343-0001J7-Bk
- for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 07:57:27 +0000
+ (envelope-from <andy.shevchenko@gmail.com>) id 1lU2hX-0004He-Kv
+ for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 07:34:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :In-Reply-To:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
+ In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=+WkYhpq+MblylCJrujjQy2VfL2tPsVj3NCde7ZlPywA=; b=hCG7aG8T8LeEDB5nAmFj6WKpzD
- U3eitJRixiSwLGhTBpviaoHwDL+Bf77NP8wXfhrGQDQthTLjVXQOrCztnsDgCKeOE2lgGmxvyQy7M
- i69GuM2Pbt7b6hzwMBUuvRRpaqO9v7QzJBHvRAVtTvMVfkent48lTJuEXifH+sNd0TO8=;
+ bh=QvZSBrH1kmgxKZKSD+pBe7YtJvXFi8yG9kfTKSmsc5Q=; b=AQJxUrPHzH0cDVgYBIlP3PkvnL
+ ReIKdClfTstvpzJlchgy62mce0tBR+ipWiEA4/faLZusiaYIe2vAD/x6MMqZiSFJ6CCFgo615LE1c
+ ZQPYGzVj2u6r+QoaWQWDmpVO5H90qMlgo3lSnrUPibFAeUrwIodJoLOezxbyyygMVqZg=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:Date:
- Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=+WkYhpq+MblylCJrujjQy2VfL2tPsVj3NCde7ZlPywA=; b=LqcAFaRo/4/XVACE4cmdBZa/41
- nVmManMwJH1RF8gU4o40AcyiJsdDRbaO1YEMPyLX6U0sBNVZNEMWm5We0ZldY0QZiqjMbY7FHUqsy
- auwp9blQo0jwv+IOSW5uRi0pts5qQpXRq3niwCSsO4Y8vKqXt5DBsX6v8V8CPpczQLog=;
-Received: from mail-bn8nam11on2120.outbound.protection.outlook.com
- ([40.107.236.120] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1lU33x-00FB2z-6N
- for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 07:57:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cGeNa9y7Dy9MxZmHmKFT7I4PoH67HYCHqYyQ5yL/BsuCWH0OgdPnQBtPAgLVWUMrXGI6pf0W035UDbgGqt+zomvv+HhGkwrOCeccmJm8uUO+kNZicuMyEiZkCez+4C4XJ0raOGuz/4TPDwul598PqPbr/hn4210AUNUvR2VvyXvaYR9uLEBGbWVOgGZQPHQDTbkwZA/9Sn92ERkRhHMeW35eWZJ8LHPqOnbBBVBlX01ET0wTA+kssz1OHv6keRMqFoetL4YLdhcCT+hTQjzVzPXQNIpNnvv5cOGW8Rbqu4XF5KQ1v6cHtOQ8Rku2QTlielaDczmKX1hXlXkAPgcuNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+WkYhpq+MblylCJrujjQy2VfL2tPsVj3NCde7ZlPywA=;
- b=iSuIeYp0Tg/VUbkPkXwldDzogHY4Q3d1hhFUiHLylQjE/jbxdqqtb1HhJBWfpdHoq8bADXbJNw49Mz7HByaz0sKAeF514GGf1G4pAmlIoJ2L98yMdiDzf+7Jl8QIqQrMsF9vR4tPZk4OUR9fJZbOiTghEt7L4aXV6hJFzQjSejQZpCXaCZP+Qob6iumOe+b8nVXhj6rAYsle/M1S6QQ7mox4yYgv/AAmKEn+nxDI5mU+SqjxjIf0rE0jNX+ZiSBnQ77v7Ds4cC+ITTPMMzPstpV/z3JqVNXIUhDZVkX3j5WhBkW7OIv0YlYecKoj/zbxPjp93Bf3zitZViC7D7PL5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+WkYhpq+MblylCJrujjQy2VfL2tPsVj3NCde7ZlPywA=;
- b=vcPf+Z0AfEG/Sfyc28EkbnKmmqO+c/Nvn3ZFIoNWeQ2k9aXVdHXBLc05C/xfjjjUPCekyJBd97AekrvpAB1GIOVhQtPcKVggkAJoUb5JS2djzHlcjvm/hgnVzwwduEalg9sZprkqsrXWdYshY/GEmsaC3j/hTN7qfdpKLNSTn0w=
-Authentication-Results: os.amperecomputing.com; dkim=none (message not signed)
- header.d=none; os.amperecomputing.com;
- dmarc=none action=none
- header.from=os.amperecomputing.com;
-Received: from MW2PR0102MB3482.prod.exchangelabs.com (2603:10b6:302:c::32) by
- CO1PR01MB6582.prod.exchangelabs.com (2603:10b6:303:f2::23) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3999.27; Wed, 7 Apr 2021 07:23:44 +0000
-Received: from MW2PR0102MB3482.prod.exchangelabs.com
- ([fe80::d840:7aa7:58d4:b503]) by MW2PR0102MB3482.prod.exchangelabs.com
- ([fe80::d840:7aa7:58d4:b503%5]) with mapi id 15.20.4020.016; Wed, 7 Apr 2021
- 07:23:44 +0000
-To: Philipp Zabel <p.zabel@pengutronix.de>
-References: <20210330141029.20412-1-quan@os.amperecomputing.com>
- <20210330141029.20412-3-quan@os.amperecomputing.com>
- <20210402120137.GA26002@pengutronix.de>
-Message-ID: <82887823-b6b7-3d53-0fe3-571cbb2552c8@os.amperecomputing.com>
-Date: Wed, 7 Apr 2021 14:23:32 +0700
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
- Gecko/20100101 Thunderbird/78.9.0
-In-Reply-To: <20210402120137.GA26002@pengutronix.de>
-Content-Language: en-US
-X-Originating-IP: [118.69.219.201]
-X-ClientProxiedBy: HK2P15301CA0021.APCP153.PROD.OUTLOOK.COM
- (2603:1096:202:1::31) To MW2PR0102MB3482.prod.exchangelabs.com
- (2603:10b6:302:c::32)
+ bh=QvZSBrH1kmgxKZKSD+pBe7YtJvXFi8yG9kfTKSmsc5Q=; b=h7KWT4t5AFxWgoVa0jg+Y+zver
+ 511PQWJgV3UkkunHQTL5I8Y0sEB63sDa7xTtLjWMJ7Tnlt9a4BZKIr8fcMxapMO4DimCtKf5uBqk1
+ oWBbseFutOfEDr0ZmxO/P3zo3nJX0CEPa+y6i6ryEmO1iDRnBmHXycir1Qb0iCXE7SGw=;
+Received: from mail-pl1-f169.google.com ([209.85.214.169])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
+ id 1lU2hT-0005vU-7I
+ for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 07:34:11 +0000
+Received: by mail-pl1-f169.google.com with SMTP id l1so8887847plg.12
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 07 Apr 2021 00:34:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=QvZSBrH1kmgxKZKSD+pBe7YtJvXFi8yG9kfTKSmsc5Q=;
+ b=O2cXbe0TlOnka3Htg7a7ktCEm4u84Apnd4pxAh+QckwGH1N5XUJxAQXGojK8urTwHW
+ S6qKShLuqQpXW7czN7NSppj8uMSG1ILItUs2jRqW9KCOM0ewsGPs471AJdd9fQwkregx
+ 5WJsKLnvvgP9H/rO+GMThc5QqAWIM6vJUjUihrVpN1qBZ1PZrQQurpb3jy0hrvC8q/ga
+ 193Hbzqy2uMvrG2DBivJBITDOAFTPHgkYrA0xxTN2O5/SDYNzxk8E+F9Ofv4wPxpKtYd
+ OpyTo6+F49K8x0yWEkTWuqKF3gTonWd9jxsyeBFNYymfsKPd0N1ZAJ/ruwq0yRVkpYX5
+ /xXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=QvZSBrH1kmgxKZKSD+pBe7YtJvXFi8yG9kfTKSmsc5Q=;
+ b=r/GLpSwuyfIhGFRkBWLxQ49TUqDyjI42xdF7TNgsf57izpRPElSvS9H2TBOKkcOxS/
+ svp4zqCl9ceO7owiRvS7tNVLuzeW3BLmCGxTzC0q62k+205dUGHFcHKxi46CdKQxLzu0
+ 3vqik6ynRsUJv0W+YGfSoAPVie+Cv7MDD08bqFfE4ms057YcSzFuXCfujh4pfYNuuW5V
+ 24qvAvsQKJaWliN51JO664hwd4/oHBa//aftg80/YpvE7X3YbFJDn3o7RtlzwHWR1eOo
+ CclIvMHajAFQllwQBgpr+XgoLO7w4mQhYLSF4G/bYNg77TuhJG4EaZyze6xbZTIEdnfB
+ DYEg==
+X-Gm-Message-State: AOAM530bF/J00nPI9o0SKCpPaI+P+D89qT99F7HKMmGFonoc0eQL21e+
+ T1sc/gq+B7F2XJYbEM57aiIX5d63BGr8C32G0GQ=
+X-Google-Smtp-Source: ABdhPJyRMoGPnuz4MO0FmGOHIM1XSyhsQpJQrKhPLw79y8VziNPPVSJYtRew3BRLtYZwwl4H1BLduTLJZdkCaUCy8qY=
+X-Received: by 2002:a17:902:a406:b029:e6:78c4:71c8 with SMTP id
+ p6-20020a170902a406b02900e678c471c8mr1880447plq.17.1617780840716; Wed, 07 Apr
+ 2021 00:34:00 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from [10.38.33.17] (118.69.219.201) by
- HK2P15301CA0021.APCP153.PROD.OUTLOOK.COM (2603:1096:202:1::31) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.4042.3 via Frontend Transport; Wed, 7 Apr 2021 07:23:39 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 88f1e623-8bc4-4fc1-f7a0-08d8f9961373
-X-MS-TrafficTypeDiagnostic: CO1PR01MB6582:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CO1PR01MB65824B7FA38C17A929E4CE19F2759@CO1PR01MB6582.prod.exchangelabs.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:10000;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Jrm5Tie/BEQNcb0nZ9w9yAYdec3AJPTU9JswelOudER30RAb+LV4mbJNAG9Yk219LIecyQuNRoqHkRw1nj61W/KOcBFmRckr7T9eZU4th3rCh59mmmaxR41aRtz5EHm6sONbCrxLqKGjETc7dKkuNrr7Oo2rjfBvJEolROrzc8JS/AObAdei6yFVh7wZSan2SLx2OZbQqvwQ3f5Xi7pWJ/CM08D5if8N3QeS7yZEJBO/dGLlHE2zFCl6JZkGjqVbK4L8HcmSER9G+kEjLP49q8BPEHYKVcIa3hE4pCEZsgJ20i+oHzJTtc/8B50wBVb1/TQJRwigqPzLVK5sCIlPUXonZALDUrwwt3nlRmW5bcYMIgPfWlwzAncqNA3KDaRF9fQjOYvCuWHbLipJmsyee5sQ8kMvKAAwPn6KLUK9yt3J1B3io9jc2DPdszCZIJIHzA7WLt+qTpMePdL//Pf7De2OuEFDRFQVnw9PHIB3g0oDEbQSTR2JLgbepaAyb7MnORFfBmjFGgEV2nd3+iD2rYBMQzUUnMMvM/48+qttO75Dyzi4CVKUBr4Q/X9OTQrN020PuSlRRfchkGDZbJmjBehrqEupV9hWYPNuT4DbQZ6iI5QrnOHiEALinw4wmDSwUVVhYRj69rbdQpKPfnKvBcXiIMCKfif8Vkq1rF1MIA+eucSj/JrL7sqqMqIHcR3jNizWgXm8pJ+cxGiSw/CDj9tNcQmhdBPB/QCBbEcCGQLL/EpnikJ3vUcG6KdT9p6t9EhTeqxKVWI4sDoYXASuZjXBnNuSiI5GMoSY5aQzzGiWsrhuHKYm8gMcMI9vn1gvz5S2Kdt7DgxECk+jcbrEB44ltLN+qwqMz6VUKGDGuU0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:MW2PR0102MB3482.prod.exchangelabs.com; PTR:; CAT:NONE;
- SFS:(4636009)(376002)(136003)(396003)(39840400004)(366004)(346002)(6916009)(107886003)(54906003)(8936002)(38350700001)(66556008)(8676002)(2906002)(26005)(31686004)(53546011)(4326008)(38100700001)(5660300002)(83380400001)(16576012)(31696002)(2616005)(66476007)(7416002)(66946007)(6666004)(86362001)(956004)(16526019)(52116002)(478600001)(6486002)(186003)(316002)(2004002)(43740500002)(45980500001);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?TXVMYTJVVTZleWNKVUFMcldWNHpQYlVRNktTM2Njb0REVnZyNi9ZZnZZUHYz?=
- =?utf-8?B?SGQ5RElqRkhOMktSOHdIVFBiV0Fqb08wa2I2RThRRmwvQXJJMTJndjFpVlpk?=
- =?utf-8?B?UGpybU9QV3IwSzlwaFA1aXdGVnZhb2QwZGphYTRXMXJHNnJRaFAvM1ZtYkhT?=
- =?utf-8?B?eFN3dkJkK2ltQnh1cHp6S1dGVStqUENGc1AvTFlJV1JPb0tVUndqUFBhMllL?=
- =?utf-8?B?STRVUjQ2Tk93L3BYU0xGWGxyVXRwV2x2OGxwbFpQdFhwUjY1T3VXV2lqZmZO?=
- =?utf-8?B?cGFlbXovK2NaVGVCL1JCQ1AwblV4ZUJBMGNqTjlIYjl2UjdkN3lCeXFEb2ln?=
- =?utf-8?B?am1mUzVRVlVnSEp1VFRXMWNVTTJHcm43bHB2bGxyNlh3UnhDK0RIWGkxSFM3?=
- =?utf-8?B?M09NY2xMREtTb2czeFhPbkhMUm4wOC9jZGU4N042K3hFa3k5MHg4UWNMVHIz?=
- =?utf-8?B?OWZvY2ZHaUVBa2NGb1d1VTQ1eEZ0QjlzTUV3SUh5VXpBNUZMbXh2cUYreFZl?=
- =?utf-8?B?VGM1V0o4NkdzcjhvdUhYMk5RS29aN3VFQldVYzJ4UUJsOEVKakxTeDhkRFdZ?=
- =?utf-8?B?YVplVnBPRExYcFRvN3ptRmVrcWpvUDBPR3hJSHhQNzN2R0NvT0ZxWitVd2sy?=
- =?utf-8?B?SVBDNTJRRVdZWG41d2ZnVHBOSDRUMCt1OTlzTDk0VmVHMkZIWHVsWnBTb1lJ?=
- =?utf-8?B?UVlvU21welNaM0JYS0czUDNDWUhtVCtEQW05NUpVTk54aFRGU3Q4Wjd6Mi9a?=
- =?utf-8?B?UncwZUl6MGtYMjdCSzNSMWJLSGljTk5rS1d0OFNhYWxKSEtmLzhLSDhOd2o0?=
- =?utf-8?B?MDlPQTdJM056ZTJWaVJWeEh1Qm41aVlmbTZORnp4VEprQ01KK0MzcHFLU2JD?=
- =?utf-8?B?a1NMbldDNXNOS0ttbW5KcndpRklaOVZMMXBBNTFZUDlBZ2JjMWJQREsrd1Ja?=
- =?utf-8?B?Q0lEdDcxUGRPUTRQV25SSnhCRmlBNVE1bzZZdHFML29oWEVmMGFqaFFuOWx0?=
- =?utf-8?B?aDlETEthVWJiclB2bXRoTGNhQW1adzlvZFR6MEtBSTVkellLY1oxZHVZYlhF?=
- =?utf-8?B?djAyTzJKWi93YzY0K1pTM2YwRFVxTnEvcCtGV2hKRytqZ293TzVkUXB3M3Ix?=
- =?utf-8?B?ZTg3NlFQN2s0YU4xZGZTeFk0OWluSE81b3VqR3lNdkxNUDg2Wkw2Y2VIcHo4?=
- =?utf-8?B?ZGI5ZDE4d2VtcGIxT0FxTXlLaWxkLytPZ2NvdU1JTldoNWR1STNTUDhlWi9T?=
- =?utf-8?B?SWhOVTZxbTdIZU9IdDBKTXVwanZzUW5Bb3FKcGdKbFRyMUxrRXpOT2lBdTQv?=
- =?utf-8?B?VzVqTlBJQUVBOVFueTA3cFpBMkl5VldUYTIwcUFDaHUwMFFVMXpVNTNRamEr?=
- =?utf-8?B?Snk2c2Z3Yk5ZZVNoa1VmOUt1WFBQUXpxVTNZSlRXTkpScVlEU2ZlNy9qRnJm?=
- =?utf-8?B?RzM2Q1ZQUUNzNFhIMGw3d1pYdUVOZGtlMnRCdHZ1Mm1kSmhGNnl0Q083WEhQ?=
- =?utf-8?B?dWpBRmJDT0Z0VVNDc2pUdlJJdG52dFp0Vlc1cHRrRGVFTDRGeDNYcXFXUWxm?=
- =?utf-8?B?MzJ6Skp3Mkk1MUN6NUVuNnFKUU0zMnFycFVSeExZRGdMMldZU0hYSzJwODFE?=
- =?utf-8?B?L3IrQ0lnQkZYT1ZUbDkzYjhtNmtHOS9QM3lqT1RvSEljWHNoV1pWSUZKYnJz?=
- =?utf-8?B?MlRPL2tnUm9qS01TNGY4MDVxRjVpTDlXVEFIQmNrU1pmRW1zcUFVczBDOEtH?=
- =?utf-8?Q?7ANxSK7dNOipkfX7X+XfsvM7K1C4TAWgW7L8+F8?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88f1e623-8bc4-4fc1-f7a0-08d8f9961373
-X-MS-Exchange-CrossTenant-AuthSource: MW2PR0102MB3482.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Apr 2021 07:23:44.2791 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j3/zi1NbuAoqrpUzJEsiBTO4UNb4VtYuVTx1r1CTotSbPLKajwzI9Z0mw3dKZLbTDmoZb6xAzuBfZmXqEKFVoMDhB5+2s9kyJbEQg2PfDr8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB6582
-X-Spam-Score: 3.5 (+++)
+References: <20210406133158.73700-1-andriy.shevchenko@linux.intel.com>
+ <20210406165108.GA4332@42.do-not-panic.com>
+In-Reply-To: <20210406165108.GA4332@42.do-not-panic.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Wed, 7 Apr 2021 10:33:44 +0300
+Message-ID: <CAHp75Ve9vBQqSegM2-ch9NUN-MdevxxOs5ZdHkk1W7AacN+Wrw@mail.gmail.com>
+To: Luis Chamberlain <mcgrof@kernel.org>
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: gnu.org]
- 3.6 RCVD_IN_SBL_CSS        RBL: Received via a relay in Spamhaus SBL-CSS
- [118.69.219.201 listed in zen.spamhaus.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [40.107.236.120 listed in wl.mailspike.net]
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (andy.shevchenko[at]gmail.com)
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [40.107.236.120 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ trust [209.85.214.169 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.0 MSGID_FROM_MTA_HEADER  Message-Id was added by a relay
- -0.0 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1lU33x-00FB2z-6N
-Subject: Re: [Openipmi-developer] [PATCH v2 2/3] drivers: char: ipmi: Add
- Aspeed SSIF BMC driver
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.214.169 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1lU2hT-0005vU-7I
+Subject: Re: [Openipmi-developer] [PATCH v1 1/1] kernel.h: Split out panic
+ and oops helpers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -186,96 +106,76 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Quan Nguyen via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Quan Nguyen <quan@os.amperecomputing.com>
-Cc: devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
- Corey Minyard <minyard@acm.org>, Andrew Jeffery <andrew@aj.id.au>,
- openbmc@lists.ozlabs.org, "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
- linux-kernel@vger.kernel.org, Phong Vo <phong@os.amperecomputing.com>,
- Wolfram Sang <wsa@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- openipmi-developer@lists.sourceforge.net,
- Open Source Submission <patches@amperecomputing.com>,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org
+Cc: Corey Minyard <cminyard@mvista.com>,
+ Linux on Hyper-V List <linux-hyperv@vger.kernel.org>,
+ Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ linux-remoteproc@vger.kernel.org, Michael Kelley <mikelley@microsoft.com>,
+ Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Joel Fernandes <joel@joelfernandes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Linux-Arch <linux-arch@vger.kernel.org>, Wei Liu <wei.liu@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Stephen Hemminger <sthemmin@microsoft.com>, Corey Minyard <minyard@acm.org>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Iurii Zaikin <yzaikin@google.com>,
+ Ohad Ben-Cohen <ohad@wizery.com>, Joerg Roedel <jroedel@suse.de>,
+ Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Josh Triplett <josh@joshtriplett.org>,
+ "Steven Rostedt \(VMware\)" <rostedt@goodmis.org>, rcu@vger.kernel.org,
+ Borislav Petkov <bp@alien8.de>, openipmi-developer@lists.sourceforge.net,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, Vlastimil Babka <vbabka@suse.cz>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, kexec@lists.infradead.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Eric Biederman <ebiederm@xmission.com>,
+ Linux FS Devel <linux-fsdevel@vger.kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "open list:LINUX FOR POWERPC PA SEMI PWRFICIENT"
+ <linuxppc-dev@lists.ozlabs.org>, Mike Rapoport <rppt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 02/04/2021 19:01, Philipp Zabel wrote:
-> Hi Quan,
-> 
-> On Tue, Mar 30, 2021 at 09:10:28PM +0700, Quan Nguyen wrote:
->> The SMBus system interface (SSIF) IPMI BMC driver can be used to perform
->> in-band IPMI communication with their host in management (BMC) side.
->>
->> This commits adds support specifically for Aspeed AST2500 which commonly
->> used as Board Management Controllers.
->>
->> Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
->> ---
-> [...]
->> diff --git a/drivers/char/ipmi/ssif_bmc_aspeed.c b/drivers/char/ipmi/ssif_bmc_aspeed.c
->> new file mode 100644
->> index 000000000000..a563fcff5acc
->> --- /dev/null
->> +++ b/drivers/char/ipmi/ssif_bmc_aspeed.c
->> @@ -0,0 +1,132 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +/*
->> + * The driver for BMC side of Aspeed SSIF interface
->> + *
->> + * Copyright (c) 2021, Ampere Computing LLC
->> + *
->> + * This program is free software; you can redistribute it and/or
->> + * modify it under the terms of the GNU General Public License as
->> + * published by the Free Software Foundation; either version 2 of
->> + * the License, or (at your option) any later version.
->> + *
->> + * This program is distributed in the hope that it will be useful,
->> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
->> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
->> + * GNU General Public License for more details.
->> + *
->> + * You should have received a copy of the GNU General Public License
->> + * along with this program.  If not, see <https://www.gnu.org/licenses/>.
->> + */
->> +
->> +#include <linux/i2c.h>
->> +#include <linux/miscdevice.h>
->> +#include <linux/module.h>
->> +#include <linux/poll.h>
->> +#include <linux/iopoll.h>
->> +
->> +#include "ssif_bmc.h"
->> +
->> +struct aspeed_i2c_bus {
->> +	struct i2c_adapter              adap;
->> +	struct device                   *dev;
-> 
-> This device handle is apparently unused.
-> 
->> +	void __iomem                    *base;
->> +	struct reset_control            *rst;
-> 
-> This reset control handle is unused as well.
-> 
+On Wed, Apr 7, 2021 at 10:25 AM Luis Chamberlain <mcgrof@kernel.org> wrote:
+>
+> On Tue, Apr 06, 2021 at 04:31:58PM +0300, Andy Shevchenko wrote:
+> > diff --git a/include/linux/panic_notifier.h b/include/linux/panic_notifier.h
+> > new file mode 100644
+> > index 000000000000..41e32483d7a7
+> > --- /dev/null
+> > +++ b/include/linux/panic_notifier.h
+> > @@ -0,0 +1,12 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +#ifndef _LINUX_PANIC_NOTIFIERS_H
+> > +#define _LINUX_PANIC_NOTIFIERS_H
+> > +
+> > +#include <linux/notifier.h>
+> > +#include <linux/types.h>
+> > +
+> > +extern struct atomic_notifier_head panic_notifier_list;
+> > +
+> > +extern bool crash_kexec_post_notifiers;
+> > +
+> > +#endif       /* _LINUX_PANIC_NOTIFIERS_H */
+>
+> Why is it worth it to add another file just for this?
 
-Thank for the comment, Philipp.
+The main point is to break tons of loops that prevent having clean
+headers anymore.
 
-The main purpose here is to get the aspeed_i2c_bus->base of aspeed_i2c 
-driver so that the ASPEED_I2CD_INTR_RX_DONE and 
-ASPEED_I2CD_INTR_SLAVE_MATCH can be masked while handling the incoming 
-request, otherwise, the process is disturbed because these interrupts 
-keep occurring with unwanted value.
+In this case, see bug.h, which is very important in this sense.
 
-Other solution we have in mind is to implement and expose the 
-EXPORT_SYMBOL_GPL(i2c_aspeed_configure_slave) from 
-drivers/i2c/busses/i2c-aspeed.c
+>  Seems like a very
+> small file.
 
-Really appreciate if you could comment more on the solution.
+If it is an argument, it's kinda strange. We have much smaller headers.
 
-Thanks,
-- Quan
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 _______________________________________________
