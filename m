@@ -2,90 +2,97 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C5009356EAE
-	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Apr 2021 16:31:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C8230356F8E
+	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Apr 2021 17:00:01 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lU9Cz-0001Pk-L9; Wed, 07 Apr 2021 14:31:05 +0000
+	id 1lU9ew-0002ss-FF; Wed, 07 Apr 2021 14:59:58 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <mcgrof@gmail.com>) id 1lU9Cx-0001PG-Rn
- for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 14:31:03 +0000
+ (envelope-from <andy.shevchenko@gmail.com>) id 1lU9eu-0002sg-8J
+ for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 14:59:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
+ In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=1vVuZ4MvRzeF+pr2v0xmBFFQwK6hdMJanVjlk9hErro=; b=TkgHG3ZNbLfba0XH1Zwam7blrh
- ZCGF6KIiLmbOQXcWr+Hx2xEZ0nAyVfpjoitjwzL/qub22R82xUXHMufr4TfLBwrHcuVKoqeH5+7Rq
- yaspVx2kxK0IzegdqJi+d+oAqWaVmq4WgMe+rPLDJBF8yraRD9YU3/UELLaeGkhzp5cg=;
+ bh=r/d1grSpme2mQqHlJWH4I0IMbDUguqI3gCUkY5Nr1Q4=; b=QBKoK9Hhr/OdGt72rAISOAHLoS
+ kpBpb7+whYcn9Wc0a1SkrPYlAXySZjkKZR19qbIjyjGDptD5SE1qZf+OriHaZoI6++KIE7JU0dzzn
+ DfAB+CHvsPxJEPxm11NRUwxIdcnzY13s2oI2K+gKnxu09++fhu7p0j2iJsn5CMLXsMsE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=1vVuZ4MvRzeF+pr2v0xmBFFQwK6hdMJanVjlk9hErro=; b=NFyEFdkHHIl1SFBj+U7sJ390l8
- 8o5OKK0n3xCLVIADW/XXTjmqv6bplJLcl279dYKtQU9bZJx1bj8KRNWVQfSveQJaIYtx0tnEk9gHW
- sO9FMZrqXAFOVUBwNTh1m9DczG6bJY8EShGlLAYF9LsNoavIeoQq0i77noiZKthfVZtI=;
-Received: from mail-pl1-f178.google.com ([209.85.214.178])
+ bh=r/d1grSpme2mQqHlJWH4I0IMbDUguqI3gCUkY5Nr1Q4=; b=E0RkUZ56jlzUXURYri0klBD8Xb
+ TDQ8q6YJGxjaWsUaRtvpXA8vAy4vFpF1GNWu7RC3evqi6bBsDt7Wd9LeyPaxFV1v2UBu9ZtZK3FpN
+ oPX7h7ZxvM2h9opLHDOZgJg5tJjOzeQVg6KCImIdPMns15/sP/zGI9NjEAY0DPpZCaS4=;
+Received: from mail-pg1-f182.google.com ([209.85.215.182])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1lU9Ci-00053x-Hk
- for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 14:31:03 +0000
-Received: by mail-pl1-f178.google.com with SMTP id p10so4298919pld.0
+ id 1lU9ef-00061l-Mo
+ for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 14:59:56 +0000
+Received: by mail-pg1-f182.google.com with SMTP id q10so13269696pgj.2
  for <openipmi-developer@lists.sourceforge.net>;
- Wed, 07 Apr 2021 07:30:48 -0700 (PDT)
+ Wed, 07 Apr 2021 07:59:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=r/d1grSpme2mQqHlJWH4I0IMbDUguqI3gCUkY5Nr1Q4=;
+ b=fYy1lWNPXiQ+yb67ebJZu+8zEC+h0pBnsXArakBNChEkh6CjoRMYl72lknBCAuRuX2
+ jxuH9EpzzGDSCJWIUX2Ng7q0y9vsIP4Zr+Ek6u4yFt20hudhezjO5DOYAIxN+UZB5hMM
+ FswWwQr3PpOF1lHlMFl2SjtB1/0Fx4MrlsWZAZT4dZpOxE8in8RosRGUfdrKX/M6x4Fq
+ inZiwEl3DvszVRA5j32WLhIZYUUNpVuXdnve6hiU7XgFQUrk2IG/GFnBcXcqK58X9Wrd
+ bbLLNR2m9dcbokFkoo+uH9b1jOTr6jOD6OdvmDZN/EImsXC0vxwvNHIMR6Dr2vU22cdq
+ YTtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=1vVuZ4MvRzeF+pr2v0xmBFFQwK6hdMJanVjlk9hErro=;
- b=FZDb9jYWkDZ8NwSz01wF8Kl6Fm1NO8XTb5Tiimh9khvE3euIUgo4wyNLgbZEQtoiyS
- yyWvENvbNimYxMrQ2EBhCMTumjO1/UMN16CZvPMqZWTt9ak+yFbOgO+pQ/5Gwn/JqkUu
- ykwC4vsV9myhYxxWCBruo8EFJOo1jX+KUa1+ogBlTeGP0FQFIKDAyb9KymO+sTQezFKq
- PRsD+g/nc/6Lqg+8GNsXTbP5K2NELw+KcR1dmu1497qvomntnvhvM5/0J+AZmcmBVEUZ
- cm0AtyRepfBrfq3oNnt2a+8jWsGTH5ByvXImqALDowL+0/UlxHM3Mc29+Iw3sN6K39uJ
- QGzw==
-X-Gm-Message-State: AOAM531nEbgTipAT4tIlFXkgEscy4ZJ/jFVJX67ftXj6D0tsVZYE/JgO
- zaJzF+Wj30y+Hw8SgOVfrV4=
-X-Google-Smtp-Source: ABdhPJytaBCeu/N78G2ItU1as7w8fUmjf8wbl8aAQkobTbao0e2hHv5pq8RooRp01fzv5LCBwmpFDg==
-X-Received: by 2002:a17:90a:6343:: with SMTP id
- v3mr3482681pjs.153.1617805842980; 
- Wed, 07 Apr 2021 07:30:42 -0700 (PDT)
-Received: from 42.do-not-panic.com (42.do-not-panic.com. [157.230.128.187])
- by smtp.gmail.com with ESMTPSA id k11sm5779292pjs.1.2021.04.07.07.30.41
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 07 Apr 2021 07:30:41 -0700 (PDT)
-Received: by 42.do-not-panic.com (Postfix, from userid 1000)
- id 09D07402D7; Wed,  7 Apr 2021 14:30:41 +0000 (UTC)
-Date: Wed, 7 Apr 2021 14:30:40 +0000
-From: Luis Chamberlain <mcgrof@kernel.org>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Message-ID: <20210407143040.GB4332@42.do-not-panic.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=r/d1grSpme2mQqHlJWH4I0IMbDUguqI3gCUkY5Nr1Q4=;
+ b=rUgdw+KHhty02peF59dYbxd9TFxk/cdSx4cyGwqFDKmLRJ9G2CdATbrZrI9vK9r4+Y
+ jfoXXt2c3eGRvspiO6DZlSGIQjXbs3Wig2hYBGmyq/oBg2s+loqOlqGAE+RF9nDOmIl6
+ K7DnVMNiWzboz/C26QjYggaE7PmVE0S8OcZ1jqBjucBX5CH6fbF+JV0ebfHIHlKPPca3
+ BnipfNf2cgqjGnOLYdE11iFx6uZkJ0Bv/bxl3lkasbi/P5Sw0Znnf5ApLeTcFhcjJ67e
+ 5HLoMROTA+rq4vVA8v+jU1ABAve0YtmV0XnYLEXpfQXqbfRZZILSGe9G950SvutIvApK
+ gghw==
+X-Gm-Message-State: AOAM530+0zfIKbODWNO1NLbRWEmWo9AHYt0YszQWvo8b86O9EdPSxqkG
+ Go+cyJvbT5LkDUTWFu5CIpheodzAqUfZClNmZU4=
+X-Google-Smtp-Source: ABdhPJyU4xbKR/hTcJT3i+4AmcxOkV7rwYOr2kWTFFANFENce/N3tHTgLI14O9XHpuyAeqcD9v6uZo0Kn/Dprv2XBvs=
+X-Received: by 2002:a62:528e:0:b029:1f5:c5ee:a487 with SMTP id
+ g136-20020a62528e0000b02901f5c5eea487mr3114076pfb.7.1617807575856; Wed, 07
+ Apr 2021 07:59:35 -0700 (PDT)
+MIME-Version: 1.0
 References: <20210406133158.73700-1-andriy.shevchenko@linux.intel.com>
  <20210406165108.GA4332@42.do-not-panic.com>
  <CAHp75Ve9vBQqSegM2-ch9NUN-MdevxxOs5ZdHkk1W7AacN+Wrw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAHp75Ve9vBQqSegM2-ch9NUN-MdevxxOs5ZdHkk1W7AacN+Wrw@mail.gmail.com>
-X-Spam-Score: 0.3 (/)
+ <20210407143040.GB4332@42.do-not-panic.com>
+In-Reply-To: <20210407143040.GB4332@42.do-not-panic.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Wed, 7 Apr 2021 17:59:19 +0300
+Message-ID: <CAHp75VeXiLa0b49eoZKVR1DSqTc9hKxpSgy294hMiaUzt0ugOA@mail.gmail.com>
+To: Luis Chamberlain <mcgrof@kernel.org>
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (mcgrof[at]gmail.com)
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.214.178 listed in list.dnswl.org]
+ (andy.shevchenko[at]gmail.com)
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.214.178 listed in wl.mailspike.net]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
- 0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lU9Ci-00053x-Hk
+ [209.85.215.182 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.215.182 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1lU9ef-00061l-Mo
 Subject: Re: [Openipmi-developer] [PATCH v1 1/1] kernel.h: Split out panic
  and oops helpers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -133,48 +140,47 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Apr 07, 2021 at 10:33:44AM +0300, Andy Shevchenko wrote:
-> On Wed, Apr 7, 2021 at 10:25 AM Luis Chamberlain <mcgrof@kernel.org> wrote:
+On Wed, Apr 7, 2021 at 5:30 PM Luis Chamberlain <mcgrof@kernel.org> wrote:
+> On Wed, Apr 07, 2021 at 10:33:44AM +0300, Andy Shevchenko wrote:
+> > On Wed, Apr 7, 2021 at 10:25 AM Luis Chamberlain <mcgrof@kernel.org> wrote:
+> > > On Tue, Apr 06, 2021 at 04:31:58PM +0300, Andy Shevchenko wrote:
+
+...
+
+> > > Why is it worth it to add another file just for this?
 > >
-> > On Tue, Apr 06, 2021 at 04:31:58PM +0300, Andy Shevchenko wrote:
-> > > diff --git a/include/linux/panic_notifier.h b/include/linux/panic_notifier.h
-> > > new file mode 100644
-> > > index 000000000000..41e32483d7a7
-> > > --- /dev/null
-> > > +++ b/include/linux/panic_notifier.h
-> > > @@ -0,0 +1,12 @@
-> > > +/* SPDX-License-Identifier: GPL-2.0 */
-> > > +#ifndef _LINUX_PANIC_NOTIFIERS_H
-> > > +#define _LINUX_PANIC_NOTIFIERS_H
-> > > +
-> > > +#include <linux/notifier.h>
-> > > +#include <linux/types.h>
-> > > +
-> > > +extern struct atomic_notifier_head panic_notifier_list;
-> > > +
-> > > +extern bool crash_kexec_post_notifiers;
-> > > +
-> > > +#endif       /* _LINUX_PANIC_NOTIFIERS_H */
+> > The main point is to break tons of loops that prevent having clean
+> > headers anymore.
 > >
-> > Why is it worth it to add another file just for this?
-> 
-> The main point is to break tons of loops that prevent having clean
-> headers anymore.
+> > In this case, see bug.h, which is very important in this sense.
 >
-> In this case, see bug.h, which is very important in this sense.
+> OK based on the commit log this was not clear, it seemed more of moving
+> panic stuff to its own file, so just cleanup.
 
-OK based on the commit log this was not clear, it seemed more of moving
-panic stuff to its own file, so just cleanup.
+Sorry for that. it should have mentioned the kernel folder instead of
+lib. But I think it won't clarify the above.
 
-> >  Seems like a very
-> > small file.
-> 
-> If it is an argument, it's kinda strange. We have much smaller headers.
+In any case there are several purposes in this case
+ - dropping dependency in bug.h
+ - dropping a loop by moving out panic_notifier.h
+ - unload kernel.h from something which has its own domain
 
-The motivation for such separate file was just not clear on the commit
-log.
+I think that you are referring to the commit message describing 3rd
+one, but not 1st and 2nd.
 
-  Luis
+I will amend this for the future splits, thanks!
+
+> > >  Seems like a very
+> > > small file.
+> >
+> > If it is an argument, it's kinda strange. We have much smaller headers.
+>
+> The motivation for such separate file was just not clear on the commit
+> log.
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 _______________________________________________
