@@ -2,105 +2,92 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 23FCA356E9B
-	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Apr 2021 16:28:59 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id C5009356EAE
+	for <lists+openipmi-developer@lfdr.de>; Wed,  7 Apr 2021 16:31:09 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lU9At-0001xN-Vb; Wed, 07 Apr 2021 14:28:55 +0000
+	id 1lU9Cz-0001Pk-L9; Wed, 07 Apr 2021 14:31:05 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1lU9As-0001wz-6n
- for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 14:28:54 +0000
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ (envelope-from <mcgrof@gmail.com>) id 1lU9Cx-0001PG-Rn
+ for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 14:31:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=jOETYTM8063hIe+H5kFUr3hMwnez+idh/fGpidnkrFU=; b=TtipUVfwYgodsa+Aw+fScSlhNy
- 3dZu+r/SwvqK0vrG1iBUaXWGDeZI1W3CBNIfAQaGtzElbt3IYC4ZxcDSy6Y5gY4DOP8WAVVpctgp7
- K+fr+I/0ev/JiMRHRwK8S3icMND/QmHDd1NZT9kgMKv+lO+r67INUGAUjOIYIUIqREZY=;
+ bh=1vVuZ4MvRzeF+pr2v0xmBFFQwK6hdMJanVjlk9hErro=; b=TkgHG3ZNbLfba0XH1Zwam7blrh
+ ZCGF6KIiLmbOQXcWr+Hx2xEZ0nAyVfpjoitjwzL/qub22R82xUXHMufr4TfLBwrHcuVKoqeH5+7Rq
+ yaspVx2kxK0IzegdqJi+d+oAqWaVmq4WgMe+rPLDJBF8yraRD9YU3/UELLaeGkhzp5cg=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=jOETYTM8063hIe+H5kFUr3hMwnez+idh/fGpidnkrFU=; b=Gc1PIj3zvNRtIfrkk1arrXwXHH
- NxvRzS+aksItEwqg6C+gfrHfwgAGdSmxTBPV7NfJM9vyGdogm1Qo/+XuZC74j3eahl0+jSLDqbdeD
- LKnBLhzOkvfSITaPksWJ+uVpHr7adiD8FQypd8IVMgIkaAkvkW4AriQMVKw0dKL+EzW8=;
-Received: from mail-ot1-f48.google.com ([209.85.210.48])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.2)
- id 1lU9Ab-00GmDS-AA
- for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 14:28:53 +0000
-Received: by mail-ot1-f48.google.com with SMTP id
- g8-20020a9d6c480000b02901b65ca2432cso18245172otq.3
+ bh=1vVuZ4MvRzeF+pr2v0xmBFFQwK6hdMJanVjlk9hErro=; b=NFyEFdkHHIl1SFBj+U7sJ390l8
+ 8o5OKK0n3xCLVIADW/XXTjmqv6bplJLcl279dYKtQU9bZJx1bj8KRNWVQfSveQJaIYtx0tnEk9gHW
+ sO9FMZrqXAFOVUBwNTh1m9DczG6bJY8EShGlLAYF9LsNoavIeoQq0i77noiZKthfVZtI=;
+Received: from mail-pl1-f178.google.com ([209.85.214.178])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
+ id 1lU9Ci-00053x-Hk
+ for openipmi-developer@lists.sourceforge.net; Wed, 07 Apr 2021 14:31:03 +0000
+Received: by mail-pl1-f178.google.com with SMTP id p10so4298919pld.0
  for <openipmi-developer@lists.sourceforge.net>;
- Wed, 07 Apr 2021 07:28:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to;
- bh=jOETYTM8063hIe+H5kFUr3hMwnez+idh/fGpidnkrFU=;
- b=LareH35xQvx6q7WindtheaqOLJg6+SkWSAntFgw7HjS3Tk4qDPoemJ1YOk85nmgPvg
- 9mZw56tpm53uQl29e+NuknOwYdP0xUGUxUvEzj64/Y7PD4nxPHMwswMAL8E4iHbcAhMx
- h0MdSnsyeyH4HD8RzChFdMtN/SVH7ahCvfGaZEIguKsC0HUgs97KIN7GkKUfnrLM2q+p
- MiRkxAMy9OTppt3tkoTAy1Zc4dPeODYOUi9GXRMbSxlEeRbbwdMytDy+G8hVjD1aj6yC
- LVzR9U89e8uevanQxmVqNCGOgMvZJvLBAuD6ahPOCf7aN31WHqeQdfIWyETLDQl2tc04
- +zlg==
+ Wed, 07 Apr 2021 07:30:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=jOETYTM8063hIe+H5kFUr3hMwnez+idh/fGpidnkrFU=;
- b=AGUph9VpXEcZE1dNxon+PBFNi1l1Jb7FS0kLuGP4c/xO2JcfZkOnKC9ALzZcHEeR4u
- /N8CxJqL38VWm33pAvLMz9RmRX77ZuIAefAZw4g4PEM+hXInFfiAbl3lgfIKavGZNNVo
- EonZ2bt6fyLEkHY+FQrxceYnT9hZJgZfaGwxYwN+IQ9IhUmNgFa4Q2jWnNfkVRuqAf4O
- AAS28hIFPOJTpcIONwwDr+xybkhySRXxE03wGoXL2L8ZwUnkxb2IwyOsQPKhgDGVFWh0
- 58lFWuB44hyOrYFt0QFAaNszQFfycVyWvoXOm67TUHYoGCJ4lq7f5AzUhs1Qdt5H+97Q
- OQLw==
-X-Gm-Message-State: AOAM532xYzphKAwpF4YbaDIknptP0qPamhec2nHR6h9iiYXCsw8INaof
- FvmwjF+/h23g+ysQZ20+Pg==
-X-Google-Smtp-Source: ABdhPJxYDEUlP0EObBbm9VfamGrvC+u2TKkp/NeoRSzuuBtqMWkEEaA6ECIMT4B8dpnH6MIjEYoYqQ==
-X-Received: by 2002:a9d:37b4:: with SMTP id x49mr3212457otb.237.1617805711619; 
- Wed, 07 Apr 2021 07:28:31 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id h24sm5501853otg.20.2021.04.07.07.28.30
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=1vVuZ4MvRzeF+pr2v0xmBFFQwK6hdMJanVjlk9hErro=;
+ b=FZDb9jYWkDZ8NwSz01wF8Kl6Fm1NO8XTb5Tiimh9khvE3euIUgo4wyNLgbZEQtoiyS
+ yyWvENvbNimYxMrQ2EBhCMTumjO1/UMN16CZvPMqZWTt9ak+yFbOgO+pQ/5Gwn/JqkUu
+ ykwC4vsV9myhYxxWCBruo8EFJOo1jX+KUa1+ogBlTeGP0FQFIKDAyb9KymO+sTQezFKq
+ PRsD+g/nc/6Lqg+8GNsXTbP5K2NELw+KcR1dmu1497qvomntnvhvM5/0J+AZmcmBVEUZ
+ cm0AtyRepfBrfq3oNnt2a+8jWsGTH5ByvXImqALDowL+0/UlxHM3Mc29+Iw3sN6K39uJ
+ QGzw==
+X-Gm-Message-State: AOAM531nEbgTipAT4tIlFXkgEscy4ZJ/jFVJX67ftXj6D0tsVZYE/JgO
+ zaJzF+Wj30y+Hw8SgOVfrV4=
+X-Google-Smtp-Source: ABdhPJytaBCeu/N78G2ItU1as7w8fUmjf8wbl8aAQkobTbao0e2hHv5pq8RooRp01fzv5LCBwmpFDg==
+X-Received: by 2002:a17:90a:6343:: with SMTP id
+ v3mr3482681pjs.153.1617805842980; 
+ Wed, 07 Apr 2021 07:30:42 -0700 (PDT)
+Received: from 42.do-not-panic.com (42.do-not-panic.com. [157.230.128.187])
+ by smtp.gmail.com with ESMTPSA id k11sm5779292pjs.1.2021.04.07.07.30.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 07 Apr 2021 07:28:30 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:f036:ecd9:2bd0:ef09])
- by serve.minyard.net (Postfix) with ESMTPSA id 89595180570;
- Wed,  7 Apr 2021 14:28:29 +0000 (UTC)
-Date: Wed, 7 Apr 2021 09:28:28 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Quan Nguyen <quan@os.amperecomputing.com>
-Message-ID: <20210407142828.GE7166@minyard.net>
-References: <20210330141029.20412-1-quan@os.amperecomputing.com>
- <20210402142124.GV507977@minyard.net>
- <0e7fceff-4a01-5cb0-72eb-8b47d598f1c3@os.amperecomputing.com>
+ Wed, 07 Apr 2021 07:30:41 -0700 (PDT)
+Received: by 42.do-not-panic.com (Postfix, from userid 1000)
+ id 09D07402D7; Wed,  7 Apr 2021 14:30:41 +0000 (UTC)
+Date: Wed, 7 Apr 2021 14:30:40 +0000
+From: Luis Chamberlain <mcgrof@kernel.org>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Message-ID: <20210407143040.GB4332@42.do-not-panic.com>
+References: <20210406133158.73700-1-andriy.shevchenko@linux.intel.com>
+ <20210406165108.GA4332@42.do-not-panic.com>
+ <CAHp75Ve9vBQqSegM2-ch9NUN-MdevxxOs5ZdHkk1W7AacN+Wrw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0e7fceff-4a01-5cb0-72eb-8b47d598f1c3@os.amperecomputing.com>
-X-Spam-Score: 0.5 (/)
+In-Reply-To: <CAHp75Ve9vBQqSegM2-ch9NUN-MdevxxOs5ZdHkk1W7AacN+Wrw@mail.gmail.com>
+X-Spam-Score: 0.3 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
  0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
+ (mcgrof[at]gmail.com)
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
+ trust [209.85.214.178 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.214.178 listed in wl.mailspike.net]
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
  domains are different
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lU9Ab-00GmDS-AA
-Subject: Re: [Openipmi-developer] [PATCH v2 0/3] Add Aspeed SSIF BMC driver
+X-Headers-End: 1lU9Ci-00053x-Hk
+Subject: Re: [Openipmi-developer] [PATCH v1 1/1] kernel.h: Split out panic
+ and oops helpers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -113,74 +100,81 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
- Andrew Jeffery <andrew@aj.id.au>, openbmc@lists.ozlabs.org,
- "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
- linux-kernel@vger.kernel.org, Phong Vo <phong@os.amperecomputing.com>,
- Wolfram Sang <wsa@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- openipmi-developer@lists.sourceforge.net,
- Open Source Submission <patches@amperecomputing.com>,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org
+Cc: Corey Minyard <cminyard@mvista.com>,
+ Linux on Hyper-V List <linux-hyperv@vger.kernel.org>,
+ Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ linux-remoteproc@vger.kernel.org, Michael Kelley <mikelley@microsoft.com>,
+ Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Joel Fernandes <joel@joelfernandes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Linux-Arch <linux-arch@vger.kernel.org>, Wei Liu <wei.liu@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Stephen Hemminger <sthemmin@microsoft.com>, Corey Minyard <minyard@acm.org>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Iurii Zaikin <yzaikin@google.com>,
+ Ohad Ben-Cohen <ohad@wizery.com>, Joerg Roedel <jroedel@suse.de>,
+ Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Josh Triplett <josh@joshtriplett.org>,
+ "Steven Rostedt \(VMware\)" <rostedt@goodmis.org>, rcu@vger.kernel.org,
+ Borislav Petkov <bp@alien8.de>, openipmi-developer@lists.sourceforge.net,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, Vlastimil Babka <vbabka@suse.cz>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, kexec@lists.infradead.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Eric Biederman <ebiederm@xmission.com>,
+ Linux FS Devel <linux-fsdevel@vger.kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "open list:LINUX FOR POWERPC PA SEMI PWRFICIENT"
+ <linuxppc-dev@lists.ozlabs.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Apr 07, 2021 at 08:09:50PM +0700, Quan Nguyen wrote:
-> Hi Corey,
+On Wed, Apr 07, 2021 at 10:33:44AM +0300, Andy Shevchenko wrote:
+> On Wed, Apr 7, 2021 at 10:25 AM Luis Chamberlain <mcgrof@kernel.org> wrote:
+> >
+> > On Tue, Apr 06, 2021 at 04:31:58PM +0300, Andy Shevchenko wrote:
+> > > diff --git a/include/linux/panic_notifier.h b/include/linux/panic_notifier.h
+> > > new file mode 100644
+> > > index 000000000000..41e32483d7a7
+> > > --- /dev/null
+> > > +++ b/include/linux/panic_notifier.h
+> > > @@ -0,0 +1,12 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0 */
+> > > +#ifndef _LINUX_PANIC_NOTIFIERS_H
+> > > +#define _LINUX_PANIC_NOTIFIERS_H
+> > > +
+> > > +#include <linux/notifier.h>
+> > > +#include <linux/types.h>
+> > > +
+> > > +extern struct atomic_notifier_head panic_notifier_list;
+> > > +
+> > > +extern bool crash_kexec_post_notifiers;
+> > > +
+> > > +#endif       /* _LINUX_PANIC_NOTIFIERS_H */
+> >
+> > Why is it worth it to add another file just for this?
 > 
-> Thank you for reviewing
-> I'll put my respond inline below.
-> 
-> -Quan
-> 
-> On 02/04/2021 21:21, Corey Minyard wrote:
-> > On Tue, Mar 30, 2021 at 09:10:26PM +0700, Quan Nguyen wrote:
-> > > This series add support for the Aspeed specific SSIF BMC driver which
-> > > is to perform in-band IPMI communication with the host in management
-> > > (BMC) side.
-> > 
-> > I don't have any specific feedback for this, but I'm wondering if it's
-> > really necessary.
-> > 
-> > Why can't the BMC just open the I2C device and use it?  Is there any
-> > functionality that this provides that cannot be accomplished from
-> > userland access to the I2C device?  I don't see any.
-> > 
-> > If it tied into some existing framework to give abstract access to a BMC
-> > slave side interface, I'd be ok with this.  But I don't see that.
-> > 
-> 
-> The SSIF at the BMC side acts as an I2C slave and we think that the kernel
-> driver is unavoidable to handle the I2c slave events
-> (https://www.kernel.org/doc/html/latest/i2c/slave-interface.html)
-> 
-> And to make it works with existing OpenBMC IPMI stack, a userspace part,
-> ssifbridge, is needed (https://github.com/openbmc/ssifbridge). This
-> ssifbridge is to connect this driver with the OpenBMC IPMI stack so the IPMI
-> stack can communicate via SSIF channel in similar way that was implemented
-> with BT and KCS (ie: btbridge/kcsbridge and its corespondent kernel drivers
-> (https://github.com/openbmc/btbridge and
-> https://github.com/openbmc/kcsbridge))
+> The main point is to break tons of loops that prevent having clean
+> headers anymore.
+>
+> In this case, see bug.h, which is very important in this sense.
 
-Dang, I don't know why there's not a generic userland interface for
-the slave.  And I've made this mistake before :(.
+OK based on the commit log this was not clear, it seemed more of moving
+panic stuff to its own file, so just cleanup.
 
-Anyway, you are right, you need a driver.  I'll review.
-
--corey
-
+> >  Seems like a very
+> > small file.
 > 
-> > Unless there is a big need to have this in the kernel, I'm against
-> > including this and would suggest you do all this work in userland.
-> > Perhaps write a library.  Sorry, but I'm trying to do my part to reduce
-> > unnecessary things in the kernel.
-> > 
-> > Thanks,
-> > 
-> > -corey
-> > 
+> If it is an argument, it's kinda strange. We have much smaller headers.
+
+The motivation for such separate file was just not clear on the commit
+log.
+
+  Luis
 
 
 _______________________________________________
