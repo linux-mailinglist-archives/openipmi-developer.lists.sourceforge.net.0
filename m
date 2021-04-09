@@ -2,107 +2,79 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B1D263595A9
-	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Apr 2021 08:40:05 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 941AB3595FE
+	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Apr 2021 09:03:05 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lUkoE-0003D7-6Q; Fri, 09 Apr 2021 06:40:02 +0000
+	id 1lUlAU-0000OT-43; Fri, 09 Apr 2021 07:03:02 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <andrew@aj.id.au>) id 1lUkoC-0003CH-82
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 06:40:00 +0000
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ (envelope-from <akpm@linux-foundation.org>) id 1lUl9D-0000Dd-QR
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 07:01:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Date:References:
- In-Reply-To:Message-Id:Mime-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Mime-Version
+ :References:In-Reply-To:Message-Id:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=YipRzyck8L1x6Q/DsZVUM4VGzf1AWFkZ00SKckEwfIo=; b=JGerASw5bYmZjqwyBGmY7K+vZe
- ruUoDhd3x2kz4ykhbRd0nylVeIvtHB5bandJTQfcvsLV+aozMeDiqCijUezgEJ5fC9WGZO5W7vi72
- 2F+l8fB+XrAsxW5RhrkEhw5jCz88fYa0ru59YNA3IN08aXhpRgl9D8vt5C1uQhF4Byrk=;
+ bh=T0sVW8ohpjVk6G2qU0we19J9nz1XNidW/DB0QqT5Cng=; b=h74mxYXQbFjQg083J77D102dqy
+ f4qVrlb8twEz0tDlBacNAwMvTVXuZbsfe3tVLMjnWG35G8CG3MjbFJUm+oj/ItCf6jMx5gpuI1v+b
+ ptWh71M6HCdD8UJmbCrlCUuOzhcNHd7wsiQi6OMcqLcEnngMaNL31hq39kQXgmmz5rYA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Subject:Cc:To:From:Date:References:In-Reply-To:Message-Id:
- Mime-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Mime-Version:References:
+ In-Reply-To:Message-Id:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=YipRzyck8L1x6Q/DsZVUM4VGzf1AWFkZ00SKckEwfIo=; b=HghzggYWTwuI+PyBqlgaDgzYAc
- CcGlXkM88hvpN6s3h5wMIbq4DahTEwnDwh/wM/kAe0O712/qqqoS7RwnciTZI6v0crXADIuLWjX40
- lPh8ZaitSzYnRDg7k8wJO+zkQsgtZ9qfg8anP03XwEgFUX/5yLxLHbhyACA2AaGvkqTs=;
-Received: from new4-smtp.messagingengine.com ([66.111.4.230])
+ bh=T0sVW8ohpjVk6G2qU0we19J9nz1XNidW/DB0QqT5Cng=; b=RW2bJNYlmZz69FQHMpLL/zojzF
+ 0I39vlix0+eXK93u9CPx63HQps8gbIUk/pErzq7emoIWkhDqlHz1j7QjTi/kSfak/Q3nwWoM0Gln2
+ bGlrOkP6mpzPHCkWrhO6siqNfAOHKhr5Zhhi9FAZKoJ0wl3vQD8m9GNxy84CckX03/Cw=;
+Received: from mail.kernel.org ([198.145.29.99])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1lUknr-0005ce-R8
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 06:39:59 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
- by mailnew.nyi.internal (Postfix) with ESMTP id DAC855805D0;
- Fri,  9 Apr 2021 02:39:31 -0400 (EDT)
-Received: from imap2 ([10.202.2.52])
- by compute3.internal (MEProxy); Fri, 09 Apr 2021 02:39:31 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=
- mime-version:message-id:in-reply-to:references:date:from:to:cc
- :subject:content-type; s=fm2; bh=YipRzyck8L1x6Q/DsZVUM4VGzf1AWFk
- Z00SKckEwfIo=; b=fgS6+EE26E+/uDUD6bQP95Ui/GwdrNJEqD8QZgkf4yqwBwu
- /pUoX4APe3P192m9ajOG4IrdESn6BXXvj3vFMI9/QBEV3f0klY7qURXngVH4UdIZ
- 5q/1j7A9Ktn+7XyAZpwnc7FTB5gVhSk18AVYJW06O5rdmYJ0eLz4QglM4dMoTA0l
- qSNeczr3/XxmDZ7YRFEM65NapLhF1qBpvQTvJ4eXh41Imyk4aepN4kqV/IgEFdNB
- +/Mmw/8JSY+AzDGHTjINM5Ifomo2TieeEH3e0q/eDW5OvFArXKnUP9+m0kLolluT
- CcjQF2y5VX5MUoJOUTg2he0fN80iLPQE6Kg77Qg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=YipRzy
- ck8L1x6Q/DsZVUM4VGzf1AWFkZ00SKckEwfIo=; b=WkKiWylETs4c6LVQKA9Jgv
- D8pymioQ13+d0k8feh2DpF+hV8MVoFQjP3n9EZWItg2AzEk/YKM694wj/tcMoMH7
- dZ3Q7UgxZW+48E6r6HDDRqaR7WN4M8m0ZX6+QrIKHPDsoobuqKmnEGOroV0lrpTZ
- DlPkglK/jvPMTHJCKsrOUytE/IFHysv2utj+kbOHffQmXMNgwjMd3RJgtOeugfYv
- 5sMKAhRktr8VRxzilPxVBxsYvDHkkT1TPsdCH1QKBOdB3PBexkyawYeyKEjE0RkK
- 49iRzKAVQWqR72pahwKIby50cxyPJghycMJsozh9TL+K9WgQ3poCFPSz+rF86AMA
- ==
-X-ME-Sender: <xms:ovZvYEzzJplWrCj3U0z_3Hv0k0K2jFsIFo02u5yC2aggtBFqPzL3pg>
- <xme:ovZvYIT7Ma4qrayG5r_X7jxyoFqz1LiSBJI68tqBaRCw7svWJJPsa9kkOfCwbE6xL
- qaxGgpB89ky9MXyTg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrudektddguddtkecutefuodetggdotefrod
- ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
- necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
- enucfjughrpefofgggkfgjfhffhffvufgtsehttdertderreejnecuhfhrohhmpedftehn
- ughrvgifucflvghffhgvrhihfdcuoegrnhgurhgvfiesrghjrdhiugdrrghuqeenucggtf
- frrghtthgvrhhnpedutddtkeeugeegvddttdeukeeiuddtgfeuuddtfeeiueetfeeileet
- tedvtdfhieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
- hmpegrnhgurhgvfiesrghjrdhiugdrrghu
-X-ME-Proxy: <xmx:ovZvYGUHUWDi-WlTsUnyEuQ_jTIbPkxvp1u3QjP9Ax3SJ5opm7s_Iw>
- <xmx:ovZvYChQJHtFJbcBMN1Xi5wYF6YkyBYAlTb3zWKcFlaqLBdbTypv5g>
- <xmx:ovZvYGDVnd9o31xP_dnRspJSWurSuXkhq_9LUnuiH_WpzameBYk0Zg>
- <xmx:o_ZvYAxWN-z4UGvMyOY9W5bf_vxfkekbEhF8N0KSDNEfULHayMffqQ>
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
- id DFA74A0007C; Fri,  9 Apr 2021 02:39:30 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.5.0-alpha0-273-g8500d2492d-fm-20210323.002-g8500d249
+ id 1lUkw3-00061a-Gl
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 06:48:29 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id B90B261057;
+ Fri,  9 Apr 2021 06:23:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+ s=korg; t=1617949385;
+ bh=mJ2iIVENJVBOnN2uXfAcyB/K8aKm5K5QHhvwNyApuAU=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=csPjYedzWhmuKBGMU155cpHTdZItXq65aNVGkrX9cDOfKgzfcWV1yVZ7+8tq01r+z
+ ODfCoIhkGumpTuUlBz+43/5MvpO/6M0D+77/eRG+VIJ27eTKjfLfS57BTaW5YITUdh
+ 97swMkpU38QBpyu9C25OZZIPhXniOvfHNvdymBZE=
+Date: Thu, 8 Apr 2021 23:23:03 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Message-Id: <20210408232303.453749e0e6fb0adfa8545440@linux-foundation.org>
+In-Reply-To: <CAHp75Ve+11u=dtNTO8BCohOJHGWSMJtb1nGCOrNde7bXaD4ehA@mail.gmail.com>
+References: <20210406133158.73700-1-andriy.shevchenko@linux.intel.com>
+ <202104061143.E11D2D0@keescook>
+ <CAHp75Ve+11u=dtNTO8BCohOJHGWSMJtb1nGCOrNde7bXaD4ehA@mail.gmail.com>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
-Message-Id: <f0ade4c4-4f7e-4fed-98a3-580e27ae408f@www.fastmail.com>
-In-Reply-To: <YG/Z/eZCES65fXQi@packtop>
-References: <20210319062752.145730-1-andrew@aj.id.au>
- <20210319062752.145730-14-andrew@aj.id.au> <YG/Z/eZCES65fXQi@packtop>
-Date: Fri, 09 Apr 2021 16:09:09 +0930
-From: "Andrew Jeffery" <andrew@aj.id.au>
-To: "Zev Weiss" <zweiss@equinix.com>
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: chromium.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
+ -0.0 NICE_REPLY_A           Looks like a legit reply (A)
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lUknr-0005ce-R8
-Subject: Re: [Openipmi-developer] 
- =?utf-8?q?=5BPATCH_v2_14/21=5D_ipmi=3A_kcs?=
- =?utf-8?q?=5Fbmc=3A_Allow_clients_to_control_KCS_IRQ_state?=
+X-Headers-End: 1lUkw3-00061a-Gl
+Subject: Re: [Openipmi-developer] [PATCH v1 1/1] kernel.h: Split out panic
+ and oops helpers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -115,356 +87,276 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "Chia-Wei,
- Wang" <chiawei_wang@aspeedtech.com>, Ryan Chen <ryan_chen@aspeedtech.com>,
- Tomer Maimon <tmaimon77@gmail.com>, Corey Minyard <minyard@acm.org>,
- Avi Fishman <avifishman70@gmail.com>, Patrick Venture <venture@google.com>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Tali Perry <tali.perry1@gmail.com>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>, Lee Jones <lee.jones@linaro.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- Benjamin Fair <benjaminfair@google.com>
+Cc: Corey Minyard <cminyard@mvista.com>,
+ Linux on Hyper-V List <linux-hyperv@vger.kernel.org>,
+ Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ linux-remoteproc@vger.kernel.org, Michael Kelley <mikelley@microsoft.com>,
+ Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Joel Fernandes <joel@joelfernandes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Linux-Arch <linux-arch@vger.kernel.org>, Wei Liu <wei.liu@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Stephen Hemminger <sthemmin@microsoft.com>, Corey Minyard <minyard@acm.org>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Iurii Zaikin <yzaikin@google.com>,
+ Ohad Ben-Cohen <ohad@wizery.com>, Joerg Roedel <jroedel@suse.de>,
+ Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Josh Triplett <josh@joshtriplett.org>,
+ "Steven Rostedt \(VMware\)" <rostedt@goodmis.org>, rcu@vger.kernel.org,
+ Borislav Petkov <bp@alien8.de>, openipmi-developer@lists.sourceforge.net,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, Vlastimil Babka <vbabka@suse.cz>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, kexec@lists.infradead.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Luis Chamberlain <mcgrof@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Eric Biederman <ebiederm@xmission.com>,
+ Linux FS Devel <linux-fsdevel@vger.kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ "open list:LINUX FOR POWERPC PA SEMI PWRFICIENT"
+ <linuxppc-dev@lists.ozlabs.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
+On Wed, 7 Apr 2021 11:46:37 +0300 Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
 
-
-On Fri, 9 Apr 2021, at 14:07, Zev Weiss wrote:
-> On Fri, Mar 19, 2021 at 01:27:45AM CDT, Andrew Jeffery wrote:
-> >Add a mechanism for controlling whether the client associated with a
-> >KCS device will receive Input Buffer Full (IBF) and Output Buffer Empty
-> >(OBE) events. This enables an abstract implementation of poll() for KCS
-> >devices.
+> On Wed, Apr 7, 2021 at 11:17 AM Kees Cook <keescook@chromium.org> wrote:
 > >
-> >A wart in the implementation is that the ASPEED KCS devices don't
-> >support an OBE interrupt for the BMC. Instead we pretend it has one by
-> >polling the status register waiting for the Output Buffer Full (OBF) bit
-> >to clear, and generating an event when OBE is observed.
+> > On Tue, Apr 06, 2021 at 04:31:58PM +0300, Andy Shevchenko wrote:
+> > > kernel.h is being used as a dump for all kinds of stuff for a long time.
+> > > Here is the attempt to start cleaning it up by splitting out panic and
+> > > oops helpers.
+> > >
+> > > At the same time convert users in header and lib folder to use new header.
+> > > Though for time being include new header back to kernel.h to avoid twisted
+> > > indirected includes for existing users.
+> > >
+> > > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > >
-> >Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
-> >---
-> > drivers/char/ipmi/kcs_bmc.c         |   6 ++
-> > drivers/char/ipmi/kcs_bmc.h         |   3 +
-> > drivers/char/ipmi/kcs_bmc_aspeed.c  | 150 ++++++++++++++++++----------
-> > drivers/char/ipmi/kcs_bmc_client.h  |   2 +
-> > drivers/char/ipmi/kcs_bmc_device.h  |   1 +
-> > drivers/char/ipmi/kcs_bmc_npcm7xx.c |  25 ++++-
-> > 6 files changed, 130 insertions(+), 57 deletions(-)
-> >
-> >diff --git a/drivers/char/ipmi/kcs_bmc.c b/drivers/char/ipmi/kcs_bmc.c
-> >index 694db6ee2a92..05bbb72418b2 100644
-> >--- a/drivers/char/ipmi/kcs_bmc.c
-> >+++ b/drivers/char/ipmi/kcs_bmc.c
-> >@@ -184,6 +184,12 @@ int kcs_bmc_unregister_cdev(struct kcs_bmc_cdev *cdev)
-> > }
-> > EXPORT_SYMBOL(kcs_bmc_unregister_cdev);
-> >
-> >+void kcs_bmc_update_event_mask(struct kcs_bmc_device *kcs_bmc, u8 mask, u8 events)
-> >+{
-> >+	kcs_bmc->ops->irq_mask_update(kcs_bmc, mask, events);
-> >+}
-> >+EXPORT_SYMBOL(kcs_bmc_update_event_mask);
-> >+
-> > MODULE_LICENSE("GPL v2");
-> > MODULE_AUTHOR("Haiyue Wang <haiyue.wang@linux.intel.com>");
-> > MODULE_AUTHOR("Andrew Jeffery <andrew@aj.id.au>");
-> >diff --git a/drivers/char/ipmi/kcs_bmc.h b/drivers/char/ipmi/kcs_bmc.h
-> >index 5deb9a0b8e60..11fff935218c 100644
-> >--- a/drivers/char/ipmi/kcs_bmc.h
-> >+++ b/drivers/char/ipmi/kcs_bmc.h
-> >@@ -11,6 +11,9 @@
-> > #define KCS_BMC_EVENT_NONE	0
-> > #define KCS_BMC_EVENT_HANDLED	1
-> >
-> >+#define KCS_BMC_EVENT_TYPE_OBE	BIT(0)
-> >+#define KCS_BMC_EVENT_TYPE_IBF	BIT(1)
-> >+
-> > #define KCS_BMC_STR_OBF		BIT(0)
-> > #define KCS_BMC_STR_IBF		BIT(1)
-> > #define KCS_BMC_STR_CMD_DAT	BIT(3)
-> >diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
-> >index 6f26e7366c0b..5f26471c038c 100644
-> >--- a/drivers/char/ipmi/kcs_bmc_aspeed.c
-> >+++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
-> >@@ -60,10 +60,18 @@
-> > #define LPC_ODR4             0x118
-> > #define LPC_STR4             0x11C
-> >
-> >+#define OBE_POLL_PERIOD	     (HZ / 2)
-> >+
-> > struct aspeed_kcs_bmc {
-> > 	struct kcs_bmc_device kcs_bmc;
-> >
-> > 	struct regmap *map;
-> >+
-> >+	struct {
-> >+		spinlock_t lock;
-> >+		bool remove;
-> >+		struct timer_list timer;
-> >+	} obe;
-> > };
-> >
-> > struct aspeed_kcs_of_ops {
-> >@@ -159,68 +167,89 @@ static void aspeed_kcs_enable_channel(struct kcs_bmc_device *kcs_bmc, bool enabl
-> >
-> > 	switch (kcs_bmc->channel) {
-> > 	case 1:
-> >-		if (enable) {
-> >-			regmap_update_bits(priv->map, LPC_HICR2,
-> >-					LPC_HICR2_IBFIF1, LPC_HICR2_IBFIF1);
-> >-			regmap_update_bits(priv->map, LPC_HICR0,
-> >-					LPC_HICR0_LPC1E, LPC_HICR0_LPC1E);
-> >-		} else {
-> >-			regmap_update_bits(priv->map, LPC_HICR0,
-> >-					LPC_HICR0_LPC1E, 0);
-> >-			regmap_update_bits(priv->map, LPC_HICR2,
-> >-					LPC_HICR2_IBFIF1, 0);
-> >-		}
-> >-		break;
-> >-
-> >+		regmap_update_bits(priv->map, LPC_HICR0, LPC_HICR0_LPC1E, enable * LPC_HICR0_LPC1E);
-> >+		return;
-> > 	case 2:
-> >-		if (enable) {
-> >-			regmap_update_bits(priv->map, LPC_HICR2,
-> >-					LPC_HICR2_IBFIF2, LPC_HICR2_IBFIF2);
-> >-			regmap_update_bits(priv->map, LPC_HICR0,
-> >-					LPC_HICR0_LPC2E, LPC_HICR0_LPC2E);
-> >-		} else {
-> >-			regmap_update_bits(priv->map, LPC_HICR0,
-> >-					LPC_HICR0_LPC2E, 0);
-> >-			regmap_update_bits(priv->map, LPC_HICR2,
-> >-					LPC_HICR2_IBFIF2, 0);
-> >-		}
-> >-		break;
-> >-
-> >+		regmap_update_bits(priv->map, LPC_HICR0, LPC_HICR0_LPC2E, enable * LPC_HICR0_LPC2E);
-> >+		return;
-> > 	case 3:
-> >-		if (enable) {
-> >-			regmap_update_bits(priv->map, LPC_HICR2,
-> >-					LPC_HICR2_IBFIF3, LPC_HICR2_IBFIF3);
-> >-			regmap_update_bits(priv->map, LPC_HICR0,
-> >-					LPC_HICR0_LPC3E, LPC_HICR0_LPC3E);
-> >-			regmap_update_bits(priv->map, LPC_HICR4,
-> >-					LPC_HICR4_KCSENBL, LPC_HICR4_KCSENBL);
-> >-		} else {
-> >-			regmap_update_bits(priv->map, LPC_HICR0,
-> >-					LPC_HICR0_LPC3E, 0);
-> >-			regmap_update_bits(priv->map, LPC_HICR4,
-> >-					LPC_HICR4_KCSENBL, 0);
-> >-			regmap_update_bits(priv->map, LPC_HICR2,
-> >-					LPC_HICR2_IBFIF3, 0);
-> >-		}
-> >-		break;
-> >-
-> >+		regmap_update_bits(priv->map, LPC_HICR0, LPC_HICR0_LPC3E, enable * LPC_HICR0_LPC3E);
-> >+		regmap_update_bits(priv->map, LPC_HICR4,
-> >+				   LPC_HICR4_KCSENBL, enable * LPC_HICR4_KCSENBL);
-> >+		return;
-> > 	case 4:
-> >-		if (enable)
-> >-			regmap_update_bits(priv->map, LPC_HICRB,
-> >-					LPC_HICRB_IBFIF4 | LPC_HICRB_LPC4E,
-> >-					LPC_HICRB_IBFIF4 | LPC_HICRB_LPC4E);
-> >+		regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_LPC4E, enable * LPC_HICRB_LPC4E);
-> >+		return;
-> >+	default:
-> >+		pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
-> >+		return;
-> >+	}
-> >+}
-> >+
-> >+static void aspeed_kcs_check_obe(struct timer_list *timer)
-> >+{
-> >+	struct aspeed_kcs_bmc *priv = container_of(timer, struct aspeed_kcs_bmc, obe.timer);
-> >+	unsigned long flags;
-> >+	u8 str;
-> >+
-> >+	spin_lock_irqsave(&priv->obe.lock, flags);
-> >+	if (priv->obe.remove) {
-> >+		spin_unlock_irqrestore(&priv->obe.lock, flags);
-> >+		return;
-> >+	}
-> >+
-> >+	str = aspeed_kcs_inb(&priv->kcs_bmc, priv->kcs_bmc.ioreg.str);
-> >+	if (str & KCS_BMC_STR_OBF) {
-> >+		mod_timer(timer, jiffies + OBE_POLL_PERIOD);
-> >+		spin_unlock_irqrestore(&priv->obe.lock, flags);
-> >+		return;
-> >+	}
-> >+	spin_unlock_irqrestore(&priv->obe.lock, flags);
-> >+
-> >+	kcs_bmc_handle_event(&priv->kcs_bmc);
-> >+}
-> >+
-> >+static void aspeed_kcs_irq_mask_update(struct kcs_bmc_device *kcs_bmc, u8 mask, u8 state)
-> >+{
-> >+	struct aspeed_kcs_bmc *priv = to_aspeed_kcs_bmc(kcs_bmc);
-> >+
-> >+	/* We don't have an OBE IRQ, emulate it */
-> >+	if (KCS_BMC_EVENT_TYPE_OBE & mask) {
-> >+		if (KCS_BMC_EVENT_TYPE_OBE & state)
-> >+			mod_timer(&priv->obe.timer, jiffies + OBE_POLL_PERIOD);
-> > 		else
-> >-			regmap_update_bits(priv->map, LPC_HICRB,
-> >-					LPC_HICRB_IBFIF4 | LPC_HICRB_LPC4E,
-> >-					0);
-> >-		break;
-> >+			del_timer(&priv->obe.timer);
-> >+	}
-> >
-> >-	default:
-> >-		break;
-> >+	if (KCS_BMC_EVENT_TYPE_IBF & mask) {
-> >+		const bool enable = !!(KCS_BMC_EVENT_TYPE_IBF & state);
+> > I like it! Do you have a multi-arch CI to do allmodconfig builds to
+> > double-check this?
 > 
-> Totally superficial nitpick: the operand ordering for the bitmask tests
-> in this function seem a bit inconsistent with what I think is the usual
-> style of 'variable & BITMASK_MACRO' (reminiscent of "yoda
-> conditionals").
-
-Haha, I'm not sure what possessed me here.
-
+> Unfortunately no, I rely on plenty of bots that are harvesting mailing lists.
 > 
-> >+
-> >+		switch (kcs_bmc->channel) {
-> >+		case 1:
-> >+			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIF1,
-> >+					   enable * LPC_HICR2_IBFIF1);
-> >+			return;
-> >+		case 2:
-> >+			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIF2,
-> >+					   enable * LPC_HICR2_IBFIF2);
-> >+			return;
-> >+		case 3:
-> >+			regmap_update_bits(priv->map, LPC_HICR2, LPC_HICR2_IBFIF3,
-> >+					   enable * LPC_HICR2_IBFIF3);
-> >+			return;
-> >+		case 4:
-> >+			regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_IBFIF4,
-> >+					   enable * LPC_HICRB_IBFIF4);
-> >+			return;
-> >+		default:
-> >+			pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
-> >+			return;
-> >+		}
-> > 	}
-> > }
-> >
-> > static const struct kcs_bmc_device_ops aspeed_kcs_ops = {
-> >+	.irq_mask_update = aspeed_kcs_irq_mask_update,
-> > 	.io_inputb = aspeed_kcs_inb,
-> > 	.io_outputb = aspeed_kcs_outb,
-> > 	.io_updateb = aspeed_kcs_updateb,
-> >@@ -378,6 +407,10 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
-> > 		return -ENODEV;
-> > 	}
-> >
-> >+	spin_lock_init(&priv->obe.lock);
-> >+	priv->obe.remove = false;
-> >+	timer_setup(&priv->obe.timer, aspeed_kcs_check_obe, 0);
-> >+
-> > 	aspeed_kcs_set_address(kcs_bmc, addr);
-> >
-> > 	rc = aspeed_kcs_config_irq(kcs_bmc, pdev);
-> >@@ -386,6 +419,8 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
-> >
-> > 	platform_set_drvdata(pdev, priv);
-> >
-> >+	aspeed_kcs_irq_mask_update(kcs_bmc, (KCS_BMC_EVENT_TYPE_IBF | KCS_BMC_EVENT_TYPE_OBE),
-> >+				   KCS_BMC_EVENT_TYPE_IBF);
-> > 	aspeed_kcs_enable_channel(kcs_bmc, true);
-> >
-> > 	rc = kcs_bmc_add_device(&priv->kcs_bmc);
-> >@@ -404,6 +439,15 @@ static int aspeed_kcs_remove(struct platform_device *pdev)
-> >
-> > 	kcs_bmc_remove_device(kcs_bmc);
-> >
-> >+	aspeed_kcs_enable_channel(kcs_bmc, false);
-> >+	aspeed_kcs_irq_mask_update(kcs_bmc, (KCS_BMC_EVENT_TYPE_IBF | KCS_BMC_EVENT_TYPE_OBE), 0);
-> >+
-> >+	/* Make sure it's proper dead */
-> >+	spin_lock_irq(&priv->obe.lock);
-> >+	priv->obe.remove = true;
-> >+	spin_unlock_irq(&priv->obe.lock);
-> >+	del_timer_sync(&priv->obe.timer);
-> >+
-> > 	return 0;
-> > }
-> >
-> >diff --git a/drivers/char/ipmi/kcs_bmc_client.h b/drivers/char/ipmi/kcs_bmc_client.h
-> >index d0a7404ff584..456796da33de 100644
-> >--- a/drivers/char/ipmi/kcs_bmc_client.h
-> >+++ b/drivers/char/ipmi/kcs_bmc_client.h
-> >@@ -37,6 +37,8 @@ int kcs_bmc_unregister_cdev(struct kcs_bmc_cdev *cdev);
-> > int kcs_bmc_enable_device(struct kcs_bmc_device *kcs_bmc, struct kcs_bmc_client *client);
-> > void kcs_bmc_disable_device(struct kcs_bmc_device *kcs_bmc, struct kcs_bmc_client *client);
-> >
-> >+void kcs_bmc_update_event_mask(struct kcs_bmc_device *kcs_bmc, u8 mask, u8 events);
-> >+
-> > u8 kcs_bmc_read_data(struct kcs_bmc_device *kcs_bmc);
-> > void kcs_bmc_write_data(struct kcs_bmc_device *kcs_bmc, u8 data);
-> > u8 kcs_bmc_read_status(struct kcs_bmc_device *kcs_bmc);
-> >diff --git a/drivers/char/ipmi/kcs_bmc_device.h b/drivers/char/ipmi/kcs_bmc_device.h
-> >index 57b7174b2bac..f1ca8912496a 100644
-> >--- a/drivers/char/ipmi/kcs_bmc_device.h
-> >+++ b/drivers/char/ipmi/kcs_bmc_device.h
-> >@@ -7,6 +7,7 @@
-> > #include "kcs_bmc.h"
-> >
-> > struct kcs_bmc_device_ops {
-> >+	void (*irq_mask_update)(struct kcs_bmc_device *kcs_bmc, u8 mask, u8 enable);
-> > 	u8 (*io_inputb)(struct kcs_bmc_device *kcs_bmc, u32 reg);
-> > 	void (*io_outputb)(struct kcs_bmc_device *kcs_bmc, u32 reg, u8 b);
-> > 	void (*io_updateb)(struct kcs_bmc_device *kcs_bmc, u32 reg, u8 mask, u8 b);
-> >diff --git a/drivers/char/ipmi/kcs_bmc_npcm7xx.c b/drivers/char/ipmi/kcs_bmc_npcm7xx.c
-> >index dce93ec895fc..c2032728a03d 100644
-> >--- a/drivers/char/ipmi/kcs_bmc_npcm7xx.c
-> >+++ b/drivers/char/ipmi/kcs_bmc_npcm7xx.c
-> >@@ -38,6 +38,7 @@
-> > #define KCS2CTL		0x2A
-> > #define KCS3CTL		0x3C
-> > #define    KCS_CTL_IBFIE	BIT(0)
-> >+#define    KCS_CTL_OBEIE	BIT(0)
-> >
-> > #define KCS1IE		0x1C
-> > #define KCS2IE		0x2E
-> >@@ -117,13 +118,23 @@ static void npcm7xx_kcs_enable_channel(struct kcs_bmc_device *kcs_bmc, bool enab
-> > {
-> > 	struct npcm7xx_kcs_bmc *priv = to_npcm7xx_kcs_bmc(kcs_bmc);
-> >
-> >-	regmap_update_bits(priv->map, priv->reg->ctl, KCS_CTL_IBFIE,
-> >-			   enable ? KCS_CTL_IBFIE : 0);
-> >-
-> > 	regmap_update_bits(priv->map, priv->reg->ie, KCS_IE_IRQE | KCS_IE_HIRQE,
-> > 			   enable ? KCS_IE_IRQE | KCS_IE_HIRQE : 0);
-> > }
-> >
-> >+static void npcm7xx_kcs_irq_mask_update(struct kcs_bmc_device *kcs_bmc, u8 mask, u8 state)
-> >+{
-> >+	struct npcm7xx_kcs_bmc *priv = to_npcm7xx_kcs_bmc(kcs_bmc);
-> >+
-> >+	if (KCS_BMC_EVENT_TYPE_OBE & mask)
-> >+		regmap_update_bits(priv->map, priv->reg->ctl, KCS_CTL_OBEIE,
-> >+				   !!(KCS_BMC_EVENT_TYPE_OBE & state) * KCS_CTL_OBEIE);
-> >+
-> >+	if (KCS_BMC_EVENT_TYPE_IBF & mask)
-> >+		regmap_update_bits(priv->map, priv->reg->ctl, KCS_CTL_IBFIE,
-> >+				   !!(KCS_BMC_EVENT_TYPE_IBF & state) * KCS_CTL_IBFIE);
+> But I will appreciate it if somebody can run this through various build tests.
 > 
-> Same operand ordering thing here...
 
-Ack.
+um, did you try x86_64 allmodconfig?
 
-Andrew
+I'm up to
+kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix-fix-fix.patch
+and counting.
+
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: kernelh-split-out-panic-and-oops-helpers-fix
+
+more files need panic_notifier.h
+
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ arch/x86/xen/enlighten.c        |    1 +
+ drivers/video/fbdev/hyperv_fb.c |    1 +
+ 2 files changed, 2 insertions(+)
+
+--- a/arch/x86/xen/enlighten.c~kernelh-split-out-panic-and-oops-helpers-fix
++++ a/arch/x86/xen/enlighten.c
+@@ -6,6 +6,7 @@
+ #include <linux/cpu.h>
+ #include <linux/kexec.h>
+ #include <linux/slab.h>
++#include <linux/panic_notifier.h>
+ 
+ #include <xen/xen.h>
+ #include <xen/features.h>
+--- a/drivers/video/fbdev/hyperv_fb.c~kernelh-split-out-panic-and-oops-helpers-fix
++++ a/drivers/video/fbdev/hyperv_fb.c
+@@ -52,6 +52,7 @@
+ #include <linux/completion.h>
+ #include <linux/fb.h>
+ #include <linux/pci.h>
++#include <linux/panic_notifier.h>
+ #include <linux/efi.h>
+ #include <linux/console.h>
+ 
+_
+
+
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: kernelh-split-out-panic-and-oops-helpers-fix-fix
+
+arch/x86/purgatory/purgatory.c needs kernel.h
+
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ arch/x86/purgatory/purgatory.c |    1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/arch/x86/purgatory/purgatory.c~kernelh-split-out-panic-and-oops-helpers-fix-fix
++++ a/arch/x86/purgatory/purgatory.c
+@@ -8,6 +8,7 @@
+  *       Vivek Goyal <vgoyal@redhat.com>
+  */
+ 
++#include <linux/kernel.h>
+ #include <linux/bug.h>
+ #include <crypto/sha2.h>
+ #include <asm/purgatory.h>
+_
+
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: kernelh-split-out-panic-and-oops-helpers-fix-fix-fix
+
+drivers/clk/analogbits/wrpll-cln28hpc.c needs minmax.h, math.h and limits.h
+
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ drivers/clk/analogbits/wrpll-cln28hpc.c |    4 ++++
+ 1 file changed, 4 insertions(+)
+
+--- a/drivers/clk/analogbits/wrpll-cln28hpc.c~kernelh-split-out-panic-and-oops-helpers-fix-fix-fix
++++ a/drivers/clk/analogbits/wrpll-cln28hpc.c
+@@ -25,6 +25,10 @@
+ #include <linux/err.h>
+ #include <linux/log2.h>
+ #include <linux/math64.h>
++#include <linux/minmax.h>
++#include <linux/math.h>
++#include <linux/limits.h>
++
+ #include <linux/clk/analogbits-wrpll-cln28hpc.h>
+ 
+ /* MIN_INPUT_FREQ: minimum input clock frequency, in Hz (Fref_min) */
+_
+
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix
+
+drivers/misc/pvpanic/pvpanic.c needs panic_notifier.h
+
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ drivers/misc/pvpanic/pvpanic.c |    1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/drivers/misc/pvpanic/pvpanic.c~kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix
++++ a/drivers/misc/pvpanic/pvpanic.c
+@@ -13,6 +13,7 @@
+ #include <linux/mod_devicetable.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
++#include <linux/panic_notifier.h>
+ #include <linux/types.h>
+ #include <linux/cdev.h>
+ #include <linux/list.h>
+_
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix
+
+fix drivers/misc/pvpanic/pvpanic.c and drivers/net/ipa/ipa_smp2p.c
+
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ drivers/net/ipa/ipa_smp2p.c |    1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/drivers/net/ipa/ipa_smp2p.c~kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix
++++ a/drivers/net/ipa/ipa_smp2p.c
+@@ -8,6 +8,7 @@
+ #include <linux/device.h>
+ #include <linux/interrupt.h>
+ #include <linux/notifier.h>
++#include <linux/panic_notifier.h>
+ #include <linux/soc/qcom/smem.h>
+ #include <linux/soc/qcom/smem_state.h>
+ 
+_
+
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix-fix
+
+fix drivers/power/reset/ltc2952-poweroff.c and drivers/misc/bcm-vk/bcm_vk_dev.c
+
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ drivers/misc/bcm-vk/bcm_vk_dev.c       |    1 +
+ drivers/power/reset/ltc2952-poweroff.c |    1 +
+ 2 files changed, 2 insertions(+)
+
+--- a/drivers/power/reset/ltc2952-poweroff.c~kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix-fix
++++ a/drivers/power/reset/ltc2952-poweroff.c
+@@ -52,6 +52,7 @@
+ #include <linux/slab.h>
+ #include <linux/kmod.h>
+ #include <linux/module.h>
++#include <linux/panic_notifier.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/reboot.h>
+--- a/drivers/misc/bcm-vk/bcm_vk_dev.c~kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix-fix
++++ a/drivers/misc/bcm-vk/bcm_vk_dev.c
+@@ -9,6 +9,7 @@
+ #include <linux/fs.h>
+ #include <linux/idr.h>
+ #include <linux/interrupt.h>
++#include <linux/panic_notifier.h>
+ #include <linux/kref.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+_
+
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix-fix-fix
+
+fix drivers/leds/trigger/ledtrig-panic.c and drivers/firmware/google/gsmi.c
+
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
+
+ drivers/firmware/google/gsmi.c       |    1 +
+ drivers/leds/trigger/ledtrig-panic.c |    1 +
+ 2 files changed, 2 insertions(+)
+
+--- a/drivers/leds/trigger/ledtrig-panic.c~kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix-fix-fix
++++ a/drivers/leds/trigger/ledtrig-panic.c
+@@ -8,6 +8,7 @@
+ #include <linux/kernel.h>
+ #include <linux/init.h>
+ #include <linux/notifier.h>
++#include <linux/panic_notifier.h>
+ #include <linux/leds.h>
+ #include "../leds.h"
+ 
+--- a/drivers/firmware/google/gsmi.c~kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix-fix-fix
++++ a/drivers/firmware/google/gsmi.c
+@@ -19,6 +19,7 @@
+ #include <linux/dma-mapping.h>
+ #include <linux/fs.h>
+ #include <linux/slab.h>
++#include <linux/panic_notifier.h>
+ #include <linux/ioctl.h>
+ #include <linux/acpi.h>
+ #include <linux/io.h>
+_
+
+
+and.... drivers/leds/trigger/ledtrig-heartbeat.c as well.
+
+I'll drop it.
 
 
 _______________________________________________
