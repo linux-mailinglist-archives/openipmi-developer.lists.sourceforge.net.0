@@ -2,168 +2,143 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BF99F35A73E
-	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Apr 2021 21:41:46 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B4AC35A7A1
+	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Apr 2021 22:10:29 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lUx0g-0002LB-VA; Fri, 09 Apr 2021 19:41:42 +0000
+	id 1lUxST-00078h-Fb; Fri, 09 Apr 2021 20:10:25 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <prvs=5733813a0f=zweiss@equinix.com>)
- id 1lUx0f-0002Ka-HX
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 19:41:41 +0000
+ (envelope-from <deller@gmx.de>) id 1lUxBO-0001yI-Uf
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 19:52:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-ID:
- Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender
- :Reply-To:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To
- :Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=UlFjWLWuaOHHLlNDGjsF/7tB+tGX9FBHdsuALYMZIlE=; b=F+QAS8RbeUVCoMA/779nZtGC1J
- 5WhHVLqlSvXZPq/DmOe3ggdeWfCbouZaCbLJJNayX+gz8MyzUZoKRLBACTnEr+1ONnNxhMJtpnN1/
- 9Ydw0EhFBR88JBqEmeEBPjNQJKCUUE/LHbAqEOwGsjcKTfBj5C7lSdljnFZmX0UIPMLo=;
+ bh=iNspAAUXd0TGc9idWuqJezj9FgSbVIrdnHkC34OI6ys=; b=UAH16QFQlborpQ+PSw5J+58uCW
+ SzQMsoHSIkpxLdx42dHeQlEUYRSMrdBjK/H9PU0FHpPn9GM7c0RyPbY0U6G5tpBBhkgSwTF/YunrJ
+ hMDTS9bompoCR6uSzxr72eovVW7QsInyMAjFFa7xILgrTyg8r+NaLGD1kcKaQWC/FFlk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:
- In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=UlFjWLWuaOHHLlNDGjsF/7tB+tGX9FBHdsuALYMZIlE=; b=W0v+SWyfwxKZlJSpo9ClNoPceS
- cK9Z2lzuHuzGh691aem77Md5VKZxXTo6YLtHvP9m+ltTVuOc4uEkbNB0/jP1AyCro5opAVCTyjj2M
- tSEtPJiqkxwbJHz7tIx9LsDkOZmflPHh45RRB1HtvkHf+Okz573awfkbk74//7rCzowA=;
-Received: from mx0b-00268f01.pphosted.com ([148.163.159.192])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1lUwlw-0007V5-Gu
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 19:26:49 +0000
-Received: from pps.filterd (m0165120.ppops.net [127.0.0.1])
- by mx0b-00268f01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
- 139JNblo024976; Fri, 9 Apr 2021 19:26:03 GMT
-Received: from nam10-bn7-obe.outbound.protection.outlook.com
- (mail-bn7nam10lp2101.outbound.protection.outlook.com [104.47.70.101])
- by mx0b-00268f01.pphosted.com with ESMTP id 37ts5s0sf9-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 09 Apr 2021 19:26:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Mvh2kHm9dfD2f0+F84z1F1R0UlzsPYfgTWIRtSErbBVVCS/WAaEItJC2csYoTPNGh/phdWumVt8gu4CEl3HeFz3xX/pDLppO6Gg/nte1MYK2URdGGT+Ta1POiaZ9NzEeGfqdDgNNUkg/wRm8+2/HdvFG7dEjw/BxvCT5kby8bhv8WYz4XAHeLSIDQplfD8rRCXBHNqxch8mUqlv8MdzNbBZ/6COSW/hT8aqJLZR+ITuvCSWcVjBusWs1b4/yTqILiBdlSaZAhVUjcQ43OcbeM5rG0F3fci+Bfu33+XYVtSx1EEu01Cm9doi/XUghJ3VqAtEgC+CeU5mtC9yCP+0vZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UlFjWLWuaOHHLlNDGjsF/7tB+tGX9FBHdsuALYMZIlE=;
- b=jM99EX9oybkWwL5P8Jep9bVfICZIB44oAqGaCv+ZncZQemA5vp5l0/FnEc7Yub1ESRO3Tmr4YC35yLoukNtuRId13OGQeFK0W0slK+agfq6+gpkMThPO3bgGOa8TwxMK6DdxL45diwZ6Evty3EdNcZkD9fGZvN+AgambykFxckbF0F+bge1jtNMeYM6meVvJKsUrbbnFbeA9YApQZk85YKNDtwAM9JzHh4TAjyFF9FJm5UNqtmBT/2LNyJV2faJT/2NMW+QrRht56zbdY8SMFOLBEOYxKEWj+54gB+3pPjkFjbH+BVbf9IRFm+aWO8PusKLWTUCVRxRRe0vVfsFYGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=equinix.com; dmarc=pass action=none header.from=equinix.com;
- dkim=pass header.d=equinix.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=equinixinc.onmicrosoft.com; s=selector2-equinixinc-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UlFjWLWuaOHHLlNDGjsF/7tB+tGX9FBHdsuALYMZIlE=;
- b=UUmO82L7CHhT3OJtSFRzZ1/3arQUL9+ZJBUgLn9JwF21k0Flp9mdjJPMPfuL/l4mhSbgavFASGl9iL1wUP01chVAoQzb8INkLMJlMPbc7FNSU7CLqSnTDIgF2Yjbc5/XxviD33DzsSsyDdRMDP6K4ubA5nqCZ4TmVWU7wPYPEqY=
-Received: from DM5PR04MB0762.namprd04.prod.outlook.com (2603:10b6:3:f3::13) by
- DM5PR04MB0363.namprd04.prod.outlook.com (2603:10b6:3:aa::23) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.4020.17; Fri, 9 Apr 2021 19:26:00 +0000
-Received: from DM5PR04MB0762.namprd04.prod.outlook.com
- ([fe80::4c98:aeb:87a8:13ad]) by DM5PR04MB0762.namprd04.prod.outlook.com
- ([fe80::4c98:aeb:87a8:13ad%5]) with mapi id 15.20.4020.017; Fri, 9 Apr 2021
- 19:26:00 +0000
-From: Zev Weiss <zweiss@equinix.com>
-To: Andrew Jeffery <andrew@aj.id.au>
-Thread-Topic: [PATCH v2 10/21] ipmi: kcs_bmc: Turn the driver data-structures
- inside-out
-Thread-Index: AQHXLQkhK5HJQiDBlUq3BrfCbbMJraqskkSA
-Date: Fri, 9 Apr 2021 19:26:00 +0000
-Message-ID: <YHCqR8/nZFB1HRgX@packtop>
-References: <20210319062752.145730-1-andrew@aj.id.au>
- <20210319062752.145730-10-andrew@aj.id.au> <YG/Ql9z9X/mtOSvl@packtop>
- <ea34ee69-a266-4737-8450-4695d2d0fbd4@www.fastmail.com>
- <YG/zVv4XOo1HoLd1@packtop>
-In-Reply-To: <YG/zVv4XOo1HoLd1@packtop>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: aj.id.au; dkim=none (message not signed)
- header.d=none;aj.id.au; dmarc=none action=none header.from=equinix.com;
-x-originating-ip: [24.181.166.149]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 8355b03a-498a-4895-2615-08d8fb8d4ebd
-x-ms-traffictypediagnostic: DM5PR04MB0363:
-x-microsoft-antispam-prvs: <DM5PR04MB036343EC5C2911E575F0CFA4C3739@DM5PR04MB0363.namprd04.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: ECSpl9/JuYTqN0wmtt+5pxwHqur+SHEpZCVDXtEkG9NmZYelMdHWSPrG7G61aqIIEfMLQvaVVuytffWtZN0mFvdHveDCRjOxaM3ArL+AtCtShL/hPc6ZFtuEXQ45XkSnGepO2/MzRaP/r+L1mRTJW7ddew4BOcpQbNg0i7akpaOvrRf/hfW566DfInzdKRNMm3GWoJ2to/BwTMjS3VN2fmZVDVEkpWCos1kFzEFbrPOoVoxgvhnoGLyyLSEo5H/cAgK58x9jjCpj3DQtBbFgq5lZIH4HBad7dhcXH3n1kyuz1wyWQ3+Hk3xaA8k2Wns2obLYN47SLQmXkYXrSeBJkm45ij97+mmjsgETFIwyaHtrHIerMIOCdxFEpakVp+tsnWywLT8KegLdflTzVz8C2sPYssu6XkF0bR7lYQmFFoRxRtqKjZ1ZdmoHrXFs3YVYwzJgaxAr7V/0ybIhx3xModP+xT2+9hag9ksGj35bPVIMcTQ469ghv8L2UUaNF9fX5ZhHdbIr9dTlV4yEN0N4VeTJk2JYINQ9wGyG/tV3LafavgaXQQ7woNveqS7VwVAIhoHGh3561fTVZ/RkFSpiaLnjFz7GCXWc/MAt3NdfnNFZs4mGk++v0SkJpT9di2yRbe+/UDgx5ViFRg5uPvp98rMc7d6pdInJ87JAqhLKfKs=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM5PR04MB0762.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(7916004)(4636009)(39850400004)(396003)(366004)(376002)(136003)(346002)(2906002)(9686003)(4326008)(8676002)(6916009)(76116006)(6512007)(6486002)(26005)(478600001)(6506007)(54906003)(316002)(66556008)(64756008)(66446008)(66476007)(86362001)(7416002)(38100700001)(30864003)(5660300002)(8936002)(71200400001)(83380400001)(33716001)(66946007)(186003);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?J9A66rbGTbNFTIVno8xBA1sTvBeLAZvBC72CCYXHlUpZh2Ob/UyRWlgtTvcC?=
- =?us-ascii?Q?rospge672n1vP3+RMU9fdg3s/muH48hU7bU8XB1BtC6fvjS3qWEpBXqN8YTX?=
- =?us-ascii?Q?zznsdsBoB9WMnlx1IbJ/w2398DTQU2A4lbQP1FmqchrNEXDkEHeMnvuxYE9R?=
- =?us-ascii?Q?KjOUgt5zY8kkcxkM56nQcTGgaLf0DT3ePWoLvGIjbvhYO/inD6N/wlNhrAe0?=
- =?us-ascii?Q?6I9uU1Pl/vMV4MnMII1VtFCUjZyATpcgfSUSXF5ar/0Qf0llCmwmmRaNmEGH?=
- =?us-ascii?Q?4Fw8hk0LY0kqshDGGYd4Fz01NEOY2tOIoMaW079nYoDObOYNT/8OOocJlwAE?=
- =?us-ascii?Q?TTRIydHReF+0/kdOCAmFH/0BPm+lebZ1gjKU6LWEJaZv/zSonqIySI86sSgC?=
- =?us-ascii?Q?Cib+uMopzfMLmYI3bhnCioaGZTUJWVFAeGY3TKJN0TY+b6wcXL4ovGLUpwNN?=
- =?us-ascii?Q?XH5yMoRvz/yeQVgdkfQYM3HPAzhCqGr7d9CqGXqUkKPwWNkfyvUudgw7jNB8?=
- =?us-ascii?Q?61Dd7c5KiOp6FL6bUfljpgAWbtxhFEpmfX/HXYcCDv19OPJAez00Xf54886W?=
- =?us-ascii?Q?GQPYyZ1fozGp111CvEkPtakEAwLM09BxuJ3bywfYcKal1zvxd5DvzLV7w/sP?=
- =?us-ascii?Q?5T3RTLsU/zKMqui9JLyc4RKM+oMDA1VFC4w6sKYzAsuAS/1JQ7vyASmA2kqY?=
- =?us-ascii?Q?4JkiS3fTQ71HDpd3XgaFIsJhvUgwDX3aztClq4zoEXQvp3ztuwbGNR+RJAG+?=
- =?us-ascii?Q?G8kMxPtxbWbxQSZQjo2MxMEGqlUpM64MMlrebAgx2WM/kgFVKWRvHIENFqD6?=
- =?us-ascii?Q?xwjEKcwfOa8dOaKQvO+Q/mpdXRcfgaHt3SJbo7xh2bbzivBlcn/gtzsRpm9K?=
- =?us-ascii?Q?k8MZk1OHnD2LxKDpBGh9DOpM+dY+eR0asxMKauUnC/zXtQ0nABmh0vr4hp6W?=
- =?us-ascii?Q?9WqlJNPWmmvWDLNAZqqTIDFmQYqHJg9SuCrGUa3J8eXetVfHhKIdQiEbxE/t?=
- =?us-ascii?Q?Fe4FMvU+Fdl51IXmpRBGzB8UlgS6e4dv/Yi9ThN5cSzQZYBmRNIMkaOZvpSl?=
- =?us-ascii?Q?HxsYX15hTvHBEan8mfDfNHWxPeGHf2RefHMewUfjsb5/nNCXl7jwYKj7+dCM?=
- =?us-ascii?Q?4P+5fwNcud8vYWXAArJdOFZzMptPo/YUSjPMYAeJ94jGlXPqAfTAuhA1l95E?=
- =?us-ascii?Q?jPjAxjcWZTV8KIxVKZ5TiCCYNIGEhdv09kHCDSBMktyEc0srms1hpZ5OSxMg?=
- =?us-ascii?Q?z/NrehCT3NfQFypDz6qJw67SLn2BpYhsHkxPFOVvoyj0R1UNc2qtX4q25aeA?=
- =?us-ascii?Q?qsKJXYF95V22LMTk7nJm1l+WvI8BDr6fmooR5CZPjHwvoQ=3D=3D?=
-x-ms-exchange-transport-forked: True
-Content-ID: <0DAB7C08AE0DF741847CE60B21A5D795@namprd04.prod.outlook.com>
+ bh=iNspAAUXd0TGc9idWuqJezj9FgSbVIrdnHkC34OI6ys=; b=XiJ4NfxqU6Lz+u0f4ZM8TlhpO2
+ pIq1psHMF/dZP/Nhif3zb+bYFuiCsmw1abAS8n5nAb3CGwZFcvoPkjRQdHG1DAAED3eDEPCA3Nco9
+ yO+Rcz23uGjIKm3xnoS0qNCJ+LqoDvKhg8LhlOq2K9WvUFokZkyMeOXB7T45FNn9y8sk=;
+Received: from mout.gmx.net ([212.227.17.20])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1lUx4W-00C1WV-Ek
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 19:45:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1617997367;
+ bh=iNspAAUXd0TGc9idWuqJezj9FgSbVIrdnHkC34OI6ys=;
+ h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
+ b=ldsXgBGJ3GSKvmbTxvP1itO26Qt3rKVAXa7HCeRwn7x6vvwIVyKAuuWMT/9Mbs/eq
+ eUjUvdYyHT2oPnald/g3Raad9aGgTRMlgrGQZ1cKX9WKZtuOkezCA/ZBkxeKHYWicC
+ dFguhZZAb4murEW3qrRROxlPjGsI5cEXZ4497eEg=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.20.60] ([92.116.181.63]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1My36N-1lmD5l41nT-00zVNp; Fri, 09
+ Apr 2021 21:42:47 +0200
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Alexander Lobakin <alobakin@pm.me>, Wei Liu <wei.liu@kernel.org>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Christian Brauner <christian.brauner@ubuntu.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Kees Cook
+ <keescook@chromium.org>, Mike Rapoport <rppt@kernel.org>,
+ Corey Minyard <cminyard@mvista.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Vasily Gorbik <gor@linux.ibm.com>, "Jason J. Herne" <jjherne@linux.ibm.com>,
+ Joerg Roedel <jroedel@suse.de>, Michael Kelley <mikelley@microsoft.com>,
+ Joe Perches <joe@perches.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Scott Branden <scott.branden@broadcom.com>, Olof Johansson <olof@lixom.net>,
+ Mihai Carabas <mihai.carabas@oracle.com>, Wang Wenhu <wenhu.wang@vivo.com>,
+ Marek Czerski <ma.czerski@gmail.com>, Hongbo Yao <yaohongbo@huawei.com>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Vineeth Vijayan <vneethv@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Peter Oberparleiter <oberpar@linux.ibm.com>,
+ Alexander Egorenkov <egorenar@linux.ibm.com>,
+ Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
+ Vlastimil Babka <vbabka@suse.cz>, "Paul E. McKenney" <paulmck@kernel.org>,
+ "Steven Rostedt (VMware)" <rostedt@goodmis.org>,
+ linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
+ openipmi-developer@lists.sourceforge.net, linux-clk@vger.kernel.org,
+ linux-edac@vger.kernel.org, coresight@lists.linaro.org,
+ linux-leds@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+ netdev@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-remoteproc@vger.kernel.org, linux-staging@lists.linux.dev,
+ dri-devel@lists.freedesktop.org, linux-fbdev@vger.kernel.org,
+ linux-arch@vger.kernel.org, kexec@lists.infradead.org, rcu@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+References: <20210409100250.25922-1-andriy.shevchenko@linux.intel.com>
+From: Helge Deller <deller@gmx.de>
+Message-ID: <cef5d4ba-9d91-7249-3ba4-c7f1c89ab119@gmx.de>
+Date: Fri, 9 Apr 2021 21:41:57 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-X-OriginatorOrg: equinix.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM5PR04MB0762.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8355b03a-498a-4895-2615-08d8fb8d4ebd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Apr 2021 19:26:00.2124 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 72adb271-2fc7-4afe-a5ee-9de6a59f6bfb
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: iiZLdwP9cqFxPAfMLUoeyePf5d3s37lHYReZhFTgCF8zDJhbBVZHcA32tm+bdOjdhQtPyMQNkzPHJv3D7BwKJA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR04MB0363
-X-Proofpoint-GUID: vh-OeKhVXl2akBm7y0TxbfBSl3kKteAe
-X-Proofpoint-ORIG-GUID: vh-OeKhVXl2akBm7y0TxbfBSl3kKteAe
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391, 18.0.761
- definitions=2021-04-09_07:2021-04-09,
- 2021-04-09 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0
- suspectscore=0 mlxlogscore=999 impostorscore=0 bulkscore=0 clxscore=1015
- lowpriorityscore=0 adultscore=0 priorityscore=1501 mlxscore=0 phishscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2104060000
- definitions=main-2104090139
+In-Reply-To: <20210409100250.25922-1-andriy.shevchenko@linux.intel.com>
+Content-Language: en-US
+X-Provags-ID: V03:K1:A9ZHNG4WxpUBFm/OLrSjy4wmvepyAKfJ/9J0GMwZPVvou+WL0jt
+ juhLu46u1kS+URbP+8+Pw+p7oQ3JpIMBAMo3AEr85dJ6auKoY3YWnT5NDC8TMlGFgRljwyK
+ +Z8x/lMp3a1Sj6G+ejcETzf/1wuAwQ3HVr+B/sOgfO9g9aKIA+KstHHg98r0RbXaN5gO1f1
+ c2FCqtclGkoW83386bLAQ==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:QTiAIr1d9DU=:ouDY+zoQbxd0AYwIoqdq7+
+ aGg5cjuhFxN4dPlhbUVe4gHa8V6O/ob8/GYNsz48eMGoWdTSBWNdigEx/P3CeG5ajt1K/D1wj
+ ZsuimGcNU/JIwDEC4hAa9wiKwplSRt9GyqnNpMymPpOincerI2QNIINtkESpmD/MQtIZKWIBd
+ LzLZQt5g5JHyD7KSRX3CSO3kxsUbUK397UnmPrlbBzZiG2Ki8L87whx1HhStGiOawVNU3NX1U
+ 1qJ/Q2KXhaSRyDrR5JobMbpVJ16dZyIPC+nB+S5uAuxAgE/sFmpim0FlFwngs3hHA1Ua7nKDx
+ vaviKH0ZdVtdmwFCmPWXldfwgaGRXmcVHieN8y3Cf4AES1arvvUXfDdU8TlIFPlMWolAfy75b
+ aF6Vq+x5W46hFMRh+gkaDVvXSN0IJLemCnzysIaYGHy5hfBua6u7o+npWjwJ1MLna90v6WJqp
+ qtsmLRv7qq9JD3rE3mLnbgCeyikpDMiwYezxJc5y085Nda4MocVjIUyHwfrItCcTJy+6nK+32
+ QtS5ysQPbZtg/0BLTkwmTgg1C9wyCqJwqSPkJHKs0fedY3Cg4AmlYSUFZ+l1+yWlahYNrwIjD
+ 1LvXS6jFdPgrwM0Bw5zEn5iTaVsN3Dpg/BK7RBEnkSXG2EhjbG0P5JyU6ZQFlyoWZsOBl1Dnp
+ 9RlHsz3O6/vJl501tNpFzFkE9v1fbjuJiCnsWIZVHwcbxwgsYWs1VvePFQoqRLQUoGWk7YlQ8
+ Mycnfd16TOkM/BTklN35/8ZoVz9X6VjMTLQhDSDUL5LeX75GwKdRnpVjwg+mpqmINujIEDZVj
+ bRIcfuM8kM4QXmEUEjmqZoVNDqdo0531mNm3kN19X3Wj5I9ywhlJarAEaPUOs1zKkdzPb4HdC
+ +5ul9M6a4WBWbT5U1mKmQOeT0D6MCEGVKv+v/aWQ+A07Sxs9cad/sxt/XXniiusfDTtv1wpHL
+ 48xz68wHDUi6JHhewqK39v9CUwOqs24U/FOrqR6QogsoMdeib8LB3HQXiJzJhPuxnfQKT5n0E
+ 2KocVJOLOCpFD00uImKyPG4urooQInY0CgXuaTbgwb2QXtNz/HWsnU7bcGH95t//ETUS0YST/
+ HIEC4Jt3JrZiU2K24JZ5uAUtc1tWcvMl+zNPO7uqbferwivk7BjAs0A1bkS3994pg0p9gu7e6
+ IGlScHPk65VIaL0560ZSSQDJOn/n987RThMli+dnKucI6xieqz82byl0Okk5UU49D7L5Y=
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (deller[at]gmx.de)
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: aj.id.au]
+ for more information. [URIs: mvista.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [212.227.17.20 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lUwlw-0007V5-Gu
-Subject: Re: [Openipmi-developer] [PATCH v2 10/21] ipmi: kcs_bmc: Turn the
- driver data-structures inside-out
+X-Headers-End: 1lUx4W-00C1WV-Ek
+X-Mailman-Approved-At: Fri, 09 Apr 2021 20:10:23 +0000
+Subject: Re: [Openipmi-developer] [PATCH v2 1/1] kernel.h: Split out panic
+ and oops helpers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -176,355 +151,71 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "Chia-Wei,
- Wang" <chiawei_wang@aspeedtech.com>, Ryan Chen <ryan_chen@aspeedtech.com>,
- Tomer Maimon <tmaimon77@gmail.com>, Corey Minyard <minyard@acm.org>,
- Avi Fishman <avifishman70@gmail.com>, Patrick Venture <venture@google.com>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Tali Perry <tali.perry1@gmail.com>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>, Lee Jones <lee.jones@linaro.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- Benjamin Fair <benjaminfair@google.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Max Filippov <jcmvbkbc@gmail.com>, Paul Mackerras <paulus@samba.org>,
+ Pavel Machek <pavel@ucw.cz>, "H. Peter Anvin" <hpa@zytor.com>,
+ Joel Fernandes <joel@joelfernandes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Will Deacon <will@kernel.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Stephen Hemminger <sthemmin@microsoft.com>, Daniel Drake <dsd@laptop.org>,
+ Jens Frederich <jfrederich@gmail.com>, Richard Weinberger <richard@nod.at>,
+ x86@kernel.org, Mike Rapoport <rppt@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Jakub Kicinski <kuba@kernel.org>, Matt Turner <mattst88@gmail.com>,
+ Iurii Zaikin <yzaikin@google.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Mike Leach <mike.leach@linaro.org>, Ohad Ben-Cohen <ohad@wizery.com>,
+ Corey Minyard <minyard@acm.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Jeff Dike <jdike@addtoit.com>, Josh Triplett <josh@joshtriplett.org>,
+ Alex Elder <elder@kernel.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Richard Henderson <rth@twiddle.net>, Juergen Gross <jgross@suse.com>,
+ Chris Zankel <chris@zankel.net>, Tony Luck <tony.luck@intel.com>,
+ Jon Nettleton <jon.nettleton@gmail.com>, Stephen Boyd <sboyd@kernel.org>,
+ Sebastian Reichel <sre@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
+ Luis Chamberlain <mcgrof@kernel.org>, James Morse <james.morse@arm.com>,
+ Eric Biederman <ebiederm@xmission.com>, Leo Yan <leo.yan@linaro.org>,
+ Borislav Petkov <bp@alien8.de>, "David S. Miller" <davem@davemloft.net>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Apr 09, 2021 at 01:25:26AM CDT, Zev Weiss wrote:
->On Fri, Apr 09, 2021 at 12:59:09AM CDT, Andrew Jeffery wrote:
->>
->>
->>On Fri, 9 Apr 2021, at 13:27, Zev Weiss wrote:
->>>On Fri, Mar 19, 2021 at 01:27:41AM CDT, Andrew Jeffery wrote:
->>>>Make the KCS device drivers responsible for allocating their own memory.
->>>>
->>>>Until now the private data for the device driver was allocated internal
->>>>to the private data for the chardev interface. This coupling required
->>>>the slightly awkward API of passing through the struct size for the
->>>>driver private data to the chardev constructor, and then retrieving a
->>>>pointer to the driver private data from the allocated chardev memory.
->>>>
->>>>In addition to being awkward, the arrangement prevents the
->>>>implementation of alternative userspace interfaces as the device driver
->>>>private data is not independent.
->>>>
->>>>Peel a layer off the onion and turn the data-structures inside out by
->>>>exploiting container_of() and embedding `struct kcs_device` in the
->>>>driver private data.
->>>>
->>>>Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
->>>>---
->>>> drivers/char/ipmi/kcs_bmc.c           | 15 +++++--
->>>> drivers/char/ipmi/kcs_bmc.h           | 12 ++----
->>>> drivers/char/ipmi/kcs_bmc_aspeed.c    | 60 ++++++++++++++++-----------
->>>> drivers/char/ipmi/kcs_bmc_cdev_ipmi.c | 60 ++++++++++++++++++---------
->>>> drivers/char/ipmi/kcs_bmc_npcm7xx.c   | 37 ++++++++++-------
->>>> 5 files changed, 113 insertions(+), 71 deletions(-)
->>>>
->>>>diff --git a/drivers/char/ipmi/kcs_bmc.c b/drivers/char/ipmi/kcs_bmc.c
->>>>index ef5c48ffe74a..709b6bdec165 100644
->>>>--- a/drivers/char/ipmi/kcs_bmc.c
->>>>+++ b/drivers/char/ipmi/kcs_bmc.c
->>>>@@ -44,12 +44,19 @@ int kcs_bmc_handle_event(struct kcs_bmc *kcs_bmc)
->>>> }
->>>> EXPORT_SYMBOL(kcs_bmc_handle_event);
->>>>
->>>>-struct kcs_bmc *kcs_bmc_ipmi_alloc(struct device *dev, int sizeof_priv, u32 channel);
->>>>-struct kcs_bmc *kcs_bmc_alloc(struct device *dev, int sizeof_priv, u32 channel)
->>>>+int kcs_bmc_ipmi_attach_cdev(struct kcs_bmc *kcs_bmc);
->>>
->>>Another declaration perhaps intended for kcs_bmc.h?
->>
->>These are temporary while the code gets shuffled around. The symbol
->>name is an implementation detail, not a "public" part of the API; after
->>some further shuffling these are eventually assigned as callbacks in an
->>ops struct.
->>
+On 4/9/21 12:02 PM, Andy Shevchenko wrote:
+> kernel.h is being used as a dump for all kinds of stuff for a long time.
+> Here is the attempt to start cleaning it up by splitting out panic and
+> oops helpers.
 >
->Okay, that makes sense.
+> There are several purposes of doing this:
+> - dropping dependency in bug.h
+> - dropping a loop by moving out panic_notifier.h
+> - unload kernel.h from something which has its own domain
 >
->>>
->>>>+int kcs_bmc_add_device(struct kcs_bmc *kcs_bmc)
->>>> {
->>>>-	return kcs_bmc_ipmi_alloc(dev, sizeof_priv, channel);
->>>>+	return kcs_bmc_ipmi_attach_cdev(kcs_bmc);
->>>> }
->>>>-EXPORT_SYMBOL(kcs_bmc_alloc);
->>>>+EXPORT_SYMBOL(kcs_bmc_add_device);
->>>>+
->>>>+int kcs_bmc_ipmi_detach_cdev(struct kcs_bmc *kcs_bmc);
->>>
->>>Here too.
->>>
->>>>+int kcs_bmc_remove_device(struct kcs_bmc *kcs_bmc)
->>>>+{
->>>>+	return kcs_bmc_ipmi_detach_cdev(kcs_bmc);
->>>>+}
->>>>+EXPORT_SYMBOL(kcs_bmc_remove_device);
->>>>
->>>> MODULE_LICENSE("GPL v2");
->>>> MODULE_AUTHOR("Haiyue Wang <haiyue.wang@linux.intel.com>");
->>>>diff --git a/drivers/char/ipmi/kcs_bmc.h b/drivers/char/ipmi/kcs_bmc.h
->>>>index febea0c8deb4..bf0ae327997f 100644
->>>>--- a/drivers/char/ipmi/kcs_bmc.h
->>>>+++ b/drivers/char/ipmi/kcs_bmc.h
->>>>@@ -67,6 +67,8 @@ struct kcs_ioreg {
->>>> };
->>>>
->>>> struct kcs_bmc {
->>>>+	struct device *dev;
->>>>+
->>>> 	spinlock_t lock;
->>>>
->>>> 	u32 channel;
->>>>@@ -94,17 +96,11 @@ struct kcs_bmc {
->>>> 	u8 *kbuffer;
->>>>
->>>> 	struct miscdevice miscdev;
->>>>-
->>>>-	unsigned long priv[];
->>>> };
->>>>
->>>>-static inline void *kcs_bmc_priv(struct kcs_bmc *kcs_bmc)
->>>>-{
->>>>-	return kcs_bmc->priv;
->>>>-}
->>>>-
->>>> int kcs_bmc_handle_event(struct kcs_bmc *kcs_bmc);
->>>>-struct kcs_bmc *kcs_bmc_alloc(struct device *dev, int sizeof_priv, u32 channel);
->>>>+int kcs_bmc_add_device(struct kcs_bmc *kcs_bmc);
->>>>+int kcs_bmc_remove_device(struct kcs_bmc *kcs_bmc);
->>>>
->>>> u8 kcs_bmc_read_data(struct kcs_bmc *kcs_bmc);
->>>> void kcs_bmc_write_data(struct kcs_bmc *kcs_bmc, u8 data);
->>>>diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
->>>>index 630cf095560e..0416ac78ce68 100644
->>>>--- a/drivers/char/ipmi/kcs_bmc_aspeed.c
->>>>+++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
->>>>@@ -61,6 +61,8 @@
->>>> #define LPC_STR4             0x11C
->>>>
->>>> struct aspeed_kcs_bmc {
->>>>+	struct kcs_bmc kcs_bmc;
->>>>+
->>>> 	struct regmap *map;
->>>> };
->>>>
->>>>@@ -69,9 +71,14 @@ struct aspeed_kcs_of_ops {
->>>> 	int (*get_io_address)(struct platform_device *pdev);
->>>> };
->>>>
->>>>+static inline struct aspeed_kcs_bmc *to_aspeed_kcs_bmc(struct kcs_bmc *kcs_bmc)
->>>>+{
->>>>+	return container_of(kcs_bmc, struct aspeed_kcs_bmc, kcs_bmc);
->>>>+}
->>>>+
->>>> static u8 aspeed_kcs_inb(struct kcs_bmc *kcs_bmc, u32 reg)
->>>> {
->>>>-	struct aspeed_kcs_bmc *priv = kcs_bmc_priv(kcs_bmc);
->>>>+	struct aspeed_kcs_bmc *priv = to_aspeed_kcs_bmc(kcs_bmc);
->>>> 	u32 val = 0;
->>>> 	int rc;
->>>>
->>>>@@ -83,7 +90,7 @@ static u8 aspeed_kcs_inb(struct kcs_bmc *kcs_bmc, u32 reg)
->>>>
->>>> static void aspeed_kcs_outb(struct kcs_bmc *kcs_bmc, u32 reg, u8 data)
->>>> {
->>>>-	struct aspeed_kcs_bmc *priv = kcs_bmc_priv(kcs_bmc);
->>>>+	struct aspeed_kcs_bmc *priv = to_aspeed_kcs_bmc(kcs_bmc);
->>>> 	int rc;
->>>>
->>>> 	rc = regmap_write(priv->map, reg, data);
->>>>@@ -92,7 +99,7 @@ static void aspeed_kcs_outb(struct kcs_bmc *kcs_bmc, u32 reg, u8 data)
->>>>
->>>> static void aspeed_kcs_updateb(struct kcs_bmc *kcs_bmc, u32 reg, u8 mask, u8 val)
->>>> {
->>>>-	struct aspeed_kcs_bmc *priv = kcs_bmc_priv(kcs_bmc);
->>>>+	struct aspeed_kcs_bmc *priv = to_aspeed_kcs_bmc(kcs_bmc);
->>>> 	int rc;
->>>>
->>>> 	rc = regmap_update_bits(priv->map, reg, mask, val);
->>>>@@ -114,7 +121,7 @@ static void aspeed_kcs_updateb(struct kcs_bmc *kcs_bmc, u32 reg, u8 mask, u8 val
->>>>  */
->>>> static void aspeed_kcs_set_address(struct kcs_bmc *kcs_bmc, u16 addr)
->>>> {
->>>>-	struct aspeed_kcs_bmc *priv = kcs_bmc_priv(kcs_bmc);
->>>>+	struct aspeed_kcs_bmc *priv = to_aspeed_kcs_bmc(kcs_bmc);
->>>>
->>>> 	switch (kcs_bmc->channel) {
->>>> 	case 1:
->>>>@@ -148,7 +155,7 @@ static void aspeed_kcs_set_address(struct kcs_bmc *kcs_bmc, u16 addr)
->>>>
->>>> static void aspeed_kcs_enable_channel(struct kcs_bmc *kcs_bmc, bool enable)
->>>> {
->>>>-	struct aspeed_kcs_bmc *priv = kcs_bmc_priv(kcs_bmc);
->>>>+	struct aspeed_kcs_bmc *priv = to_aspeed_kcs_bmc(kcs_bmc);
->>>>
->>>> 	switch (kcs_bmc->channel) {
->>>> 	case 1:
->>>>@@ -323,16 +330,16 @@ static int aspeed_kcs_of_v2_get_io_address(struct platform_device *pdev)
->>>> static int aspeed_kcs_probe(struct platform_device *pdev)
->>>> {
->>>> 	const struct aspeed_kcs_of_ops *ops;
->>>>-	struct device *dev = &pdev->dev;
->>>>+	struct aspeed_kcs_bmc *priv;
->>>> 	struct kcs_bmc *kcs_bmc;
->>>> 	struct device_node *np;
->>>> 	int rc, channel, addr;
->>>>
->>>>-	np = dev->of_node->parent;
->>>>+	np = pdev->dev.of_node->parent;
->>>> 	if (!of_device_is_compatible(np, "aspeed,ast2400-lpc-v2") &&
->>>> 	    !of_device_is_compatible(np, "aspeed,ast2500-lpc-v2") &&
->>>> 	    !of_device_is_compatible(np, "aspeed,ast2600-lpc-v2")) {
->>>>-		dev_err(dev, "unsupported LPC device binding\n");
->>>>+		dev_err(&pdev->dev, "unsupported LPC device binding\n");
->>>> 		return -ENODEV;
->>>> 	}
->>>> 	ops = of_device_get_match_data(&pdev->dev);
->>>>@@ -343,18 +350,27 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
->>>> 	if (channel < 0)
->>>> 		return channel;
->>>>
->>>>-	kcs_bmc = kcs_bmc_alloc(&pdev->dev, sizeof(struct aspeed_kcs_bmc), channel);
->>>>-	if (!kcs_bmc)
->>>>+	addr = ops->get_io_address(pdev);
->>>>+	if (addr < 0)
->>>>+		return addr;
->>>>+
->>>>+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
->>>>+	if (!priv)
->>>> 		return -ENOMEM;
->>>>
->>>>+	kcs_bmc = &priv->kcs_bmc;
->>>>+	kcs_bmc->dev = &pdev->dev;
->>>>+	kcs_bmc->channel = channel;
->>>> 	kcs_bmc->ioreg = ast_kcs_bmc_ioregs[channel - 1];
->>>> 	kcs_bmc->io_inputb = aspeed_kcs_inb;
->>>> 	kcs_bmc->io_outputb = aspeed_kcs_outb;
->>>> 	kcs_bmc->io_updateb = aspeed_kcs_updateb;
->>>>
->>>>-	addr = ops->get_io_address(pdev);
->>>>-	if (addr < 0)
->>>>-		return addr;
->>>>+	priv->map = syscon_node_to_regmap(pdev->dev.parent->of_node);
->>>>+	if (IS_ERR(priv->map)) {
->>>>+		dev_err(&pdev->dev, "Couldn't get regmap\n");
->>>>+		return -ENODEV;
->>>>+	}
->>>
->>>The reanimated priv->map initialization I suspect wasn't meant to
->>>have been removed in the first place...
->>
->>Yeah, I'll have to go back and figure out what went wrong there!
->>
->>Thanks for catching that.
->>
->>>
->>>>
->>>> 	aspeed_kcs_set_address(kcs_bmc, addr);
->>>>
->>>>@@ -362,29 +378,25 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
->>>> 	if (rc)
->>>> 		return rc;
->>>>
->>>>-	dev_set_drvdata(dev, kcs_bmc);
->>>>+	platform_set_drvdata(pdev, priv);
->>>>
->>>> 	aspeed_kcs_enable_channel(kcs_bmc, true);
->>>>
->>>>-	rc = misc_register(&kcs_bmc->miscdev);
->>>>-	if (rc) {
->>>>-		dev_err(dev, "Unable to register device\n");
->>>>+	rc = kcs_bmc_add_device(&priv->kcs_bmc);
->>>>+	if (rc < 0)
->>>> 		return rc;
->>>>-	}
->>>>
->>>>-	dev_dbg(&pdev->dev,
->>>>-		"Probed KCS device %d (IDR=0x%x, ODR=0x%x, STR=0x%x)\n",
->>>>-		kcs_bmc->channel, kcs_bmc->ioreg.idr, kcs_bmc->ioreg.odr,
->>>>-		kcs_bmc->ioreg.str);
->>>>+	dev_info(&pdev->dev, "Initialised channel %d at 0x%x\n", kcs_bmc->channel, addr);
->>>
->>>Is the dbg->info change here intentional?  (I have no particular
->>>objection if so, but it's often a change I make myself during
->>>testing/debugging and then forget to revert...)
->>
->>Yeah, it was possibly something I forgot to revert. If others have
->>issues with it staying at dev_info() I'll switch it back.
->>
->>>
->>>>
->>>> 	return 0;
->>>> }
->>>>
->>>> static int aspeed_kcs_remove(struct platform_device *pdev)
->>>> {
->>>>-	struct kcs_bmc *kcs_bmc = dev_get_drvdata(&pdev->dev);
->>>>+	struct aspeed_kcs_bmc *priv = platform_get_drvdata(pdev);
->>>>+	struct kcs_bmc *kcs_bmc = &priv->kcs_bmc;
->>>>
->>>>-	misc_deregister(&kcs_bmc->miscdev);
->>>>+	kcs_bmc_remove_device(kcs_bmc);
->>>
->>>Should we propagate the return value outward here?
->>
->>Probably!
->>
->>>
->>>>
->>>> 	return 0;
->>>> }
->>>>diff --git a/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c b/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
->>>>index 82c77994e481..0ca71c135a1a 100644
->>>>--- a/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
->>>>+++ b/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
->>>>@@ -382,7 +382,7 @@ static int kcs_bmc_ipmi_release(struct inode *inode, struct file *filp)
->>>> 	return 0;
->>>> }
->>>>
->>>>-static const struct file_operations kcs_bmc_fops = {
->>>>+static const struct file_operations kcs_bmc_ipmi_fops = {
->>>> 	.owner          = THIS_MODULE,
->>>> 	.open           = kcs_bmc_ipmi_open,
->>>> 	.read           = kcs_bmc_ipmi_read,
->>>>@@ -392,36 +392,58 @@ static const struct file_operations kcs_bmc_fops = {
->>>> 	.unlocked_ioctl = kcs_bmc_ipmi_ioctl,
->>>> };
->>>>
->>>>-struct kcs_bmc *kcs_bmc_ipmi_alloc(struct device *dev, int sizeof_priv, u32 channel);
->>>>-struct kcs_bmc *kcs_bmc_ipmi_alloc(struct device *dev, int sizeof_priv, u32 channel)
->>>>+int kcs_bmc_ipmi_attach_cdev(struct kcs_bmc *kcs_bmc);
->>>
->>>Errant declaration again?
->>
->>As previously explained.
->>
+> At the same time convert users tree-wide to use new headers, although
+> for the time being include new header back to kernel.h to avoid twisted
+> indirected includes for existing users.
 >
->This one seems like a slightly different category, because...
->
->>>
->>>>+int kcs_bmc_ipmi_attach_cdev(struct kcs_bmc *kcs_bmc)
->
->...it's immediately followed by the definition of the very same function
->that it just declared, so I can't see how its presence or absence could
->make any functional difference to anything.  (So perhaps I should have
->said "redundant" instead of "errant...again".)
->
->It's fairly trivial of course given that it's gone by the end of the
->series, but as long as there's going to be another iteration anyway it
->seems like we might as well tidy it up?
->
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> Reviewed-by: Bjorn Andersson <bjorn.andersson@linaro.org>
+> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+> Acked-by: Corey Minyard <cminyard@mvista.com>
+> Acked-by: Christian Brauner <christian.brauner@ubuntu.com>
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> Acked-by: Kees Cook <keescook@chromium.org>
+> Acked-by: Wei Liu <wei.liu@kernel.org>
+> Acked-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+> Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
 
-Oh, and otherwise:
+Acked-by: Helge Deller <deller@gmx.de> # parisc
 
-Reviewed-by: Zev Weiss <zweiss@equinix.com>
+Helge
 
 
 _______________________________________________
