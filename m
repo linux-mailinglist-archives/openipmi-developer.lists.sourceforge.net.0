@@ -2,95 +2,86 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 534F73597D0
-	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Apr 2021 10:27:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 289AC359817
+	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Apr 2021 10:38:42 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lUmUH-0004s0-5r; Fri, 09 Apr 2021 08:27:33 +0000
+	id 1lUmf0-0005Nf-RA; Fri, 09 Apr 2021 08:38:38 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <arnd@arndb.de>) id 1lUmUE-0004rs-LH
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 08:27:30 +0000
+ (envelope-from <andy.shevchenko@gmail.com>) id 1lUmez-0005NW-He
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 08:38:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=nXJo1QvQlYGiV2ydKjOH5WDoUP0Ya8ArIjAZ+wgX9vE=; b=E4CZAfWs+2FgSSUoNYQIO/hMSy
- wi8C1tTp0EY/AmH20Rrlm2b2bpeDS6pG4U/3AXZQ6XTjMquUiZDaKoRhXQqDVKO6S+2rRqPibmQvs
- XHO8VHtFPqVG0vy5wjB8Fc+UfsrE31DR0UcYRv+VZfMPt1PsV6zq9TIgTIm6vdgdyHh4=;
+ bh=ZpJBv1xVBIFBDkQFIHqMeh8Ac/6sQZMVzm8fVdnJCzQ=; b=SBJVpJ+2X4cBXEjbruSoTF+JSi
+ OYqQWw6S85I2Z4GLhgD0a4JYVHqCemJMEhq0qpZqeinW+qj0EJPZ53TEfVWcicFmgsog7Zw24lxh1
+ KZxJCyAcYxrkBmSx5aGvswl2AdLPlRd6bvcEtbI8jtH3qvOzxD45Lz/jw7C9aRRWkgx4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=nXJo1QvQlYGiV2ydKjOH5WDoUP0Ya8ArIjAZ+wgX9vE=; b=ALzCY4a2AuGJ3SgHS9WSG9JTWX
- wXrlfPWFn+bB4rUf2uL6J8KbpE6ODNubkYzoFeP/pTWczkGKdPOsVD0+Q2icTQ+vvi4jTfB6jQYIN
- hlo4P1kE5gcQq8csuN1VFe0WhIMEowq88fQ3bGnQ0X/usu9hCeGIxgK+QyVJXoJzbpMY=;
-Received: from mout.kundenserver.de ([212.227.17.10])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1lUmTq-0001wk-7d
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 08:27:27 +0000
-Received: from mail-oi1-f178.google.com ([209.85.167.178]) by
- mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1Macay-1m6r7L2reM-00cDil for <openipmi-developer@lists.sourceforge.net>;
- Fri, 09 Apr 2021 10:13:53 +0200
-Received: by mail-oi1-f178.google.com with SMTP id w70so5041626oie.0
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 09 Apr 2021 01:13:53 -0700 (PDT)
-X-Gm-Message-State: AOAM530oeZIPrbX/sM3l0iwyrHAf/bX7XJslxLiwBUzWmXpBEnnONoeb
- 98qelfn7Bo+HuPhA+6qQ1XYR6bhNVzVZ7BhgO64=
-X-Google-Smtp-Source: ABdhPJzFdzRK0Fr9sttYZU00DkmHPob2Ue763VfCmKuqxE8AuUxCM9nJfgP3QwCQkKhUcqhD2rg86m1268AEXjhhEyo=
-X-Received: by 2002:aca:5945:: with SMTP id n66mr8949399oib.11.1617956032510; 
- Fri, 09 Apr 2021 01:13:52 -0700 (PDT)
+ bh=ZpJBv1xVBIFBDkQFIHqMeh8Ac/6sQZMVzm8fVdnJCzQ=; b=fvGdbOpMEmkR9hQFb4DPktkH+l
+ 5NHiUy9PJpAv8j6ZKHPs8OiLcqk6KM3pTrC1AZTMwrTlzrUpn9GiRm/ZyKp+cWLYqkDusN/ov6K4R
+ PHYP2GZKPCwEcrcCstwyQBE61urtTaAzyJLBzLzAARFn2Q/xVGPj4A9hYHOxn93pHs/k=;
+Received: from mga03.intel.com ([134.134.136.65])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1lUmef-009HeD-EM
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 08:38:37 +0000
+IronPort-SDR: W28ob2gAh8DLqRxgkjwYd1sAx7RIClYveSpvmp3wjzwthTYPrBYovXI2Vv1A03k4cIAVa3htiX
+ eLt7l6RU8VuA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9948"; a="193757591"
+X-IronPort-AV: E=Sophos;i="5.82,208,1613462400"; d="scan'208";a="193757591"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+ by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 09 Apr 2021 01:22:42 -0700
+IronPort-SDR: LpPwGYvzeGLB4564wHP5jJbcRyN85WbfWAYL9lYRz8cQSDjnd3E+cW0pfFcrKjH/dI51i7LuRn
+ 04ILPMrQhS5g==
+X-IronPort-AV: E=Sophos;i="5.82,208,1613462400"; d="scan'208";a="613646033"
+Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
+ by fmsmga005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 09 Apr 2021 01:22:32 -0700
+Received: from andy by smile with local (Exim 4.94)
+ (envelope-from <andy.shevchenko@gmail.com>)
+ id 1lUmPK-002UMq-O4; Fri, 09 Apr 2021 11:22:26 +0300
+Date: Fri, 9 Apr 2021 11:22:26 +0300
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Message-ID: <YHAOwm5JtmH/8Njr@smile.fi.intel.com>
+References: <20210406133158.73700-1-andriy.shevchenko@linux.intel.com>
+ <202104061143.E11D2D0@keescook>
+ <CAHp75Ve+11u=dtNTO8BCohOJHGWSMJtb1nGCOrNde7bXaD4ehA@mail.gmail.com>
+ <20210408232303.453749e0e6fb0adfa8545440@linux-foundation.org>
 MIME-Version: 1.0
-References: <20210319061952.145040-1-andrew@aj.id.au>
- <2db77e16-3f44-4c02-a7ba-a4fac8141ae3@www.fastmail.com>
- <20210408121441.GG7166@minyard.net>
- <6ff29d26-543a-4790-abb4-ebaa3f8d0265@www.fastmail.com>
- <CACPK8Xc5HC7TZ6cUDH6+uHQO1LQCZE0YeENua1sE8nDXs0R2mg@mail.gmail.com>
-In-Reply-To: <CACPK8Xc5HC7TZ6cUDH6+uHQO1LQCZE0YeENua1sE8nDXs0R2mg@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 9 Apr 2021 10:13:36 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a2ch82=QccNZboa-e1tVaotyJfGFTfqDuQCO0xPVitXgA@mail.gmail.com>
-Message-ID: <CAK8P3a2ch82=QccNZboa-e1tVaotyJfGFTfqDuQCO0xPVitXgA@mail.gmail.com>
-To: Joel Stanley <joel@jms.id.au>
-X-Provags-ID: V03:K1:c8RWWSzcxVPRYY09fr/EZn9hM/HFMPVzm27eHZ4jC7sC4Z6xGNg
- OfLeFdGXsg8sWsIAXvn5Cgpi7vrrydVFe1sMBdE94AHEpmoqAb0+5J5R4OeLNVfaa4lSOyn
- xpJ7vCDNf8CDDI6cUN+8/sY3nMXVMNTHU0UEH3HAgMnCyytu4MNPJZ2gVofHuhU2vyDoxKf
- sToenf2PEWzebA8yiACGw==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:kqQj3DRg364=:OFN90QYYIRKSMdWPcRyxmv
- tdCWYwrupcZV5hwRiEp45vb3cAr8T6J9ibHojeBw04vO7XaiOi82I2zMVZCH9PV3EXGVhOOzN
- cNaIUjMM04cDwV33s3+ZMCWypoHUfVl+R+K4j100eurM++wrNvVc4UGsfkALZmo2z24QYAQ8h
- HfL9/yaDmZerJvSvZNLdxwknXvHxgb3RObS09xgusSSFocKgx3Xe+Dp76oreOoenD1cfNfbLC
- 67SNOpZ4H5QxwZKZUXsu6zteqqJsnOwNKF6Z30WBfQgj2azIlE77O14wpTS4qsSB5TBtsJZ4F
- uznMeb1R1MzhkVhjJQU+UlcirfUYaBDTZdgZuUqiIUA09i/KJSRhefo5hVfz5GNJtvT/i1Iwm
- G+0DX19MlgS2Okv42q70zTXdvmF+3ReBiwt+LNr0Nn3R/s6XqzGn49qiFP9l78CfiecIxm2PW
- S+1N0dFmCEUCsgOGz9aZCQUONHQgn1pRgsWmQVmaZSWCj2Sa6DnIfGbkT4n8d2qbmXkZFg999
- rlzTvJepSgerDCXl5NxHwmZK33C1PVhPDYWHQ8MQ5+c1ypp9qlGPDqZLkYGL1nZSXl0G47IzG
- 1HLiwwOhCkJ9RrX7uHTeGTK2XTHEcDVU4T
-X-Spam-Score: 0.0 (/)
+Content-Disposition: inline
+In-Reply-To: <20210408232303.453749e0e6fb0adfa8545440@linux-foundation.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-Spam-Score: 1.2 (+)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ (andy.shevchenko[at]gmail.com)
  0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: aj.id.au]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [212.227.17.10 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [212.227.17.10 listed in list.dnswl.org]
+ for more information. [URIs: intel.com]
+ 0.0 DKIM_ADSP_CUSTOM_MED   No valid author signature, adsp_override is
+ CUSTOM_MED
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 1.2 NML_ADSP_CUSTOM_MED    ADSP custom_med hit, and not from a mailing list
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lUmTq-0001wk-7d
-Subject: Re: [Openipmi-developer] [PATCH v2 00/21] ipmi: Allow raw access to
- KCS devices
+X-Headers-End: 1lUmef-009HeD-EM
+Subject: Re: [Openipmi-developer] [PATCH v1 1/1] kernel.h: Split out panic
+ and oops helpers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -103,50 +94,82 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>, "Chia-Wei,
- Wang" <chiawei_wang@aspeedtech.com>, Ryan Chen <ryan_chen@aspeedtech.com>,
- Tomer Maimon <tmaimon77@gmail.com>, Corey Minyard <minyard@acm.org>,
- Andrew Jeffery <andrew@aj.id.au>, Patrick Venture <venture@google.com>,
- OpenBMC Maillist <openbmc@lists.ozlabs.org>,
+Cc: Corey Minyard <cminyard@mvista.com>,
+ Linux on Hyper-V List <linux-hyperv@vger.kernel.org>,
+ Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ linux-remoteproc@vger.kernel.org, Michael Kelley <mikelley@microsoft.com>,
+ Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Joel Fernandes <joel@joelfernandes.org>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Linux-Arch <linux-arch@vger.kernel.org>, Wei Liu <wei.liu@kernel.org>,
+ Stephen Hemminger <sthemmin@microsoft.com>, Corey Minyard <minyard@acm.org>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Iurii Zaikin <yzaikin@google.com>,
+ Ohad Ben-Cohen <ohad@wizery.com>, Joerg Roedel <jroedel@suse.de>,
+ Kees Cook <keescook@chromium.org>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ Josh Triplett <josh@joshtriplett.org>,
+ "Steven Rostedt \(VMware\)" <rostedt@goodmis.org>, rcu@vger.kernel.org,
+ Borislav Petkov <bp@alien8.de>, openipmi-developer@lists.sourceforge.net,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, Vlastimil Babka <vbabka@suse.cz>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, kexec@lists.infradead.org,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Tali Perry <tali.perry1@gmail.com>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- Avi Fishman <avifishman70@gmail.com>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- openipmi-developer@lists.sourceforge.net, Lee Jones <lee.jones@linaro.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- linux-aspeed <linux-aspeed@lists.ozlabs.org>,
- Benjamin Fair <benjaminfair@google.com>
+ Luis Chamberlain <mcgrof@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Eric Biederman <ebiederm@xmission.com>,
+ Linux FS Devel <linux-fsdevel@vger.kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ "open list:LINUX FOR POWERPC PA SEMI PWRFICIENT"
+ <linuxppc-dev@lists.ozlabs.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Apr 9, 2021 at 6:09 AM Joel Stanley <joel@jms.id.au> wrote:
-> On Thu, 8 Apr 2021 at 23:47, Andrew Jeffery <andrew@aj.id.au> wrote:
-> > On Thu, 8 Apr 2021, at 21:44, Corey Minyard wrote:
-> > > On Thu, Apr 08, 2021 at 10:27:46AM +0930, Andrew Jeffery wrote:
-> > > There were some minor concerns that were unanswered, and there really
-> > > was no review by others for many of the patches.
-> >
-> > Right; I was planning to clean up the minor concerns once I'd received
-> > some more feedback. I could have done a better job of communicating
-> > that :)
->
-> I'll merge the first five through the aspeed tree this coming merge
-> window. We have acks from the relevant maintainers.
->
-> Arnd: would you prefer that this come as it's own pull request, or as
-> part of the device tree branch?
+On Thu, Apr 08, 2021 at 11:23:03PM -0700, Andrew Morton wrote:
+> On Wed, 7 Apr 2021 11:46:37 +0300 Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+> 
+> > On Wed, Apr 7, 2021 at 11:17 AM Kees Cook <keescook@chromium.org> wrote:
+> > >
+> > > On Tue, Apr 06, 2021 at 04:31:58PM +0300, Andy Shevchenko wrote:
+> > > > kernel.h is being used as a dump for all kinds of stuff for a long time.
+> > > > Here is the attempt to start cleaning it up by splitting out panic and
+> > > > oops helpers.
+> > > >
+> > > > At the same time convert users in header and lib folder to use new header.
+> > > > Though for time being include new header back to kernel.h to avoid twisted
+> > > > indirected includes for existing users.
+> > > >
+> > > > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> > >
+> > > I like it! Do you have a multi-arch CI to do allmodconfig builds to
+> > > double-check this?
+> > 
+> > Unfortunately no, I rely on plenty of bots that are harvesting mailing lists.
+> > 
+> > But I will appreciate it if somebody can run this through various build tests.
+> > 
+> 
+> um, did you try x86_64 allmodconfig?
+> 
+> I'm up to
+> kernelh-split-out-panic-and-oops-helpers-fix-fix-fix-fix-fix-fix-fix.patch
+> and counting.
 
-When you are unsure, it's almost never wrong to go for a separate
-branch, which gives you a chance to have a concise description
-of the contents in the tag. This would be particularly helpful if there
-are incompatible changes to the DT binding that require a justification.
 
-If you are only adding a few DT nodes to existing files, then merging
-these through the regular branch is probably easier.
+I will try on my side and will fix those, thanks!
 
-       Arnd
+> and.... drivers/leds/trigger/ledtrig-heartbeat.c as well.
+> 
+> I'll drop it.
+
+No problem, thanks for the report.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 
 _______________________________________________
