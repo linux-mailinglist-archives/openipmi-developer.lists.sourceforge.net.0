@@ -2,90 +2,157 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8131035A4C0
-	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Apr 2021 19:39:03 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4FB8035A700
+	for <lists+openipmi-developer@lfdr.de>; Fri,  9 Apr 2021 21:22:58 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lUv5w-00015Z-8R; Fri, 09 Apr 2021 17:39:00 +0000
+	id 1lUwiU-0001Jj-4Q; Fri, 09 Apr 2021 19:22:54 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <mcgrof@gmail.com>) id 1lUuU4-0003xL-Sz
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 16:59:53 +0000
+ (envelope-from <prvs=5733813a0f=zweiss@equinix.com>)
+ id 1lUwiS-0001Jc-Qz
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 19:22:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-ID:
+ Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender
+ :Reply-To:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To
+ :Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=+9xha/pXNeFBGiuagKWknyCqPbUKuPA8GXpvrC9Jx0I=; b=dMv2UbU8Lpqj7cqCS0Iak4K64C
- woFc74L/imtoJ7Sf8w5TyIIu7Ro1waZ1L88LHESM0jmbsTToy+nzMXnzPskYdacPyrf1WbpEvHkRw
- 7FtvdZvsOaIL4KtVOv/O+hjInzc7G6FCnN80E+VCOBv5ocTTzhlV1zlBWo2gvOwCQWZM=;
+ bh=xI+8E+S8M5qGrDi/51B1D8E0Sh4qglFIhdAdQ/sJ1Fw=; b=A2KuFzwsnIYEcQwvVUE/jT0+eD
+ 6UtsCjlBjBa5xtk1BHRgAg/qGoh9ZCFnAtoeWcz01Dn21OwFNuS6FAI2vPLDTxwFpceymnCy7Wg1p
+ lJWaN0JoDQqSOLsmq8oPP9MyPpMCGLTO3MHgER7acDT6fB69VVcfQloFfXG2r8eOHIys=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:
+ In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=+9xha/pXNeFBGiuagKWknyCqPbUKuPA8GXpvrC9Jx0I=; b=DEhmo3c3m+l2Tmac0ZbGKWZbkB
- bvkMq7gG3ybJyo0BZTBa0Wc+qwknu8MJD52AdWz9tGIuYHE/LdbQxaBfUyleK1EbipyWkYmTcZuIe
- +16TPebuMMa2GkewojgT6y9GRlSy8Vjj3VpTa82CExq9sE9FEgZJ89xMDTj33Ti2sayY=;
-Received: from mail-pf1-f180.google.com ([209.85.210.180])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1lUuTc-0006vg-Ub
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 16:59:50 +0000
-Received: by mail-pf1-f180.google.com with SMTP id y16so4626033pfc.5
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 09 Apr 2021 09:59:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=+9xha/pXNeFBGiuagKWknyCqPbUKuPA8GXpvrC9Jx0I=;
- b=jK9vgqF2JQH/OziT2jGFUfPzTAcuGb5bzJWidhTnrQstSq6PmUEcGs/LoKYGWaS17a
- 6Lo/zTNZ8MhCRjsydt3bRW/ERgaVOKJbKdENo71B9H6hQ4E1G0yPXAai+J8wn9tMO7he
- WZPQLWHvdnZYC5ok37nDMkCfYLe/1mD4CyZe6Ae2OQXJ1RGX19vgKy4sXfSuoHAfH4GA
- 22/wNCFcpLkZnu7A0dLGyRgcIchT8PFiQrrbLZabdPqUHWaymsZFA0fnVVv1lDSs1w2U
- Y1hPQwMuLgEf2iUywFkp8omHorxJCMiMj9AgxrcRiDIo7OW/IjO4SKV85ihvFW63iSU+
- w1qw==
-X-Gm-Message-State: AOAM53025ArD1POk8beTqWnQD4yud1FFslmWRQhDk5HtO6IRlviunZOp
- /W0PlUfwl15nOExBE8ZM1Ws=
-X-Google-Smtp-Source: ABdhPJw6kXgrPuw8A7YDvuzOsmJlxLxKBkWC3Ar3os6uxRVSPlCkaHeQd8atCkDOR792q4QQZ8VNRA==
-X-Received: by 2002:a65:40c7:: with SMTP id u7mr14223236pgp.29.1617987559416; 
- Fri, 09 Apr 2021 09:59:19 -0700 (PDT)
-Received: from 42.do-not-panic.com (42.do-not-panic.com. [157.230.128.187])
- by smtp.gmail.com with ESMTPSA id i22sm73788pfq.170.2021.04.09.09.59.17
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 09 Apr 2021 09:59:18 -0700 (PDT)
-Received: by 42.do-not-panic.com (Postfix, from userid 1000)
- id 6D85340256; Fri,  9 Apr 2021 16:59:17 +0000 (UTC)
-Date: Fri, 9 Apr 2021 16:59:17 +0000
-From: Luis Chamberlain <mcgrof@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Message-ID: <20210409165917.GH4332@42.do-not-panic.com>
-References: <20210409100250.25922-1-andriy.shevchenko@linux.intel.com>
+ bh=xI+8E+S8M5qGrDi/51B1D8E0Sh4qglFIhdAdQ/sJ1Fw=; b=KvzC43j8XeiNjZv/ra95W1sSBN
+ ZHQXDSfDYe4+Zem5hssbSreNgVzTYXkpNTAZl8tRZ3rX0MnNMNB0UIgqnvmoI0rklcmrHj07K/pEo
+ ax35bB3gWqYpt1OMkwTvhs0u+FDIrx/sM29gvhT1kYPPz2s9jNb36wcfzkdKcFezs/Xk=;
+Received: from mx0a-00268f01.pphosted.com ([148.163.148.236])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1lUwhw-00Bzrb-NE
+ for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 19:22:52 +0000
+Received: from pps.filterd (m0105196.ppops.net [127.0.0.1])
+ by mx0a-00268f01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
+ 139JDw8q015572; Fri, 9 Apr 2021 19:21:38 GMT
+Received: from nam12-mw2-obe.outbound.protection.outlook.com
+ (mail-mw2nam12lp2043.outbound.protection.outlook.com [104.47.66.43])
+ by mx0a-00268f01.pphosted.com with ESMTP id 37ts0e0v0y-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 09 Apr 2021 19:21:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TVFErZcovNmJgSHGsUPsc08r+sSe05ms77VUkTEVWNhim4aSXdQucUJb2j2YG3i5RqKxeBLyO79Jk0k1+5duxcFO5S3BrwCP/+VPneHhBpXid8g5pso88psfsJvenG8Fc/NeSAYN+pJbjmqXb8j83molEuM9o28pE5X2GxtlYm1Aktm305zoXCvUBc5J1BdbXlYxfMN1GdO6rn/pyUT7WR7bm6pQqV1vEMYdU+MJ+FAA0fxOfpxsfnUaGUe6fu91ESVsnH5/fQc410+3pk31cglFRH+5GinnxsGXXimZjcjjerg/rvoa4TZh8Z3sMk44vj46BCQtf7sVaOTazW+nTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xI+8E+S8M5qGrDi/51B1D8E0Sh4qglFIhdAdQ/sJ1Fw=;
+ b=DHzv0mRVCjjUQ1+7pfI98pnlJJsQoi0W5HOt3A3ckKULAbPZrbSy6OC/HOVMMxd0ZhtZSeX+kYULd2X59AAmekgEVvYIGoYq6msOjzEkD4MTw8DOE4mEwgVgQqrO5Ax7k8ml7W9B8QJrwrPZBPNgb+uqGEjFwicrd6n9Jv4WKRbEYlortxQPSKLvrNixkPKjtd8LEbJ7oxuOASNEvZTWL8eOcn6J2pThZ4BZbNR+JmmQ9gFlwPFWK1A7yZWq72xonZ3/pHC1En0TFoD0Q7Ki/2xrPREWdMKBenozBhfTJeb9pMWpT3rzlI8zxtEMBuMwDj1biE33tWKpiX79ISEHxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=equinix.com; dmarc=pass action=none header.from=equinix.com;
+ dkim=pass header.d=equinix.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=equinixinc.onmicrosoft.com; s=selector2-equinixinc-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xI+8E+S8M5qGrDi/51B1D8E0Sh4qglFIhdAdQ/sJ1Fw=;
+ b=C9J1KG4H6oJ9Glk4Z0LQAd+Dja1gEEPxNcM2MjhTCQyXqK7D4t1gsphUNw3LiyRI6VxlSdvVPuuwmewYE59KqSPWp16p6DbKbzhE4oi31eYYaGW7UqnlWsbtI3LkRUtMf1RlNbX3/8mBDF1GdF88OJrP+KguRw4e3O+2kQBaSlE=
+Received: from DM5PR04MB0762.namprd04.prod.outlook.com (2603:10b6:3:f3::13) by
+ DM5PR04MB0363.namprd04.prod.outlook.com (2603:10b6:3:aa::23) with
+ Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4020.17; Fri, 9 Apr 2021 19:21:34 +0000
+Received: from DM5PR04MB0762.namprd04.prod.outlook.com
+ ([fe80::4c98:aeb:87a8:13ad]) by DM5PR04MB0762.namprd04.prod.outlook.com
+ ([fe80::4c98:aeb:87a8:13ad%5]) with mapi id 15.20.4020.017; Fri, 9 Apr 2021
+ 19:21:34 +0000
+From: Zev Weiss <zweiss@equinix.com>
+To: Andrew Jeffery <andrew@aj.id.au>
+Thread-Topic: [PATCH v2 09/21] ipmi: kcs_bmc: Split out kcs_bmc_cdev_ipmi
+Thread-Index: AQHXLXWNu7Ns/9FES0+M3VsE9hbh+g==
+Date: Fri, 9 Apr 2021 19:21:34 +0000
+Message-ID: <YHCpPa3EtVy9XcLn@packtop>
+References: <20210319062752.145730-1-andrew@aj.id.au>
+ <20210319062752.145730-9-andrew@aj.id.au> <YG/QUCIdEzW1ghVA@packtop>
+ <6aa7c000-da09-4058-96b4-f330193c7fc6@www.fastmail.com>
+In-Reply-To: <6aa7c000-da09-4058-96b4-f330193c7fc6@www.fastmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: aj.id.au; dkim=none (message not signed)
+ header.d=none;aj.id.au; dmarc=none action=none header.from=equinix.com;
+x-originating-ip: [24.181.166.149]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: b78edeb7-6517-4bb0-96f7-08d8fb8cb043
+x-ms-traffictypediagnostic: DM5PR04MB0363:
+x-microsoft-antispam-prvs: <DM5PR04MB0363AD4A6D41BD38050730D0C3739@DM5PR04MB0363.namprd04.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:6108;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: sWApSuL5aOLs/5LaEo9UuBeGrVVHqkt8GsOuC+AOEjq5gD5/WaSSwgmrSdfckR4FQ3JAW9ldI/msAQvFrxvm9kFkWmhoetWnnxyT5edrVzuMmrZvUPAEbXIcMr7rpfzGSWpE1PSCHnukP1OsBUWwBslg8wSn+VLuaXeJrv9MbMXOM8swHygSSbLl2PA2bVR6vphyry/KC7qdvf4AeotYsaoTNLXO+qGSu6etXHojWqASi+DZpdVREvVp38FO/iZNOxIoyrI0InVfECmt6p/VLmR9uoSFtSiuzQ8yt/f4lytwUWB03eEk9UmqHQnA1jzmKmCPegYTHdoCeyYrFh4NcJtYm21Lwzo3+VTJeh8XC2+/nSP6qkfiu9aqO00XG9CaLnXEK3jY3jt56KQGnu/zQ/RnEr6WsQmDHXymgg6O8cfc/B2meAWOWmp1PbXKD1RFMUGqvjlVd3rPTXI+ma53MbmRWALVBsPNgVlzbLUzsH91yCo77+pIltpcTJx8RmztDxjrGFYVkvDQWePlbrn5E45rrbTmQHVurakst272VXi0mlE0vE93CkBySrGbQmvyVuQB9SG9Z8WlwYojs2jIQ2WLybvX3T5JogimOF08xmDexs7/LTF+tUoYCWJOLGTxmNRNhK5gpt5VOLu1Kf+lCnk0d/Z93NwMjEEDJi0HyQE=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM5PR04MB0762.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(7916004)(4636009)(39850400004)(396003)(366004)(376002)(136003)(346002)(2906002)(9686003)(4326008)(8676002)(6916009)(76116006)(6512007)(6486002)(26005)(478600001)(6506007)(54906003)(316002)(66556008)(64756008)(66446008)(66476007)(86362001)(7416002)(38100700001)(5660300002)(8936002)(71200400001)(83380400001)(33716001)(66946007)(186003);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: =?us-ascii?Q?5RziUrrUH7yddksiCh537+Jl/q7G5V+0znAhSki2qtDWWN/Sp+d40hO4O18S?=
+ =?us-ascii?Q?QBVeTmyNASBRdDuyzfLO33fKjXdCXKhQfFpJZ1/xeOA7E/z71SJiOx/ZAv+i?=
+ =?us-ascii?Q?jRiE2XTfOdXgODtoj6Dydu2okx7tR9zWulSLptdo/HiYsD76mZTr2QkePyUf?=
+ =?us-ascii?Q?Fs/DdLVqPOBpngQ1FY88hGYn57vrVLL6db3ONTt+SQye0lbxqqO7DvAjiqoW?=
+ =?us-ascii?Q?3xOTDtK32DAOA5FifCNMF3KTy9pgeS6KjwO+xJI1ysf/4EEoJJfFKhgAAuo0?=
+ =?us-ascii?Q?8YGMtVa+eSSs+OTUg4H3ncoC7nOB9EXWTUvlPkVQhWujhFy1zMew9Sbwornj?=
+ =?us-ascii?Q?T/v8FTpmxA5356Lxn9sE4xCROmr4yWnHJQxdyp06fNVU9xfur9zJ517NDP4/?=
+ =?us-ascii?Q?p9iTwPw/nhPOCtgtq1JsDuSOBshG6QuqjUNqvTqgg2MKV98gPpu9HtngBQhq?=
+ =?us-ascii?Q?6DAYIzjOcx35WEX4zgrcH5K2LtMU6O1UTIocReb4VGOBDYIeIsPYBhmiTO3Q?=
+ =?us-ascii?Q?hyGzo5yulnb6jguCig0kBW1Z2kTK/VpNu0vIyt4IfNAZRl6i3xQWwTdqlp2m?=
+ =?us-ascii?Q?0yeJUnu03a2Mmbf8DdL4NyFITSl+CzRpOxuBCqaoS9i8rwCAUYIVuu0j6Plx?=
+ =?us-ascii?Q?0h5bMSx3HNyvxj6PczhYG1AJfNxXA8maygNynCxhGRiRi8sBizxSJPSDPNm7?=
+ =?us-ascii?Q?QvP6bfliJDWERZ4Ywg9yA6QZRrVQ01XXRH8sSUNzSkyqw2pGTNkMgYSX1d28?=
+ =?us-ascii?Q?XkoLVpIYH3fi2MphuzTzW11Nk+fKBKAmTJSZOFQpLpirhBkYbdA9DOs8Y7Ac?=
+ =?us-ascii?Q?m+Usy66WTDDxOcSSTW10eLwacmdHFxddACOqdunJdF5R/Am2w3CPal+s8tCD?=
+ =?us-ascii?Q?KOv1DKXZHcSTldSZ2KmPTJqzZMsMGv0D39fUVFmYb3VBfhgyV5Z+pntYTVdL?=
+ =?us-ascii?Q?2XPi9uJz/m0ZzNLwJCoG08cUQ0L8lFe4Fy7H/s8nUKr2UkCMTS6TAY18Yd0S?=
+ =?us-ascii?Q?Kw5hBwtHfa4eq6aMVwyFci8Z8e/wy4UN1Y2c4ZZrsI6CwoFCfrb2REz1Xxob?=
+ =?us-ascii?Q?FkPK189uEdy//MBKL3cm21GDqJtHygduiOBfQAZkqv6zCI7sjeCCuHEdsCX5?=
+ =?us-ascii?Q?OhgB1eqitnY6gwhRVAaWIbK6Yfi6UjpJRll7mTmZXGM71rLFQxn4Dd20DgV9?=
+ =?us-ascii?Q?Vwwi729XGJr7bdcuP1UWZWrr6g/ZJnzIuuAGm8FYpUKU0xV8NvQelxiqvIbE?=
+ =?us-ascii?Q?elNItWRpp0I1iq32AcG0pV85utunrcM4TUFmAybHRnRuLTne4Y0myBT+SwhQ?=
+ =?us-ascii?Q?f7ToOZ5ElIYtFfj7UYxobajpG5/nEwaeIamuvWNsmOx4bw=3D=3D?=
+x-ms-exchange-transport-forked: True
+Content-ID: <BA7FA534809E8A49AA8EB76770988099@namprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210409100250.25922-1-andriy.shevchenko@linux.intel.com>
-X-Spam-Score: 0.3 (/)
+X-OriginatorOrg: equinix.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM5PR04MB0762.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b78edeb7-6517-4bb0-96f7-08d8fb8cb043
+X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Apr 2021 19:21:34.3348 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 72adb271-2fc7-4afe-a5ee-9de6a59f6bfb
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: bRtgpqSObKy3Lc2ce09KZ4+HBPby/itdP3kOpjZ6q8jQ20OzNHFku6YqW29SNmerTwdBmt20+lmeKZbxRRfuyg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR04MB0363
+X-Proofpoint-ORIG-GUID: 1G8bx9LvoGyVfGnvHFLVJZ-QsxY7yCAi
+X-Proofpoint-GUID: 1G8bx9LvoGyVfGnvHFLVJZ-QsxY7yCAi
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391, 18.0.761
+ definitions=2021-04-09_07:2021-04-09,
+ 2021-04-09 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxscore=0 phishscore=0
+ bulkscore=0 spamscore=0 priorityscore=1501 suspectscore=0 adultscore=0
+ clxscore=1015 malwarescore=0 impostorscore=0 mlxlogscore=999
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2104060000 definitions=main-2104090138
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: chromium.org]
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (mcgrof[at]gmail.com)
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
  0.0 TIME_LIMIT_EXCEEDED    Exceeded time limit / deadline
-X-Headers-End: 1lUuTc-0006vg-Ub
-X-Mailman-Approved-At: Fri, 09 Apr 2021 17:38:58 +0000
-Subject: Re: [Openipmi-developer] [PATCH v2 1/1] kernel.h: Split out panic
- and oops helpers
+X-Headers-End: 1lUwhw-00Bzrb-NE
+Subject: Re: [Openipmi-developer] [PATCH v2 09/21] ipmi: kcs_bmc: Split out
+ kcs_bmc_cdev_ipmi
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,105 +165,294 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Corey Minyard <cminyard@mvista.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- dri-devel@lists.freedesktop.org, Paul Mackerras <paulus@samba.org>,
- Pavel Machek <pavel@ucw.cz>, "K. Y. Srinivasan" <kys@microsoft.com>,
- linux-clk@vger.kernel.org, linux-arch@vger.kernel.org,
- Wei Liu <wei.liu@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Jens Frederich <jfrederich@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Catalin Marinas <catalin.marinas@arm.com>, xen-devel@lists.xenproject.org,
- Matt Turner <mattst88@gmail.com>, Ohad Ben-Cohen <ohad@wizery.com>,
- linux-pm@vger.kernel.org, Lai Jiangshan <jiangshanlai@gmail.com>,
- linux-um@lists.infradead.org, Daniel Drake <dsd@laptop.org>,
- Mihai Carabas <mihai.carabas@oracle.com>, Thomas Gleixner <tglx@linutronix.de>,
- Richard Henderson <rth@twiddle.net>, Alex Elder <elder@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Joe Perches <joe@perches.com>, Andrew Morton <akpm@linux-foundation.org>,
- Marek Czerski <ma.czerski@gmail.com>,
- Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
- Jon Nettleton <jon.nettleton@gmail.com>,
- Alexander Egorenkov <egorenar@linux.ibm.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Max Filippov <jcmvbkbc@gmail.com>,
- Christian Brauner <christian.brauner@ubuntu.com>, linux-s390@vger.kernel.org,
- Stefano Stabellini <sstabellini@kernel.org>,
- Stephen Hemminger <sthemmin@microsoft.com>, Corey Minyard <minyard@acm.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Helge Deller <deller@gmx.de>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Iurii Zaikin <yzaikin@google.com>, linux-xtensa@linux-xtensa.org,
- Joerg Roedel <jroedel@suse.de>, Vasily Gorbik <gor@linux.ibm.com>,
- Scott Branden <scott.branden@broadcom.com>, coresight@lists.linaro.org,
- linux-fsdevel@vger.kernel.org, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- linux-arm-kernel@lists.infradead.org, Chris Zankel <chris@zankel.net>,
- Tony Luck <tony.luck@intel.com>, Mathieu Poirier <mathieu.poirier@linaro.org>,
- Stephen Boyd <sboyd@kernel.org>, Peter Oberparleiter <oberpar@linux.ibm.com>,
- Dinh Nguyen <dinguyen@kernel.org>, James Morse <james.morse@arm.com>,
- Eric Biederman <ebiederm@xmission.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Michael Turquette <mturquette@baylibre.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-hyperv@vger.kernel.org,
- Vineeth Vijayan <vneethv@linux.ibm.com>,
- Joel Fernandes <joel@joelfernandes.org>, Will Deacon <will@kernel.org>,
- Florian Fainelli <f.fainelli@gmail.com>, linux-staging@lists.linux.dev,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- bcm-kernel-feedback-list@broadcom.com, Juergen Gross <jgross@suse.com>,
- Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
- Haiyang Zhang <haiyangz@microsoft.com>, Josh Triplett <josh@joshtriplett.org>,
- "Steven Rostedt \(VMware\)" <rostedt@goodmis.org>, rcu@vger.kernel.org,
- Borislav Petkov <bp@alien8.de>, linux-fbdev@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net,
- Michael Kelley <mikelley@microsoft.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-parisc@vger.kernel.org,
- Hongbo Yao <yaohongbo@huawei.com>, Sebastian Reichel <sre@kernel.org>,
- linux-alpha@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- Mike Rapoport <rppt@kernel.org>, Alexander Lobakin <alobakin@pm.me>,
- linux-remoteproc@vger.kernel.org, Bjorn Andersson <bjorn.andersson@linaro.org>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- linux-leds@vger.kernel.org, Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Richard Weinberger <richard@nod.at>, x86@kernel.org,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Jakub Kicinski <kuba@kernel.org>, Wang Wenhu <wenhu.wang@vivo.com>,
- Jeff Dike <jdike@addtoit.com>, Mike Leach <mike.leach@linaro.org>,
- "Paul E. McKenney" <paulmck@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Vlastimil Babka <vbabka@suse.cz>,
- linux-edac@vger.kernel.org, "Jason J. Herne" <jjherne@linux.ibm.com>,
- netdev@vger.kernel.org, kexec@lists.infradead.org, linux-mips@vger.kernel.org,
- Leo Yan <leo.yan@linaro.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- linuxppc-dev@lists.ozlabs.org
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "Chia-Wei,
+ Wang" <chiawei_wang@aspeedtech.com>, Ryan Chen <ryan_chen@aspeedtech.com>,
+ Tomer Maimon <tmaimon77@gmail.com>, Corey Minyard <minyard@acm.org>,
+ Avi Fishman <avifishman70@gmail.com>, Patrick Venture <venture@google.com>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Tali Perry <tali.perry1@gmail.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>, Lee Jones <lee.jones@linaro.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ Benjamin Fair <benjaminfair@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Apr 09, 2021 at 01:02:50PM +0300, Andy Shevchenko wrote:
-> kernel.h is being used as a dump for all kinds of stuff for a long time.
-> Here is the attempt to start cleaning it up by splitting out panic and
-> oops helpers.
-> 
-> There are several purposes of doing this:
-> - dropping dependency in bug.h
-> - dropping a loop by moving out panic_notifier.h
-> - unload kernel.h from something which has its own domain
-> 
-> At the same time convert users tree-wide to use new headers, although
-> for the time being include new header back to kernel.h to avoid twisted
-> indirected includes for existing users.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Reviewed-by: Bjorn Andersson <bjorn.andersson@linaro.org>
-> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
-> Acked-by: Corey Minyard <cminyard@mvista.com>
-> Acked-by: Christian Brauner <christian.brauner@ubuntu.com>
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> Acked-by: Kees Cook <keescook@chromium.org>
-> Acked-by: Wei Liu <wei.liu@kernel.org>
-> Acked-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-> Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+On Fri, Apr 09, 2021 at 12:48:21AM CDT, Andrew Jeffery wrote:
+>
+>
+>On Fri, 9 Apr 2021, at 13:26, Zev Weiss wrote:
+>> On Fri, Mar 19, 2021 at 01:27:40AM CDT, Andrew Jeffery wrote:
+>> >Take steps towards defining a coherent API to separate the KCS device
+>> >drivers from the userspace interface. Decreasing the coupling will
+>> >improve the separation of concerns and enable the introduction of
+>> >alternative userspace interfaces.
+>> >
+>> >For now, simply split the chardev logic out to a separate file. The code
+>> >continues to build into the same module.
+>> >
+>> >Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
+>> >---
+>> > drivers/char/ipmi/Makefile            |   2 +-
+>> > drivers/char/ipmi/kcs_bmc.c           | 423 +------------------------
+>> > drivers/char/ipmi/kcs_bmc.h           |  10 +-
+>> > drivers/char/ipmi/kcs_bmc_cdev_ipmi.c | 428 ++++++++++++++++++++++++++
+>> > 4 files changed, 451 insertions(+), 412 deletions(-)
+>> > create mode 100644 drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
+>> >
+>> >diff --git a/drivers/char/ipmi/Makefile b/drivers/char/ipmi/Makefile
+>> >index 0822adc2ec41..a302bc865370 100644
+>> >--- a/drivers/char/ipmi/Makefile
+>> >+++ b/drivers/char/ipmi/Makefile
+>> >@@ -22,7 +22,7 @@ obj-$(CONFIG_IPMI_SSIF) += ipmi_ssif.o
+>> > obj-$(CONFIG_IPMI_POWERNV) += ipmi_powernv.o
+>> > obj-$(CONFIG_IPMI_WATCHDOG) += ipmi_watchdog.o
+>> > obj-$(CONFIG_IPMI_POWEROFF) += ipmi_poweroff.o
+>> >-obj-$(CONFIG_IPMI_KCS_BMC) += kcs_bmc.o
+>> >+obj-$(CONFIG_IPMI_KCS_BMC) += kcs_bmc.o kcs_bmc_cdev_ipmi.o
+>> > obj-$(CONFIG_ASPEED_BT_IPMI_BMC) += bt-bmc.o
+>> > obj-$(CONFIG_ASPEED_KCS_IPMI_BMC) += kcs_bmc_aspeed.o
+>> > obj-$(CONFIG_NPCM7XX_KCS_IPMI_BMC) += kcs_bmc_npcm7xx.o
+>> >diff --git a/drivers/char/ipmi/kcs_bmc.c b/drivers/char/ipmi/kcs_bmc.c
+>> >index c4336c1f2d6d..ef5c48ffe74a 100644
+>> >--- a/drivers/char/ipmi/kcs_bmc.c
+>> >+++ b/drivers/char/ipmi/kcs_bmc.c
+>> >@@ -3,446 +3,51 @@
+>> >  * Copyright (c) 2015-2018, Intel Corporation.
+>> >  */
+>> >
+>> >-#define pr_fmt(fmt) "kcs-bmc: " fmt
+>> >-
+>> >-#include <linux/errno.h>
+>> >-#include <linux/io.h>
+>> >-#include <linux/ipmi_bmc.h>
+>> > #include <linux/module.h>
+>> >-#include <linux/platform_device.h>
+>> >-#include <linux/poll.h>
+>> >-#include <linux/sched.h>
+>> >-#include <linux/slab.h>
+>> >
+>> > #include "kcs_bmc.h"
+>> >
+>> >-#define DEVICE_NAME "ipmi-kcs"
+>> >-
+>> >-#define KCS_MSG_BUFSIZ    1000
+>> >-
+>> >-#define KCS_ZERO_DATA     0
+>> >-
+>> >-
+>> >-/* IPMI 2.0 - Table 9-1, KCS Interface Status Register Bits */
+>> >-#define KCS_STATUS_STATE(state) (state << 6)
+>> >-#define KCS_STATUS_STATE_MASK   GENMASK(7, 6)
+>> >-#define KCS_STATUS_CMD_DAT      BIT(3)
+>> >-#define KCS_STATUS_SMS_ATN      BIT(2)
+>> >-#define KCS_STATUS_IBF          BIT(1)
+>> >-#define KCS_STATUS_OBF          BIT(0)
+>> >-
+>> >-/* IPMI 2.0 - Table 9-2, KCS Interface State Bits */
+>> >-enum kcs_states {
+>> >-	IDLE_STATE  = 0,
+>> >-	READ_STATE  = 1,
+>> >-	WRITE_STATE = 2,
+>> >-	ERROR_STATE = 3,
+>> >-};
+>> >-
+>> >-/* IPMI 2.0 - Table 9-3, KCS Interface Control Codes */
+>> >-#define KCS_CMD_GET_STATUS_ABORT  0x60
+>> >-#define KCS_CMD_WRITE_START       0x61
+>> >-#define KCS_CMD_WRITE_END         0x62
+>> >-#define KCS_CMD_READ_BYTE         0x68
+>> >-
+>> >-static inline u8 kcs_bmc_read_data(struct kcs_bmc *kcs_bmc)
+>> >+u8 kcs_bmc_read_data(struct kcs_bmc *kcs_bmc)
+>> > {
+>> > 	return kcs_bmc->io_inputb(kcs_bmc, kcs_bmc->ioreg.idr);
+>> > }
+>> >+EXPORT_SYMBOL(kcs_bmc_read_data);
+>> >
+>> >-static inline void kcs_bmc_write_data(struct kcs_bmc *kcs_bmc, u8 data)
+>> >+void kcs_bmc_write_data(struct kcs_bmc *kcs_bmc, u8 data)
+>> > {
+>> > 	kcs_bmc->io_outputb(kcs_bmc, kcs_bmc->ioreg.odr, data);
+>> > }
+>> >+EXPORT_SYMBOL(kcs_bmc_write_data);
+>> >
+>> >-static inline u8 kcs_bmc_read_status(struct kcs_bmc *kcs_bmc)
+>> >+u8 kcs_bmc_read_status(struct kcs_bmc *kcs_bmc)
+>> > {
+>> > 	return kcs_bmc->io_inputb(kcs_bmc, kcs_bmc->ioreg.str);
+>> > }
+>> >+EXPORT_SYMBOL(kcs_bmc_read_status);
+>> >
+>> >-static inline void kcs_bmc_write_status(struct kcs_bmc *kcs_bmc, u8 data)
+>> >+void kcs_bmc_write_status(struct kcs_bmc *kcs_bmc, u8 data)
+>> > {
+>> > 	kcs_bmc->io_outputb(kcs_bmc, kcs_bmc->ioreg.str, data);
+>> > }
+>> >+EXPORT_SYMBOL(kcs_bmc_write_status);
+>> >
+>> >-static void kcs_bmc_update_status(struct kcs_bmc *kcs_bmc, u8 mask, u8 val)
+>> >+void kcs_bmc_update_status(struct kcs_bmc *kcs_bmc, u8 mask, u8 val)
+>> > {
+>> > 	kcs_bmc->io_updateb(kcs_bmc, kcs_bmc->ioreg.str, mask, val);
+>> > }
+>> >+EXPORT_SYMBOL(kcs_bmc_update_status);
+>> >
+>> >-static inline void set_state(struct kcs_bmc *kcs_bmc, u8 state)
+>> >-{
+>> >-	kcs_bmc_update_status(kcs_bmc, KCS_STATUS_STATE_MASK,
+>> >-					KCS_STATUS_STATE(state));
+>> >-}
+>> >-
+>> >-static void kcs_force_abort(struct kcs_bmc *kcs_bmc)
+>> >-{
+>> >-	set_state(kcs_bmc, ERROR_STATE);
+>> >-	kcs_bmc_read_data(kcs_bmc);
+>> >-	kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+>> >-
+>> >-	kcs_bmc->phase = KCS_PHASE_ERROR;
+>> >-	kcs_bmc->data_in_avail = false;
+>> >-	kcs_bmc->data_in_idx = 0;
+>> >-}
+>> >-
+>> >-static void kcs_bmc_handle_data(struct kcs_bmc *kcs_bmc)
+>> >-{
+>> >-	u8 data;
+>> >-
+>> >-	switch (kcs_bmc->phase) {
+>> >-	case KCS_PHASE_WRITE_START:
+>> >-		kcs_bmc->phase = KCS_PHASE_WRITE_DATA;
+>> >-		fallthrough;
+>> >-
+>> >-	case KCS_PHASE_WRITE_DATA:
+>> >-		if (kcs_bmc->data_in_idx < KCS_MSG_BUFSIZ) {
+>> >-			set_state(kcs_bmc, WRITE_STATE);
+>> >-			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+>> >-			kcs_bmc->data_in[kcs_bmc->data_in_idx++] =
+>> >-						kcs_bmc_read_data(kcs_bmc);
+>> >-		} else {
+>> >-			kcs_force_abort(kcs_bmc);
+>> >-			kcs_bmc->error = KCS_LENGTH_ERROR;
+>> >-		}
+>> >-		break;
+>> >-
+>> >-	case KCS_PHASE_WRITE_END_CMD:
+>> >-		if (kcs_bmc->data_in_idx < KCS_MSG_BUFSIZ) {
+>> >-			set_state(kcs_bmc, READ_STATE);
+>> >-			kcs_bmc->data_in[kcs_bmc->data_in_idx++] =
+>> >-						kcs_bmc_read_data(kcs_bmc);
+>> >-			kcs_bmc->phase = KCS_PHASE_WRITE_DONE;
+>> >-			kcs_bmc->data_in_avail = true;
+>> >-			wake_up_interruptible(&kcs_bmc->queue);
+>> >-		} else {
+>> >-			kcs_force_abort(kcs_bmc);
+>> >-			kcs_bmc->error = KCS_LENGTH_ERROR;
+>> >-		}
+>> >-		break;
+>> >-
+>> >-	case KCS_PHASE_READ:
+>> >-		if (kcs_bmc->data_out_idx == kcs_bmc->data_out_len)
+>> >-			set_state(kcs_bmc, IDLE_STATE);
+>> >-
+>> >-		data = kcs_bmc_read_data(kcs_bmc);
+>> >-		if (data != KCS_CMD_READ_BYTE) {
+>> >-			set_state(kcs_bmc, ERROR_STATE);
+>> >-			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+>> >-			break;
+>> >-		}
+>> >-
+>> >-		if (kcs_bmc->data_out_idx == kcs_bmc->data_out_len) {
+>> >-			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+>> >-			kcs_bmc->phase = KCS_PHASE_IDLE;
+>> >-			break;
+>> >-		}
+>> >-
+>> >-		kcs_bmc_write_data(kcs_bmc,
+>> >-			kcs_bmc->data_out[kcs_bmc->data_out_idx++]);
+>> >-		break;
+>> >-
+>> >-	case KCS_PHASE_ABORT_ERROR1:
+>> >-		set_state(kcs_bmc, READ_STATE);
+>> >-		kcs_bmc_read_data(kcs_bmc);
+>> >-		kcs_bmc_write_data(kcs_bmc, kcs_bmc->error);
+>> >-		kcs_bmc->phase = KCS_PHASE_ABORT_ERROR2;
+>> >-		break;
+>> >-
+>> >-	case KCS_PHASE_ABORT_ERROR2:
+>> >-		set_state(kcs_bmc, IDLE_STATE);
+>> >-		kcs_bmc_read_data(kcs_bmc);
+>> >-		kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+>> >-		kcs_bmc->phase = KCS_PHASE_IDLE;
+>> >-		break;
+>> >-
+>> >-	default:
+>> >-		kcs_force_abort(kcs_bmc);
+>> >-		break;
+>> >-	}
+>> >-}
+>> >-
+>> >-static void kcs_bmc_handle_cmd(struct kcs_bmc *kcs_bmc)
+>> >-{
+>> >-	u8 cmd;
+>> >-
+>> >-	set_state(kcs_bmc, WRITE_STATE);
+>> >-	kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+>> >-
+>> >-	cmd = kcs_bmc_read_data(kcs_bmc);
+>> >-	switch (cmd) {
+>> >-	case KCS_CMD_WRITE_START:
+>> >-		kcs_bmc->phase = KCS_PHASE_WRITE_START;
+>> >-		kcs_bmc->error = KCS_NO_ERROR;
+>> >-		kcs_bmc->data_in_avail = false;
+>> >-		kcs_bmc->data_in_idx = 0;
+>> >-		break;
+>> >-
+>> >-	case KCS_CMD_WRITE_END:
+>> >-		if (kcs_bmc->phase != KCS_PHASE_WRITE_DATA) {
+>> >-			kcs_force_abort(kcs_bmc);
+>> >-			break;
+>> >-		}
+>> >-
+>> >-		kcs_bmc->phase = KCS_PHASE_WRITE_END_CMD;
+>> >-		break;
+>> >-
+>> >-	case KCS_CMD_GET_STATUS_ABORT:
+>> >-		if (kcs_bmc->error == KCS_NO_ERROR)
+>> >-			kcs_bmc->error = KCS_ABORTED_BY_COMMAND;
+>> >-
+>> >-		kcs_bmc->phase = KCS_PHASE_ABORT_ERROR1;
+>> >-		kcs_bmc->data_in_avail = false;
+>> >-		kcs_bmc->data_in_idx = 0;
+>> >-		break;
+>> >-
+>> >-	default:
+>> >-		kcs_force_abort(kcs_bmc);
+>> >-		kcs_bmc->error = KCS_ILLEGAL_CONTROL_CODE;
+>> >-		break;
+>> >-	}
+>> >-}
+>> >-
+>> >+int kcs_bmc_ipmi_event(struct kcs_bmc *kcs_bmc);
+>>
+>> This declaration looks a bit out of place here; should it be in
+>> kcs_bmc.h instead?
+>
+>These are only temporary and get removed later on in the series after
+>some shuffling of the code.
+>
 
-Acked-by: Luis Chamberlain <mcgrof@kernel.org>
+Okay -- there were a couple others further down in the patch that I'm
+pretty sure were strictly redundant and could perhaps be cleaned up
+(kcs_bmc_ipmi_event and kcs_bmc_ipmi_alloc in kcs_bmc_cdev_ipmi.c), but
+aside from that:
 
-  Luis
+Reviewed-by: Zev Weiss <zweiss@equinix.com>
 
 
 _______________________________________________
