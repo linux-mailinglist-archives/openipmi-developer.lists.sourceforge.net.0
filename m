@@ -2,70 +2,111 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5AB5735AA1A
-	for <lists+openipmi-developer@lfdr.de>; Sat, 10 Apr 2021 04:01:33 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9E97635B754
+	for <lists+openipmi-developer@lfdr.de>; Mon, 12 Apr 2021 01:01:17 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lV2wC-000293-Am; Sat, 10 Apr 2021 02:01:28 +0000
+	id 1lVj4r-0008Mm-DM; Sun, 11 Apr 2021 23:01:13 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tsbogend@alpha.franken.de>) id 1lUzoH-0002IL-Go
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 22:41:05 +0000
+ (envelope-from <andrew@aj.id.au>) id 1lVj4p-0008MX-TR
+ for openipmi-developer@lists.sourceforge.net; Sun, 11 Apr 2021 23:01:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Date:References:
+ In-Reply-To:Message-Id:Mime-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=H64w70uvSvVLGMQz5dY7MjPbjIORRasXjqMOxB8Bum4=; b=YCFhLOZ61khmRTLxhTr39sBFRn
- KpBz/9ceC6/+nQjUio6wKdx34PmUhsSSMEFkCP7Lkf1lm77egBWoEIn+RbXTG+r41kapRpfKO9pbV
- bF+pzjtfnbdoGbu3r/XcL1S2JusTUvKzp8RT7qZH2ie7GYBgZLGQ/+Ayyt6DEsLE8UuM=;
+ bh=Cl5NDlR0eeNq1SIA3lbTrquui0su7agE6SsdembMtS4=; b=d9zLh9263bFM5WEsJPb05YYfYf
+ QtNFDm2V4Rugx831o/DP7WnlyoOD8hoSkXLZCjsk3ILxOCzmPs6hhWYi+0jhbOBM7X42VYtQnoToi
+ QW3ss37a7OFEZaU15jA0A1ovjk5SJYRXf71KNmBE/pMwzKy2vCr67b8oJunHo5ALZRY8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Subject:Cc:To:From:Date:References:In-Reply-To:Message-Id:
+ Mime-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=H64w70uvSvVLGMQz5dY7MjPbjIORRasXjqMOxB8Bum4=; b=GVmoM3tePqLBFmZm+Uvr381Kwe
- RsXoakNCf3YAg2F/a5M0irbCN3R8UA2n4Hp4H7D2qC8O3Y+/Zdmce7MZ8AobP32YhGMG1cNhK7UCb
- HRZVLLtItpx5oEfsiJtfIAxYd917CKrpyDr12Kxq/Y6vrKTkPXXL+6HR1yE9X/DsoUc4=;
-Received: from elvis.franken.de ([193.175.24.41])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.92.3)
- id 1lUzo7-0005TO-5H
- for openipmi-developer@lists.sourceforge.net; Fri, 09 Apr 2021 22:41:05 +0000
-Received: from uucp (helo=alpha)
- by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
- id 1lUznc-00038n-01; Sat, 10 Apr 2021 00:40:24 +0200
-Received: by alpha.franken.de (Postfix, from userid 1000)
- id EDAA4C24FC; Sat, 10 Apr 2021 00:39:11 +0200 (CEST)
-Date: Sat, 10 Apr 2021 00:39:11 +0200
-From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Message-ID: <20210409223911.GA21445@alpha.franken.de>
-References: <20210409100250.25922-1-andriy.shevchenko@linux.intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210409100250.25922-1-andriy.shevchenko@linux.intel.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Spam-Score: 0.0 (/)
+ bh=Cl5NDlR0eeNq1SIA3lbTrquui0su7agE6SsdembMtS4=; b=fWrFAWfP2CXkCX07bawLbXKpha
+ pU4TcvMzUGjZqXPCUw0VWhDUvDZPQFGbuMHrunds+zd1fGTvE0T/oCoPKSosR/njj+CIeI7QvMYw3
+ nYQSjC2wQpMmTDSBlvCT82l2PeNDWK1pomt0wUov3YYXHonauhLAAbR+xp/TRVPksEiA=;
+Received: from new2-smtp.messagingengine.com ([66.111.4.224])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1lVj4a-006VoK-TS
+ for openipmi-developer@lists.sourceforge.net; Sun, 11 Apr 2021 23:01:11 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+ by mailnew.nyi.internal (Postfix) with ESMTP id DA4BF5805EB;
+ Sun, 11 Apr 2021 19:00:48 -0400 (EDT)
+Received: from imap2 ([10.202.2.52])
+ by compute3.internal (MEProxy); Sun, 11 Apr 2021 19:00:48 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=
+ mime-version:message-id:in-reply-to:references:date:from:to:cc
+ :subject:content-type; s=fm2; bh=Cl5NDlR0eeNq1SIA3lbTrquui0su7ag
+ E6SsdembMtS4=; b=TKxu0qg/SVMSv+IYdXTiOo+qpAMUYm+Dm4UiikfWnljE/mq
+ NQirbvtS1O/rdZu1HTq9VlDnwFhWVmH8mJZsAnf8+7A+67wN7/8raDjnazjlSU3C
+ j4b1amfhJI+u1R35/pvrfy6h26bkdO52WzVmaEBWMcSGL1vyYhtCRdV275NJ/mk8
+ 0WyQjt3K5HREsoQVAmMPzbNGiNs5TABejz5zQ+oGL7TR+ZwdWiU/8jYv89BvCDcB
+ XY6P6EAveASQjePYByqH5XtPnR4RBbDgWyDiMEeglFzrnmNrkzPPniXIVvFYQYOq
+ J5KfV3CkCRN6HSrPtfHMUMoJPd0ZDjrOpE+wLug==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=Cl5NDl
+ R0eeNq1SIA3lbTrquui0su7agE6SsdembMtS4=; b=UqqsQIcvyOSld3IRE4fX8+
+ QWA8hvNqU/+sYi0hAJX/R48JJTN42fcVSMRRNfpCWZo4zXLvXEaEA9iGbEFfJPlD
+ SHjWNay/Regm5lXulwsDlGJZZhV6raX7LMZVN/+VuIHYltBNvCQfWDvYzsAKNB/C
+ yV+Ne+yLR1HNSIm1/RzmjjrCZ6knDTmLut25+StM6U59PlRlVLVN9/odRV1FOeDy
+ n/WLZSydttQ8HYHCHA8GxPChQ8sIpOc4rYxbwM4CxaF4/CeT706eKxsjhSXLpDsY
+ I8aXHE7v6suL7n+p1EKicsSZvK6YGhFkxHlY0Z8/1u1mLV5S0my4lKueLqm5Gvzg
+ ==
+X-ME-Sender: <xms:n39zYKrfPbMkBxTjpuO2jpdk5dXjY4Ezrgq8rz4b6Ru9ZzcyR2HISg>
+ <xme:n39zYIoT-cxhvHeWZVu4b2PG9jwnSSG1AtumJ7Rxp3RDPm8txyTBjQDZBtRiGNaKN
+ KkOv1UhsrWeNHDxcw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrudekiedguddvucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepofgfggfkjghffffhvffutgesthdtredtreerjeenucfhrhhomhepfdetnhgu
+ rhgvficulfgvfhhfvghrhidfuceorghnughrvgifsegrjhdrihgurdgruheqnecuggftrf
+ grthhtvghrnhepuddttdekueeggedvtddtueekiedutdfguedutdefieeuteefieelteet
+ vddthfeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+ eprghnughrvgifsegrjhdrihgurdgruh
+X-ME-Proxy: <xmx:n39zYPOlM7TtBe1B1ORtRfcGQx4bmkllO969YWoFj3qlkYuDXxOuAA>
+ <xmx:n39zYJ5m_Ruvqiyvw7wbUqUA2X1w8T1r55AfzmNule8F21VrYtWDCA>
+ <xmx:n39zYJ5pAm9b8Kx6n_rgCcjlcDFVgIW0SiAwBwmOqsE9hOUUogqlqw>
+ <xmx:oH9zYNonsx8RlM1NjKCPvWf_GJSTVUshI0Ut5ZWY4KyoBMlEUXX0Sw>
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+ id A49C1A00079; Sun, 11 Apr 2021 19:00:47 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.5.0-alpha0-273-g8500d2492d-fm-20210323.002-g8500d249
+Mime-Version: 1.0
+Message-Id: <e99e2e45-7810-4a24-a519-5204acee04ea@www.fastmail.com>
+In-Reply-To: <YHCqR8/nZFB1HRgX@packtop>
+References: <20210319062752.145730-1-andrew@aj.id.au>
+ <20210319062752.145730-10-andrew@aj.id.au> <YG/Ql9z9X/mtOSvl@packtop>
+ <ea34ee69-a266-4737-8450-4695d2d0fbd4@www.fastmail.com>
+ <YG/zVv4XOo1HoLd1@packtop> <YHCqR8/nZFB1HRgX@packtop>
+Date: Mon, 12 Apr 2021 08:30:26 +0930
+From: "Andrew Jeffery" <andrew@aj.id.au>
+To: "Zev Weiss" <zweiss@equinix.com>
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: franken.de]
- 0.0 RCVD_IN_MSPIKE_L3      RBL: Low reputation (-3)
- [193.175.24.41 listed in bl.mailspike.net]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [66.111.4.224 listed in wl.mailspike.net]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_BL      Mailspike blacklisted
-X-Headers-End: 1lUzo7-0005TO-5H
-X-Mailman-Approved-At: Sat, 10 Apr 2021 02:01:27 +0000
-Subject: Re: [Openipmi-developer] [PATCH v2 1/1] kernel.h: Split out panic
- and oops helpers
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+X-Headers-End: 1lVj4a-006VoK-TS
+Subject: Re: [Openipmi-developer] 
+ =?utf-8?q?=5BPATCH_v2_10/21=5D_ipmi=3A_kcs?=
+ =?utf-8?q?=5Fbmc=3A_Turn_the_driver_data-structures_inside-out?=
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,123 +119,66 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Corey Minyard <cminyard@mvista.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- dri-devel@lists.freedesktop.org, Paul Mackerras <paulus@samba.org>,
- Pavel Machek <pavel@ucw.cz>, "K. Y. Srinivasan" <kys@microsoft.com>,
- linux-clk@vger.kernel.org, linux-arch@vger.kernel.org,
- Wei Liu <wei.liu@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Jens Frederich <jfrederich@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Catalin Marinas <catalin.marinas@arm.com>, xen-devel@lists.xenproject.org,
- Matt Turner <mattst88@gmail.com>, Ohad Ben-Cohen <ohad@wizery.com>,
- linux-pm@vger.kernel.org, Lai Jiangshan <jiangshanlai@gmail.com>,
- linux-um@lists.infradead.org, Daniel Drake <dsd@laptop.org>,
- Mihai Carabas <mihai.carabas@oracle.com>, Thomas Gleixner <tglx@linutronix.de>,
- Richard Henderson <rth@twiddle.net>, Alex Elder <elder@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Luis Chamberlain <mcgrof@kernel.org>, Joe Perches <joe@perches.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Marek Czerski <ma.czerski@gmail.com>,
- Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
- Jon Nettleton <jon.nettleton@gmail.com>,
- Alexander Egorenkov <egorenar@linux.ibm.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Max Filippov <jcmvbkbc@gmail.com>,
- Christian Brauner <christian.brauner@ubuntu.com>, linux-s390@vger.kernel.org,
- Stefano Stabellini <sstabellini@kernel.org>,
- Stephen Hemminger <sthemmin@microsoft.com>, Corey Minyard <minyard@acm.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Helge Deller <deller@gmx.de>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Iurii Zaikin <yzaikin@google.com>, linux-xtensa@linux-xtensa.org,
- Joerg Roedel <jroedel@suse.de>, Vasily Gorbik <gor@linux.ibm.com>,
- Scott Branden <scott.branden@broadcom.com>, coresight@lists.linaro.org,
- linux-fsdevel@vger.kernel.org, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- linux-arm-kernel@lists.infradead.org, Chris Zankel <chris@zankel.net>,
- Tony Luck <tony.luck@intel.com>, Mathieu Poirier <mathieu.poirier@linaro.org>,
- Stephen Boyd <sboyd@kernel.org>, Peter Oberparleiter <oberpar@linux.ibm.com>,
- Dinh Nguyen <dinguyen@kernel.org>, James Morse <james.morse@arm.com>,
- Eric Biederman <ebiederm@xmission.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Michael Turquette <mturquette@baylibre.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-hyperv@vger.kernel.org,
- Vineeth Vijayan <vneethv@linux.ibm.com>,
- Joel Fernandes <joel@joelfernandes.org>, Will Deacon <will@kernel.org>,
- Florian Fainelli <f.fainelli@gmail.com>, linux-staging@lists.linux.dev,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- bcm-kernel-feedback-list@broadcom.com,
- "Jason J. Herne" <jjherne@linux.ibm.com>, Kees Cook <keescook@chromium.org>,
- Arnd Bergmann <arnd@arndb.de>, Haiyang Zhang <haiyangz@microsoft.com>,
- Josh Triplett <josh@joshtriplett.org>,
- "Steven Rostedt \(VMware\)" <rostedt@goodmis.org>, rcu@vger.kernel.org,
- Borislav Petkov <bp@alien8.de>, linux-fbdev@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net,
- Michael Kelley <mikelley@microsoft.com>, linux-parisc@vger.kernel.org,
- Hongbo Yao <yaohongbo@huawei.com>, Sebastian Reichel <sre@kernel.org>,
- linux-alpha@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- Mike Rapoport <rppt@kernel.org>, Alexander Lobakin <alobakin@pm.me>,
- linux-remoteproc@vger.kernel.org, Bjorn Andersson <bjorn.andersson@linaro.org>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- linux-leds@vger.kernel.org, Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Richard Weinberger <richard@nod.at>, x86@kernel.org,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Jakub Kicinski <kuba@kernel.org>, Wang Wenhu <wenhu.wang@vivo.com>,
- Jeff Dike <jdike@addtoit.com>, Mike Leach <mike.leach@linaro.org>,
- "Paul E. McKenney" <paulmck@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Vlastimil Babka <vbabka@suse.cz>,
- linux-edac@vger.kernel.org, Juergen Gross <jgross@suse.com>,
- netdev@vger.kernel.org, kexec@lists.infradead.org, linux-mips@vger.kernel.org,
- Leo Yan <leo.yan@linaro.org>, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- linuxppc-dev@lists.ozlabs.org
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "Chia-Wei,
+ Wang" <chiawei_wang@aspeedtech.com>, Ryan Chen <ryan_chen@aspeedtech.com>,
+ Tomer Maimon <tmaimon77@gmail.com>, Corey Minyard <minyard@acm.org>,
+ Avi Fishman <avifishman70@gmail.com>, Patrick Venture <venture@google.com>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Tali Perry <tali.perry1@gmail.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>, Lee Jones <lee.jones@linaro.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ Benjamin Fair <benjaminfair@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Apr 09, 2021 at 01:02:50PM +0300, Andy Shevchenko wrote:
-> kernel.h is being used as a dump for all kinds of stuff for a long time.
-> Here is the attempt to start cleaning it up by splitting out panic and
-> oops helpers.
-> 
-> There are several purposes of doing this:
-> - dropping dependency in bug.h
-> - dropping a loop by moving out panic_notifier.h
-> - unload kernel.h from something which has its own domain
-> 
-> At the same time convert users tree-wide to use new headers, although
-> for the time being include new header back to kernel.h to avoid twisted
-> indirected includes for existing users.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Reviewed-by: Bjorn Andersson <bjorn.andersson@linaro.org>
-> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
-> Acked-by: Corey Minyard <cminyard@mvista.com>
-> Acked-by: Christian Brauner <christian.brauner@ubuntu.com>
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> Acked-by: Kees Cook <keescook@chromium.org>
-> Acked-by: Wei Liu <wei.liu@kernel.org>
-> Acked-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-> Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-> ---
-> v2:
->  - fixed all errors with allmodconfig on x86_64 (Andrew)
->  - checked with allyesconfig on x86_64
->  - additionally grepped source code for panic notifier list usage
->    and converted all users
->  - elaborated commit message (Luis)
->  - collected given tags (incl. Andrew's SoB, see below)
-> 
-> I added Andrew's SoB since part of the fixes I took from him. Andrew,
-> feel free to amend or tell me how you want me to do.
-> 
->  arch/mips/kernel/relocate.c                   |  1 +
->  arch/mips/sgi-ip22/ip22-reset.c               |  1 +
->  arch/mips/sgi-ip32/ip32-reset.c               |  1 +
 
-Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 
--- 
-Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-good idea.                                                [ RFC1925, 2.3 ]
+On Sat, 10 Apr 2021, at 04:56, Zev Weiss wrote:
+> On Fri, Apr 09, 2021 at 01:25:26AM CDT, Zev Weiss wrote:
+> >On Fri, Apr 09, 2021 at 12:59:09AM CDT, Andrew Jeffery wrote:
+> >>On Fri, 9 Apr 2021, at 13:27, Zev Weiss wrote:
+> >>>On Fri, Mar 19, 2021 at 01:27:41AM CDT, Andrew Jeffery wrote:
+> >>>>-struct kcs_bmc *kcs_bmc_ipmi_alloc(struct device *dev, int sizeof_priv, u32 channel);
+> >>>>-struct kcs_bmc *kcs_bmc_ipmi_alloc(struct device *dev, int sizeof_priv, u32 channel)
+> >>>>+int kcs_bmc_ipmi_attach_cdev(struct kcs_bmc *kcs_bmc);
+> >>>
+> >>>Errant declaration again?
+> >>
+> >>As previously explained.
+> >>
+> >
+> >This one seems like a slightly different category, because...
+> >
+> >>>
+> >>>>+int kcs_bmc_ipmi_attach_cdev(struct kcs_bmc *kcs_bmc)
+> >
+> >...it's immediately followed by the definition of the very same function
+> >that it just declared, so I can't see how its presence or absence could
+> >make any functional difference to anything.  (So perhaps I should have
+> >said "redundant" instead of "errant...again".)
+
+This is is a small hack to fend off warnings from -Wmissing-declarations.
+
+> >
+> >It's fairly trivial of course given that it's gone by the end of the
+> >series, but as long as there's going to be another iteration anyway it
+> >seems like we might as well tidy it up?
+> >
+> 
+> Oh, and otherwise:
+> 
+> Reviewed-by: Zev Weiss <zweiss@equinix.com>
+
+Thanks.
+
+Andrew
 
 
 _______________________________________________
