@@ -2,113 +2,163 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7CE7637FB65
-	for <lists+openipmi-developer@lfdr.de>; Thu, 13 May 2021 18:21:59 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
-	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lhE5y-0006u7-CX; Thu, 13 May 2021 16:21:54 +0000
-Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1lhE5x-0006u0-Vr
- for openipmi-developer@lists.sourceforge.net; Thu, 13 May 2021 16:21:53 +0000
+	by mail.lfdr.de (Postfix) with ESMTPS id EF1C9388952
+	for <lists+openipmi-developer@lfdr.de>; Wed, 19 May 2021 10:24:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:MIME-Version:Message-Id:Date:To:Sender:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4xR505oLliU9JquqKPJVWMDSnkfn1y0rloE9Hx+/2ww=; b=FXIpypraPX2byPScT478dUVbwe
+	S/PMlcSVSRilBzfy2YNsbv/AyzvRvVFKloyTih51dU1DAwI2eJFPMRTtmnwPq4+igcQf1/7+u/W7H
+	cppbyplNijOAW2dvd9xO8PCriyDZK8JAu9SqoMwghf2IfPf64zmKR1PaXnpIAotAic84=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
+	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
+	id 1ljHVY-0003VI-T2; Wed, 19 May 2021 08:24:48 +0000
+Received: from [172.30.20.202] (helo=mx.sourceforge.net)
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ (envelope-from <quan@os.amperecomputing.com>) id 1ljHVW-0003V9-81
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 May 2021 08:24:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Type:Content-Transfer-Encoding
+ :Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=dgHsi4uL/mIogUUPS9S351fL40I/K3+T9vuN9hTTz7w=; b=KhxjQNvsTmYLWrt8iE7K30jjq6
- 2WqjoHCB6eOyvA+14M5/IOD6dkpyW99+Sqsmitdx8cLhYXt41DJgjfiG498JVMLYN0wikQZyJLgmz
- dfJFd+ZFIKUIRyFnF3a8AczdRbj7N1cvlQOrgyLsOfF4JTcmkWRY3XL5umWZm81shChY=;
+ bh=xMzGIKuhioI5dKKj4UXaGOHki/qKge3G2HGDlIHJmJM=; b=l431oqlfguYXAdAjJjAJOS4LUY
+ iBSwvHNXcMRza+SxNDaKXNtUijuea5wGg8vqByTfirnjs+zFsdc9QKfQqUe5DEGfNeFz0XYZ5x1B3
+ u6GZRVoqyAdCoemRkwhR6QboBpy5Tf4+KTVgNrc9t+vEn3XB0nfhi5mQhr34De8qiruc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=dgHsi4uL/mIogUUPS9S351fL40I/K3+T9vuN9hTTz7w=; b=Qz14IlpM7fOMX2dDUKNGDUu9Ls
- w5+X4UR49xNSq63/M66ttjryeywKbhBOJ6LHG9ZJkeEx1bKbjOyUc5pQlLtnGv0vukBbiT+68gzdH
- V9CtgQzqG9UGI+qpgjEa80n9AIWi5naSrUcoH5dOnMMv/rsnj2dbBpH9lHGGMCGuehFs=;
-Received: from mail-ot1-f43.google.com ([209.85.210.43])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1lhE5v-0001W9-JO
- for openipmi-developer@lists.sourceforge.net; Thu, 13 May 2021 16:21:55 +0000
-Received: by mail-ot1-f43.google.com with SMTP id
- d25-20020a0568300459b02902f886f7dd43so10616986otc.6
- for <openipmi-developer@lists.sourceforge.net>;
- Thu, 13 May 2021 09:21:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to;
- bh=dgHsi4uL/mIogUUPS9S351fL40I/K3+T9vuN9hTTz7w=;
- b=iCVdZl0Yn608I/Ise9u2VIbuQosG+fyguuaj2b/r9pzeoPbxOttg4bEjdOO1lKLC5f
- rLc8KnRcMt5qSnxEemOIyz0H5szo7z1ww+3ovDtnVUnQHzytFEldNouMimQj7H8eVGz3
- /G4d02VBfKYrWVjoWNN3KLMC1kBNk2UrcDGcxQVIT1KrCrnFMj6wqoTHE7Skqm4f5zps
- SJUIxHdm3UgIdEpxbPRhzVGbXaKHsXZsH3IDlZJa+hfTVu453XxPq6PPBDxT3P6gaeNq
- 06ttTJshZB7N2dotA45ABZXy+hI7aaEuMvJe5eQHVkpP4+VfFBE+9BLxywanlfkRluRp
- ZGHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=dgHsi4uL/mIogUUPS9S351fL40I/K3+T9vuN9hTTz7w=;
- b=YjuYx6SSyH2867jnwMAp9WFcxi1rFRpvWqWbVJv8fBuIvb4mgmORnXnvPyn++wNG3Y
- LXdoQXPgKArsOBombq+9kY41JDuM2AjgySrze9uKPc3eU0OS5gc2tvyjEHivmny+irbY
- 6NHPP19jdRiGsP3/cUbxNNQ/W18f0rc9VtIR7dXk7pIDAtcvEfS+EgaaCasSgA9tOCzz
- TP0fauGWJDoZbIK7QEiu4wgTn57yIBln1NXSIAo0lZcneOC05Bt3cJg0+XhWHLulyFVl
- 5ZoXBjoRoKA/YRVZlSCpZf4sTK+pdR4+Wq/9WrxvTzmcuzTKzX7Ew7/zO4y1sw+7U+oP
- VVHw==
-X-Gm-Message-State: AOAM5339luQH8k+n3RG0szI8jSlW4pFRB0eDXDInQoVYQDS3ZMtnf845
- 7l29ZD1WFbMIaXv3hHZ2qDI/8zbVwg==
-X-Google-Smtp-Source: ABdhPJyYLp5S/qQBA1OuEVBcW0m4KEGrpE/QwsI8w/jV7EwdlSAbGoLiUdk0ZupldjNaSG1FddaCMQ==
-X-Received: by 2002:a9d:7a88:: with SMTP id l8mr28062977otn.185.1620922906348; 
- Thu, 13 May 2021 09:21:46 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id r189sm683530oif.8.2021.05.13.09.21.44
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 13 May 2021 09:21:45 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:412b:6b1b:237c:6ae7])
- by serve.minyard.net (Postfix) with ESMTPSA id DCEC5180052;
- Thu, 13 May 2021 16:21:43 +0000 (UTC)
-Date: Thu, 13 May 2021 11:21:42 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Petr Pavlu <petr.pavlu@suse.com>
-Message-ID: <20210513162142.GA2921206@minyard.net>
-References: <10a41bdc-9c99-089c-8d89-fa98ce5ea080@suse.com>
+ h=MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Date:
+ Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=xMzGIKuhioI5dKKj4UXaGOHki/qKge3G2HGDlIHJmJM=; b=Q
+ wwr9DeINpYWMJf+GThO3/aWR46gbc7wuT+pdHcE20Lq9tmwEXFG42vBXcTeM9ZR4gsqJ8nIYIK2w+
+ jdzoVRCn93XiRnKrl71avcHox4Djgc8PMK8crWxQ9tCBQamOrAijRVmwFw9wrNFe4jhETagkf7W+W
+ 8iSmgQTmjZHs31BU=;
+Received: from mail-mw2nam12on2116.outbound.protection.outlook.com
+ ([40.107.244.116] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1ljHVK-00EfnX-KE
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 May 2021 08:24:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=C5Ofs9DiV3HM7R4zcK9DP4Taw4TgDOeJAxW0/iQriSMa8KG3VkOtWOmQ5H/t+wFWZ3hbF9E5vkwSoJZo7hGVUyGnMdwpup7ZZ5ILGgdo1RhuS6X5wq80NCgYEmYWGgdvZVi5DqcI2B/joP3ZCDf50/z2DB3+ey/R2U+kVpiQbSzED/iZz3vKp9wRI2oee0tIbCB/Op7GLjHjrKKVgKAZ8tgowujsR2++/Vlnm/NBoQEk+SmsiRaYZoOXoeb+OEx+4OTZ5yIqdlTO6A02dbbPFmM2CQXz9m6Ls7GuI0gUVaNAP6Huahk4zl+nbEHlnvXPxBGPepxkL+ThTVccDsWrzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xMzGIKuhioI5dKKj4UXaGOHki/qKge3G2HGDlIHJmJM=;
+ b=FNL/PtlVQLZETLcqiXV3vjKM+TUo0lHim9yotoMsR9MDVOaIEHPalwq5kb+rE3thg9NKxkTs1FBmyZoa1PWKuiMzxdV6W58o/PSZGafZy+WdYjt5/0KGHxO8c5y9wQzahOg0RIwBbwiqZTDhas0/EkLAbPeJKb584/Co+lJdI2QghKwFCJjwijzWTclbU8YNiHnRpP400Dw6WRM0TQVzIoJqyqBsAnEWXb0cB+3SOcooKBNvjdZn8FZ92A0aJGDKtncWkFu850bYhgMT4HGsmadgcwArGheWHi3cuCMwrZhJqlQhv3Gwce4dyzDqfmWdjJo5zDqpqaBm+R6HYg25YA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xMzGIKuhioI5dKKj4UXaGOHki/qKge3G2HGDlIHJmJM=;
+ b=ZcagqrcP7E/DGZkcVZyXhWAfBp9yaUlYYkrHbVydvpDz0kmecJz9ZwCuFw3baxlqjhkQPeStuxjKYk0cXFpeT8EBRf0tcQmEodZR4AB4shDXeZNYg/Q9ScM2Rd5u3zsOAi10fSwRoAVQ2pQD87nvSY0ZXKaeGAfC6aLM/Hl5XLM=
+Authentication-Results: acm.org; dkim=none (message not signed)
+ header.d=none;acm.org; dmarc=none action=none
+ header.from=os.amperecomputing.com;
+Received: from MW2PR0102MB3482.prod.exchangelabs.com (2603:10b6:302:c::32) by
+ MW2PR0102MB3451.prod.exchangelabs.com (2603:10b6:302:10::16) with
+ Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4129.28; Wed, 19 May 2021 07:50:16 +0000
+Received: from MW2PR0102MB3482.prod.exchangelabs.com
+ ([fe80::d840:7aa7:58d4:b503]) by MW2PR0102MB3482.prod.exchangelabs.com
+ ([fe80::d840:7aa7:58d4:b503%5]) with mapi id 15.20.4129.032; Wed, 19 May 2021
+ 07:50:15 +0000
+To: Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ Brendan Higgins <brendanhiggins@google.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Wolfram Sang <wsa@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ openipmi-developer@lists.sourceforge.net, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+Date: Wed, 19 May 2021 14:49:27 +0700
+Message-Id: <20210519074934.20712-1-quan@os.amperecomputing.com>
+X-Mailer: git-send-email 2.28.0
+X-Originating-IP: [118.69.219.201]
+X-ClientProxiedBy: HK2PR04CA0081.apcprd04.prod.outlook.com
+ (2603:1096:202:15::25) To MW2PR0102MB3482.prod.exchangelabs.com
+ (2603:10b6:302:c::32)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <10a41bdc-9c99-089c-8d89-fa98ce5ea080@suse.com>
-X-Spam-Score: 0.5 (/)
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from hcm-sw-17.amperecomputing.com (118.69.219.201) by
+ HK2PR04CA0081.apcprd04.prod.outlook.com (2603:1096:202:15::25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4129.25 via Frontend Transport; Wed, 19 May 2021 07:50:11 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 4b64fa7f-f974-4f92-1693-08d91a9abd15
+X-MS-TrafficTypeDiagnostic: MW2PR0102MB3451:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <MW2PR0102MB34515934BD192F5A6C4F1803F22B9@MW2PR0102MB3451.prod.exchangelabs.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:6790;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: ksnt2QQ8Y3z1deR/dYJGCaIpFivW2U6uwYxH1H+5nPCOVcdgbVFRYMv0TQg1luhylipfMcD3wUY0PF67agnlhGIouFEB65OvCPI32eGfk70Yd3iknzLQiSTmVeBtbYDNORIPpVUeMEoaDo/1LJuIQWMTUqSjBCsUKAZiFIZ7IiQZCNDa7yH5cWUX1sEIR32EFYyoCT+shHZAukQ7jh44qs23Wh+EZW8+ZI+dS2dOKz8WqJWNw+61PEgXfooKYgkYj2wWSQsYaprvKT/RRe4QqExOrMdBheH08SuHPIVEy5fz+vC2gGE8Vjo8WuGT2yoeu5BmRK4GU5YOTpKx/bJzFELmTT2Tx62eOIA2v3OotAITei70ACYeitEUBfeIqxAi6Av9i4F+bZflBetT4mAoLLC+ib5f8Abe09kZ4+DpAsZpiQpoLO/ezWWYK1WXBaSihJSkVm0B4Vx1LIikqzlPAO9luXDAzS9V10tQkn/efHlEAnzzvArFCsjadtpVUhlbAi9miYVEZKvMm8VgWpK9ygf+lEu2A6k9/fkR3l3mH8ZjKA4ET1o2/KboH0s4aE/TlkbNxHTC0KOqHME9gDxeBobZfA3ua+hflYsQMxl/ID5hPvzpn+7/dKy4Opb18uli/0IXk+SwFuI20LOAOzzIGEv5xnwxt7btp8tLW749kGQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:MW2PR0102MB3482.prod.exchangelabs.com; PTR:; CAT:NONE;
+ SFS:(4636009)(136003)(39850400004)(376002)(366004)(396003)(346002)(83380400001)(7416002)(8676002)(2906002)(921005)(6512007)(478600001)(38100700002)(8936002)(186003)(16526019)(38350700002)(52116002)(5660300002)(956004)(2616005)(4326008)(110136005)(54906003)(316002)(66556008)(66476007)(66946007)(6486002)(6506007)(1076003)(26005)(86362001)(6666004);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?Vliqi79pWnJuaAvUsAEf2F90MxOAy0oGVEof5NIjm0bQ+UzcmffP8KqNNiN4?=
+ =?us-ascii?Q?yD4kq6IIy0HHcVFn3er0Gpnxsg9cZ1JqERAPgAvYKMx3fRkNNaxrNZpY0lIU?=
+ =?us-ascii?Q?d6C3b0Qjc+UJsB7E+5KDhGsc7aE+cZ4D8Rg6u7AlJs5zbklNTVR3LRlchljJ?=
+ =?us-ascii?Q?mJO2xht4w6C+4rHXtpxfKDSsnMjWva5W96oVJKv43jDIV+138EqnLq021xN0?=
+ =?us-ascii?Q?wQArxOWONyLtmNCfKYUs9BTNt44vlW8nK3fIi2Jno5NeiBIrbhXWWLh468i0?=
+ =?us-ascii?Q?ccwfYbyQ/SSBre66SC09hz6GI60H51dmprXFm7gJ5/g6dEII241uFTDx5mPl?=
+ =?us-ascii?Q?u9/cOgeAXJ2b+Ftu75CecAqUdJfJKh2v2iDOJM9KB3lh0gEb48D4kGIc8Q23?=
+ =?us-ascii?Q?MQDzmT+vCPyKru8OshuMjujMtACA2baTQMNNI5dNSq9UYuaBTHpYn9Dt26tv?=
+ =?us-ascii?Q?vbvaqEzYFBlXMNA7bXXN4NO5CknCx8q00sv39kZFnt4fitrdFbhXur7g9EH0?=
+ =?us-ascii?Q?oSin8wcCPSqKO9/Kj4BmfA64CSJpl3IURYmgGyuxaeU/YaGQziiFZyEJMOtc?=
+ =?us-ascii?Q?UnuFCR+7E2hmX6O4lkT/6rCeiN9Qjt0eND5yY2QfOl7kR6LYMowTa9Y6jlBQ?=
+ =?us-ascii?Q?ZEDW+Djtp9+3NwCDQCFVJcol1YxL0wv/+LR1956ALndA6zNxtIYO76p1weBA?=
+ =?us-ascii?Q?5y/OI3IaoJs1X+3HFPftZ2EU7twxiFH2pZPeb5PTmrbqzVa+bbaqBsPkvyDK?=
+ =?us-ascii?Q?2K/HQE3JXm27STUuNrQKgQztu640vIHdzO7jS7UWPH/jkCm5hUsA5J4o4XQ7?=
+ =?us-ascii?Q?f143ebgBltqtUJvzVeIL1WoPm4x+EqcbyayccViajyYGvfcsIQWrQ7ZuuDk5?=
+ =?us-ascii?Q?3c1Pcrh8WuBZXGYYfEuh+bXnn7SMxIyvcsoThcjn6/hBZmDKsWa7pb8WWB8f?=
+ =?us-ascii?Q?iUWnQT590e4GZ/AsSMR6P0Fmlics+6A3Lr17aAKw3PYa/c7nHU4mfffFK1Mt?=
+ =?us-ascii?Q?zJNpKR83m4Lm98LUA9T7aypx02jOE0B1FXdISS+x3jL/TYHGEqq7BmPvYsWi?=
+ =?us-ascii?Q?nruFxgjovG+ji6qpgCgcqhKjTzMUC8DIs/TmkGwCaKipLh1Lt6SDWZe9YW3I?=
+ =?us-ascii?Q?sP1tsscotMxzwgNGQwUPEy1s8sIvx/0/dqC+3JLDuQcoIbmYOCeJxne4Q/Oj?=
+ =?us-ascii?Q?Zr3/+3ZloIBLUrqOJUCLSRkTHl7+DaT6nWp5lZnnHdZQUUU91knv1R6ng0NO?=
+ =?us-ascii?Q?Ko5/XmRg8J3YXvw+3Vfjz/Z/XEYfHIY8HGCWeaTffYlqQ2d7F4XW3NphHL/0?=
+ =?us-ascii?Q?DRLD8L2WyRsHJYOGzynllYIi?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b64fa7f-f974-4f92-1693-08d91a9abd15
+X-MS-Exchange-CrossTenant-AuthSource: MW2PR0102MB3482.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2021 07:50:15.4354 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: L2Tce9SYQ5hlRUHkEIcbAmbxXV0HMeRnJX9xIRioTlO4ScCgiHGj8EwTmSnPSK5ahlafF/HRAbZ0o+t1IHzq+NziCeUDUmvwDFO2ylmfBRY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW2PR0102MB3451
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.43 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.43 listed in wl.mailspike.net]
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: suse.com]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
+ trust [40.107.244.116 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [40.107.244.116 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
-X-Headers-End: 1lhE5v-0001W9-JO
-Subject: Re: [Openipmi-developer] [PATCH] ipmi/watchdog: Stop watchdog timer
- when the current action is 'none'
+ 0.0 MSGID_FROM_MTA_HEADER  Message-Id was added by a relay
+X-Headers-End: 1ljHVK-00EfnX-KE
+Subject: [Openipmi-developer] [PATCH v3 0/7] Add Aspeed SSIF BMC driver
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -121,83 +171,70 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: openipmi-developer@lists.sourceforge.net,
- LKML <linux-kernel@vger.kernel.org>
+From: Quan Nguyen via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Quan Nguyen <quan@os.amperecomputing.com>
+Cc: Open Source Submission <patches@amperecomputing.com>,
+ "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
+ Phong Vo <phong@os.amperecomputing.com>, openbmc@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Thu, May 13, 2021 at 02:26:36PM +0200, Petr Pavlu wrote:
-> When an IPMI watchdog timer is being stopped in ipmi_close() or
-> ipmi_ioctl(WDIOS_DISABLECARD), the current watchdog action is updated to
-> WDOG_TIMEOUT_NONE and _ipmi_set_timeout(IPMI_SET_TIMEOUT_NO_HB) is called
-> to install this action. The latter function ends up invoking
-> __ipmi_set_timeout() which makes the actual 'Set Watchdog Timer' IPMI
-> request.
-> 
-> For IPMI 1.0, this operation results in fully stopping the watchdog timer.
-> For IPMI >= 1.5, function __ipmi_set_timeout() always specifies the "don't
-> stop" flag in the prepared 'Set Watchdog Timer' IPMI request. This causes
-> that the watchdog timer has its action correctly updated to 'none' but the
-> timer continues to run. A problem is that IPMI firmware can then still log
-> an expiration event when the configured timeout is reached, which is
-> unexpected because the watchdog timer was requested to be stopped.
-> 
-> The patch fixes this problem by not setting the "don't stop" flag in
-> __ipmi_set_timeout() when the current action is WDOG_TIMEOUT_NONE which
-> results in stopping the watchdog timer. This makes the behaviour for
-> IPMI >= 1.5 consistent with IPMI 1.0. It also matches the logic in
-> __ipmi_heartbeat() which does not allow to reset the watchdog if the
-> current action is WDOG_TIMEOUT_NONE as that would start the timer.
+This series add support for the Aspeed specific SSIF BMC driver which
+is to perform in-band IPMI communication with the host in management
+(BMC) side.
 
-Yes, I believe this is correct, though it took a bit to be sure :).
-Applied for linux-next.  I'm also requesting backport to stable kernels.
+v3:
+  + Switched binding doc to use DT schema format [Rob]
+  + Splited into generic ssif_bmc and aspeed-specific [Corey, Joel]
+  + Removed redundant license info [Joel]
+  + Switched to use traditional if-else [Joel]
+  + Removed unused ssif_bmc_ioctl() [Joel]
+  + Made handle_request()/complete_response() to return void [Joel]
+  + Refactored send_ssif_bmc_response()/receive_ssif_bmc_request() [Corey]
+  + Remove mutex [Corey]
+  + Use spin_lock/unlock_irqsave/restore in callback [Corey]
+  + Removed the unnecessary memset [Corey]
+  + Switch to use dev_err() [Corey]
+  + Combine mask/unmask two interrupts together [Corey]
+  + Fixed unhandled Tx done with NAK [Quan]
+  + Late ack'ed Tx done w/wo Ack irq [Quan]
+  + Use aspeed-specific exported aspeed_set_slave_busy() when slave busy
+to fix the deadlock [Graeme, Philipp, Quan]
+  + Clean buffer for last multipart read [Quan]
+  + Handle unknown incoming command [Quan]
 
--corey
+v2:
+  + Fixed compiling error with COMPILE_TEST for arc
 
-> 
-> Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
-> ---
->  drivers/char/ipmi/ipmi_watchdog.c | 22 ++++++++++++----------
->  1 file changed, 12 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
-> index 32c334e34d55..e4ff3b50de7f 100644
-> --- a/drivers/char/ipmi/ipmi_watchdog.c
-> +++ b/drivers/char/ipmi/ipmi_watchdog.c
-> @@ -371,16 +371,18 @@ static int __ipmi_set_timeout(struct ipmi_smi_msg  *smi_msg,
->  	data[0] = 0;
->  	WDOG_SET_TIMER_USE(data[0], WDOG_TIMER_USE_SMS_OS);
->  
-> -	if ((ipmi_version_major > 1)
-> -	    || ((ipmi_version_major == 1) && (ipmi_version_minor >= 5))) {
-> -		/* This is an IPMI 1.5-only feature. */
-> -		data[0] |= WDOG_DONT_STOP_ON_SET;
-> -	} else if (ipmi_watchdog_state != WDOG_TIMEOUT_NONE) {
-> -		/*
-> -		 * In ipmi 1.0, setting the timer stops the watchdog, we
-> -		 * need to start it back up again.
-> -		 */
-> -		hbnow = 1;
-> +	if (ipmi_watchdog_state != WDOG_TIMEOUT_NONE) {
-> +		if ((ipmi_version_major > 1) ||
-> +		    ((ipmi_version_major == 1) && (ipmi_version_minor >= 5))) {
-> +			/* This is an IPMI 1.5-only feature. */
-> +			data[0] |= WDOG_DONT_STOP_ON_SET;
-> +		} else {
-> +			/*
-> +			 * In ipmi 1.0, setting the timer stops the watchdog, we
-> +			 * need to start it back up again.
-> +			 */
-> +			hbnow = 1;
-> +		}
->  	}
->  
->  	data[1] = 0;
-> -- 
-> 2.26.2
-> 
+Quan Nguyen (7):
+  i2c: i2c-core-smbus: Expose PEC calculate function for generic use
+  ipmi: ssif_bmc: Add SSIF BMC driver
+  i2c: aspeed: Fix unhandled Tx done with NAK
+  i2c: aspeed: Acknowledge Tx done w/wo ACK irq late
+  i2c: aspeed: Add aspeed_set_slave_busy()
+  ipmi: ssif_bmc: Add Aspeed SSIF BMC driver
+  bindings: ipmi: Add binding for Aspeed SSIF BMC driver
+
+ .../bindings/ipmi/aspeed-ssif-bmc.yaml        |  33 +
+ drivers/char/ipmi/Kconfig                     |  22 +
+ drivers/char/ipmi/Makefile                    |   2 +
+ drivers/char/ipmi/ssif_bmc.c                  | 605 ++++++++++++++++++
+ drivers/char/ipmi/ssif_bmc.h                  |  93 +++
+ drivers/char/ipmi/ssif_bmc_aspeed.c           |  75 +++
+ drivers/i2c/busses/i2c-aspeed.c               |  51 +-
+ drivers/i2c/i2c-core-smbus.c                  |  12 +-
+ include/linux/i2c.h                           |   1 +
+ 9 files changed, 884 insertions(+), 10 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/ipmi/aspeed-ssif-bmc.yaml
+ create mode 100644 drivers/char/ipmi/ssif_bmc.c
+ create mode 100644 drivers/char/ipmi/ssif_bmc.h
+ create mode 100644 drivers/char/ipmi/ssif_bmc_aspeed.c
+
+-- 
+2.28.0
+
 
 
 _______________________________________________
