@@ -2,58 +2,58 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id EF1C9388952
-	for <lists+openipmi-developer@lfdr.de>; Wed, 19 May 2021 10:24:52 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BB1C33888F1
+	for <lists+openipmi-developer@lfdr.de>; Wed, 19 May 2021 10:06:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:MIME-Version:Message-Id:Date:To:Sender:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4xR505oLliU9JquqKPJVWMDSnkfn1y0rloE9Hx+/2ww=; b=FXIpypraPX2byPScT478dUVbwe
-	S/PMlcSVSRilBzfy2YNsbv/AyzvRvVFKloyTih51dU1DAwI2eJFPMRTtmnwPq4+igcQf1/7+u/W7H
-	cppbyplNijOAW2dvd9xO8PCriyDZK8JAu9SqoMwghf2IfPf64zmKR1PaXnpIAotAic84=;
+	List-Unsubscribe:List-Id:Subject:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:To:Sender:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Eug+rh951+5xiIUk7rFpeXsg6yToaOiMpaqrzT+ZigQ=; b=AhaUJB+xGk9rU4azLsYWXoNwg
+	f2H5pwMLgvteprJc7khLVV9Xl2ZugFqNthnGPNA6vwVB8sdE9HD4xVTzuKhRAx2u+KnQTZBra4kuW
+	sw6gn7tdgC4vRYhVySjCBk0nQSV+NouSdn6yorKU92BLKA9Q04P1eDrru4V1oDWk+gvOg=;
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ljHVY-0003VI-T2; Wed, 19 May 2021 08:24:48 +0000
+	id 1ljHDV-0002P5-Ew; Wed, 19 May 2021 08:06:09 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <quan@os.amperecomputing.com>) id 1ljHVW-0003V9-81
- for openipmi-developer@lists.sourceforge.net; Wed, 19 May 2021 08:24:46 +0000
+ (envelope-from <quan@os.amperecomputing.com>) id 1ljHDT-0002Op-LA
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 May 2021 08:06:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=MIME-Version:Content-Type:Content-Transfer-Encoding
- :Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=xMzGIKuhioI5dKKj4UXaGOHki/qKge3G2HGDlIHJmJM=; b=l431oqlfguYXAdAjJjAJOS4LUY
- iBSwvHNXcMRza+SxNDaKXNtUijuea5wGg8vqByTfirnjs+zFsdc9QKfQqUe5DEGfNeFz0XYZ5x1B3
- u6GZRVoqyAdCoemRkwhR6QboBpy5Tf4+KTVgNrc9t+vEn3XB0nfhi5mQhr34De8qiruc=;
+ bh=vje+03qevVU6+32AS/CatzC60RQwdsWneb80iFwSmC4=; b=jFCU6FHYgN3qiHxme3I+OBU/mG
+ zb3bBcml2miTbbXKVARhQRGE26JLS9DEn3oYf4Y42dF1r5gD3VKo0Z9lZLf7IJg5RMAq1pOFLPz2v
+ W5TKC2eJACl3RCZOPaXI84bTevDFLBhDqweY2lEe0Oskr84YQwbRcZW4y/l0DZvp/S0E=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Date:
- Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
- :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=xMzGIKuhioI5dKKj4UXaGOHki/qKge3G2HGDlIHJmJM=; b=Q
- wwr9DeINpYWMJf+GThO3/aWR46gbc7wuT+pdHcE20Lq9tmwEXFG42vBXcTeM9ZR4gsqJ8nIYIK2w+
- jdzoVRCn93XiRnKrl71avcHox4Djgc8PMK8crWxQ9tCBQamOrAijRVmwFw9wrNFe4jhETagkf7W+W
- 8iSmgQTmjZHs31BU=;
-Received: from mail-mw2nam12on2116.outbound.protection.outlook.com
- ([40.107.244.116] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
- id 1ljHVK-00EfnX-KE
- for openipmi-developer@lists.sourceforge.net; Wed, 19 May 2021 08:24:47 +0000
+ h=MIME-Version:Content-Type:Content-Transfer-Encoding:References:
+ In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=vje+03qevVU6+32AS/CatzC60RQwdsWneb80iFwSmC4=; b=ABVFUhlltgbI7IQIY5/Yk4k2sk
+ xoVA2KfHy3YNVPTi4OR2bIDJWFFPVAIMJPkbtilc+5rAjG7Fqlvyd6GciSCjBBnR4I+eTDPi9R8t+
+ QHVhQe2frQA53Y32E+I9/E7Vnt/W10uptdYOmrB+wZskC+j9JFEI5ozIiAimCb84hq7c=;
+Received: from mail-bn8nam11on2133.outbound.protection.outlook.com
+ ([40.107.236.133] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1ljHDJ-0002ah-Rg
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 May 2021 08:06:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=C5Ofs9DiV3HM7R4zcK9DP4Taw4TgDOeJAxW0/iQriSMa8KG3VkOtWOmQ5H/t+wFWZ3hbF9E5vkwSoJZo7hGVUyGnMdwpup7ZZ5ILGgdo1RhuS6X5wq80NCgYEmYWGgdvZVi5DqcI2B/joP3ZCDf50/z2DB3+ey/R2U+kVpiQbSzED/iZz3vKp9wRI2oee0tIbCB/Op7GLjHjrKKVgKAZ8tgowujsR2++/Vlnm/NBoQEk+SmsiRaYZoOXoeb+OEx+4OTZ5yIqdlTO6A02dbbPFmM2CQXz9m6Ls7GuI0gUVaNAP6Huahk4zl+nbEHlnvXPxBGPepxkL+ThTVccDsWrzA==
+ b=XQvmGutb/vHC8DS+xxGsvISJZ58En5zJX+GACGLfri9h9cZO9jwX7U89zc6eGJIP9ytAZjhOzFwuojIH3TY1WCqePMnoTSfK0a+4e3R//GSm4NQpDV582yvFyLZIvTtG9CQlcb259IBrMe7/h6/mek6ZWSdKCHZFwrYSj35kHCVL9xHM5CoqWGVyaqxtsauoeSf9Wa9ro6dB0bb01f2F4JSvoDBQoGhTf1jLoBaPmxd5Bj0/XthprpDaxaJN9Wcn9kV6hap/K2XtWUg0Lggw/s8+3WJIW3mhSlRHDtF+l5JI4XBscxwbdzFsjtvlswSvxsngj0q7X0XwvfIkkhFopA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xMzGIKuhioI5dKKj4UXaGOHki/qKge3G2HGDlIHJmJM=;
- b=FNL/PtlVQLZETLcqiXV3vjKM+TUo0lHim9yotoMsR9MDVOaIEHPalwq5kb+rE3thg9NKxkTs1FBmyZoa1PWKuiMzxdV6W58o/PSZGafZy+WdYjt5/0KGHxO8c5y9wQzahOg0RIwBbwiqZTDhas0/EkLAbPeJKb584/Co+lJdI2QghKwFCJjwijzWTclbU8YNiHnRpP400Dw6WRM0TQVzIoJqyqBsAnEWXb0cB+3SOcooKBNvjdZn8FZ92A0aJGDKtncWkFu850bYhgMT4HGsmadgcwArGheWHi3cuCMwrZhJqlQhv3Gwce4dyzDqfmWdjJo5zDqpqaBm+R6HYg25YA==
+ bh=vje+03qevVU6+32AS/CatzC60RQwdsWneb80iFwSmC4=;
+ b=HHHrZfGHgRmx3JloaPkZRZlr+mn246qHZu9WgHoscFLPcyzvi0pHwmoZqmqEdNKEgGbRpE+1Ez8Dffbukvv165XN8Nr6NrJYwbpED8yzG0+kAS0fXrUsLrPXgQrAs2fz0K2oKEF3ngfDwO7+YdAW0z5TcRdRLTteaajV7Bft+Ine+XrpoP6DNREwYo9RNlhUAuJKpJZ5zPtE1t4Q9AqK5Nc3x0dzHpQ9fvXMs8s+OlTLayTCiYNhLtS/bZi9O8SoNS7XwCyZtncSlLLhPG1Zivr/9Ej9c1nsLn67Rf4gW8tN3XEZcYaRvDdtN9mL2KLvV2jNzPFNYuJGUJb889WjCw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -61,20 +61,20 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xMzGIKuhioI5dKKj4UXaGOHki/qKge3G2HGDlIHJmJM=;
- b=ZcagqrcP7E/DGZkcVZyXhWAfBp9yaUlYYkrHbVydvpDz0kmecJz9ZwCuFw3baxlqjhkQPeStuxjKYk0cXFpeT8EBRf0tcQmEodZR4AB4shDXeZNYg/Q9ScM2Rd5u3zsOAi10fSwRoAVQ2pQD87nvSY0ZXKaeGAfC6aLM/Hl5XLM=
+ bh=vje+03qevVU6+32AS/CatzC60RQwdsWneb80iFwSmC4=;
+ b=HubBXMIMmRJo1Zqj0Nc1J4or3rOJp6wwVZoHb6p1zIY2z5/6aaLWZ03mtlnqZlZ1EFCGO8QGXiOgdeteUkaFV6VcbOYdYMw+hwCO7B4jtCLRRbdAljD+KYUX+9hu8PLICm73/wZ7BBijZuhdhAa3fbheGZJCs8p96e64zveGWzA=
 Authentication-Results: acm.org; dkim=none (message not signed)
  header.d=none;acm.org; dmarc=none action=none
  header.from=os.amperecomputing.com;
 Received: from MW2PR0102MB3482.prod.exchangelabs.com (2603:10b6:302:c::32) by
- MW2PR0102MB3451.prod.exchangelabs.com (2603:10b6:302:10::16) with
+ CO1PR01MB6743.prod.exchangelabs.com (2603:10b6:303:d5::10) with
  Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.4129.28; Wed, 19 May 2021 07:50:16 +0000
+ 15.20.4129.26; Wed, 19 May 2021 07:50:33 +0000
 Received: from MW2PR0102MB3482.prod.exchangelabs.com
  ([fe80::d840:7aa7:58d4:b503]) by MW2PR0102MB3482.prod.exchangelabs.com
  ([fe80::d840:7aa7:58d4:b503%5]) with mapi id 15.20.4129.032; Wed, 19 May 2021
- 07:50:15 +0000
+ 07:50:32 +0000
 To: Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
  Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
  Brendan Higgins <brendanhiggins@google.com>,
@@ -83,9 +83,11 @@ To: Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
  openipmi-developer@lists.sourceforge.net, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
  linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
-Date: Wed, 19 May 2021 14:49:27 +0700
-Message-Id: <20210519074934.20712-1-quan@os.amperecomputing.com>
+Date: Wed, 19 May 2021 14:49:31 +0700
+Message-Id: <20210519074934.20712-5-quan@os.amperecomputing.com>
 X-Mailer: git-send-email 2.28.0
+In-Reply-To: <20210519074934.20712-1-quan@os.amperecomputing.com>
+References: <20210519074934.20712-1-quan@os.amperecomputing.com>
 X-Originating-IP: [118.69.219.201]
 X-ClientProxiedBy: HK2PR04CA0081.apcprd04.prod.outlook.com
  (2603:1096:202:15::25) To MW2PR0102MB3482.prod.exchangelabs.com
@@ -95,70 +97,75 @@ X-MS-Exchange-MessageSentRepresentingType: 1
 Received: from hcm-sw-17.amperecomputing.com (118.69.219.201) by
  HK2PR04CA0081.apcprd04.prod.outlook.com (2603:1096:202:15::25) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.4129.25 via Frontend Transport; Wed, 19 May 2021 07:50:11 +0000
+ 15.20.4129.25 via Frontend Transport; Wed, 19 May 2021 07:50:28 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 4b64fa7f-f974-4f92-1693-08d91a9abd15
-X-MS-TrafficTypeDiagnostic: MW2PR0102MB3451:
+X-MS-Office365-Filtering-Correlation-Id: f2418c50-8fee-4f63-f5ea-08d91a9ac77a
+X-MS-TrafficTypeDiagnostic: CO1PR01MB6743:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <MW2PR0102MB34515934BD192F5A6C4F1803F22B9@MW2PR0102MB3451.prod.exchangelabs.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:6790;
+X-Microsoft-Antispam-PRVS: <CO1PR01MB67435816505D584640D67BA8F22B9@CO1PR01MB6743.prod.exchangelabs.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: ksnt2QQ8Y3z1deR/dYJGCaIpFivW2U6uwYxH1H+5nPCOVcdgbVFRYMv0TQg1luhylipfMcD3wUY0PF67agnlhGIouFEB65OvCPI32eGfk70Yd3iknzLQiSTmVeBtbYDNORIPpVUeMEoaDo/1LJuIQWMTUqSjBCsUKAZiFIZ7IiQZCNDa7yH5cWUX1sEIR32EFYyoCT+shHZAukQ7jh44qs23Wh+EZW8+ZI+dS2dOKz8WqJWNw+61PEgXfooKYgkYj2wWSQsYaprvKT/RRe4QqExOrMdBheH08SuHPIVEy5fz+vC2gGE8Vjo8WuGT2yoeu5BmRK4GU5YOTpKx/bJzFELmTT2Tx62eOIA2v3OotAITei70ACYeitEUBfeIqxAi6Av9i4F+bZflBetT4mAoLLC+ib5f8Abe09kZ4+DpAsZpiQpoLO/ezWWYK1WXBaSihJSkVm0B4Vx1LIikqzlPAO9luXDAzS9V10tQkn/efHlEAnzzvArFCsjadtpVUhlbAi9miYVEZKvMm8VgWpK9ygf+lEu2A6k9/fkR3l3mH8ZjKA4ET1o2/KboH0s4aE/TlkbNxHTC0KOqHME9gDxeBobZfA3ua+hflYsQMxl/ID5hPvzpn+7/dKy4Opb18uli/0IXk+SwFuI20LOAOzzIGEv5xnwxt7btp8tLW749kGQ=
+X-Microsoft-Antispam-Message-Info: jLJkJWUfLVVr+Uhc5cxc8v0KDPPJUSi6Z1MCHljoB+nOCpV5cf1kJBubvqNInG/msDAgy2yveBCTGTnQFOpt0o1cgz4+emPNgTQHWDv7wbRAI5Pz4r19XvHT9VkxMaK8g4HEEZeCEmppNm3aAUa4iRftllqe+aGFLo8nEWzqXFwDbfNNwejFtGmCaU/upNchfj76575m4mx2RrSN6blyeQlkkbIJhUcc3G5c0o8MU7f+vVFu4R9inZL4s6SvgnGThyvTcLndl2P9vyMUQvSdDzRZicIrdvW5ERx1K6ieswVGO7qJWfZji7NWztdrOBhNSHgOZqHvMlMKcnY5wfXeche7dQCtV5Uf7MoUFlEorIDsQOfzz9iyl2xRkkvwAAUpdclxkkei+irFn5il6PW018VHbNGxAbzRuweYTJ//+lXK3WO8tqNqTDIvmiEs5X18aD38n1u7jOJdNnnz3FnCIG8fjmlVVAvfrw3dhE9BSPLGOcvb2Joh32xK0rr4Q+FQyTm2UVXf+3grw+5I8h2xmQizAgySLTjKLi5rd3BlS5Vngzqja9YoKnbeHqPhkYpemeQ73tshGmaCEZbzxEu1ESSIRzrZEhAaUQYpouG0JMHk91oaplcZNtPQ4zaJoQdxgHXkDA/cFhRszVndhVHXVDMnQU0m3E176ABBHrddGsU=
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:MW2PR0102MB3482.prod.exchangelabs.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(39850400004)(376002)(366004)(396003)(346002)(83380400001)(7416002)(8676002)(2906002)(921005)(6512007)(478600001)(38100700002)(8936002)(186003)(16526019)(38350700002)(52116002)(5660300002)(956004)(2616005)(4326008)(110136005)(54906003)(316002)(66556008)(66476007)(66946007)(6486002)(6506007)(1076003)(26005)(86362001)(6666004);
+ SFS:(4636009)(366004)(39850400004)(376002)(136003)(346002)(396003)(478600001)(66946007)(66476007)(8676002)(8936002)(956004)(921005)(66556008)(52116002)(6506007)(2616005)(6512007)(5660300002)(86362001)(4326008)(38100700002)(1076003)(38350700002)(7416002)(316002)(83380400001)(186003)(6666004)(2906002)(110136005)(54906003)(6486002)(16526019)(26005);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?Vliqi79pWnJuaAvUsAEf2F90MxOAy0oGVEof5NIjm0bQ+UzcmffP8KqNNiN4?=
- =?us-ascii?Q?yD4kq6IIy0HHcVFn3er0Gpnxsg9cZ1JqERAPgAvYKMx3fRkNNaxrNZpY0lIU?=
- =?us-ascii?Q?d6C3b0Qjc+UJsB7E+5KDhGsc7aE+cZ4D8Rg6u7AlJs5zbklNTVR3LRlchljJ?=
- =?us-ascii?Q?mJO2xht4w6C+4rHXtpxfKDSsnMjWva5W96oVJKv43jDIV+138EqnLq021xN0?=
- =?us-ascii?Q?wQArxOWONyLtmNCfKYUs9BTNt44vlW8nK3fIi2Jno5NeiBIrbhXWWLh468i0?=
- =?us-ascii?Q?ccwfYbyQ/SSBre66SC09hz6GI60H51dmprXFm7gJ5/g6dEII241uFTDx5mPl?=
- =?us-ascii?Q?u9/cOgeAXJ2b+Ftu75CecAqUdJfJKh2v2iDOJM9KB3lh0gEb48D4kGIc8Q23?=
- =?us-ascii?Q?MQDzmT+vCPyKru8OshuMjujMtACA2baTQMNNI5dNSq9UYuaBTHpYn9Dt26tv?=
- =?us-ascii?Q?vbvaqEzYFBlXMNA7bXXN4NO5CknCx8q00sv39kZFnt4fitrdFbhXur7g9EH0?=
- =?us-ascii?Q?oSin8wcCPSqKO9/Kj4BmfA64CSJpl3IURYmgGyuxaeU/YaGQziiFZyEJMOtc?=
- =?us-ascii?Q?UnuFCR+7E2hmX6O4lkT/6rCeiN9Qjt0eND5yY2QfOl7kR6LYMowTa9Y6jlBQ?=
- =?us-ascii?Q?ZEDW+Djtp9+3NwCDQCFVJcol1YxL0wv/+LR1956ALndA6zNxtIYO76p1weBA?=
- =?us-ascii?Q?5y/OI3IaoJs1X+3HFPftZ2EU7twxiFH2pZPeb5PTmrbqzVa+bbaqBsPkvyDK?=
- =?us-ascii?Q?2K/HQE3JXm27STUuNrQKgQztu640vIHdzO7jS7UWPH/jkCm5hUsA5J4o4XQ7?=
- =?us-ascii?Q?f143ebgBltqtUJvzVeIL1WoPm4x+EqcbyayccViajyYGvfcsIQWrQ7ZuuDk5?=
- =?us-ascii?Q?3c1Pcrh8WuBZXGYYfEuh+bXnn7SMxIyvcsoThcjn6/hBZmDKsWa7pb8WWB8f?=
- =?us-ascii?Q?iUWnQT590e4GZ/AsSMR6P0Fmlics+6A3Lr17aAKw3PYa/c7nHU4mfffFK1Mt?=
- =?us-ascii?Q?zJNpKR83m4Lm98LUA9T7aypx02jOE0B1FXdISS+x3jL/TYHGEqq7BmPvYsWi?=
- =?us-ascii?Q?nruFxgjovG+ji6qpgCgcqhKjTzMUC8DIs/TmkGwCaKipLh1Lt6SDWZe9YW3I?=
- =?us-ascii?Q?sP1tsscotMxzwgNGQwUPEy1s8sIvx/0/dqC+3JLDuQcoIbmYOCeJxne4Q/Oj?=
- =?us-ascii?Q?Zr3/+3ZloIBLUrqOJUCLSRkTHl7+DaT6nWp5lZnnHdZQUUU91knv1R6ng0NO?=
- =?us-ascii?Q?Ko5/XmRg8J3YXvw+3Vfjz/Z/XEYfHIY8HGCWeaTffYlqQ2d7F4XW3NphHL/0?=
- =?us-ascii?Q?DRLD8L2WyRsHJYOGzynllYIi?=
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?ToJVO/5iyna5eBVqkey+8GgyoobcAhBGvp8J9YzXSuTS0KJfn+qHqnNANG+7?=
+ =?us-ascii?Q?YI/pO94rJAsRN+tUlLveluytVVsj0GAICtv8dYeJFBlL4OJkN1JkwLGLwZvA?=
+ =?us-ascii?Q?7L2dQuXMUo1RtKSQHHSsGCL/k0d5A5CDIJmz1Cz7ldF4mkJgfHp5c6BMDFis?=
+ =?us-ascii?Q?TJk2mq8BADHsjspdQwcMvpqJvRedJUURbO/5Ekf/MEybz9aw1qv5Z6hjdIgp?=
+ =?us-ascii?Q?tm3gVCEm+aBH995E9xQ0QIJ7iG4vUX4zGwc8ylhfbr5m+pV+vmFQYmI7N6zP?=
+ =?us-ascii?Q?LhFW/r9j1AOFFssiqfc7BBiR3w4ileBnI5BGGYdeACyOeqhZiMIM273YwQvt?=
+ =?us-ascii?Q?HvfW4mHqVDEhMuJllMn+GwGHHo8J28rfB7m9X8ZufnzviELtwN5DUSXwALVH?=
+ =?us-ascii?Q?tZD1obDko7USo20BbJaw5HEWMl8ZzJiX4OnK9vcwnMT1RmcS1OTGJVUkBh2o?=
+ =?us-ascii?Q?SoduwiDlGjS5zZXk91ArPNZB5sSTfBY03fa17nvo7pwJdiFOA8/C1eKo29LH?=
+ =?us-ascii?Q?LHaLwvKkXuQSFk4FXKuCgildKvefSymMxU7GDAsPbdAMcqLD5B0VlU5ejHYh?=
+ =?us-ascii?Q?lIPU3nPUxH4tdI3TqbBU/K2TP/O/fXKnAu7ZKSxXPCHsnd2+kCXQSZaJ+sav?=
+ =?us-ascii?Q?9Qwufh5JIS3HX4zCzNUXyQkMgsEQvuNxrJDWGadwwWwdIyOWA6Q244I0uww5?=
+ =?us-ascii?Q?ehNcAwOYDdRVvuSG5KBvhMnADbo7e/ChgJIqtc5TcoX4P1iqJLcOIopmde7R?=
+ =?us-ascii?Q?PlulP9wCZp0Cz+0e12mN34FnMSKvjbvixxpWFla0EzpMY9Z12KYZBX6IJ972?=
+ =?us-ascii?Q?zdX8/h5oZCWhweCUpAl01NlhGVcVXqN76OCXei5aLAMrZILf7akMmGneKWUM?=
+ =?us-ascii?Q?Z/0g04jjnQqZT6gMaautfc+Bty2uz77mG4HvugNBZEggT1ec9KHAj3FEl+mF?=
+ =?us-ascii?Q?16wK0qNcMp6LCeAuImYGD+RJhC0wGd8uVnx0Qt+HIDRj0EoOyaw6b1/z0zw8?=
+ =?us-ascii?Q?ZvVhYIFe3ajFtC03ZkiG8CcJj7dW7vI9Mw1TUz4b8UVbh9aMcPCN2POHEqRe?=
+ =?us-ascii?Q?saGOyh6fthOFsDZc24er/cadB2LJfN6rykO8Jrp9LjSRNUegXjRm10cRqYas?=
+ =?us-ascii?Q?FhKFypkQTHDom6nrvfnMppJH8wgS1k5gzvMpSn9JL4duV8jnDHKSqS4vhe57?=
+ =?us-ascii?Q?mUm6gndR15tHRsRmrkGRPebKLUVooY+z7DIJcUaBj61a/p9w4jyh8d4Q6ctE?=
+ =?us-ascii?Q?OJwwoFI84zZcVB5JaPxkDycOCPa3pJ4sfvwozkdvWbev07ynVPmjc/Dhc/5j?=
+ =?us-ascii?Q?Qxqp1Ho+WRH7y99NlaVi0gSi?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b64fa7f-f974-4f92-1693-08d91a9abd15
+X-MS-Exchange-CrossTenant-Network-Message-Id: f2418c50-8fee-4f63-f5ea-08d91a9ac77a
 X-MS-Exchange-CrossTenant-AuthSource: MW2PR0102MB3482.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2021 07:50:15.4354 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2021 07:50:32.8243 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: L2Tce9SYQ5hlRUHkEIcbAmbxXV0HMeRnJX9xIRioTlO4ScCgiHGj8EwTmSnPSK5ahlafF/HRAbZ0o+t1IHzq+NziCeUDUmvwDFO2ylmfBRY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW2PR0102MB3451
+X-MS-Exchange-CrossTenant-UserPrincipalName: NluZkF8BB6Dj0Got2FxuiLIIpzRq7sW2PEK5Bu3qB+1SliDKYNXPGZJhNvqtmjQnICMw/5dMufmHte+h+4G+NRqzgEQjkdeDPHoPV5v0lg8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB6743
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: amperecomputing.com]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [40.107.244.116 listed in list.dnswl.org]
+ trust [40.107.236.133 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [40.107.236.133 listed in wl.mailspike.net]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [40.107.244.116 listed in wl.mailspike.net]
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 MSGID_FROM_MTA_HEADER  Message-Id was added by a relay
-X-Headers-End: 1ljHVK-00EfnX-KE
-Subject: [Openipmi-developer] [PATCH v3 0/7] Add Aspeed SSIF BMC driver
+X-Headers-End: 1ljHDJ-0002ah-Rg
+Subject: [Openipmi-developer] [PATCH v3 4/7] i2c: aspeed: Acknowledge Tx
+ done w/wo ACK irq late
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -181,57 +188,67 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-This series add support for the Aspeed specific SSIF BMC driver which
-is to perform in-band IPMI communication with the host in management
-(BMC) side.
+With Tx done w/wo ACK are ack'ed early at beginning of irq handler,
+it is observed that, usually, the Tx done with Ack irq raises in the
+READ REQUESTED state. This is unexpected and complaint as below appear:
+"Unexpected Ack on read request"
 
+Assumed that Tx done should only be ack'ed once it was truly processed,
+switch to late ack'ed this two irqs and seen this issue go away through
+test with AST2500..
+
+Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
+---
 v3:
-  + Switched binding doc to use DT schema format [Rob]
-  + Splited into generic ssif_bmc and aspeed-specific [Corey, Joel]
-  + Removed redundant license info [Joel]
-  + Switched to use traditional if-else [Joel]
-  + Removed unused ssif_bmc_ioctl() [Joel]
-  + Made handle_request()/complete_response() to return void [Joel]
-  + Refactored send_ssif_bmc_response()/receive_ssif_bmc_request() [Corey]
-  + Remove mutex [Corey]
-  + Use spin_lock/unlock_irqsave/restore in callback [Corey]
-  + Removed the unnecessary memset [Corey]
-  + Switch to use dev_err() [Corey]
-  + Combine mask/unmask two interrupts together [Corey]
-  + Fixed unhandled Tx done with NAK [Quan]
-  + Late ack'ed Tx done w/wo Ack irq [Quan]
-  + Use aspeed-specific exported aspeed_set_slave_busy() when slave busy
-to fix the deadlock [Graeme, Philipp, Quan]
-  + Clean buffer for last multipart read [Quan]
-  + Handle unknown incoming command [Quan]
+  + First introduce in v3 [Quan]
 
-v2:
-  + Fixed compiling error with COMPILE_TEST for arc
+ drivers/i2c/busses/i2c-aspeed.c | 26 ++++++++++++++++++--------
+ 1 file changed, 18 insertions(+), 8 deletions(-)
 
-Quan Nguyen (7):
-  i2c: i2c-core-smbus: Expose PEC calculate function for generic use
-  ipmi: ssif_bmc: Add SSIF BMC driver
-  i2c: aspeed: Fix unhandled Tx done with NAK
-  i2c: aspeed: Acknowledge Tx done w/wo ACK irq late
-  i2c: aspeed: Add aspeed_set_slave_busy()
-  ipmi: ssif_bmc: Add Aspeed SSIF BMC driver
-  bindings: ipmi: Add binding for Aspeed SSIF BMC driver
-
- .../bindings/ipmi/aspeed-ssif-bmc.yaml        |  33 +
- drivers/char/ipmi/Kconfig                     |  22 +
- drivers/char/ipmi/Makefile                    |   2 +
- drivers/char/ipmi/ssif_bmc.c                  | 605 ++++++++++++++++++
- drivers/char/ipmi/ssif_bmc.h                  |  93 +++
- drivers/char/ipmi/ssif_bmc_aspeed.c           |  75 +++
- drivers/i2c/busses/i2c-aspeed.c               |  51 +-
- drivers/i2c/i2c-core-smbus.c                  |  12 +-
- include/linux/i2c.h                           |   1 +
- 9 files changed, 884 insertions(+), 10 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/ipmi/aspeed-ssif-bmc.yaml
- create mode 100644 drivers/char/ipmi/ssif_bmc.c
- create mode 100644 drivers/char/ipmi/ssif_bmc.h
- create mode 100644 drivers/char/ipmi/ssif_bmc_aspeed.c
-
+diff --git a/drivers/i2c/busses/i2c-aspeed.c b/drivers/i2c/busses/i2c-aspeed.c
+index 3fb37c3f23d4..b2e9c8f0ddf7 100644
+--- a/drivers/i2c/busses/i2c-aspeed.c
++++ b/drivers/i2c/busses/i2c-aspeed.c
+@@ -606,8 +606,12 @@ static irqreturn_t aspeed_i2c_bus_irq(int irq, void *dev_id)
+ 
+ 	spin_lock(&bus->lock);
+ 	irq_received = readl(bus->base + ASPEED_I2C_INTR_STS_REG);
+-	/* Ack all interrupts except for Rx done */
+-	writel(irq_received & ~ASPEED_I2CD_INTR_RX_DONE,
++	/*
++	 * Ack all interrupts except for Rx done and
++	 * Tx done with/without ACK
++	 */
++	writel(irq_received &
++	       ~(ASPEED_I2CD_INTR_RX_DONE | ASPEED_I2CD_INTR_TX_ACK | ASPEED_I2CD_INTR_TX_NAK),
+ 	       bus->base + ASPEED_I2C_INTR_STS_REG);
+ 	readl(bus->base + ASPEED_I2C_INTR_STS_REG);
+ 	irq_received &= ASPEED_I2CD_INTR_RECV_MASK;
+@@ -652,12 +656,18 @@ static irqreturn_t aspeed_i2c_bus_irq(int irq, void *dev_id)
+ 			"irq handled != irq. expected 0x%08x, but was 0x%08x\n",
+ 			irq_received, irq_handled);
+ 
+-	/* Ack Rx done */
+-	if (irq_received & ASPEED_I2CD_INTR_RX_DONE) {
+-		writel(ASPEED_I2CD_INTR_RX_DONE,
+-		       bus->base + ASPEED_I2C_INTR_STS_REG);
+-		readl(bus->base + ASPEED_I2C_INTR_STS_REG);
+-	}
++	/* Ack Rx done and Tx done with/without ACK */
++	/* Note: Re-use irq_handled variable */
++	irq_handled = 0;
++	if (irq_received & ASPEED_I2CD_INTR_RX_DONE)
++		irq_handled |= ASPEED_I2CD_INTR_RX_DONE;
++	if (irq_received & ASPEED_I2CD_INTR_TX_ACK)
++		irq_handled |= ASPEED_I2CD_INTR_TX_ACK;
++	if (irq_received & ASPEED_I2CD_INTR_TX_NAK)
++		irq_handled |= ASPEED_I2CD_INTR_TX_NAK;
++	writel(irq_handled, bus->base + ASPEED_I2C_INTR_STS_REG);
++	readl(bus->base + ASPEED_I2C_INTR_STS_REG);
++
+ 	spin_unlock(&bus->lock);
+ 	return irq_remaining ? IRQ_NONE : IRQ_HANDLED;
+ }
 -- 
 2.28.0
 
