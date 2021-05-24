@@ -2,97 +2,146 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BF73B38DE7B
-	for <lists+openipmi-developer@lfdr.de>; Mon, 24 May 2021 02:54:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F6C238E3EC
+	for <lists+openipmi-developer@lfdr.de>; Mon, 24 May 2021 12:22:09 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lkyrR-0004BQ-UP; Mon, 24 May 2021 00:54:25 +0000
+	id 1ll7in-0000Ww-3O; Mon, 24 May 2021 10:22:05 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <andrew@aj.id.au>) id 1lkyrQ-0004BA-BF
- for openipmi-developer@lists.sourceforge.net; Mon, 24 May 2021 00:54:24 +0000
+ (envelope-from <ryan_chen@aspeedtech.com>) id 1ll7il-0000V8-Tm
+ for openipmi-developer@lists.sourceforge.net; Mon, 24 May 2021 10:22:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Date:References:
- In-Reply-To:Message-Id:Mime-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
+ :In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=c1N+jbjenOjR/XYKJ9JrzDDr2ArT8jHcPPYVtFN0+8s=; b=Xs15OtMOm7UT1rygkzsUBMVNJZ
- ohsNOvY4bslSBOtyN+f4iX+wvBwD6qU4i5Ws+TygnSuv/IyEENZdR5PncDv5WKV6cnVoOLhLeSxdD
- kwxTCywfwtd9P7ZYqA1T9m9mT64d8/LXoUmyGWDcOmg3qk5cC1YYvbxxP9BY6b01SEk0=;
+ bh=bgKXfjbtHrW06do2INpix45cXQhlTD+/5X9lSQ/LKOI=; b=RHjTqCO40Vb/hwQEPuAuyfVIkO
+ OU3dO9/b7mmNVjzUSC7BqAnAaFLinf4xrkc0csbdBheYDf46P3YjItzcayputSsq2c8hNXZ+ZAMTl
+ ma7FGzBrKDDPxRvxKgEnl+UCw5CUJ0XnghBumKefGLmzsyiWMUr5Eh+XJnqvGgwXowr0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Subject:Cc:To:From:Date:References:In-Reply-To:Message-Id:
- Mime-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=c1N+jbjenOjR/XYKJ9JrzDDr2ArT8jHcPPYVtFN0+8s=; b=lZq3KLSSdjXlyzLfnNRM19MtG0
- Uh97jDybcqK99KHdgHgmnoabKLpEzEmg8/Q/i3nkIbzQqJdA/f5Q0h4nC1eNDooel/oMzBoJXfTqS
- LbfvdFEmCQ0gafTNL6BdFZAD6y5P4VDO4dSYrz5d9WUtn5sT1GAyW2NvG0UHEuFWpeYk=;
-Received: from new2-smtp.messagingengine.com ([66.111.4.224])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1lkyrB-0002Rg-RC
- for openipmi-developer@lists.sourceforge.net; Mon, 24 May 2021 00:54:23 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
- by mailnew.nyi.internal (Postfix) with ESMTP id C31455802BD;
- Sun, 23 May 2021 20:54:02 -0400 (EDT)
-Received: from imap2 ([10.202.2.52])
- by compute3.internal (MEProxy); Sun, 23 May 2021 20:54:02 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=
- mime-version:message-id:in-reply-to:references:date:from:to:cc
- :subject:content-type; s=fm2; bh=c1N+jbjenOjR/XYKJ9JrzDDr2ArT8jH
- cPPYVtFN0+8s=; b=ok68MILGrCZHwK/EEaDToidzeAy70JVtB9FjJ/pwDgHMLPY
- ovb+ac2A0hKcALq3BTdinuwCUU4tFEwGrOvVUL4mgilE0fbIeLVIYkvTSg/A3C9A
- isVLljZCWMdha3ynTPS17MuqSVPwWl+xJfQt4IZm5lrj3u6/bDh1GWIUQBVKySVd
- 7ERl6fYx9Hzwm7OyafapAf+HBqlPX9FYAxNvCWVQ9ffjN0rYZxPnzQvHDbFhf3R7
- IkCLkHtnZMQBtAnVcG+H+5GnhaCsHT3HniEb+iFzns1yaffCeyg6si9NuN84TU7r
- 3z366tuQSQtEi+GBbH7tKxItf/Q+Fdx23+XX7rw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=c1N+jb
- jenOjR/XYKJ9JrzDDr2ArT8jHcPPYVtFN0+8s=; b=sPFszQINYn+1MtITcFCPyx
- lNphgTAT0DJen+WqjLY3YH7HctWzuSJZ3zFTeSqLVuWZDYrW/idxoBb2M6LPgQEt
- ki/8+/Rk5S3eboxuGAYSLYMeGt4FwnCgkj+pOAJmlbNiPSPABGZshOSo60atWGdN
- cG0D6RtmqjLAFdmo/kORMxRpta5VgktFkB9TRMbfmX0piFWDr6uIDOQAVJbV4LjE
- DzJ46YD4tCg8RGGDBhp/tGiEQT+XdDLiX7JE1q4DwXdCPcoKSS4zY+wSpDL+idNh
- R1IVg/tHltd7L39TDpOgOOuq+WjNKHaAYxtN9BElPSGpkJQYPt1F36fzw4/0Bt1g
- ==
-X-ME-Sender: <xms:KfmqYFGXktOhUPKNJDzJOYcQ4Tzeks6lN1hunCMH1BbKURc_qdOeeQ>
- <xme:KfmqYKVP_82xbmIxz_bE2LM3yEsYweE7P_onWJwfGBmcrYdGMtiisHCAzK7IyH6hJ
- zaAN34p43ng12aQBA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrvdejkedgtdelucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepofgfggfkjghffffhvffutgesthdtredtreerjeenucfhrhhomhepfdetnhgu
- rhgvficulfgvfhhfvghrhidfuceorghnughrvgifsegrjhdrihgurdgruheqnecuggftrf
- grthhtvghrnhepuddttdekueeggedvtddtueekiedutdfguedutdefieeuteefieelteet
- vddthfeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
- eprghnughrvgifsegrjhdrihgurdgruh
-X-ME-Proxy: <xmx:KfmqYHJ_v5C8EG4EYW_NTn5UOzrX06fnPFbJZwnae3XD3YlkYQwJYg>
- <xmx:KfmqYLEbBUyIlB3eIXd5Hlj8oTL17cnH9n5uxKzO935D-w7tJcEf8g>
- <xmx:KfmqYLWUfTZj2bVKOVzdVzOrcjFw_MTyYmuY4pT_lvT-CSbWNEFr9g>
- <xmx:KvmqYIW307aCSiZ_4TnEnca3DgiXJQoDUWxBQVo4wWBb1GY4ECIEyg>
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
- id A081EA004B1; Sun, 23 May 2021 20:54:01 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.5.0-alpha0-448-gae190416c7-fm-20210505.004-gae190416
-Mime-Version: 1.0
-Message-Id: <79f3c6d1-1f74-46ec-99a0-37faf11517b6@www.fastmail.com>
-In-Reply-To: <20210521171412.GI2921206@minyard.net>
-References: <20210510054213.1610760-1-andrew@aj.id.au>
- <20210510054213.1610760-6-andrew@aj.id.au>
- <20210521171412.GI2921206@minyard.net>
-Date: Mon, 24 May 2021 10:23:36 +0930
-From: "Andrew Jeffery" <andrew@aj.id.au>
-To: "Corey Minyard" <minyard@acm.org>
-X-Spam-Score: -0.1 (/)
+ bh=bgKXfjbtHrW06do2INpix45cXQhlTD+/5X9lSQ/LKOI=; b=D0mk4zDliDHmtpcgs0BK8jKinf
+ slpEALy9p3T0qg39OtMdzAOc3DVpsI6a4KBhK3B0TQosiiwH2MAw/tQJA8Hj3eLTZtY3PKm7tKlnF
+ V0v9GyoZiW9yvaZKiIlAARUugYG/a5UrwXsVV5+0qdm6SF5lE32TppzRIdj+TteVUjbY=;
+Received: from mail-eopbgr1320091.outbound.protection.outlook.com
+ ([40.107.132.91] helo=APC01-PU1-obe.outbound.protection.outlook.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.2)
+ id 1ll7ie-0044Eg-Sz
+ for openipmi-developer@lists.sourceforge.net; Mon, 24 May 2021 10:22:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=KulFYzE+YpKeODk2HXzzBItSCA/jY02TAkNKtRCel4OZqW4zllfubuHIuStkiv8YwabWFTK/yd4Wf5JxijpOK35Fc3wi9TuR9RKVSuNb0rgZcXtzhCp+s6UxxvsoH29AL/Uc9aEXi22VI7j95EcmfxDgxRSmpXooigrJR5JE8zuHo/dFQo1q/S3Y4ILxfjk5XvF7esKRnmCd/XQYTa83iifi9PsrOhPsKJZFoaDS6m67VqglNXglQJiIBn42zbWUt31H4L+kBHgVFoKWJ3iBIq6FqbRZ5h7YPX1gkRXPwrJ+6BHCyexKccHNJ4S4XiHln/RGC72pdaG4nqmIqwnDQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bgKXfjbtHrW06do2INpix45cXQhlTD+/5X9lSQ/LKOI=;
+ b=Qu5g9Y8L1PIfngCplOBwC+RiFC07yPO4gftzqMeSA8G3bV2c3+rZCNgDoufAgN46VsDEYhVike9BUtQgcmF608oY1k4Pur+7buHQ9YihDdzCQXtPuz07dyyuIn29Y6fMT4qdApTBCl+tBAyP0EBGKkvktpSuR12mMnsDiPx2Nnk74bOPYbaPM9el0x7v3OFER9VraD2bG6zpVwTI2vKVEHgQW3uFmd0ii0/L65gREQtmkAzLdsJAdTURyDgXCam8sEGlDwxwMMFqDsA7kec5Jbw22A/rryRNESgQnSIMURyj694ketb7XEvIjcjbhQVfBlufJXmpe/XJRH3MkXR2Zw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bgKXfjbtHrW06do2INpix45cXQhlTD+/5X9lSQ/LKOI=;
+ b=mKIABpaQJ9fha0ZxZ8kWPcrrOFHCg5+8W/kaIa4BNXL/d1RRkKEIE6OLELHQuqyDWxp60DORcCaaj+/S4QtIhXItQXaoq2fl1X6RA70HOJRxYqG80bZw/X3p/uHnRE/72ggapP0eZLmzA0MLfryYykEaRa+R3C+jPzoY7JKcrML0Zr/qnx4FtWQh2p1oLNyuMAx1Rrzh/FJTOXro/nsU2fH/haxysGdsAllSNi/yN5gq5Uz/fVoyZLUUJlsZyVtW5LN2rzSrSFSnA6n1Pg6ndG/4lvyxMVPebulWS/0jxp9uOm6OQ+8tlIGM1bBjhWV97p4h68QzAS07kpNh/FP8DA==
+Received: from HK0PR06MB3380.apcprd06.prod.outlook.com (2603:1096:203:82::18)
+ by HK0PR06MB2578.apcprd06.prod.outlook.com (2603:1096:203:63::22)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4150.26; Mon, 24 May
+ 2021 10:06:13 +0000
+Received: from HK0PR06MB3380.apcprd06.prod.outlook.com
+ ([fe80::ec25:881b:f113:93dc]) by HK0PR06MB3380.apcprd06.prod.outlook.com
+ ([fe80::ec25:881b:f113:93dc%6]) with mapi id 15.20.4150.027; Mon, 24 May 2021
+ 10:06:12 +0000
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: Quan Nguyen <quan@os.amperecomputing.com>, Corey Minyard
+ <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>, Joel Stanley
+ <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, Brendan Higgins
+ <brendanhiggins@google.com>, Benjamin Herrenschmidt
+ <benh@kernel.crashing.org>, Wolfram Sang <wsa@kernel.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+ <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-i2c@vger.kernel.org"
+ <linux-i2c@vger.kernel.org>
+Thread-Topic: [PATCH v3 5/7] i2c: aspeed: Add aspeed_set_slave_busy()
+Thread-Index: AQHXTIQCISnhT+/XbEiDVKSu2FVXwqryb5QA
+Date: Mon, 24 May 2021 10:06:12 +0000
+Message-ID: <HK0PR06MB3380FD2B7649CFB48BEA2D4FF2269@HK0PR06MB3380.apcprd06.prod.outlook.com>
+References: <20210519074934.20712-1-quan@os.amperecomputing.com>
+ <20210519074934.20712-6-quan@os.amperecomputing.com>
+In-Reply-To: <20210519074934.20712-6-quan@os.amperecomputing.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: os.amperecomputing.com; dkim=none (message not signed)
+ header.d=none; os.amperecomputing.com;
+ dmarc=none action=none header.from=aspeedtech.com;
+x-originating-ip: [211.20.114.70]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 15891d5d-64cb-4472-997b-08d91e9b8f7a
+x-ms-traffictypediagnostic: HK0PR06MB2578:
+x-microsoft-antispam-prvs: <HK0PR06MB2578D54E9D2E885BBACD3DA4F2269@HK0PR06MB2578.apcprd06.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:4125;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: xom3LaH8GLXnegelyBcJAh4PtCc2f+BAWkARviG2EF+DCzep+Qpo/TCAy9sxPAdPz4NtvVh3aFCj0S9pYi7QEGxXWD+CdEKPS1RwK2NchFrP8kfqugWrfy02RYxQNAuZKotyUJf84Hg/amK5SFeDy/FwRGKA5V4MlDQSQUPGDCqj1UdTs0ZIPOqQJYhXk521rVD4GBNnLJ248N3BCMOJRgZdzh+5CpDxcGIdiyesOUfxrNJ7CI2wXQrbTYCq1SUSny4nYM6S3nWVlHSoKedfwt7ZnOycsnC3SAIOaDp8OP9Qq5ju6P7jiPYDbAEaeECisNHpe2RthBKDS0SQrHL3Q+UlZEU4QESx7q8yWJJuUiMG234fCNunnS4lAEr/OJO2k6zc3KCr1iqa80PRrbzBMUqyejxMsm2xgv6aWQ9DJoszSO8v6t+/gr8MfwXl5RgZwVDVkl7Ij/N+7zblgTV/zdOhvIog3wNXNc4jRXbWOcZlgb95ewj80x3w91bSlu9Y4ZsCXH2RZXydKBzYSM7FLe7zBFPX9fHj1Osz2ej608fVU2cGBtRUaAQk8t0oBZxvRJSwYAfeXu+w72qIYiGPPFl12YTITLJLHotjn81rnmHQ3ujW+W8GCqAAzNFCJyFRRGnk50WFoJIjWxDjkcUbyA==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:HK0PR06MB3380.apcprd06.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(346002)(136003)(376002)(396003)(366004)(39840400004)(64756008)(66556008)(66476007)(5660300002)(66446008)(122000001)(66946007)(38100700002)(52536014)(83380400001)(6506007)(53546011)(7696005)(8676002)(54906003)(2906002)(110136005)(9686003)(55016002)(86362001)(76116006)(316002)(186003)(7416002)(71200400001)(26005)(55236004)(8936002)(33656002)(921005)(4326008)(478600001);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: =?us-ascii?Q?PPO+fGFyzZV+5lPUa5JDaIo2Ap4ueUslNsfwg6vpaPwvlwL6gLXN55rwXiT8?=
+ =?us-ascii?Q?qtWWL67Y8wtEcaQ8ihs9cFk9oy/2en406bsm4Y3H2E37Wr51U0qac74U8jML?=
+ =?us-ascii?Q?QhQlZXT2DerybVgTyMRHjRV8eTtiwDELkwETBp5ySRyNGgWmnpDJpS4rWcK2?=
+ =?us-ascii?Q?gp1eBt5ujiQ6nPlL1xgTMDSB80hWAX+wa+JrfndZ0e2zYV9o1WSUF/Qy8B7D?=
+ =?us-ascii?Q?Lp1AjKPfQRYLmxvzD6qW6J9BupjBoYNKKV/SrzbJcLf6+xKekLuYYJTaBfEd?=
+ =?us-ascii?Q?mmgC3yq27ZmeZwQXjFgkN+IcAUXV2R3JqAUihwfAw+f245zqvl2Zn+QY2G+P?=
+ =?us-ascii?Q?AXgRTUP762ktrfipdIIAbnI4Fa6bLzbzdx3xvoRlABcd9VzTEg+TENcvyW/4?=
+ =?us-ascii?Q?TvLYm4g/YsDmPynntwNApcz2pnVpNecjYGDC0MNleitdWWCctGRh/WN+iThm?=
+ =?us-ascii?Q?4FplFFncTBo7aO0jwinjyT8B5cCgWoVn1WENdzcZH+ngZuFByfV5d3GXAn5x?=
+ =?us-ascii?Q?ONQX/8Fdl94mPmYlce8P5zoM1PKRUvka54ZbycZYhpznD0X/M87QMXxUY2Dj?=
+ =?us-ascii?Q?oteQ8DwT2fqSjMWBi1ESiyAbMDi6ybHakBwBJPDg5WvtiDXG6O2CRGYuQkx5?=
+ =?us-ascii?Q?J8RuhOGjR7OxoixLC/TBBUwU8NBZ/EtBzXIWJxjQsPqWt3UE+318E2odPS8i?=
+ =?us-ascii?Q?MN4DkCecexhacRn82WGGpK1DNmxQ9eBhLYVYOcjT9LCRFvxuGVzFqmub2KEj?=
+ =?us-ascii?Q?QDoAeYOhjz5kygkLk1CqOLMfIDToi0DdMqWFzLSUZ2co80O8FN0keQmg063T?=
+ =?us-ascii?Q?gQThjicS0RfLauTpMCIZi/lXImcun3CkrmToxpsaIttL9U+OnMg8+3lIkUH9?=
+ =?us-ascii?Q?yCgk0RZc7y4DaicLdCtcM6O3ZYWa3i3IUXrSQUlQd7ADp4quoI/f666xOE9m?=
+ =?us-ascii?Q?MyFo6qEAJRCT66W+Xr/UMLFWFTQepcWVeIfBQIdooi4u1lE+TTarKSpUqDXY?=
+ =?us-ascii?Q?Ejqg29lIPeJ/2l4uieQxFJeRzEabm2FT+spotnVmpnbcisj+BhfYtY1JwC+r?=
+ =?us-ascii?Q?THw300np5XF/NIinqlxOXVn9nEfHmgIz+rzsiJpDeju+ftgEiwa+MuCWIT9y?=
+ =?us-ascii?Q?76AG1obRAvG1Lc1KmjKrI3TqQdM0i0nZiTK2CJwAUUq8uSGck1BLjeIrFqyM?=
+ =?us-ascii?Q?yJiKksOhp5uBeYHM0KA8ZCiqL32DngxhUF0Nx9ZBg847/fkEPtkb5YV6bE1v?=
+ =?us-ascii?Q?HLnGIvWUz/pfLIJ/5nj31ldEQucTs5QXIvjYb/faMyj4yQyPjjKfWNERLRSe?=
+ =?us-ascii?Q?IOVpFNxU7SbP3lDRQUCTbXas?=
+x-ms-exchange-transport-forked: True
+MIME-Version: 1.0
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: HK0PR06MB3380.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15891d5d-64cb-4472-997b-08d91e9b8f7a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 May 2021 10:06:12.3787 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: sbBdAaZ51nKhGZs8WzKlOktVxQiWOvGlFqgQDyi+0ESoYkIoSk2Bs5LqTojL3p+p91y6Lowk4YDx5vg+RRrLt6pnUjG2KhmX/H2opbf4/EE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: HK0PR06MB2578
+X-Spam-Score: 0.9 (/)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [40.107.132.91 listed in wl.mailspike.net]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
@@ -100,10 +149,10 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1lkyrB-0002Rg-RC
-Subject: Re: [Openipmi-developer] 
- =?utf-8?q?=5BPATCH_v3_05/16=5D_ipmi=3A_kcs?=
- =?utf-8?q?=5Fbmc=3A_Turn_the_driver_data-structures_inside-out?=
+ 1.0 PDS_BAD_THREAD_QP_64   Bad thread header - short QP
+X-Headers-End: 1ll7ie-0044Eg-Sz
+Subject: Re: [Openipmi-developer] [PATCH v3 5/7] i2c: aspeed: Add
+ aspeed_set_slave_busy()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -116,103 +165,82 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Tomer Maimon <tmaimon77@gmail.com>,
- linux-aspeed@lists.ozlabs.org, Avi Fishman <avifishman70@gmail.com>,
- Patrick Venture <venture@google.com>, openbmc@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, Tali Perry <tali.perry1@gmail.com>,
- Rob Herring <robh+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- openipmi-developer@lists.sourceforge.net, Zev Weiss <zweiss@equinix.com>,
- "Chia-Wei, Wang" <chiawei_wang@aspeedtech.com>,
- linux-arm-kernel@lists.infradead.org, Benjamin Fair <benjaminfair@google.com>
+Cc: Open Source Submission <patches@amperecomputing.com>,
+ "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
+ Phong Vo <phong@os.amperecomputing.com>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
-
-On Sat, 22 May 2021, at 02:44, Corey Minyard wrote:
-> On Mon, May 10, 2021 at 03:12:02PM +0930, Andrew Jeffery wrote:
-> > Make the KCS device drivers responsible for allocating their own memory.
-> > 
-> > Until now the private data for the device driver was allocated internal
-> > to the private data for the chardev interface. This coupling required
-> > the slightly awkward API of passing through the struct size for the
-> > driver private data to the chardev constructor, and then retrieving a
-> > pointer to the driver private data from the allocated chardev memory.
-> > 
-> > In addition to being awkward, the arrangement prevents the
-> > implementation of alternative userspace interfaces as the device driver
-> > private data is not independent.
-> > 
-> > Peel a layer off the onion and turn the data-structures inside out by
-> > exploiting container_of() and embedding `struct kcs_device` in the
-> > driver private data.
+> -----Original Message-----
+> From: openbmc
+> <openbmc-bounces+ryan_chen=aspeedtech.com@lists.ozlabs.org> On Behalf
+> Of Quan Nguyen
+> Sent: Wednesday, May 19, 2021 3:50 PM
+> To: Corey Minyard <minyard@acm.org>; Rob Herring <robh+dt@kernel.org>;
+> Joel Stanley <joel@jms.id.au>; Andrew Jeffery <andrew@aj.id.au>; Brendan
+> Higgins <brendanhiggins@google.com>; Benjamin Herrenschmidt
+> <benh@kernel.crashing.org>; Wolfram Sang <wsa@kernel.org>; Philipp Zabel
+> <p.zabel@pengutronix.de>; openipmi-developer@lists.sourceforge.net;
+> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> linux-aspeed@lists.ozlabs.org; linux-kernel@vger.kernel.org;
+> linux-i2c@vger.kernel.org
+> Cc: Open Source Submission <patches@amperecomputing.com>; Thang Q .
+> Nguyen <thang@os.amperecomputing.com>; Phong Vo
+> <phong@os.amperecomputing.com>; openbmc@lists.ozlabs.org
+> Subject: [PATCH v3 5/7] i2c: aspeed: Add aspeed_set_slave_busy()
 > 
-> All in all a very nice cleanup.  A few nits inline.
+> Slave i2c device on AST2500 received a lot of slave irq while it is busy
+> processing the response. To handle this case, adds and exports
+> aspeed_set_slave_busy() for controller to temporary stop slave irq while slave
+> is handling the response, and re-enable them again when the response is ready.
 > 
-> > 
-> > Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
-> > Reviewed-by: Zev Weiss <zweiss@equinix.com>
-> > ---
-> >  drivers/char/ipmi/kcs_bmc.c           | 19 +++++++--
-> >  drivers/char/ipmi/kcs_bmc.h           | 12 ++----
-> >  drivers/char/ipmi/kcs_bmc_aspeed.c    | 56 +++++++++++++------------
-> >  drivers/char/ipmi/kcs_bmc_cdev_ipmi.c | 60 ++++++++++++++++++---------
-> >  drivers/char/ipmi/kcs_bmc_npcm7xx.c   | 37 ++++++++++-------
-> >  5 files changed, 111 insertions(+), 73 deletions(-)
-> > 
-> > diff --git a/drivers/char/ipmi/kcs_bmc.c b/drivers/char/ipmi/kcs_bmc.c
-> > index ef5c48ffe74a..83da681bf49e 100644
-> > --- a/drivers/char/ipmi/kcs_bmc.c
-> > +++ b/drivers/char/ipmi/kcs_bmc.c
-> > @@ -44,12 +44,23 @@ int kcs_bmc_handle_event(struct kcs_bmc *kcs_bmc)
-> >  }
-> >  EXPORT_SYMBOL(kcs_bmc_handle_event);
-> >  
-> > -struct kcs_bmc *kcs_bmc_ipmi_alloc(struct device *dev, int sizeof_priv, u32 channel);
-> > -struct kcs_bmc *kcs_bmc_alloc(struct device *dev, int sizeof_priv, u32 channel)
-> > +int kcs_bmc_ipmi_add_device(struct kcs_bmc *kcs_bmc);
+> Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
+> ---
+> v3:
+>   + First introduce in v3 [Quan]
 > 
-> The above (and it's remove function) should be in an include file.
-
-This is a short-term hack while I'm refactoring the code. It goes away 
-in a later patch when we switch to using an ops struct.
-
-I didn't move it to a header as it's an implementation detail at the 
-end of the day. I see headers as describing a public interface, and in 
-the bigger picture this function isn't part of the public API. But 
-maybe it's too tricky by half. My approach here generated some 
-discussion with Zev as well.
-
+>  drivers/i2c/busses/i2c-aspeed.c | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
 > 
-> > +void kcs_bmc_add_device(struct kcs_bmc *kcs_bmc)
+> diff --git a/drivers/i2c/busses/i2c-aspeed.c b/drivers/i2c/busses/i2c-aspeed.c
+> index b2e9c8f0ddf7..9926d04831a2 100644
+> --- a/drivers/i2c/busses/i2c-aspeed.c
+> +++ b/drivers/i2c/busses/i2c-aspeed.c
+> @@ -944,6 +944,26 @@ static int aspeed_i2c_init(struct aspeed_i2c_bus
+> *bus,
+>  	return 0;
+>  }
 > 
-> This should return an error so the probe can be failed and cleaned up
-> and so confusing message don't get printed after this in one case.
+> +#if IS_ENABLED(CONFIG_I2C_SLAVE)
+> +void aspeed_set_slave_busy(struct i2c_adapter *adap, bool busy) {
+> +	struct aspeed_i2c_bus *bus = i2c_get_adapdata(adap);
+> +	unsigned long current_mask, flags;
+> +
+> +	spin_lock_irqsave(&bus->lock, flags);
+> +
+> +	current_mask = readl(bus->base + ASPEED_I2C_INTR_CTRL_REG);
+Hello 
+	Where the bus->base to be remap?
 
-Hmm. I did this because the end result of the series is that we can 
-have multiple chardev interfaces in distinct modules exposing the one 
-KCS device in the one kernel. If more than one of the chardev modules 
-is configured in and one of them fails to initialise themselves with 
-respect to the device driver I didn't think it was right to fail the 
-probe of the device driver (and thus remove any chardev interfaces that 
-did succeed to initialise against it).
+> +	if (busy)
+> +		current_mask &= ~(ASPEED_I2CD_INTR_RX_DONE |
+> ASPEED_I2CD_INTR_SLAVE_MATCH);
+> +	else
+> +		current_mask |= ASPEED_I2CD_INTR_RX_DONE |
+> ASPEED_I2CD_INTR_SLAVE_MATCH;
+> +	writel(current_mask, bus->base + ASPEED_I2C_INTR_CTRL_REG);
+> +
+> +	spin_unlock_irqrestore(&bus->lock, flags); }
+> +EXPORT_SYMBOL_GPL(aspeed_set_slave_busy);
+> +#endif
+> +
+>  static int aspeed_i2c_reset(struct aspeed_i2c_bus *bus)  {
+>  	struct platform_device *pdev = to_platform_device(bus->dev);
+> --
+> 2.28.0
 
-But this does limit the usefulness of the device driver instance in the 
-case that only one of the chardev interfaces is configured in and it 
-fails to initialise.
-
-So I think we need to decide on the direction before I adjust the 
-interface here. The patches are architected around the idea of multiple 
-chardevs being configured in to the kernel build and all are exposed at 
-runtime.
-
-The serio subsystem does have the 'drvctl' sysfs knob that allows 
-userspace to dictate which serio chardev interface they want to connect 
-to a serio device driver. Maybe that's preferred over my "connect them 
-all" strategy?
-
-Andrew
 
 
 _______________________________________________
