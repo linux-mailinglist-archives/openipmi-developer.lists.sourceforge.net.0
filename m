@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9F59739F441
-	for <lists+openipmi-developer@lfdr.de>; Tue,  8 Jun 2021 12:52:07 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
+	by mail.lfdr.de (Postfix) with ESMTPS id C9DC939F449
+	for <lists+openipmi-developer@lfdr.de>; Tue,  8 Jun 2021 12:52:54 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1lqZL2-0001y5-6z; Tue, 08 Jun 2021 10:52:04 +0000
+	id 1lqZLk-0000BY-L6; Tue, 08 Jun 2021 10:52:48 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <andrew@aj.id.au>) id 1lqZJh-0001r3-9v
- for openipmi-developer@lists.sourceforge.net; Tue, 08 Jun 2021 10:50:41 +0000
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
+ (envelope-from <andrew@aj.id.au>) id 1lqZJf-0008S4-In
+ for openipmi-developer@lists.sourceforge.net; Tue, 08 Jun 2021 10:50:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=8+5K+foJf1UFpdx3xWApPMTMbOgfYShwyblM2iwrWy4=; b=POf95j6ZywX8rS0Lzh3mKUrZG1
- dCivoCOmEPt6DyLROG5nsXg0619NdylxG29Aivp8OuvQVBQrKBc5mRn5wJ7goUeqtD7m05dkOA780
- sJHbM5Hgc4qCDqatwx8bwYmSuSexw7RFj9b1zo9x/p5/ITwGSyg9p26OpP955uNwjk6Y=;
+ bh=/Ur7EbHSZJ9SabS075E1hphcD/QQ2mBKVUhEFdiJJUY=; b=HLFOalLrxDVPeXvAkkTTzoRiMP
+ foIXC6J84JgsPuxQr4Y5HddW0G0jNBRGXnsoPj2EsF3foH1GwJwdWpYlwlta0Ng+o7EC1G2QYk0cC
+ UkwP/Y6QIx1oL4sVfwIBacZQJHV26jKmJQTD8ju+JQyd4gX4KX2dkBD23JU9HTAcTLUM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,43 +29,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=8+5K+foJf1UFpdx3xWApPMTMbOgfYShwyblM2iwrWy4=; b=U10xGYi4XTaPeaAteAasNMZnLD
- kuxwDJ0ViAJSem4eNUMe0RCNZHBzIjJcyLGNjOkmCH2MuBAa+7ETzKhOWgMv1o3hygVBwpqX9mVH0
- DfA++ZtKQX1a4ZVV5q5L5PxzwMGu7DHWza3BX5L7miiRFXwzwx2VIfc3mY7cHPCQbV7g=;
+ bh=/Ur7EbHSZJ9SabS075E1hphcD/QQ2mBKVUhEFdiJJUY=; b=G3nkG6PgWLkerTu+YuO2TvSRUH
+ CxeKAU0XIwrT/6QCFFR667AMAslA2CQsJI1BasmcFzJ7JeexoK9MxmAiysRu8xkMYGJoPfbJFTUSj
+ qL+8Aa2zVBgN8eeDzEJQDo6kWg3HDRsTYStpnqSVOvjUYQ7ylyJwQRiJ/rrVgAiuWBPY=;
 Received: from new4-smtp.messagingengine.com ([66.111.4.230])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1lqZHg-0008GV-LP
- for openipmi-developer@lists.sourceforge.net; Tue, 08 Jun 2021 10:48:45 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
- by mailnew.nyi.internal (Postfix) with ESMTP id 113BC5805DF;
- Tue,  8 Jun 2021 06:48:32 -0400 (EDT)
+ id 1lqZHn-0008Gu-JA
+ for openipmi-developer@lists.sourceforge.net; Tue, 08 Jun 2021 10:48:52 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+ by mailnew.nyi.internal (Postfix) with ESMTP id EB6575804DB;
+ Tue,  8 Jun 2021 06:48:38 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
- by compute6.internal (MEProxy); Tue, 08 Jun 2021 06:48:32 -0400
+ by compute5.internal (MEProxy); Tue, 08 Jun 2021 06:48:38 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=from
  :to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding; s=fm3; bh=8+5K+foJf1UFp
- dx3xWApPMTMbOgfYShwyblM2iwrWy4=; b=O24PBFi8hFuyqOVZX47886Omu44mp
- GpIwn75XBIk/eXMXN7ldcY4nY8OJYehv1fqASMWhA+vSUc05V+KYvZIrZEDtvvfx
- h8XQvI31+iTjeAe/y3p2wym4fEnk2r1Vi5z664auTYTqLlKUDqBCZKqqPPiwzBK9
- awb5CvZQPxqiEevUY1AoKOAe7XZ6nAdns3XOvXRIkXq6k+f4CDR29aDgnzJNYJEI
- Bbqy5Thm1HGpUR3aFl3To0o7wp4OON8/hG2yibjEO6NsxZ//ob6KXsy0OJhhuC0f
- DWP6kUe19u9o0bA3mYmDVLtWDKF4gPgRfSln55QMP+QbZCg8aPqHqcm2Q==
+ :mime-version:content-transfer-encoding; s=fm3; bh=/Ur7EbHSZJ9Sa
+ bS075E1hphcD/QQ2mBKVUhEFdiJJUY=; b=foc3+mQJOxAhOyw3DxyDrqF4UDXd4
+ FOPQoJaWk91aNci+0mRReMftFJDg2kUqbS74EIeRiTW4JDBZ27p1tmvLr2X5sP2A
+ nWh7aDF36jDbk7/WE+WFcnpmAv/CdFfNKZn7fU6PvdNgqq5qtB32LYIYIgVXLVRh
+ TIuTKQaD/hHTYoSJWtyF6QRlSRNsXz5vqYYlzVTE95Wio3oFrto6360Mh9XwD6MK
+ 3YcWCmrxTz5PigwixJL4qC+h1qTwq2GCx0neRTFvhzuMIvm2XcOY28fY1DgHPeAz
+ wWvfg8ZnJlPgLu3JIfLOw6xoW66cFWZPjVl3T2jSVcfBtpD50ZFRMOGUA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:content-transfer-encoding:date:from
  :in-reply-to:message-id:mime-version:references:subject:to
  :x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
- fm3; bh=8+5K+foJf1UFpdx3xWApPMTMbOgfYShwyblM2iwrWy4=; b=S9kXt9cL
- /xSNOLTKWAkTHGJCiuCzbrj0nnGTHA/XtfsqcjkJEBsQp24MhTA/osGim2O15Glp
- 7zYTGIN0SDM0HwpJ/Aq98CvCFsFYjrF8TzsOIc2RTm8WxQlQ54GK2o7b+HyC5YwY
- igigtdGKvablTe9s2kJ11JMi8rxxk95A8hC8HihKd3qKz7F0RjkF/WTJX//SQ5qy
- bbQU3gSIPOLOohkgUsIbk3wgsXKqOOPbAwyKeBX0sNKh48Fr2/eAQ3rfpWLQBhNx
- XMl46pLOBUMLhkMKRaw3DAcbqwJaVeSTFLippIwTCEe6o2jJnFZfqMQYSl9ChGTH
- NOxu9YIZfKx0Cg==
-X-ME-Sender: <xms:_kq_YPcKSSIeGp_xvRrmH_ttklnkGU_0PmyTM6wGmH-cX6Iyjl2kXQ>
- <xme:_kq_YFOxnc4VU65BrH-94wzrWc-P1aAfMOn-nNfmk9343u9OcIcx2dErYpD5tF8nu
- vn6Y-SmlwpKZkHGmQ>
-X-ME-Received: <xmr:_kq_YIhqWRB-Zq4sPUJtR5xd6bINZWKzcy-_96fRGhUC_EpEPAFOIAPYiR-yS1a_-OPucMZ_HztHRRSjCVMIrogHyzvFc2o6vIQ>
+ fm3; bh=/Ur7EbHSZJ9SabS075E1hphcD/QQ2mBKVUhEFdiJJUY=; b=GWfmcmD7
+ tGuiedKe8GtYANO0YdnIyjwgqJZvf97Dqnv/3YbADa5AsMbWRdqLmvh1A+8PYlBF
+ TTV2X6tQj5T6OI3cCnDGMpD4Hy5BOmasSJlaaTDfelbNGqPYBGa+d8xgeDHwuc2b
+ rDXjxEHwcdNe/esje7owUQzLBoSgbiwqRcso6/PNMpATjONjbJ5CibFvlpzWVXnk
+ ua5mVfjsS5f8q8iYkV7cWUbt5MT2JQwTG2yBSNd5C08CqnfQSBpYkxGxZFTwmSkp
+ m7Sbc6YPj/VQumBOutYBeqfI10LJEvX6buJPG/bGSMGIw2AO5Cp0kQYU0n9wpsTI
+ RjXkLiV1NsiPBQ==
+X-ME-Sender: <xms:Bku_YJYG-CDtAkSwWXgQX2Q1YkjeqgQ3gyE64-nRzBVI_v_Zo5p6BA>
+ <xme:Bku_YAauw00LA5ZSNnOYxlS_x-R0WiuP_YSSpS_znbB63sUrOiMPCAVjTtnwZCNrG
+ wf81oLwtviLbh5vfQ>
+X-ME-Received: <xmr:Bku_YL_UkoNLv2-NQWTm6IlZ8uKBhVPNY13BELbmPSqOLA7pDnK4h0wfvMFkPNzTW39N-5EQcVQgsYm6mxy-pvCnTa7PpnYZkds>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrfedtledgudeiucetufdoteggodetrfdotf
  fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
  uceurghilhhouhhtmecufedttdenucenucfjughrpefhvffufffkofgjfhgggfestdekre
@@ -73,17 +73,17 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrfedtledgudeiucetufdoteggod
  jhdrihgurdgruheqnecuggftrfgrthhtvghrnhepjefgvdevheetkeevgeegleelgfelte
  etjeffleffvdduudevieffgeetleevhfetnecuvehluhhsthgvrhfuihiivgeptdenucfr
  rghrrghmpehmrghilhhfrhhomheprghnughrvgifsegrjhdrihgurdgruh
-X-ME-Proxy: <xmx:_kq_YA_4C7Y7O-PayjJ_mrdeGVdBbJoF33qKc1qScPyF9O0eCoXBcA>
- <xmx:_kq_YLvcDTCNkGrPosHmqwHG1mSvEf_0t6urUgMTqDmzJS5HuGa1JQ>
- <xmx:_kq_YPGZgREQF2Xy9yfczEv4SCGLN9cy8765PWQfcfinPMIiSCmC6g>
- <xmx:AEu_YE8B9Glzk1dVf24SNQutbh-hsND09U440WboZHdPqIqsc1pgAw>
+X-ME-Proxy: <xmx:Bku_YHqbn_e2QiXgUiczbEtA7qK4sAQ9T8uwZ47vzFsDSNR4LMAIMA>
+ <xmx:Bku_YEqTYDHM7BIMo-ecLjAS_POw4mXBU1HqZp_0C5P0Dfk0ODmfrg>
+ <xmx:Bku_YNTOkT8v-8q2GpyajlFPpzAJjc36ACaBzyaOihN1O6QIAlzpcw>
+ <xmx:Bku_YCaP3BoKfbkp1MAEimRN3lAkeclsYP-AofunUHKXKSHPIQ4dlQ>
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 8 Jun 2021 06:48:24 -0400 (EDT)
+ 8 Jun 2021 06:48:32 -0400 (EDT)
 From: Andrew Jeffery <andrew@aj.id.au>
 To: openipmi-developer@lists.sourceforge.net, openbmc@lists.ozlabs.org,
  minyard@acm.org
-Date: Tue,  8 Jun 2021 20:17:43 +0930
-Message-Id: <20210608104757.582199-3-andrew@aj.id.au>
+Date: Tue,  8 Jun 2021 20:17:44 +0930
+Message-Id: <20210608104757.582199-4-andrew@aj.id.au>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210608104757.582199-1-andrew@aj.id.au>
 References: <20210608104757.582199-1-andrew@aj.id.au>
@@ -102,9 +102,9 @@ X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1lqZHg-0008GV-LP
-Subject: [Openipmi-developer] [PATCH v4 02/16] ipmi: kcs_bmc: Make status
- update atomic
+X-Headers-End: 1lqZHn-0008Gu-JA
+Subject: [Openipmi-developer] [PATCH v4 03/16] ipmi: kcs_bmc: Rename {read,
+ write}_{status, data}() functions
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -126,104 +126,180 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Enable more efficient implementation of read-modify-write sequences.
-Both device drivers for the KCS BMC stack use regmaps. The new callback
-allows us to exploit regmap_update_bits().
+Rename the functions in preparation for separating the IPMI chardev out
+from the KCS BMC core.
 
 Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
 Reviewed-by: Zev Weiss <zweiss@equinix.com>
 ---
- drivers/char/ipmi/kcs_bmc.c         |  7 +------
- drivers/char/ipmi/kcs_bmc.h         |  1 +
- drivers/char/ipmi/kcs_bmc_aspeed.c  |  9 +++++++++
- drivers/char/ipmi/kcs_bmc_npcm7xx.c | 10 ++++++++++
- 4 files changed, 21 insertions(+), 6 deletions(-)
+ drivers/char/ipmi/kcs_bmc.c | 52 ++++++++++++++++++-------------------
+ 1 file changed, 25 insertions(+), 27 deletions(-)
 
 diff --git a/drivers/char/ipmi/kcs_bmc.c b/drivers/char/ipmi/kcs_bmc.c
-index f292e74bd4a5..58fb1a7bd50d 100644
+index 58fb1a7bd50d..c4336c1f2d6d 100644
 --- a/drivers/char/ipmi/kcs_bmc.c
 +++ b/drivers/char/ipmi/kcs_bmc.c
-@@ -67,12 +67,7 @@ static inline void write_status(struct kcs_bmc *kcs_bmc, u8 data)
+@@ -45,42 +45,42 @@ enum kcs_states {
+ #define KCS_CMD_WRITE_END         0x62
+ #define KCS_CMD_READ_BYTE         0x68
  
- static void update_status_bits(struct kcs_bmc *kcs_bmc, u8 mask, u8 val)
+-static inline u8 read_data(struct kcs_bmc *kcs_bmc)
++static inline u8 kcs_bmc_read_data(struct kcs_bmc *kcs_bmc)
  {
--	u8 tmp = read_status(kcs_bmc);
--
--	tmp &= ~mask;
--	tmp |= val & mask;
--
--	write_status(kcs_bmc, tmp);
-+	kcs_bmc->io_updateb(kcs_bmc, kcs_bmc->ioreg.str, mask, val);
+ 	return kcs_bmc->io_inputb(kcs_bmc, kcs_bmc->ioreg.idr);
+ }
+ 
+-static inline void write_data(struct kcs_bmc *kcs_bmc, u8 data)
++static inline void kcs_bmc_write_data(struct kcs_bmc *kcs_bmc, u8 data)
+ {
+ 	kcs_bmc->io_outputb(kcs_bmc, kcs_bmc->ioreg.odr, data);
+ }
+ 
+-static inline u8 read_status(struct kcs_bmc *kcs_bmc)
++static inline u8 kcs_bmc_read_status(struct kcs_bmc *kcs_bmc)
+ {
+ 	return kcs_bmc->io_inputb(kcs_bmc, kcs_bmc->ioreg.str);
+ }
+ 
+-static inline void write_status(struct kcs_bmc *kcs_bmc, u8 data)
++static inline void kcs_bmc_write_status(struct kcs_bmc *kcs_bmc, u8 data)
+ {
+ 	kcs_bmc->io_outputb(kcs_bmc, kcs_bmc->ioreg.str, data);
+ }
+ 
+-static void update_status_bits(struct kcs_bmc *kcs_bmc, u8 mask, u8 val)
++static void kcs_bmc_update_status(struct kcs_bmc *kcs_bmc, u8 mask, u8 val)
+ {
+ 	kcs_bmc->io_updateb(kcs_bmc, kcs_bmc->ioreg.str, mask, val);
  }
  
  static inline void set_state(struct kcs_bmc *kcs_bmc, u8 state)
-diff --git a/drivers/char/ipmi/kcs_bmc.h b/drivers/char/ipmi/kcs_bmc.h
-index eb9ea4ce78b8..970f53892f2d 100644
---- a/drivers/char/ipmi/kcs_bmc.h
-+++ b/drivers/char/ipmi/kcs_bmc.h
-@@ -76,6 +76,7 @@ struct kcs_bmc {
- 	struct kcs_ioreg ioreg;
- 	u8 (*io_inputb)(struct kcs_bmc *kcs_bmc, u32 reg);
- 	void (*io_outputb)(struct kcs_bmc *kcs_bmc, u32 reg, u8 b);
-+	void (*io_updateb)(struct kcs_bmc *kcs_bmc, u32 reg, u8 mask, u8 val);
- 
- 	enum kcs_phases phase;
- 	enum kcs_errors error;
-diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
-index 69be873f40ac..01ebb9da3d49 100644
---- a/drivers/char/ipmi/kcs_bmc_aspeed.c
-+++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
-@@ -90,6 +90,14 @@ static void aspeed_kcs_outb(struct kcs_bmc *kcs_bmc, u32 reg, u8 data)
- 	WARN(rc != 0, "regmap_write() failed: %d\n", rc);
- }
- 
-+static void aspeed_kcs_updateb(struct kcs_bmc *kcs_bmc, u32 reg, u8 mask, u8 val)
-+{
-+	struct aspeed_kcs_bmc *priv = kcs_bmc_priv(kcs_bmc);
-+	int rc;
-+
-+	rc = regmap_update_bits(priv->map, reg, mask, val);
-+	WARN(rc != 0, "regmap_update_bits() failed: %d\n", rc);
-+}
- 
- /*
-  * AST_usrGuide_KCS.pdf
-@@ -345,6 +353,7 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
- 	kcs_bmc->ioreg = ast_kcs_bmc_ioregs[channel - 1];
- 	kcs_bmc->io_inputb = aspeed_kcs_inb;
- 	kcs_bmc->io_outputb = aspeed_kcs_outb;
-+	kcs_bmc->io_updateb = aspeed_kcs_updateb;
- 
- 	addr = ops->get_io_address(pdev);
- 	if (addr < 0)
-diff --git a/drivers/char/ipmi/kcs_bmc_npcm7xx.c b/drivers/char/ipmi/kcs_bmc_npcm7xx.c
-index 722f7391fe1f..1f44aadec9e8 100644
---- a/drivers/char/ipmi/kcs_bmc_npcm7xx.c
-+++ b/drivers/char/ipmi/kcs_bmc_npcm7xx.c
-@@ -97,6 +97,15 @@ static void npcm7xx_kcs_outb(struct kcs_bmc *kcs_bmc, u32 reg, u8 data)
- 	WARN(rc != 0, "regmap_write() failed: %d\n", rc);
- }
- 
-+static void npcm7xx_kcs_updateb(struct kcs_bmc *kcs_bmc, u32 reg, u8 mask, u8 data)
-+{
-+	struct npcm7xx_kcs_bmc *priv = kcs_bmc_priv(kcs_bmc);
-+	int rc;
-+
-+	rc = regmap_update_bits(priv->map, reg, mask, data);
-+	WARN(rc != 0, "regmap_update_bits() failed: %d\n", rc);
-+}
-+
- static void npcm7xx_kcs_enable_channel(struct kcs_bmc *kcs_bmc, bool enable)
  {
- 	struct npcm7xx_kcs_bmc *priv = kcs_bmc_priv(kcs_bmc);
-@@ -163,6 +172,7 @@ static int npcm7xx_kcs_probe(struct platform_device *pdev)
- 	kcs_bmc->ioreg.str = priv->reg->sts;
- 	kcs_bmc->io_inputb = npcm7xx_kcs_inb;
- 	kcs_bmc->io_outputb = npcm7xx_kcs_outb;
-+	kcs_bmc->io_updateb = npcm7xx_kcs_updateb;
+-	update_status_bits(kcs_bmc, KCS_STATUS_STATE_MASK,
++	kcs_bmc_update_status(kcs_bmc, KCS_STATUS_STATE_MASK,
+ 					KCS_STATUS_STATE(state));
+ }
  
- 	dev_set_drvdata(dev, kcs_bmc);
+ static void kcs_force_abort(struct kcs_bmc *kcs_bmc)
+ {
+ 	set_state(kcs_bmc, ERROR_STATE);
+-	read_data(kcs_bmc);
+-	write_data(kcs_bmc, KCS_ZERO_DATA);
++	kcs_bmc_read_data(kcs_bmc);
++	kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
  
+ 	kcs_bmc->phase = KCS_PHASE_ERROR;
+ 	kcs_bmc->data_in_avail = false;
+@@ -99,9 +99,9 @@ static void kcs_bmc_handle_data(struct kcs_bmc *kcs_bmc)
+ 	case KCS_PHASE_WRITE_DATA:
+ 		if (kcs_bmc->data_in_idx < KCS_MSG_BUFSIZ) {
+ 			set_state(kcs_bmc, WRITE_STATE);
+-			write_data(kcs_bmc, KCS_ZERO_DATA);
++			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+ 			kcs_bmc->data_in[kcs_bmc->data_in_idx++] =
+-						read_data(kcs_bmc);
++						kcs_bmc_read_data(kcs_bmc);
+ 		} else {
+ 			kcs_force_abort(kcs_bmc);
+ 			kcs_bmc->error = KCS_LENGTH_ERROR;
+@@ -112,7 +112,7 @@ static void kcs_bmc_handle_data(struct kcs_bmc *kcs_bmc)
+ 		if (kcs_bmc->data_in_idx < KCS_MSG_BUFSIZ) {
+ 			set_state(kcs_bmc, READ_STATE);
+ 			kcs_bmc->data_in[kcs_bmc->data_in_idx++] =
+-						read_data(kcs_bmc);
++						kcs_bmc_read_data(kcs_bmc);
+ 			kcs_bmc->phase = KCS_PHASE_WRITE_DONE;
+ 			kcs_bmc->data_in_avail = true;
+ 			wake_up_interruptible(&kcs_bmc->queue);
+@@ -126,34 +126,34 @@ static void kcs_bmc_handle_data(struct kcs_bmc *kcs_bmc)
+ 		if (kcs_bmc->data_out_idx == kcs_bmc->data_out_len)
+ 			set_state(kcs_bmc, IDLE_STATE);
+ 
+-		data = read_data(kcs_bmc);
++		data = kcs_bmc_read_data(kcs_bmc);
+ 		if (data != KCS_CMD_READ_BYTE) {
+ 			set_state(kcs_bmc, ERROR_STATE);
+-			write_data(kcs_bmc, KCS_ZERO_DATA);
++			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+ 			break;
+ 		}
+ 
+ 		if (kcs_bmc->data_out_idx == kcs_bmc->data_out_len) {
+-			write_data(kcs_bmc, KCS_ZERO_DATA);
++			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+ 			kcs_bmc->phase = KCS_PHASE_IDLE;
+ 			break;
+ 		}
+ 
+-		write_data(kcs_bmc,
++		kcs_bmc_write_data(kcs_bmc,
+ 			kcs_bmc->data_out[kcs_bmc->data_out_idx++]);
+ 		break;
+ 
+ 	case KCS_PHASE_ABORT_ERROR1:
+ 		set_state(kcs_bmc, READ_STATE);
+-		read_data(kcs_bmc);
+-		write_data(kcs_bmc, kcs_bmc->error);
++		kcs_bmc_read_data(kcs_bmc);
++		kcs_bmc_write_data(kcs_bmc, kcs_bmc->error);
+ 		kcs_bmc->phase = KCS_PHASE_ABORT_ERROR2;
+ 		break;
+ 
+ 	case KCS_PHASE_ABORT_ERROR2:
+ 		set_state(kcs_bmc, IDLE_STATE);
+-		read_data(kcs_bmc);
+-		write_data(kcs_bmc, KCS_ZERO_DATA);
++		kcs_bmc_read_data(kcs_bmc);
++		kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+ 		kcs_bmc->phase = KCS_PHASE_IDLE;
+ 		break;
+ 
+@@ -168,9 +168,9 @@ static void kcs_bmc_handle_cmd(struct kcs_bmc *kcs_bmc)
+ 	u8 cmd;
+ 
+ 	set_state(kcs_bmc, WRITE_STATE);
+-	write_data(kcs_bmc, KCS_ZERO_DATA);
++	kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
+ 
+-	cmd = read_data(kcs_bmc);
++	cmd = kcs_bmc_read_data(kcs_bmc);
+ 	switch (cmd) {
+ 	case KCS_CMD_WRITE_START:
+ 		kcs_bmc->phase = KCS_PHASE_WRITE_START;
+@@ -212,7 +212,7 @@ int kcs_bmc_handle_event(struct kcs_bmc *kcs_bmc)
+ 
+ 	spin_lock_irqsave(&kcs_bmc->lock, flags);
+ 
+-	status = read_status(kcs_bmc);
++	status = kcs_bmc_read_status(kcs_bmc);
+ 	if (status & KCS_STATUS_IBF) {
+ 		if (!kcs_bmc->running)
+ 			kcs_force_abort(kcs_bmc);
+@@ -350,7 +350,7 @@ static ssize_t kcs_bmc_write(struct file *filp, const char __user *buf,
+ 		kcs_bmc->data_out_idx = 1;
+ 		kcs_bmc->data_out_len = count;
+ 		memcpy(kcs_bmc->data_out, kcs_bmc->kbuffer, count);
+-		write_data(kcs_bmc, kcs_bmc->data_out[0]);
++		kcs_bmc_write_data(kcs_bmc, kcs_bmc->data_out[0]);
+ 		ret = count;
+ 	} else {
+ 		ret = -EINVAL;
+@@ -373,13 +373,11 @@ static long kcs_bmc_ioctl(struct file *filp, unsigned int cmd,
+ 
+ 	switch (cmd) {
+ 	case IPMI_BMC_IOCTL_SET_SMS_ATN:
+-		update_status_bits(kcs_bmc, KCS_STATUS_SMS_ATN,
+-				   KCS_STATUS_SMS_ATN);
++		kcs_bmc_update_status(kcs_bmc, KCS_STATUS_SMS_ATN, KCS_STATUS_SMS_ATN);
+ 		break;
+ 
+ 	case IPMI_BMC_IOCTL_CLEAR_SMS_ATN:
+-		update_status_bits(kcs_bmc, KCS_STATUS_SMS_ATN,
+-				   0);
++		kcs_bmc_update_status(kcs_bmc, KCS_STATUS_SMS_ATN, 0);
+ 		break;
+ 
+ 	case IPMI_BMC_IOCTL_FORCE_ABORT:
 -- 
 2.30.2
 
