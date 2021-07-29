@@ -2,109 +2,71 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id DEBC43D3A27
-	for <lists+openipmi-developer@lfdr.de>; Fri, 23 Jul 2021 14:25:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 72B3B3DA415
+	for <lists+openipmi-developer@lfdr.de>; Thu, 29 Jul 2021 15:28:06 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1m6uEc-0002De-Uw; Fri, 23 Jul 2021 12:24:58 +0000
+	id 1m964w-0001o6-GR; Thu, 29 Jul 2021 13:28:02 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <tcminyard@gmail.com>) id 1m6uEa-0002DK-UH
- for openipmi-developer@lists.sourceforge.net; Fri, 23 Jul 2021 12:24:56 +0000
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ (envelope-from <wenyang@linux.alibaba.com>) id 1m932I-00082l-EI
+ for openipmi-developer@lists.sourceforge.net; Thu, 29 Jul 2021 10:13:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=t2Symr9KuFJEPAV72a+i75cWNYGzF1LQQeEf4EUxAZo=; b=VWiXHm+TuVUpLOMshx8nrrUf4j
- N7CvrPNBwaTU/j1dqMwLheg9NQD0+u1lhD0hDa/+0jw6+irOc8i93VD39c+OB2VO5go+D1Zt5+h3L
- vvkm1K+81FR/vNOUfNkgybv2LvsmoeVtUqJSj9LkNgxHJZX7uqIf6KMkidA7uj2rnaLU=;
+ bh=E5D55/3+axnn3PMCMZlserLloCf99VdWg3BvD/5IZE8=; b=F0+CITKKCIwEPKyda4ToP4tEoa
+ 5W0rB3+iZUxns0uXMwD1oVJnthZ0aoUcskswtnfOxV1v5E397pwdloczCDIq9Mpv+Li6W4ExGiqXX
+ Yg+oAoIV4zIJnIyQr+Dd7MHCRJ1f5pfZKeF/OkoQi+FlaFh3G3g3tva6k7WdbUinT8CA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=t2Symr9KuFJEPAV72a+i75cWNYGzF1LQQeEf4EUxAZo=; b=MHBKg8uF3vPcjjYDj1NG4p3YwP
- l3AvFMK0Aopyy0ozXj86mTw0lsULQRDadH0RhJcob7otIRgzctCMZs9+5LiUiDIgILOSUvpJgA2k7
- s59nA4d/gk+dV0b3VQsQT9g5r0miBPZV+JGn7wsSoGwIXyN+aJj71kT4q81kAEa/dzLA=;
-Received: from mail-ot1-f43.google.com ([209.85.210.43])
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=E5D55/3+axnn3PMCMZlserLloCf99VdWg3BvD/5IZE8=; b=d
+ F3EviSa1KtuDCxfK+jyrQ8jD5M8aPFdsdc49OFEZe46q++mim3edywqFKUZoIgCN42XoX6hz0Kzhe
+ Qor1mVmkdyHrI9aYPKpb+hTBo4Ofjgm9mauudAW+B+G4wQCSW7VKVV+yiRtzfYXQFCEkhY6hV1Axf
+ AXDATffnGfYA+myQ=;
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1m6uEU-000Fhg-KG
- for openipmi-developer@lists.sourceforge.net; Fri, 23 Jul 2021 12:24:56 +0000
-Received: by mail-ot1-f43.google.com with SMTP id
- 48-20020a9d0bb30000b02904cd671b911bso1896184oth.1
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 23 Jul 2021 05:24:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to;
- bh=t2Symr9KuFJEPAV72a+i75cWNYGzF1LQQeEf4EUxAZo=;
- b=V8YEP+xfPM0EKJb1BLXAfsAsZheHK7HN/Cfm2yulIZ5muRp3FaXSKrFCv2xb/KPfJp
- xv04yZtC2E56XsFXN3Qex1GGNzltTxoAY+eNMJ9F95n2wU1DW3CWn4/q/H21rK3q0QL4
- 7biClPtQTrkCe+dHfY+x6cfSomeGINeJIsdfT2g0bBgGSGcF5ICCm7Zl+hySWjLB+K2b
- krOgWuknqTwmtn4k0Ku3PkdFpAmfBBiOO82gX/gZVd2eicVjnVrecTNEuYWKkTjKr9aS
- hi95PBxcxRLAubbURXU3Nw+jqxmVdMuYQWVQx+eAnFWHOg21HD8pFVGJN4dDbRl8APTo
- PV5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=t2Symr9KuFJEPAV72a+i75cWNYGzF1LQQeEf4EUxAZo=;
- b=LbddtldYvo/HGl/5mZAKhB/xIhZnYF3+bDIaJfrZLbfdNR3krJWBkWjR9ATOavFm0g
- GK/lFJyVvn9HwJRTnT4ivonUw2yelFa308dRM6y7uRtLpmgMpsKeG5Qg7kokJ/8b7wE3
- 4m4kzARBnwjEIvOB3nsODM5sm8ZNx1YmSDhNhQ+lbPhVALzWb+tLembPBVWj92QHY0YN
- oGCu07V1+adEksjNj8vlflkdxSgXXDl2prgXup7Hya7lfzIpjMWl3+ugFC5lNkbdVUxk
- 7qj9JDJRQq88luugGTMhu/wVWouwOgsnzayhwAVZdp45HJBwRqRnKclWTV4CkVm8fch3
- bnkg==
-X-Gm-Message-State: AOAM531zj/4kGVTD+G0nT9CW/l/Ic39+BpamNwm2wfiVuD7lrktE/cY4
- Rv18bnW+2DOzZq5lHDQvmFqIL29clCKn
-X-Google-Smtp-Source: ABdhPJy8gHqpZvxm7eEtoQaPmkDy1f7x/bbkHq1veXt4C0r+zuxodWrO9SmmDcZKiXpO/pwvCKEGSA==
-X-Received: by 2002:a9d:4813:: with SMTP id c19mr2923124otf.208.1627043084573; 
- Fri, 23 Jul 2021 05:24:44 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id c26sm2984518otu.38.2021.07.23.05.24.42
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 23 Jul 2021 05:24:43 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:2d56:5547:21b6:aeca])
- by serve.minyard.net (Postfix) with ESMTPSA id BDF3818005A;
- Fri, 23 Jul 2021 12:24:41 +0000 (UTC)
-Date: Fri, 23 Jul 2021 07:24:40 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Dan Carpenter <dan.carpenter@oracle.com>
-Message-ID: <20210723122440.GM3406@minyard.net>
-References: <20210723084459.GA21470@kili>
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1m932G-006No0-1C
+ for openipmi-developer@lists.sourceforge.net; Thu, 29 Jul 2021 10:13:06 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R101e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04426; MF=wenyang@linux.alibaba.com;
+ NM=1; PH=DS; RN=5; SR=0; TI=SMTPD_---0UhKSVrp_1627551149; 
+Received: from localhost(mailfrom:wenyang@linux.alibaba.com
+ fp:SMTPD_---0UhKSVrp_1627551149) by smtp.aliyun-inc.com(127.0.0.1);
+ Thu, 29 Jul 2021 17:32:34 +0800
+From: Wen Yang <wenyang@linux.alibaba.com>
+To: Corey Minyard <minyard@acm.org>
+Date: Thu, 29 Jul 2021 17:32:28 +0800
+Message-Id: <20210729093228.77098-1-wenyang@linux.alibaba.com>
+X-Mailer: git-send-email 2.23.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210723084459.GA21470@kili>
-X-Spam-Score: 0.5 (/)
+X-Spam-Score: -8.0 (--------)
 X-Spam-Report: Spam Filtering performed by mx.sourceforge.net.
  See http://spamassassin.org/tag/ for more details.
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- (tcminyard[at]gmail.com)
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.43 listed in wl.mailspike.net]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/, no
- trust [209.85.210.43 listed in list.dnswl.org]
+ trust [115.124.30.133 listed in list.dnswl.org]
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: acm.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and EnvelopeFrom
- freemail headers are different
-X-Headers-End: 1m6uEU-000Fhg-KG
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: ssif_bmc: Return -EFAULT if
- copy_from_user() fails
+ -7.5 USER_IN_DEF_SPF_WL     From: address is in the default SPF white-list
+ 0.0 UNPARSEABLE_RELAY Informational: message has unparseable relay lines
+ -0.5 ENV_AND_HDR_SPF_MATCH  Env and Hdr From used in default SPF WL Match
+X-Headers-End: 1m932G-006No0-1C
+X-Mailman-Approved-At: Thu, 29 Jul 2021 13:28:00 +0000
+Subject: [Openipmi-developer] [PATCH] ipmi: rate limit ipmi smi_event
+ failure message
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -117,49 +79,87 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: openipmi-developer@lists.sourceforge.net, kernel-janitors@vger.kernel.org,
- Quan Nguyen <quan@os.amperecomputing.com>, linux-kernel@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ Wen Yang <wenyang@linux.alibaba.com>, Baoyou Xie <baoyou.xie@alibaba-inc.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Jul 23, 2021 at 11:44:59AM +0300, Dan Carpenter wrote:
-> The copy_from_user() function returns the number of bytes remaining to
-> be copied but we should return -EFAULT here.
+Sometimes we can't get a valid si_sm_data, and we print an error
+message accordingly. But the ipmi module seem to like retrying a lot,
+in which case we flood the kernel log with a lot of messages, eg:
 
-Yep, this is in my queue.
+[46318019.164726] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318020.109700] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318021.158677] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318022.212598] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318023.258564] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318024.210455] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318025.260473] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318026.308445] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318027.356389] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318028.298288] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
+[46318029.363302] ipmi_si IPI0001:00: Could not set the global enables: 0xc1.
 
-Thanks,
+Signed-off-by: Wen Yang <wenyang@linux.alibaba.com>
+Cc: Baoyou Xie <baoyou.xie@alibaba-inc.com>
+Cc: Corey Minyard <minyard@acm.org>
+Cc: openipmi-developer@lists.sourceforge.net
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/char/ipmi/ipmi_si_intf.c | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
 
--corey
+diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
+index 62929a3..f64c3ac 100644
+--- a/drivers/char/ipmi/ipmi_si_intf.c
++++ b/drivers/char/ipmi/ipmi_si_intf.c
+@@ -591,7 +591,7 @@ static void handle_transaction_done(struct smi_info *smi_info)
+ 		smi_info->handlers->get_result(smi_info->si_sm, msg, 3);
+ 		if (msg[2] != 0) {
+ 			/* Error clearing flags */
+-			dev_warn(smi_info->io.dev,
++			dev_warn_ratelimited(smi_info->io.dev,
+ 				 "Error clearing flags: %2.2x\n", msg[2]);
+ 		}
+ 		smi_info->si_state = SI_NORMAL;
+@@ -683,10 +683,11 @@ static void handle_transaction_done(struct smi_info *smi_info)
+ 		/* We got the flags from the SMI, now handle them. */
+ 		smi_info->handlers->get_result(smi_info->si_sm, msg, 4);
+ 		if (msg[2] != 0) {
+-			dev_warn(smi_info->io.dev,
+-				 "Couldn't get irq info: %x.\n", msg[2]);
+-			dev_warn(smi_info->io.dev,
+-				 "Maybe ok, but ipmi might run very slowly.\n");
++#define IPMI_WARN_CHECKING_ENABLES "Maybe ok, but ipmi might run very slowly."
++
++			dev_warn_ratelimited(smi_info->io.dev,
++				"Couldn't get irq info: %x, %s\n",
++				msg[2], IPMI_WARN_CHECKING_ENABLES);
+ 			smi_info->si_state = SI_NORMAL;
+ 			break;
+ 		}
+@@ -721,7 +722,7 @@ static void handle_transaction_done(struct smi_info *smi_info)
+ 
+ 		smi_info->handlers->get_result(smi_info->si_sm, msg, 4);
+ 		if (msg[2] != 0)
+-			dev_warn(smi_info->io.dev,
++			dev_warn_ratelimited(smi_info->io.dev,
+ 				 "Could not set the global enables: 0x%x.\n",
+ 				 msg[2]);
+ 
+@@ -1343,7 +1344,7 @@ static int try_get_dev_id(struct smi_info *smi_info)
+ 
+ 		if (cc != IPMI_CC_NO_ERROR &&
+ 		    ++retry_count <= GET_DEVICE_ID_MAX_RETRY) {
+-			dev_warn(smi_info->io.dev,
++			dev_warn_ratelimited(smi_info->io.dev,
+ 			    "BMC returned 0x%2.2x, retry get bmc device id\n",
+ 			    cc);
+ 			goto retry;
+-- 
+1.8.3.1
 
-> 
-> Fixes: 007888f365c9 ("ipmi: ssif_bmc: Add SSIF BMC driver")
-> Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
-> ---
->  drivers/char/ipmi/ssif_bmc.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
-> index b15c05622e72..ce8cd8364a3f 100644
-> --- a/drivers/char/ipmi/ssif_bmc.c
-> +++ b/drivers/char/ipmi/ssif_bmc.c
-> @@ -85,9 +85,8 @@ static ssize_t ssif_bmc_write(struct file *file, const char __user *buf, size_t
->  	if (count > sizeof(struct ssif_msg))
->  		return -EINVAL;
->  
-> -	ret = copy_from_user(&msg, buf, count);
-> -	if (ret)
-> -		return ret;
-> +	if (copy_from_user(&msg, buf, count))
-> +		return -EFAULT;
->  
->  	if (!msg.len || count < ssif_msg_len(&msg))
->  		return -EINVAL;
-> -- 
-> 2.20.1
-> 
 
 
 _______________________________________________
