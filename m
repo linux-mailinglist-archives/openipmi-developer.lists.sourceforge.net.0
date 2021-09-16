@@ -2,99 +2,95 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 76A0E407FA4
-	for <lists+openipmi-developer@lfdr.de>; Sun, 12 Sep 2021 21:16:38 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
+	by mail.lfdr.de (Postfix) with ESMTPS id E26E040E1A5
+	for <lists+openipmi-developer@lfdr.de>; Thu, 16 Sep 2021 18:40:41 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.90_1)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mPUxu-0006Q3-Ki; Sun, 12 Sep 2021 19:16:34 +0000
+	id 1mQuRC-00021i-5f; Thu, 16 Sep 2021 16:40:38 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <pr-tracker-bot@kernel.org>) id 1mPUxs-0006Pw-Ae
- for openipmi-developer@lists.sourceforge.net; Sun, 12 Sep 2021 19:16:32 +0000
+ (envelope-from <glance@acc.umu.se>) id 1mQt9R-0002yA-37
+ for openipmi-developer@lists.sourceforge.net; Thu, 16 Sep 2021 15:18:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Cc:To:Date:Message-Id:References:In-Reply-To:From:
- Subject:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+ From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gwGeQDVzCC3NDJHXiGsNWff7M7rnHYTbmebk1Cy57yI=; b=akBHBU2eaF/AtWfU6jqrJuGSoL
- hSIWYFeQyq+SQesaGEV40A+aE3MzqFkngvCW9zoGv3ZJmO8wJI+pDSPE5jMx49bnwWRl2uP3p7B0o
- LtuViG8hZjyXl9sOcmLPWoR3la4kRo3JCD/efoBeBe687+3cAncS6houPW/alKUWUCP4=;
+ bh=fuJKIGCwTupVyiDFoPJ1ic+1ZOL4C7eorIrGgpkNhCw=; b=imSwhvjRevKkbSG6Xp0S7iv9zs
+ jh3yVac0cZYA2Cu9X8d20mIyJf9O23SA8gaa7f9EM36odVS4Opa/g5C9cl62mGxgdl0Q1qqCp3QqP
+ apI+1K2m6YeAgDuCKVMDJk5SsEm6MAkv/LT0WqRF4F9ETovvJ7hJXLQgqU6AzPNzgL6k=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Cc:To:Date:Message-Id:References:In-Reply-To:From:Subject:Sender:Reply-To
- :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=gwGeQDVzCC3NDJHXiGsNWff7M7rnHYTbmebk1Cy57yI=; b=DvJBNZgU1fVyXUk3P388+oF3wI
- 3CyVu8qJ2AqVEkhMgGgU/zESR9UMr91jnot8s7U/tRI+3KRa7zeZlftTpnPIShteGbvW2Ello2PK/
- S4GJ1ZVaq+fZVCRggIp01AeVA2Qb7cScY9X2ui7kNl41vBDiSOdBe+ktmaPUkvD2yFLg=;
-Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Sender:
+ Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=fuJKIGCwTupVyiDFoPJ1ic+1ZOL4C7eorIrGgpkNhCw=; b=f
+ Nz0s8RByFZrJqRGs55/zKoXi5ywqdiDDUVjKcADg93sKoDo6l9m0Jwu3DtP3eYfD0BUQmkX7+EgaE
+ F2EJs3rjguzAOqP9OUPK+u4IHPM4cJa6MwEur+sFaj3k3raVT2oW9qxqQMttJa52AbRFvI5KGGwoz
+ yY8SK1T1qUM1VvW8=;
+Received: from mail.acc.umu.se ([130.239.18.156])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1mPUxr-008IQ1-Rv
- for openipmi-developer@lists.sourceforge.net; Sun, 12 Sep 2021 19:16:32 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPS id 6813F60FDA;
- Sun, 12 Sep 2021 19:16:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1631474186;
- bh=tpY0zOgaP638Jx4s6R3mcCRLAWTzFpd9++ECMdrUT7U=;
- h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
- b=Am4GIAGPB7fPHw09cUnueOY6wtxvihP5Qtbe4GzZ34Ua5zzkoGgXRrDc3sLQOsFLL
- HA3PIcCU/1smCY7N2674HSQCG8Tyt7bSCYwhnahon/9uyXwq8dpfYd4LnQdRuAB/Az
- MOWpaqhNnW8xMiear9kd8Wih6hfRW9WjYwuaQRcXbi5Q2s0qcOFivvs9wswiVK3/7V
- NkGy2s4MbCVFISrRY65GCd47e0Q0Ooyg3MQpDOrmrmGY6R3vbTrUbUI3bjWLq4XxgZ
- mbuhpqCrq04YMeZ5BVZHBSvPGpZv+P+oT+iyRoMKStKPmZJ62i2qJ+rpHGv9O8/4po
- kKx2HxpgTmW+g==
-Received: from pdx-korg-docbuild-2.ci.codeaurora.org (localhost.localdomain
- [127.0.0.1])
- by pdx-korg-docbuild-2.ci.codeaurora.org (Postfix) with ESMTP id 5550A609ED;
- Sun, 12 Sep 2021 19:16:26 +0000 (UTC)
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20210909211052.GM545073@minyard.net>
-References: <20210909211052.GM545073@minyard.net>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20210909211052.GM545073@minyard.net>
-X-PR-Tracked-Remote: https://github.com/cminyard/linux-ipmi.git
- tags/for-linus-5.15-1
-X-PR-Tracked-Commit-Id: bf064c7bec3bfe7e28889774dc9e0ca4f7236775
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 1791596be2723f01de2f69d16a422fdba182c706
-Message-Id: <163147418629.28875.16467528126401789688.pr-tracker-bot@kernel.org>
-Date: Sun, 12 Sep 2021 19:16:26 +0000
+ id 1mQt9P-0005bu-OV
+ for openipmi-developer@lists.sourceforge.net; Thu, 16 Sep 2021 15:18:13 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+ by amavisd-new (Postfix) with ESMTP id F122344B8F;
+ Thu, 16 Sep 2021 16:53:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=acc.umu.se; s=mail1;
+ t=1631803980; bh=fuJKIGCwTupVyiDFoPJ1ic+1ZOL4C7eorIrGgpkNhCw=;
+ h=Date:From:To:Cc:Subject:From;
+ b=D2WT5+1O8nQ/F3boTejXKmGmD3LsI7U+bTqvTFokW+XCqyP2R28xl1zh+Oadi4krx
+ wKZjvjjerRK76rrkw1DvwcxQ7WPoxeRW7JRtLTjIRGr6VXupI20YD7wWMsxsPpog0I
+ UIajLOKcs6DmL7nq7nmoC9Itqo39FwvnL4wuMryeQ0mAiIKvEbuYGgb8hiM1GyVCEb
+ blKRtcLVWx5TzS8Sk6vJbmdhZyCZnzq/C1QHeAaVNeSG9ZEnXAN6pSTCUwXMIkctST
+ nWYTDC2a9T+Rykp8+rDMY0QFODjVZSmTTz4L3lXLn8UkbCqw7AkNq7uI0qtjqmo392
+ jsUO8N3hXaTFw==
+Received: by mail.acc.umu.se (Postfix, from userid 24471)
+ id A603544B90; Thu, 16 Sep 2021 16:53:00 +0200 (CEST)
+Date: Thu, 16 Sep 2021 16:53:00 +0200
+From: Anton Lundin <glance@acc.umu.se>
 To: Corey Minyard <minyard@acm.org>
-X-Spam-Score: -5.6 (-----)
+Message-ID: <20210916145300.GD108031@montezuma.acc.umu.se>
+MIME-Version: 1.0
+Content-Disposition: inline
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Spam-Score: -2.4 (--)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  The pull request you sent on Thu, 9 Sep 2021 16:10:52 -0500:
- > https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.15-1 has been
- merged into torvalds/linux.git:
- https://git.kernel.org/torvalds/c/1791596be2723f01de2f69d16a422fdba182c706
- Content analysis details:   (-5.6 points, 6.0 required)
+ Content preview:  Hi. I've just done a upgrade of the kernel we're using in
+ a product from 4.19 to 5.10 and I noted a issue. It started that with that
+ we didn't get panic and oops dumps in our erst backed pstore,
+ and when debugging
+ that I noted that the reboot on panic timer didn't work either. 
+ Content analysis details:   (-2.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [130.239.18.156 listed in list.dnswl.org]
+ 0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+ blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: umu.se]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [130.239.18.156 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.4 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1mPUxr-008IQ1-Rv
-Subject: Re: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 5.15
+ valid 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1mQt9P-0005bu-OV
+X-Mailman-Approved-At: Thu, 16 Sep 2021 16:40:37 +0000
+Subject: [Openipmi-developer] Issue with panic handling and ipmi
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,26 +103,28 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: openipmi-developer@lists.sourceforge.net,
- Linus Torvalds <torvalds@linux-foundation.org>,
- linux-kernel <linux-kernel@vger.kernel.org>
-MIME-Version: 1.0
+Cc: openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-The pull request you sent on Thu, 9 Sep 2021 16:10:52 -0500:
+Hi.
 
-> https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.15-1
+I've just done a upgrade of the kernel we're using in a product from
+4.19 to 5.10 and I noted a issue.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/1791596be2723f01de2f69d16a422fdba182c706
+It started that with that we didn't get panic and oops dumps in our erst
+backed pstore, and when debugging that I noted that the reboot on panic
+timer didn't work either.
 
-Thank you!
+I've bisected it down to 2033f6858970 ("ipmi: Free receive messages when
+in an oops").
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+I tested just reverting that and both dumps to pstore and the panic
+reboot timer started working again.
+
+
+//Anton
 
 
 _______________________________________________
