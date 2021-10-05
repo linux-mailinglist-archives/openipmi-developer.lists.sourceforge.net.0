@@ -2,128 +2,117 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 80141411751
-	for <lists+openipmi-developer@lfdr.de>; Mon, 20 Sep 2021 16:42:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D1262421B3F
+	for <lists+openipmi-developer@lfdr.de>; Tue,  5 Oct 2021 02:40:45 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mSKUa-0000IT-3r; Mon, 20 Sep 2021 14:42:00 +0000
+	id 1mXYVc-0004W4-CD; Tue, 05 Oct 2021 00:40:40 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <tcminyard@gmail.com>) id 1mSKUY-0000IL-73
- for openipmi-developer@lists.sourceforge.net; Mon, 20 Sep 2021 14:41:58 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1mXYVa-0004Vp-CJ
+ for openipmi-developer@lists.sourceforge.net; Tue, 05 Oct 2021 00:40:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=8fL+AzXhgquHQUasnCamb6PGeywzRH2M/eDrRwx6fqI=; b=dao6m0Sf9HpJ/rXAinLSC4eAIs
- +gh6uWq761c25wFnPCEGjP+W/zFYoJsKAHV2Pu5t898TsD3/Bd36zvhR4FZEFZoFSjSyQnQl3eTuB
- NBc9i8Ew4EiDw50ogwgH41qt4wxqsSsXK8tSvvYS4JBwcjM+g9SmXhWILIltGJghJMqc=;
+ bh=twlmdLpCjDHz+27xQowbGFx/HnS32RO/0/zhYrwu5jc=; b=d+wOHOeIFKngnTdjKqOWDoh0ke
+ 5CnCH2ZgJsb1CzrZ4zD5nQHFeuVxw3yTcGOJjUt05XUk7o9opz4d19FSvfZVITZF8Bo7CuGL5OkF4
+ kVQs1T/I8kycEkdGkas9Fv8LOCfPvy9Isvv8tkLq8lpmk533KiihJMovhjg+E1Bxx7uQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=8fL+AzXhgquHQUasnCamb6PGeywzRH2M/eDrRwx6fqI=; b=PUoDDAm7DQ8McbtA3aO9Brw1/a
- EgMOXWfLOM6KHHThTKk9xSBXU2wzAAXM0DXMM9+LIcqYMo1ar9JgjRWGCfGKo0p8EpS9J9BrPoTQp
- DIdG55xIQQhPwqpBuOrXZW+Ve5LPxXSODH96iV9Yz7sX7O0Zjx9y6DUnmCHqMXGUWrlA=;
-Received: from mail-ot1-f47.google.com ([209.85.210.47])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=twlmdLpCjDHz+27xQowbGFx/HnS32RO/0/zhYrwu5jc=; b=C
+ al/y2/h5wV93PeNhc56xSc5OnG/IMWhSfba42vFO0zcHAU+TKZeLgmO0KyabWVa0F76huOBODwR6W
+ JHe9RujeL6uvBWmAhgci54gJrofdyP+vUL801RwKJb901hqM3EBHG4FbnspirdMuCjuomPqfZuong
+ uUghxY2ri0qx1gQs=;
+Received: from mail-oi1-f170.google.com ([209.85.167.170])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1mSKUU-0004FW-Vh
- for openipmi-developer@lists.sourceforge.net; Mon, 20 Sep 2021 14:41:58 +0000
-Received: by mail-ot1-f47.google.com with SMTP id
- 77-20020a9d0ed3000000b00546e10e6699so12745903otj.2
+ id 1mXYVV-005Yb9-PI
+ for openipmi-developer@lists.sourceforge.net; Tue, 05 Oct 2021 00:40:38 +0000
+Received: by mail-oi1-f170.google.com with SMTP id u22so136272oie.5
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 20 Sep 2021 07:41:54 -0700 (PDT)
+ Mon, 04 Oct 2021 17:40:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to;
- bh=8fL+AzXhgquHQUasnCamb6PGeywzRH2M/eDrRwx6fqI=;
- b=XEMyYrjtQg84L9kMgSD8fG+DKeLblEtrbgWDIqGd69Okof7pacFePN+aXB8/srnj4S
- mf2CNYWwhhCqZcpw/vkVwPM7xCII3cI5Jj2SEDl4ZGqvwzHWDoZajyTDEKx29qzEUzbg
- y8gAhkGRNEULhsFI4ucL9dzazz//rcvVsd1LaR55O4yDCki2nQf8PYXy39T8eJUVszrt
- WqE+NSJKayAgw/Bcr+CylZE4pgTx3H8cSOdX/eywxFGtEw/EGokMRnizsX/ZIBmDxCim
- SYM6PPxpImEp0tgNxmPZqeQUsMu3DQeDYtnpq/Dd3Lu3ZV5e4WyskQXe9wF8nHPqxi5g
- utTQ==
+ h=sender:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=twlmdLpCjDHz+27xQowbGFx/HnS32RO/0/zhYrwu5jc=;
+ b=SHePYSTfcrqkRCYKDK4A2wTPJO6USO07h5XtUb5VYbBwgIl9NQZqYd/9RK3n/Nxmds
+ +XlsOrpXQEip3fTsGTANg7isCBSJ0y7voN6BIdofjC+hEw0i+YolqBdtDxtwJAf+AiXv
+ hDXzr/zX/Ehq9gg2q8mSCLHOfVmM//+q8tEfvGnNcsa+xriQRxVSjyMiD+qMCC1OJnQA
+ j7BUv37P5BCfNcVTuPzq7MS4Do+x7Nsa3z7w3FlvhwFGNS24HyWOzjxLaMDc07pZisOV
+ n8qxSYaA1corlyb16HN7mgK+6XGWFKFeTG5ruOJ/94cfjDb0IiiBymcEtgZFqHtCm6Cf
+ BQ6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=8fL+AzXhgquHQUasnCamb6PGeywzRH2M/eDrRwx6fqI=;
- b=N2UiNccjq9/YCmhiNVhVofyoegaPuwBNUndt6JyTa/2vnmUBU/DEZMqKng7NJpr4yM
- G3/5h0j438G90TlP7YZdz18WXMKzsthQcoD7Vpy6Vs2sBaoU2Rb6QrtSOo3nSi6zxIVF
- q0QtF/tylspUehpDz4+y7JduqY3JGV0+D2esm25C/joerWO0ogwYzL2egAXqNlpc0wDD
- VRAhmqlxsO2ecuSORZyC5eWHoizQ1wYGO6Me5+hnc/b/9XZ+458pJmz8t2Ce02ZfGNiO
- k5tY0ibnp5Ovr4w0Ljse3YHAqXrgjNL8/TsWZlsKInWXs18Ryv7NOs6cte/ilCEyXHlF
- PZtQ==
-X-Gm-Message-State: AOAM532CJ+tuo07Yf0nj4/sfI8bDffQUy6qqrLkWE9F/NGKHE829Blkp
- 5qt/dqA7SfKJELJOV4LlIJWywSwRig==
-X-Google-Smtp-Source: ABdhPJzeqzTCUFPHNVnz8FT1VWYkTEFb+Wl9zWx6gi1ks73px4f4Pwco1J5vRr1wzRyQ+4/1C4cPQw==
-X-Received: by 2002:a05:6830:1513:: with SMTP id
- k19mr5690836otp.41.1632148909302; 
- Mon, 20 Sep 2021 07:41:49 -0700 (PDT)
-Received: from serve.minyard.net ([47.184.156.158])
- by smtp.gmail.com with ESMTPSA id d7sm561053otl.19.2021.09.20.07.41.48
+ h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
+ :mime-version:content-transfer-encoding;
+ bh=twlmdLpCjDHz+27xQowbGFx/HnS32RO/0/zhYrwu5jc=;
+ b=hGI+NhSMu1JfG2qUBwG7wgQ08Ej05VHQKa+sKWVJZEa+BgNkrYvboL8x7SE6EzjHMS
+ w6+VnJp4LzaIGFqhwuDmmAnBHV08i+L2p2fKgUxbyzxCfvUlLY5ynqEPfdKDhOc7wRJw
+ 1OTj/7jdKAFldEa6ZLoBHTz6WjWp9kDU3Lb9ftgU7Pjf8dCTTw0kLZ2LrCIvON08Xa1j
+ Y/wWU7o7l8lWrs0DBsBxInjf4jm37m7ERFXFV3ksiNpdGMne/sBS1rnWWrWVuqdNSABt
+ QLLH9C81OlR8Lu+b5QzRCmwHe4b7BvbViT2Qjx3moutMmA3Jp4vNvfbn/VTIXBaRtTPa
+ w3Qg==
+X-Gm-Message-State: AOAM530FFU6yq/H5rvudyuVYEG2nxSopRJjLKfvU5bHdM2b+qOTtJEzy
+ MgPKhkgiZShW91di+EVZEpj5Z96WLg==
+X-Google-Smtp-Source: ABdhPJzdt7qibam/jvY3sK4t2jDT0lMobLyudIZhl7z4tRh9IRf+VuMHCMSdzeElDGG4U+0T0MCh8A==
+X-Received: by 2002:a05:6808:a06:: with SMTP id n6mr146076oij.86.1633394427736; 
+ Mon, 04 Oct 2021 17:40:27 -0700 (PDT)
+Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
+ by smtp.gmail.com with ESMTPSA id x8sm2734163otg.31.2021.10.04.17.40.26
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 20 Sep 2021 07:41:48 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:85f2:365c:992b:e354])
- by serve.minyard.net (Postfix) with ESMTPSA id 95F941800EF;
- Mon, 20 Sep 2021 14:41:47 +0000 (UTC)
-Date: Mon, 20 Sep 2021 09:41:46 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Anton Lundin <glance@acc.umu.se>
-Message-ID: <20210920144146.GD545073@minyard.net>
-References: <20210916145300.GD108031@montezuma.acc.umu.se>
- <20210916163945.GY545073@minyard.net>
- <20210917101419.GE108031@montezuma.acc.umu.se>
- <20210917120758.GA545073@minyard.net>
- <20210917125525.GF108031@montezuma.acc.umu.se>
- <20210917131916.GB545073@minyard.net>
- <20210917132648.GG108031@montezuma.acc.umu.se>
- <20210920113802.GC545073@minyard.net>
- <20210920141231.GH108031@montezuma.acc.umu.se>
+ Mon, 04 Oct 2021 17:40:26 -0700 (PDT)
+Received: from t560.minyard.net (unknown
+ [IPv6:2001:470:b8f6:1b:1ce5:3fb4:8fe9:30d1])
+ by serve.minyard.net (Postfix) with ESMTPA id BA92C1800F0;
+ Tue,  5 Oct 2021 00:40:25 +0000 (UTC)
+From: minyard@acm.org
+To: openipmi-developer@lists.sourceforge.net
+Date: Mon,  4 Oct 2021 19:40:14 -0500
+Message-Id: <20211005004019.2670691-1-minyard@acm.org>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210920141231.GH108031@montezuma.acc.umu.se>
 X-Spam-Score: 0.4 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, Sep 20, 2021 at 04:12:31PM +0200, Anton Lundin wrote:
- > On 20 September, 2021 - Corey Minyard wrote: > > > Well, that was dumb.
- Fix follows... > > > > Thanks for working on this. On your appro [...] 
+ Content preview:  This patch sets lets a devices that is sitting on an IPMB
+ bus talk to the BMC as a normal system interfaces. It also adds the ability
+ to message other MCs directly on the IPMB, and it can receive commands and
+ respond on the IPMB, too. 
  Content analysis details:   (0.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
  mail domains are different
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [tcminyard[at]gmail.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.47 listed in wl.mailspike.net]
+ valid -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.170 listed in wl.mailspike.net]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.47 listed in list.dnswl.org]
+ no trust [209.85.167.170 listed in list.dnswl.org]
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
  EnvelopeFrom freemail headers are different
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1mSKUU-0004FW-Vh
-Subject: Re: [Openipmi-developer] Issue with panic handling and ipmi
+X-Headers-End: 1mXYVV-005Yb9-PI
+Subject: [Openipmi-developer] [PATCH 0/5] Add support for access through an
+ IPMB bus
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -136,37 +125,25 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: openipmi-developer@lists.sourceforge.net,
- LKML <linux-kernel@vger.kernel.org>
+Cc: Andrew Manley <andrew.manley@sealingtech.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Sep 20, 2021 at 04:12:31PM +0200, Anton Lundin wrote:
-> On 20 September, 2021 - Corey Minyard wrote:
-> 
-> > Well, that was dumb.  Fix follows...
-> > 
-> > Thanks for working on this.  On your approval, I'll send this to Linus.
-> 
-> Winner winner chicken dinner!
-> 
-> This fixes the issue, and now panic timer works, and we get crashdumps
-> to pstore.
-> 
-> Great job, I approve!
-> 
-> 
-> Thanks for your help getting this fixed.
+This patch sets lets a devices that is sitting on an IPMB bus talk to
+the BMC as a normal system interfaces.
 
-Thanks for reporting this.  I'll get the patch in.
+It also adds the ability to message other MCs directly on the IPMB, and
+it can receive commands and respond on the IPMB, too.
+
+This is not meant as a replacement for ipmi_dev_int.c.  If you are doing
+a full BMC, that's probably a better choice.  These changes are for
+devices talking on the IPMB to BMCs or other MCs that might get some
+commands to handle.
 
 -corey
 
-> 
-> 
-> //Anton
+
 
 
 _______________________________________________
