@@ -2,119 +2,91 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 08B9143A57E
-	for <lists+openipmi-developer@lfdr.de>; Mon, 25 Oct 2021 23:08:12 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B4C243B9AA
+	for <lists+openipmi-developer@lfdr.de>; Tue, 26 Oct 2021 20:33:39 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.92.3)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mf7CR-0007el-JL; Mon, 25 Oct 2021 21:08:07 +0000
+	id 1mfRGS-0007fC-1L; Tue, 26 Oct 2021 18:33:36 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- (envelope-from <tcminyard@gmail.com>) id 1mf7CP-0007ea-R1
- for openipmi-developer@lists.sourceforge.net; Mon, 25 Oct 2021 21:08:05 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1mfRGQ-0007f5-PN
+ for openipmi-developer@lists.sourceforge.net; Tue, 26 Oct 2021 18:33:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=e3DNRPCFYalAfFsInyW5lanrcNUI3WrTPjGsoLlw0sQ=; b=cbeV2vzFIuBRGmPZw+fTB7RBE9
- 4zi0FZML4TASI7dzFlriiwlIRdW2kjAbijpEu7DedxaiCsvvu5L5O3SuZXsJpMVTULWxVmC0Kqogo
- x5XvhkTzm9Wiv8lKj0zXiI07Hz9KNO8ju35HrTuLUHCPsMuZKj/5noYleLGk2i7qMzeg=;
+ bh=wERXcRAQ/I//djLVS+exIHaSTMibkMB6iC5nNkVNg9E=; b=ZInnMkVhTHN/REL2frVYnWRY2r
+ LDsKDUy1fqKwPhwkCAXhZWJDmIJ+SMmjfqBD3jDrZ5u0L1HcviG/4YbbCiCx3zh6ZM4NHdduhMKOr
+ jDe/W34dUhabYkNk6qgfhlnj90N8el5jKCPjkJP1CG97O7lV6BPPqsC5rp7cf+ohCGGM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=e3DNRPCFYalAfFsInyW5lanrcNUI3WrTPjGsoLlw0sQ=; b=ZsRGj7Uhx5V9kZq7vMAIbmiEK0
- OU/dUG/bP6WT16y93PyMcoPb+pD6ennRE7hkEcSrGv1MBAccq9JNssRw8oCa0GI69kkUQmn8I20l9
- bhUOEhSoobvLJaSIzQLh6dwCMSQ2ClQtY5RV1JmgSkseSU9xtFCvvKrVS/t/nSSKSrR8=;
-Received: from mail-qt1-f179.google.com ([209.85.160.179])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=wERXcRAQ/I//djLVS+exIHaSTMibkMB6iC5nNkVNg9E=; b=O1xv22/cBEXpsGiinO5Hj8kpJp
+ ezSKPrP5smi2ZlKldApWzLBQ97FfxnfnV2ldtiAcH1zU/QgTluL4CVm8yC5JM7Tx/kD94BhiKGLUn
+ xjXREBDmGfrh0kvcsFjetYq6vqxrBX9qPLcD1io6L0tKov+iF+g0onCdPrgShKYtAk3I=;
+Received: from mail-qk1-f171.google.com ([209.85.222.171])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1mf7CL-0006T9-OU
- for openipmi-developer@lists.sourceforge.net; Mon, 25 Oct 2021 21:08:05 +0000
-Received: by mail-qt1-f179.google.com with SMTP id v17so11602009qtp.1
+ id 1mfRFw-00HUIV-Jr
+ for openipmi-developer@lists.sourceforge.net; Tue, 26 Oct 2021 18:33:34 +0000
+Received: by mail-qk1-f171.google.com with SMTP id d15so16078311qkj.10
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 25 Oct 2021 14:08:01 -0700 (PDT)
+ Tue, 26 Oct 2021 11:33:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
  h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to;
- bh=e3DNRPCFYalAfFsInyW5lanrcNUI3WrTPjGsoLlw0sQ=;
- b=jaJLhQVtytdtdqyFjUqYKAmNKeJDLdc4TbpBly8Py6IeEsIKacLZwmWYf9aqF3b9d8
- gCzf+TWG2Mcv5YtkqIMhRvd4SLWEtoKa9LgNCpO5/CnYatsA2/sarYRL8QATHMBN/Xm0
- yn4KuWhvI5zPLrUxcQ4sesKq0GVMU78M1P8GlHgvmYuxQxH5AO3Dl8WVmV5YlEpAZcVZ
- e/ZsFkSXWlxf414QdBI9xP8cyCtwC1z9edKSh9Nju7EJ4AoN32JEnTX0Bi8bguw255ta
- Y1g9o76XOWvGMRyqcF6a74kXgKISt7dCywj2cupoQwEP83DnfuNtd8TyhIlI50J5DKfx
- u2Iw==
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to; bh=wERXcRAQ/I//djLVS+exIHaSTMibkMB6iC5nNkVNg9E=;
+ b=Ys6OqEsUFnubgTs3A45NkfIy1d3Osj2cXDYYiwJRPjNovs39ZFHCkKwqRY8LuRbjDW
+ B7JFj4j+ggpykOgO5q4JtCApWYjipzJOndmZBjkE7IPkjmji/A1QchKW/jWeQrxfaShf
+ TzWsCh8DNBx+GzQ0m2rwU66vz0bAIknVsygPxNH76F/LOm96kJ5vmYUBWgpwbgyaV6Ue
+ oe8wcnJZiUOktP5yjuFxp8QGc972QlM711cvKTm8eS3axB/4r4b3e9gKBqME6SpDEluP
+ IB/nptRnUFOG9sxZB5L3kEI2y/zHku0GOM/5ihe/W0pwgMMWMOVN+2jf17KxapxVte6T
+ ScUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=e3DNRPCFYalAfFsInyW5lanrcNUI3WrTPjGsoLlw0sQ=;
- b=N6Dx4Bgfuw/Yz/Z5cDAbuKk6cJT4qI3JEgplRrxI13RFdXUbLV30FTbPDRp/gxP5dQ
- F/vqmTOP5kx+nnQ/xppJ5SHTjGUqDcM1WGYM7N+gtAfKQ1/XUAIHl8mMCExuJnUII3se
- /wy7BTzta7cbhU/HRqxQQAYeBkmTQJ6hQ+yIZWJPkA+A+jTn9hrcjamxKMGhCCINlcRg
- H6bxpWCu8pOqT7rsONJva0NyIJDsvlkApbeNAePm6iclUYNL/CZbMeudwtpLhlFTPZgd
- JFrpmzUYvB38TJ9/eDWIKcVDfQ0Pf3SMd3s+hmwIcQa6oedIVj93lKT+DqYyHkYrsFxm
- x4Fw==
-X-Gm-Message-State: AOAM531uc4YUCpcerpWRBFOsVFt/q8f7vu/9QL+fLSPF7ymLSH+vhukV
- lb9/lYfZ19B8AzfZqpmHyKkwOn2bRA==
-X-Google-Smtp-Source: ABdhPJxpTxYKuwQnEVM4z4QHx6Chz9IznL/YPzIA14NKlKpllDt7SEiXvUdGAdUS3YF75BzXzxw1gA==
-X-Received: by 2002:ac8:430e:: with SMTP id z14mr19995010qtm.208.1635196075593; 
- Mon, 25 Oct 2021 14:07:55 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id b23sm8990535qkk.83.2021.10.25.14.07.54
+ :reply-to:references:mime-version:content-disposition
+ :content-transfer-encoding:in-reply-to;
+ bh=wERXcRAQ/I//djLVS+exIHaSTMibkMB6iC5nNkVNg9E=;
+ b=laGDTrVT4VWCwFFINoh/jX+G0C9jBiufXet2ey1BfuPG6Oo6PALdqeClBz+myDsS2E
+ g/afJbmStGfE9XlzcaxUoxhqZkE6Mf7xW2y/1r3jZniYr6U3v/QYLEUs8xt2MkVn25RN
+ cG/Oc38pt23RDoj6Wm5inor3qdI0egN4dn0GVG1nQJLVyozq6PUZEKi/HDqnaCJhzsy9
+ lmoiXaQLcT41X7nbxK5E6qnrkkh9u89F86SDqO2yLx4V/v0ODNCdicQmXURRVLelaV2N
+ ejVF7TUJonzmRwvE6SEGZhzEHZvmjBg5jDll6c3HZ/SknQtXMGtBSm54X9yxv7y6xTSg
+ X4TQ==
+X-Gm-Message-State: AOAM533Wg+btc1brkljwe51X3ThW7jniWvPxWrO82IOrtpIBoinPH/3P
+ 572iT7c4qNOxJjd0e1TEQ9qKwowsIQ==
+X-Google-Smtp-Source: ABdhPJwpl6zcPrsn0PotBJMlEXnjRTbMzCIc7iIUCnGSxC56T/JU6yCg8Fvbtpf0Iv5e9CnjgRsehA==
+X-Received: by 2002:a05:622a:83:: with SMTP id
+ o3mr26312912qtw.17.1635267011819; 
+ Tue, 26 Oct 2021 09:50:11 -0700 (PDT)
+Received: from serve.minyard.net ([47.184.156.158])
+ by smtp.gmail.com with ESMTPSA id c8sm11288834qtb.29.2021.10.26.09.50.11
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 25 Oct 2021 14:07:55 -0700 (PDT)
+ Tue, 26 Oct 2021 09:50:11 -0700 (PDT)
 Received: from minyard.net (unknown
  [IPv6:2001:470:b8f6:1b:ad7f:7a7f:3b9a:4eab])
- by serve.minyard.net (Postfix) with ESMTPSA id D8C0318000C;
- Mon, 25 Oct 2021 21:07:53 +0000 (UTC)
-Date: Mon, 25 Oct 2021 16:07:52 -0500
+ by serve.minyard.net (Postfix) with ESMTPSA id 4C6B91800B4;
+ Tue, 26 Oct 2021 16:50:10 +0000 (UTC)
+Date: Tue, 26 Oct 2021 11:50:09 -0500
 From: Corey Minyard <minyard@acm.org>
-To: Wan Jiabing <wanjiabing@vivo.com>
-Message-ID: <20211025210752.GC2744412@minyard.net>
-References: <20211025012206.21189-1-wanjiabing@vivo.com>
+To: Kunkun Li <likunkun@bytedance.com>
+Message-ID: <20211026165009.GD2744412@minyard.net>
+References: <20211026025834.82766-1-likunkun@bytedance.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211025012206.21189-1-wanjiabing@vivo.com>
-X-Spam-Score: 0.4 (/)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
- has NOT identified this incoming email as spam.  The original
- message has been attached to this so you can view it or label
- similar future email.  If you have any questions, see
- the administrator of that system for details.
- Content preview:  On Sun, Oct 24, 2021 at 09:22:06PM -0400, Wan Jiabing wrote:
- > There are 5 duplicated 'if' conditions to judge the 'run_to_completion',
- > which looks redundant. And there is no function to modify this [...] 
- Content analysis details:   (0.4 points, 6.0 required)
- pts rule name              description
- ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.160.179 listed in list.dnswl.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tcminyard[at]gmail.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.160.179 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1mf7CL-0006T9-OU
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: simplify duplicated if
- condition
+In-Reply-To: <20211026025834.82766-1-likunkun@bytedance.com>
+X-Headers-End: 1mfRFw-00HUIV-Jr
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: ssif: Add msleep in
+ multipart test
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -128,97 +100,44 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Reply-To: minyard@acm.org
-Cc: kael_w@yeah.net, openipmi-developer@lists.sourceforge.net,
- linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Sun, Oct 24, 2021 at 09:22:06PM -0400, Wan Jiabing wrote:
-> There are 5 duplicated 'if' conditions to judge the 'run_to_completion',
-> which looks redundant. And there is no function to modify this variable.
-
-It's modified in panic_event().
-
-> 
-> Reduce the 'if' conditions from 5 times to 1 time can make code easy to
-> understand and fix following coccicheck warning:
-> 
-> ./drivers/char/ipmi/ipmi_msghandler.c :4771:2-19: ERROR: nested
-> lock+irqsave that reuses flags from line 4764.
-
-I'm not sure this matters that much.  The comments are messed up a bit,
-and probably need to be reworked.  But I'm not inclined to take this.
-
--corey
-
-> 
-> Signed-off-by: Wan Jiabing <wanjiabing@vivo.com>
-> ---
->  drivers/char/ipmi/ipmi_msghandler.c | 38 ++++++++++++++---------------
->  1 file changed, 18 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index a60201d3f735..072da25124cf 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -4756,32 +4756,30 @@ void ipmi_smi_msg_received(struct ipmi_smi *intf,
->  	unsigned long flags = 0; /* keep us warning-free. */
->  	int run_to_completion = intf->run_to_completion;
->  
-> -	/*
-> -	 * To preserve message order, we keep a queue and deliver from
-> -	 * a tasklet.
-> -	 */
-> -	if (!run_to_completion)
-> +	if (!run_to_completion) {
-> +		/*
-> +		 * To preserve message order, we keep a queue and deliver from
-> +		 * a tasklet.
-> +		 */
->  		spin_lock_irqsave(&intf->waiting_rcv_msgs_lock, flags);
-> -	list_add_tail(&msg->link, &intf->waiting_rcv_msgs);
-> -	if (!run_to_completion)
-> +		list_add_tail(&msg->link, &intf->waiting_rcv_msgs);
->  		spin_unlock_irqrestore(&intf->waiting_rcv_msgs_lock,
->  				       flags);
-> -
-> -	if (!run_to_completion)
->  		spin_lock_irqsave(&intf->xmit_msgs_lock, flags);
-> -	/*
-> -	 * We can get an asynchronous event or receive message in addition
-> -	 * to commands we send.
-> -	 */
-> -	if (msg == intf->curr_msg)
-> -		intf->curr_msg = NULL;
-> -	if (!run_to_completion)
-> +		/*
-> +		 * We can get an asynchronous event or receive message in addition
-> +		 * to commands we send.
-> +		 */
-> +		if (msg == intf->curr_msg)
-> +			intf->curr_msg = NULL;
->  		spin_unlock_irqrestore(&intf->xmit_msgs_lock, flags);
-> -
-> -	if (run_to_completion)
-> -		smi_recv_tasklet(&intf->recv_tasklet);
-> -	else
->  		tasklet_schedule(&intf->recv_tasklet);
-> +	} else {
-> +		list_add_tail(&msg->link, &intf->waiting_rcv_msgs);
-> +		if (msg == intf->curr_msg)
-> +			intf->curr_msg = NULL;
-> +		smi_recv_tasklet(&intf->recv_tasklet);
-> +	}
->  }
->  EXPORT_SYMBOL(ipmi_smi_msg_received);
->  
-> -- 
-> 2.20.1
-> 
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gVHVlLCBPY3QgMjYsIDIwMjEgYXQgMTA6NTg6MzRBTSArMDgwMCwgS3Vua3VuIExpIHdyb3Rl
+Ogo+IER1cmluZyBtdWx0aXBhcnQgdGVzdCwgY21kKDYsNyw4KSBvciBjbWQoNiw3LDcpIHdpbGwK
+PiBiZSBzZW50IGNvbnRpbnVvdXNseS4KClRoaXMgaXMgbm90IHVzZWZ1bCBpbmZvcm1hdGlvbiwg
+d2UgZG9uJ3QgaGF2ZSBhY2Nlc3MgdG8geW91ciB0ZXN0cywgc28KdGhpcyBpcyBtZWFuaW5nbGVz
+cyB0byB1cy4KCj4gCj4gVGhlIHByZXNzdXJlIHRlc3QgZm91bmQgc29tZSBCTUMgc3lzdGVtcyBj
+YW5ub3QgcHJvY2Vzcwo+IG1lc3NhZ2VzIGluIHRpbWUsIHJlc3VsdGluZyBpbiByZWFkX3Jlc3Bv
+bnNlIGNvbnRpbnVlcyB0byByZWNlaXZlCj4gZXJyb3IgbWVzc2FnZXMgZnJvbSBpMmMuCj4gUmV0
+cnkgbWVjaGFuaXNtIHdpbGwgdGFrZXMgMTBzLCBhbmQgZmluYWxseSBzZXQgbm90IHN1cHBvcnQK
+PiBtdWx0aXBhcnQgdHJhbnNtaXQuCj4gCj4gU28sIHRvIHdvcmsgYXJvdW5kIHRoaXPvvIxhZGQg
+bXNsZWVwIGFmdGVyIHNlbmRpbmcgY21kIDYgYW5kCj4gY21kIDcgcmVzcGVjdGl2ZWx5LiBUaGUg
+cHJvYmxlbSBkaWQgbm90IGFwcGVhciBhZ2FpbiBpbgo+IHByZXNzdXJlIHRlc3QuCgpObywgeW91
+IGNhbid0IHNsb3cgZG93biBldmVyeW9uZSBiZWNhdXNlIHlvdSBoYXZlIG9uZSBkb2RneSBCTUMu
+ICBZb3UKbmVlZCB0byBkZXRlY3QgdGhhdCB0aGlzIGlzIGEgQk1DIHRoYXQgaGFzIHRoZSBwcm9i
+bGVtIGFuZCBvbmx5IGRvIGl0CmZvciB0aG9zZSBCTUNzLgoKLWNvcmV5Cgo+IAo+IFNpZ25lZC1v
+ZmYtYnk6IEt1bmt1biBMaSA8bGlrdW5rdW5AYnl0ZWRhbmNlLmNvbT4KPiAtLS0KPiAgZHJpdmVy
+cy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMgfCAyICsrCj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2Vy
+dGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMg
+Yi9kcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NzaWYuYwo+IGluZGV4IDIwZDVhZjkyOTY2ZC4uNjU4
+NDE3OThmYWZlIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfc3NpZi5jCj4g
+KysrIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMKPiBAQCAtMTQ1Myw2ICsxNDUzLDcg
+QEAgc3RhdGljIGludCBzdGFydF9tdWx0aXBhcnRfdGVzdChzdHJ1Y3QgaTJjX2NsaWVudCAqY2xp
+ZW50LAo+ICAJcmV0ID0gaTJjX3NtYnVzX3dyaXRlX2Jsb2NrX2RhdGEoY2xpZW50LAo+ICAJCQkJ
+CSBTU0lGX0lQTUlfTVVMVElfUEFSVF9SRVFVRVNUX1NUQVJULAo+ICAJCQkJCSAzMiwgbXNnKTsK
+PiArCW1zbGVlcChTU0lGX01TR19NU0VDKTsKPiAgCWlmIChyZXQpIHsKPiAgCQlyZXRyeV9jbnQt
+LTsKPiAgCQlpZiAocmV0cnlfY250ID4gMCkKPiBAQCAtMTQ2Nyw2ICsxNDY4LDcgQEAgc3RhdGlj
+IGludCBzdGFydF9tdWx0aXBhcnRfdGVzdChzdHJ1Y3QgaTJjX2NsaWVudCAqY2xpZW50LAo+ICAJ
+cmV0ID0gaTJjX3NtYnVzX3dyaXRlX2Jsb2NrX2RhdGEoY2xpZW50LAo+ICAJCQkJCSBTU0lGX0lQ
+TUlfTVVMVElfUEFSVF9SRVFVRVNUX01JRERMRSwKPiAgCQkJCQkgMzIsIG1zZyArIDMyKTsKPiAr
+CW1zbGVlcChTU0lGX01TR19NU0VDKTsKPiAgCWlmIChyZXQpIHsKPiAgCQlkZXZfZXJyKCZjbGll
+bnQtPmRldiwgIkNvdWxkIG5vdCB3cml0ZSBtdWx0aS1wYXJ0IG1pZGRsZSwgdGhvdWdoIHRoZSBC
+TUMgc2FpZCBpdCBjb3VsZCBoYW5kbGUgaXQuICBKdXN0IGxpbWl0IHNlbmRzIHRvIG9uZSBwYXJ0
+LlxuIik7Cj4gIAkJcmV0dXJuIHJldDsKPiAtLSAKPiAyLjExLjAKPiAKCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBtaS1kZXZlbG9wZXIgbWFp
+bGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0cHM6
+Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVy
+Cg==
