@@ -2,17 +2,17 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 61F9243D0B9
-	for <lists+openipmi-developer@lfdr.de>; Wed, 27 Oct 2021 20:26:21 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id F2E3143D1E9
+	for <lists+openipmi-developer@lfdr.de>; Wed, 27 Oct 2021 21:54:20 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mfncw-0001pg-Np; Wed, 27 Oct 2021 18:26:18 +0000
+	id 1mfp06-0007Yb-20; Wed, 27 Oct 2021 19:54:16 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <sashal@kernel.org>) id 1mfncv-0001pJ-Kk
- for openipmi-developer@lists.sourceforge.net; Wed, 27 Oct 2021 18:26:17 +0000
+ (envelope-from <sashal@kernel.org>) id 1mfp04-0007YU-Dv
+ for openipmi-developer@lists.sourceforge.net; Wed, 27 Oct 2021 19:54:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
@@ -35,8 +35,8 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
 Received: from mail.kernel.org ([198.145.29.99])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1mfnYv-001uXO-Ek
- for openipmi-developer@lists.sourceforge.net; Wed, 27 Oct 2021 18:26:16 +0000
+ id 1mfoy1-0022Kk-CB
+ for openipmi-developer@lists.sourceforge.net; Wed, 27 Oct 2021 19:54:14 +0000
 Received: by mail.kernel.org (Postfix) with ESMTPSA id 4369B60F92;
  Wed, 27 Oct 2021 17:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
@@ -66,7 +66,7 @@ References: <20210916145300.GD108031@montezuma.acc.umu.se>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20210920144146.GD545073@minyard.net>
-X-Headers-End: 1mfnYv-001uXO-Ek
+X-Headers-End: 1mfoy1-0022Kk-CB
 Subject: Re: [Openipmi-developer] Issue with panic handling and ipmi
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
