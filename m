@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B93043D379
-	for <lists+openipmi-developer@lfdr.de>; Wed, 27 Oct 2021 23:03:18 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3ACFE43D8F3
+	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Oct 2021 03:53:24 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mfq4o-0001KA-Qq; Wed, 27 Oct 2021 21:03:13 +0000
+	id 1mfubV-0007tv-Oq; Thu, 28 Oct 2021 01:53:18 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <sashal@kernel.org>) id 1mfq4n-0001K3-CU
- for openipmi-developer@lists.sourceforge.net; Wed, 27 Oct 2021 21:03:11 +0000
+ (envelope-from <sashal@kernel.org>) id 1mfubT-0007tg-Ro
+ for openipmi-developer@lists.sourceforge.net; Thu, 28 Oct 2021 01:53:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=E2kXkYxvQAu34KP9H0OHFteqfJsbvy0SfhoVUlOnIeE=; b=FrLxlkFL7Rb/zOrYhr4Kl7RTMN
- cqMhYAnkpuXbyANjlomvfKKLHNqSwe6VoQvG9/8msUj1LH/7iOQwg8KNUUKEESQE00sTjjt6ZjCvx
- LxyNFOE9S46ky0UfUt22osC51fTQxUzBfexR4wIb8+ODVW4h3ABQ/q1+SW5dZ5hE128w=;
+ bh=J1aPUeI7nsUc8VEFDdTT/QhDV4t3YXkf+QLEljZ1Tt8=; b=gYBs0q0Nia8WvCm9yMUPJLfq7z
+ MBex+RBk8Eihil0H/Ryl57wu3FSS+PWBt9bIWUV06wq7EW5F/QrEYb+X3jB98ao+9S5bR9LtvaAck
+ z1vOKgXONwZKnTVhoc2l2G2VGmKKCgDCGFppf1MoqhBMMPDrFNjxpwhOT+jc0MGqzkEc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -29,69 +29,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=E2kXkYxvQAu34KP9H0OHFteqfJsbvy0SfhoVUlOnIeE=; b=D7Dj5rTCSyEgs/it6EvYJO8pTH
- RgqXS67G1kWFxDWKIVEhZvBMzdoXLj2xnThcWl9TypDQkFbYF6qS1HRltGgNXFboI9fjtB8JjjZRO
- qEtBys48D0VeJoaz1RcdMSP4cHQ9eKwxwIlVSmWzswiaQSIz7xNL7X516c46Qj8DMcto=;
+ bh=J1aPUeI7nsUc8VEFDdTT/QhDV4t3YXkf+QLEljZ1Tt8=; b=aZkeELuk15n4KeckemPjnU3Xhq
+ 5xJ+Q7FQxHLheueyMFxc+h8sKDEUi8v1itsY74aqGeFZzA5e5JY/Q8MLPbiDTIZxPvpFN4RU5Yqav
+ I3HbWXZjxBOGKob9b9eet+pwyipqD2YYqlI5Y9AVIBQViWHYHXeONhEr6ZcDeIfNoPMo=;
 Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.92.3)
- id 1mfq4g-0001yG-Ef
- for openipmi-developer@lists.sourceforge.net; Wed, 27 Oct 2021 21:03:11 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 4369B60F92;
- Wed, 27 Oct 2021 17:59:15 +0000 (UTC)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1mfuVe-002TCn-81
+ for openipmi-developer@lists.sourceforge.net; Thu, 28 Oct 2021 01:53:16 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D71ED610FD;
+ Thu, 28 Oct 2021 01:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1635357555;
- bh=HQ+IZGHNYxOehvG0a9COxhhADZqU0Z/4UL+e4i3hi6k=;
+ s=k20201202; t=1635385192;
+ bh=ytYQeufNPmG0y/a7R9lsQ0yU6nEE5eEZ2Wb9wHEiiFw=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=n1mfUrSf5O+OArXxcIo4WLYza6v4oz8s4xzCKCVBOiQNwWxbeoRcKRwZbEYEyirv+
- Y6lqKHJDLlpnhuxfvsUfaF333R4ULwPjyhCXByg7m0qc4ayjFsk3XNxUOQVJV0dD48
- CkLe8K2xSfiHVVInrtxNwobeUb+bNRQJt234yz4rQbRgdDnNxzXSR/+6uCnXvO113Z
- 7Fmmytqfjq6Qpkp6Z/i7i4U4Xt1Z+o/VM1/aJBzMFCT7O9/EsOWb4wHdo3erpWzRyh
- n3XZuYZJEde7KcaqPCzy0Y3W7uWj+RJBFPJXiqODXA5ez8/oG0IKjeGSP+kxJuqgYQ
- v3RP3EgLpcOWg==
-Date: Wed, 27 Oct 2021 13:59:09 -0400
+ b=VdUELk9U5B1lJTOjXGuJ9uu74yoFOnUZFbrzb98STR8X0hzIx7JGTyYPkQeOSQZGR
+ 6nqT2QzHY4DH6/qXVPq6G+DZ1h3De+EuAdlBpNq7R1Y3gxi06hkRPJcpRPRR/gV3/d
+ n1/98h4OStSUXhJXSDL92WfW++8m+0b0NDx65oDD3h7gKwKSBo1gBVMojw9KM0vDKb
+ 0s1h5uwE5O0AeALvrNizx8kB1dLFWrR+mV9og/edXIjD0kBgNYT7pis2XVA5LvOG49
+ /0gURT4fK+mvS3BCRzAoiyGHglYQ9nniqawI+DCJTcqBj3T/KVp59JMMs0yU/pF0Z+
+ vmTRPj77pxT/w==
+Date: Wed, 27 Oct 2021 21:39:50 -0400
 From: Sasha Levin <sashal@kernel.org>
 To: Corey Minyard <minyard@acm.org>
-Message-ID: <YXmTbYhFvDJ0m5KX@sashalap>
-References: <20210916145300.GD108031@montezuma.acc.umu.se>
- <20210916163945.GY545073@minyard.net>
- <20210917101419.GE108031@montezuma.acc.umu.se>
+Message-ID: <YXn/ZnlgXp6iuWLJ@sashalap>
+References: <20210917101419.GE108031@montezuma.acc.umu.se>
  <20210917120758.GA545073@minyard.net>
  <20210917125525.GF108031@montezuma.acc.umu.se>
  <20210917131916.GB545073@minyard.net>
  <20210917132648.GG108031@montezuma.acc.umu.se>
  <20210920113802.GC545073@minyard.net>
  <20210920141231.GH108031@montezuma.acc.umu.se>
- <20210920144146.GD545073@minyard.net>
+ <20210920144146.GD545073@minyard.net> <YXmTbYhFvDJ0m5KX@sashalap>
+ <20211027182027.GG2744412@minyard.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210920144146.GD545073@minyard.net>
-X-Spam-Score: -5.2 (-----)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
- has NOT identified this incoming email as spam.  The original
- message has been attached to this so you can view it or label
- similar future email.  If you have any questions, see
- the administrator of that system for details.
- Content preview:  On Mon, Sep 20, 2021 at 09:41:46AM -0500,
- Corey Minyard wrote: >On Mon, Sep 20, 2021 at 04:12:31PM +0200,
- Anton Lundin wrote: >> On 20 September, 
- 2021 - Corey Minyard wrote: >> >> > Well, that was dum [...] 
- Content analysis details:   (-5.2 points, 6.0 required)
- pts rule name              description
- ---- ---------------------- --------------------------------------------------
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1mfq4g-0001yG-Ef
+In-Reply-To: <20211027182027.GG2744412@minyard.net>
+X-Headers-End: 1mfuVe-002TCn-81
 Subject: Re: [Openipmi-developer] Issue with panic handling and ipmi
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -111,30 +85,42 @@ Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Sep 20, 2021 at 09:41:46AM -0500, Corey Minyard wrote:
->On Mon, Sep 20, 2021 at 04:12:31PM +0200, Anton Lundin wrote:
->> On 20 September, 2021 - Corey Minyard wrote:
->>
->> > Well, that was dumb.  Fix follows...
+On Wed, Oct 27, 2021 at 01:20:27PM -0500, Corey Minyard wrote:
+>On Wed, Oct 27, 2021 at 01:59:09PM -0400, Sasha Levin wrote:
+>> On Mon, Sep 20, 2021 at 09:41:46AM -0500, Corey Minyard wrote:
+>> > On Mon, Sep 20, 2021 at 04:12:31PM +0200, Anton Lundin wrote:
+>> > > On 20 September, 2021 - Corey Minyard wrote:
+>> > >
+>> > > > Well, that was dumb.  Fix follows...
+>> > > >
+>> > > > Thanks for working on this.  On your approval, I'll send this to Linus.
+>> > >
+>> > > Winner winner chicken dinner!
+>> > >
+>> > > This fixes the issue, and now panic timer works, and we get crashdumps
+>> > > to pstore.
+>> > >
+>> > > Great job, I approve!
+>> > >
+>> > >
+>> > > Thanks for your help getting this fixed.
 >> >
->> > Thanks for working on this.  On your approval, I'll send this to Linus.
+>> > Thanks for reporting this.  I'll get the patch in.
 >>
->> Winner winner chicken dinner!
+>> Hey Corey,
 >>
->> This fixes the issue, and now panic timer works, and we get crashdumps
->> to pstore.
->>
->> Great job, I approve!
->>
->>
->> Thanks for your help getting this fixed.
+>> Just checking in to see if this patch was lost; I haven't seen it in
+>> Linus's tree just yet.
 >
->Thanks for reporting this.  I'll get the patch in.
+>I generally wait until the merge window for changes.  It's too late in
+>the process for a patch now unless it's really critical.
+>
+>rc7 is out now, the merge window should be opening soon.
 
-Hey Corey,
+Ah, great. I thought it would go in via one of the -rc releases given
+it's a fix.
 
-Just checking in to see if this patch was lost; I haven't seen it in
-Linus's tree just yet.
+Thank you!
 
 -- 
 Thanks,
