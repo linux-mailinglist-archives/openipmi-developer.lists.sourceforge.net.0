@@ -2,17 +2,17 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B248043DAD9
-	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Oct 2021 07:49:26 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 021A543DAD8
+	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Oct 2021 07:48:29 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mfyI0-0005YL-0q; Thu, 28 Oct 2021 05:49:22 +0000
+	id 1mfyH3-00010G-R6; Thu, 28 Oct 2021 05:48:24 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <sashal@kernel.org>) id 1mfyHz-0005YA-4d
- for openipmi-developer@lists.sourceforge.net; Thu, 28 Oct 2021 05:49:22 +0000
+ (envelope-from <sashal@kernel.org>) id 1mfyGu-000105-NO
+ for openipmi-developer@lists.sourceforge.net; Thu, 28 Oct 2021 05:48:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
@@ -33,10 +33,9 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  5xJ+Q7FQxHLheueyMFxc+h8sKDEUi8v1itsY74aqGeFZzA5e5JY/Q8MLPbiDTIZxPvpFN4RU5Yqav
  I3HbWXZjxBOGKob9b9eet+pwyipqD2YYqlI5Y9AVIBQViWHYHXeONhEr6ZcDeIfNoPMo=;
 Received: from mail.kernel.org ([198.145.29.99])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1mfyFu-0005dd-IZ
- for openipmi-developer@lists.sourceforge.net; Thu, 28 Oct 2021 05:49:21 +0000
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.92.3)
+ id 1mfyGn-0005fg-P4
+ for openipmi-developer@lists.sourceforge.net; Thu, 28 Oct 2021 05:48:15 +0000
 Received: by mail.kernel.org (Postfix) with ESMTPSA id D71ED610FD;
  Thu, 28 Oct 2021 01:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
@@ -65,7 +64,32 @@ References: <20210917101419.GE108031@montezuma.acc.umu.se>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20211027182027.GG2744412@minyard.net>
-X-Headers-End: 1mfyFu-0005dd-IZ
+X-Spam-Score: -5.2 (-----)
+X-Spam-Report: Spam detection software,
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ Content preview:  On Wed, Oct 27, 2021 at 01:20:27PM -0500,
+ Corey Minyard wrote:
+ >On Wed, Oct 27, 2021 at 01:59:09PM -0400, Sasha Levin wrote: >> On Mon,
+ Sep 20, 2021 at 09:41:46AM -0500, Corey Minyard wrote: >> > On M [...] 
+ Content analysis details:   (-5.2 points, 6.0 required)
+ pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1mfyGn-0005fg-P4
 Subject: Re: [Openipmi-developer] Issue with panic handling and ipmi
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
