@@ -2,111 +2,126 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A631043E0A8
-	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Oct 2021 14:14:55 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3679D43F629
+	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Oct 2021 06:27:38 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mg4J1-000468-QI; Thu, 28 Oct 2021 12:14:50 +0000
+	id 1mgJUM-0003Am-Nq; Fri, 29 Oct 2021 04:27:33 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <likunkun@bytedance.com>) id 1mfoN3-0001Sd-Ew
- for openipmi-developer@lists.sourceforge.net; Wed, 27 Oct 2021 19:13:58 +0000
+ (envelope-from <andrew@aj.id.au>) id 1mgJUK-0003Ab-Pt
+ for openipmi-developer@lists.sourceforge.net; Fri, 29 Oct 2021 04:27:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Date:References:
+ In-Reply-To:Message-Id:Mime-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=10iBP9jh9mkSwxIoTv0VVNQ92fx2y1+MEgwu/CyOFlM=; b=dP1wgQURfXm5jyaO/NHrlPoiMK
- aZj9Ft6ncUpCSaVCw3IF+7Dim6txRGNqWpKvR0A7uzwFW5f73KWpeDbcXP5XuMRsHH9vFlH9bs7JG
- 0btGhHOUT+/wr5z0afEjVKiciOhJXsCgAUbxd29XDfk0enWoLWUjUrVCIZS0JHTUT/Ww=;
+ bh=UYI7x8drKFo+z2c59k1zz18ttLncojnV015Ms+RXfkk=; b=BIZ6wXLpC0+CiT2jS8nW3u2FWJ
+ X0We1m0WCdGhFSeZFuxlDldmUROE4FUGQNly3OAmLCQ7KPPWWyGoF0qQS3FYxt4w6MGtzRafk8dqT
+ yCHj4FfJskr6Y3mVbua99jgt1qJyQJB8nE1BwRVqqodmRAP4je+c23kdYfcl94fQurv8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:
- Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
- :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=10iBP9jh9mkSwxIoTv0VVNQ92fx2y1+MEgwu/CyOFlM=; b=J
- BKv7IllQUzebpXPGFfc7Ihkihnry/01yzFLTGCteDgPG9BCq2XpV9LCF3dLTz0Nu0tnFHQtdYuPVW
- ISiWINjAWaVPu5Irrc/AYjiCLuLsFshM2RpBvqFJnisf2J/MuLa/UaGGxTT04yxJDxoO7dmA609++
- D7jFLi5AaOI7VBQQ=;
-Received: from mail-pg1-f175.google.com ([209.85.215.175])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1mfoMu-001yvq-6l
- for openipmi-developer@lists.sourceforge.net; Wed, 27 Oct 2021 19:13:57 +0000
-Received: by mail-pg1-f175.google.com with SMTP id h193so3944738pgc.1
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 27 Oct 2021 12:13:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=bytedance-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=10iBP9jh9mkSwxIoTv0VVNQ92fx2y1+MEgwu/CyOFlM=;
- b=aTG1wyIkDrZ9a0nJBnaMNr5Y9EVfESyq+LWT/zYNIn4PdgLwKfeXd2deQM+k9Kwxra
- NwgPlB2+QnZ41d34SpIj2GSOMkTGsM5zrEgEPJone1cGqg25FXQNOAIM49LP6qw1lDtp
- HAz9oURmKZWr4Pp4I7qPuGIKRom23Q8HqoW+2kVtxLcAgvHmeBwQRijBIyi2j93Sc5QG
- 2X9+DwvVjAo76PvwPwxw/WvyOicFe9zq9FvcmQdfIn7FfpYpVEhSEQyH0Ne7c0+ni65e
- E27gDAlyxDGQEpAd5xB8Q/NbSk4zghtwgCkCXzQhfwgVESvPs9lXLedOhJwxkAeS1+sL
- poqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=10iBP9jh9mkSwxIoTv0VVNQ92fx2y1+MEgwu/CyOFlM=;
- b=fQjIF9iXNUYaOAr6HV3+ThQ/Qsea/4j4GLMucrx0SkBD/oHFeeoNWcLm58agM1hPex
- uc+5j4MnJuFiCEFH32IWmSxxr2z4SNH37pyoSFDYAqkW+qZOVtAid/aclwdSYB//XcAa
- YYh1aivVLWMd7phcs/bfspcv9ujYTqjM1acTcgs6aTpHAHLL1jkjLXSH16wxMz1hX+wB
- 3mK4RedOf9PW2+okz396o4EoaPkPazKHK1hqVRACMZZAjpulWEl7UzvCFhGXTUn6qtuE
- 60K6oXCKlJI/v1/tJxgn6SposzBTC9xsGZElOPB7BNApzHUL08XMS3cUENxhWq7k3Kht
- kB8w==
-X-Gm-Message-State: AOAM533XJnRp+NyXkr+xAaWIWTuO7TQzW8Ketqv6BavKZfXdap/qriq5
- FpoelsLzFXa8Yw6N0Z89vEPapB86xAepQw==
-X-Google-Smtp-Source: ABdhPJw6guKsVoEp2aATvHsCLrNKLD/Ijd0OJs19x2EcTOpUiplKmQQaF/YTLR7OimDqRjyDSFK0wQ==
-X-Received: by 2002:a05:6a00:198a:b0:44c:ae90:85fc with SMTP id
- d10-20020a056a00198a00b0044cae9085fcmr22874995pfl.1.1635217122167; 
- Mon, 25 Oct 2021 19:58:42 -0700 (PDT)
-Received: from FVFCG2APL414.bytedance.net ([139.177.225.250])
- by smtp.gmail.com with ESMTPSA id u3sm5125448pfg.77.2021.10.25.19.58.39
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 25 Oct 2021 19:58:41 -0700 (PDT)
-From: Kunkun Li <likunkun@bytedance.com>
-To: minyard@acm.org,
-	openipmi-developer@lists.sourceforge.net
-Date: Tue, 26 Oct 2021 10:58:34 +0800
-Message-Id: <20211026025834.82766-1-likunkun@bytedance.com>
-X-Mailer: git-send-email 2.33.1
-MIME-Version: 1.0
-X-Spam-Score: -0.0 (/)
+ h=Content-Type:Subject:Cc:To:From:Date:References:In-Reply-To:Message-Id:
+ Mime-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=UYI7x8drKFo+z2c59k1zz18ttLncojnV015Ms+RXfkk=; b=GqDpbkepZDGnD7JSXcPVrJeocz
+ iFIRHYaCY/ByDT02XmSOl1ZaxZ+2Vo8YvckjAqyvwpVDxm3VuxTZVWbmlEUx6hu+DPIKRmz2kuEs4
+ BIxpsn47WzcKgxHKhOwUcrxpaz27TceFevY7DkwuuYeLFiI8Jl3p4oHAbSG43eoGxbtQ=;
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1mgJU9-0006Zx-LH
+ for openipmi-developer@lists.sourceforge.net; Fri, 29 Oct 2021 04:27:30 +0000
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.42])
+ by mailout.nyi.internal (Postfix) with ESMTP id C96D55C01C6;
+ Fri, 29 Oct 2021 00:10:09 -0400 (EDT)
+Received: from imap43 ([10.202.2.93])
+ by compute2.internal (MEProxy); Fri, 29 Oct 2021 00:10:09 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=
+ mime-version:message-id:in-reply-to:references:date:from:to:cc
+ :subject:content-type; s=fm1; bh=UYI7x8drKFo+z2c59k1zz18ttLncojn
+ V015Ms+RXfkk=; b=NJew601mql0ZaKz1pQpGByp1l2uktlg6YuBOi8oQf1uRff7
+ BMIbucowOBmJ9pkdYEFx4yQYVjEXmxp2r00L79q2FvYl6SVgmreNJtlT6vtLXHPC
+ KG0sV2igMbJJPnaY2cpx0Uxm7P3Gv77WWkSEfC6x4tko4Jkd5MjyLpcD6k7QbOnV
+ 7cTb3iqXU335Hu24/8yR9gScjsrgXk4Av1KaUarJWHiV8Z0hRrKVINWNDby/5snB
+ +eUZvmCCrs4oZsPROaDYaGT1W0EJH60Ppc9ihJIU1aoKSLMHCD/BjW6L+jaj1rhd
+ OrS849+oTQbCrMoQzxLCkwWTfR98trb3akRcOcg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; bh=UYI7x8
+ drKFo+z2c59k1zz18ttLncojnV015Ms+RXfkk=; b=lkwOL57IK5TaLqKr5WRrPj
+ 5RjN8jQIZKMiUI5utD6v6etlmr3dYirPSyQWmbhNZf5beKhTghFXvQ64uB18j/UA
+ 7cFeRMnV60xHbjqE9UyJMe1na6z3yHuFxurY3PGe7qPB7oULUeDfrg8bgvFSZufa
+ 7o6uVoZPGlsG+zW65s+qDWXNrXVwQ5PHMumNtATDDbg9OzI7cLjlojGdBxuP1lyj
+ 0Ky/zdBtEPXAPiOQrCdLFQthQmp1JcGqEIGqQe37T/cGw2nv4bawcPwYnulDmBXL
+ FOGAXZmRl9rYYWg9ni+brfaF11hxYSpE8gYtG2a5QoKkHANHMG+kKf0jiHxB7RvQ
+ ==
+X-ME-Sender: <xms:IXR7YX4kI4ozS3epy37kf2wSR2FHzbbS060jPjG71Itop0ZpEMsnKQ>
+ <xme:IXR7Yc7Z3ZO4yScikn1Plj5ERHQ3tcvj4CtTwqnBAzhhxRKxoP99RNBvqsueAa2Cu
+ uqEwTRIS84iMKDA6A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrvdeggedgjeeiucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepofgfggfkjghffffhvffutgesthdtredtreertdenucfhrhhomhepfdetnhgu
+ rhgvficulfgvfhhfvghrhidfuceorghnughrvgifsegrjhdrihgurdgruheqnecuggftrf
+ grthhtvghrnhephefhfeekgfekudevheffheeihedujeefjeevjeefudfgfeeutdeuvdeh
+ hfevueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+ eprghnughrvgifsegrjhdrihgurdgruh
+X-ME-Proxy: <xmx:IXR7Yecobax7M1TTqf9axnYPHeFt6LpKILX__ml_Mi0R_5QsqUCRpA>
+ <xmx:IXR7YYJgEckDFRZ02tvTtZDZZQJN-RmwROMYlh3sL_7nEsSEoeIYtg>
+ <xmx:IXR7YbKnNinUg2ztu8V1pkcKOsMzScbHCBjcKo8C_IaLVOAi9tm0NQ>
+ <xmx:IXR7YT2c4jmBgHj5Zc95-WxbDNekaga6YrrrH9B_KEfABmWksw85HA>
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+ id 61A93AC0DD1; Fri, 29 Oct 2021 00:10:09 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.5.0-alpha0-1369-gd055fb5e7c-fm-20211018.002-gd055fb5e
+Mime-Version: 1.0
+Message-Id: <e9d50c0b-3d34-4b01-865f-4170f8ddc288@www.fastmail.com>
+In-Reply-To: <ecbfa15e94e64f4b878ecab1541ea46c74807670.1631048724.git.christophe.jaillet@wanadoo.fr>
+References: <ecbfa15e94e64f4b878ecab1541ea46c74807670.1631048724.git.christophe.jaillet@wanadoo.fr>
+Date: Fri, 29 Oct 2021 14:39:49 +1030
+From: "Andrew Jeffery" <andrew@aj.id.au>
+To: "Christophe JAILLET" <christophe.jaillet@wanadoo.fr>,
+ "Corey Minyard" <minyard@acm.org>, "Zev Weiss" <zweiss@equinix.com>
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  During multipart test, cmd(6, 7, 8) or cmd(6, 7,
- 7) will be sent
- continuously. The pressure test found some BMC systems cannot process messages
- in time, resulting in read_response continues to receive error messages from
- i2c. Retry mechanism will takes 10s, and finally set not s [...] 
- Content analysis details:   (-0.0 points, 6.0 required)
+ Content preview:  On Wed, 8 Sep 2021, at 06:36, Christophe JAILLET wrote: >
+ In the unlikely event where 'devm_kzalloc()' fails and 'kzalloc()' > succeeds, 
+ 'port' would be leaking. > > Test each allocation separately to [...] 
+ Content analysis details:   (-0.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.215.175 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [66.111.4.29 listed in list.dnswl.org]
+ 0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+ blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: aj.id.au]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.215.175 listed in wl.mailspike.net]
+ [66.111.4.29 listed in wl.mailspike.net]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
-X-Headers-End: 1mfoMu-001yvq-6l
-X-Mailman-Approved-At: Thu, 28 Oct 2021 12:14:47 +0000
-Subject: [Openipmi-developer] [PATCH] ipmi: ssif: Add msleep in multipart
- test
+X-Headers-End: 1mgJU9-0006Zx-LH
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: kcs_bmc: Fix a memory leak
+ in the error handling path of 'kcs_bmc_serio_add_device()'
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -119,36 +134,57 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-kernel@vger.kernel.org, Kunkun Li <likunkun@bytedance.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: openipmi-developer@lists.sourceforge.net, kernel-janitors@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-RHVyaW5nIG11bHRpcGFydCB0ZXN0LCBjbWQoNiw3LDgpIG9yIGNtZCg2LDcsNykgd2lsbApiZSBz
-ZW50IGNvbnRpbnVvdXNseS4KClRoZSBwcmVzc3VyZSB0ZXN0IGZvdW5kIHNvbWUgQk1DIHN5c3Rl
-bXMgY2Fubm90IHByb2Nlc3MKbWVzc2FnZXMgaW4gdGltZSwgcmVzdWx0aW5nIGluIHJlYWRfcmVz
-cG9uc2UgY29udGludWVzIHRvIHJlY2VpdmUKZXJyb3IgbWVzc2FnZXMgZnJvbSBpMmMuClJldHJ5
-IG1lY2hhbmlzbSB3aWxsIHRha2VzIDEwcywgYW5kIGZpbmFsbHkgc2V0IG5vdCBzdXBwb3J0Cm11
-bHRpcGFydCB0cmFuc21pdC4KClNvLCB0byB3b3JrIGFyb3VuZCB0aGlz77yMYWRkIG1zbGVlcCBh
-ZnRlciBzZW5kaW5nIGNtZCA2IGFuZApjbWQgNyByZXNwZWN0aXZlbHkuIFRoZSBwcm9ibGVtIGRp
-ZCBub3QgYXBwZWFyIGFnYWluIGluCnByZXNzdXJlIHRlc3QuCgpTaWduZWQtb2ZmLWJ5OiBLdW5r
-dW4gTGkgPGxpa3Vua3VuQGJ5dGVkYW5jZS5jb20+Ci0tLQogZHJpdmVycy9jaGFyL2lwbWkvaXBt
-aV9zc2lmLmMgfCAyICsrCiAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspCgpkaWZmIC0t
-Z2l0IGEvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMgYi9kcml2ZXJzL2NoYXIvaXBtaS9p
-cG1pX3NzaWYuYwppbmRleCAyMGQ1YWY5Mjk2NmQuLjY1ODQxNzk4ZmFmZSAxMDA2NDQKLS0tIGEv
-ZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMKKysrIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBt
-aV9zc2lmLmMKQEAgLTE0NTMsNiArMTQ1Myw3IEBAIHN0YXRpYyBpbnQgc3RhcnRfbXVsdGlwYXJ0
-X3Rlc3Qoc3RydWN0IGkyY19jbGllbnQgKmNsaWVudCwKIAlyZXQgPSBpMmNfc21idXNfd3JpdGVf
-YmxvY2tfZGF0YShjbGllbnQsCiAJCQkJCSBTU0lGX0lQTUlfTVVMVElfUEFSVF9SRVFVRVNUX1NU
-QVJULAogCQkJCQkgMzIsIG1zZyk7CisJbXNsZWVwKFNTSUZfTVNHX01TRUMpOwogCWlmIChyZXQp
-IHsKIAkJcmV0cnlfY250LS07CiAJCWlmIChyZXRyeV9jbnQgPiAwKQpAQCAtMTQ2Nyw2ICsxNDY4
-LDcgQEAgc3RhdGljIGludCBzdGFydF9tdWx0aXBhcnRfdGVzdChzdHJ1Y3QgaTJjX2NsaWVudCAq
-Y2xpZW50LAogCXJldCA9IGkyY19zbWJ1c193cml0ZV9ibG9ja19kYXRhKGNsaWVudCwKIAkJCQkJ
-IFNTSUZfSVBNSV9NVUxUSV9QQVJUX1JFUVVFU1RfTUlERExFLAogCQkJCQkgMzIsIG1zZyArIDMy
-KTsKKwltc2xlZXAoU1NJRl9NU0dfTVNFQyk7CiAJaWYgKHJldCkgewogCQlkZXZfZXJyKCZjbGll
-bnQtPmRldiwgIkNvdWxkIG5vdCB3cml0ZSBtdWx0aS1wYXJ0IG1pZGRsZSwgdGhvdWdoIHRoZSBC
-TUMgc2FpZCBpdCBjb3VsZCBoYW5kbGUgaXQuICBKdXN0IGxpbWl0IHNlbmRzIHRvIG9uZSBwYXJ0
-LlxuIik7CiAJCXJldHVybiByZXQ7Ci0tIAoyLjExLjAKCgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlz
-dApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMu
-c291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+
+
+On Wed, 8 Sep 2021, at 06:36, Christophe JAILLET wrote:
+> In the unlikely event where 'devm_kzalloc()' fails and 'kzalloc()'
+> succeeds, 'port' would be leaking.
+>
+> Test each allocation separately to avoid the leak.
+>
+> Fixes: 3a3d2f6a4c64 ("ipmi: kcs_bmc: Add serio adaptor")
+> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+
+Reviewed-by: Andrew Jeffery <andrew@aj.id.au>
+
+Sorry for the delay
+
+> ---
+>  drivers/char/ipmi/kcs_bmc_serio.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/char/ipmi/kcs_bmc_serio.c 
+> b/drivers/char/ipmi/kcs_bmc_serio.c
+> index 7948cabde50b..7e2067628a6c 100644
+> --- a/drivers/char/ipmi/kcs_bmc_serio.c
+> +++ b/drivers/char/ipmi/kcs_bmc_serio.c
+> @@ -73,10 +73,12 @@ static int kcs_bmc_serio_add_device(struct 
+> kcs_bmc_device *kcs_bmc)
+>  	struct serio *port;
+> 
+>  	priv = devm_kzalloc(kcs_bmc->dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> 
+>  	/* Use kzalloc() as the allocation is cleaned up with kfree() via 
+> serio_unregister_port() */
+>  	port = kzalloc(sizeof(*port), GFP_KERNEL);
+> -	if (!(priv && port))
+> +	if (!port)
+>  		return -ENOMEM;
+> 
+>  	port->id.type = SERIO_8042;
+> -- 
+> 2.30.2
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
