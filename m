@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 16EF444240C
-	for <lists+openipmi-developer@lfdr.de>; Tue,  2 Nov 2021 00:33:40 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id DF9ED44240F
+	for <lists+openipmi-developer@lfdr.de>; Tue,  2 Nov 2021 00:34:01 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mhgo4-00069G-EU; Mon, 01 Nov 2021 23:33:36 +0000
+	id 1mhgoQ-0005zU-9q; Mon, 01 Nov 2021 23:33:57 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <joel.stan@gmail.com>) id 1mhgo3-00069A-NL
- for openipmi-developer@lists.sourceforge.net; Mon, 01 Nov 2021 23:33:35 +0000
+ (envelope-from <joel.stan@gmail.com>) id 1mhgoP-0005zN-Ea
+ for openipmi-developer@lists.sourceforge.net; Mon, 01 Nov 2021 23:33:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
  In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=QjgwzgqwbzNK9oqZJgz4ZvJB5kDRKduRYLNHBkFbBKo=; b=m+VIzdKCwsVw+m2Y6nPU8t5flo
- 4yma9xy1P7roMnLDMUW03YpJ6LgXLS4hXb8gQltwdYLSoeyIKOTgsyGcAbTy9BTQLL6mdDx3l1IWD
- 9kZz7U8O37IZcU2jN/8bx8W/uNsQwwjiDAHeyz8kvLKrh0ut1tr3Yu4TXyxwb5SJRRRI=;
+ bh=bzFhFp5jwj6oxpHBZmdG5bSxzTQ5DH20gHG8+yrM+zo=; b=Ptmw7Bw8D5tmptq0rKn+aXxYVy
+ UKdKlEUaEk3zXnyf/p/hYo9Z+DbYhgM+wqsQxILCQv3K7Rfk8BWK+NwULSFC1s8ZO1trX6HdPcCER
+ AJWuMghMVq/HGj6d9PM8ytYDkO37C4GSBfIxykw4UaBM8e00yg+SJSV7VbjE4d4y/2VQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
@@ -29,46 +29,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=QjgwzgqwbzNK9oqZJgz4ZvJB5kDRKduRYLNHBkFbBKo=; b=U3VSidLGuZUzxxVFVC0JxbSLNw
- 5YDaRLasAYOpWGw4IxYzeXBLyDZwDfpsJ7MyP0Z6DGkafUrh/IlRtCxKNoirtmHNuR6dIowMH2KMi
- kp373mjZ+2zHIzS/f6ejLQ4/VB3ZhNbNu7zR2V5AUQrDvt4mfpJogV7vRgD578X3gCBA=;
-Received: from mail-qt1-f181.google.com ([209.85.160.181])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=bzFhFp5jwj6oxpHBZmdG5bSxzTQ5DH20gHG8+yrM+zo=; b=JbjbvYh/kAHQi9oK5G56yC6ZKh
+ 1IZKeXEOlovG4gqUJnfAfjW/WKkekhqKDnXN9XtDtukiKrM37GY68g7w4euWjV/8r+v/O/yroTBtP
+ F8wQsNErLPTw7ZxOFzd+2yXpC1cJvML5OZRX2nEJ1LvjuncfeyMnKdtkqqler2F4Bw/k=;
+Received: from mail-qk1-f169.google.com ([209.85.222.169])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1mhgnt-0004RA-Op
- for openipmi-developer@lists.sourceforge.net; Mon, 01 Nov 2021 23:33:35 +0000
-Received: by mail-qt1-f181.google.com with SMTP id h4so16818172qth.5
+ id 1mhgoN-00DEAR-Ft
+ for openipmi-developer@lists.sourceforge.net; Mon, 01 Nov 2021 23:33:56 +0000
+Received: by mail-qk1-f169.google.com with SMTP id i28so126244qkh.0
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 01 Nov 2021 16:33:25 -0700 (PDT)
+ Mon, 01 Nov 2021 16:33:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jms.id.au; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=QjgwzgqwbzNK9oqZJgz4ZvJB5kDRKduRYLNHBkFbBKo=;
- b=lNS0lW0Bf3LqiISo6ssIQiWgPZf7bKwxkn3ypLuarmolLkV7h0JTX8fxQ15zZKQNK9
- ig2f3An/FuWvcM/Uu2F6ibnE4irSOI3KsOo4S66A6wbgMDgQz4sHkRLGoS33vyAb3bI2
- jHGcLz3yhD9xyou5z5lLd/nc6nh0RibNXhy1I=
+ :cc; bh=bzFhFp5jwj6oxpHBZmdG5bSxzTQ5DH20gHG8+yrM+zo=;
+ b=YO88VLC4ltN8sRPtQnd98iOlONFJf8prHHr1jQdwsIyXtSntx2eSmpWr3dhpykK+YT
+ Fiphj7V0Qw1L8Qs3BVhxzj7B3cN/YGGjT6j4JW3cSX/EiBHZrxagV9jSUSmOaLDHHNLm
+ 00KMGqV5Mtm3hIfUzDZYQfJTFGoiPqVGqLhPY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=QjgwzgqwbzNK9oqZJgz4ZvJB5kDRKduRYLNHBkFbBKo=;
- b=IYT10pZ1MqPF1GfUvq6WX7ebAl/Up4A9Oa2c3TGr6o4rv2o/tL7mxEADFE58JieFQN
- cD2/t2JZt3915aO4pM8fVC/oeyHcJEyZ6AIYTu7W7w1f48G7i58ZCYCOmrnE4BizNYGS
- 6EOWIuCTNr4cIQ7qGMcf1hDJ4S4TnriFEEN2mXh4PHU9GHlDCEADxQ7sKtjYhKx8PzX1
- MCvhQI6VSoM7FM/+OTH1wQC+000NayfzCV+bBXBUZnmy980n/8xZVjF+RJFpCbd7DINw
- 7c+aKYr1+IV7ezo0FfOop/z3NaOETJL+5BYiuwiuYynjQmjQYcco3zFbrEVNers4ytF5
- 31dA==
-X-Gm-Message-State: AOAM530fAU1RbVGRjDkx334KoXgkis3SC7jbqWbl60s+HqMRXKIrLwhi
- I5h24Zd776krKQJd0L5fXCwrtdjtlq6pldmIJlM=
-X-Google-Smtp-Source: ABdhPJychv7F4FV4O5kk7VzRh9L9Ls0Typ4y+FpsD/Tr4jzGYwH3BzgraY2LvoFZRqz6d9h/RUeOBScQu+l3HvFt1Lg=
-X-Received: by 2002:ac8:5cd5:: with SMTP id s21mr9578033qta.392.1635809599964; 
- Mon, 01 Nov 2021 16:33:19 -0700 (PDT)
+ bh=bzFhFp5jwj6oxpHBZmdG5bSxzTQ5DH20gHG8+yrM+zo=;
+ b=ny7jKtKk3aVp3+QRd2LtXSKMdapXge0JGoQuozVMCmXuRsuhpmNowYZVP3WC3QC8A2
+ Q1VNkMI7SnFa3oy2bfYHdNjw9i4YpuQ53ItWkm2jwoZFPv/ksplh0ZZUcOnYt6XXmSjM
+ 0ZA3IxdMR8+bVMZenl4IjcMpf1eszZ0IRMdIxdp9ioFSR4/l3MlOni7QE5aeK0M0fftp
+ s3u0LqkfNEeDkRc0QDU7GU8SAx3cw4dTv4E93BfWSPQsxP2qwRmLGNCATo/3vLudylIF
+ rDcUfq0Y+DCG6Y4Gc+SuKrRHfboORB6oOxV/1RNIguXELChOBwSUBrOf5rclKOjKOqPE
+ 2Csw==
+X-Gm-Message-State: AOAM531QWQNNt/Hx4m2iY5o2oFLAYh9sas6J6abQhQ1gB4kvC5becQlk
+ ai49k/8Kte9oj/DRE1f/jJsnD0VKNnmZ+N/2MF7TV+hi
+X-Google-Smtp-Source: ABdhPJxX2WRQaCU+xpjvX+wOKI7BJJwhAz0DomOJX8odLbZsNSqnqkDe8+QXRWmcZYjvfc4gTD6vFsn57A6IgFtLdiM=
+X-Received: by 2002:a05:620a:818:: with SMTP id
+ s24mr26017694qks.395.1635809629623; 
+ Mon, 01 Nov 2021 16:33:49 -0700 (PDT)
 MIME-Version: 1.0
 References: <20211101233751.49222-1-jae.hyun.yoo@intel.com>
- <20211101233751.49222-5-jae.hyun.yoo@intel.com>
-In-Reply-To: <20211101233751.49222-5-jae.hyun.yoo@intel.com>
+ <20211101233751.49222-2-jae.hyun.yoo@intel.com>
+In-Reply-To: <20211101233751.49222-2-jae.hyun.yoo@intel.com>
 From: Joel Stanley <joel@jms.id.au>
-Date: Mon, 1 Nov 2021 23:33:08 +0000
-Message-ID: <CACPK8Xc-NVyZ31+_L8oL3aaGHX9TLRxJy9666570ZOuirUYw_w@mail.gmail.com>
+Date: Mon, 1 Nov 2021 23:33:37 +0000
+Message-ID: <CACPK8XcAN-SsKDS2E_Cnv=5-Rq=9sAWYyb88i2Ub-iX0WH6aZw@mail.gmail.com>
 To: Jae Hyun Yoo <jae.hyun.yoo@intel.com>
 X-Spam-Score: 0.4 (/)
 X-Spam-Report: Spam detection software,
@@ -78,32 +79,31 @@ X-Spam-Report: Spam detection software,
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  Content preview:  On Mon, 1 Nov 2021 at 23:18, <jae.hyun.yoo@intel.com> wrote:
- > > From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com> > > If LPC KCS driver
- is registered ahead of lpc-ctrl module, LPC > KCS block will be [...] 
+ > > From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com> > > Add LCLK clock
+ setting into LPC IBT node to enable the LCLK by > individual LPC s [...] 
  Content analysis details:   (0.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.222.169 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [joel.stan[at]gmail.com]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.160.181 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
  mail domains are different
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.160.181 listed in wl.mailspike.net]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.222.169 listed in wl.mailspike.net]
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
  EnvelopeFrom freemail headers are different
-X-Headers-End: 1mhgnt-0004RA-Op
-Subject: Re: [Openipmi-developer] [PATCH -next 4/4] ipmi: kcs_bmc_aspeed:
- add clock control logic
+X-Headers-End: 1mhgoN-00DEAR-Ft
+Subject: Re: [Openipmi-developer] [PATCH -next 1/4] ARM: dts: aspeed: add
+ LCLK setting into LPC IBT node
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -131,117 +131,57 @@ On Mon, 1 Nov 2021 at 23:18, <jae.hyun.yoo@intel.com> wrote:
 >
 > From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
 >
-> If LPC KCS driver is registered ahead of lpc-ctrl module, LPC
-> KCS block will be enabled without heart beating of LCLK until
-> lpc-ctrl enables the LCLK. This issue causes improper handling on
-> host interrupts when the host sends interrupts in that time frame.
-> Then kernel eventually forcibly disables the interrupt with
-> dumping stack and printing a 'nobody cared this irq' message out.
+> Add LCLK clock setting into LPC IBT node to enable the LCLK by
+> individual LPC sub drivers.
 >
-> To prevent this issue, all LPC sub drivers should enable LCLK
-> individually so this patch adds clock control logic into the LPC
-> KCS driver.
->
-> Fixes: be2ed207e374 ("ipmi: add an Aspeed KCS IPMI BMC driver")
 > Signed-off-by: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
 
 Reviewed-by: Joel Stanley <joel@jms.id.au>
 
+Do you need to update the bindings too?
+
 > ---
->  drivers/char/ipmi/kcs_bmc_aspeed.c | 31 ++++++++++++++++++++++++++----
->  1 file changed, 27 insertions(+), 4 deletions(-)
+>  arch/arm/boot/dts/aspeed-g4.dtsi | 1 +
+>  arch/arm/boot/dts/aspeed-g5.dtsi | 1 +
+>  arch/arm/boot/dts/aspeed-g6.dtsi | 1 +
+>  3 files changed, 3 insertions(+)
 >
-> diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
-> index 92a37b33494c..00706472cc4d 100644
-> --- a/drivers/char/ipmi/kcs_bmc_aspeed.c
-> +++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
-> @@ -6,6 +6,7 @@
->  #define pr_fmt(fmt) "aspeed-kcs-bmc: " fmt
+> diff --git a/arch/arm/boot/dts/aspeed-g4.dtsi b/arch/arm/boot/dts/aspeed-g4.dtsi
+> index b313a1cf5f73..f14dace34c5a 100644
+> --- a/arch/arm/boot/dts/aspeed-g4.dtsi
+> +++ b/arch/arm/boot/dts/aspeed-g4.dtsi
+> @@ -381,6 +381,7 @@ ibt: ibt@140 {
+>                                         compatible = "aspeed,ast2400-ibt-bmc";
+>                                         reg = <0x140 0x18>;
+>                                         interrupts = <8>;
+> +                                       clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+>                                         status = "disabled";
+>                                 };
 >
->  #include <linux/atomic.h>
-> +#include <linux/clk.h>
->  #include <linux/errno.h>
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
-> @@ -126,6 +127,8 @@ struct aspeed_kcs_bmc {
->                 bool remove;
->                 struct timer_list timer;
->         } obe;
-> +
-> +       struct clk *clk;
->  };
->
->  struct aspeed_kcs_of_ops {
-> @@ -620,24 +623,37 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
->                 return -ENODEV;
->         }
->
-> +       priv->clk = devm_clk_get(&pdev->dev, NULL);
-> +       if (IS_ERR(priv->clk)) {
-> +               rc = PTR_ERR(priv->clk);
-> +               if (rc != -EPROBE_DEFER)
-> +                       dev_err(&pdev->dev, "Couldn't get clock\n");
-> +               return rc;
-> +       }
-> +       rc = clk_prepare_enable(priv->clk);
-> +       if (rc) {
-> +               dev_err(&pdev->dev, "Couldn't enable clock\n");
-> +               return rc;
-> +       }
-> +
->         spin_lock_init(&priv->obe.lock);
->         priv->obe.remove = false;
->         timer_setup(&priv->obe.timer, aspeed_kcs_check_obe, 0);
->
->         rc = aspeed_kcs_set_address(kcs_bmc, addrs, nr_addrs);
->         if (rc)
-> -               return rc;
-> +               goto err;
->
->         /* Host to BMC IRQ */
->         rc = aspeed_kcs_config_downstream_irq(kcs_bmc, pdev);
->         if (rc)
-> -               return rc;
-> +               goto err;
->
->         /* BMC to Host IRQ */
->         if (have_upstream_irq) {
->                 rc = aspeed_kcs_config_upstream_irq(priv, upstream_irq[0], upstream_irq[1]);
->                 if (rc < 0)
-> -                       return rc;
-> +                       goto err;
->         } else {
->                 priv->upstream_irq.mode = aspeed_kcs_irq_none;
->         }
-> @@ -650,13 +666,19 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
->         rc = kcs_bmc_add_device(&priv->kcs_bmc);
->         if (rc) {
->                 dev_warn(&pdev->dev, "Failed to register channel %d: %d\n", kcs_bmc->channel, rc);
-> -               return rc;
-> +               goto err;
->         }
->
->         dev_info(&pdev->dev, "Initialised channel %d at 0x%x\n",
->                         kcs_bmc->channel, addrs[0]);
->
->         return 0;
-> +
-> +err:
-> +       aspeed_kcs_enable_channel(kcs_bmc, false);
-> +       clk_disable_unprepare(priv->clk);
-> +
-> +       return rc;
->  }
->
->  static int aspeed_kcs_remove(struct platform_device *pdev)
-> @@ -664,6 +686,7 @@ static int aspeed_kcs_remove(struct platform_device *pdev)
->         struct aspeed_kcs_bmc *priv = platform_get_drvdata(pdev);
->         struct kcs_bmc_device *kcs_bmc = &priv->kcs_bmc;
->
-> +       clk_disable_unprepare(priv->clk);
->         kcs_bmc_remove_device(kcs_bmc);
->
->         aspeed_kcs_enable_channel(kcs_bmc, false);
+> diff --git a/arch/arm/boot/dts/aspeed-g5.dtsi b/arch/arm/boot/dts/aspeed-g5.dtsi
+> index c7049454c7cb..d0cc4be2de59 100644
+> --- a/arch/arm/boot/dts/aspeed-g5.dtsi
+> +++ b/arch/arm/boot/dts/aspeed-g5.dtsi
+> @@ -507,6 +507,7 @@ ibt: ibt@140 {
+>                                         compatible = "aspeed,ast2500-ibt-bmc";
+>                                         reg = <0x140 0x18>;
+>                                         interrupts = <8>;
+> +                                       clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+>                                         status = "disabled";
+>                                 };
+>                         };
+> diff --git a/arch/arm/boot/dts/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed-g6.dtsi
+> index 5106a424f1ce..465c3549fdc3 100644
+> --- a/arch/arm/boot/dts/aspeed-g6.dtsi
+> +++ b/arch/arm/boot/dts/aspeed-g6.dtsi
+> @@ -581,6 +581,7 @@ ibt: ibt@140 {
+>                                         compatible = "aspeed,ast2600-ibt-bmc";
+>                                         reg = <0x140 0x18>;
+>                                         interrupts = <GIC_SPI 143 IRQ_TYPE_LEVEL_HIGH>;
+> +                                       clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+>                                         status = "disabled";
+>                                 };
+>                         };
 > --
 > 2.25.1
 >
