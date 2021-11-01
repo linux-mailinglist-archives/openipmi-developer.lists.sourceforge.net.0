@@ -2,16 +2,16 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 13172442476
+	by mail.lfdr.de (Postfix) with ESMTPS id AA1F1442479
 	for <lists+openipmi-developer@lfdr.de>; Tue,  2 Nov 2021 01:04:58 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mhhIM-0003sx-Fs; Tue, 02 Nov 2021 00:04:54 +0000
+	id 1mhhIM-0003tB-Te; Tue, 02 Nov 2021 00:04:54 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <jae.hyun.yoo@intel.com>) id 1mhgZV-0005oa-HJ
+ (envelope-from <jae.hyun.yoo@intel.com>) id 1mhgZU-00039e-T3
  for openipmi-developer@lists.sourceforge.net; Mon, 01 Nov 2021 23:18:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
@@ -19,9 +19,9 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=yi98IsIs3k+T2Ydp3eLvHTdnAE9ypdDKuJr0Xn+i/Uw=; b=RgE1cJz1Epk7G12jxiKhfyuBJr
- Yb1xy2At8CXo4O8dp44VMvHuciJ1CG9gAjucZhRbH3ICCLii0LqoDI6PmRoBuSKVzwep2B61mL8BH
- leRMGJsB7679BJsZ5oYhRhOGkMds+DxWdHoP8QD9NOXe//i22Dg5UBEpM4Gv+A3HNAvY=;
+ bh=rSsnhsjhUsc8f4ZZXuBBeUtumNmY4JVLWJfnpt+XM8A=; b=i3x31Cgpxwk2/rR7qKlPUTNpxd
+ DCVmpVQUV7wFQ5nsuh1nZ35Et/ar9TXkNtR+ak8j3pFicnSIhMxDcwqEgmncPs0TA6Nrc36flNDBr
+ 5o8lPg1BRyISaXCMgBhy56owVAKsKgPSCrjiInNHGy0KuBmg6i6R5cK98UNwOQRBbANI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,21 +29,21 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=yi98IsIs3k+T2Ydp3eLvHTdnAE9ypdDKuJr0Xn+i/Uw=; b=KeQTwqGF1OJxK9iDe9z7lFBlpi
- ECrW11HDP2Fp1KKNdRyqHSCy1RTg/cmbtNggvzyvZ8ZnSPL//lnsTD2gILy+Izz23IDoTt1z6Xy3b
- mOdjzqKh8Vw3IHY4celuyzyOPHwT8dHDZfTTy1oEBvVtkrQxYpWE4aXJEu9AI+qv2Rpg=;
+ bh=rSsnhsjhUsc8f4ZZXuBBeUtumNmY4JVLWJfnpt+XM8A=; b=evRXJboJ3wPCqBa603SA2gM/0T
+ ajNaoUIuHEg7OnHy7pSIpWnaLnDNls6OQHEysh0Y06NpGHCSCELLMeN1itzWyTF0evKo8CDl8cwGb
+ 3J4bOBsThVjCsyEiE4BONEMZ2RRxSBGf8IpimvVnm/anK9r5oS1sWHH5fwm75Qwb2Mpg=;
 Received: from mga12.intel.com ([192.55.52.136])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1mhgZT-00DBgH-Op
+ id 1mhgZU-00DBgH-Ak
  for openipmi-developer@lists.sourceforge.net; Mon, 01 Nov 2021 23:18:32 +0000
-X-IronPort-AV: E=McAfee;i="6200,9189,10155"; a="211196464"
-X-IronPort-AV: E=Sophos;i="5.87,201,1631602800"; d="scan'208";a="211196464"
+X-IronPort-AV: E=McAfee;i="6200,9189,10155"; a="211196465"
+X-IronPort-AV: E=Sophos;i="5.87,201,1631602800"; d="scan'208";a="211196465"
 Received: from fmsmga005.fm.intel.com ([10.253.24.32])
  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
  01 Nov 2021 16:18:24 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.87,201,1631602800"; d="scan'208";a="727670708"
+X-IronPort-AV: E=Sophos;i="5.87,201,1631602800"; d="scan'208";a="727670711"
 Received: from maru.jf.intel.com ([10.54.51.77])
  by fmsmga005.fm.intel.com with ESMTP; 01 Nov 2021 16:18:24 -0700
 From: jae.hyun.yoo@intel.com
@@ -51,8 +51,8 @@ To: Rob Herring <robh+dt@kernel.org>, Corey Minyard <minyard@acm.org>,
  Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
  Cedric Le Goater <clg@kaod.org>, Haiyue Wang <haiyue.wang@linux.intel.com>,
  Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
-Date: Mon,  1 Nov 2021 16:37:49 -0700
-Message-Id: <20211101233751.49222-3-jae.hyun.yoo@intel.com>
+Date: Mon,  1 Nov 2021 16:37:50 -0700
+Message-Id: <20211101233751.49222-4-jae.hyun.yoo@intel.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211101233751.49222-1-jae.hyun.yoo@intel.com>
 References: <20211101233751.49222-1-jae.hyun.yoo@intel.com>
@@ -64,10 +64,12 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com> If LPC BT
- driver is registered ahead of lpc-ctrl module, LPC BT hardware block will
- be enabled without heart beating of LCLK until lpc-ctrl enables the LCLK.
- This issue causes improper handling on hos [...] 
+ Content preview:  From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com> Add LCLK
+ clock setting into LPC KCS nodes to enable the LCLK by individual LPC sub
+ drivers. Signed-off-by: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com> ---
+ arch/arm/boot/dts/aspeed-g5.dtsi
+ | 4 ++++ arch/arm/boot/dts/aspeed-g6.dtsi | 4 ++++ 2 files changed,
+ 8 insertions(+)
  Content analysis details:   (-2.3 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -75,10 +77,10 @@ X-Spam-Report: Spam detection software,
  medium trust [192.55.52.136 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1mhgZT-00DBgH-Op
+X-Headers-End: 1mhgZU-00DBgH-Ak
 X-Mailman-Approved-At: Tue, 02 Nov 2021 00:04:52 +0000
-Subject: [Openipmi-developer] [PATCH -next 2/4] ipmi: bt: add clock control
- logic
+Subject: [Openipmi-developer] [PATCH -next 3/4] ARM: dts: aspeed: add LCLK
+ setting into LPC KCS nodes
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -99,92 +101,86 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
 From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
 
-If LPC BT driver is registered ahead of lpc-ctrl module, LPC BT
-hardware block will be enabled without heart beating of LCLK until
-lpc-ctrl enables the LCLK. This issue causes improper handling on
-host interrupts when the host sends interrupts in that time frame.
-Then kernel eventually forcibly disables the interrupt with
-dumping stack and printing a 'nobody cared this irq' message out.
+Add LCLK clock setting into LPC KCS nodes to enable the LCLK by
+individual LPC sub drivers.
 
-To prevent this issue, all LPC sub drivers should enable LCLK
-individually so this patch adds clock control logic into the LPC
-BT driver.
-
-Fixes: 54f9c4d0778b ("ipmi: add an Aspeed BT IPMI BMC driver")
 Signed-off-by: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
 ---
- drivers/char/ipmi/bt-bmc.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/aspeed-g5.dtsi | 4 ++++
+ arch/arm/boot/dts/aspeed-g6.dtsi | 4 ++++
+ 2 files changed, 8 insertions(+)
 
-diff --git a/drivers/char/ipmi/bt-bmc.c b/drivers/char/ipmi/bt-bmc.c
-index 7450904e330a..a20f92cc7b18 100644
---- a/drivers/char/ipmi/bt-bmc.c
-+++ b/drivers/char/ipmi/bt-bmc.c
-@@ -5,6 +5,7 @@
+diff --git a/arch/arm/boot/dts/aspeed-g5.dtsi b/arch/arm/boot/dts/aspeed-g5.dtsi
+index d0cc4be2de59..7495f93c5069 100644
+--- a/arch/arm/boot/dts/aspeed-g5.dtsi
++++ b/arch/arm/boot/dts/aspeed-g5.dtsi
+@@ -446,6 +446,7 @@ kcs1: kcs@24 {
+ 					compatible = "aspeed,ast2500-kcs-bmc-v2";
+ 					reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
+ 					interrupts = <8>;
++					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+ 					status = "disabled";
+ 				};
  
- #include <linux/atomic.h>
- #include <linux/bt-bmc.h>
-+#include <linux/clk.h>
- #include <linux/errno.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
-@@ -62,6 +63,7 @@ struct bt_bmc {
- 	wait_queue_head_t	queue;
- 	struct timer_list	poll_timer;
- 	struct mutex		mutex;
-+	struct clk		*clk;
- };
+@@ -453,6 +454,7 @@ kcs2: kcs@28 {
+ 					compatible = "aspeed,ast2500-kcs-bmc-v2";
+ 					reg = <0x28 0x1>, <0x34 0x1>, <0x40 0x1>;
+ 					interrupts = <8>;
++					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+ 					status = "disabled";
+ 				};
  
- static atomic_t open_count = ATOMIC_INIT(0);
-@@ -423,6 +425,19 @@ static int bt_bmc_probe(struct platform_device *pdev)
- 	if (IS_ERR(bt_bmc->base))
- 		return PTR_ERR(bt_bmc->base);
+@@ -460,6 +462,7 @@ kcs3: kcs@2c {
+ 					compatible = "aspeed,ast2500-kcs-bmc-v2";
+ 					reg = <0x2c 0x1>, <0x38 0x1>, <0x44 0x1>;
+ 					interrupts = <8>;
++					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+ 					status = "disabled";
+ 				};
  
-+	bt_bmc->clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(bt_bmc->clk)) {
-+		rc = PTR_ERR(bt_bmc->clk);
-+		if (rc != -EPROBE_DEFER)
-+			dev_err(dev, "Unable to get clock\n");
-+		return rc;
-+	}
-+	rc = clk_prepare_enable(bt_bmc->clk);
-+	if (rc) {
-+		dev_err(dev, "Unable to enable clock\n");
-+		return rc;
-+	}
-+
- 	mutex_init(&bt_bmc->mutex);
- 	init_waitqueue_head(&bt_bmc->queue);
+@@ -467,6 +470,7 @@ kcs4: kcs@114 {
+ 					compatible = "aspeed,ast2500-kcs-bmc-v2";
+ 					reg = <0x114 0x1>, <0x118 0x1>, <0x11c 0x1>;
+ 					interrupts = <8>;
++					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+ 					status = "disabled";
+ 				};
  
-@@ -433,7 +448,7 @@ static int bt_bmc_probe(struct platform_device *pdev)
- 	rc = misc_register(&bt_bmc->miscdev);
- 	if (rc) {
- 		dev_err(dev, "Unable to register misc device\n");
--		return rc;
-+		goto err;
- 	}
+diff --git a/arch/arm/boot/dts/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed-g6.dtsi
+index 465c3549fdc3..891b862363a7 100644
+--- a/arch/arm/boot/dts/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed-g6.dtsi
+@@ -520,6 +520,7 @@ kcs1: kcs@24 {
+ 					compatible = "aspeed,ast2500-kcs-bmc-v2";
+ 					reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
+ 					interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
++					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+ 					kcs_chan = <1>;
+ 					status = "disabled";
+ 				};
+@@ -528,6 +529,7 @@ kcs2: kcs@28 {
+ 					compatible = "aspeed,ast2500-kcs-bmc-v2";
+ 					reg = <0x28 0x1>, <0x34 0x1>, <0x40 0x1>;
+ 					interrupts = <GIC_SPI 139 IRQ_TYPE_LEVEL_HIGH>;
++					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+ 					status = "disabled";
+ 				};
  
- 	bt_bmc_config_irq(bt_bmc, pdev);
-@@ -457,6 +472,11 @@ static int bt_bmc_probe(struct platform_device *pdev)
- 	clr_b_busy(bt_bmc);
+@@ -535,6 +537,7 @@ kcs3: kcs@2c {
+ 					compatible = "aspeed,ast2500-kcs-bmc-v2";
+ 					reg = <0x2c 0x1>, <0x38 0x1>, <0x44 0x1>;
+ 					interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
++					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+ 					status = "disabled";
+ 				};
  
- 	return 0;
-+
-+err:
-+	clk_disable_unprepare(bt_bmc->clk);
-+
-+	return rc;
- }
- 
- static int bt_bmc_remove(struct platform_device *pdev)
-@@ -466,6 +486,8 @@ static int bt_bmc_remove(struct platform_device *pdev)
- 	misc_deregister(&bt_bmc->miscdev);
- 	if (bt_bmc->irq < 0)
- 		del_timer_sync(&bt_bmc->poll_timer);
-+	clk_disable_unprepare(bt_bmc->clk);
-+
- 	return 0;
- }
+@@ -542,6 +545,7 @@ kcs4: kcs@114 {
+ 					compatible = "aspeed,ast2500-kcs-bmc-v2";
+ 					reg = <0x114 0x1>, <0x118 0x1>, <0x11c 0x1>;
+ 					interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>;
++					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+ 					status = "disabled";
+ 				};
  
 -- 
 2.25.1
