@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 17D3E44372A
-	for <lists+openipmi-developer@lfdr.de>; Tue,  2 Nov 2021 21:18:03 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F6C244372D
+	for <lists+openipmi-developer@lfdr.de>; Tue,  2 Nov 2021 21:18:07 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mi0EJ-0007Fb-HK; Tue, 02 Nov 2021 20:17:59 +0000
+	id 1mi0EN-00076h-BO; Tue, 02 Nov 2021 20:18:03 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <jae.hyun.yoo@intel.com>) id 1mi0EI-0007FO-2D
- for openipmi-developer@lists.sourceforge.net; Tue, 02 Nov 2021 20:17:58 +0000
+ (envelope-from <jae.hyun.yoo@intel.com>) id 1mi0EH-00076I-Md
+ for openipmi-developer@lists.sourceforge.net; Tue, 02 Nov 2021 20:17:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=snwLkJhfG5XggIvryPkukZu7J7iSIkFl4gJQUEiSaEA=; b=mLNNEcnU9bSIgCEcxNhkmV9+4P
- Ob8C+q8OI58UFbIT7T4xcEBPpJGcLdEEhITsMjMRiFumTeOfAuUbDyCZP+BrM2eIMZZ+I2UH+aivf
- 2GFSThae4OTYjGmBK/MwCXau6yN8bkuxF3JNqJF59Oh9p8ekiRNgcsGsK1hxO565pcZo=;
+ bh=Lb7fWTwHlv37hX7FZ1Nl12bzyC5Au/3ipGLtHjJtXCI=; b=mifhYnZgzTN1Kf9ctTka2J24dL
+ xotZ3R+IZPC6FYEWKPFpN3RYIWGaJcmyf+rMNL2JgflcXqkHheMRexJJwNr555cUMBJt3hUv+xY24
+ Fna6c2iurhAXlkAwvFiSUwuYiChngl2fBWkBRdCW3fAZGKa+QW24lgCq4YFDS+NCFxSY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,21 +29,21 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=snwLkJhfG5XggIvryPkukZu7J7iSIkFl4gJQUEiSaEA=; b=Fodt9GS4tZmpVq9078rwHfE6pk
- YY8f0H5szQCZE6S3yRWiOCFebu45YCrx8zVALbKKNTOsfhvIB121umMei/LO5tu9t3Rv5rl2udBVC
- aWAFH9+5bHo+w6K/K5l8NAH1cXdo0+ttHhWRuzq9vgv+KquhgQenc0d1RNhvcb/t0Mj8=;
+ bh=Lb7fWTwHlv37hX7FZ1Nl12bzyC5Au/3ipGLtHjJtXCI=; b=klPnrplsK955Ton442XzY7dVGw
+ AT6MVfvzL6m6Rbb2VZQ/zIIkIwbWUVf4AjUV5s3eFJH+/rR6jJpP9WnpfpSKkRG+hlTd7ZBQCeK44
+ c3B36JFA7XJqWs508fM6TRNeZlAREnh8JILtRUhi6tZLDZEFcSFx8aLAjdtFOHL3Uf/Q=;
 Received: from mga05.intel.com ([192.55.52.43])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1mi0EG-00FR85-AJ
- for openipmi-developer@lists.sourceforge.net; Tue, 02 Nov 2021 20:17:57 +0000
-X-IronPort-AV: E=McAfee;i="6200,9189,10156"; a="317561522"
-X-IronPort-AV: E=Sophos;i="5.87,203,1631602800"; d="scan'208";a="317561522"
+ id 1mi0EF-0001zn-EY
+ for openipmi-developer@lists.sourceforge.net; Tue, 02 Nov 2021 20:17:56 +0000
+X-IronPort-AV: E=McAfee;i="6200,9189,10156"; a="317561524"
+X-IronPort-AV: E=Sophos;i="5.87,203,1631602800"; d="scan'208";a="317561524"
 Received: from orsmga008.jf.intel.com ([10.7.209.65])
  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 02 Nov 2021 13:17:48 -0700
+ 02 Nov 2021 13:17:49 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.87,203,1631602800"; d="scan'208";a="500738816"
+X-IronPort-AV: E=Sophos;i="5.87,203,1631602800"; d="scan'208";a="500738819"
 Received: from maru.jf.intel.com ([10.54.51.77])
  by orsmga008.jf.intel.com with ESMTP; 02 Nov 2021 13:17:48 -0700
 From: jae.hyun.yoo@intel.com
@@ -52,8 +52,8 @@ To: Rob Herring <robh+dt@kernel.org>, Corey Minyard <minyard@acm.org>,
  Cedric Le Goater <clg@kaod.org>, Haiyue Wang <haiyue.wang@linux.intel.com>,
  ChiaWei Wang <chiawei_wang@aspeedtech.com>,
  Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
-Date: Tue,  2 Nov 2021 13:37:15 -0700
-Message-Id: <20211102203717.96794-5-jae.hyun.yoo@intel.com>
+Date: Tue,  2 Nov 2021 13:37:16 -0700
+Message-Id: <20211102203717.96794-6-jae.hyun.yoo@intel.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211102203717.96794-1-jae.hyun.yoo@intel.com>
 References: <20211102203717.96794-1-jae.hyun.yoo@intel.com>
@@ -65,11 +65,12 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com> Add LCLK
- clock setting into LPC KCS nodes to enable the LCLK by individual LPC sub
- drivers. Signed-off-by: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
- Reviewed-by:
- Joel Stanley <joel@jms.id.au> --- v1 -> v2: - No change. 
+ Content preview: From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com> Add
+ 'clocks' as a required property. Signed-off-by: Jae Hyun Yoo
+ <jae.hyun.yoo@linux.intel.com>
+ --- v1 -> v2: Changes sinve v1: - Added 'clocks' property into kcs-bmc
+ bindings
+ using 'aspeed,ast2400-kcs-bmc.yaml' because it's not merged i [...] 
  Content analysis details:   (-2.3 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -77,9 +78,9 @@ X-Spam-Report: Spam detection software,
  medium trust [192.55.52.43 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1mi0EG-00FR85-AJ
-Subject: [Openipmi-developer] [PATCH -next v2 4/6] ARM: dts: aspeed: add
- LCLK setting into LPC KCS nodes
+X-Headers-End: 1mi0EF-0001zn-EY
+Subject: [Openipmi-developer] [PATCH -next v2 5/6] dt-bindings: ipmi: aspeed,
+ kcs-bmc: add 'clocks' as a required property
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -100,91 +101,53 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
 From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
 
-Add LCLK clock setting into LPC KCS nodes to enable the LCLK by
-individual LPC sub drivers.
+Add 'clocks' as a required property.
 
 Signed-off-by: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
-Reviewed-by: Joel Stanley <joel@jms.id.au>
 ---
 v1 -> v2:
- - No change.
+Changes sinve v1:
+ - Added 'clocks' property into kcs-bmc bindings using
+   'aspeed,ast2400-kcs-bmc.yaml' because it's not merged into
+   'aspeed-lpc.yaml' yet. The bindings merging could be done using a
+   separate patch later.
 
- arch/arm/boot/dts/aspeed-g5.dtsi | 4 ++++
- arch/arm/boot/dts/aspeed-g6.dtsi | 4 ++++
- 2 files changed, 8 insertions(+)
+ .../devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml   | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed-g5.dtsi b/arch/arm/boot/dts/aspeed-g5.dtsi
-index d0cc4be2de59..7495f93c5069 100644
---- a/arch/arm/boot/dts/aspeed-g5.dtsi
-+++ b/arch/arm/boot/dts/aspeed-g5.dtsi
-@@ -446,6 +446,7 @@ kcs1: kcs@24 {
- 					compatible = "aspeed,ast2500-kcs-bmc-v2";
- 					reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
- 					interrupts = <8>;
-+					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
- 					status = "disabled";
- 				};
+diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
+index 4ff6fabfcb30..92ec0da047f4 100644
+--- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
++++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
+@@ -71,9 +71,14 @@ properties:
+     $ref: '/schemas/types.yaml#/definitions/uint32'
+     description: The host CPU IO map address
  
-@@ -453,6 +454,7 @@ kcs2: kcs@28 {
- 					compatible = "aspeed,ast2500-kcs-bmc-v2";
- 					reg = <0x28 0x1>, <0x34 0x1>, <0x40 0x1>;
- 					interrupts = <8>;
-+					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
- 					status = "disabled";
- 				};
++  clocks:
++    maxItems: 1
++    description: Reference clock for the LPC controller
++
+ required:
+   - compatible
+   - interrupts
++  - clocks
  
-@@ -460,6 +462,7 @@ kcs3: kcs@2c {
- 					compatible = "aspeed,ast2500-kcs-bmc-v2";
- 					reg = <0x2c 0x1>, <0x38 0x1>, <0x44 0x1>;
- 					interrupts = <8>;
-+					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
- 					status = "disabled";
- 				};
+ additionalProperties: false
  
-@@ -467,6 +470,7 @@ kcs4: kcs@114 {
- 					compatible = "aspeed,ast2500-kcs-bmc-v2";
- 					reg = <0x114 0x1>, <0x118 0x1>, <0x11c 0x1>;
- 					interrupts = <8>;
-+					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
- 					status = "disabled";
- 				};
+@@ -96,6 +101,7 @@ allOf:
  
-diff --git a/arch/arm/boot/dts/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed-g6.dtsi
-index 465c3549fdc3..891b862363a7 100644
---- a/arch/arm/boot/dts/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed-g6.dtsi
-@@ -520,6 +520,7 @@ kcs1: kcs@24 {
- 					compatible = "aspeed,ast2500-kcs-bmc-v2";
- 					reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
- 					interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
-+					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
- 					kcs_chan = <1>;
- 					status = "disabled";
- 				};
-@@ -528,6 +529,7 @@ kcs2: kcs@28 {
- 					compatible = "aspeed,ast2500-kcs-bmc-v2";
- 					reg = <0x28 0x1>, <0x34 0x1>, <0x40 0x1>;
- 					interrupts = <GIC_SPI 139 IRQ_TYPE_LEVEL_HIGH>;
-+					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
- 					status = "disabled";
- 				};
- 
-@@ -535,6 +537,7 @@ kcs3: kcs@2c {
- 					compatible = "aspeed,ast2500-kcs-bmc-v2";
- 					reg = <0x2c 0x1>, <0x38 0x1>, <0x44 0x1>;
- 					interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
-+					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
- 					status = "disabled";
- 				};
- 
-@@ -542,6 +545,7 @@ kcs4: kcs@114 {
- 					compatible = "aspeed,ast2500-kcs-bmc-v2";
- 					reg = <0x114 0x1>, <0x118 0x1>, <0x11c 0x1>;
- 					interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>;
-+					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
- 					status = "disabled";
- 				};
- 
+ examples:
+   - |
++    #include <dt-bindings/clock/aspeed-clock.h>
+     #include <dt-bindings/interrupt-controller/irq.h>
+     kcs3: kcs@24 {
+         compatible = "aspeed,ast2600-kcs-bmc";
+@@ -103,4 +109,5 @@ examples:
+         aspeed,lpc-io-reg = <0xca2>;
+         aspeed,lpc-interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+         interrupts = <8>;
++        clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+     };
 -- 
 2.25.1
 
