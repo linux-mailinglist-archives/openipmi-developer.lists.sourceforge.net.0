@@ -2,118 +2,101 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CE73A444AEF
-	for <lists+openipmi-developer@lfdr.de>; Wed,  3 Nov 2021 23:46:13 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5DB74444D1A
+	for <lists+openipmi-developer@lfdr.de>; Thu,  4 Nov 2021 02:49:05 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1miP1F-00029S-Mw; Wed, 03 Nov 2021 22:46:08 +0000
+	id 1miRsE-0001Kr-6K; Thu, 04 Nov 2021 01:49:01 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <joel.stan@gmail.com>) id 1miP1E-00029M-Ln
- for openipmi-developer@lists.sourceforge.net; Wed, 03 Nov 2021 22:46:07 +0000
+ (envelope-from <zev@bewilderbeest.net>) id 1miRs4-0001Gt-Oo
+ for openipmi-developer@lists.sourceforge.net; Thu, 04 Nov 2021 01:48:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=nfe3D7clHGl1YZgkT5Ms1GXNSAPyz9/B35wGZ6BRdJA=; b=SfzeQ3at1yQgtezzP3KScXD4Ko
- Fq2fDuF2uHHCvaWlfMrhBLbNe7bAUXUVLAhP2tNUHE0xs4vo4owY9SiJ5hVy8JtRh6MoLQfnmgbv3
- 6tIO3rjt9cT3rjP6aueyOJuQRWvrTB3sMQjpCBLZzVCVcDdpgbAu0GTEe1YbP+fe4Ido=;
+ bh=CkPGfIGdJl1Sm1jvL44ZO2+ID8zt4FiR+y+7s0H1yZI=; b=U4LTJFolJ62VhJ+DQHk3kRNX2b
+ 1NZsTFF8ZAp3qf/Rtk0T3X08y7FVKfDtgRZRr2cVr6kDnqRpUA+UlpY7SjXkwHUW2XvJl5Vq6r43i
+ +M8noZMeIHLZPaw1RSI3ogL7RaoNp33tvIZ2gch4npZBRBdLiygyoHYfVtpOD8c/drao=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=nfe3D7clHGl1YZgkT5Ms1GXNSAPyz9/B35wGZ6BRdJA=; b=N9+LJAzNu940KtsjVdBtRlGNB8
- ec2Sm7daeXldJYK4fL3GCtf6d4r1I8XUH5YdIOJRgKIiNSnFMhaFyOR2X5/IYBdRHGNF000rBWoJ0
- CNJsfluXI2FTxgBZb1r/qDYanQwYlzlcAlxEW9KRouA888bPc6+XgtzFtw01UxgYsRpU=;
-Received: from mail-qv1-f52.google.com ([209.85.219.52])
+ bh=CkPGfIGdJl1Sm1jvL44ZO2+ID8zt4FiR+y+7s0H1yZI=; b=mqMsG3+J0q54J88eVkS/5Y6/XB
+ 9UQWoKK5IEMtRFLK3APsi83vVnp/mCkGJc1F/tfwrmL2JLI1r4wh6sSqO1b3eumaHwTF8NeRbdXQs
+ DuTAg+rNGKSsTnJ+0kvwWZ+JcgDAYdqs4DBWXsJ39NfMWTzPY9OQjBwAs69AgBsWz8WQ=;
+Received: from thorn.bewilderbeest.net ([71.19.156.171])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1miP12-000Qg4-QJ
- for openipmi-developer@lists.sourceforge.net; Wed, 03 Nov 2021 22:46:07 +0000
-Received: by mail-qv1-f52.google.com with SMTP id i13so4061421qvm.1
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 03 Nov 2021 15:45:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jms.id.au; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=nfe3D7clHGl1YZgkT5Ms1GXNSAPyz9/B35wGZ6BRdJA=;
- b=euRqBpHe7zof/gB/pdWm00nUw8LAFIzWvENcia2nOQMD2qz1YnuiNRezwdzo38FXUo
- 2q5KmkChXs2ZtGgnd9wZY/P9FTU3Zfc9V2/i3nTZFGzyHp6gU9v4SJqv8grVvOieatZX
- pvCloJ6RcCSdwejgGZXUiGz6W5m6hReIcmig8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=nfe3D7clHGl1YZgkT5Ms1GXNSAPyz9/B35wGZ6BRdJA=;
- b=RVfNXUIdStC44AQSm7/bPtcKYBXvNPU4Z026QWvEcoPhtymWqd4I1TpeU9Ra6p7650
- hD7N5gafDnxjVS9cpYGqDEmAbJqvgyYtc4aVO+Uur2w+x5dscxvyP+0naBsgNXgDPOFA
- ycCpBs9SaQMlYqSHyUfLyXLBUgchoYK2/tNIQfNGJi3tL9qvfyj4ZVcDRkHsCZfMx0e/
- miqn9Nl9BpfJL60W7qyY+18Gi6zBf39tTWAz0wc9VYeMJNItkRCHkaxfaASdp37okACr
- jj1Rbqy1gBv4piX0WMU6B+jLN/oxGvb2/FHm2o4UrTO1I7v/WMBsfB3pFYAx3IXaF7n0
- QB7w==
-X-Gm-Message-State: AOAM531T1fTmfXTy6Mp2sFr6XJLH0c3gtL0a1+FaC0iIm718rSPxqBWj
- FJyV3v2qhePSYUXjX38Io2Rc6EXKAIRxjt2nBmQ=
-X-Google-Smtp-Source: ABdhPJyBiuFpsngJvByWOWn/hd5diNY6ZjO2cLNra4+McwuXCw/CxnR55yD0wt8Ff3yfRdCVM6/BkLr0XUpHaiHuzhk=
-X-Received: by 2002:a0c:c784:: with SMTP id k4mr46084501qvj.43.1635979550880; 
- Wed, 03 Nov 2021 15:45:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <20211102203717.96794-1-jae.hyun.yoo@intel.com>
- <20211102203717.96794-6-jae.hyun.yoo@intel.com>
- <1635902437.654631.3880388.nullmailer@robh.at.kernel.org>
- <8db279c9-4c76-91a5-3617-a17effb2d103@linux.intel.com>
- <CAL_Jsq+SwCqFycKz4+agRsB3qr4Rbfra55Q6tNbMH2bNtoX+hA@mail.gmail.com>
- <796e0c02-5bca-e8a9-a17f-898aafec237f@linux.intel.com>
-In-Reply-To: <796e0c02-5bca-e8a9-a17f-898aafec237f@linux.intel.com>
-From: Joel Stanley <joel@jms.id.au>
-Date: Wed, 3 Nov 2021 22:45:38 +0000
-Message-ID: <CACPK8Xcwkz1QLOvN0MiSkX+jj2NZY10--1qo7M8UMyEmQQtYmA@mail.gmail.com>
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1miRrz-000qZM-Ga
+ for openipmi-developer@lists.sourceforge.net; Thu, 04 Nov 2021 01:48:51 +0000
+Received: from hatter.bewilderbeest.net (97-113-240-219.tukw.qwest.net
+ [97.113.240.219])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+ (No client certificate requested) (Authenticated sender: zev)
+ by thorn.bewilderbeest.net (Postfix) with ESMTPSA id E1862373;
+ Wed,  3 Nov 2021 18:48:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bewilderbeest.net;
+ s=thorn; t=1635990517;
+ bh=CkPGfIGdJl1Sm1jvL44ZO2+ID8zt4FiR+y+7s0H1yZI=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=MCLLMK1eNlLmUSFwuTCCKFYiMHqzqedGFHRwcU30yLMztv6y1e9AWemNn9ScMfmE0
+ sMthE9AG3P7UW56IMhJPKMA2NpK6lPUQ78JvvrkDJJcI/6jZ6RDHTx15oQa78oVxTI
+ VEzslz/RHf9aBc2RJ4oF7DDhvhy0bYOjGu1JkUGU=
+Date: Wed, 3 Nov 2021 18:48:32 -0700
+From: Zev Weiss <zev@bewilderbeest.net>
 To: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
-X-Spam-Score: 0.4 (/)
+Message-ID: <YYM78OxYMYwiFzWD@hatter.bewilderbeest.net>
+References: <20211101233751.49222-1-jae.hyun.yoo@intel.com>
+ <CACPK8XfBi+jY5ftLqsEVXHe01SQBNpTSwo+WtXN3=YUQnXACtw@mail.gmail.com>
+ <YYHSHoELvKRI4Zh1@hatter.bewilderbeest.net>
+ <d2a18e3b-cb02-37b5-cad8-45c3e8ff3bb4@linux.intel.com>
+ <YYHYMKDD7hz15ceR@hatter.bewilderbeest.net>
+ <63678f47-8b4a-1385-a755-bc7c2316ca0d@linux.intel.com>
+ <YYHhMGm4C0srTW1x@hatter.bewilderbeest.net>
+ <768252cc-2466-3b4b-9087-549b83e00a81@linux.intel.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <768252cc-2466-3b4b-9087-549b83e00a81@linux.intel.com>
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, 3 Nov 2021 at 17:27,
- Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
- wrote: > > On 11/3/2021 9:29 AM, Rob Herring wrote: > > It's possible that
- 'clocks' was always required or that it never > > worked without clocks,
- then this change is okay. Looking at this > > patch, I have no way to know
- that. The commit message has [...] 
- Content analysis details:   (0.4 points, 6.0 required)
+ Content preview:  On Wed, Nov 03, 2021 at 08:56:10AM PDT, Jae Hyun Yoo wrote:
+ > >Hi Zev, > >Not sure but looks like one of LPC functions is enabled while
+ kernel >booting. > Looks like that was exactly the clue I needed -- obvious
+ in retrospect, but I realize now that I'm only seeing this happen when I
+ bypass the normal shutdown sequence via 'reboot -f'; with a plain 'reb [...]
+ Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
  blocked.  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: jms.id.au]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.219.52 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.219.52 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [joel.stan[at]gmail.com]
+ for more information. [URIs: bewilderbeest.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1miP12-000Qg4-QJ
-Subject: Re: [Openipmi-developer] [PATCH -next v2 5/6] dt-bindings: ipmi:
- aspeed, kcs-bmc: add 'clocks' as a required property
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+X-Headers-End: 1miRrz-000qZM-Ga
+Subject: Re: [Openipmi-developer] [PATCH -next 0/4] Add LCLK control into
+ Aspeed LPC sub drivers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -126,40 +109,33 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Corey Minyard <minyard@acm.org>,
- linux-aspeed <linux-aspeed@lists.ozlabs.org>,
- devicetree <devicetree@vger.kernel.org>, Andrew Jeffery <andrew@aj.id.au>,
- ChiaWei Wang <chiawei_wang@aspeedtech.com>,
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ devicetree <devicetree@vger.kernel.org>,
+ linux-aspeed <linux-aspeed@lists.ozlabs.org>, Corey Minyard <minyard@acm.org>,
+ Andrew Jeffery <andrew@aj.id.au>, Rob Herring <robh+dt@kernel.org>,
  Jae Hyun Yoo <jae.hyun.yoo@intel.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
  openipmi-developer@lists.sourceforge.net,
  Haiyue Wang <haiyue.wang@linux.intel.com>, Cedric Le Goater <clg@kaod.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, 3 Nov 2021 at 17:27, Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com> wrote:
+On Wed, Nov 03, 2021 at 08:56:10AM PDT, Jae Hyun Yoo wrote:
 >
-> On 11/3/2021 9:29 AM, Rob Herring wrote:
-
-> > It's possible that 'clocks' was always required or that it never
-> > worked without clocks, then this change is okay. Looking at this
-> > patch, I have no way to know that. The commit message has to explain
-> > that. A commit message needs to answer WHY are you making the change.
-> > You don't really need WHAT the change is as anyone can read the diff.
+>Hi Zev,
 >
-> Then what would be better? Would it be good enough if I add more detail
-> commit message including a note that dtb recompiling is required? Or,
-> should I change this series to treat the 'clocks' as an optional
-> property? Can you please share your thought?
+>Not sure but looks like one of LPC functions is enabled while kernel
+>booting. 
+>
 
-Make it essential. It was only by accident that things have worked
-without this change.
+Looks like that was exactly the clue I needed -- obvious in retrospect, 
+but I realize now that I'm only seeing this happen when I bypass the 
+normal shutdown sequence via 'reboot -f'; with a plain 'reboot' I don't 
+hit any problems.  Can you reproduce it that way?
 
-While keeping backwards compatibility with dtbs is a goal we strive
-for, in practice we use the dtb from the corresponding kernel source
-tree, so as long as the patch to the driver is applied in the same
-place as the patch to the device tree no systems will break.
+
+Zev
+
 
 
 _______________________________________________
