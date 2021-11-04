@@ -2,59 +2,58 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5DB74444D1A
-	for <lists+openipmi-developer@lfdr.de>; Thu,  4 Nov 2021 02:49:05 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 55C1D4456E6
+	for <lists+openipmi-developer@lfdr.de>; Thu,  4 Nov 2021 17:09:56 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1miRsE-0001Kr-6K; Thu, 04 Nov 2021 01:49:01 +0000
+	id 1mifJI-0000Pb-VT; Thu, 04 Nov 2021 16:09:51 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <zev@bewilderbeest.net>) id 1miRs4-0001Gt-Oo
- for openipmi-developer@lists.sourceforge.net; Thu, 04 Nov 2021 01:48:51 +0000
+ (envelope-from <jae.hyun.yoo@linux.intel.com>) id 1mifJH-0000PF-19
+ for openipmi-developer@lists.sourceforge.net; Thu, 04 Nov 2021 16:09:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=CkPGfIGdJl1Sm1jvL44ZO2+ID8zt4FiR+y+7s0H1yZI=; b=U4LTJFolJ62VhJ+DQHk3kRNX2b
- 1NZsTFF8ZAp3qf/Rtk0T3X08y7FVKfDtgRZRr2cVr6kDnqRpUA+UlpY7SjXkwHUW2XvJl5Vq6r43i
- +M8noZMeIHLZPaw1RSI3ogL7RaoNp33tvIZ2gch4npZBRBdLiygyoHYfVtpOD8c/drao=;
+ bh=7jTfmaOkDu3zzo00d8ENE2ep2vZ/6BjdZBlgfNL4yxY=; b=MNPgSCItm3P6t4HyuiKJ6qqbp6
+ E9hPbMWHglU2dc9sqDaRJmaytDlUdjMVg7mFRrssbphVxp8q77Rc632Sher2GvhLA8XrwSF9dPRBk
+ 9Lpz5lp5xaWBs9/NhIUdpULMV1z2u2cCG745XkvODRwB0J/c0iEZuKxo2Ky2hUWc4JCQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=CkPGfIGdJl1Sm1jvL44ZO2+ID8zt4FiR+y+7s0H1yZI=; b=mqMsG3+J0q54J88eVkS/5Y6/XB
- 9UQWoKK5IEMtRFLK3APsi83vVnp/mCkGJc1F/tfwrmL2JLI1r4wh6sSqO1b3eumaHwTF8NeRbdXQs
- DuTAg+rNGKSsTnJ+0kvwWZ+JcgDAYdqs4DBWXsJ39NfMWTzPY9OQjBwAs69AgBsWz8WQ=;
-Received: from thorn.bewilderbeest.net ([71.19.156.171])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=7jTfmaOkDu3zzo00d8ENE2ep2vZ/6BjdZBlgfNL4yxY=; b=DT+00ej5Y+s0X323Oij7RRhMLW
+ wNtTuI0Jp4WfV6BaT8q71dDS57OPt3pIrOclaA2XrMuoLl8n5YEFVM1Yvh5yfI9Sm4ojGIhLS/cxY
+ jEAhb52d0ns92Xwrfcn+tXMVGjlOiVC3Y3TV1hEX39mztMAyf2NPSZT2bFfG2EXxs/Ws=;
+Received: from mga06.intel.com ([134.134.136.31])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1miRrz-000qZM-Ga
- for openipmi-developer@lists.sourceforge.net; Thu, 04 Nov 2021 01:48:51 +0000
-Received: from hatter.bewilderbeest.net (97-113-240-219.tukw.qwest.net
- [97.113.240.219])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested) (Authenticated sender: zev)
- by thorn.bewilderbeest.net (Postfix) with ESMTPSA id E1862373;
- Wed,  3 Nov 2021 18:48:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bewilderbeest.net;
- s=thorn; t=1635990517;
- bh=CkPGfIGdJl1Sm1jvL44ZO2+ID8zt4FiR+y+7s0H1yZI=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=MCLLMK1eNlLmUSFwuTCCKFYiMHqzqedGFHRwcU30yLMztv6y1e9AWemNn9ScMfmE0
- sMthE9AG3P7UW56IMhJPKMA2NpK6lPUQ78JvvrkDJJcI/6jZ6RDHTx15oQa78oVxTI
- VEzslz/RHf9aBc2RJ4oF7DDhvhy0bYOjGu1JkUGU=
-Date: Wed, 3 Nov 2021 18:48:32 -0700
-From: Zev Weiss <zev@bewilderbeest.net>
-To: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
-Message-ID: <YYM78OxYMYwiFzWD@hatter.bewilderbeest.net>
+ id 1mifJE-0003pl-RB
+ for openipmi-developer@lists.sourceforge.net; Thu, 04 Nov 2021 16:09:49 +0000
+X-IronPort-AV: E=McAfee;i="6200,9189,10157"; a="292569347"
+X-IronPort-AV: E=Sophos;i="5.87,209,1631602800"; d="scan'208";a="292569347"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+ by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 04 Nov 2021 09:09:42 -0700
+X-IronPort-AV: E=Sophos;i="5.87,209,1631602800"; d="scan'208";a="468519314"
+Received: from yoojae-mobl.amr.corp.intel.com (HELO [10.209.121.122])
+ ([10.209.121.122])
+ by orsmga002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 04 Nov 2021 09:09:41 -0700
+Message-ID: <f9203632-4730-dba6-49a7-240b45a00bed@linux.intel.com>
+Date: Thu, 4 Nov 2021 09:09:41 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.1
+Content-Language: en-US
+To: Zev Weiss <zev@bewilderbeest.net>
 References: <20211101233751.49222-1-jae.hyun.yoo@intel.com>
  <CACPK8XfBi+jY5ftLqsEVXHe01SQBNpTSwo+WtXN3=YUQnXACtw@mail.gmail.com>
  <YYHSHoELvKRI4Zh1@hatter.bewilderbeest.net>
@@ -63,38 +62,30 @@ References: <20211101233751.49222-1-jae.hyun.yoo@intel.com>
  <63678f47-8b4a-1385-a755-bc7c2316ca0d@linux.intel.com>
  <YYHhMGm4C0srTW1x@hatter.bewilderbeest.net>
  <768252cc-2466-3b4b-9087-549b83e00a81@linux.intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <768252cc-2466-3b4b-9087-549b83e00a81@linux.intel.com>
-X-Spam-Score: -0.2 (/)
+ <YYM78OxYMYwiFzWD@hatter.bewilderbeest.net>
+From: Jae Hyun Yoo <jae.hyun.yoo@linux.intel.com>
+In-Reply-To: <YYM78OxYMYwiFzWD@hatter.bewilderbeest.net>
+X-Spam-Score: -4.3 (----)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Nov 03, 2021 at 08:56:10AM PDT, Jae Hyun Yoo wrote:
- > >Hi Zev, > >Not sure but looks like one of LPC functions is enabled while
- kernel >booting. > Looks like that was exactly the clue I needed -- obvious
- in retrospect, but I realize now that I'm only seeing this happen when I
- bypass the normal shutdown sequence via 'reboot -f'; with a plain 'reb [...]
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content preview:  On 11/3/2021 6:48 PM, Zev Weiss wrote: > On Wed, Nov 03, 2021
+ at 08:56:10AM PDT, Jae Hyun Yoo wrote: >> >> Hi Zev, >> >> Not sure but looks
+ like one of LPC functions is enabled while kernel >> booting [...] 
+ Content analysis details:   (-4.3 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
- blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: bewilderbeest.net]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [134.134.136.31 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [134.134.136.31 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
-X-Headers-End: 1miRrz-000qZM-Ga
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1mifJE-0003pl-RB
 Subject: Re: [Openipmi-developer] [PATCH -next 0/4] Add LCLK control into
  Aspeed LPC sub drivers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -116,29 +107,28 @@ Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>,
  Jae Hyun Yoo <jae.hyun.yoo@intel.com>,
  openipmi-developer@lists.sourceforge.net,
  Haiyue Wang <haiyue.wang@linux.intel.com>, Cedric Le Goater <clg@kaod.org>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Nov 03, 2021 at 08:56:10AM PDT, Jae Hyun Yoo wrote:
->
->Hi Zev,
->
->Not sure but looks like one of LPC functions is enabled while kernel
->booting. 
->
-
-Looks like that was exactly the clue I needed -- obvious in retrospect, 
-but I realize now that I'm only seeing this happen when I bypass the 
-normal shutdown sequence via 'reboot -f'; with a plain 'reboot' I don't 
-hit any problems.  Can you reproduce it that way?
-
-
-Zev
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gMTEvMy8yMDIxIDY6NDggUE0sIFpldiBXZWlzcyB3cm90ZToKPiBPbiBXZWQsIE5vdiAwMywg
+MjAyMSBhdCAwODo1NjoxMEFNIFBEVCwgSmFlIEh5dW4gWW9vIHdyb3RlOgo+Pgo+PiBIaSBaZXYs
+Cj4+Cj4+IE5vdCBzdXJlIGJ1dCBsb29rcyBsaWtlIG9uZSBvZiBMUEMgZnVuY3Rpb25zIGlzIGVu
+YWJsZWQgd2hpbGUga2VybmVsCj4+IGJvb3RpbmcuCj4gCj4gTG9va3MgbGlrZSB0aGF0IHdhcyBl
+eGFjdGx5IHRoZSBjbHVlIEkgbmVlZGVkIC0tIG9idmlvdXMgaW4gcmV0cm9zcGVjdCwgCj4gYnV0
+IEkgcmVhbGl6ZSBub3cgdGhhdCBJJ20gb25seSBzZWVpbmcgdGhpcyBoYXBwZW4gd2hlbiBJIGJ5
+cGFzcyB0aGUgCj4gbm9ybWFsIHNodXRkb3duIHNlcXVlbmNlIHZpYSAncmVib290IC1mJzsgd2l0
+aCBhIHBsYWluICdyZWJvb3QnIEkgZG9uJ3QgCj4gaGl0IGFueSBwcm9ibGVtcy7CoCBDYW4geW91
+IHJlcHJvZHVjZSBpdCB0aGF0IHdheT8KCk15IHN5c3RlbSBkb2Vzbid0IGZvbGxvdyB0aGUgcmVw
+cm9kdWN0aW9uIHBhdHRlcm4uIFdoYXQgSSB1c3VhbGx5IGRvIHRvCnJlcHJvZHVjZSBpdCBpcywg
+bWFraW5nIGEgaG9zdCByZXNldCBhbmQgZm9sbG93ZWQgYnkgbWFraW5nIGEgQk1DIHJlc2V0CnRo
+ZW4gaG9zdCB3aWxsIHRyeSB0byBzZW5kIHNvbWV0aGluZyB0aHJvdWdoIEtDUyBjaGFubmVsIGFu
+ZCBzbm9vcC04MAp3aGlsZSBCTUMgTFBDIGRyaXZlcnMgYXJlIGJlaW5nIGxvYWRlZC4gSXQncyBu
+b3QgZWFzeSB0byByZXByb2R1Y2UgaXQKdXNpbmcgbXkgc3lzdGVtIGFuZCBpdCdzIHZlcnkgdGlt
+aW5nIHNlbnNpdGl2ZS4KCkFzIEkgc3VnZ2VzdGVkIGluIHByZXZpb3VzIGVtYWlsLCBkaXNhYmxl
+IGFsbCBMUEMgc3ViIGZ1bmN0aW9ucyBhbmQKZW5hYmxlIGJhY2sgb25lIGJ5IG9uZS4gSXQgY291
+bGQgaGVscCBmb3IgaWRlbnRpZnlpbmcgd2hpY2ggTFBDIHN1Ygptb2R1bGUgY2F1c2VzIHRoZSBp
+c3N1ZS4KCi1KYWUKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpPcGVuaXBtaS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBs
+aXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMv
+bGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVyCg==
