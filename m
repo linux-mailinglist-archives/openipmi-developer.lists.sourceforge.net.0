@@ -2,111 +2,94 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7F7D1449945
-	for <lists+openipmi-developer@lfdr.de>; Mon,  8 Nov 2021 17:12:42 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 298CE44997E
+	for <lists+openipmi-developer@lfdr.de>; Mon,  8 Nov 2021 17:22:08 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mk7GA-0002U4-1L; Mon, 08 Nov 2021 16:12:38 +0000
+	id 1mk7PH-0006U6-Kt; Mon, 08 Nov 2021 16:22:03 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <geert.uytterhoeven@gmail.com>) id 1mk7G8-0002Tt-1d
- for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 16:12:36 +0000
+ (envelope-from <bp@alien8.de>) id 1mk7PG-0006Tl-Ic
+ for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 16:22:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=hEQQmRj7LTpJogPgt2xRVOX7N+txus6iMmGepIZghfU=; b=hfWC9summf9EYLOCGCoOi93SpN
- uiJbbRZfxr9e/CJnXaYP88+afqaUA+/j/YLBJ/HtSf1DPqFCHX0k5GIwAy1hFRPG8I2dgaJihB5Gb
- YT1C0Are1knxlmVF497E/TJ6URpaDUnt+z7lKu9+oxTm6+ye7ga7NzuFnQPR2posS+VY=;
+ bh=BmhP/O36y2kgWhY9wVesOsCT3VZHRN0l2HSALpf1H38=; b=AvPLUuHMKp5h4vg48/lSFwD86h
+ vNk9tPTCQrydQMbr85qfWAnsiYpTzSyd5US815GaTpo8Uq8BCBRyCWvuzvBIg+d0ZZLij23SssDsq
+ wSXVS0QH8H0Ce9NRiS8NrRZcDq8kO7vZYkAYIw2mwgbCg3jsNtMc4Nylgev80mrGZnSI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=hEQQmRj7LTpJogPgt2xRVOX7N+txus6iMmGepIZghfU=; b=m4J973NXXupLh7hveCSlxJtRlk
- uOB4IcqgklfR5/oaWy1bQTRAkogfJa3zcc+11h/0k6KBoUy8DxgL2VCabNyas3ByED4IdrF8Zfo5F
- 4ftJgqmbES9NSKzNmeo9GXBTjZ0ikGubhzwkrGvN3+mdju7R5+FpraEJZc9mQAEWE4CU=;
-Received: from mail-ua1-f46.google.com ([209.85.222.46])
+ bh=BmhP/O36y2kgWhY9wVesOsCT3VZHRN0l2HSALpf1H38=; b=UB5B6iLEEe/aikxll907CzB3CP
+ r1t52gZjVdGAFBaPkTihspZV9kWThy/q7YrjGcC64kH+MAlgaz04gBeQNyMUdcOESXCpAAfreu6Wd
+ d32IkAnMaFDX3zT+ImLER7es+zEfEWcVF+IfxuJzpTGrFeVvVwJxCVtZTr+ehkwgvpaI=;
+Received: from mail.skyhub.de ([5.9.137.197])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1mk7G6-006FJJ-A0
- for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 16:12:35 +0000
-Received: by mail-ua1-f46.google.com with SMTP id q13so32559625uaq.2
- for <openipmi-developer@lists.sourceforge.net>;
- Mon, 08 Nov 2021 08:12:34 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=hEQQmRj7LTpJogPgt2xRVOX7N+txus6iMmGepIZghfU=;
- b=vjqcQCoO9XU8oBJPC04VM+bFIZgpoJki99jZopVq/ta0cYib9Y+4PiBfGd/CGQhl35
- 5ApxwbVP7FEVw/wsE2e6eDsz2MUSmJDrXnVyttHna/VWQd/ZpgchS51iXCqxHH9gab9P
- sEhN6cDNCymm48JXfzf2OnTB/js8foIU11CbIPYTYJRbvY/XMTIso1TJLP7BrRScKfFG
- pYYV4PEM7NiNNuDZEnSCf0hhYEK0x+/owfWtXZn/RhHrjhmFqZ170BnYjWKCvCS9lkzA
- pdmT/HN4yscEyYgbHzuNzJm+Nqic4m16gqTTsGd5V3ozbWPTT8kPz4yc5KTPABY6CNyo
- k7gA==
-X-Gm-Message-State: AOAM531pwyHKX8BMRHKoW7lYD2VOyX//K/DXW1S1UitRZlKhCAIKnXcE
- k6QEDBFg6kpAI9RXwQO5N1A1ZYbyw0T8W52n
-X-Google-Smtp-Source: ABdhPJyqUIz0zAGetN+xiMAO0nLkH130AC42KL1Zt1FvzyG7vWerp1fVzzd2mFlV0lQoR1FoObpBqQ==
-X-Received: by 2002:ab0:45a8:: with SMTP id u37mr250244uau.24.1636387948424;
- Mon, 08 Nov 2021 08:12:28 -0800 (PST)
-Received: from mail-vk1-f175.google.com (mail-vk1-f175.google.com.
- [209.85.221.175])
- by smtp.gmail.com with ESMTPSA id m15sm3341488vsh.31.2021.11.08.08.12.27
- for <openipmi-developer@lists.sourceforge.net>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 08 Nov 2021 08:12:27 -0800 (PST)
-Received: by mail-vk1-f175.google.com with SMTP id n201so8489163vkn.12
- for <openipmi-developer@lists.sourceforge.net>;
- Mon, 08 Nov 2021 08:12:27 -0800 (PST)
-X-Received: by 2002:a1f:f24f:: with SMTP id q76mr347755vkh.11.1636387947335;
- Mon, 08 Nov 2021 08:12:27 -0800 (PST)
-MIME-Version: 1.0
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1mk7PB-006FiP-IB
+ for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 16:22:01 +0000
+Received: from zn.tnic (p200300ec2f331100181cb4ce2fe9e1de.dip0.t-ipconnect.de
+ [IPv6:2003:ec:2f33:1100:181c:b4ce:2fe9:e1de])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 071501EC0503;
+ Mon,  8 Nov 2021 17:21:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
+ t=1636388511;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
+ bh=BmhP/O36y2kgWhY9wVesOsCT3VZHRN0l2HSALpf1H38=;
+ b=PwrrR1/9r0PtkEkx8l94Lq5o8cthN3NxILevAwj1LoIRoN/B58W84rM+iyPPtwIBmVMRtG
+ 8jlUd2DAmGqQe7+sK0xny6az8RzdndQG0jeU2pdwyReIQXuaywQhQg+JKE/uRG6ku5v9jN
+ K5y81X7+5Pp2iJVW5AZDozV+KOdqQTY=
+Date: Mon, 8 Nov 2021 17:21:45 +0100
+From: Borislav Petkov <bp@alien8.de>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Message-ID: <YYlOmd0AeA8DSluD@zn.tnic>
 References: <20211108101157.15189-1-bp@alien8.de>
  <20211108101157.15189-43-bp@alien8.de>
  <CAMuHMdWH+txiSP_d7Jc4f_bU8Lf9iWpT4E3o5o7BJr-YdA6-VA@mail.gmail.com>
  <YYkyUEqcsOwQMb1S@zn.tnic>
  <CAMuHMdXiBEQyEXJagSfpH44hxVA2t0sDH7B7YubLGHrb2MJLLA@mail.gmail.com>
  <YYlJQYLiIrhjwOmT@zn.tnic>
-In-Reply-To: <YYlJQYLiIrhjwOmT@zn.tnic>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 8 Nov 2021 17:12:16 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXHikGrmUzuq0WG5JRHUUE=5zsaVCTF+e4TiHpM5tc5kA@mail.gmail.com>
-Message-ID: <CAMuHMdXHikGrmUzuq0WG5JRHUUE=5zsaVCTF+e4TiHpM5tc5kA@mail.gmail.com>
-To: Borislav Petkov <bp@alien8.de>
-X-Spam-Score: 0.5 (/)
+ <CAMuHMdXHikGrmUzuq0WG5JRHUUE=5zsaVCTF+e4TiHpM5tc5kA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdXHikGrmUzuq0WG5JRHUUE=5zsaVCTF+e4TiHpM5tc5kA@mail.gmail.com>
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Borislav, On Mon, Nov 8, 2021 at 4:59 PM Borislav Petkov
- <bp@alien8.de> wrote: > On Mon, Nov 08, 2021 at 04:25:47PM +0100,
- Geert Uytterhoeven
- wrote: > > I'm not against returning proper errors codes. I'm agains [...]
- Content analysis details:   (0.5 points, 6.0 required)
+ Content preview:  On Mon, Nov 08, 2021 at 05:12:16PM +0100, Geert Uytterhoeven
+ wrote: > Returning void is the other extreme ;
+ -) > > There are 3 levels (ignoring
+ BUG_ON()/panic () inside the callee): > 1. Return void: n [...] 
+ Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [geert.uytterhoeven[at]gmail.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 T_SPF_HELO_TEMPERROR   SPF: test of HELO record failed (temperror)
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.46 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.222.46 listed in list.dnswl.org]
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1mk7G6-006FJJ-A0
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+X-Headers-End: 1mk7PB-006FiP-IB
 Subject: Re: [Openipmi-developer] [PATCH v0 42/42] notifier: Return an error
  when callback is already registered
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -155,36 +138,25 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi Borislav,
+On Mon, Nov 08, 2021 at 05:12:16PM +0100, Geert Uytterhoeven wrote:
+> Returning void is the other extreme ;-)
+> 
+> There are 3 levels (ignoring BUG_ON()/panic () inside the callee):
+>   1. Return void: no one can check success or failure,
+>   2. Return an error code: up to the caller to decide,
+>   3. Return a __must_check error code: every caller must check.
+> 
+> I'm in favor of 2, as there are several places where it cannot fail.
 
-On Mon, Nov 8, 2021 at 4:59 PM Borislav Petkov <bp@alien8.de> wrote:
-> On Mon, Nov 08, 2021 at 04:25:47PM +0100, Geert Uytterhoeven wrote:
-> > I'm not against returning proper errors codes.  I'm against forcing
-> > callers to check things that cannot fail and to add individual error
-> > printing to each and every caller.
->
-> If you're against checking things at the callers, then the registration
-> function should be void. IOW, those APIs are not optimally designed atm.
+Makes sense to me. I'll do that in the next iteration.
 
-Returning void is the other extreme ;-)
+Thx.
 
-There are 3 levels (ignoring BUG_ON()/panic () inside the callee):
-  1. Return void: no one can check success or failure,
-  2. Return an error code: up to the caller to decide,
-  3. Return a __must_check error code: every caller must check.
+-- 
+Regards/Gruss,
+    Boris.
 
-I'm in favor of 2, as there are several places where it cannot fail.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+https://people.kernel.org/tglx/notes-about-netiquette
 
 
 _______________________________________________
