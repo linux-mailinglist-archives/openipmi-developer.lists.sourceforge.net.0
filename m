@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 163E64481A3
-	for <lists+openipmi-developer@lfdr.de>; Mon,  8 Nov 2021 15:24:56 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id DFD5C4481E8
+	for <lists+openipmi-developer@lfdr.de>; Mon,  8 Nov 2021 15:36:12 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mk5Zs-0007Ly-BF; Mon, 08 Nov 2021 14:24:52 +0000
+	id 1mk5kn-0000Bw-1q; Mon, 08 Nov 2021 14:36:09 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <bp@alien8.de>) id 1mk5Zr-0007Ls-3B
- for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 14:24:51 +0000
+ (envelope-from <bp@alien8.de>) id 1mk5kk-0000Bp-K6
+ for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 14:36:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=oQBbYlaqexu4t08cRZdDH3XaT2khXLTGUfDdhXY+o6w=; b=SMbAjEMIZbEASGDPyi3o/n1DN6
- BLdKzAZNZa4eg8YRwmTBkmp1VJ87Jsuxh3+tZKcixbgkyWjZ39/i0TAnvbkahA/aQG+lI4CmyC28u
- wBiNAv91jOAb0KxWajs0vwZm98tlRw0PW7WpS+4roizbnEnmMGv8iw+qNpWn/OBvbwlU=;
+ bh=B6oOQ1q4gjLTOu5usgfET43xDRmf4tLazw1TZ6CRXFw=; b=FtNEolw2h+gzX1O/v9NSr5+bUo
+ 6p0+rTHyzXr8urZWQvQ/82UbUFA2/WDueIuOCOEXfM8weRioA43Wdt2OAbUsMHc5/sAvhadyRcLFA
+ Gi/yMxmM4yJtMhZNTF0s2oIobV2EDLRBgRjRi4eYrFL6TjlAajlV4HNs8WMbo+jQ9rL0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -29,39 +29,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=oQBbYlaqexu4t08cRZdDH3XaT2khXLTGUfDdhXY+o6w=; b=CnfnR1JWn4S3m1D80dJi0cPedg
- QJhdqcr1cEWZTBcU57rAt3OF/iQ9cGOHlAwMM83t7eHvIP3R5R1+aHfUxtR7D7UPsMXqM5rmQIofb
- E3X2p08ZynFl0Y2S+yC90nXIy9FN4sYFQtGD2Y3Q8C1cH42a/Tef1wCFedDA0LxoGxXY=;
+ bh=B6oOQ1q4gjLTOu5usgfET43xDRmf4tLazw1TZ6CRXFw=; b=HhxmmTAWSQIExDSWIZeQS64Bxx
+ zg8U5/xccRtUDW9hkekEgGxyj6ltPYcRdCo2tRUWvjecDgAIBlOf2Xcyo8R+YcwfO1mv8Q2kbCRci
+ N/DQQxHRhJIWGMTBr9D2V35XE5/vRMR5xMmkaRnFYWNUGycirIJ9NhafDHHqAn0V0b3U=;
 Received: from mail.skyhub.de ([5.9.137.197])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1mk5Zn-0069lH-D9
- for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 14:24:51 +0000
-Received: from zn.tnic (p200300ec2f33110093973d8dfcf40fd9.dip0.t-ipconnect.de
- [IPv6:2003:ec:2f33:1100:9397:3d8d:fcf4:fd9])
+ id 1mk5kg-0001eq-Qy
+ for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 14:36:06 +0000
+Received: from zn.tnic (p200300ec2f331100b486bab6e60d7aaf.dip0.t-ipconnect.de
+ [IPv6:2003:ec:2f33:1100:b486:bab6:e60d:7aaf])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id D54F61EC04EE;
- Mon,  8 Nov 2021 15:24:40 +0100 (CET)
+ by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 1A75E1EC01FC;
+ Mon,  8 Nov 2021 15:35:56 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
- t=1636381481;
+ t=1636382156;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
- bh=oQBbYlaqexu4t08cRZdDH3XaT2khXLTGUfDdhXY+o6w=;
- b=BzFVBEJotdv+x1wk5r7BVthkB7IfDjFkcs3Qa23VnQgw6n7GoUvAnfTwnsI1XwsFUQ2pfc
- wTEtmUg2zpiIKZgiV8GtlPXLXcMCnwwX7vbzvuM7Jd46qSvtVDp/eqlUHv6UrUSSdUIxSB
- fTiz2Hj9eXxtQyoPpRyOqBuxOD7Awrk=
-Date: Mon, 8 Nov 2021 15:24:39 +0100
+ bh=B6oOQ1q4gjLTOu5usgfET43xDRmf4tLazw1TZ6CRXFw=;
+ b=Upd25HzfEqhrG5TAXmV4X7VLTXjG+2mbIZvAcNaA5XdFGwWxC22cjGdH367SqKuC2YI35V
+ XePkT+plNO8Rcdx9qRLbflORPHDjzc4q/HfinrM2oVoUmKJ3f3FbXqZbeiIVI7zzNRafCc
+ NDGlsVX5pxz7i7hCYlNzvvCrAxbHbAs=
+Date: Mon, 8 Nov 2021 15:35:50 +0100
 From: Borislav Petkov <bp@alien8.de>
-To: Alan Stern <stern@rowland.harvard.edu>
-Message-ID: <YYkzJ3+faVga2Tl3@zn.tnic>
+To: Alan Stern <stern@rowland.harvard.edu>,
+ Geert Uytterhoeven <geert@linux-m68k.org>
+Message-ID: <YYk1xi3eJdMJdjHC@zn.tnic>
 References: <20211108101157.15189-1-bp@alien8.de>
  <20211108101924.15759-1-bp@alien8.de>
  <20211108141703.GB1666297@rowland.harvard.edu>
+ <YYkzJ3+faVga2Tl3@zn.tnic>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20211108141703.GB1666297@rowland.harvard.edu>
+In-Reply-To: <YYkzJ3+faVga2Tl3@zn.tnic>
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
@@ -69,9 +71,9 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, Nov 08, 2021 at 09:17:03AM -0500, Alan Stern wrote:
- > What reason is there for moving the check into the callers? It seems >
- like pointless churn. Why not add the error return code, change the [...] 
+ Content preview:  On Mon, Nov 08, 2021 at 03:24:39PM +0100, Borislav Petkov
+ wrote: > I guess I can add another indirection to notifier_chain_register()
+ and > avoid touching all the call sites. IOW, something like this below. 
  Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -84,7 +86,7 @@ X-Spam-Report: Spam detection software,
  author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
-X-Headers-End: 1mk5Zn-0069lH-D9
+X-Headers-End: 1mk5kg-0001eq-Qy
 Subject: Re: [Openipmi-developer] [PATCH v0 00/42] notifiers: Return an
  error when callback is already registered
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -122,22 +124,60 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Nov 08, 2021 at 09:17:03AM -0500, Alan Stern wrote:
-> What reason is there for moving the check into the callers?  It seems 
-> like pointless churn.  Why not add the error return code, change the 
-> WARN to pr_warn, and leave the callers as they are?  Wouldn't that end 
-> up having exactly the same effect?
-> 
-> For that matter, what sort of remedial action can a caller take if the 
-> return code is -EEXIST?  Is there any point in forcing callers to check 
-> the return code if they can't do anything about it?
+On Mon, Nov 08, 2021 at 03:24:39PM +0100, Borislav Petkov wrote:
+> I guess I can add another indirection to notifier_chain_register() and
+> avoid touching all the call sites.
 
-See my reply to Geert from just now:
+IOW, something like this below.
 
-https://lore.kernel.org/r/YYkyUEqcsOwQMb1S@zn.tnic
+This way I won't have to touch all the callsites and the registration
+routines would still return a proper value instead of returning 0
+unconditionally.
 
-I guess I can add another indirection to notifier_chain_register() and
-avoid touching all the call sites.
+---
+diff --git a/kernel/notifier.c b/kernel/notifier.c
+index b8251dc0bc0f..04f08b2ef17f 100644
+--- a/kernel/notifier.c
++++ b/kernel/notifier.c
+@@ -19,14 +19,12 @@ BLOCKING_NOTIFIER_HEAD(reboot_notifier_list);
+  *	are layered on top of these, with appropriate locking added.
+  */
+ 
+-static int notifier_chain_register(struct notifier_block **nl,
+-		struct notifier_block *n)
++static int __notifier_chain_register(struct notifier_block **nl,
++				     struct notifier_block *n)
+ {
+ 	while ((*nl) != NULL) {
+-		if (unlikely((*nl) == n)) {
+-			WARN(1, "double register detected");
+-			return 0;
+-		}
++		if (unlikely((*nl) == n))
++			return -EEXIST;
+ 		if (n->priority > (*nl)->priority)
+ 			break;
+ 		nl = &((*nl)->next);
+@@ -36,6 +34,18 @@ static int notifier_chain_register(struct notifier_block **nl,
+ 	return 0;
+ }
+ 
++static int notifier_chain_register(struct notifier_block **nl,
++				   struct notifier_block *n)
++{
++	int ret = __notifier_chain_register(nl, n);
++
++	if (ret == -EEXIST)
++		WARN(1, "double register of notifier callback %ps detected",
++			n->notifier_call);
++
++	return ret;
++}
++
+ static int notifier_chain_unregister(struct notifier_block **nl,
+ 		struct notifier_block *n)
+ {
+
 
 -- 
 Regards/Gruss,
