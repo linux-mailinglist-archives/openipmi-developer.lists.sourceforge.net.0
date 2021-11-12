@@ -2,86 +2,109 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 00E3F449DD2
-	for <lists+openipmi-developer@lfdr.de>; Mon,  8 Nov 2021 22:19:10 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id C1AFF44EBD0
+	for <lists+openipmi-developer@lfdr.de>; Fri, 12 Nov 2021 18:09:38 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mkC2j-0006Sv-K1; Mon, 08 Nov 2021 21:19:05 +0000
+	id 1mla3S-00050t-UV; Fri, 12 Nov 2021 17:09:34 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <bp@alien8.de>) id 1mkC2h-0006Sp-RS
- for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 21:19:03 +0000
+ (envelope-from <ioanna-maria.alifieraki@canonical.com>)
+ id 1mlZon-0000cr-Cg
+ for openipmi-developer@lists.sourceforge.net; Fri, 12 Nov 2021 16:54:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
+ MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=AU7V4fSHGUK4yNvIX3QFWGgL2mpvsQwlJrzk1EYTZE4=; b=Dh7Ie541JDd2Htg60DKTgYGxhI
- KoqbNALyit4J+z5NaqmqjPKvI1Ltn25PXHpizSDghE6yHMEGX22fpo8So5nGusNVjsUv6V8CaSeLt
- Hvhl/7meBPFnJ23Op/iKSZU6vXgkP1fjIXvJj7MsaNeSQKByaRk+bC2sYSGVhH9ASXBA=;
+ bh=Y/bAo0SDjZGHNLG0oYIbJ4ke5jmML832/GVhH0WD5jo=; b=Jr6LrsCYmIW8B5AgtkWOTiscKt
+ rG6z+ksBrPKDzkM9zvOnvBsmUNvfZal68vJsb9lAp3Qcrr0BMu7xTdsN+VaOAVmFgtwodcYgmuMtJ
+ cnBIN3mYymk+q2z+yqn7mzA6NO4bOE9xDTJyZPQN5+YtSzJ9EsX7QsvRTZtD7tX+WOKo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ h=Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:MIME-Version:
+ Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
+ Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+ In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=AU7V4fSHGUK4yNvIX3QFWGgL2mpvsQwlJrzk1EYTZE4=; b=VqldBqciTRJDE5PC/7rqscNFyM
- ckcApvVmjoFOGDhFvJ4Ow3r9y33s1U+0mnUWNjuYYwJR5yjMnMTTPC4sMAHGB+wrVx6iGcfImFV3t
- R71hAzZTmJP0V64QFL+VqrPhGc6g+zOrQsyf+EqKGnmCS6zsonGJbrUntnHS930LO/60=;
-Received: from mail.skyhub.de ([5.9.137.197])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=Y/bAo0SDjZGHNLG0oYIbJ4ke5jmML832/GVhH0WD5jo=; b=l0tAHNLJRzzYRcf92nCP1kLEn0
+ B06aeUdfr+SuLk6iYeNNul7QjqNIq6LgDfhV2OTzpiAjXLoSF422TfHaDhOegLiBAxC8Taxmy3aWd
+ 0I/af6EjTYXKojm+hOrvOrJ/sfprHbXBXiVeOZ64KC+xZnZO/V1V+jGwzLJTUaxr500U=;
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1mkC2d-0007CN-EA
- for openipmi-developer@lists.sourceforge.net; Mon, 08 Nov 2021 21:19:03 +0000
-Received: from zn.tnic (p200300ec2f3311007827e440708b1099.dip0.t-ipconnect.de
- [IPv6:2003:ec:2f33:1100:7827:e440:708b:1099])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ id 1mlZom-00AyzT-Av
+ for openipmi-developer@lists.sourceforge.net; Fri, 12 Nov 2021 16:54:26 +0000
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id E3BE71EC051F;
- Mon,  8 Nov 2021 22:18:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
- t=1636406333;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
- bh=AU7V4fSHGUK4yNvIX3QFWGgL2mpvsQwlJrzk1EYTZE4=;
- b=HI4wHVqdPFUaTmLfTawRP0YuILjCSvy0XvR7UY6GhjpkLZ7Jcpensq3GPz/wKuSVQPh/ah
- JjfisFcmsOLL77YybjTfUcF4SOtfsMptjoCY2iNpL/QAVX8IlmhT4tll2zqUciAF4fFC2q
- GhOxoJIWWV9UKbtfg9ziQ2wDV7UERPU=
-Date: Mon, 8 Nov 2021 22:18:47 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: Alan Stern <stern@rowland.harvard.edu>
-Message-ID: <YYmUN69Y7z9xITas@zn.tnic>
-References: <20211108101157.15189-1-bp@alien8.de>
- <20211108101157.15189-43-bp@alien8.de>
- <CAMuHMdWH+txiSP_d7Jc4f_bU8Lf9iWpT4E3o5o7BJr-YdA6-VA@mail.gmail.com>
- <YYkyUEqcsOwQMb1S@zn.tnic>
- <CAMuHMdXiBEQyEXJagSfpH44hxVA2t0sDH7B7YubLGHrb2MJLLA@mail.gmail.com>
- <YYlJQYLiIrhjwOmT@zn.tnic>
- <CAMuHMdXHikGrmUzuq0WG5JRHUUE=5zsaVCTF+e4TiHpM5tc5kA@mail.gmail.com>
- <YYlOmd0AeA8DSluD@zn.tnic>
- <20211108205926.GA1678880@rowland.harvard.edu>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20211108205926.GA1678880@rowland.harvard.edu>
-X-Spam-Score: -0.2 (/)
+ by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 343303F1A0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 12 Nov 2021 16:54:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1636736056;
+ bh=Y/bAo0SDjZGHNLG0oYIbJ4ke5jmML832/GVhH0WD5jo=;
+ h=From:To:Subject:Date:Message-Id;
+ b=A/1DugZfb/wRrW+03b653wA2pyjx/oIZBna10J17ldvu7C9g3rELip04Lm5ChHbXe
+ PyxAucQuwoZSqBuXMv5jOrIWrwotEMshADYL/ka341H30rPI23o7/YqeoZpWGptxi9
+ l8bkezF+fDR/02B2WXrZs8fusZn1C6WD6ftekiC3shpoT8jqQV0oLCVB+o/Occng2F
+ 7Q6kNYXmoKHYoj3BMaNvnSiUY6VNFmnnn0WX5Alnmekh8I46SDmHJN7IcxrfoR4uqW
+ DbM3FCl9wFAeXkF07eiIJmGJQM3zzRt9zrOB9wv7LWXhdzFojmglAidM5kFJIBU5Sz
+ /DSDt4EPIitPA==
+Received: by mail-wm1-f69.google.com with SMTP id
+ 201-20020a1c04d2000000b003335bf8075fso3629494wme.0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 12 Nov 2021 08:54:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:subject:date:message-id;
+ bh=Y/bAo0SDjZGHNLG0oYIbJ4ke5jmML832/GVhH0WD5jo=;
+ b=lp/r9+7TlKeIBhtK4XemgXc6dFgTDhr33aOC0+SaMom1E2ejv8m4a7b4dezmFs/4qV
+ IBXg4rcJxZM/1N70/1y9yBFOvLC/b7u0THjD2YLnnao4NjtdNQbSokgrL/TubHswVufs
+ 9B1U3Uktk5dSLahAlFvPf3jEU2eG+yEc0kGLlm2IscYk6UOVkTsuUHRyU7k+6v5mkGAb
+ QevZN61s1YAf5A1imL/ww0xuTDLVw+LhAbRJ/S1BdOixsTTyZQduPDTddfd4impI6Izj
+ X7S7lO69c559BviRoZe+Fjez97sfdhHv/DBp/qdo03ytSVbXXBag1ZKgpzWCtUURSqa2
+ RwxA==
+X-Gm-Message-State: AOAM532vUiPD3HVyp0AfY4H2HrKd0cIh+W42M5pdvxjPNw9VU2ySG2q4
+ PkJIxfvoUrvTWAHqhwLn5PdD+v4Y/OZUeBOlVMzPSD+2v4Qd9PF7smrhq1c90TBPuOXB3oeCpoo
+ vCZztEX5uGnJ4GS5gYVT2q0BxXcjVxsStCyjiLNvo3syFAEzoQQKqL7vqvA==
+X-Received: by 2002:adf:ca05:: with SMTP id o5mr20302337wrh.7.1636736055651;
+ Fri, 12 Nov 2021 08:54:15 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJy2dRTmDY3BwfEIJtHI/Hdal6tFLaJCXm9rAXKIQXdG53F20asemuEbcQ1oyNio7ZR9YfpGJQ==
+X-Received: by 2002:adf:ca05:: with SMTP id o5mr20302316wrh.7.1636736055445;
+ Fri, 12 Nov 2021 08:54:15 -0800 (PST)
+Received: from localhost ([2001:67c:1560:8007::aac:c2e0])
+ by smtp.gmail.com with ESMTPSA id 8sm4503314wmg.24.2021.11.12.08.54.14
+ (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+ Fri, 12 Nov 2021 08:54:14 -0800 (PST)
+From: Ioanna Alifieraki <ioanna-maria.alifieraki@canonical.com>
+To: linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ minyard@acm.org, ioanna.alifieraki@gmail.com
+Date: Fri, 12 Nov 2021 18:54:13 +0200
+Message-Id: <20211112165413.7747-1-ioanna-maria.alifieraki@canonical.com>
+X-Mailer: git-send-email 2.17.1
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, Nov 08, 2021 at 03:59:26PM -0500, Alan Stern wrote:
- > Is there really any reason for returning an error code? For example, is
- > it anticipated that at some point in the future these registrati [...] 
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content preview: Currently when removing an ipmi_user the removal is deferred
+ as a work on the system's workqueue. Although this guarantees the free
+ operation
+ will occur in non atomic context, it can race with the ipm [...] 
+ Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 T_SPF_HELO_TEMPERROR   SPF: test of HELO record failed (temperror)
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [185.125.188.123 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
@@ -90,9 +113,10 @@ X-Spam-Report: Spam detection software,
  author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
-X-Headers-End: 1mkC2d-0007CN-EA
-Subject: Re: [Openipmi-developer] [PATCH v0 42/42] notifier: Return an error
- when callback is already registered
+X-Headers-End: 1mlZom-00AyzT-Av
+X-Mailman-Approved-At: Fri, 12 Nov 2021 17:09:32 +0000
+Subject: [Openipmi-developer] [PATCH] ipmi: Move remove_work to dedicated
+ workqueue
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,70 +129,80 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: ALSA Development Mailing List <alsa-devel@alsa-project.org>,
- the arch/x86 maintainers <x86@kernel.org>,
- Linux-sh list <linux-sh@vger.kernel.org>, linux-iio@vger.kernel.org,
- "open list:REMOTE PROCESSOR \(REMOTEPROC\) SUBSYSTEM"
- <linux-remoteproc@vger.kernel.org>, linux-hyperv@vger.kernel.org,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- netdev <netdev@vger.kernel.org>, Ayush Sawal <ayush.sawal@chelsio.com>,
- sparclinux <sparclinux@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>,
- linux-leds <linux-leds@vger.kernel.org>,
- linux-s390 <linux-s390@vger.kernel.org>, scsi <linux-scsi@vger.kernel.org>,
- Rohit Maheshwari <rohitm@chelsio.com>, linux-staging@lists.linux.dev,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- openipmi-developer@lists.sourceforge.net,
- bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
- "open list:TENSILICA XTENSA PORT \(xtensa\)" <linux-xtensa@linux-xtensa.org>,
- Arnd Bergmann <arnd@arndb.de>, Linux PM list <linux-pm@vger.kernel.org>,
- Intel Graphics Development <intel-gfx@lists.freedesktop.org>,
- Vinay Kumar Yadav <vinay.yadav@chelsio.com>,
- linux-um <linux-um@lists.infradead.org>, Steven Rostedt <rostedt@goodmis.org>,
- rcu@vger.kernel.org,
- Linux Fbdev development list <linux-fbdev@vger.kernel.org>,
- xen-devel@lists.xenproject.org, linux-tegra <linux-tegra@vger.kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, intel-gvt-dev@lists.freedesktop.org,
- Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-edac@vger.kernel.org,
- Parisc List <linux-parisc@vger.kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- USB list <linux-usb@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
- alpha <linux-alpha@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Nov 08, 2021 at 03:59:26PM -0500, Alan Stern wrote:
-> Is there really any reason for returning an error code?  For example, is 
-> it anticipated that at some point in the future these registration calls 
-> might fail?
-> 
-> Currently, the only reason for failing...
+Currently when removing an ipmi_user the removal is deferred as a work on
+the system's workqueue. Although this guarantees the free operation will
+occur in non atomic context, it can race with the ipmi_msghandler module
+removal (see [1]) . In case a remove_user work is scheduled for removal
+and shortly after ipmi_msghandler module is removed we can end up in a
+situation where the module is removed fist and when the work is executed
+the system crashes with :
+BUG: unable to handle page fault for address: ffffffffc05c3450
+PF: supervisor instruction fetch in kernel mode
+PF: error_code(0x0010) - not-present page
+because the pages of the module are gone. In cleanup_ipmi() there is no
+easy way to detect if there are any pending works to flush them before
+removing the module. This patch creates a separate workqueue and schedules
+the remove_work works on it. When removing the module the workqueue is
+flushed to avoid the race.
 
-Right, I believe with not making it return void we're leaving the door
-open for some, *hypothetical* future return values if we decide we need
-to return them too, at some point.
+[1] https://bugs.launchpad.net/bugs/1950666
 
-Yes, I can't think of another fact to state besides that the callback
-was already registered or return success but who knows what we wanna do
-in the future...
+Cc: stable@vger.kernel.org
+Fixes: 3b9a907223d7 (ipmi: fix sleep-in-atomic in free_user at cleanup SRCU user->release_barrier)
+Signed-off-by: Ioanna Alifieraki <ioanna-maria.alifieraki@canonical.com>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-And so if we change them all to void now, I think it'll be a lot more
-churn to switch back to returning a non-void value and having the
-callers who choose to handle that value, do so again.
-
-So, long story short, keeping the retval - albeit not very useful right
-now - is probably easier.
-
-I hope I'm making some sense here.
-
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index deed355422f4..9e0ad2ccd3e0 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -191,6 +191,8 @@ struct ipmi_user {
+ 	struct work_struct remove_work;
+ };
+ 
++struct workqueue_struct *remove_work_wq;
++
+ static struct ipmi_user *acquire_ipmi_user(struct ipmi_user *user, int *index)
+ 	__acquires(user->release_barrier)
+ {
+@@ -1297,7 +1299,7 @@ static void free_user(struct kref *ref)
+ 	struct ipmi_user *user = container_of(ref, struct ipmi_user, refcount);
+ 
+ 	/* SRCU cleanup must happen in task context. */
+-	schedule_work(&user->remove_work);
++	queue_work(remove_work_wq, &user->remove_work);
+ }
+ 
+ static void _ipmi_destroy_user(struct ipmi_user *user)
+@@ -5383,6 +5385,8 @@ static int ipmi_init_msghandler(void)
+ 
+ 	atomic_notifier_chain_register(&panic_notifier_list, &panic_block);
+ 
++	remove_work_wq = create_singlethread_workqueue("ipmi-msghandler-remove-wq");
++
+ 	initialized = true;
+ 
+ out:
+@@ -5408,6 +5412,9 @@ static void __exit cleanup_ipmi(void)
+ 	int count;
+ 
+ 	if (initialized) {
++		flush_workqueue(remove_work_wq);
++		destroy_workqueue(remove_work_wq);
++
+ 		atomic_notifier_chain_unregister(&panic_notifier_list,
+ 						 &panic_block);
+ 
 -- 
-Regards/Gruss,
-    Boris.
+2.17.1
 
-https://people.kernel.org/tglx/notes-about-netiquette
 
 
 _______________________________________________
