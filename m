@@ -2,114 +2,94 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B2AB2460BA8
-	for <lists+openipmi-developer@lfdr.de>; Mon, 29 Nov 2021 01:29:04 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id AAB7646205E
+	for <lists+openipmi-developer@lfdr.de>; Mon, 29 Nov 2021 20:23:20 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1mrUXT-0000Mg-L2; Mon, 29 Nov 2021 00:28:59 +0000
+	id 1mrmF8-0007FZ-UQ; Mon, 29 Nov 2021 19:23:16 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <rikard.falkeborn@gmail.com>) id 1mrSFP-0007Jj-68
- for openipmi-developer@lists.sourceforge.net; Sun, 28 Nov 2021 22:02:11 +0000
+ (envelope-from <wsa@kernel.org>) id 1mrmF8-0007FT-2s
+ for openipmi-developer@lists.sourceforge.net; Mon, 29 Nov 2021 19:23:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:To:From:Date:Sender:Reply-To:Cc:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=l+0z1JT9bKKctcsBbD+srLOTYQSXdtRRpNVoh1cwlsM=; b=RkgYPuKmfySTAz4Hyr6cnzeQs3
- tlnD4ujIT0mixsbDpWZJGqqljFFzPJZXhOVvUkX76qKyyGG7sZWWvDuwAlZOhVduXSFRjd+9BxAFS
- s1B41k7Msb1rZGxYevp78DggPz95w2KhJoefhrJ5z7QRgvKGM0Tih+MuRTrsOMd6X/wQ=;
+ bh=+UntCFzO68h1BDmF/R8UiC0Z4jnXnJh0Mc/eL2rpirQ=; b=EQ/jSpBraLHtQcdBQFPzHl4pIt
+ Xo8Cam6LKLPjQrba16EVdGUjYkiH/SD2T8zulCJmZtEMNd3eTj17bLguY9Ig8uWac4vlXveKfBxnf
+ Qg21rg59aGynGsdlGAQTS7bPsjzrU/yZC67mciybWAfKvw033Efha18RPj1p3ll/d7aA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=l+0z1JT9bKKctcsBbD+srLOTYQSXdtRRpNVoh1cwlsM=; b=T
- LKgxRBAzyCnYntbQ079H/Vzx9L2oOuhgYUeoygtg+QdjD73F6AW1Ja6HY9KU2OecvCji8iNE3OPtf
- RmZV/wmv+O5LIm8fS1bmgqV4Yt156mTYRvjtqTkjgLN7aPjmO2pDxGOpioMtxLZgkxnypMIdXLJ5M
- J+a5q06pTFbG5KcI=;
-Received: from mail-lj1-f177.google.com ([209.85.208.177])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1mrSFK-000619-Ug
- for openipmi-developer@lists.sourceforge.net; Sun, 28 Nov 2021 22:02:11 +0000
-Received: by mail-lj1-f177.google.com with SMTP id i63so30763111lji.3
- for <openipmi-developer@lists.sourceforge.net>;
- Sun, 28 Nov 2021 14:02:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=l+0z1JT9bKKctcsBbD+srLOTYQSXdtRRpNVoh1cwlsM=;
- b=NdIdxuvj0KpKsNTFvKDZndbsQkZ9gSmbJJap9cgvr+zd/AnKGdQj/iSLeLb+AJWAjn
- s6kIp2kitjpx9Zeeaohz3+PZOt2KLleQ0DutQRjkVnjw9UAYd0KGU+FA6s51fyH0USxV
- YtMslR6OpdxomoN7uQ5GMtxzwMx+CJpLtrPz2b3r7O6/gtJK6z0jQplqDWiZR8eWBd/+
- vJiUOS3yUTfC/UIqY8BU5yLUBxsKUon/GAcXwCQTqj9PQqvsmev9RDNan9la5UwZoqvc
- mnc4ksR+cA9OM9+8fNsI3RmrjkC5MMwKWzoOxckyYtEEG1h47tTLDpWDLns1QfFfiZNj
- QlIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=l+0z1JT9bKKctcsBbD+srLOTYQSXdtRRpNVoh1cwlsM=;
- b=HIXLV9QoBog0BXlJgeiDxXRUVSjm8kNPwPKqqm3YLHQJGp/uBhSGSxt7vKI58QX7x/
- cSs3fVEb3Y1RJXZTEcONqg07N43XUpX+hH5TGvyzYOKXZV76ICZqBLEOKkUoUXjv22bh
- 5IDAvTE2mlZ1TYZT/20vIdJc7AN6LMujs2FFiNmOEYn0d7591gaW2tVxkM7Uxt8kHssl
- kfbnc+rSeanalizZmEfrzrCFxxP8ttlLIMMgheRoR56MSGJwBAPTRttkTZse32do8HCM
- ZNif+RY3bxe6jab+gW2nqnEDosyQUTigRaKbmPBLbiiErwrFumIA7qTTrxhxDKOoA4rK
- ObpQ==
-X-Gm-Message-State: AOAM532wbnhdoh/Mq+lqiotE85R2WH6g78shDicEmpITTGTbZVXDEmwI
- ol6VpQiBZElnJHkMSkQEKqwiTJAKqOuDIA==
-X-Google-Smtp-Source: ABdhPJy7K9xBRKsvusQ7WYLH310djPG2l2WFr9GIeEfRJAKkzNtjQjw6FL0mnie0K1E/8FWzH8A6hA==
-X-Received: by 2002:a2e:740b:: with SMTP id p11mr46101046ljc.215.1638136920412; 
- Sun, 28 Nov 2021 14:02:00 -0800 (PST)
-Received: from localhost.localdomain (h-155-4-221-129.NA.cust.bahnhof.se.
- [155.4.221.129])
- by smtp.gmail.com with ESMTPSA id t8sm1114785lfk.159.2021.11.28.14.01.59
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 28 Nov 2021 14:01:59 -0800 (PST)
-From: Rikard Falkeborn <rikard.falkeborn@gmail.com>
-To: Corey Minyard <minyard@acm.org>
-Date: Sun, 28 Nov 2021 23:01:54 +0100
-Message-Id: <20211128220154.32927-1-rikard.falkeborn@gmail.com>
-X-Mailer: git-send-email 2.34.1
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:To:
+ From:Date:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=+UntCFzO68h1BDmF/R8UiC0Z4jnXnJh0Mc/eL2rpirQ=; b=m8b+AgoVUCEzu46AXsBqkkSdJR
+ EW2hq1nuSqaTSzqARHgV263BNGn6gSiT1JjFesr0b46CTL/gSvTiyhV+NLNMdqGyTSYssQGSITix8
+ YrGQe62aXSm9GYSIdMcQTAVD6pn0XzyC1OlF0HYK1udBZ9E+UAQ4ujFrhB6WC2XlcOmw=;
+Received: from sin.source.kernel.org ([145.40.73.55])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1mrmEe-00EdRu-Nh
+ for openipmi-developer@lists.sourceforge.net; Mon, 29 Nov 2021 19:23:15 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by sin.source.kernel.org (Postfix) with ESMTPS id C9DF1CE13E0;
+ Mon, 29 Nov 2021 19:22:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F090EC53FC7;
+ Mon, 29 Nov 2021 19:22:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1638213755;
+ bh=Y5NwSlQVKu/RjuujNCewGKGidAPlSFDXVTVyAhtaMd4=;
+ h=Date:From:To:Subject:References:In-Reply-To:From;
+ b=rP23YM30IC0YD3XcoytOUD3nAaBxVfg9sYjCOZfzb8zunQm8ShvGTG7V8Uvl21RZ2
+ Rtalf+oKhumJ6V0JtMg8w6h8MX4opoA/WJjDnBmKZnRrfEVqYufEewICYKJQKKXTEO
+ +DvO8fzn4CsyDezm+73FMLG6t+IIzG1H5mnXI091jdYsOBDks/YCOqWaHJpKbvAx40
+ kFBtHb48AAMNmcbHjj3Ho2cL4ObwUglELMdgRg/rVxCWIlgkcyN0a54CiicB46tpAW
+ 4M9fxbNtupmVZRYkGTcyRZeZsUrMGe1hMmjVmsD/S6dHwNJEH25zKtBoh6FOJX259s
+ xRlhjNUjcuJJw==
+Date: Mon, 29 Nov 2021 20:22:32 +0100
+From: Wolfram Sang <wsa@kernel.org>
+To: Quan Nguyen <quan@os.amperecomputing.com>,
+ Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ Brendan Higgins <brendanhiggins@google.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ openipmi-developer@lists.sourceforge.net,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org,
+ Open Source Submission <patches@amperecomputing.com>,
+ Phong Vo <phong@os.amperecomputing.com>,
+ "Thang Q . Nguyen" <thang@os.amperecomputing.com>
+Message-ID: <YaUoeFZn6zLNoGed@kunai>
+Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
+ Quan Nguyen <quan@os.amperecomputing.com>,
+ Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ Brendan Higgins <brendanhiggins@google.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ openipmi-developer@lists.sourceforge.net,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org,
+ Open Source Submission <patches@amperecomputing.com>,
+ Phong Vo <phong@os.amperecomputing.com>,
+ "Thang Q . Nguyen" <thang@os.amperecomputing.com>
+References: <20210714033833.11640-1-quan@os.amperecomputing.com>
+ <20210714033833.11640-2-quan@os.amperecomputing.com>
+ <YRTQP9sX0hkTJMTx@shikoro>
 MIME-Version: 1.0
-X-Spam-Score: -0.2 (/)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
- has NOT identified this incoming email as spam.  The original
- message has been attached to this so you can view it or label
- similar future email.  If you have any questions, see
- the administrator of that system for details.
- Content preview: ident is not modified and can be made const to allow the
- compiler
- to put it in read-only memory. Signed-off-by: Rikard Falkeborn ---
- drivers/char/ipmi/ipmi_watchdog.c
- | 2 +- 1 file changed, 1 insertion(+), 1 deletion(-) 
- Content analysis details:   (-0.2 points, 6.0 required)
- pts rule name              description
- ---- ---------------------- --------------------------------------------------
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [rikard.falkeborn[at]gmail.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.208.177 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.208.177 listed in wl.mailspike.net]
-X-Headers-End: 1mrSFK-000619-Ug
-X-Mailman-Approved-At: Mon, 29 Nov 2021 00:28:58 +0000
-Subject: [Openipmi-developer] [PATCH] ipmi/watchdog: Constify ident
+In-Reply-To: <YRTQP9sX0hkTJMTx@shikoro>
+X-Headers-End: 1mrmEe-00EdRu-Nh
+Subject: Re: [Openipmi-developer] [PATCH v5 1/3] i2c: aspeed: Add
+ slave_enable() to toggle slave mode
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -122,39 +102,81 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- Rikard Falkeborn <rikard.falkeborn@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6742720186236725849=="
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-ident is not modified and can be made const to allow the compiler to put
-it in read-only memory.
 
-Signed-off-by: Rikard Falkeborn <rikard.falkeborn@gmail.com>
----
- drivers/char/ipmi/ipmi_watchdog.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
-index 883b4a341012..0604abdd249a 100644
---- a/drivers/char/ipmi/ipmi_watchdog.c
-+++ b/drivers/char/ipmi/ipmi_watchdog.c
-@@ -668,7 +668,7 @@ static int ipmi_heartbeat(void)
- 	return rv;
- }
- 
--static struct watchdog_info ident = {
-+static const struct watchdog_info ident = {
- 	.options	= 0,	/* WDIOF_SETTIMEOUT, */
- 	.firmware_version = 1,
- 	.identity	= "IPMI"
--- 
-2.34.1
+--===============6742720186236725849==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="d1UpdctGHU2n/12Q"
+Content-Disposition: inline
 
 
+--d1UpdctGHU2n/12Q
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hi,
+
+I still wonder if we can't get the SSIF BMC driver upstream...
+
+> @all: Plus, I neither like the API (because it doesn't look generic to
+> me but mostly handling one issue needed here) nor do I fully understand
+> the use case. Normally, when a read is requested and the backend needs
+> time to deliver the data, the hardware should stretch the SCL clock
+> until some data register is finally written to. If it doesn't do it for
+> whatever reason, this is a quirky hardware in my book and needs handling
+> in the driver only. So, what is special with this HW? Can't we solve it
+> differently?
+
+... for that, it would be great if somebody could answer my questions
+here :)
+
+Happy hacking,
+
+   Wolfram
+
+
+--d1UpdctGHU2n/12Q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmGlKHgACgkQFA3kzBSg
+Kbaj7Q/+K++8yheJLiYAr0liA2UQdfCq+XezGICIbZAVxxsZK8n1//zZg7zn5/im
+iUQ/roCf08jiF7YOvNDErnCyJTNpVvm9JHvNlYf/TvB9zv7Lwxu3ysMUFaiV00dT
+c6MskoCbxYPdDEz3UtYJ6eJE4qaU0prhazQlYqJvJu1W/cN41e23eHWfiRvSPg65
+ui/7bC0mCLia8VUl2OUs6MGedop+JiqmvaKm5cmoZf7Idi5wxyOVbpQ3955ys1Y/
+4FWtD1YvJubfqZW0WBRDzFiesE5QY+ryqVcu4AdbwdT9jdik4t9vz0yJsgpPOQ/+
+2AAnfuvzWdSvQL5+2aGITnOrT2qJDDePA87OaE0egYKyyUfX533Y8Yit1Fc5OQeh
+hgTvVOzuBsaJVcJTEka49RpzuCha9SeOs8oOV1tOx7rO7tL7kLmKmUmWyj1cRm35
+C15QuoyRZ83+l2v+x27L+leKiWlTabVV1/D+gfVSmt1GD/qKoc/h0Lxss1x1VGcW
+YVopBoNqawQLVsX7EhordVwZNjBuU473rFfYxWPW+DDi34WaFIOlf2b0XN8gNymU
+F8tQo20t7Nd2KvwhmTDUT7j5nXbEJbS3/TqeSMpOQi3kjskHWr78o267qqe0kIzT
+xNkLGxWkdF71AbdjUMUJu+pxli9ABhL0OqxhZ4imhrRZBIKo0wQ=
+=qfX/
+-----END PGP SIGNATURE-----
+
+--d1UpdctGHU2n/12Q--
+
+
+--===============6742720186236725849==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+
+--===============6742720186236725849==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+
+--===============6742720186236725849==--
+
