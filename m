@@ -2,107 +2,134 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id E28A0480851
-	for <lists+openipmi-developer@lfdr.de>; Tue, 28 Dec 2021 11:17:31 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id D72D248091D
+	for <lists+openipmi-developer@lfdr.de>; Tue, 28 Dec 2021 13:32:54 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1n29Xq-0005wv-6l; Tue, 28 Dec 2021 10:17:26 +0000
+	id 1n2Bep-0000Kd-Ms; Tue, 28 Dec 2021 12:32:48 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <geert.uytterhoeven@gmail.com>) id 1n29Xn-0005wp-Uj
- for openipmi-developer@lists.sourceforge.net; Tue, 28 Dec 2021 10:17:23 +0000
+ (envelope-from <schnelle@linux.ibm.com>) id 1n2Beo-0000KV-NT
+ for openipmi-developer@lists.sourceforge.net; Tue, 28 Dec 2021 12:32:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Mime-Version:Content-Type
+ :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=USyrHlhnUayu2FiWb0UtOnf6CbNGk+7whrqJXcO7yr8=; b=TsC04JtYyhSP7q7tfqkReWSVnb
- +Kz6EcBy8Nd4vRqUiaNemQXbvUXhq8mH9tTh7jHgB4wm+TuFmNUcsX47UkqEz13xB1D7wq52jxk8G
- HW+7VW12aXMHue/QvjjX3+uGoPdPEVjH9Msz5RDx/ktqnjGMsg0IJzW4CBiog8/cDDaM=;
+ bh=rLpMJsYOSPIxUTZJ3DquDE1otn6Qi02ImTXn7iVPxwo=; b=AfBdp8gx/XJyx+vfhqo+lKQdTj
+ wOyg7b+6WLUmlPLF1/BYlrfwpy//C2poTdvl0ycm5Ooc2APruv84rc211Etwk/Pr/5q3YxlGbAi2C
+ KTYy2Z6pyqTptNB8TU2oVNJk1gNYw1zeI10kAXpC+qaHtQNU0ZKsLGh/CI4TVowHwFw8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Mime-Version:Content-Type:References:
+ In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=USyrHlhnUayu2FiWb0UtOnf6CbNGk+7whrqJXcO7yr8=; b=HgzLbEcnz0TknMjTj/ovKOOALS
- Ske9+Eh9iUVlJr/awbd4GT0/CRCKzdwm9LX8ICgWc9wy9mtH24Ls7D69csv8gefozCsHZETKFEYN7
- 1XIfQjgNDb8PKiCWSB+9eJlwS2kTPWYFXJUTOBjIS56Tio2wNMQhhkpMpmGln5KRL/7Y=;
-Received: from mail-ua1-f52.google.com ([209.85.222.52])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
- id 1n29Xj-00BgoG-2E
- for openipmi-developer@lists.sourceforge.net; Tue, 28 Dec 2021 10:17:23 +0000
-Received: by mail-ua1-f52.google.com with SMTP id az37so10310377uab.12
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 28 Dec 2021 02:17:19 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=USyrHlhnUayu2FiWb0UtOnf6CbNGk+7whrqJXcO7yr8=;
- b=dalFZwZ1SexLegcI20LLT+/GrEms0Q6rfSUqsyoUPvP7WRYQEmGw1FN5DVPVFEaO9I
- Deo0jrCqaCNs4sKFKFTinDNxWK6uImkJYBEmVIWi6sPPh1iVDbfekXCSCq/oTunu0jsS
- Sy2fAb3FyGKo3Y8XiueyN3K22mnrKo+3E3xve/FGPHO+prbLGA8NioYPAK9USl0vOC1I
- HOiE+8a2IpTkWSfV4hgd7SzFAdmd3uedNhP1f95KLTkv3EKE/4lak2scMmZvSozJySrd
- VWb3hNN/RLZd2/7VIbo0dM+uhNxiT5iK/nkIvcL14M8VHA9TWJxLgF8Fttz4i9++B+gs
- Uazg==
-X-Gm-Message-State: AOAM5333SqxSiOKH5QTilSXJAlDhLszNJgo8v4szSJAaec1CtcuBs9yb
- k7lXYktr19NOigjgt2EWl7Te7wNzvHJFLA==
-X-Google-Smtp-Source: ABdhPJyWEMPpsynbjU1NcjycZx7SDfk5rO4WfO/+pVVpEgAcyS3oAhsKjQr/Oy9vrm+LFVkLulWYag==
-X-Received: by 2002:a67:de8b:: with SMTP id r11mr1628518vsk.80.1640686633107; 
- Tue, 28 Dec 2021 02:17:13 -0800 (PST)
-Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com.
- [209.85.221.176])
- by smtp.gmail.com with ESMTPSA id o188sm3477562vko.48.2021.12.28.02.17.12
- for <openipmi-developer@lists.sourceforge.net>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 28 Dec 2021 02:17:12 -0800 (PST)
-Received: by mail-vk1-f176.google.com with SMTP id x17so9215855vkx.3
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 28 Dec 2021 02:17:12 -0800 (PST)
-X-Received: by 2002:a1f:9f04:: with SMTP id i4mr6011121vke.33.1640686631832;
- Tue, 28 Dec 2021 02:17:11 -0800 (PST)
-MIME-Version: 1.0
+ bh=rLpMJsYOSPIxUTZJ3DquDE1otn6Qi02ImTXn7iVPxwo=; b=GQiC79/sJg8J1CmLQh51xOULyH
+ oaEbuCs6eNdCZ2uFitl13tAeBvEQTaf/DsrUsgz8f8aub8igmWc/VfOgU/WbkmHnUvtR75Nx5sjaS
+ hRO3Yy28zMOK3BvUBDccu64YPe0ebOgfSkXPna/NNZVpCZqL/DlNhdety13TUgJOTiMo=;
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
+ id 1n2Beo-0007tJ-Oz
+ for openipmi-developer@lists.sourceforge.net; Tue, 28 Dec 2021 12:32:47 +0000
+Received: from pps.filterd (m0098394.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 1BSC7Ux4021981; 
+ Tue, 28 Dec 2021 12:13:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=message-id : subject :
+ from : to : cc : date : in-reply-to : references : content-type :
+ mime-version : content-transfer-encoding; s=pp1;
+ bh=rLpMJsYOSPIxUTZJ3DquDE1otn6Qi02ImTXn7iVPxwo=;
+ b=qe5BaO2Q6j511PuFFiQNPgP/M+3R4S1ua8LmPYVpJ/kjL+V5Ws+C4sCPVO/k8WaBEWfZ
+ jdzC/SUzS4jwbzRt96FyCEFSKTRbKR6L/Q6tGRU9avG5zK9MYJvztso1w9iQjnsD19RV
+ 3PQ8+nKGPclVmzD+Bp0DUNFqPeFUJSrku72ztfiSH36lrTKA+Bj8mhXW8fr54vl8Ev2x
+ g23chObEjs055MnP9nVCM62uyOhJFIr6wxmanU6aHQ1qdA62dzoFQH+pYbX/UcTp9spU
+ UsWqDIdq39fbhdzaCGMx5kQpZLHylizQvRDjzoscR58mbR0325Radjmx7qLhq0Hdsv0H zw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 3d7vne7263-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 28 Dec 2021 12:13:12 +0000
+Received: from m0098394.ppops.net (m0098394.ppops.net [127.0.0.1])
+ by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 1BSC9wCG032723;
+ Tue, 28 Dec 2021 12:13:11 GMT
+Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com
+ [169.51.49.99])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 3d7vne724u-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 28 Dec 2021 12:13:10 +0000
+Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
+ by ppma04ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 1BSCCBoq014192;
+ Tue, 28 Dec 2021 12:13:08 GMT
+Received: from b06cxnps3074.portsmouth.uk.ibm.com
+ (d06relay09.portsmouth.uk.ibm.com [9.149.109.194])
+ by ppma04ams.nl.ibm.com with ESMTP id 3d5txar6yy-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 28 Dec 2021 12:13:08 +0000
+Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com
+ [9.149.105.61])
+ by b06cxnps3074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 1BSCD5eb47317312
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 28 Dec 2021 12:13:05 GMT
+Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 5259111C04A;
+ Tue, 28 Dec 2021 12:13:05 +0000 (GMT)
+Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 02CCC11C052;
+ Tue, 28 Dec 2021 12:13:04 +0000 (GMT)
+Received: from sig-9-145-12-118.uk.ibm.com (unknown [9.145.12.118])
+ by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTP;
+ Tue, 28 Dec 2021 12:13:03 +0000 (GMT)
+Message-ID: <58e6aeaf78d093e7621cd589f69e68bab3b9c8aa.camel@linux.ibm.com>
+From: Niklas Schnelle <schnelle@linux.ibm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 28 Dec 2021 13:13:03 +0100
+In-Reply-To: <CAMuHMdW2qsZZqE_hAchoD7_41ak8btTZb0UZE6DsXDehhT63fg@mail.gmail.com>
 References: <20211227164317.4146918-1-schnelle@linux.ibm.com>
  <20211227164317.4146918-6-schnelle@linux.ibm.com>
-In-Reply-To: <20211227164317.4146918-6-schnelle@linux.ibm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 28 Dec 2021 11:17:00 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW2qsZZqE_hAchoD7_41ak8btTZb0UZE6DsXDehhT63fg@mail.gmail.com>
-Message-ID: <CAMuHMdW2qsZZqE_hAchoD7_41ak8btTZb0UZE6DsXDehhT63fg@mail.gmail.com>
-To: Niklas Schnelle <schnelle@linux.ibm.com>
-X-Spam-Score: 0.5 (/)
+ <CAMuHMdW2qsZZqE_hAchoD7_41ak8btTZb0UZE6DsXDehhT63fg@mail.gmail.com>
+X-Mailer: Evolution 3.28.5 (3.28.5-18.el8) 
+Mime-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: SREVe-Ue0gtTgAjeBLawwZn7tbKkuZc9
+X-Proofpoint-GUID: 8RKn5vvFcRvEetmS5YBxkXh5NTpMa2on
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.11.62.513
+ definitions=2021-12-28_07,2021-12-28_01,2021-12-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1015
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999
+ priorityscore=1501 adultscore=0 bulkscore=0 spamscore=0 phishscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2110150000 definitions=main-2112280055
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Niklas, Thanks for your patch! On Mon, Dec 27, 2021 at
- 5:51 PM Niklas Schnelle <schnelle@linux.ibm.com> wrote: > In a future patch
- HAS_IOPORT=n will result in inb()/outb() and friends > not being declared.
- We thus need to add this [...] 
- Content analysis details:   (0.5 points, 6.0 required)
+ Content preview:  On Tue, 2021-12-28 at 11:17 +0100, Geert Uytterhoeven wrote:
+ > Hi Niklas, > > Thanks for your patch! > > On Mon, Dec 27, 2021 at 5:51
+ PM Niklas Schnelle <schnelle@linux.ibm.com> wrote: > > In a future [...] 
+ Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.52 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.222.52 listed in list.dnswl.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ [148.163.156.1 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [geert.uytterhoeven[at]gmail.com]
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1n29Xj-00BgoG-2E
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1n2Beo-0007tJ-Oz
 Subject: Re: [Openipmi-developer] [RFC 05/32] char: impi,
  tpm: depend on HAS_IOPORT
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -135,54 +162,62 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi Niklas,
+On Tue, 2021-12-28 at 11:17 +0100, Geert Uytterhoeven wrote:
+> Hi Niklas,
+> 
+> Thanks for your patch!
+> 
+> On Mon, Dec 27, 2021 at 5:51 PM Niklas Schnelle <schnelle@linux.ibm.com> wrote:
+> > In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
+> > not being declared. We thus need to add this dependency and ifdef
+> > sections of code using inb()/outb() as alternative access methods.
+> > 
+> > Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+> > Signed-off-by: Arnd Bergmann <arnd@kernel.org>
+> > Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+> > ---
+> >  drivers/char/Kconfig             |  3 ++-
+> 
+> Your oneline-summary doesn't cover this file.
 
-Thanks for your patch!
+Thanks, I guess then I should go with "char: depend on HAS_IOPORT"
 
-On Mon, Dec 27, 2021 at 5:51 PM Niklas Schnelle <schnelle@linux.ibm.com> wrote:
-> In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
-> not being declared. We thus need to add this dependency and ifdef
-> sections of code using inb()/outb() as alternative access methods.
->
-> Co-developed-by: Arnd Bergmann <arnd@kernel.org>
-> Signed-off-by: Arnd Bergmann <arnd@kernel.org>
-> Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
-> ---
->  drivers/char/Kconfig             |  3 ++-
+> 
+> >  drivers/char/ipmi/Makefile       | 11 ++++-------
+> >  drivers/char/ipmi/ipmi_si_intf.c |  3 ++-
+> >  drivers/char/ipmi/ipmi_si_pci.c  |  3 +++
+> >  drivers/char/tpm/Kconfig         |  1 +
+> >  drivers/char/tpm/tpm_infineon.c  | 14 ++++++++++----
+> >  drivers/char/tpm/tpm_tis_core.c  | 19 ++++++++-----------
+> >  7 files changed, 30 insertions(+), 24 deletions(-)
+> > 
+> > diff --git a/drivers/char/Kconfig b/drivers/char/Kconfig
+> > index 740811893c57..3d046e364e53 100644
+> > --- a/drivers/char/Kconfig
+> > +++ b/drivers/char/Kconfig
+> > @@ -33,6 +33,7 @@ config TTY_PRINTK_LEVEL
+> >  config PRINTER
+> >         tristate "Parallel printer support"
+> >         depends on PARPORT
+> > +       depends on HAS_IOPORT
+> 
+> Why? drivers/char/lp.c doesn't use I/O accessors, and should work with
+> all parport drivers.
 
-Your oneline-summary doesn't cover this file.
+You're right that should work.
 
->  drivers/char/ipmi/Makefile       | 11 ++++-------
->  drivers/char/ipmi/ipmi_si_intf.c |  3 ++-
->  drivers/char/ipmi/ipmi_si_pci.c  |  3 +++
->  drivers/char/tpm/Kconfig         |  1 +
->  drivers/char/tpm/tpm_infineon.c  | 14 ++++++++++----
->  drivers/char/tpm/tpm_tis_core.c  | 19 ++++++++-----------
->  7 files changed, 30 insertions(+), 24 deletions(-)
->
-> diff --git a/drivers/char/Kconfig b/drivers/char/Kconfig
-> index 740811893c57..3d046e364e53 100644
-> --- a/drivers/char/Kconfig
-> +++ b/drivers/char/Kconfig
-> @@ -33,6 +33,7 @@ config TTY_PRINTK_LEVEL
->  config PRINTER
->         tristate "Parallel printer support"
->         depends on PARPORT
-> +       depends on HAS_IOPORT
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
-Why? drivers/char/lp.c doesn't use I/O accessors, and should work with
-all parport drivers.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 
 _______________________________________________
