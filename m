@@ -2,106 +2,113 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3242048DB0F
-	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Jan 2022 16:53:05 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 147CE48DB14
+	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Jan 2022 16:53:06 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1n82PM-0002RT-Mh; Thu, 13 Jan 2022 15:53:01 +0000
+	id 1n82PM-0002Qo-8C; Thu, 13 Jan 2022 15:53:00 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1n7e3k-0003uP-Ln
- for openipmi-developer@lists.sourceforge.net; Wed, 12 Jan 2022 13:53:05 +0000
+ (envelope-from <geert.uytterhoeven@gmail.com>) id 1n7e5a-0006No-Ir
+ for openipmi-developer@lists.sourceforge.net; Wed, 12 Jan 2022 13:55:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
+ In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=CjB10lu5ht+hO1wf3Dox0T4FsBR8Ns76AUCFGlfnSaE=; b=akon/K5z/Aq5fQDgyNQxLKkjyb
- XZumWQLexm4OSd5dVRnGajVP0t7ullvy1ga0aO0hrab6k8T3abDEI3tIHRxFzbruWATpx2vJJvpCE
- c1FUB9vysoTvvQPIZES/nMhaLvERSmBELXa4QSgFBgLEw03ePgJ55wIhSrsPVg44bprA=;
+ bh=liYNFdlsWo55pmV9ntmO9rGWUh5k4VTb3DRABECHgIo=; b=MxPHZj5gCCI73BoH+V3DBaR05J
+ MkrrQLkhjNftvmoYvgQ2/L9+nDDnWSZ4tTVG2YcUsj97o/bfrV59MBuT1cRCyNNSjGhFIVRDUKEkf
+ Qrb/ZfySAzSWfaB/bUEeO9CqPtyRr1N+3kk9Rb0G8Fy0c4xZjAhS7YbUGZij18BUcNdw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=CjB10lu5ht+hO1wf3Dox0T4FsBR8Ns76AUCFGlfnSaE=; b=a8NwCODAsN1QhlitfMJ9rlf38F
- XDpznSJKoInt64quSEHveHdqq5ZXhGfSBbdn7vYXMgaCD+nZoFWVocQOcHmmR3o5m/GzHjKXWbruw
- j7h5uLY9mDaATO1BJpCW5TE5j0pmefQx0z/ooqrqgT26/tybMwOKVk7rTts1ZSb5MiAg=;
-Received: from mga12.intel.com ([192.55.52.136])
+ bh=liYNFdlsWo55pmV9ntmO9rGWUh5k4VTb3DRABECHgIo=; b=ACDG2DGHHuMsHWHOVOXlGpBWtC
+ ecPqrdsVyKyZbTYaXeQYMH4Am13uX7lfeaX87C8cwNcF+N7FnefP5FjLU/eIby4UzYJAWFkqk4Fzt
+ n41Z+mSVkzsrf9qg0ypku1jFuzhz2SLMJwUlzkgPloWFiV0djjFHfmsYwXbhdUxfJAxU=;
+Received: from mail-qv1-f48.google.com ([209.85.219.48])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1n7e3k-00D3jZ-6J
- for openipmi-developer@lists.sourceforge.net; Wed, 12 Jan 2022 13:53:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1641995584; x=1673531584;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:in-reply-to;
- bh=6o9aGlupJ5pLyORTimcn6DvGUzsV6iRYvEXQu/xlHjg=;
- b=hEZiQ68e94LYGp7cRKGKgVEtqxG19YQOgf4YK3RiICBudNetJWu2JFuo
- 0a4woJQ5kTOR+/2NY82bn875Rz0/pqo4h+WDOS6+AyCFBjTP3rPFvrCBv
- zHzQAq9X5d/KlCW3fHJ0DlIKxqa8lxUuvkh8giF9uvN/tk4BBP+mK7w7g
- 8Cgy2wT1hFPnpK1GgXMlUKd9XXcax6wtapELc2l+uT42XaSgbSDfnBouI
- EKQsGn97QSaDL9mG9V2oRws27vFVr5IyEYtjPjSznbq15Cmlk4QnTfpFd
- JfnXrj+QvJU+cYyUU8Vtbe70kFDsHb4CchNueFgze0B55pdzTAmnHFeix w==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10224"; a="223716123"
-X-IronPort-AV: E=Sophos;i="5.88,282,1635231600"; d="scan'208";a="223716123"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
- by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 12 Jan 2022 05:52:58 -0800
-X-IronPort-AV: E=Sophos;i="5.88,282,1635231600"; d="scan'208";a="474911438"
-Received: from smile.fi.intel.com ([10.237.72.61])
- by orsmga006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 12 Jan 2022 05:52:41 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.95)
- (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1n7e28-009hhk-Us; Wed, 12 Jan 2022 15:51:24 +0200
-Date: Wed, 12 Jan 2022 15:51:24 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Message-ID: <Yd7c3BTcdXcbHDUM@smile.fi.intel.com>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
+ id 1n7e5p-00D3uJ-FW
+ for openipmi-developer@lists.sourceforge.net; Wed, 12 Jan 2022 13:55:17 +0000
+Received: by mail-qv1-f48.google.com with SMTP id p12so2947162qvj.6
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 12 Jan 2022 05:55:13 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=liYNFdlsWo55pmV9ntmO9rGWUh5k4VTb3DRABECHgIo=;
+ b=nDHt+1MOHqpu7fUNLpuxLkGZDEBxEsSq27aj+jA1hNKCJia97CahKQHcFUANh4a0I2
+ SlBkloRxRvMhHKGZK6IsHAduIboVqLgywk6kmjaMzdQj/4t8SIjTfypE7CdLjWQPHWBO
+ NK4CyCZ8GOrPfAYBIzVmpQvQLpsjSOiB6uIcKWRRs49K2X68HdZhCTcsWWa927Wi5meu
+ yX5vmaDc3SNwjydNbjn9an1LUll4ZteorYQ/D28UsUCSNNI76/jV2piUzX2AU/DGVw4I
+ LBfZXww8f1cDFMM5imqaTsVpVk0LM+eXWss7kTB8lTDM8XZlyQE2rvAcgMWLOg0zp03o
+ x79A==
+X-Gm-Message-State: AOAM530uZ3MqTORwr+8duAqpG85n7vQxHQmytimzoRFht4gl7At441u1
+ H18Fnwb2eyIy7bljrcGKg/e/Fg4maw3PTC6o
+X-Google-Smtp-Source: ABdhPJxAixxtVb1w90d2/ZNuyvzZ4VWpgg7kAOHILqFrmoD/wdRQ6/CxaqVj9A8nglndK1xRogWjVw==
+X-Received: by 2002:a05:6214:1d21:: with SMTP id
+ f1mr4468429qvd.37.1641995707258; 
+ Wed, 12 Jan 2022 05:55:07 -0800 (PST)
+Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com.
+ [209.85.219.52])
+ by smtp.gmail.com with ESMTPSA id l10sm9082860qtk.18.2022.01.12.05.55.07
+ for <openipmi-developer@lists.sourceforge.net>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 12 Jan 2022 05:55:07 -0800 (PST)
+Received: by mail-qv1-f52.google.com with SMTP id l13so1434935qvz.10
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 12 Jan 2022 05:55:07 -0800 (PST)
+X-Received: by 2002:ac5:c967:: with SMTP id t7mr4740789vkm.20.1641995696856;
+ Wed, 12 Jan 2022 05:54:56 -0800 (PST)
+MIME-Version: 1.0
 References: <20220110195449.12448-1-s.shtylyov@omp.ru>
  <20220110195449.12448-2-s.shtylyov@omp.ru>
- <20220110201014.mtajyrfcfznfhyqm@pengutronix.de>
- <YdyilpjC6rtz6toJ@lunn.ch>
+ <20220110201014.mtajyrfcfznfhyqm@pengutronix.de> <YdyilpjC6rtz6toJ@lunn.ch>
  <CAMuHMdWK3RKVXRzMASN4HaYfLckdS7rBvSopafq+iPADtGEUzA@mail.gmail.com>
  <20220112085009.dbasceh3obfok5dc@pengutronix.de>
  <CAMuHMdWsMGPiQaPS0-PJ_+Mc5VQ37YdLfbHr_aS40kB+SfW-aw@mail.gmail.com>
  <Yd7Z3Qwevb/lEwQZ@lunn.ch>
-MIME-Version: 1.0
-Content-Disposition: inline
 In-Reply-To: <Yd7Z3Qwevb/lEwQZ@lunn.ch>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-X-Spam-Score: -3.1 (---)
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 12 Jan 2022 14:54:44 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdV2cGvqMppwt9xhpze=pcnHfTozDZMjwT1DkivLD+_nbQ@mail.gmail.com>
+Message-ID: <CAMuHMdV2cGvqMppwt9xhpze=pcnHfTozDZMjwT1DkivLD+_nbQ@mail.gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Jan 12, 2022 at 02:38:37PM +0100, Andrew Lunn wrote:
- > > If an optional IRQ is not present, drivers either just ignore it (e.g.
- > > for devices that can have multiple interrupts or a single mu [...] 
- Content analysis details:   (-3.1 points, 6.0 required)
+ Content preview:  Hi Andrew, On Wed, Jan 12,
+ 2022 at 2:38 PM Andrew Lunn <andrew@lunn.ch>
+ wrote: > > If an optional IRQ is not present, drivers either just ignore
+ it (e.g. > > for devices that can have multiple interrupts or a si [...] 
+ Content analysis details:   (0.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [192.55.52.136 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1n7e3k-00D3jZ-6J
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [geert.uytterhoeven[at]gmail.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.219.48 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.219.48 listed in list.dnswl.org]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+X-Headers-End: 1n7e5p-00D3uJ-FW
 X-Mailman-Approved-At: Thu, 13 Jan 2022 15:52:57 +0000
 Subject: Re: [Openipmi-developer] [PATCH 1/2] platform: make
  platform_get_irq_optional() optional
@@ -122,6 +129,7 @@ Cc: Ulf Hansson <ulf.hansson@linaro.org>, Vignesh Raghavendra <vigneshr@ti.com>,
  linux-iio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>,
  Amit Kucheria <amitk@kernel.org>,
  ALSA Development Mailing List <alsa-devel@alsa-project.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  Joakim Zhang <qiangqing.zhang@nxp.com>, Guenter Roeck <groeck@chromium.org>,
  Thierry Reding <thierry.reding@gmail.com>,
  MTD Maling List <linux-mtd@lists.infradead.org>,
@@ -136,12 +144,11 @@ Cc: Ulf Hansson <ulf.hansson@linaro.org>, Vignesh Raghavendra <vigneshr@ti.com>,
  Bartosz Golaszewski <brgl@bgdev.pl>,
  Daniel Lezcano <daniel.lezcano@linaro.org>,
  Kishon Vijay Abraham I <kishon@ti.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
  bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
- Zhang Rui <rui.zhang@intel.com>, Jaroslav Kysela <perex@perex.cz>,
- Linux PWM List <linux-pwm@vger.kernel.org>,
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Jakub Kicinski <kuba@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Jaroslav Kysela <perex@perex.cz>, Linux PWM List <linux-pwm@vger.kernel.org>,
  Hans de Goede <hdegoede@redhat.com>, Saravanan Sekar <sravanhome@gmail.com>,
  Corey Minyard <minyard@acm.org>, Linux PM list <linux-pm@vger.kernel.org>,
  Mauro Carvalho Chehab <mchehab@kernel.org>, John Garry <john.garry@huawei.com>,
@@ -151,9 +158,8 @@ Cc: Ulf Hansson <ulf.hansson@linaro.org>, Vignesh Raghavendra <vigneshr@ti.com>,
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
  Alex Williamson <alex.williamson@redhat.com>, Mark Brown <broonie@kernel.org>,
  Borislav Petkov <bp@alien8.de>, Sebastian Reichel <sre@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Takashi Iwai <tiwai@suse.com>, platform-driver-x86@vger.kernel.org,
- Benson Leung <bleung@chromium.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Takashi Iwai <tiwai@suse.com>,
+ platform-driver-x86@vger.kernel.org, Benson Leung <bleung@chromium.org>,
  Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-edac@vger.kernel.org,
  Tony Luck <tony.luck@intel.com>, Mun Yew Tham <mun.yew.tham@intel.com>,
  Eric Auger <eric.auger@redhat.com>,
@@ -167,14 +173,16 @@ Cc: Ulf Hansson <ulf.hansson@linaro.org>, Vignesh Raghavendra <vigneshr@ti.com>,
  James Morse <james.morse@arm.com>, Zha Qipeng <qipeng.zha@intel.com>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
  Richard Weinberger <richard@nod.at>,
- Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
  linux-mediatek@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
  "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Jan 12, 2022 at 02:38:37PM +0100, Andrew Lunn wrote:
+Hi Andrew,
+
+On Wed, Jan 12, 2022 at 2:38 PM Andrew Lunn <andrew@lunn.ch> wrote:
 > > If an optional IRQ is not present, drivers either just ignore it (e.g.
 > > for devices that can have multiple interrupts or a single muxed IRQ),
 > > or they have to resort to polling. For the latter, fall-back handling
@@ -186,7 +194,7 @@ On Wed, Jan 12, 2022 at 02:38:37PM +0100, Andrew Lunn wrote:
 > > (or some other error code) to indicate absence. I thought not having
 > > to care about the actual error code was the main reason behind the
 > > introduction of the *_optional() APIs.
-> 
+>
 > The *_optional() functions return an error code if there has been a
 > real error which should be reported up the call stack. This excludes
 > whatever error code indicates the requested resource does not exist,
@@ -194,43 +202,62 @@ On Wed, Jan 12, 2022 at 02:38:37PM +0100, Andrew Lunn wrote:
 > is returned which appears to be a valid resources but in fact is
 > not. So the users of these functions just need to check for an error
 > code, and fail the probe if present.
-> 
+
+Agreed.
+
+Note that in most (all?) other cases, the return type is a pointer
+(e.g. to struct clk), and NULL is the magic cookie.
+
 > You seems to be suggesting in binary return value: non-zero
 > (available) or zero (not available)
 
-
-No, what is suggested is to (besides the API changes):
-- do not treat ENXIO as something special in platform_get_irq*()
-- allow platform_get_irq*() to return other error codes
+Only in case of success. In case of a real failure, an error code
+must be returned.
 
 > This discards the error code when something goes wrong. That is useful
 > information to have, so we should not be discarding it.
-> 
+
+No, the error code must be retained in case of failure.
+
 > IRQ don't currently have a magic cookie value. One option would be to
 > add such a magic cookie to the subsystem. Otherwise, since 0 is
 > invalid, return 0 to indicate the IRQ does not exist.
-> 
+
+Exactly. And using 0 means the similar code can be used as for other
+subsystems, where NULL would be returned.
+
+The only remaining difference is the "dummy cookie can be passed
+to other functions" behavior.  Which is IMHO a valid difference,
+as unlike with e.g. clk_prepare_enable(), you do pass extra data to
+request_irq(), and sometimes you do need to handle the absence of
+the interrupt using e.g. polling.
+
 > The request for a script checking this then makes sense. However, i
 > don't know how well coccinelle/sparse can track values across function
 > calls. They probably can check for:
-> 
+>
 >    ret = irq_get_optional()
 >    if (ret < 0)
 >       return ret;
-> 
+>
 > A missing if < 0 statement somewhere later is very likely to be an
 > error. A comparison of <= 0 is also likely to be an error. A check for
 > > 0 before calling any other IRQ functions would be good. I'm
 > surprised such a check does not already existing in the IRQ API, but
 > there are probably historical reasons for that.
-> 
->       Andrew
 
--- 
-With Best Regards,
-Andy Shevchenko
+There are still a few platforms where IRQ 0 does exist.
 
+Gr{oetje,eeting}s,
 
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 
 _______________________________________________
