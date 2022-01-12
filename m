@@ -2,92 +2,113 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7C5FA48A390
-	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Jan 2022 00:24:41 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B39648DB11
+	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Jan 2022 16:53:05 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1n741m-0002bC-GY; Mon, 10 Jan 2022 23:24:37 +0000
+	id 1n82PL-0002QS-2V; Thu, 13 Jan 2022 15:52:59 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>) id 1n72Tv-0002Dj-UO
- for openipmi-developer@lists.sourceforge.net; Mon, 10 Jan 2022 21:45:34 +0000
+ (envelope-from <geert.uytterhoeven@gmail.com>) id 1n7ZCT-0005qA-R6
+ for openipmi-developer@lists.sourceforge.net; Wed, 12 Jan 2022 08:41:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
+ Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=A4s2jB++M/iszkLjMqb8k0bNcMYoKfPsLABjYYE8jUk=; b=UrR8qOkX0njAbDolNjb7U0CULJ
- 0LZOCx70JIcJ4db/agx6biomhBrvI7eHhaNqI/LAR9C5OVAq1G1qNzhrotVNXWzhqd2dFHXit7PMi
- vHg4WaEfB4G7hrRgqHhfrcIWQfMRnXkfs2ph71bsNSZ5WRYR6NUW6261ogl4roOmjack=;
+ bh=phWLHSZjGguJkLwzqhKqiJsmBiGXyQV/Ve2Tok5pS7g=; b=ek6huyoGgFAyUsv92zDoC+rpz3
+ wCRXzJlGDR8RP0tuzK9PNNF2ehLI8qkkFhXFzozeBnRr2cWH7ZUg//1BQQbuRr1G3LplxqIZwoFpC
+ GqgWIqUWaP+QvrOKoX4IrvQzyUKF4MHQjw2BgtEnMtcQNNEF22OnWZUW/hqfm37b2PHo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
+ :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=A4s2jB++M/iszkLjMqb8k0bNcMYoKfPsLABjYYE8jUk=; b=WPxyDssyee5QjBPtf8v0HZt14b
- w9aa6ewKExkcMDdzdzigIdKN9g7y8r7xm0flDz3MQ1/iO3UunajSYFOkGbfaa/JDc6Hw8XcKmEYuR
- 37wGYP4LUtswRXxBFdL0MszqiGOMmXYWzboHKi5T3aO+6rhhbReCq0BfMW/ldxGOS+yI=;
-Received: from metis.ext.pengutronix.de ([85.220.165.71])
+ bh=phWLHSZjGguJkLwzqhKqiJsmBiGXyQV/Ve2Tok5pS7g=; b=ao+04kG3GknUoc0eL1xb8F2iGc
+ hZwBom3B98MfrlJ7cUQH6C8FARt40fKgDZG1HrBKiLroWPvT4ehAh8Qrf+z3C2SgDmZOARmO2QrPT
+ 3WKLQ/VkbrQJbqVfKo9ZLuXkOG26scqV78GAN+94O5k/kxq4FLzSU3g4m2cvmbnXGqj4=;
+Received: from mail-qk1-f181.google.com ([209.85.222.181])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1n72Tq-0000JM-Qd
- for openipmi-developer@lists.sourceforge.net; Mon, 10 Jan 2022 21:45:34 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1n72TM-0001u6-SR; Mon, 10 Jan 2022 22:45:00 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtps (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1n72TB-009atw-Vd; Mon, 10 Jan 2022 22:44:49 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1n72TA-0003wz-UN; Mon, 10 Jan 2022 22:44:48 +0100
-Date: Mon, 10 Jan 2022 22:44:48 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Message-ID: <20220110214448.rp4pcjlaqbjlggvj@pengutronix.de>
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
+ id 1n7ZCM-0001eC-A3
+ for openipmi-developer@lists.sourceforge.net; Wed, 12 Jan 2022 08:41:38 +0000
+Received: by mail-qk1-f181.google.com with SMTP id 69so1731284qkd.6
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 12 Jan 2022 00:41:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=phWLHSZjGguJkLwzqhKqiJsmBiGXyQV/Ve2Tok5pS7g=;
+ b=rzOE2p0rbbyFiQ2inY84l2FG7us7+7h2r/Kltebw3qF4Rh/JWwOF66tcZWCvIJfCJi
+ Vnwf6wYwXSArHGwXtDdncbiYtsEGpgwLT6YFlxg0CHPwe2UBHO9dAke5ASUZo4U4KzFu
+ 6hsrv4L1oW55tbJGc0ApcC35Z0F6qYRhJpyQR0vn/iMsfvY0TFfh5QbW0Nv6HhUS9iJ1
+ 8JdzKEKKpYGiWpASJIuaTyNKJYcK6EZ1+rZ1k0lU00strDdZPsq1Gc5V4R7TMW5s+Aks
+ o/b6anQIQzeKul9dlQ0aUWqeCYF8j0lcnUUI7Bxwl/8jRExP3Dv/IHJmETLDBRqujjI1
+ JLHQ==
+X-Gm-Message-State: AOAM530bAQk1lXXr7uxzGV61H7DY5Qm7Ib4BlRM283GM34vDFVr+ONPi
+ F526dYK/0kY/bOjKUgDF968XbxotGBjOarQV
+X-Google-Smtp-Source: ABdhPJwp2D0kTsIhmQU/yQE/jFypPYidi0w1Kk2RyEpUAiOlnXej1i+R1Ax4s0BUaRS1iO9cxQq3gA==
+X-Received: by 2002:a37:db12:: with SMTP id e18mr5820790qki.14.1641976892453; 
+ Wed, 12 Jan 2022 00:41:32 -0800 (PST)
+Received: from mail-yb1-f176.google.com (mail-yb1-f176.google.com.
+ [209.85.219.176])
+ by smtp.gmail.com with ESMTPSA id l15sm8754361qkp.16.2022.01.12.00.41.32
+ for <openipmi-developer@lists.sourceforge.net>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 12 Jan 2022 00:41:32 -0800 (PST)
+Received: by mail-yb1-f176.google.com with SMTP id m6so4282975ybc.9
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 12 Jan 2022 00:41:32 -0800 (PST)
+X-Received: by 2002:ab0:2118:: with SMTP id d24mr3735076ual.78.1641976440167; 
+ Wed, 12 Jan 2022 00:34:00 -0800 (PST)
+MIME-Version: 1.0
 References: <20220110195449.12448-1-s.shtylyov@omp.ru>
  <20220110195449.12448-2-s.shtylyov@omp.ru>
- <20220110201014.mtajyrfcfznfhyqm@pengutronix.de>
- <Ydyf93VD8FrV7GH+@smile.fi.intel.com>
-MIME-Version: 1.0
-In-Reply-To: <Ydyf93VD8FrV7GH+@smile.fi.intel.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: openipmi-developer@lists.sourceforge.net
-X-Spam-Score: -2.3 (--)
+ <20220110201014.mtajyrfcfznfhyqm@pengutronix.de> <YdyilpjC6rtz6toJ@lunn.ch>
+In-Reply-To: <YdyilpjC6rtz6toJ@lunn.ch>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 12 Jan 2022 09:33:48 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWK3RKVXRzMASN4HaYfLckdS7rBvSopafq+iPADtGEUzA@mail.gmail.com>
+Message-ID: <CAMuHMdWK3RKVXRzMASN4HaYfLckdS7rBvSopafq+iPADtGEUzA@mail.gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  On Mon, Jan 10, 2022 at 11:07:03PM +0200, Andy Shevchenko
-   wrote: > On Mon, Jan 10, 2022 at 09:10:14PM +0100, Uwe Kleine-König wrote:
-    > > On Mon, Jan 10, 2022 at 10:54:48PM +0300, Sergey Shtylyov wrote [...]
-    
+ Content preview:  Hi Andrew, On Mon, Jan 10, 2022 at 10:20 PM Andrew Lunn <andrew@lunn.ch>
+    wrote: > On Mon, Jan 10, 2022 at 09:10:14PM +0100, Uwe Kleine-KÃ¶nig wrote:
+    > > On Mon, Jan 10, 2022 at 10:54:48PM +0300, Sergey Shtylyov [...] 
  
- Content analysis details:   (-2.3 points, 6.0 required)
+ Content analysis details:   (0.5 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
-                             medium trust
-                             [85.220.165.71 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+                              no trust
+                             [209.85.222.181 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [209.85.222.181 listed in wl.mailspike.net]
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
   0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1n72Tq-0000JM-Qd
-X-Mailman-Approved-At: Mon, 10 Jan 2022 23:24:35 +0000
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [geert.uytterhoeven[at]gmail.com]
+  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+                             EnvelopeFrom freemail headers are
+                             different
+X-Headers-End: 1n7ZCM-0001eC-A3
+X-Mailman-Approved-At: Thu, 13 Jan 2022 15:52:57 +0000
 Subject: Re: [Openipmi-developer] [PATCH 1/2] platform: make
  platform_get_irq_optional() optional
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -102,175 +123,95 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
- Vignesh Raghavendra <vigneshr@ti.com>, kvm@vger.kernel.org,
- "Rafael J. Wysocki" <rafael@kernel.org>, linux-iio@vger.kernel.org,
- Linus Walleij <linus.walleij@linaro.org>, Amit Kucheria <amitk@kernel.org>,
- alsa-devel@alsa-project.org, Joakim Zhang <qiangqing.zhang@nxp.com>,
- Guenter Roeck <groeck@chromium.org>, Thierry Reding <thierry.reding@gmail.com>,
- linux-mtd@lists.infradead.org, linux-i2c@vger.kernel.org,
- Miquel Raynal <miquel.raynal@bootlin.com>, linux-phy@lists.infradead.org,
- netdev@vger.kernel.org, linux-spi@vger.kernel.org,
- Lee Jones <lee.jones@linaro.org>, openipmi-developer@lists.sourceforge.net,
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+ kvm@vger.kernel.org, "Rafael J. Wysocki" <rafael@kernel.org>,
+ linux-iio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>,
+ Amit Kucheria <amitk@kernel.org>,
+ ALSA Development Mailing List <alsa-devel@alsa-project.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Guenter Roeck <groeck@chromium.org>,
+ Thierry Reding <thierry.reding@gmail.com>, linux-mtd@lists.infradead.org,
+ linux-i2c@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ linux-phy@lists.infradead.org, Jiri Slaby <jirislaby@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>,
  Khuong Dinh <khuong@os.amperecomputing.com>,
  Florian Fainelli <f.fainelli@gmail.com>,
  Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
- Kamal Dasu <kdasu.kdev@gmail.com>, Jiri Slaby <jirislaby@kernel.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Joakim Zhang <qiangqing.zhang@nxp.com>, Kamal Dasu <kdasu.kdev@gmail.com>,
+ Lee Jones <lee.jones@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Tony Luck <tony.luck@intel.com>,
  Kishon Vijay Abraham I <kishon@ti.com>, bcm-kernel-feedback-list@broadcom.com,
- linux-serial@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
- Zhang Rui <rui.zhang@intel.com>, Jaroslav Kysela <perex@perex.cz>,
- linux-pwm@vger.kernel.org, Hans de Goede <hdegoede@redhat.com>,
- Saravanan Sekar <sravanhome@gmail.com>, Corey Minyard <minyard@acm.org>,
- linux-pm@vger.kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>,
- John Garry <john.garry@huawei.com>, Peter Korsgaard <peter@korsgaard.com>,
+ linux-serial@vger.kernel.org,
+ =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ Jakub Kicinski <kuba@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, platform-driver-x86@vger.kernel.org,
+ linux-pwm@vger.kernel.org, Saravanan Sekar <sravanhome@gmail.com>,
+ Corey Minyard <minyard@acm.org>, linux-pm@vger.kernel.org,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, John Garry <john.garry@huawei.com>,
+ Peter Korsgaard <peter@korsgaard.com>,
  William Breathitt Gray <vilhelm.gray@gmail.com>,
  Mark Gross <markgross@kernel.org>, linux-gpio@vger.kernel.org,
  Alex Williamson <alex.williamson@redhat.com>, Mark Brown <broonie@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Sebastian Reichel <sre@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Takashi Iwai <tiwai@suse.com>,
- platform-driver-x86@vger.kernel.org, Benson Leung <bleung@chromium.org>,
+ Borislav Petkov <bp@alien8.de>, Eric Auger <eric.auger@redhat.com>,
+ Takashi Iwai <tiwai@suse.com>, Jaroslav Kysela <perex@perex.cz>,
+ openipmi-developer@lists.sourceforge.net,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Benson Leung <bleung@chromium.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
  linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
- Tony Luck <tony.luck@intel.com>, Mun Yew Tham <mun.yew.tham@intel.com>,
- Eric Auger <eric.auger@redhat.com>,
+ Sergey Shtylyov <s.shtylyov@omp.ru>, Richard Weinberger <richard@nod.at>,
+ Mun Yew Tham <mun.yew.tham@intel.com>, Hans de Goede <hdegoede@redhat.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
  Cornelia Huck <cohuck@redhat.com>, linux-mmc@vger.kernel.org,
- Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, Sergey Shtylyov <s.shtylyov@omp.ru>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-spi@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
  Vinod Koul <vkoul@kernel.org>, James Morse <james.morse@arm.com>,
- Zha Qipeng <qipeng.zha@intel.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Richard Weinberger <richard@nod.at>,
- Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ Zha Qipeng <qipeng.zha@intel.com>, Sebastian Reichel <sre@kernel.org>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
  linux-mediatek@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
- "David S. Miller" <davem@davemloft.net>
-Content-Type: multipart/mixed; boundary="===============6737155172135342749=="
+ netdev@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============6737155172135342749==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="e2is76odjewy3gr2"
-Content-Disposition: inline
-
-
---e2is76odjewy3gr2
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Jan 10, 2022 at 11:07:03PM +0200, Andy Shevchenko wrote:
-> On Mon, Jan 10, 2022 at 09:10:14PM +0100, Uwe Kleine-K=F6nig wrote:
-> > On Mon, Jan 10, 2022 at 10:54:48PM +0300, Sergey Shtylyov wrote:
-> > > This patch is based on the former Andy Shevchenko's patch:
-> > >=20
-> > > https://lore.kernel.org/lkml/20210331144526.19439-1-andriy.shevchenko=
-@linux.intel.com/
-> > >=20
-> > > Currently platform_get_irq_optional() returns an error code even if I=
-RQ
-> > > resource simply has not been found. It prevents the callers from being
-> > > error code agnostic in their error handling:
-> > >=20
-> > > 	ret =3D platform_get_irq_optional(...);
-> > > 	if (ret < 0 && ret !=3D -ENXIO)
-> > > 		return ret; // respect deferred probe
-> > > 	if (ret > 0)
-> > > 		...we get an IRQ...
-> > >=20
-> > > All other *_optional() APIs seem to return 0 or NULL in case an optio=
-nal
-> > > resource is not available. Let's follow this good example, so that the
-> > > callers would look like:
-> > >=20
-> > > 	ret =3D platform_get_irq_optional(...);
-> > > 	if (ret < 0)
-> > > 		return ret;
-> > > 	if (ret > 0)
-> > > 		...we get an IRQ...
-> >=20
-> > The difference to gpiod_get_optional (and most other *_optional) is that
-> > you can use the NULL value as if it were a valid GPIO.
->=20
-> The problem is not only there, but also in the platform_get_irq() and that
-> problem is called vIRQ0. Or as Linus put it "_cookie_" for IRQ, which nev=
-er
-> ever should be 0.
-
-IMHO it's best to avoid yielding zero for a value that should be
-interpreted as an (virtual) irq. Then callers don't even have to
-consider if it's a valid value or not.
-
-> > As this isn't given with for irqs, I don't think changing the return
-> > value has much sense. In my eyes the problem with platform_get_irq() and
-> > platform_get_irq_optional() is that someone considered it was a good
-> > idea that a global function emits an error message. The problem is,
-> > that's only true most of the time. (Sometimes the caller can handle an
-> > error (here: the absence of an irq) just fine, sometimes the generic
-> > error message just isn't as good as a message by the caller could be.
-> > (here: The caller could emit "TX irq not found" which is a much nicer
-> > message than "IRQ index 5 not found".)
-> >=20
-> > My suggestion would be to keep the return value of
-> > platform_get_irq_optional() as is, but rename it to
-> > platform_get_irq_silent() to get rid of the expectation invoked by the
-> > naming similarity that motivated you to change
-> > platform_get_irq_optional().
->=20
-> This won't fix the issue with vIRQ0.
-
-Is the patch about vIRQ0, or did you only start to consider it when I
-said that for gpio NULL is a dummy value? If the former, the commit log
-should better mention that.
-
-Anyhow, I still think renaming platform_get_irq_optional() to
-platform_get_irq_silent() is a good idea and the patches in this thread
-are not.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---e2is76odjewy3gr2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmHcqM0ACgkQwfwUeK3K
-7Amxygf+NmX8BzaqLoc9m8fsv49CkQqQKbXt9a0l2gES1hAm8NL2nbgjydEJDcPs
-QJ5X1TL08pb9wPoYcUF7uSwjJx2Vp0f+FEiMtDk2kj5xI38T+86tnyuQw1tNg4Ss
-52foCYQJVIIgIAeMyIvWk14oUMsy4JV/SuT+GZImMq+aM/5+wIF02NZoGzXofThL
-mUNzp+vgTNNhZpF7c0D4orD7SDOCOn2fA/uu2UGk1Nh6m+lgW5qIw5Z0KFPTalKH
-kU/JuEOBD6kdEr84D9EM6SB2l+dOBVJ20F5DL1JItM4qkAK9thM+3ecLPF610K1e
-+N5e1XZXSLS6gpWGBjS9bxMbdZ6Qpg==
-=FQR4
------END PGP SIGNATURE-----
-
---e2is76odjewy3gr2--
-
-
---===============6737155172135342749==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============6737155172135342749==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============6737155172135342749==--
-
+SGkgQW5kcmV3LAoKT24gTW9uLCBKYW4gMTAsIDIwMjIgYXQgMTA6MjAgUE0gQW5kcmV3IEx1bm4g
+PGFuZHJld0BsdW5uLmNoPiB3cm90ZToKPiBPbiBNb24sIEphbiAxMCwgMjAyMiBhdCAwOToxMDox
+NFBNICswMTAwLCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90ZToKPiA+IE9uIE1vbiwgSmFuIDEwLCAy
+MDIyIGF0IDEwOjU0OjQ4UE0gKzAzMDAsIFNlcmdleSBTaHR5bHlvdiB3cm90ZToKPiA+ID4gVGhp
+cyBwYXRjaCBpcyBiYXNlZCBvbiB0aGUgZm9ybWVyIEFuZHkgU2hldmNoZW5rbydzIHBhdGNoOgo+
+ID4gPgo+ID4gPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjEwMzMxMTQ0NTI2LjE5
+NDM5LTEtYW5kcml5LnNoZXZjaGVua29AbGludXguaW50ZWwuY29tLwo+ID4gPgo+ID4gPiBDdXJy
+ZW50bHkgcGxhdGZvcm1fZ2V0X2lycV9vcHRpb25hbCgpIHJldHVybnMgYW4gZXJyb3IgY29kZSBl
+dmVuIGlmIElSUQo+ID4gPiByZXNvdXJjZSBzaW1wbHkgaGFzIG5vdCBiZWVuIGZvdW5kLiBJdCBw
+cmV2ZW50cyB0aGUgY2FsbGVycyBmcm9tIGJlaW5nCj4gPiA+IGVycm9yIGNvZGUgYWdub3N0aWMg
+aW4gdGhlaXIgZXJyb3IgaGFuZGxpbmc6Cj4gPiA+Cj4gPiA+ICAgICByZXQgPSBwbGF0Zm9ybV9n
+ZXRfaXJxX29wdGlvbmFsKC4uLik7Cj4gPiA+ICAgICBpZiAocmV0IDwgMCAmJiByZXQgIT0gLUVO
+WElPKQo+ID4gPiAgICAgICAgICAgICByZXR1cm4gcmV0OyAvLyByZXNwZWN0IGRlZmVycmVkIHBy
+b2JlCj4gPiA+ICAgICBpZiAocmV0ID4gMCkKPiA+ID4gICAgICAgICAgICAgLi4ud2UgZ2V0IGFu
+IElSUS4uLgo+ID4gPgo+ID4gPiBBbGwgb3RoZXIgKl9vcHRpb25hbCgpIEFQSXMgc2VlbSB0byBy
+ZXR1cm4gMCBvciBOVUxMIGluIGNhc2UgYW4gb3B0aW9uYWwKPiA+ID4gcmVzb3VyY2UgaXMgbm90
+IGF2YWlsYWJsZS4gTGV0J3MgZm9sbG93IHRoaXMgZ29vZCBleGFtcGxlLCBzbyB0aGF0IHRoZQo+
+ID4gPiBjYWxsZXJzIHdvdWxkIGxvb2sgbGlrZToKPiA+ID4KPiA+ID4gICAgIHJldCA9IHBsYXRm
+b3JtX2dldF9pcnFfb3B0aW9uYWwoLi4uKTsKPiA+ID4gICAgIGlmIChyZXQgPCAwKQo+ID4gPiAg
+ICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gPiAgICAgaWYgKHJldCA+IDApCj4gPiA+ICAgICAg
+ICAgICAgIC4uLndlIGdldCBhbiBJUlEuLi4KPiA+Cj4gPiBUaGUgZGlmZmVyZW5jZSB0byBncGlv
+ZF9nZXRfb3B0aW9uYWwgKGFuZCBtb3N0IG90aGVyICpfb3B0aW9uYWwpIGlzIHRoYXQKPiA+IHlv
+dSBjYW4gdXNlIHRoZSBOVUxMIHZhbHVlIGFzIGlmIGl0IHdlcmUgYSB2YWxpZCBHUElPLgo+ID4K
+PiA+IEFzIHRoaXMgaXNuJ3QgZ2l2ZW4gd2l0aCBmb3IgaXJxcywgSSBkb24ndCB0aGluayBjaGFu
+Z2luZyB0aGUgcmV0dXJuCj4gPiB2YWx1ZSBoYXMgbXVjaCBzZW5zZS4KPgo+IFdlIGFjdHVhbGx5
+IHdhbnQgcGxhdGZvcm1fZ2V0X2lycV9vcHRpb25hbCgpIHRvIGxvb2sgZGlmZmVyZW50IHRvIGFs
+bAo+IHRoZSBvdGhlciBfb3B0aW9uYWwoKSBtZXRob2RzIGJlY2F1c2UgaXQgaXMgbm90IGVxdWl2
+YWxlbnQuIElmIGl0Cj4gbG9va3MgdGhlIHNhbWUsIGRldmVsb3BlcnMgd2lsbCBhc3N1bWUgaXQg
+aXMgdGhlIHNhbWUsIGFuZCBnZXQKPiB0aGVtc2VsdmVzIGludG8gdHJvdWJsZS4KCkRldmVsb3Bl
+cnMgYWxyZWFkeSBhc3N1bWUgaXQgaXMgdGhlIHNhbWUsIGFuZCB0aHVzIGZvcmdldCB0aGV5IGhh
+dmUKdG8gY2hlY2sgYWdhaW5zdCAtRU5YSU8gaW5zdGVhZCBvZiB6ZXJvLgoKR3J7b2V0amUsZWV0
+aW5nfXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVydAoKLS0KR2VlcnQgVXl0dGVyaG9l
+dmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1t
+NjhrLm9yZwoKSW4gcGVyc29uYWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUs
+IEkgY2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxp
+c3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBtaS1kZXZlbG9wZXIg
+bWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0
+cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3BlbmlwbWktZGV2ZWxv
+cGVyCg==
