@@ -2,59 +2,56 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C9B2548E1D2
-	for <lists+openipmi-developer@lfdr.de>; Fri, 14 Jan 2022 01:55:44 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id C743048E9D5
+	for <lists+openipmi-developer@lfdr.de>; Fri, 14 Jan 2022 13:30:33 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1n8AsV-0000GS-Rx; Fri, 14 Jan 2022 00:55:40 +0000
+	id 1n8Lif-0002VM-JI; Fri, 14 Jan 2022 12:30:12 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>) id 1n89BG-0000kj-B3
- for openipmi-developer@lists.sourceforge.net; Thu, 13 Jan 2022 23:07:13 +0000
+ (envelope-from <peter@korsgaard.com>) id 1n8Gla-0003zc-HS
+ for openipmi-developer@lists.sourceforge.net; Fri, 14 Jan 2022 07:13:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Message-ID:In-Reply-To:Date:References:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=NoutiA3Ehzc3xYvpq+Rsl9KP08tnMfv+E637W3Sp+IA=; b=hXDRhFbbzbiQ41UPJh7y4DZVcq
- e5N5oA3OFV8UZilqoWzxTJpsZEdB0RO7uvbofJviwdEA5Ifxp/v6RjQuPtyOKqeqpNJSP3i+9R4+D
- sqW2T4EGMxsLTD1JcqEvJUEIr7K3bkPrGBB+KmUvkeJgDXCaE1+AtLhKUYoXdB75tQ0g=;
+ bh=6LROpeMg+I6HV2eSWdcgHI9ORrFOPxzwutiqZWkCcAs=; b=dIih1WNmlHlXDEtYW0OqbG2hho
+ Tcsr/r7+LkxoOk5NxI/T+UuzArVgU5+waei3jCTxvxh/ohtaZDaqPpjiuF7Sow/BtppZok79xapCV
+ Fdgy8use49aLVsCN+kL0n9ekoDD+eD0pyrzc9TdHb11co7+71MtsUFrqtPfEd0DOjXVU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
+ In-Reply-To:Date:References:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=NoutiA3Ehzc3xYvpq+Rsl9KP08tnMfv+E637W3Sp+IA=; b=kL+2TukL72aPkjjKgqo/FKNI1q
- RbsdbCbymq88JG7zITXg6W3UXMhTu6LiE4DxHZF7TRAlX+uMOGd9AnzGVTjfGa6WP4ZrpNkI4Cj+q
- 4h+pdkUnHIMp96+xLwZMCs3Xb3S9JzDDul/eA5ip/mYUIEEMXl9zA+6sq1quMfjDuXYY=;
-Received: from metis.ext.pengutronix.de ([85.220.165.71])
+ bh=6LROpeMg+I6HV2eSWdcgHI9ORrFOPxzwutiqZWkCcAs=; b=OSf1hgY5wsvjDls/dxlFt9R1py
+ fPW4YT4sPzsm5dQZmYS3JSeJ834TnlQBf77QJduhJ80WnIDL/ofl2WAxO8YRZTOdJhFfDOjCO9ZnI
+ tESB2Havk3HpPqHEbs6nYSVPeagbNYHIWIef2Jtf/WlBR3aszasXfzXutifFLrTL0XMI=;
+Received: from mslow1.mail.gandi.net ([217.70.178.240])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1n89BV-00EwgT-70
- for openipmi-developer@lists.sourceforge.net; Thu, 13 Jan 2022 23:07:13 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1n89An-0001YX-LN; Fri, 14 Jan 2022 00:06:25 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtps (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1n89Ai-00A99J-Gv; Fri, 14 Jan 2022 00:06:19 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1n89Ah-0001rZ-FS; Fri, 14 Jan 2022 00:06:19 +0100
-Date: Fri, 14 Jan 2022 00:06:19 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Florian Fainelli <f.fainelli@gmail.com>
-Message-ID: <20220113230619.m736tqd6u44vhuu5@pengutronix.de>
-References: <YdyilpjC6rtz6toJ@lunn.ch>
+ id 1n8Gln-00FHvU-Ug
+ for openipmi-developer@lists.sourceforge.net; Fri, 14 Jan 2022 07:13:13 +0000
+Received: from relay9-d.mail.gandi.net (unknown [217.70.183.199])
+ by mslow1.mail.gandi.net (Postfix) with ESMTP id 0E539C5F4B
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 14 Jan 2022 06:57:37 +0000 (UTC)
+Received: (Authenticated sender: peter@korsgaard.com)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 6952FFF805;
+ Fri, 14 Jan 2022 06:57:08 +0000 (UTC)
+Received: from peko by dell.be.48ers.dk with local (Exim 4.92)
+ (envelope-from <peter@korsgaard.com>)
+ id 1n8GWI-0002SW-Ku; Fri, 14 Jan 2022 07:57:06 +0100
+From: Peter Korsgaard <peter@korsgaard.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+References: <20220110195449.12448-2-s.shtylyov@omp.ru>
+ <20220110201014.mtajyrfcfznfhyqm@pengutronix.de>
+ <YdyilpjC6rtz6toJ@lunn.ch>
  <CAMuHMdWK3RKVXRzMASN4HaYfLckdS7rBvSopafq+iPADtGEUzA@mail.gmail.com>
  <20220112085009.dbasceh3obfok5dc@pengutronix.de>
  <CAMuHMdWsMGPiQaPS0-PJ_+Mc5VQ37YdLfbHr_aS40kB+SfW-aw@mail.gmail.com>
@@ -63,36 +60,33 @@ References: <YdyilpjC6rtz6toJ@lunn.ch>
  <20220113110831.wvwbm75hbfysbn2d@pengutronix.de>
  <YeA7CjOyJFkpuhz/@sirena.org.uk>
  <20220113194358.xnnbhsoyetihterb@pengutronix.de>
- <745c601f-c782-0904-f786-c9bfced8f11c@gmail.com>
+Date: Fri, 14 Jan 2022 07:57:06 +0100
+In-Reply-To: <20220113194358.xnnbhsoyetihterb@pengutronix.de> ("Uwe
+ =?utf-8?Q?Kleine-K=C3=B6nig=22's?= message of "Thu, 13 Jan 2022 20:43:58
+ +0100")
+Message-ID: <87ilum954t.fsf@dell.be.48ers.dk>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
 MIME-Version: 1.0
-In-Reply-To: <745c601f-c782-0904-f786-c9bfced8f11c@gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: openipmi-developer@lists.sourceforge.net
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  On Thu, Jan 13, 2022 at 01:42:57PM -0800, Florian Fainelli
-    wrote: > > > On 1/13/2022 11:43 AM, Uwe Kleine-König wrote: > > The subsystems
-    regulator, clk and gpio have the concept of a dummy > > resour [...] 
+ Content preview:  >>>>> "Uwe" == Uwe Kleine-KÃ¶nig <u.kleine-koenig@pengutronix.de>
+    writes: > The subsystems regulator, clk and gpio have the concept of a dummy
+    > resource. For regulator, clk and gpio there is a semantic difference >
+   between the regular _get() function and the _get_optional [...] 
  
- Content analysis details:   (-2.3 points, 6.0 required)
+ Content analysis details:   (0.0 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
-                             medium trust
-                             [85.220.165.71 listed in list.dnswl.org]
   0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1n89BV-00EwgT-70
-X-Mailman-Approved-At: Fri, 14 Jan 2022 00:55:37 +0000
+X-Headers-End: 1n8Gln-00FHvU-Ug
+X-Mailman-Approved-At: Fri, 14 Jan 2022 12:30:10 +0000
 Subject: Re: [Openipmi-developer] [PATCH] driver core: platform: Rename
  platform_get_irq_optional() to platform_get_irq_silent()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -112,223 +106,76 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
  "Rafael J. Wysocki" <rafael@kernel.org>, linux-iio@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, Amit Kucheria <amitk@kernel.org>,
  ALSA Development Mailing List <alsa-devel@alsa-project.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  Jaroslav Kysela <perex@perex.cz>, Guenter Roeck <groeck@chromium.org>,
  Thierry Reding <thierry.reding@gmail.com>,
  MTD Maling List <linux-mtd@lists.infradead.org>,
- Linux I2C <linux-i2c@vger.kernel.org>,
+ Linux I2C <linux-i2c@vger.kernel.org>, "open list:GPIO
+ SUBSYSTEM" <linux-gpio@vger.kernel.org>,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-phy@lists.infradead.org,
- Jiri Slaby <jirislaby@kernel.org>, openipmi-developer@lists.sourceforge.net,
- Khuong Dinh <khuong@os.amperecomputing.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
+ netdev@vger.kernel.org, linux-spi <linux-spi@vger.kernel.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Khuong Dinh <khuong@os.amperecomputing.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
  Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
- Joakim Zhang <qiangqing.zhang@nxp.com>, Kamal Dasu <kdasu.kdev@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Lee Jones <lee.jones@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Tony Luck <tony.luck@intel.com>,
+ Kamal Dasu <kdasu.kdev@gmail.com>, Lee Jones <lee.jones@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
  Kishon Vijay Abraham I <kishon@ti.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, "open
+ list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
  bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
- Zhang Rui <rui.zhang@intel.com>, Linux PWM List <linux-pwm@vger.kernel.org>,
+ Zhang Rui <rui.zhang@intel.com>, platform-driver-x86@vger.kernel.org,
+ Linux PWM List <linux-pwm@vger.kernel.org>,
  Saravanan Sekar <sravanhome@gmail.com>, Corey Minyard <minyard@acm.org>,
- Linux PM list <linux-pm@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- John Garry <john.garry@huawei.com>, Peter Korsgaard <peter@korsgaard.com>,
- William Breathitt Gray <vilhelm.gray@gmail.com>,
- Mark Gross <markgross@kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Linux PM list <linux-pm@vger.kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, John Garry <john.garry@huawei.com>,
+ Takashi Iwai <tiwai@suse.com>, William Breathitt Gray <vilhelm.gray@gmail.com>,
+ Mark Gross <markgross@kernel.org>, Hans de Goede <hdegoede@redhat.com>,
  Alex Williamson <alex.williamson@redhat.com>, Mark Brown <broonie@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Sebastian Reichel <sre@kernel.org>,
- Eric Auger <eric.auger@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Takashi Iwai <tiwai@suse.com>,
- platform-driver-x86@vger.kernel.org, Benson Leung <bleung@chromium.org>,
+ Borislav Petkov <bp@alien8.de>, Jakub Kicinski <kuba@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ openipmi-developer@lists.sourceforge.net,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Benson Leung <bleung@chromium.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
  Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-edac@vger.kernel.org,
- Sergey Shtylyov <s.shtylyov@omp.ru>, Mun Yew Tham <mun.yew.tham@intel.com>,
- Hans de Goede <hdegoede@redhat.com>, netdev@vger.kernel.org,
+ Tony Luck <tony.luck@intel.com>, Richard Weinberger <richard@nod.at>,
+ Mun Yew Tham <mun.yew.tham@intel.com>, Eric Auger <eric.auger@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
  Cornelia Huck <cohuck@redhat.com>, Linux MMC List <linux-mmc@vger.kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, linux-spi <linux-spi@vger.kernel.org>,
+ Joakim Zhang <qiangqing.zhang@nxp.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- Vinod Koul <vkoul@kernel.org>, James Morse <james.morse@arm.com>,
- Zha Qipeng <qipeng.zha@intel.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Richard Weinberger <richard@nod.at>,
+ Sergey Shtylyov <s.shtylyov@omp.ru>, Vinod Koul <vkoul@kernel.org>,
+ James Morse <james.morse@arm.com>, Zha Qipeng <qipeng.zha@intel.com>,
+ Sebastian Reichel <sre@kernel.org>,
  Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
  linux-mediatek@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
  "David S. Miller" <davem@davemloft.net>
-Content-Type: multipart/mixed; boundary="===============4291466385057917210=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============4291466385057917210==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ea4rbv6vfrsr5m67"
-Content-Disposition: inline
-
-
---ea4rbv6vfrsr5m67
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Jan 13, 2022 at 01:42:57PM -0800, Florian Fainelli wrote:
->=20
->=20
-> On 1/13/2022 11:43 AM, Uwe Kleine-K=F6nig wrote:
-> > The subsystems regulator, clk and gpio have the concept of a dummy
-> > resource. For regulator, clk and gpio there is a semantic difference
-> > between the regular _get() function and the _get_optional() variant.
-> > (One might return the dummy resource, the other won't. Unfortunately
-> > which one implements which isn't the same for these three.) The
-> > difference between platform_get_irq() and platform_get_irq_optional() is
-> > only that the former might emit an error message and the later won't.
-> >=20
-> > To prevent people's expectations that there is a semantic difference
-> > between these too, rename platform_get_irq_optional() to
-> > platform_get_irq_silent() to make the actual difference more obvious.
-> >=20
-> > The #define for the old name can and should be removed once all patches
-> > currently in flux still relying on platform_get_irq_optional() are
-> > fixed.
-> >=20
-> > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-> > ---
-> > Hello,
-> >=20
-> > On Thu, Jan 13, 2022 at 02:45:30PM +0000, Mark Brown wrote:
-> > > On Thu, Jan 13, 2022 at 12:08:31PM +0100, Uwe Kleine-K=F6nig wrote:
-> > >=20
-> > > > This is all very unfortunate. In my eyes b) is the most sensible
-> > > > sense, but the past showed that we don't agree here. (The most anno=
-ying
-> > > > part of regulator_get is the warning that is emitted that regularily
-> > > > makes customers ask what happens here and if this is fixable.)
-> > >=20
-> > > Fortunately it can be fixed, and it's safer to clearly specify things.
-> > > The prints are there because when the description is wrong enough to
-> > > cause things to blow up we can fail to boot or run messily and
-> > > forgetting to describe some supplies (or typoing so they haven't done
-> > > that) and people were having a hard time figuring out what might've
-> > > happened.
-> >=20
-> > Yes, that's right. I sent a patch for such a warning in 2019 and pinged
-> > occationally. Still waiting for it to be merged :-\
-> > (https://lore.kernel.org/r/20190625100412.11815-1-u.kleine-koenig@pengu=
-tronix.de)
-> >=20
-> > > > I think at least c) is easy to resolve because
-> > > > platform_get_irq_optional() isn't that old yet and mechanically
-> > > > replacing it by platform_get_irq_silent() should be easy and safe.
-> > > > And this is orthogonal to the discussion if -ENOXIO is a sensible r=
-eturn
-> > > > value and if it's as easy as it could be to work with errors on irq
-> > > > lookups.
-> > >=20
-> > > It'd certainly be good to name anything that doesn't correspond to one
-> > > of the existing semantics for the API (!) something different rather
-> > > than adding yet another potentially overloaded meaning.
-> >=20
-> > It seems we're (at least) three who agree about this. Here is a patch
-> > fixing the name.
->=20
-> From an API naming perspective this does not make much sense anymore with
-> the name chosen, it is understood that whent he function is called
-> platform_get_irq_optional(), optional applies to the IRQ. An optional IRQ=
- is
-> something people can reason about because it makes sense.
-
-The problem I see is that the semantic is different to the other
-available *_get_optional() functions. And this isn't fixable for irqs.
-So better don't use that naming scheme.
-
-> What is a a "silent" IRQ however? It does not apply to the object it is
-> trying to fetch to anymore, but to the message that may not be printed in
-> case the resource failed to be obtained, because said resource is optiona=
-l.
-> Woah, that's quite a stretch.
-
-I'm surprised that the semantic isn't obvious, but ok, I can accept
-that.Can you maek a constructive suggestion here? What name pair would
-you choose for the two functions functions under discussion?
-
-(BTW, my favourite would be that platform_get_irq() doesn't emit an
-error message and the caller is reliable for emitting that. But I think
-it's too late for this approach.)
-
-> Following the discussion and original 2 patches set from Sergey, it is not
-> entirely clear to me anymore what is it that we are trying to fix.
-
-(I think) Sergey's focus is:
-
-	platform_get_irq_optional() returning -ENXIO is ugly, other
-	functions return -ENOENT and other *_get_optional() functions
-	return NULL for "This resource doesn't exist". So let's return 0
-	in this case.
-
-My focus is:
-
-	There cannot be an "optional irq" where the driver doesn't have
-	to care if the irq actually exist or not. So the pattern with
-	*_get_optional() isn't sensible for irqs and if changing the
-	returned value meaning "This resource doesn't exist" is sensible
-	for platform_get_irq_optional(), I claim it's sensible for
-	platform_get_irq(), too.
-
-	So the semantic difference between platform_get_irq() and
-	platform_get_irq_optional() is only that one emits an error
-	message and the other doesn't. So this function pair should use
-	a different naming than get + get_optional as this naming evokes
-	expectations that must be wrong as there cannot be a dummy irq
-	value.
-
-> I nearly forgot, I would paint it blue, sky blue, not navy blue, not light
-> blue ;)
-
-no way. green is the ultimate blue for platform_get_irq() :-)
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---ea4rbv6vfrsr5m67
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmHgsGcACgkQwfwUeK3K
-7AmCGgf+KUjAbnx/+md2hoJgWXkf2TARYfElER6NhM1xxoNKhleR2n9Y2SomZoh7
-GcsuunNU5jXbVHMH53qA3p34MwFiUjtH8qugReIosuYo9kAjJHcR/uAXVZVx8a5W
-593KJ+wnpGGjBIajlW4L9XKhKUGIgCjx5n9pZTnS/9TD0T5RY7pvpN1XdyHhqHzO
-owFdQFBvf7vN9Md4mdzl3usr15hf3ZFkobzBuDjMwour/CoOVu6yOVe+ihkXfa4o
-SQua8+L+ooV6dgRrG0kq9oYU/xDTMEPJCK1Ap8ff2rb9KDCaRwljavHmmk6Thff9
-7uYWNCwmj3gTXd6TD4b3BK+FIBMfSQ==
-=oNtc
------END PGP SIGNATURE-----
-
---ea4rbv6vfrsr5m67--
-
-
---===============4291466385057917210==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============4291466385057917210==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============4291466385057917210==--
-
+Pj4+Pj4gIlV3ZSIgPT0gVXdlIEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRy
+b25peC5kZT4gd3JpdGVzOgoKID4gVGhlIHN1YnN5c3RlbXMgcmVndWxhdG9yLCBjbGsgYW5kIGdw
+aW8gaGF2ZSB0aGUgY29uY2VwdCBvZiBhIGR1bW15CiA+IHJlc291cmNlLiBGb3IgcmVndWxhdG9y
+LCBjbGsgYW5kIGdwaW8gdGhlcmUgaXMgYSBzZW1hbnRpYyBkaWZmZXJlbmNlCiA+IGJldHdlZW4g
+dGhlIHJlZ3VsYXIgX2dldCgpIGZ1bmN0aW9uIGFuZCB0aGUgX2dldF9vcHRpb25hbCgpIHZhcmlh
+bnQuCiA+IChPbmUgbWlnaHQgcmV0dXJuIHRoZSBkdW1teSByZXNvdXJjZSwgdGhlIG90aGVyIHdv
+bid0LiBVbmZvcnR1bmF0ZWx5CiA+IHdoaWNoIG9uZSBpbXBsZW1lbnRzIHdoaWNoIGlzbid0IHRo
+ZSBzYW1lIGZvciB0aGVzZSB0aHJlZS4pIFRoZQogPiBkaWZmZXJlbmNlIGJldHdlZW4gcGxhdGZv
+cm1fZ2V0X2lycSgpIGFuZCBwbGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCkgaXMKID4gb25seSB0
+aGF0IHRoZSBmb3JtZXIgbWlnaHQgZW1pdCBhbiBlcnJvciBtZXNzYWdlIGFuZCB0aGUgbGF0ZXIg
+d29uJ3QuCgogPiBUbyBwcmV2ZW50IHBlb3BsZSdzIGV4cGVjdGF0aW9ucyB0aGF0IHRoZXJlIGlz
+IGEgc2VtYW50aWMgZGlmZmVyZW5jZQogPiBiZXR3ZWVuIHRoZXNlIHRvbywgcmVuYW1lIHBsYXRm
+b3JtX2dldF9pcnFfb3B0aW9uYWwoKSB0bwogPiBwbGF0Zm9ybV9nZXRfaXJxX3NpbGVudCgpIHRv
+IG1ha2UgdGhlIGFjdHVhbCBkaWZmZXJlbmNlIG1vcmUgb2J2aW91cy4KCiA+IFRoZSAjZGVmaW5l
+IGZvciB0aGUgb2xkIG5hbWUgY2FuIGFuZCBzaG91bGQgYmUgcmVtb3ZlZCBvbmNlIGFsbCBwYXRj
+aGVzCiA+IGN1cnJlbnRseSBpbiBmbHV4IHN0aWxsIHJlbHlpbmcgb24gcGxhdGZvcm1fZ2V0X2ly
+cV9vcHRpb25hbCgpIGFyZQogPiBmaXhlZC4KCiA+IFNpZ25lZC1vZmYtYnk6IFV3ZSBLbGVpbmUt
+S8O2bmlnIDx1LmtsZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGU+CgpGb3IgaTJjLW9jb3Jlcy5j
+OgoKQWNrZWQtYnk6IFBldGVyIEtvcnNnYWFyZCA8cGV0ZXJAa29yc2dhYXJkLmNvbT4KCi0tIApC
+eWUsIFBldGVyIEtvcnNnYWFyZAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2
+ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5l
+dC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
