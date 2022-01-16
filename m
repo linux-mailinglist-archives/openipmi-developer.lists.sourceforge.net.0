@@ -2,96 +2,97 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3DD0948FA56
-	for <lists+openipmi-developer@lfdr.de>; Sun, 16 Jan 2022 03:15:31 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 026904909F5
+	for <lists+openipmi-developer@lfdr.de>; Mon, 17 Jan 2022 15:08:44 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1n8v4p-0005CW-QO; Sun, 16 Jan 2022 02:15:26 +0000
+	id 1n9Sgb-0006VP-0d; Mon, 17 Jan 2022 14:08:39 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <s.shtylyov@omp.ru>) id 1n8qFe-000423-C3
- for openipmi-developer@lists.sourceforge.net; Sat, 15 Jan 2022 21:06:17 +0000
+ (envelope-from <gregkh@linuxfoundation.org>) id 1n96NV-0005E2-Bs
+ for openipmi-developer@lists.sourceforge.net; Sun, 16 Jan 2022 14:19:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:CC:To:Subject:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=XQJIsCoDA9XWHlT1hubSOl14qZzTpQ1P+L30BlKw4JI=; b=J7QHHG1Glo62gTShxdMxIUj5fu
- GMw/3DhLa/vB1PimNlfc4jeCYmQasFD9IliLlx2e8us4Bx3XDSaIwPVg2NDQr8SC8m98HBuKCJwhy
- /mjmwiJpKUIXdlqApmnlA1bLtn2qykfZp2J84BTyWCGPNrrB0Lj4uzC39tTB5moQs4Og=;
+ bh=wvJxjHWNRIftiN7Tn74mJOdsvM29XqM0v8bx+J7JmAY=; b=hDLqlA5uui8MrsfL9frpDADp7y
+ 8ys66OR4egLshgAXmuJTm95zsofLmVmYOKVsKHxKzCJdG7BlendDW766TVA8RmY5ZbOJlRYhSLqtE
+ LAAJ7YXOI1GsMbWcgQjgvMzUsfyZ58HFZxJA/7Br+F1DIv7Cb9vTXFx2gaaJs/0Hsfu8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:CC:To:Subject:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=XQJIsCoDA9XWHlT1hubSOl14qZzTpQ1P+L30BlKw4JI=; b=mOB+uHQn1l4s20GMZxFiGcaqyD
- bjuF8elIm8GItPPXDI1QI8GD8yG82iV3nF5SLAOFaZQv21EmFWpTkSXbbuu+8QrloK3P6H7RusJL5
- CbRoAzIeO7fqTED7yX/1vKZzv1r2dkHv+uw6oS+z08WHRc1BpdKWy8EYRUMPf5ZtijhA=;
-Received: from mxout04.lancloud.ru ([45.84.86.114])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=wvJxjHWNRIftiN7Tn74mJOdsvM29XqM0v8bx+J7JmAY=; b=i8D3R7IwCmRWOtS28WRicBFkc9
+ 1FAnjFz6wNFSdf8uYbxCpSVAsi2rSq+cIx8DsWnP+gil/X1fi5uGTyVMxhBqrNb3C0k4A0R/5ae28
+ DZ1y9B61bcPml8+Q446Hf+eFYtjbAGHIliVEGIKDAumDCrVXQu0EyZ7krBaIoXInygDk=;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1n8qFb-00GrOZ-8M
- for openipmi-developer@lists.sourceforge.net; Sat, 15 Jan 2022 21:06:17 +0000
-Received: from LanCloud
-DKIM-Filter: OpenDKIM Filter v2.11.0 mxout04.lancloud.ru 21DDC20ADE46
-Received: from LanCloud
-Received: from LanCloud
-Received: from LanCloud
-To: =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>, "Geert
- Uytterhoeven" <geert@linux-m68k.org>
-References: <CAMuHMdWsMGPiQaPS0-PJ_+Mc5VQ37YdLfbHr_aS40kB+SfW-aw@mail.gmail.com>
- <20220112213121.5ruae5mxwj6t3qiy@pengutronix.de>
- <Yd9L9SZ+g13iyKab@sirena.org.uk>
- <20220113110831.wvwbm75hbfysbn2d@pengutronix.de>
- <YeA7CjOyJFkpuhz/@sirena.org.uk>
- <20220113194358.xnnbhsoyetihterb@pengutronix.de>
- <YeCI47ltlWzjzjYy@sirena.org.uk>
- <1df04d74-8aa2-11f1-54e9-34d0e8f4e58b@omp.ru>
- <20220113224319.akljsjtu7ps75vun@pengutronix.de>
- <CAMuHMdWjo36UGde3g5ysdXpLJn=mrPp31SDODuQNPUqoc-ARrQ@mail.gmail.com>
- <20220115152102.m47snsdrw2elagak@pengutronix.de>
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-Organization: Open Mobile Platform
-Message-ID: <77cea138-977a-1454-4808-bd16dd7d2734@omp.ru>
-Date: Sun, 16 Jan 2022 00:06:00 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+ id 1n96NM-0002p2-O8
+ for openipmi-developer@lists.sourceforge.net; Sun, 16 Jan 2022 14:19:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 2F7EB60F14;
+ Sun, 16 Jan 2022 14:19:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D360C36AE7;
+ Sun, 16 Jan 2022 14:19:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+ s=korg; t=1642342750;
+ bh=KujYZ44NbqHewC3hStYnBx16eqgxm1SsBiD7vgCzy1A=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=sKsNPdg/t/aehm0kbBx0+iaMt7Vs15thP7mY+lgsvv2wpHp7hhFp/CL3s/+VFunx8
+ VMGsJpG9T+206AG5qxqWiAVL+YwMP+lMdgO6G29sYG5yQOnXi5Wp9YcaTPGre6QZaH
+ 1Q5W85dO5PtMcGij5VwJ57avVdKo6t7UZumaWiEk=
+Date: Sun, 16 Jan 2022 15:19:06 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Message-ID: <YeQpWu2sUVOSaT9I@kroah.com>
+References: <20220110195449.12448-1-s.shtylyov@omp.ru>
+ <20220110195449.12448-2-s.shtylyov@omp.ru>
+ <20220115183643.6zxalxqxrhkfgdfq@pengutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <20220115152102.m47snsdrw2elagak@pengutronix.de>
-Content-Language: en-US
-X-Originating-IP: [192.168.11.198]
-X-ClientProxiedBy: LFEXT02.lancloud.ru (fd00:f066::142) To
- LFEX1907.lancloud.ru (fd00:f066::207)
-X-Spam-Score: -2.0 (--)
+Content-Disposition: inline
+In-Reply-To: <20220115183643.6zxalxqxrhkfgdfq@pengutronix.de>
+X-Spam-Score: -5.9 (-----)
 X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  On 1/15/22 6:21 PM, Uwe Kleine-König wrote: [...] >>>>>> The
-    subsystems regulator, clk and gpio have the concept of a dummy >>>>>> resource.
-    For regulator, clk and gpio there is a semantic difference >>>>>> between
-    the regular _get() function a [...] 
+ Content preview:  On Sat, Jan 15, 2022 at 07:36:43PM +0100, Uwe Kleine-König
+    wrote: > A possible compromise: We can have both. We rename > platform_get_irq_optional()
+    to platform_get_irq_silent() (or > platform_get_irq [...] 
  
- Content analysis details:   (-2.0 points, 6.0 required)
+ Content analysis details:   (-5.9 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+                             high trust
+                             [139.178.84.217 listed in list.dnswl.org]
   0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
-                             lines
- -2.0 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1n8qFb-00GrOZ-8M
-X-Mailman-Approved-At: Sun, 16 Jan 2022 02:15:25 +0000
-Subject: Re: [Openipmi-developer] [PATCH] driver core: platform: Rename
- platform_get_irq_optional() to platform_get_irq_silent()
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1n96NM-0002p2-O8
+X-Mailman-Approved-At: Mon, 17 Jan 2022 14:08:38 +0000
+Subject: Re: [Openipmi-developer] [PATCH 1/2] platform: make
+ platform_get_irq_optional() optional (summary)
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,136 +106,67 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
- Vignesh Raghavendra <vigneshr@ti.com>, KVM list <kvm@vger.kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, linux-iio@vger.kernel.org, Linus
- Walleij <linus.walleij@linaro.org>, Amit Kucheria <amitk@kernel.org>, ALSA
- Development Mailing List <alsa-devel@alsa-project.org>,
- Jaroslav Kysela <perex@perex.cz>, Guenter Roeck <groeck@chromium.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- MTD Maling List <linux-mtd@lists.infradead.org>,
- Linux I2C <linux-i2c@vger.kernel.org>,
+ Vignesh Raghavendra <vigneshr@ti.com>, kvm@vger.kernel.org,
+ "Rafael J. Wysocki" <rafael@kernel.org>, linux-iio@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, Amit Kucheria <amitk@kernel.org>,
+ alsa-devel@alsa-project.org, Liam Girdwood <lgirdwood@gmail.com>,
+ Guenter Roeck <groeck@chromium.org>, Thierry Reding <thierry.reding@gmail.com>,
+ linux-mtd@lists.infradead.org, linux-i2c@vger.kernel.org,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-phy@lists.infradead.org,
- linux-spi <linux-spi@vger.kernel.org>, Jiri Slaby <jirislaby@kernel.org>,
- "David S. Miller" <davem@davemloft.net>, Khuong
- Dinh <khuong@os.amperecomputing.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Lee Jones <lee.jones@linaro.org>, Khuong Dinh <khuong@os.amperecomputing.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
  Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
- Kamal Dasu <kdasu.kdev@gmail.com>, Lee Jones <lee.jones@linaro.org>, Bartosz
- Golaszewski <brgl@bgdev.pl>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Kishon Vijay Abraham I <kishon@ti.com>,
- bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>, "open
- list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- platform-driver-x86@vger.kernel.org,
- Linux PWM List <linux-pwm@vger.kernel.org>, Hans de
- Goede <hdegoede@redhat.com>, Saravanan
- Sekar <sravanhome@gmail.com>, Corey Minyard <minyard@acm.org>,
- Linux PM list <linux-pm@vger.kernel.org>, Liam
- Girdwood <lgirdwood@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Joakim Zhang <qiangqing.zhang@nxp.com>, Kamal Dasu <kdasu.kdev@gmail.com>,
+ Jiri Slaby <jirislaby@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Tony Luck <tony.luck@intel.com>,
+ Kishon Vijay Abraham I <kishon@ti.com>, bcm-kernel-feedback-list@broadcom.com,
+ linux-serial@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
+ Zhang Rui <rui.zhang@intel.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ platform-driver-x86@vger.kernel.org, linux-pwm@vger.kernel.org,
+ Saravanan Sekar <sravanhome@gmail.com>, Corey Minyard <minyard@acm.org>,
+ linux-pm@vger.kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>,
  John Garry <john.garry@huawei.com>, Peter Korsgaard <peter@korsgaard.com>,
  William Breathitt Gray <vilhelm.gray@gmail.com>,
- Mark Gross <markgross@kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Mark Gross <markgross@kernel.org>, linux-gpio@vger.kernel.org,
  Alex Williamson <alex.williamson@redhat.com>, Mark Brown <broonie@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Takashi Iwai <tiwai@suse.com>, Matthias
- Brugger <matthias.bgg@gmail.com>, openipmi-developer@lists.sourceforge.net,
+ Borislav Petkov <bp@alien8.de>, Eric Auger <eric.auger@redhat.com>,
+ Takashi Iwai <tiwai@suse.com>, Jaroslav Kysela <perex@perex.cz>,
+ openipmi-developer@lists.sourceforge.net,
  Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
  Benson Leung <bleung@chromium.org>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-edac@vger.kernel.org,
- Tony Luck <tony.luck@intel.com>, Richard Weinberger <richard@nod.at>,
- Mun Yew Tham <mun.yew.tham@intel.com>, Eric Auger <eric.auger@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Yoshihiro
- Shimoda <yoshihiro.shimoda.uh@renesas.com>, Cornelia Huck <cohuck@redhat.com>,
- Linux MMC List <linux-mmc@vger.kernel.org>,
- Joakim Zhang <qiangqing.zhang@nxp.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- Vinod Koul <vkoul@kernel.org>, James Morse <james.morse@arm.com>,
- Zha Qipeng <qipeng.zha@intel.com>, Sebastian Reichel <sre@kernel.org>,
- =?UTF-8?Q?Niklas_S=c3=b6derlund?= <niklas.soderlund@ragnatech.se>,
- linux-mediatek@lists.infradead.org, Brian
- Norris <computersforpeace@gmail.com>, netdev <netdev@vger.kernel.org>
-Content-Type: text/plain; charset="windows-1252"
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
+ Sergey Shtylyov <s.shtylyov@omp.ru>, Richard Weinberger <richard@nod.at>,
+ Mun Yew Tham <mun.yew.tham@intel.com>, Hans de Goede <hdegoede@redhat.com>,
+ netdev@vger.kernel.org, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Cornelia Huck <cohuck@redhat.com>, linux-mmc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+ James Morse <james.morse@arm.com>, Zha Qipeng <qipeng.zha@intel.com>,
+ Sebastian Reichel <sre@kernel.org>,
+ Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+ linux-mediatek@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 1/15/22 6:21 PM, Uwe Kleine-K=F6nig wrote:
+On Sat, Jan 15, 2022 at 07:36:43PM +0100, Uwe Kleine-K=F6nig wrote:
+> A possible compromise: We can have both. We rename
+> platform_get_irq_optional() to platform_get_irq_silent() (or
+> platform_get_irq_silently() if this is preferred) and once all users are
+> are changed (which can be done mechanically), we reintroduce a
+> platform_get_irq_optional() with Sergey's suggested semantic (i.e.
+> return 0 on not-found, no error message printking).
 
-[...]
->>>>>> The subsystems regulator, clk and gpio have the concept of a dummy
->>>>>> resource. For regulator, clk and gpio there is a semantic difference
->>>>>> between the regular _get() function and the _get_optional() variant.
->>>>>> (One might return the dummy resource, the other won't. Unfortunately
->>>>>> which one implements which isn't the same for these three.) The
->>>>>> difference between platform_get_irq() and platform_get_irq_optional(=
-) is
->>>>>> only that the former might emit an error message and the later won't.
->>>>
->>>>    This is only a current difference but I'm still going to return 0 I=
-SO
->>>> -ENXIO from latform_get_irq_optional(), no way I'd leave that -ENXIO t=
-here
->>>> alone... :-)
->>>
->>> This would address a bit of the critic in my commit log. But as 0 isn't
->>> a dummy value like the dummy values that exist for clk, gpiod and
->>> regulator I still think that the naming is a bad idea because it's not
->>> in the spirit of the other *_get_optional functions.
->>>
->>> Seeing you say that -ENXIO is a bad return value for
->>> platform_get_irq_optional() and 0 should be used instead, I wonder why
->>> not changing platform_get_irq() to return 0 instead of -ENXIO, too.
->>> This question is for now only about a sensible semantic. That actually
->>> changing platform_get_irq() is probably harder than changing
->>> platform_get_irq_optional() is a different story.
->>>
->>> If only platform_get_irq_optional() is changed and given that the
->>> callers have to do something like:
->>>
->>>         if (this_irq_exists()):
->>>                 ... (e.g. request_irq)
->>>         else:
->>>                 ... (e.g. setup polling)
->>>
->>> I really think it's a bad idea that this_irq_exists() has to be
->>> different for platform_get_irq() vs. platform_get_irq_optional().
->>
->> For platform_get_irq(), the IRQ being absent is an error condition,
->> hence it should return an error code.
->> For platform_get_irq_optional(), the IRQ being absent is not an error
->> condition, hence it should not return an error code, and 0 is OK.
-> =
+Please do not do that as anyone trying to forward-port an old driver
+will miss the abi change of functionality and get confused.  Make
+build-breaking changes, if the way a function currently works is
+changed in order to give people a chance.
 
-> Please show a few examples how this simplifies the code. If it's only
+thanks,
 
-   As for platform_get_irq(), returning -ENXIO simplifies things a lot: you=
- don't
-have to check for 0 at every freaking call site and have s/th like (every
-time!):
-
-	irq =3D platform_get_irq();
-	if (irq <=3D 0)
-		return irq ?: -ENXIO; // any error code you choose
-
-instead of just:
-
-	irq =3D platform_get_irq();
-	if (irq < 0)
-		return irq;
-
-This scales better in my book.
-
-> that a driver has to check for =3D=3D 0 instead of =3D=3D -ENXIO, than th=
-at's
-> not a good enough motivation to make platform_get_irq_optional()
-> different to platform_get_irq().
-
-   Again, it scales better... good motivation in my eyes.
-
-> Best regards
-> Uwe
-
-MBR, Sergey
+greg k-h
 
 
 _______________________________________________
