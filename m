@@ -2,81 +2,120 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 969884909F8
-	for <lists+openipmi-developer@lfdr.de>; Mon, 17 Jan 2022 15:08:44 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 10E544909FA
+	for <lists+openipmi-developer@lfdr.de>; Mon, 17 Jan 2022 15:08:45 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1n9Sgb-0006Vm-77; Mon, 17 Jan 2022 14:08:40 +0000
+	id 1n9Sgb-0006Vt-8T; Mon, 17 Jan 2022 14:08:40 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <s.shtylyov@omp.ru>) id 1n9Qe2-0002VE-9L
- for openipmi-developer@lists.sourceforge.net; Mon, 17 Jan 2022 11:57:53 +0000
+ (envelope-from <geert.uytterhoeven@gmail.com>) id 1n9Rka-0004uj-Li
+ for openipmi-developer@lists.sourceforge.net; Mon, 17 Jan 2022 13:08:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:References:CC:To:From:Subject:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
+ Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=pWpvLqA4BttbG6rhALhTw2tCeQeWwMbIlUpLhQ1GMEc=; b=OxXKHlHZbH1Iw50Nv++e489Mja
- r27JpfH5WmuC7lZXuWU/XEgkHkrD3IKk1kZqopjcRBDbPOaBkj8XaGxvQGsTj6CW1EvYUQCa1+CM8
- CXAV3WPPaX0WU4hs4FUk/DVEZOOCOwqHAhLe1X6k8mn6PwyD0mB2iGWTaqvaGz8gsViQ=;
+ bh=LbGCIVR09xEJePWZW3UCqvYJkRRDeetDnk36pAUGg0E=; b=Qc1UN/LBpdV5NoOjcG4giGnAlj
+ 4erSHegksGbpnQIjG3zd9hkht2WiYSevxzEI+OLPws9Mdse4vhrRBOC7rJ3AQUbzjJxATES/i6SqU
+ DG+03dBTxp0BUoVe6yykpVGkBflbV8MmhRbq2QNfhYlRguWN/J2e1HFGLIavyvupzKBs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:References:CC:To:From:Subject:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
+ :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=pWpvLqA4BttbG6rhALhTw2tCeQeWwMbIlUpLhQ1GMEc=; b=h7qg2WbXs3Y9bPIM0C6I+GaU59
- /GiUlJU0KAoDq6Ywf1mP9J+oqZmHBP3FV5f06tXwbBmbKVnw44OGIIdXe6LH6i8899cP9WfuSxgi0
- IC2R4FpBQ6sIQQrUeUWWhZ2A3WL0/rau+cKVkaV8sZ0/gJVyXc2A/J3sgrPYYOy/XAng=;
-Received: from mxout04.lancloud.ru ([45.84.86.114])
+ bh=LbGCIVR09xEJePWZW3UCqvYJkRRDeetDnk36pAUGg0E=; b=mQgvz4FOHnRSY+3B/NBi50g29W
+ cERO13QBg4ClMaz82A1BQwQ1uove0DxPZci+rDUG1QDYuiBSP9bVUg5tTrKx/BX91MtRbhnTRJjhc
+ zGyA9v4OOBlQd1bQHJ0thLtwGO8WN5gxt1jPkcYUMoHUs2VFOyBAUjfqdUDHOJtuw3x4=;
+Received: from mail-ua1-f53.google.com ([209.85.222.53])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1n9Qdx-0001jG-M4
- for openipmi-developer@lists.sourceforge.net; Mon, 17 Jan 2022 11:57:53 +0000
-Received: from LanCloud
-DKIM-Filter: OpenDKIM Filter v2.11.0 mxout04.lancloud.ru 2B84620D27D1
-Received: from LanCloud
-Received: from LanCloud
-Received: from LanCloud
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20220110195449.12448-1-s.shtylyov@omp.ru>
- <20220110195449.12448-2-s.shtylyov@omp.ru>
-Organization: Open Mobile Platform
-Message-ID: <770fb569-03c8-78f9-c174-94b31e866017@omp.ru>
-Date: Mon, 17 Jan 2022 14:57:32 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.1
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
+ id 1n9RkU-0005Lg-72
+ for openipmi-developer@lists.sourceforge.net; Mon, 17 Jan 2022 13:08:43 +0000
+Received: by mail-ua1-f53.google.com with SMTP id l15so30199385uai.11
+ for <openipmi-developer@lists.sourceforge.net>;
+ Mon, 17 Jan 2022 05:08:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=LbGCIVR09xEJePWZW3UCqvYJkRRDeetDnk36pAUGg0E=;
+ b=IUeYJVgqt/wBI/8PjuSSktsd+47iEwoaRGqIOi3MQudyti7or449XbWM0g0O899z4L
+ +JVUYcAhaLS3pDBBqgG9g27hvW7+4jIXJipfd4gWTfZ0HM9GICjKuqLJpMTSI4O8aYjI
+ sAJqDZiNwMOhl80gVkeNobmlE5eVi3X1F7X3AV+CRKn0oLqT6VjnQ5HFTfKC91bAVgy5
+ vZuMj02mgrHRGXm5iZuVyGbvLUjX12xEX6xDa4r7fn+lC+/S8RNd9tfLYiiy7AbcCpKz
+ //fx/Ies074W2y+sRKjJV+lWdvV/X8VuyDOFwiHDQmBTvsqGggt1LWUbsNYpYVRSvOMI
+ mhqQ==
+X-Gm-Message-State: AOAM531x8/dRxF9NnWcvd7edXZKO353lAhJw/g0oG147DuF2jdZRnkF2
+ xJ2GRUE/bkEw89ZDeRuLxSA9l0Ke6Y5zdw==
+X-Google-Smtp-Source: ABdhPJzP8n+bfmuG7cPI+4tcniKTQdF6lX9e4uBioePDyP0QBu+6Al1psj8Z/g/AEP/YM4r72/84Hg==
+X-Received: by 2002:ab0:6096:: with SMTP id i22mr7723699ual.92.1642424912443; 
+ Mon, 17 Jan 2022 05:08:32 -0800 (PST)
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com.
+ [209.85.222.48])
+ by smtp.gmail.com with ESMTPSA id k18sm919782vsq.25.2022.01.17.05.08.31
+ for <openipmi-developer@lists.sourceforge.net>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 17 Jan 2022 05:08:32 -0800 (PST)
+Received: by mail-ua1-f48.google.com with SMTP id m90so30335079uam.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Mon, 17 Jan 2022 05:08:31 -0800 (PST)
+X-Received: by 2002:a67:e95a:: with SMTP id p26mr3535723vso.38.1642424911445; 
+ Mon, 17 Jan 2022 05:08:31 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20220110195449.12448-2-s.shtylyov@omp.ru>
-Content-Language: en-US
-X-Originating-IP: [192.168.11.198]
-X-ClientProxiedBy: LFEXT02.lancloud.ru (fd00:f066::142) To
- LFEX1907.lancloud.ru (fd00:f066::207)
-X-Spam-Score: -2.0 (--)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+References: <20220112213121.5ruae5mxwj6t3qiy@pengutronix.de>
+ <Yd9L9SZ+g13iyKab@sirena.org.uk> <29f0c65d-77f2-e5b2-f6cc-422add8a707d@omp.ru>
+ <20220114092557.jrkfx7ihg26ekzci@pengutronix.de>
+ <61b80939-357d-14f5-df99-b8d102a4e1a1@omp.ru>
+ <20220114202226.ugzklxv4wzr6egwj@pengutronix.de>
+ <c9026f17-2b3f-ee94-0ea3-5630f981fbc1@omp.ru>
+ <CAMuHMdXVbRudGs69f9ZzaP1PXhteDNZiXA658eMFAwP4nr9r3w@mail.gmail.com>
+ <20220117092444.opoedfcf5k5u6otq@pengutronix.de>
+ <CAMuHMdUgZUeraHadRAi2Z=DV+NuNBrKPkmAKsvFvir2MuquVoA@mail.gmail.com>
+ <20220117114923.d5vajgitxneec7j7@pengutronix.de>
+In-Reply-To: <20220117114923.d5vajgitxneec7j7@pengutronix.de>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 17 Jan 2022 14:08:19 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWCKERO20R2iVHq8P=BaoauoBAtiampWzfMRYihi3Sb0g@mail.gmail.com>
+Message-ID: <CAMuHMdWCKERO20R2iVHq8P=BaoauoBAtiampWzfMRYihi3Sb0g@mail.gmail.com>
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+X-Spam-Score: 0.5 (/)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 1/10/22 10:54 PM, Sergey Shtylyov wrote: > This patch is
- based on the former Andy Shevchenko's patch: > >
- https://lore.kernel.org/lkml/20210331144526.19439-1-andriy.shevchenko@linux.intel.com/
- > > Currently platform_get_irq_optional() return [...] 
- Content analysis details:   (-2.0 points, 6.0 required)
- pts rule name              description
+ 
+ Content preview:  Hi Uwe, On Mon, Jan 17, 2022 at 12:49 PM Uwe Kleine-König
+    <u.kleine-koenig@pengutronix.de> wrote: > On Mon, Jan 17, 2022 at 11:35:52AM
+    +0100, Geert Uytterhoeven wrote: > > On Mon, Jan 17, 2022 at 10:24 AM Uw
+   [...] 
+ 
+ Content analysis details:   (0.5 points, 6.0 required)
+ 
+  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+                              no trust
+                             [209.85.222.53 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [209.85.222.53 listed in wl.mailspike.net]
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
- lines -2.0 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1n9Qdx-0001jG-M4
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [geert.uytterhoeven[at]gmail.com]
+  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+                             EnvelopeFrom freemail headers are
+                             different
+X-Headers-End: 1n9RkU-0005Lg-72
 X-Mailman-Approved-At: Mon, 17 Jan 2022 14:08:38 +0000
 Subject: Re: [Openipmi-developer] [PATCH 1/2] platform: make
  platform_get_irq_optional() optional
@@ -93,208 +132,239 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
- Vignesh Raghavendra <vigneshr@ti.com>, Jiri Slaby <jirislaby@kernel.org>, Liam
- Girdwood <lgirdwood@gmail.com>, linux-iio@vger.kernel.org,
+ Vignesh Raghavendra <vigneshr@ti.com>, KVM list <kvm@vger.kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, linux-iio@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, Amit Kucheria <amitk@kernel.org>,
- alsa-devel@alsa-project.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Sebastian Reichel <sre@kernel.org>, linux-phy@lists.infradead.org,
- Thierry Reding <thierry.reding@gmail.com>, linux-mtd@lists.infradead.org,
- linux-i2c@vger.kernel.org, linux-gpio@vger.kernel.org, Miquel
- Raynal <miquel.raynal@bootlin.com>, Guenter
- Roeck <groeck@chromium.org>, Lee Jones <lee.jones@linaro.org>,
- openipmi-developer@lists.sourceforge.net,
- Saravanan Sekar <sravanhome@gmail.com>,
+ ALSA Development Mailing List <alsa-devel@alsa-project.org>,
+ Jaroslav Kysela <perex@perex.cz>, Guenter Roeck <groeck@chromium.org>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ MTD Maling List <linux-mtd@lists.infradead.org>,
+ Linux I2C <linux-i2c@vger.kernel.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>, linux-phy@lists.infradead.org,
+ linux-spi <linux-spi@vger.kernel.org>, Jiri Slaby <jirislaby@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>,
  Khuong Dinh <khuong@os.amperecomputing.com>,
  Florian Fainelli <f.fainelli@gmail.com>,
- Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, kvm@vger.kernel.org,
- Kamal Dasu <kdasu.kdev@gmail.com>, Richard Weinberger <richard@nod.at>,
+ Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
+ Kamal Dasu <kdasu.kdev@gmail.com>, Lee Jones <lee.jones@linaro.org>,
  Bartosz Golaszewski <brgl@bgdev.pl>,
  Daniel Lezcano <daniel.lezcano@linaro.org>,
- Kishon Vijay Abraham I <kishon@ti.com>, bcm-kernel-feedback-list@broadcom.com,
- linux-serial@vger.kernel.org,
- =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
+ Kishon Vijay Abraham I <kishon@ti.com>,
+ bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
+ "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
  Jakub Kicinski <kuba@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Jaroslav Kysela <perex@perex.cz>, platform-driver-x86@vger.kernel.org,
- linux-pwm@vger.kernel.org, John Garry <john.garry@huawei.com>,
- Zha Qipeng <qipeng.zha@intel.com>, Corey Minyard <minyard@acm.org>,
- linux-pm@vger.kernel.org, Peter Korsgaard <peter@korsgaard.com>, William
- Breathitt Gray <vilhelm.gray@gmail.com>, Mark Gross <markgross@kernel.org>,
- Hans de Goede <hdegoede@redhat.com>,
+ platform-driver-x86@vger.kernel.org,
+ Linux PWM List <linux-pwm@vger.kernel.org>,
+ Hans de Goede <hdegoede@redhat.com>, Saravanan Sekar <sravanhome@gmail.com>,
+ Corey Minyard <minyard@acm.org>, Linux PM list <linux-pm@vger.kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, John Garry <john.garry@huawei.com>,
+ Peter Korsgaard <peter@korsgaard.com>,
+ William Breathitt Gray <vilhelm.gray@gmail.com>,
+ Mark Gross <markgross@kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
  Alex Williamson <alex.williamson@redhat.com>, Mark Brown <broonie@kernel.org>,
- Borislav Petkov <bp@alien8.de>, Matthias Brugger <matthias.bgg@gmail.com>,
- Takashi Iwai <tiwai@suse.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Benson Leung <bleung@chromium.org>,
- linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
- Tony Luck <tony.luck@intel.com>, Mun Yew Tham <mun.yew.tham@intel.com>,
- Eric Auger <eric.auger@redhat.com>, netdev@vger.kernel.org,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Cornelia Huck <cohuck@redhat.com>, linux-mmc@vger.kernel.org,
- Joakim Zhang <qiangqing.zhang@nxp.com>, linux-spi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
- James Morse <james.morse@arm.com>,
+ Borislav Petkov <bp@alien8.de>, Takashi Iwai <tiwai@suse.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ openipmi-developer@lists.sourceforge.net,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Benson Leung <bleung@chromium.org>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- =?UTF-8?Q?Niklas_S=c3=b6derlund?= <niklas.soderlund@ragnatech.se>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-edac@vger.kernel.org,
+ Tony Luck <tony.luck@intel.com>, Richard Weinberger <richard@nod.at>,
+ Mun Yew Tham <mun.yew.tham@intel.com>, Eric Auger <eric.auger@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Cornelia Huck <cohuck@redhat.com>, Linux MMC List <linux-mmc@vger.kernel.org>,
+ Joakim Zhang <qiangqing.zhang@nxp.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ Sergey Shtylyov <s.shtylyov@omp.ru>, Vinod Koul <vkoul@kernel.org>,
+ James Morse <james.morse@arm.com>, Zha Qipeng <qipeng.zha@intel.com>,
+ Sebastian Reichel <sre@kernel.org>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
  linux-mediatek@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
- "David S. Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ netdev <netdev@vger.kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 1/10/22 10:54 PM, Sergey Shtylyov wrote:
-
-> This patch is based on the former Andy Shevchenko's patch:
-> 
-> https://lore.kernel.org/lkml/20210331144526.19439-1-andriy.shevchenko@linux.intel.com/
-> 
-> Currently platform_get_irq_optional() returns an error code even if IRQ
-> resource simply has not been found. It prevents the callers from being
-> error code agnostic in their error handling:
-> 
-> 	ret = platform_get_irq_optional(...);
-> 	if (ret < 0 && ret != -ENXIO)
-> 		return ret; // respect deferred probe
-> 	if (ret > 0)
-> 		...we get an IRQ...
-> 
-> All other *_optional() APIs seem to return 0 or NULL in case an optional
-> resource is not available. Let's follow this good example, so that the
-> callers would look like:
-> 
-> 	ret = platform_get_irq_optional(...);
-> 	if (ret < 0)
-> 		return ret;
-> 	if (ret > 0)
-> 		...we get an IRQ...
-> 
-> Reported-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-> Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
-[...]
-
-   Please don't merge this as yet, I'm going thru this patch once again
-and have already found some sloppy code. :-/
-
-> diff --git a/drivers/char/ipmi/bt-bmc.c b/drivers/char/ipmi/bt-bmc.c
-> index 7450904e330a..fdc63bfa5be4 100644
-> --- a/drivers/char/ipmi/bt-bmc.c
-> +++ b/drivers/char/ipmi/bt-bmc.c
-> @@ -382,12 +382,14 @@ static int bt_bmc_config_irq(struct bt_bmc *bt_bmc,
->  	bt_bmc->irq = platform_get_irq_optional(pdev, 0);
->  	if (bt_bmc->irq < 0)
->  		return bt_bmc->irq;
-> +	if (!bt_bmc->irq)
-> +		return 0;
-
-   Hm, this is sloppy. Will recast and rebase to the -next branch.
-
->  
->  	rc = devm_request_irq(dev, bt_bmc->irq, bt_bmc_irq, IRQF_SHARED,
->  			      DEVICE_NAME, bt_bmc);
->  	if (rc < 0) {
->  		dev_warn(dev, "Unable to request IRQ %d\n", bt_bmc->irq);
-> -		bt_bmc->irq = rc;
-> +		bt_bmc->irq = 0;
-
-   This change isn't needed...
-
->  		return rc;
->  	}
->  
-[...]
-> diff --git a/drivers/edac/xgene_edac.c b/drivers/edac/xgene_edac.c
-> index 2ccd1db5e98f..0d1bdd27cd78 100644
-> --- a/drivers/edac/xgene_edac.c
-> +++ b/drivers/edac/xgene_edac.c
-> @@ -1917,7 +1917,7 @@ static int xgene_edac_probe(struct platform_device *pdev)
->  
->  		for (i = 0; i < 3; i++) {
->  			irq = platform_get_irq_optional(pdev, i);
-
-   Is *_optinal() even correct here?
-
-> -			if (irq < 0) {
-> +			if (irq <= 0) {
->  				dev_err(&pdev->dev, "No IRQ resource\n");
->  				rc = -EINVAL;
->  				goto out_err;
-[...]
-> diff --git a/drivers/mtd/nand/raw/brcmnand/brcmnand.c b/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-> index f75929783b94..ac222985efde 100644
-> --- a/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-> +++ b/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-> @@ -1521,7 +1521,7 @@ static irqreturn_t brcmnand_ctlrdy_irq(int irq, void *data)
->  
->  	/* check if you need to piggy back on the ctrlrdy irq */
->  	if (ctrl->edu_pending) {
-> -		if (irq == ctrl->irq && ((int)ctrl->edu_irq >= 0))
-> +		if (irq == ctrl->irq && ((int)ctrl->edu_irq > 0))
-
-   Note to self: the cast to *int* isn't needed, the edu_irq field is *int* already...
-
-[...]
-> diff --git a/drivers/power/supply/mp2629_charger.c b/drivers/power/supply/mp2629_charger.c
-> index bdf924b73e47..51289700a7ac 100644
-> --- a/drivers/power/supply/mp2629_charger.c
-> +++ b/drivers/power/supply/mp2629_charger.c
-> @@ -581,9 +581,9 @@ static int mp2629_charger_probe(struct platform_device *pdev)
->  	platform_set_drvdata(pdev, charger);
->  
->  	irq = platform_get_irq_optional(to_platform_device(dev->parent), 0);
-
-   Again, is *_optional() even correct here?
-
-> -	if (irq < 0) {
-> +	if (irq <= 0) {
->  		dev_err(dev, "get irq fail: %d\n", irq);
-> -		return irq;
-> +		return irq < 0 ? irq : -ENXIO;
->  	}
->  
->  	for (i = 0; i < MP2629_MAX_FIELD; i++) {
-[...]
-> diff --git a/drivers/thermal/rcar_gen3_thermal.c b/drivers/thermal/rcar_gen3_thermal.c
-> index 43eb25b167bc..776cfed4339c 100644
-> --- a/drivers/thermal/rcar_gen3_thermal.c
-> +++ b/drivers/thermal/rcar_gen3_thermal.c
-> @@ -430,7 +430,7 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
->  
->  	for (i = 0; i < 2; i++) {
->  		irq = platform_get_irq_optional(pdev, i);
-> -		if (irq < 0)
-> +		if (irq <= 0)
->  			return irq;
-
-   Sloppy code again? We shouldn't return 0...
-
-[...]
-> diff --git a/drivers/vfio/platform/vfio_platform.c b/drivers/vfio/platform/vfio_platform.c
-> index 68a1c87066d7..cd7494933563 100644
-> --- a/drivers/vfio/platform/vfio_platform.c
-> +++ b/drivers/vfio/platform/vfio_platform.c
-> @@ -32,8 +32,12 @@ static struct resource *get_platform_resource(struct vfio_platform_device *vdev,
->  static int get_platform_irq(struct vfio_platform_device *vdev, int i)
->  {
->  	struct platform_device *pdev = (struct platform_device *) vdev->opaque;
-> +	int ret;
->  
-> -	return platform_get_irq_optional(pdev, i);
-> +	ret = platform_get_irq_optional(pdev, i);
-> +	if (ret < 0)
-> +		return ret;
-> +	return ret > 0 ? ret : -ENXIO;
-
-   Could be expressed more concisely:
-
-	return ret ? : -ENXIO;
-
-just like vfio_amba.c does it...
-
-[...]
-
-MBR, Sergey
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+SGkgVXdlLAoKT24gTW9uLCBKYW4gMTcsIDIwMjIgYXQgMTI6NDkgUE0gVXdlIEtsZWluZS1Lw7Zu
+aWcKPHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25peC5kZT4gd3JvdGU6Cj4gT24gTW9uLCBKYW4g
+MTcsIDIwMjIgYXQgMTE6MzU6NTJBTSArMDEwMCwgR2VlcnQgVXl0dGVyaG9ldmVuIHdyb3RlOgo+
+ID4gT24gTW9uLCBKYW4gMTcsIDIwMjIgYXQgMTA6MjQgQU0gVXdlIEtsZWluZS1Lw7ZuaWcKPiA+
+IDx1LmtsZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGU+IHdyb3RlOgo+ID4gPiBPbiBNb24sIEph
+biAxNywgMjAyMiBhdCAwOTo0MTo0MkFNICswMTAwLCBHZWVydCBVeXR0ZXJob2V2ZW4gd3JvdGU6
+Cj4gPiA+ID4gT24gU2F0LCBKYW4gMTUsIDIwMjIgYXQgOToyMiBQTSBTZXJnZXkgU2h0eWx5b3Yg
+PHMuc2h0eWx5b3ZAb21wLnJ1PiB3cm90ZToKPiA+ID4gPiA+IE9uIDEvMTQvMjIgMTE6MjIgUE0s
+IFV3ZSBLbGVpbmUtS8O2bmlnIHdyb3RlOgo+ID4gPiA+ID4gPiBZb3UgaGF2ZSB0byB1bmRlcnN0
+YW5kIHRoYXQgZm9yIGNsayAoYW5kIHJlZ3VsYXRvciBhbmQgZ3Bpb2QpIE5VTEwgaXMgYQo+ID4g
+PiA+ID4gPiB2YWxpZCBkZXNjcmlwdG9yIHRoYXQgY2FuIGFjdHVhbGx5IGJlIHVzZWQsIGl0IGp1
+c3QgaGFzIG5vIGVmZmVjdC4gU28KPiA+ID4gPiA+ID4gdGhpcyBpcyBhIGNvbnZlbmllbmNlIHZh
+bHVlIGZvciB0aGUgY2FzZSAiSWYgdGhlIGNsay9yZWd1bGF0b3IvZ3Bpb2QgaW4KPiA+ID4gPiA+
+ID4gcXVlc3Rpb24gaXNuJ3QgYXZhaWxhYmxlLCB0aGVyZSBpcyBub3RoaW5nIHRvIGRvIi4gVGhp
+cyBpcyB3aGF0IG1ha2VzCj4gPiA+ID4gPiA+IGNsa19nZXRfb3B0aW9uYWwoKSBhbmQgdGhlIG90
+aGVycyByZWFsbHkgdXNlZnVsIGFuZCBqdXN0aWZpZXMgdGhlaXIKPiA+ID4gPiA+ID4gZXhpc3Rl
+bmNlLiBUaGlzIGRvZXNuJ3QgYXBwbHkgdG8gcGxhdGZvcm1fZ2V0X2lycV9vcHRpb25hbCgpLgo+
+ID4gPiA+ID4KPiA+ID4gPiA+ICAgIEkgZG8gdW5kZXJzdGFuZCB0aGF0LiBIb3dldmVyLCBJUlFz
+IGFyZSBhIGRpZmZlcmVudCBiZWFzdCB3aXRoIHRoZWlyCj4gPiA+ID4gPiBvd24ganVzdGlmaWNh
+dGlvbnMuLi4KPiA+ID4gPgo+ID4gPiA+ID4gPiBjbGtfZ2V0X29wdGlvbmFsKCkgaXMgc2FuZSBh
+bmQgc2Vuc2libGUgZm9yIGNhc2VzIHdoZXJlIHRoZSBjbGsgbWlnaHQgYmUKPiA+ID4gPiA+ID4g
+YWJzZW50IGFuZCBpdCBoZWxwcyB5b3UgYmVjYXVzZSB5b3UgZG9uJ3QgaGF2ZSB0byBkaWZmZXJl
+bnRpYXRlIGJldHdlZW4KPiA+ID4gPiA+ID4gIm5vdCBmb3VuZCIgYW5kICJ0aGVyZSBpcyBhbiBh
+Y3R1YWwgcmVzb3VyY2UiLgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBUaGUgcmVhc29uIGZvciBw
+bGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCkncyBleGlzdGVuY2UgaXMganVzdCB0aGF0Cj4gPiA+
+ID4gPiA+IHBsYXRmb3JtX2dldF9pcnEoKSBlbWl0cyBhbiBlcnJvciBtZXNzYWdlIHdoaWNoIGlz
+IHdyb25nIG9yIHN1Ym9wdGltYWwKPiA+ID4gPiA+Cj4gPiA+ID4gPiAgICBJIHRoaW5rIHlvdSBh
+cmUgdmVyeSB3cm9uZyBoZXJlLiBUaGUgcmVhbCByZWFzb24gaXMgdG8gc2ltcGxpZnkgdGhlCj4g
+PiA+ID4gPiBjYWxsZXJzLgo+ID4gPiA+Cj4gPiA+ID4gSW5kZWVkLgo+ID4gPgo+ID4gPiBUaGUg
+Y29tbWl0IHRoYXQgaW50cm9kdWNlZCBwbGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCkgc2FpZDoK
+PiA+ID4KPiA+ID4gICAgICAgICBJbnRyb2R1Y2UgYSBuZXcgcGxhdGZvcm1fZ2V0X2lycV9vcHRp
+b25hbCgpIHRoYXQgd29ya3MgbXVjaCBsaWtlCj4gPiA+ICAgICAgICAgcGxhdGZvcm1fZ2V0X2ly
+cSgpIGJ1dCBkb2VzIG5vdCBvdXRwdXQgYW4gZXJyb3Igb24gZmFpbHVyZSB0bwo+ID4gPiAgICAg
+ICAgIGZpbmQgdGhlIGludGVycnVwdC4KPiA+ID4KPiA+ID4gU28gdGhlIGF1dGhvciBvZiA4OTcz
+ZWE0NzkwMWM4MWExOTEyYmQwNWYxNTc3YmVkOWI1YjUyNTA2IGZhaWxlZCB0bwo+ID4gPiBtZW50
+aW9uIHRoZSByZWFsIHJlYXNvbj8gT3IgbG9vayBhdAo+ID4gPiAzMWE4ZDhmYTg0YzUxZDNhYjAw
+YmYwNTkxNThkNWRlNjE3OGNmODkwOgo+ID4gPgo+ID4gPiAgICAgICAgIFsuLi5dIHVzZSBwbGF0
+Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCkgdG8gZ2V0IHNlY29uZC90aGlyZCBJUlEKPiA+ID4gICAg
+ICAgICB3aGljaCBhcmUgb3B0aW9uYWwgdG8gYXZvaWQgYmVsb3cgZXJyb3IgbWVzc2FnZSBkdXJp
+bmcgcHJvYmU6Cj4gPiA+ICAgICAgICAgWy4uLl0KPiA+ID4KPiA+ID4gTG9vayB0aHJvdWdoIHRo
+ZSBvdXRwdXQgb2YKPiA+ID4KPiA+ID4gICAgICAgICBnaXQgbG9nIC1TcGxhdGZvcm1fZ2V0X2ly
+cV9vcHRpb25hbAo+ID4gPgo+ID4gPiB0byBmaW5kIHNldmVyYWwgbW9yZSBvZiB0aGVzZS4KPiA+
+Cj4gPiBDb21taXQgODk3M2VhNDc5MDFjODFhMSAoImRyaXZlciBjb3JlOiBwbGF0Zm9ybTogSW50
+cm9kdWNlCj4gPiBwbGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCkiKSBhbmQgdGhlIHZhcmlvdXMg
+Zml4dXBzIGZpeGVkIHRoZSB1Z2x5Cj4gPiBwcmludGluZyBvZiBlcnJvciBtZXNzYWdlcyB0aGF0
+IHdlcmUgbm90IGFwcGxpY2FibGUuCj4gPiBJbiBoaW5kc2lnaHQsIHByb2JhYmx5IGNvbW1pdCA3
+NzIzZjRjNWVjZGI4ZDgzICgiZHJpdmVyIGNvcmU6Cj4gPiBwbGF0Zm9ybTogQWRkIGFuIGVycm9y
+IG1lc3NhZ2UgdG8gcGxhdGZvcm1fZ2V0X2lycSooKSIpIHNob3VsZCBoYXZlCj4gPiBiZWVuIHJl
+dmVydGVkIGluc3RlYWQsIHVudGlsIGEgcGxhdGZvcm1fZ2V0X2lycV9vcHRpb25hbCgpIHdpdGgg
+cHJvcGVyCj4gPiBzZW1hbnRpY3Mgd2FzIGludHJvZHVjZWQuCj4KPiBhY2suCj4KPiA+IEJ1dCBh
+cyB3ZSB3ZXJlIGFsbCBpbiBhIGh1cnJ5IHRvIGtpbGwgdGhlIG5vbi1hcHBsaWNhYmxlIGVycm9y
+Cj4gPiBtZXNzYWdlLCB3ZSB3ZW50IGZvciB0aGUgcXVpY2sgYW5kIGRpcnR5IGZpeC4KPiA+Cj4g
+PiA+IEFsc28gSSBmYWlsIHRvIHNlZSBob3cgYSBjYWxsZXIgb2YgKHRvZGF5J3MpIHBsYXRmb3Jt
+X2dldF9pcnFfb3B0aW9uYWwoKQo+ID4gPiBpcyBzaW1wbGVyIHRoYW4gYSBjYWxsZXIgb2YgcGxh
+dGZvcm1fZ2V0X2lycSgpIGdpdmVuIHRoYXQgdGhlcmUgaXMgbm8KPiA+ID4gc2VtYW50aWMgZGlm
+ZmVyZW5jZSBiZXR3ZWVuIHRoZSB0d28uIFBsZWFzZSBzaG93IG1lIGEgc2luZ2xlCj4gPiA+IGNv
+bnZlcnNpb24gZnJvbSBwbGF0Zm9ybV9nZXRfaXJxIHRvIHBsYXRmb3JtX2dldF9pcnFfb3B0aW9u
+YWwgdGhhdAo+ID4gPiB5aWVsZGVkIGEgc2ltcGxpZmljYXRpb24uCj4gPgo+ID4gVGhhdCdzIGV4
+YWN0bHkgd2h5IHdlIHdhbnQgdG8gY2hhbmdlIHRoZSBsYXR0ZXIgdG8gcmV0dXJuIDAgOy0pCj4K
+PiBPSy4gU28geW91IGFncmVlIHRvIG15IHN0YXRlbWVudCAiVGhlIHJlYXNvbiBmb3IKPiBwbGF0
+Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCkncyBleGlzdGVuY2UgaXMganVzdCB0aGF0IHBsYXRmb3Jt
+X2dldF9pcnEoKQo+IGVtaXRzIGFuIGVycm9yIG1lc3NhZ2UgWy4uLl0iLiBBY3R1YWxseSB5b3Ug
+ZG9uJ3Qgd2FudCB0byBvcHBvc2UgYnV0Cj4gc2F5OiBJdCdzIHVuZm9ydHVuYXRlIHRoYXQgdGhl
+IHNpbGVudCB2YXJpYW50IG9mIHBsYXRmb3JtX2dldF9pcnEoKSB0b29rCj4gdGhlIG9idmlvdXMg
+bmFtZSBvZiBhIGZ1bmN0aW9uIHRoYXQgY291bGQgaGF2ZSBhbiBpbXByb3ZlZCByZXR1cm4gY29k
+ZQo+IHNlbWFudGljLgo+Cj4gU28gbXkgc3VnZ2VzdGlvbiB0byByZW5hbWUgdG9kYXlzIHBsYXRm
+b3JtX2dldF9pcnFfb3B0aW9uYWwoKSB0bwo+IHBsYXRmb3JtX2dldF9pcnFfc2lsZW50bHkoKSBh
+bmQgdGhlbiBpbnRyb2R1Y2luZwo+IHBsYXRmb3JtX2dldF9pcnFfb3B0aW9uYWwoKSB3aXRoIHlv
+dXIgc3VnZ2VzdGVkIHNlbWFudGljIHNlZW1zCj4gaW50cmlndWluZyBhbmQgc3RyYWlndCBmb3J3
+YXJkIHRvIG1lLgoKSSBkb24ndCByZWFsbHkgc2VlIHRoZSBwb2ludCBvZiBuZWVkaW5nIHBsYXRm
+b3JtX2dldF9pcnFfc2lsZW50bHkoKSwKdW5sZXNzIGFzIGFuIGludGVybWVkaWFyeSBzdGVwLCB3
+aGVyZSBpdCdzIGdvaW5nIHRvIGJlIHJlbW92ZWQgYWdhaW4Kb25jZSB0aGUgY29udmVyc2lvbiBo
+YXMgY29tcGxldGVkLgpTdGlsbCwgdGhlIHJlbmFtZSB3b3VsZCB0b3VjaCBhbGwgdXNlcnMgYXQg
+b25jZSBhbnl3YXkuCgo+IEFub3RoZXIgdGhvdWdodDogcGxhdGZvcm1fZ2V0X2lycSBlbWl0cyBh
+biBlcnJvciBtZXNzYWdlIGZvciBhbGwKPiBwcm9ibGVtcy4gV291bGRuJ3QgaXQgYmUgY29uc2lz
+dGVudCB0byBsZXQgcGxhdGZvcm1fZ2V0X2lycV9vcHRpb25hbCgpCj4gZW1pdCBhbiBlcnJvciBt
+ZXNzYWdlIGZvciBhbGwgcHJvYmxlbXMgYnV0ICJub3QgZm91bmQiPwo+IEFsdGVybmF0aXZlbHkg
+cmVtb3ZlIHRoZSBlcnJvciBwcmludGsgZnJvbSBwbGF0Zm9ybV9nZXRfaXJxKCkuCgpZZXMsIGFs
+bCBwcm9ibGVtcyBidXQgbm90IGZvdW5kIGFyZSByZWFsIGVycm9ycy4KCj4gPiA+IFNvIHlvdSBu
+ZWVkIHNvbWUgbW9yZSBlZmZvcnQgdG8gY29udmluY2UgbWUgb2YgeW91ciBQT1YuCj4gPiA+Cj4g
+PiA+ID4gRXZlbiBmb3IgY2xvY2tzLCB5b3UgY2Fubm90IGFzc3VtZSB0aGF0IHlvdSBjYW4gYWx3
+YXlzIGJsaW5kbHkgdXNlCj4gPiA+ID4gdGhlIHJldHVybmVkIGR1bW15IChhY3R1YWxseSBhIE5V
+TEwgcG9pbnRlcikgdG8gY2FsbCBpbnRvIHRoZSBjbGsKPiA+ID4gPiBBUEkuICBXaGlsZSB0aGlz
+IHdvcmtzIGZpbmUgZm9yIHNpbXBsZSB1c2UgY2FzZXMsIHdoZXJlIHlvdSBqdXN0Cj4gPiA+ID4g
+d2FudCB0byBlbmFibGUvZGlzYWJsZSBhbiBvcHRpb25hbCBjbG9jayAoY2xrX3ByZXBhcmVfZW5h
+YmxlKCkgYW5kCj4gPiA+ID4gY2xrX2Rpc2FibGVfdW5wcmVwYXJlKCkpLCBpdCBkb2VzIG5vdCB3
+b3JrIGZvciBtb3JlIGNvbXBsZXggdXNlIGNhc2VzLgo+ID4gPgo+ID4gPiBBZ3JlZWQuIEJ1dCBm
+b3IgY2xrcyBhbmQgZ3Bpb2RzIGFuZCByZWd1bGF0b3JzIHRoZSBzaW1wbGUgY2FzZSBpcyBxdWl0
+ZQo+ID4gPiB1c3VhbC4gRm9yIGlycXMgaXQgaXNuJ3QuCj4gPgo+ID4gSXQgaXMgZm9yIGRldmlj
+ZXMgdGhhdCBjYW4gaGF2ZSBlaXRoZXIgc2VwYXJhdGUgaW50ZXJydXB0cywgb3IgYSBzaW5nbGUK
+PiA+IG11bHRpcGxleGVkIGludGVycnVwdC4KPiA+Cj4gPiBUaGUgbG9naWMgaW4gZS5nLiBkcml2
+ZXJzL3R0eS9zZXJpYWwvc2gtc2NpLmMgYW5kCj4gPiBkcml2ZXJzL3NwaS9zcGktcnNwaS5jIGNv
+dWxkIGJlIHNpbXBsaWZpZWQgYW5kIGltcHJvdmVkIChjdXJyZW50bHkKPiA+IGl0IGRvZXNuJ3Qg
+aGFuZGxlIGRlZmVycmVkIHByb2JlKSBpZiBwbGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCkKPiA+
+IHdvdWxkIHJldHVybiAwIGluc3RlYWQgb2YgLUVOWElPLgo+Cj4gTG9va2luZyBhdCBzaC1zY2ku
+YyB0aGUgaXJxIGhhbmRsaW5nIGxvZ2ljIGNvdWxkIGJlIGltcHJvdmVkIGV2ZW4KPiB3aXRob3V0
+IGEgY2hhbmdlZCBwbGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCk6Cj4KPiBkaWZmIC0tZ2l0IGEv
+ZHJpdmVycy90dHkvc2VyaWFsL3NoLXNjaS5jIGIvZHJpdmVycy90dHkvc2VyaWFsL3NoLXNjaS5j
+Cj4gaW5kZXggOTY4OTY3ZDcyMmQ0Li5jN2RjOWZiODQ4NDQgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVy
+cy90dHkvc2VyaWFsL3NoLXNjaS5jCj4gKysrIGIvZHJpdmVycy90dHkvc2VyaWFsL3NoLXNjaS5j
+Cj4gQEAgLTI4NzMsMTEgKzI4NzMsMTMgQEAgc3RhdGljIGludCBzY2lfaW5pdF9zaW5nbGUoc3Ry
+dWN0IHBsYXRmb3JtX2RldmljZSAqZGV2LAo+ICAgICAgICAgICogaW50ZXJydXB0IElEIG51bWJl
+cnMsIG9yIG11eGVkIHRvZ2V0aGVyIHdpdGggYW5vdGhlciBpbnRlcnJ1cHQuCj4gICAgICAgICAg
+Ki8KPiAgICAgICAgIGlmIChzY2lfcG9ydC0+aXJxc1swXSA8IDApCj4gLSAgICAgICAgICAgICAg
+IHJldHVybiAtRU5YSU87Cj4gKyAgICAgICAgICAgICAgIHJldHVybiBzY2lfcG9ydC0+aXJxc1sw
+XTsKPgo+IC0gICAgICAgaWYgKHNjaV9wb3J0LT5pcnFzWzFdIDwgMCkKPiArICAgICAgIGlmIChz
+Y2lfcG9ydC0+aXJxc1sxXSA9PSAtRU5YSU8pCj4gICAgICAgICAgICAgICAgIGZvciAoaSA9IDE7
+IGkgPCBBUlJBWV9TSVpFKHNjaV9wb3J0LT5pcnFzKTsgaSsrKQo+ICAgICAgICAgICAgICAgICAg
+ICAgICAgIHNjaV9wb3J0LT5pcnFzW2ldID0gc2NpX3BvcnQtPmlycXNbMF07Cj4gKyAgICAgICBl
+bHNlIGlmIChzY2lfcG9ydC0+aXJxc1sxXSA8IDApCj4gKyAgICAgICAgICAgICAgIHJldHVybiBz
+Y2lfcG9ydC0+aXJxc1sxXTsKPgo+ICAgICAgICAgc2NpX3BvcnQtPnBhcmFtcyA9IHNjaV9wcm9i
+ZV9yZWdtYXAocCk7Cj4gICAgICAgICBpZiAodW5saWtlbHkoc2NpX3BvcnQtPnBhcmFtcyA9PSBO
+VUxMKSkKPgo+IEFuZCB0aGVuIHRoZSBjb2RlIGZsb3cgaXMgYWN0aXZlbHkgaXJyaXRhdGluZy4g
+c2NpX2luaXRfc2luZ2xlKCkgY29waWVzCj4gaXJxc1swXSB0byBhbGwgb3RoZXIgaXJxc1tpXSBh
+bmQgdGhlbiBzY2lfcmVxdWVzdF9pcnEoKSBsb29wcyBvdmVyIHRoZQo+IGFscmVhZHkgcmVxdWVz
+dGVkIGlycXMgYW5kIGNoZWNrcyBmb3IgZHVwbGljYXRlcy4gQSBzaW5nbGUgcGxhY2UgdGhhdAo+
+IGlkZW50aWZpZXMgdGhlIGV4YWN0IHNldCBvZiByZXF1aXJlZCBpcnFzIHdvdWxkIGFscmVhZHkg
+aGVscCBhIGxvdC4KClllYWgsIGl0J3MgdWdseSBhbmQgY29udm9sdXRlZCwgbGlrZSB0aGUgd2lk
+ZSBzZXQgb2YgaGFyZHdhcmUgdGhlCmRyaXZlciBzdXBwb3J0cy4KCj4gQWxzbyBmb3Igc3BpLXJz
+cGkuYyBJIGRvbid0IHNlZSBob3cgcGxhdGZvcm1fZ2V0X2lycV9ieW5hbWVfb3B0aW9uYWwoKQo+
+IHJldHVybmluZyAwIGluc3RlYWQgb2YgLUVOWElPIHdvdWxkIGhlbHAuIFBsZWFzZSB0YWxrIGlu
+IHBhdGNoZXMuCgotLS0gYS9kcml2ZXJzL3NwaS9zcGktcnNwaS5jCisrKyBiL2RyaXZlcnMvc3Bp
+L3NwaS1yc3BpLmMKQEAgLTE0MjAsMTcgKzE0MjAsMjUgQEAgc3RhdGljIGludCByc3BpX3Byb2Jl
+KHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCiAgICAgICAgY3Rsci0+bWF4X25hdGl2ZV9j
+cyA9IHJzcGktPm9wcy0+bnVtX2h3X3NzOwoKICAgICAgICByZXQgPSBwbGF0Zm9ybV9nZXRfaXJx
+X2J5bmFtZV9vcHRpb25hbChwZGV2LCAicngiKTsKLSAgICAgICBpZiAocmV0IDwgMCkgeworICAg
+ICAgIGlmIChyZXQgPCAwKQorICAgICAgICAgICAgICAgZ290byBlcnJvcjI7CisKKyAgICAgICBp
+ZiAoIXJldCkgewogICAgICAgICAgICAgICAgcmV0ID0gcGxhdGZvcm1fZ2V0X2lycV9ieW5hbWVf
+b3B0aW9uYWwocGRldiwgIm11eCIpOwotICAgICAgICAgICAgICAgaWYgKHJldCA8IDApCisgICAg
+ICAgICAgICAgICBpZiAoIXJldCkKICAgICAgICAgICAgICAgICAgICAgICAgcmV0ID0gcGxhdGZv
+cm1fZ2V0X2lycShwZGV2LCAwKTsKKyAgICAgICAgICAgICAgIGlmIChyZXQgPCAwKQorICAgICAg
+ICAgICAgICAgICAgICAgICBnb3RvIGVycm9yMjsKKwogICAgICAgICAgICAgICAgaWYgKHJldCA+
+PSAwKQogICAgICAgICAgICAgICAgICAgICAgICByc3BpLT5yeF9pcnEgPSByc3BpLT50eF9pcnEg
+PSByZXQ7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgIHJzcGktPnJ4X2lycSA9IHJl
+dDsKICAgICAgICAgICAgICAgIHJldCA9IHBsYXRmb3JtX2dldF9pcnFfYnluYW1lKHBkZXYsICJ0
+eCIpOwotICAgICAgICAgICAgICAgaWYgKHJldCA+PSAwKQotICAgICAgICAgICAgICAgICAgICAg
+ICByc3BpLT50eF9pcnEgPSByZXQ7CisgICAgICAgICAgICAgICBpZiAocmV0IDwgMCkKKyAgICAg
+ICAgICAgICAgICAgICAgICAgZ290byBlcnJvcjI7CisKKyAgICAgICAgICAgICAgIHJzcGktPnR4
+X2lycSA9IHJldDsKICAgICAgICB9CgogICAgICAgIGlmIChyc3BpLT5yeF9pcnEgPT0gcnNwaS0+
+dHhfaXJxKSB7CgpJIGxpa2UgaXQgd2hlbiB0aGUgImlmIChyZXQgPCApIC4uLiIgZXJyb3IgaGFu
+ZGxpbmcgaXMgdGhlIGZpcnN0IGNoZWNrIHRvIGRvLgpXaXRoIC1FTlhJTywgaXQgYmVjb21lcyBt
+b3JlIGNvbnZvbHV0ZWQuIGFuZCBsb29rcyBsZXNzIG5pY2UgKElNSE8pLgoKPiBQcmVmZXJhYmx5
+IGZpcnN0IHNpbXBsaWZ5IGluLWRyaXZlciBsb2dpYyB0byBtYWtlIHRoZSBjb252ZXJzaW9uIHRv
+IHRoZQo+IG5ldyBwbGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCkgYWN0dWFsbHkgcmV2aWV3YWJs
+ZS4KClNvIEkgaGF2ZSB0byBjaG9vc2UgYmV0d2VlbgoKICAgIGlmIChyZXQgPCAwICYmIHJldCAh
+PSAtRU5YSU8pCiAgICAgICAgICAgIHJldHVybiByZXQ7CgogICAgaWYgKHJldCkgewogICAgICAg
+ICAgICAuLi4KICAgIH0KCmFuZAoKICAgIGlmIChyZXQgPT0gLUVOWElPKSB7CiAgICAgICAgICAg
+IC4uLgogICAgfSBlbHNlIGlmIChyZXQgPCAwKQogICAgICAgICAgICByZXR1cm4gcmV0OwogICAg
+fQoKd2l0aCB0aGUgZmluYWwgdGFyZ2V0IGJlaW5nCgogICAgaWYgKHJldCA8IDApCiAgICAgICAg
+ICAgIHJldHVybiByZXQ7CgogICAgaWYgKHJldCkgewogICAgICAgICAgICAuLi4KICAgIH0KClNv
+IHRoZSBmaXJzdCBvcHRpb24gbWVhbnMgdGhlIGZpbmFsIGNoYW5nZSBpcyBzbWFsbGVyLCBidXQg
+aXQgbG9va3MgbGVzcwpuaWNlIHRoYW4gdGhlIHNlY29uZCBvcHRpb24gKElNSE8pLgpCdXQgdGhl
+IHNlY29uZCBvcHRpb24gbWVhbnMgbW9yZSBjaHVybi4KCj4gPiBTbyB0aGVyZSBhcmUgdGhyZWUg
+cmVhc29uczogYmVjYXVzZSB0aGUgYWJzZW5jZSBvZiBhbiBvcHRpb25hbCBJUlEKPiA+IGlzIG5v
+dCBhbiBlcnJvciwgYW5kIHRodXMgdGhhdCBzaG91bGQgbm90IGNhdXNlIChhKSBhbiBlcnJvciBj
+b2RlCj4gPiB0byBiZSByZXR1cm5lZCwgYW5kIChiKSBhbiBlcnJvciBtZXNzYWdlIHRvIGJlIHBy
+aW50ZWQsIGFuZCAoYykKPiA+IGJlY2F1c2UgaXQgY2FuIHNpbXBsaWZ5IHRoZSBsb2dpYyBpbiBk
+ZXZpY2UgZHJpdmVycy4KPgo+IEkgZG9uJ3QgYWdyZWUgdG8gKGEpLiBJZiB0aGUgdmFsdWUgc2ln
+bmFsaW5nIG5vdC1mb3VuZCBpcyAtRU5YSU8gb3IgMAo+IChvciAtRU5PREVWKSBkb2Vzbid0IG1h
+dHRlciBtdWNoLiBJIHdvdWxkbid0IGRldmlhdGUgZnJvbSB0aGUgcmV0dXJuCj4gY29kZSBzZW1h
+bnRpY3Mgb2YgcGxhdGZvcm1fZ2V0X2lycSgpIGp1c3QgZm9yIGhhdmluZyB0byBjaGVjayBhZ2Fp
+bnN0IDAKPiBpbnN0ZWFkIG9mIC1FTlhJTy4gWmVybyBpcyB0aGVuIGp1c3QgYW5vdGhlciBtYWdp
+YyB2YWx1ZS4KClplcm8gaXMgYSBuYXR1cmFsIG1hZ2ljIHZhbHVlIChhbHNvIGZvciBwb2ludGVy
+cykuCkVycm9ycyBhcmUgYWx3YXlzIG5lZ2F0aXZlLgpQb3NpdGl2ZSB2YWx1ZXMgYXJlIGNvb2tp
+ZXMgKG9yIHBvaW50ZXJzKSBhc3NvY2lhdGVkIHdpdGggc3VjY2Vzcy4KCj4gKGMpIHN0aWxsIGhh
+cyB0byBiZSBwcm92ZW4sIHNlZSBhYm92ZS4KPgo+ID4gQ29tbWl0IDg5NzNlYTQ3OTAxYzgxYTEg
+KCJkcml2ZXIgY29yZTogcGxhdGZvcm06IEludHJvZHVjZQo+ID4gcGxhdGZvcm1fZ2V0X2lycV9v
+cHRpb25hbCgpIikgZml4ZWQgKGIpLCBidXQgZGlkbid0IGFkZHJlc3MgKGEpIGFuZAo+ID4gKGMp
+Lgo+Cj4gWWVzLCBpdCBmaXhlZCAoYikgYW5kIHBpY2tlZCBhIGJhZCBuYW1lIGZvciB0aGF0LgoK
+R3J7b2V0amUsZWV0aW5nfXMsCgogICAgICAgICAgICAgICAgICAgICAgICBHZWVydAoKLS0KR2Vl
+cnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBn
+ZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29uYWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2hu
+aWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBoYWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5n
+IHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInByb2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtl
+IHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMK
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBt
+aS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vm
+b3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3Bl
+bmlwbWktZGV2ZWxvcGVyCg==
