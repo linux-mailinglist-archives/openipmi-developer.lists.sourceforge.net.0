@@ -2,58 +2,75 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 94AD5492670
+	by mail.lfdr.de (Postfix) with ESMTPS id C736F492671
 	for <lists+openipmi-developer@lfdr.de>; Tue, 18 Jan 2022 14:05:44 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1n9oBA-0001pQ-Hk; Tue, 18 Jan 2022 13:05:39 +0000
+	id 1n9oBA-0001pj-Mc; Tue, 18 Jan 2022 13:05:39 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>) id 1n9nIK-0008AJ-7P
- for openipmi-developer@lists.sourceforge.net; Tue, 18 Jan 2022 12:08:59 +0000
+ (envelope-from <geert.uytterhoeven@gmail.com>) id 1n9nvo-0001Az-5C
+ for openipmi-developer@lists.sourceforge.net; Tue, 18 Jan 2022 12:49:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
+ Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=H8uLTPRhAlDBjywgg3yfKwkHKzk9pMqAPU44Quhu/VI=; b=SrbsteFQ6IJ74vgYMi509XqhaL
- GnXYTRghna3uakW4pC1SUpgqd1Fv4VlrG6gxbtyMjADNGLKan2kp5lS+vpGwUcCAxUcMh9IOWimAU
- usKayGBdm3B7LaDA8abadMvwGlSLTvJHt1cFeTeEPHx+n8BBmKsp9GJLcCok3WH8DdnM=;
+ bh=iDNGF1VjVomGlE1aVlmhPbvwByegTECQGcsrxubfQG0=; b=YPlhBrlagI1UCmLRN74kbV/fJ+
+ PrWwoATCqjAnLgIwe5RoCI5OqRB+jaxr4KvLUtGiWGwZHcS6elu6Ue3X5R7xfme68ZVfayhx+v0lV
+ 1O1ta+Btndjw8WrsQgMkVfoYI051iNPZzlCPGm5Yo6Dk9pfLAPJbhIQt1AkS/SjCBOcM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
+ :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=H8uLTPRhAlDBjywgg3yfKwkHKzk9pMqAPU44Quhu/VI=; b=Cd1B94NEkv1uKw0sDGWxBnK9wJ
- rF26uw/gJfhKRARQIvSXEGmNwJG/0c50p16UHPg8ERcv4Nj80NP23zEnesqU+1i+yIxe0lfhWpc5b
- xTfmNgjqV6IctFQ6F3SLM5dg4UNiNboE3qi/b2zzEjEg+OBZm3ieq25MfYZqzKlvZCwc=;
-Received: from metis.ext.pengutronix.de ([85.220.165.71])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1n9nIH-0006yr-IW
- for openipmi-developer@lists.sourceforge.net; Tue, 18 Jan 2022 12:08:58 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1n9nHg-0001Dm-Ou; Tue, 18 Jan 2022 13:08:20 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtps (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1n9nHT-00AzwP-Do; Tue, 18 Jan 2022 13:08:06 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1n9nHS-0004EX-Dv; Tue, 18 Jan 2022 13:08:06 +0100
-Date: Tue, 18 Jan 2022 13:08:06 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Message-ID: <20220118120806.pbjsat4ulg3vnhsh@pengutronix.de>
+ bh=iDNGF1VjVomGlE1aVlmhPbvwByegTECQGcsrxubfQG0=; b=N1BDH+em1xYHyWxeNjaDTYvp8h
+ 5FeVwM6K5HQ1nQWwbVT8fAOSZ4e5/isNP94tX7VtD6G7JMfjW3gbzc7OHUQXfMvl+CtBlfuBctS2c
+ 7EFtUhBZk4fkYsp2w2okvjomiy7URJO6O9rWG7je0Y6CRyDkeGw7CxzcZAH/pMFtTS64=;
+Received: from mail-pl1-f177.google.com ([209.85.214.177])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92.3)
+ id 1n9nvl-0022dp-0x
+ for openipmi-developer@lists.sourceforge.net; Tue, 18 Jan 2022 12:49:46 +0000
+Received: by mail-pl1-f177.google.com with SMTP id c9so109403plg.11
+ for <openipmi-developer@lists.sourceforge.net>;
+ Tue, 18 Jan 2022 04:49:45 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=iDNGF1VjVomGlE1aVlmhPbvwByegTECQGcsrxubfQG0=;
+ b=3zBsiCNFYMkqPqwOeqmAlkd6GaERdwcVKmBvZdm2rrCXRu51Rnqh5U3+RUsgJqGHtL
+ WnFm/uGiJluRVrmodtUBfWjyGvOAD+aEsOU9DLhBKx8/uj5xHOKO3kCiSuD8nDMRQwvd
+ 2DC+nd0zX17nF6TLGLJVnBNIyUAaVZmNFeMTAOJ/bcbgCekiUlw/omJAmJAanmlRvVmX
+ /Sya/P440g9EAA91IItIUftFS4AktfjcUo7/zq+Vif1Mip2/qQgnS/Po7Xhh6Y+PrjKT
+ VRUXJNnVM6zJaVFDPZA7XoOecvC8A0ZddF2INvG63Ejal1HQnJ03qFyPHwPbYaUedJvx
+ pJQw==
+X-Gm-Message-State: AOAM532bDs1Zdev8SJjySbHVDzU/ttPXs6QsYkY27jRRhR1/fByHc3+q
+ vZrWipLz6CeDqXwQorE0DdDIz8AHLKSmjXEy
+X-Google-Smtp-Source: ABdhPJwr+W1CcMuZCNqjc5EtT8DI5uZn0lbdZ00wgIK6eD1lnslErOdZuXIJkka9TF4J/v+BWMI+Sw==
+X-Received: by 2002:a17:90b:10b:: with SMTP id
+ p11mr171368pjz.230.1642510179252; 
+ Tue, 18 Jan 2022 04:49:39 -0800 (PST)
+Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com.
+ [209.85.216.46])
+ by smtp.gmail.com with ESMTPSA id o14sm3719226pfk.49.2022.01.18.04.49.38
+ for <openipmi-developer@lists.sourceforge.net>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 18 Jan 2022 04:49:38 -0800 (PST)
+Received: by mail-pj1-f46.google.com with SMTP id
+ w12-20020a17090a528c00b001b276aa3aabso2302982pjh.0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Tue, 18 Jan 2022 04:49:38 -0800 (PST)
+X-Received: by 2002:a05:6102:3581:: with SMTP id
+ h1mr9266907vsu.5.1642510166831; 
+ Tue, 18 Jan 2022 04:49:26 -0800 (PST)
+MIME-Version: 1.0
 References: <c9026f17-2b3f-ee94-0ea3-5630f981fbc1@omp.ru>
  <CAMuHMdXVbRudGs69f9ZzaP1PXhteDNZiXA658eMFAwP4nr9r3w@mail.gmail.com>
  <20220117092444.opoedfcf5k5u6otq@pengutronix.de>
@@ -64,35 +81,46 @@ References: <c9026f17-2b3f-ee94-0ea3-5630f981fbc1@omp.ru>
  <CAMuHMdXbuZqEpYivyS6hkaRN+CwTOGaHq_OROwVAWvDD6OXODQ@mail.gmail.com>
  <20220118090913.pjumkq4zf4iqtlha@pengutronix.de>
  <CAMuHMdUW8+Y_=uszD+JOZO3Lpa9oDayk+GO+cg276i2f2T285w@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CAMuHMdUW8+Y_=uszD+JOZO3Lpa9oDayk+GO+cg276i2f2T285w@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: openipmi-developer@lists.sourceforge.net
-X-Spam-Score: -2.3 (--)
+ <20220118120806.pbjsat4ulg3vnhsh@pengutronix.de>
+In-Reply-To: <20220118120806.pbjsat4ulg3vnhsh@pengutronix.de>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 18 Jan 2022 13:49:15 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWkwV9XE_R5FZ=jPtDwLpDbEngG6+X2JmiDJCZJZvUjYA@mail.gmail.com>
+Message-ID: <CAMuHMdWkwV9XE_R5FZ=jPtDwLpDbEngG6+X2JmiDJCZJZvUjYA@mail.gmail.com>
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  Hello Geert, On Tue, Jan 18, 2022 at 10:37:25AM +0100, Geert
-    Uytterhoeven wrote: > On Tue, Jan 18, 2022 at 10:09 AM Uwe Kleine-König >
-    <u.kleine-koenig@pengutronix.de> wrote: > > For the (clk|gpiod|regulator)_get_
+ Content preview:  Hi Uwe, On Tue, Jan 18, 2022 at 1:08 PM Uwe Kleine-KÃ¶nig
+   <u.kleine-koenig@pengutronix.de> wrote: > On Tue, Jan 18, 2022 at 10:37:25AM
+    +0100, Geert Uytterhoeven wrote: > > On Tue, Jan 18, 2022 at 10:09 AM Uwe
     [...] 
  
- Content analysis details:   (-2.3 points, 6.0 required)
+ Content analysis details:   (0.5 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
-                             medium trust
-                             [85.220.165.71 listed in list.dnswl.org]
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
   0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1n9nIH-0006yr-IW
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [geert.uytterhoeven[at]gmail.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+                              no trust
+                             [209.85.214.177 listed in list.dnswl.org]
+  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+                             [209.85.214.177 listed in wl.mailspike.net]
+  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+                             EnvelopeFrom freemail headers are
+                             different
+  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1n9nvl-0022dp-0x
 X-Mailman-Approved-At: Tue, 18 Jan 2022 13:05:37 +0000
 Subject: Re: [Openipmi-developer] [PATCH 1/2] platform: make
  platform_get_irq_optional() optional
@@ -156,146 +184,82 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
  James Morse <james.morse@arm.com>, Zha Qipeng <qipeng.zha@intel.com>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
  Richard Weinberger <richard@nod.at>,
- Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
  linux-mediatek@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
  "David S. Miller" <davem@davemloft.net>
-Content-Type: multipart/mixed; boundary="===============3007012392615607128=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============3007012392615607128==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2svqigojwuu4sr3n"
-Content-Disposition: inline
-
-
---2svqigojwuu4sr3n
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello Geert,
-
-On Tue, Jan 18, 2022 at 10:37:25AM +0100, Geert Uytterhoeven wrote:
-> On Tue, Jan 18, 2022 at 10:09 AM Uwe Kleine-K=F6nig
-> <u.kleine-koenig@pengutronix.de> wrote:
-> > For the (clk|gpiod|regulator)_get_optional() you don't have to check
-> > against the magic not-found value (so no implementation detail magic
-> > leaks into the caller code) and just pass it to the next API function.
-> > (And my expectation would be that if you chose to represent not-found by
-> > (void *)66 instead of NULL, you won't have to adapt any user, just the
-> > framework internal checks. This is a good thing!)
->=20
-> Ah, there is the wrong assumption: drivers sometimes do need to know
-> if the resource was found, and thus do need to know about (void *)66,
-> -ENODEV, or -ENXIO.  I already gave examples for IRQ and clk before.
-> I can imagine these exist for gpiod and regulator, too, as soon as
-> you go beyond the trivial "enable" and "disable" use-cases.
-
-My premise is that every user who has to check for "not found"
-explicitly should not use (clk|gpiod)_get_optional() but
-(clk|gpiod)_get() and do proper (and explicit) error handling for
--ENODEV. (clk|gpiod)_get_optional() is only for these trivial use-cases.
-
-> And 0/NULL vs. > 0 is the natural check here: missing, but not
-> an error.
-
-For me it it 100% irrelevant if "not found" is an error for the query
-function or not. I just have to be able to check for "not found" and
-react accordingly.
-
-And adding a function
-
-	def platform_get_irq_opional():
-		ret =3D platform_get_irq()
-		if ret =3D=3D -ENXIO:
-			return 0
-		return ret
-
-it's not a useful addition to the API if I cannot use 0 as a dummy
-because it doesn't simplify the caller enough to justify the additional
-function.
-
-The only thing I need to be able is to distinguish the cases "there is
-an irq", "there is no irq" and anything else is "there is a problem I
-cannot handle and so forward it to my caller". The semantic of
-platform_get_irq() is able to satisfy this requirement[1], so why introduce
-platform_get_irq_opional() for the small advantage that I can check for
-not-found using
-
-	if (!irq)
-
-instead of
-
-	if (irq !=3D -ENXIO)
-
-? The semantic of platform_get_irq() is easier ("Either a usable
-non-negative irq number or a negative error number") compared to
-platform_get_irq_optional() ("Either a usable positive irq number or a
-negative error number or 0 meaning not found"). Usage of
-platform_get_irq() isn't harder or more expensive (neither for a human
-reader nor for a maching running the resulting compiled code).
-For a human reader
-
-	if (irq !=3D -ENXIO)
-
-is even easier to understand because for
-
-	if (!irq)
-
-they have to check where the value comes from, see it's
-platform_get_irq_optional() and understand that 0 means not-found.
-
-This function just adds overhead because as a irq framework user I have
-to understand another function. For me the added benefit is too small to
-justify the additional function. And you break out-of-tree drivers.
-These are all no major counter arguments, but as the advantage isn't
-major either, they still matter.
-
-Best regards
-Uwe
-
-[1] the only annoying thing is the error message.
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---2svqigojwuu4sr3n
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmHmraMACgkQwfwUeK3K
-7Ak1qwf6Am8XN0nqXfS0pbngp7EaV4pL4oNS8RQxKSvsObY254xYZ+ARuc9D/qcI
-/twFVp0MmVPlJHmpEM8KLdVakfXpJlaJRkoNiXFxGO6FJGbPNXIQvl33fM4L9u3c
-k8jyDoz2mdmZdpc6JSLgLroVyQXOl/WygxRbgqO0WCHu762nPfCuaaKUb2yzQ0I1
-m+08eRtqVh8WqbbOHrpIhcpfPYzkCeRiGeaqGkO5YwvqeH6kv6eudm8RkAfo6DE9
-IwzIaWANKnEqD3UzsSUPdPTmMPfqWML7RJPs6sZCdumiS+Ox36ZGrc7Ewn2ffU/V
-Q83qyxKFK+RfjJQmmPycReC6KM89bw==
-=RHyZ
------END PGP SIGNATURE-----
-
---2svqigojwuu4sr3n--
-
-
---===============3007012392615607128==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============3007012392615607128==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============3007012392615607128==--
-
+SGkgVXdlLAoKT24gVHVlLCBKYW4gMTgsIDIwMjIgYXQgMTowOCBQTSBVd2UgS2xlaW5lLUvDtm5p
+Zwo8dS5rbGVpbmUta29lbmlnQHBlbmd1dHJvbml4LmRlPiB3cm90ZToKPiBPbiBUdWUsIEphbiAx
+OCwgMjAyMiBhdCAxMDozNzoyNUFNICswMTAwLCBHZWVydCBVeXR0ZXJob2V2ZW4gd3JvdGU6Cj4g
+PiBPbiBUdWUsIEphbiAxOCwgMjAyMiBhdCAxMDowOSBBTSBVd2UgS2xlaW5lLUvDtm5pZwo+ID4g
+PHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25peC5kZT4gd3JvdGU6Cj4gPiA+IEZvciB0aGUgKGNs
+a3xncGlvZHxyZWd1bGF0b3IpX2dldF9vcHRpb25hbCgpIHlvdSBkb24ndCBoYXZlIHRvIGNoZWNr
+Cj4gPiA+IGFnYWluc3QgdGhlIG1hZ2ljIG5vdC1mb3VuZCB2YWx1ZSAoc28gbm8gaW1wbGVtZW50
+YXRpb24gZGV0YWlsIG1hZ2ljCj4gPiA+IGxlYWtzIGludG8gdGhlIGNhbGxlciBjb2RlKSBhbmQg
+anVzdCBwYXNzIGl0IHRvIHRoZSBuZXh0IEFQSSBmdW5jdGlvbi4KPiA+ID4gKEFuZCBteSBleHBl
+Y3RhdGlvbiB3b3VsZCBiZSB0aGF0IGlmIHlvdSBjaG9zZSB0byByZXByZXNlbnQgbm90LWZvdW5k
+IGJ5Cj4gPiA+ICh2b2lkICopNjYgaW5zdGVhZCBvZiBOVUxMLCB5b3Ugd29uJ3QgaGF2ZSB0byBh
+ZGFwdCBhbnkgdXNlciwganVzdCB0aGUKPiA+ID4gZnJhbWV3b3JrIGludGVybmFsIGNoZWNrcy4g
+VGhpcyBpcyBhIGdvb2QgdGhpbmchKQo+ID4KPiA+IEFoLCB0aGVyZSBpcyB0aGUgd3JvbmcgYXNz
+dW1wdGlvbjogZHJpdmVycyBzb21ldGltZXMgZG8gbmVlZCB0byBrbm93Cj4gPiBpZiB0aGUgcmVz
+b3VyY2Ugd2FzIGZvdW5kLCBhbmQgdGh1cyBkbyBuZWVkIHRvIGtub3cgYWJvdXQgKHZvaWQgKik2
+NiwKPiA+IC1FTk9ERVYsIG9yIC1FTlhJTy4gIEkgYWxyZWFkeSBnYXZlIGV4YW1wbGVzIGZvciBJ
+UlEgYW5kIGNsayBiZWZvcmUuCj4gPiBJIGNhbiBpbWFnaW5lIHRoZXNlIGV4aXN0IGZvciBncGlv
+ZCBhbmQgcmVndWxhdG9yLCB0b28sIGFzIHNvb24gYXMKPiA+IHlvdSBnbyBiZXlvbmQgdGhlIHRy
+aXZpYWwgImVuYWJsZSIgYW5kICJkaXNhYmxlIiB1c2UtY2FzZXMuCj4KPiBNeSBwcmVtaXNlIGlz
+IHRoYXQgZXZlcnkgdXNlciB3aG8gaGFzIHRvIGNoZWNrIGZvciAibm90IGZvdW5kIgo+IGV4cGxp
+Y2l0bHkgc2hvdWxkIG5vdCB1c2UgKGNsa3xncGlvZClfZ2V0X29wdGlvbmFsKCkgYnV0Cj4gKGNs
+a3xncGlvZClfZ2V0KCkgYW5kIGRvIHByb3BlciAoYW5kIGV4cGxpY2l0KSBlcnJvciBoYW5kbGlu
+ZyBmb3IKPiAtRU5PREVWLiAoY2xrfGdwaW9kKV9nZXRfb3B0aW9uYWwoKSBpcyBvbmx5IGZvciB0
+aGVzZSB0cml2aWFsIHVzZS1jYXNlcy4KPgo+ID4gQW5kIDAvTlVMTCB2cy4gPiAwIGlzIHRoZSBu
+YXR1cmFsIGNoZWNrIGhlcmU6IG1pc3NpbmcsIGJ1dCBub3QKPiA+IGFuIGVycm9yLgo+Cj4gRm9y
+IG1lIGl0IGl0IDEwMCUgaXJyZWxldmFudCBpZiAibm90IGZvdW5kIiBpcyBhbiBlcnJvciBmb3Ig
+dGhlIHF1ZXJ5Cj4gZnVuY3Rpb24gb3Igbm90LiBJIGp1c3QgaGF2ZSB0byBiZSBhYmxlIHRvIGNo
+ZWNrIGZvciAibm90IGZvdW5kIiBhbmQKPiByZWFjdCBhY2NvcmRpbmdseS4KPgo+IEFuZCBhZGRp
+bmcgYSBmdW5jdGlvbgo+Cj4gICAgICAgICBkZWYgcGxhdGZvcm1fZ2V0X2lycV9vcGlvbmFsKCk6
+Cj4gICAgICAgICAgICAgICAgIHJldCA9IHBsYXRmb3JtX2dldF9pcnEoKQo+ICAgICAgICAgICAg
+ICAgICBpZiByZXQgPT0gLUVOWElPOgo+ICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAw
+Cj4gICAgICAgICAgICAgICAgIHJldHVybiByZXQKPgo+IGl0J3Mgbm90IGEgdXNlZnVsIGFkZGl0
+aW9uIHRvIHRoZSBBUEkgaWYgSSBjYW5ub3QgdXNlIDAgYXMgYSBkdW1teQo+IGJlY2F1c2UgaXQg
+ZG9lc24ndCBzaW1wbGlmeSB0aGUgY2FsbGVyIGVub3VnaCB0byBqdXN0aWZ5IHRoZSBhZGRpdGlv
+bmFsCj4gZnVuY3Rpb24uCj4KPiBUaGUgb25seSB0aGluZyBJIG5lZWQgdG8gYmUgYWJsZSBpcyB0
+byBkaXN0aW5ndWlzaCB0aGUgY2FzZXMgInRoZXJlIGlzCj4gYW4gaXJxIiwgInRoZXJlIGlzIG5v
+IGlycSIgYW5kIGFueXRoaW5nIGVsc2UgaXMgInRoZXJlIGlzIGEgcHJvYmxlbSBJCj4gY2Fubm90
+IGhhbmRsZSBhbmQgc28gZm9yd2FyZCBpdCB0byBteSBjYWxsZXIiLiBUaGUgc2VtYW50aWMgb2YK
+PiBwbGF0Zm9ybV9nZXRfaXJxKCkgaXMgYWJsZSB0byBzYXRpc2Z5IHRoaXMgcmVxdWlyZW1lbnRb
+MV0sIHNvIHdoeSBpbnRyb2R1Y2UKPiBwbGF0Zm9ybV9nZXRfaXJxX29waW9uYWwoKSBmb3IgdGhl
+IHNtYWxsIGFkdmFudGFnZSB0aGF0IEkgY2FuIGNoZWNrIGZvcgo+IG5vdC1mb3VuZCB1c2luZwo+
+Cj4gICAgICAgICBpZiAoIWlycSkKPgo+IGluc3RlYWQgb2YKPgo+ICAgICAgICAgaWYgKGlycSAh
+PSAtRU5YSU8pCj4KPiA/IFRoZSBzZW1hbnRpYyBvZiBwbGF0Zm9ybV9nZXRfaXJxKCkgaXMgZWFz
+aWVyICgiRWl0aGVyIGEgdXNhYmxlCj4gbm9uLW5lZ2F0aXZlIGlycSBudW1iZXIgb3IgYSBuZWdh
+dGl2ZSBlcnJvciBudW1iZXIiKSBjb21wYXJlZCB0bwo+IHBsYXRmb3JtX2dldF9pcnFfb3B0aW9u
+YWwoKSAoIkVpdGhlciBhIHVzYWJsZSBwb3NpdGl2ZSBpcnEgbnVtYmVyIG9yIGEKPiBuZWdhdGl2
+ZSBlcnJvciBudW1iZXIgb3IgMCBtZWFuaW5nIG5vdCBmb3VuZCIpLiBVc2FnZSBvZgo+IHBsYXRm
+b3JtX2dldF9pcnEoKSBpc24ndCBoYXJkZXIgb3IgbW9yZSBleHBlbnNpdmUgKG5laXRoZXIgZm9y
+IGEgaHVtYW4KPiByZWFkZXIgbm9yIGZvciBhIG1hY2hpbmcgcnVubmluZyB0aGUgcmVzdWx0aW5n
+IGNvbXBpbGVkIGNvZGUpLgo+IEZvciBhIGh1bWFuIHJlYWRlcgo+Cj4gICAgICAgICBpZiAoaXJx
+ICE9IC1FTlhJTykKPgo+IGlzIGV2ZW4gZWFzaWVyIHRvIHVuZGVyc3RhbmQgYmVjYXVzZSBmb3IK
+Pgo+ICAgICAgICAgaWYgKCFpcnEpCj4KPiB0aGV5IGhhdmUgdG8gY2hlY2sgd2hlcmUgdGhlIHZh
+bHVlIGNvbWVzIGZyb20sIHNlZSBpdCdzCj4gcGxhdGZvcm1fZ2V0X2lycV9vcHRpb25hbCgpIGFu
+ZCB1bmRlcnN0YW5kIHRoYXQgMCBtZWFucyBub3QtZm91bmQuCgoidklSUSB6ZXJvIGRvZXMgbm90
+IGV4aXN0LiIKCj4gVGhpcyBmdW5jdGlvbiBqdXN0IGFkZHMgb3ZlcmhlYWQgYmVjYXVzZSBhcyBh
+IGlycSBmcmFtZXdvcmsgdXNlciBJIGhhdmUKPiB0byB1bmRlcnN0YW5kIGFub3RoZXIgZnVuY3Rp
+b24uIEZvciBtZSB0aGUgYWRkZWQgYmVuZWZpdCBpcyB0b28gc21hbGwgdG8KPiBqdXN0aWZ5IHRo
+ZSBhZGRpdGlvbmFsIGZ1bmN0aW9uLiBBbmQgeW91IGJyZWFrIG91dC1vZi10cmVlIGRyaXZlcnMu
+Cj4gVGhlc2UgYXJlIGFsbCBubyBtYWpvciBjb3VudGVyIGFyZ3VtZW50cywgYnV0IGFzIHRoZSBh
+ZHZhbnRhZ2UgaXNuJ3QKPiBtYWpvciBlaXRoZXIsIHRoZXkgc3RpbGwgbWF0dGVyLgo+Cj4gQmVz
+dCByZWdhcmRzCj4gVXdlCj4KPiBbMV0gdGhlIG9ubHkgYW5ub3lpbmcgdGhpbmcgaXMgdGhlIGVy
+cm9yIG1lc3NhZ2UuCgpTbyB0aGVyZSdzIHN0aWxsIGEgbmVlZCBmb3IgdHdvIGZ1bmN0aW9ucy4K
+Ckdye29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAgICAgICAgICAgICAgR2VlcnQKCi0tCkdl
+ZXJ0IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25kIGlhMzIgLS0g
+Z2VlcnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0aCB0ZWNo
+bmljYWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKd2hlbiBJJ20gdGFsa2lu
+ZyB0byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVyIiBvciBzb21ldGhpbmcgbGlr
+ZSB0aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0tIExpbnVzIFRvcnZhbGRz
+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3Blbmlw
+bWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNl
+Zm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29w
+ZW5pcG1pLWRldmVsb3Blcgo=
