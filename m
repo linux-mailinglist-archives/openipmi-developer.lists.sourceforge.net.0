@@ -2,27 +2,27 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2BBF84941D4
+	by mail.lfdr.de (Postfix) with ESMTPS id 2D37B4941D5
 	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Jan 2022 21:35:04 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nAHfX-0004LD-74; Wed, 19 Jan 2022 20:34:59 +0000
+	id 1nAHfX-0004Lr-MI; Wed, 19 Jan 2022 20:34:59 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1nAGRr-0004Iz-I8
- for openipmi-developer@lists.sourceforge.net; Wed, 19 Jan 2022 19:16:46 +0000
+ id 1nAGSe-0004K2-TJ
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 Jan 2022 19:17:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
  MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=U+8BgV3Y4OQWkaQ9X31jHMCSzV2GqisZ3zmZR0sg8Yk=; b=jIUJ/pLCLkfWAai3PBO1BEBzMJ
- zn0l3XdlCqEFFSCL/sVyM4/UvVqlLsxrWib/4qGKeaoKAPDz7tFfRD7goT56v5xxQw6Dzjqt0ip1F
- /m1lT4yklEanmDlLeER7CRLpTqEK9xTU2wOw1Q5a7Rw79mljKpEroYRKbD+4DcYztOr8=;
+ bh=aguG1J9pq9K9sRLjW6xTjgJuCL0CzXhpY81Gbri1aSE=; b=UZv4dQEuwQ8ZTfS9JjYbtBIxq8
+ Nqa1y9QSXuIA/jedhYnn4E2Oghwcg4g2PAilHp7BOxJ72t1X8/xioDx7Oq03BcidRmcmyfBUDjIdb
+ /wOYZ9cKTvIfjzWAafuhIwb9jpE8KyKrHtUO9ADNBzn/7ufmMNOfVuEC+TxkE8HGPm6M=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
@@ -30,42 +30,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=U+8BgV3Y4OQWkaQ9X31jHMCSzV2GqisZ3zmZR0sg8Yk=; b=VdBlmUcO2/bgwM8qnASTHy98N8
- RBA65S4Fx9al7vcjNigw+D3BucsCQYEQAAXldPkFjksFGMdUZFG415w6qieG2ZdTPmmMVm15PJ6tw
- +YOcRCGPwvVBqvNqVbVgtyM4FGe1mdhrbxxGKRJuDkKpyPyunEs5Snunk8EcILNLrRkc=;
+ bh=aguG1J9pq9K9sRLjW6xTjgJuCL0CzXhpY81Gbri1aSE=; b=Bmhxeac8udhSzKrqmPARqsvZjD
+ vMh7sicf+Y5sWjom+gIr7Ko+NNaVN8Y7F79P7oEMNNWrQ+dWWJKRVtDdbfF83UHiKyMmVcLWrj499
+ 8ttSQVYecR06qxhsZAyQdKRVe729cFYd4kn/zRmmdbiqBEZJGk/PS1mBUGZ9DYmsLp20=;
 Received: from mga05.intel.com ([192.55.52.43])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1nAGRm-0007ao-F2
- for openipmi-developer@lists.sourceforge.net; Wed, 19 Jan 2022 19:16:46 +0000
+ id 1nAGSc-0044iH-V0
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 Jan 2022 19:17:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1642619802; x=1674155802;
+ t=1642619854; x=1674155854;
  h=date:from:to:cc:subject:message-id:references:
  mime-version:content-transfer-encoding:in-reply-to;
- bh=UxCJC6eWdEdNah12KsCkH6nSMwzBaq9zmFaRweUROSw=;
- b=M0+RJ2bE+gGie6NF2nuICJMg+jqwOyEQf9ZyLwf6dNO1g8/OFBN4qmeL
- a+6nMhimj/d/VwMyDtt/pqsDxegsPgmPnJ67HaUfYwNGBt0NAq+PEhUCZ
- jiETz9lLRXcLdfTFF5GjnjEMCbpdtw+MQ6uilXW7JGEylfNmzkkmOXBjI
- ZSraLYtCvhsT/EmG28vfA/K9hBIt6tWhDWcqXYK+zKB93bE9GTcM4A3Ln
- gkZT9z0ndE/ORsMa5b80MV9B4aRAPZBrkQmL9pFdyD5kdAAV7Zh3Opf++
- hQ8AuUOyQfuppiGgjfRsueQvU+FoBpjwfue4U/jhqFYameyqT/xu2aaJL g==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10231"; a="331514202"
-X-IronPort-AV: E=Sophos;i="5.88,300,1635231600"; d="scan'208";a="331514202"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
+ bh=pJ3GNueq7O6gH3lUcp2UWza1P3qxEpzR0oarM5vPP+c=;
+ b=Kycwkeac7hAlNIvPmVXGzYRdNjincx0dHMjngLs9/iWNgMGr6yV0cfRN
+ IvSBQtHnMmh2Db4hvRtboNhHN4BUPZCaB8izuUL0aMdnodVx6tlbcPlLo
+ f56uXfjNmJdcH8FDlh+fx5aoP+RePUUXCPLm0mKl04bNNLN/0MS9SJ+/m
+ PFsqHFkjdFoaI2tFFOUaNdtnmxq5Knl9IoRXmmcpIVk460ekTjnXOctE+
+ QvnsPj00U78MHp4U/N/suW8SKdFo6JxhR39ukq4GglhLXxygAqhZfiS7G
+ /FUSQ2N1Ncl/Xxk8k8prlbUSG4++IuaOSB8GQLfYuqT2XmnZq6E5/h64h g==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10231"; a="331514714"
+X-IronPort-AV: E=Sophos;i="5.88,300,1635231600"; d="scan'208";a="331514714"
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Jan 2022 10:38:30 -0800
-X-IronPort-AV: E=Sophos;i="5.88,300,1635231600"; d="scan'208";a="518285423"
+ 19 Jan 2022 10:41:48 -0800
+X-IronPort-AV: E=Sophos;i="5.88,300,1635231600"; d="scan'208";a="765040746"
 Received: from smile.fi.intel.com ([10.237.72.61])
- by orsmga007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Jan 2022 10:38:09 -0800
+ by fmsmga006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 19 Jan 2022 10:41:32 -0800
 Received: from andy by smile.fi.intel.com with local (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1nAFpH-00CDps-NH; Wed, 19 Jan 2022 20:36:55 +0200
-Date: Wed, 19 Jan 2022 20:36:55 +0200
+ id 1nAFsa-00CDtL-3g; Wed, 19 Jan 2022 20:40:20 +0200
+Date: Wed, 19 Jan 2022 20:40:19 +0200
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Message-ID: <YehaRwIe4LjymMhS@smile.fi.intel.com>
+Message-ID: <YehbE03fMBSuOleX@smile.fi.intel.com>
 References: <20220112085009.dbasceh3obfok5dc@pengutronix.de>
  <CAMuHMdWsMGPiQaPS0-PJ_+Mc5VQ37YdLfbHr_aS40kB+SfW-aw@mail.gmail.com>
  <20220112213121.5ruae5mxwj6t3qiy@pengutronix.de>
@@ -89,8 +89,8 @@ X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.
  
  Content preview:  On Sat, Jan 15, 2022 at 02:55:50PM +0100, Uwe Kleine-König
     wrote: > On Fri, Jan 14, 2022 at 08:55:07PM +0300, Sergey Shtylyov wrote:
-    > > On 1/14/22 12:42 AM, Florian Fainelli wrote: > So you oppose to the name
-    chosen, but not the renaming as such. 
+    > Or do you think kmalloc should better be called > kmalloc_optional because
+    it returns NULL if there is no more memory > available? 
  
  Content analysis details:   (-3.1 points, 6.0 required)
  
@@ -107,7 +107,7 @@ X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.
                              valid
  -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
  -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nAGRm-0007ao-F2
+X-Headers-End: 1nAGSc-0044iH-V0
 X-Mailman-Approved-At: Wed, 19 Jan 2022 20:34:57 +0000
 Subject: Re: [Openipmi-developer] [PATCH] driver core: platform: Rename
  platform_get_irq_optional() to platform_get_irq_silent()
@@ -179,21 +179,16 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
 On Sat, Jan 15, 2022 at 02:55:50PM +0100, Uwe Kleine-K=F6nig wrote:
 > On Fri, Jan 14, 2022 at 08:55:07PM +0300, Sergey Shtylyov wrote:
-> > On 1/14/22 12:42 AM, Florian Fainelli wrote:
 
-> So you oppose to the name chosen, but not the renaming as such.
+> Or do you think kmalloc should better be called
+> kmalloc_optional because it returns NULL if there is no more memory
+> available?
 
-I oppose the name change. The unneeded churn right now since it won't fix
-the issues with the underneath API (platform_get_irq() in this case) and
-will require one more iteration over callers again.
+Oh, do you know that kmalloc() may return NULL and small cookie value and
+actually one has to check for that (yes, either before or after against
+different variables)?
 
-The main issue that platform_get_irq*() returns magic error code while
-treating 0 in a very special way (issuing WARN() and considering it as
-a successful cookie) and this all is quite confusing.
-
-If you are going to fix the underlying issue, welcome! Now I see only
-the step to somewhere. I.o.w. this change _standalone_ makes no sense
-to me.
+kmalloc() is exactly an example that justifies the Sergey's patch.
 
 -- =
 
