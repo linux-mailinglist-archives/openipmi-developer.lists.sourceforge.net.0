@@ -2,27 +2,27 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D37B4941D5
-	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Jan 2022 21:35:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9B8DA4941D3
+	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Jan 2022 21:35:03 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nAHfX-0004Lr-MI; Wed, 19 Jan 2022 20:34:59 +0000
+	id 1nAHfX-0004LI-BY; Wed, 19 Jan 2022 20:34:59 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1nAGSe-0004K2-TJ
- for openipmi-developer@lists.sourceforge.net; Wed, 19 Jan 2022 19:17:35 +0000
+ id 1nAGSS-0000Pz-Fw
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 Jan 2022 19:17:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
  MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=aguG1J9pq9K9sRLjW6xTjgJuCL0CzXhpY81Gbri1aSE=; b=UZv4dQEuwQ8ZTfS9JjYbtBIxq8
- Nqa1y9QSXuIA/jedhYnn4E2Oghwcg4g2PAilHp7BOxJ72t1X8/xioDx7Oq03BcidRmcmyfBUDjIdb
- /wOYZ9cKTvIfjzWAafuhIwb9jpE8KyKrHtUO9ADNBzn/7ufmMNOfVuEC+TxkE8HGPm6M=;
+ bh=5ea4LpUX7loRyc1AK2nrY5Ig9yKMSQMfmp/r4uB41Ec=; b=L8qFhD7qsaFSdnVdpPY7gPH8df
+ Qsj+roA1jKtaRVDsijQGQQQSz+clSLFwSaXWi5kw36S6ZlFeH1ShoJAyl9FdxAq47Ewdv6Z6e6dY3
+ +Y9hqp+ZA8C0xTokp8nEu3pYoRpatTtrSh36TQfbvw1FzAvkezWsYiIklBsUB0XfMeNc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
@@ -30,75 +30,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=aguG1J9pq9K9sRLjW6xTjgJuCL0CzXhpY81Gbri1aSE=; b=Bmhxeac8udhSzKrqmPARqsvZjD
- vMh7sicf+Y5sWjom+gIr7Ko+NNaVN8Y7F79P7oEMNNWrQ+dWWJKRVtDdbfF83UHiKyMmVcLWrj499
- 8ttSQVYecR06qxhsZAyQdKRVe729cFYd4kn/zRmmdbiqBEZJGk/PS1mBUGZ9DYmsLp20=;
-Received: from mga05.intel.com ([192.55.52.43])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=5ea4LpUX7loRyc1AK2nrY5Ig9yKMSQMfmp/r4uB41Ec=; b=F6++EtaIsxrZIM+HLruMNnczXi
+ viWA4WOSV/MHrvDIOZ8s9dVRMMGY/o2HE42Z+dbYDMRogkWQ/NRqeHcM09o3+GpkBqjkBpU7xgCzz
+ VyMhoaUiqOPED4O/PVjK2P2Mfam8kp3o5DO5IYAI07PYmSADXMZaOzev6PqjKdsDI3dQ=;
+Received: from mga11.intel.com ([192.55.52.93])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92.3)
- id 1nAGSc-0044iH-V0
- for openipmi-developer@lists.sourceforge.net; Wed, 19 Jan 2022 19:17:35 +0000
+ id 1nAGSQ-0007f1-9E
+ for openipmi-developer@lists.sourceforge.net; Wed, 19 Jan 2022 19:17:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1642619854; x=1674155854;
+ t=1642619842; x=1674155842;
  h=date:from:to:cc:subject:message-id:references:
  mime-version:content-transfer-encoding:in-reply-to;
- bh=pJ3GNueq7O6gH3lUcp2UWza1P3qxEpzR0oarM5vPP+c=;
- b=Kycwkeac7hAlNIvPmVXGzYRdNjincx0dHMjngLs9/iWNgMGr6yV0cfRN
- IvSBQtHnMmh2Db4hvRtboNhHN4BUPZCaB8izuUL0aMdnodVx6tlbcPlLo
- f56uXfjNmJdcH8FDlh+fx5aoP+RePUUXCPLm0mKl04bNNLN/0MS9SJ+/m
- PFsqHFkjdFoaI2tFFOUaNdtnmxq5Knl9IoRXmmcpIVk460ekTjnXOctE+
- QvnsPj00U78MHp4U/N/suW8SKdFo6JxhR39ukq4GglhLXxygAqhZfiS7G
- /FUSQ2N1Ncl/Xxk8k8prlbUSG4++IuaOSB8GQLfYuqT2XmnZq6E5/h64h g==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10231"; a="331514714"
-X-IronPort-AV: E=Sophos;i="5.88,300,1635231600"; d="scan'208";a="331514714"
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
- by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Jan 2022 10:41:48 -0800
-X-IronPort-AV: E=Sophos;i="5.88,300,1635231600"; d="scan'208";a="765040746"
+ bh=kxRfIA4D62784M70rCIvvyS5N+0IFzqyS/xs1UeIcLQ=;
+ b=ZNUJL+sdBzOncbQWES1MP3PVMV6FZOt92rDL+8Lnn1PNCsAKqWho9+gP
+ 6FA68S3+BYRnXRty7UGHz90X8LQp/iw216nB/pEG/4OxVDNpKugmPoGdY
+ kxZ/oEd4CXMkomQlUAXklGMifZkLiT2a8RyqBjOGjq7OzNwgwAMH1e6MX
+ B+7xrfIGvzW9ZOoVv8HVCGxGFip7p87os1BvQR3OZYomPuP36pNXubasJ
+ +GKD/OMLCiZGptLPesJDPxd0kOP791sSS9uHVb1Zz6z8Vx7ANeg3x3ZIs
+ 8O18TBjFyDcz0FUxikHvg3jzpceEPmifRNQi8S/zzlOqxF6oXqsyHYJgA w==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10231"; a="242726135"
+X-IronPort-AV: E=Sophos;i="5.88,300,1635231600"; d="scan'208";a="242726135"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+ by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 19 Jan 2022 10:52:58 -0800
+X-IronPort-AV: E=Sophos;i="5.88,300,1635231600"; d="scan'208";a="672273577"
 Received: from smile.fi.intel.com ([10.237.72.61])
- by fmsmga006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Jan 2022 10:41:32 -0800
+ by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 19 Jan 2022 10:52:42 -0800
 Received: from andy by smile.fi.intel.com with local (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1nAFsa-00CDtL-3g; Wed, 19 Jan 2022 20:40:20 +0200
-Date: Wed, 19 Jan 2022 20:40:19 +0200
+ id 1nAG3N-00CE3S-Uj; Wed, 19 Jan 2022 20:51:29 +0200
+Date: Wed, 19 Jan 2022 20:51:29 +0200
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Message-ID: <YehbE03fMBSuOleX@smile.fi.intel.com>
-References: <20220112085009.dbasceh3obfok5dc@pengutronix.de>
+Message-ID: <YehdsUPiOTwgZywq@smile.fi.intel.com>
+References: <CAMuHMdWK3RKVXRzMASN4HaYfLckdS7rBvSopafq+iPADtGEUzA@mail.gmail.com>
+ <20220112085009.dbasceh3obfok5dc@pengutronix.de>
  <CAMuHMdWsMGPiQaPS0-PJ_+Mc5VQ37YdLfbHr_aS40kB+SfW-aw@mail.gmail.com>
  <20220112213121.5ruae5mxwj6t3qiy@pengutronix.de>
  <Yd9L9SZ+g13iyKab@sirena.org.uk>
  <20220113110831.wvwbm75hbfysbn2d@pengutronix.de>
  <YeA7CjOyJFkpuhz/@sirena.org.uk>
  <20220113194358.xnnbhsoyetihterb@pengutronix.de>
- <745c601f-c782-0904-f786-c9bfced8f11c@gmail.com>
- <cae0b73e-46df-a491-4a8e-415205038c2c@omp.ru>
- <20220115135550.dr4ngiz2c6rfs2rl@pengutronix.de>
+ <YeF05vBOzkN+xYCq@smile.fi.intel.com>
+ <20220115154539.j3tsz5ioqexq2yuu@pengutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220115135550.dr4ngiz2c6rfs2rl@pengutronix.de>
+In-Reply-To: <20220115154539.j3tsz5ioqexq2yuu@pengutronix.de>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-X-Spam-Score: -3.1 (---)
+X-Spam-Score: -5.8 (-----)
 X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  On Sat, Jan 15, 2022 at 02:55:50PM +0100, Uwe Kleine-König
-    wrote: > On Fri, Jan 14, 2022 at 08:55:07PM +0300, Sergey Shtylyov wrote:
-    > Or do you think kmalloc should better be called > kmalloc_optional because
-    it returns NULL if there is no more memory > available? 
+ Content preview:  On Sat, Jan 15, 2022 at 04:45:39PM +0100, Uwe Kleine-König
+    wrote: > On Fri, Jan 14, 2022 at 03:04:38PM +0200, Andy Shevchenko wrote:
+    > > On Thu, Jan 13, 2022 at 08:43:58PM +0100, Uwe Kleine-König wrot [...]
+    
  
- Content analysis details:   (-3.1 points, 6.0 required)
+ Content analysis details:   (-5.8 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
-                             medium trust
-                             [192.55.52.43 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+                             high trust
+                             [192.55.52.93 listed in list.dnswl.org]
   0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
   0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
@@ -107,7 +107,7 @@ X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.
                              valid
  -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
  -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nAGSc-0044iH-V0
+X-Headers-End: 1nAGSQ-0007f1-9E
 X-Mailman-Approved-At: Wed, 19 Jan 2022 20:34:57 +0000
 Subject: Re: [Openipmi-developer] [PATCH] driver core: platform: Rename
  platform_get_irq_optional() to platform_get_irq_silent()
@@ -140,17 +140,17 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
  Joakim Zhang <qiangqing.zhang@nxp.com>, Kamal Dasu <kdasu.kdev@gmail.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Lee Jones <lee.jones@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Tony Luck <tony.luck@intel.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
  Kishon Vijay Abraham I <kishon@ti.com>,
  Geert Uytterhoeven <geert@linux-m68k.org>,
  "open list:SERIAL DRIVERS" <linux-serial@vger.kernel.org>,
  bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
- Zhang Rui <rui.zhang@intel.com>, platform-driver-x86@vger.kernel.org,
- Linux PWM List <linux-pwm@vger.kernel.org>,
+ Zhang Rui <rui.zhang@intel.com>, Linux PWM List <linux-pwm@vger.kernel.org>,
  Saravanan Sekar <sravanhome@gmail.com>, Corey Minyard <minyard@acm.org>,
  Linux PM list <linux-pm@vger.kernel.org>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- John Garry <john.garry@huawei.com>, Peter Korsgaard <peter@korsgaard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, John Garry <john.garry@huawei.com>,
+ Peter Korsgaard <peter@korsgaard.com>,
  William Breathitt Gray <vilhelm.gray@gmail.com>,
  Mark Gross <markgross@kernel.org>,
  "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
@@ -158,16 +158,16 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
  Borislav Petkov <bp@alien8.de>, Sebastian Reichel <sre@kernel.org>,
  Eric Auger <eric.auger@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
  Matthias Brugger <matthias.bgg@gmail.com>, Takashi Iwai <tiwai@suse.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Benson Leung <bleung@chromium.org>,
+ platform-driver-x86@vger.kernel.org, Benson Leung <bleung@chromium.org>,
  Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-edac@vger.kernel.org,
- Sergey Shtylyov <s.shtylyov@omp.ru>, Mun Yew Tham <mun.yew.tham@intel.com>,
+ Tony Luck <tony.luck@intel.com>, Mun Yew Tham <mun.yew.tham@intel.com>,
  Hans de Goede <hdegoede@redhat.com>, netdev@vger.kernel.org,
  Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
  Cornelia Huck <cohuck@redhat.com>, Linux MMC List <linux-mmc@vger.kernel.org>,
  Liam Girdwood <lgirdwood@gmail.com>, linux-spi <linux-spi@vger.kernel.org>,
  Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- Vinod Koul <vkoul@kernel.org>, James Morse <james.morse@arm.com>,
- Zha Qipeng <qipeng.zha@intel.com>,
+ Sergey Shtylyov <s.shtylyov@omp.ru>, Vinod Koul <vkoul@kernel.org>,
+ James Morse <james.morse@arm.com>, Zha Qipeng <qipeng.zha@intel.com>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
  Richard Weinberger <richard@nod.at>,
  Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
@@ -177,18 +177,41 @@ Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Sat, Jan 15, 2022 at 02:55:50PM +0100, Uwe Kleine-K=F6nig wrote:
-> On Fri, Jan 14, 2022 at 08:55:07PM +0300, Sergey Shtylyov wrote:
+On Sat, Jan 15, 2022 at 04:45:39PM +0100, Uwe Kleine-K=F6nig wrote:
+> On Fri, Jan 14, 2022 at 03:04:38PM +0200, Andy Shevchenko wrote:
+> > On Thu, Jan 13, 2022 at 08:43:58PM +0100, Uwe Kleine-K=F6nig wrote:
+> > > > It'd certainly be good to name anything that doesn't correspond to =
+one
+> > > > of the existing semantics for the API (!) something different rather
+> > > > than adding yet another potentially overloaded meaning.
+> > > =
 
-> Or do you think kmalloc should better be called
-> kmalloc_optional because it returns NULL if there is no more memory
-> available?
+> > > It seems we're (at least) three who agree about this. Here is a patch
+> > > fixing the name.
+> > =
 
-Oh, do you know that kmalloc() may return NULL and small cookie value and
-actually one has to check for that (yes, either before or after against
-different variables)?
+> > And similar number of people are on the other side.
+> =
 
-kmalloc() is exactly an example that justifies the Sergey's patch.
+> If someone already opposed to the renaming (and not only the name) I
+> must have missed that.
+> =
+
+> So you think it's a good idea to keep the name
+> platform_get_irq_optional() despite the "not found" value returned by it
+> isn't usable as if it were a normal irq number?
+
+I meant that on the other side people who are in favour of Sergey's patch.
+Since that I commented already that I opposed the renaming being a standalo=
+ne
+change.
+
+Do you agree that we have several issues with platform_get_irq*() APIs?
+
+1. The unfortunate naming
+2. The vIRQ0 handling: a) WARN() followed by b) returned value 0
+3. The specific cookie for "IRQ not found, while no error happened" case
+
 
 -- =
 
