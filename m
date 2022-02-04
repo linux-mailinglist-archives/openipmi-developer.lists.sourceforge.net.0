@@ -2,103 +2,89 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8909E4A9ACE
+	by mail.lfdr.de (Postfix) with ESMTPS id E45444A9ACF
 	for <lists+openipmi-developer@lfdr.de>; Fri,  4 Feb 2022 15:17:46 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nFzPD-00023J-0c; Fri, 04 Feb 2022 14:17:41 +0000
+	id 1nFzPD-00023b-4f; Fri, 04 Feb 2022 14:17:42 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2) (envelope-from
- <linux+openipmi-developer=lists.sourceforge.net@armlinux.org.uk>)
- id 1nFxkz-00014t-DP
- for openipmi-developer@lists.sourceforge.net; Fri, 04 Feb 2022 12:32:04 +0000
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
+ (envelope-from <andrew@lunn.ch>) id 1nFyio-0005gf-9n
+ for openipmi-developer@lists.sourceforge.net; Fri, 04 Feb 2022 13:33:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Sender:In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mzxF9rMeHdGHwkTPDimCxRmilWqf6MiwMi9qg5Sr64g=; b=ODfcZOTuDTjcFoSqnbjXaSHbnI
- UHheHAnox0ho2JxylmjcPaIWvhL85oMZFaVY0s7FZcH+3KRU5d+2lK3JGDiJ0cUYkVcDSP2atOgqU
- gvbA00J3jueWWu2Ux2JHKu0JtNltWq6RxXkCSVcYijlEz9/lM3au614jW1v2Ub5o+/8g=;
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=4Ca9I/sAMzQIMCAYXBkIkytKRwdb7KuHMc9w1XGE+7A=; b=XSIDx0HkUFO2uQL7t+ZXEJAfur
+ 9I/hvy1vJiR2wWfDgAXhWWuE+iayeJF+/6wBwHG154gVw7vny1a6N3gARfN7soeQ/WceeYZ7Yiw2a
+ 7wocNq2QU1jrEaaLdeo+mpBgMd3qAhNt9GMjJ0wkk+kbdkZGATuCdqJletdCBk5+nuy4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Sender:In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
- Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=mzxF9rMeHdGHwkTPDimCxRmilWqf6MiwMi9qg5Sr64g=; b=UwZYQN9Z18LNoctlLwOeQURTcE
- ESsQOoQZfKkzMQUwgknLIwx2L2cI9YN0jVIiK+uwsnoBJ/QZykrfWaMF6FnUgchLgMv8cWTTccJQy
- MoTV8CxC2KiUDrgym5NLMyWHOKH/yGh9YJ9dibylR65lFCEbMy7UdNduWPHlsOgS0R94=;
-Received: from pandora.armlinux.org.uk ([78.32.30.218])
+ bh=4Ca9I/sAMzQIMCAYXBkIkytKRwdb7KuHMc9w1XGE+7A=; b=bsqJdlLdC4HPo/2OH2FXMfAc3O
+ aJZ9FnxrCX6+oNcq2niztWM50pGKquRUlQQh/TdMtZma4SAaEVVqGsCeqIQG2+aXHcT/en8BanHaq
+ 6xrLEKkb/42J9dN0ffwqPwb5uS5hs6wtHBieRCayw/AHOkiF30mSomlVu5e/vf2jomb0=;
+Received: from [185.16.172.187] (helo=vps0.lunn.ch)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nFxku-0004XR-6M
- for openipmi-developer@lists.sourceforge.net; Fri, 04 Feb 2022 12:32:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mzxF9rMeHdGHwkTPDimCxRmilWqf6MiwMi9qg5Sr64g=; b=vl3i11hF8iQy1h0Ag1YRBLQAG7
- dAUWYNtSwGnV/h/3SZGvDI79vCb1IEbbtu1UQ3FfZta2TTQ2uI3cfSWVhx6A7bIW/Wj5SVNcGD6XY
- 418/0rcrILwiuHAWq2bEWrG3CtJrTzBtQ1S0fQbDDKu7PuyDjJWcpusaTPiE+f8BhmPgO0W9dxqG4
- ANF4a80aclwToWxEzEbz1ZbszC59Wpan34MN2z1REh6gVUGqTNlsaxyfNT/K03UeG6PDgF8dQPSMY
- lB6C1Kf71mwm4Og/bizKfCFlky7D1xuMSKf6R6BoJmtueaOi3urC0I9J+3NpAOum1WYjEIoCK3VOg
- bTdYh5bg==;
-Received: from shell.armlinux.org.uk
- ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57040)
- by pandora.armlinux.org.uk with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <linux@armlinux.org.uk>)
- id 1nFxk9-0004Zj-N4; Fri, 04 Feb 2022 12:31:13 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
- (envelope-from <linux@shell.armlinux.org.uk>)
- id 1nFxk2-0004yb-7L; Fri, 04 Feb 2022 12:31:06 +0000
-Date: Fri, 4 Feb 2022 12:31:06 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Joe Perches <joe@perches.com>
-Message-ID: <Yf0cihUQ1byjnh3d@shell.armlinux.org.uk>
+ id 1nFyii-0003OP-Mf
+ for openipmi-developer@lists.sourceforge.net; Fri, 04 Feb 2022 13:33:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+ s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+ Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+ bh=4Ca9I/sAMzQIMCAYXBkIkytKRwdb7KuHMc9w1XGE+7A=; b=0N30fHOeJKKiEmBzHSSAjOwTCo
+ NpvFMTne+ReR7L/rMoQIq2d5/1hRKjsDPqIORGjajQW+UTS2E2q3Z/w61nDp6gVZ6OVzpiYsw2EyW
+ pLoL11FZdneTXfJN6pJjgvs7Ay984ejA0+yx0g4+Hjhydr9jhY9l2gbt/i994/BsW7lk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+ (envelope-from <andrew@lunn.ch>)
+ id 1nFyhL-004Gxv-Fm; Fri, 04 Feb 2022 14:32:23 +0100
+Date: Fri, 4 Feb 2022 14:32:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Message-ID: <Yf0q5/Jus+mz0B2E@lunn.ch>
 References: <nick.hawkins@hpe.com>
  <20220202165315.18282-1-nick.hawkins@hpe.com>
  <Yf0Wm1kOV1Pss9HJ@shell.armlinux.org.uk>
- <ad56e88206a8d66b715035362abe16ece0bde7d3.camel@perches.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ad56e88206a8d66b715035362abe16ece0bde7d3.camel@perches.com>
-X-Spam-Score: -2.0 (--)
+In-Reply-To: <Yf0Wm1kOV1Pss9HJ@shell.armlinux.org.uk>
+X-Spam-Score: 1.6 (+)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Fri, Feb 04, 2022 at 04:18:24AM -0800, Joe Perches wrote:
- > On Fri, 2022-02-04 at 12:05 +0000, Russell King (Oracle) wrote: > > On
- Wed, Feb 02, 2022 at 10:52:50AM -0600, nick.hawkins@hpe.com wrote: [...] 
- Content analysis details:   (-2.0 points, 6.0 required)
+ Content preview: > > +#include <linux/init.h> > > +#include <asm/mach/arch.h>
+ > > +#include <asm/mach/map.h> > > +#include <linux/of.h> > > +#include
+ <linux/of_platform.h>
+ > > +#include <linux/clk-provider.h> > > +#in [...] 
+ Content analysis details:   (1.6 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [78.32.30.218 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [78.32.30.218 listed in wl.mailspike.net]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.5 SUBJ_ALL_CAPS          Subject is all capitals
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1nFxku-0004XR-6M
+ 1.3 RDNS_NONE Delivered to internal network by a host with no rDNS
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1nFyii-0003OP-Mf
 X-Mailman-Approved-At: Fri, 04 Feb 2022 14:17:39 +0000
 Subject: Re: [Openipmi-developer] [PATCH] HPE BMC GXP SUPPORT
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -148,45 +134,36 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Feb 04, 2022 at 04:18:24AM -0800, Joe Perches wrote:
-> On Fri, 2022-02-04 at 12:05 +0000, Russell King (Oracle) wrote:
-> > On Wed, Feb 02, 2022 at 10:52:50AM -0600, nick.hawkins@hpe.com wrote:
-> > > +	if (readb_relaxed(timer->control) & MASK_TCS_TC) {
-> > > +		writeb_relaxed(MASK_TCS_TC, timer->control);
-> > > +
-> > > +		event_handler = READ_ONCE(timer->evt.event_handler);
-> > > +		if (event_handler)
-> > > +			event_handler(&timer->evt);
-> > > +		return IRQ_HANDLED;
-> > > +	} else {
-> > > +		return IRQ_NONE;
-> > > +	}
-> > > +}
+> > +#include <linux/init.h>
+> > +#include <asm/mach/arch.h>
+> > +#include <asm/mach/map.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_platform.h>
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/clocksource.h>
 > 
-> It's also less indented code and perhaps clearer to reverse the test
-> 
-> 	if (!readb_relaxed(timer->control) & MASK_TCS_TC)
+> It's normal to list all linux/ includes before asm/ includes. Please
+> rearrange.
 
-This will need to be:
+Hi Nick
 
- 	if (!(readb_relaxed(timer->control) & MASK_TCS_TC))
+Since you are new to the kernel, please let me point out, you should
+consider Russell comments for all your code, not just this one file.
+Many of the comments are generic to code anywhere in the kernel. So it
+would be good to fix the same issues in the rest of your code base
+before submitting them.
 
-> 		return IRQ_NONE;
-> 
-> 	writeb_relaxed(MASK_TCS_TC, timer->control);
-> 
-> 	event_handler = READ_ONCE(timer->evt.event_handler);
-> 	if (event_handler)
-> 		event_handler(&timer->evt);
-> 
-> 	return IRQ_HANDLED;
-> 
-> 
-> 
+I would also suggest that when you start submitting drivers, submit
+just one or two to start with. You will learn a lot from the feedback
+you get, and you can apply what you have learnt to the rest of your
+code before you post them for review.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+I would also suggest you spend 30 minutes a day just reading comments
+other patches receive. You can also learn a lot that way, see if the
+comments apply to your own code. You will also learn about processes
+this way, which can be just as challenging to get right as code.
+
+     Andrew
 
 
 _______________________________________________
