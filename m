@@ -2,90 +2,118 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A1B644B5AFA
-	for <lists+openipmi-developer@lfdr.de>; Mon, 14 Feb 2022 21:31:56 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id CD12A4BD6B8
+	for <lists+openipmi-developer@lfdr.de>; Mon, 21 Feb 2022 08:04:26 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nJi0n-0005YD-TX; Mon, 14 Feb 2022 20:31:52 +0000
+	id 1nM2k8-0000I7-Gp; Mon, 21 Feb 2022 07:04:19 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>) id 1nJbuS-00017A-9Z
- for openipmi-developer@lists.sourceforge.net; Mon, 14 Feb 2022 14:00:54 +0000
+ (envelope-from <joel.stan@gmail.com>) id 1nM2k5-0000Hr-Au
+ for openipmi-developer@lists.sourceforge.net; Mon, 21 Feb 2022 07:04:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=7RHiKZsY59wISE4AYIiP/ixieiK00lmTUSWXlAgJM/8=; b=glAQO6Stvos3z3OJ/5K8UBPl7Z
- iWpc8SC1YV6+J8D3HQuUg6aKsJkU49rW8tCsUnzdQg4Jb6cAoAZOW5L3VlTvTa/HeuBXk+tgGmBAm
- TicA/nYWmJRzkRaOKPUqeZiB+S6wFKTGZFrVc05pIVUu6srgucZubfXbKiALUfSWIMW4=;
+ bh=/eiwcrN4ADbCrGdR4ROiTkO+IoDEHApHd+vClHLmF8E=; b=ir0QH3ZT1yZGXw5XGrJsLxhkRd
+ kpqTKrdFsseoLoCgQ4WRIklVbjVhgqUGpO4o9tsmibQxnsuwDXZtQ40VYf43dSi5h+s9XXFlMPPp8
+ auUJOX2gtwLLS61bF5kXeFrrT67md7WfnRYlWy7YCU7C5r8rilr0xV3q5Wtg6ZZGXeTs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=7RHiKZsY59wISE4AYIiP/ixieiK00lmTUSWXlAgJM/8=; b=D7aQV+/yRw517gkRNb6zl6vim9
- 6fImLd17c4S3JfbzxJ5/bNa0frZpeRD67ldtjjefypCe/Wg/GE/aPX+ZC2hKBJBr+IcshSCaWMs3W
- lV6roEST+3JI7NmX3zVSstX2+giXK46ohqvCbOP6e+1ayFjJW977d7Ov0jDfKVE9HPtw=;
-Received: from metis.ext.pengutronix.de ([85.220.165.71])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nJbuN-001ZGr-I2
- for openipmi-developer@lists.sourceforge.net; Mon, 14 Feb 2022 14:00:54 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJbu2-0007Aw-Jd; Mon, 14 Feb 2022 15:00:30 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJbu1-00GYgZ-R1; Mon, 14 Feb 2022 15:00:29 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1nJbu0-0038OM-4h; Mon, 14 Feb 2022 15:00:28 +0100
-Date: Mon, 14 Feb 2022 15:00:27 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Message-ID: <20220214140027.npw6ddrxklarb6wp@pengutronix.de>
-References: <20220212201631.12648-1-s.shtylyov@omp.ru>
- <20220212201631.12648-2-s.shtylyov@omp.ru>
- <20220214071351.pcvstrzkwqyrg536@pengutronix.de>
- <CAMuHMdWi8gno_FBbc=AwsdRtDJik8_bANjQrrRtUOOBRjFN=KA@mail.gmail.com>
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=/eiwcrN4ADbCrGdR4ROiTkO+IoDEHApHd+vClHLmF8E=; b=W
+ lbV5kXA8Ev8aDfAM+iH0yNuwJnP3kOj5UQf6uC6JOZimy8GrpZ7SspMvmKRzAUi40zBACXYQwh3Ju
+ Ba21dUSGcuO8ipe3wz4BmC8VwJR4iLjcyfRXKYG/5qhSvKxd/XgTonLk7YR0tmMqKl3LaHzGJzvH/
+ c4SyfZ8srHt4eyTo=;
+Received: from mail-pj1-f41.google.com ([209.85.216.41])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
+ id 1nM2jy-0003yh-3J
+ for openipmi-developer@lists.sourceforge.net; Mon, 21 Feb 2022 07:04:15 +0000
+Received: by mail-pj1-f41.google.com with SMTP id
+ iq13-20020a17090afb4d00b001bc4437df2cso1595792pjb.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Sun, 20 Feb 2022 23:04:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/eiwcrN4ADbCrGdR4ROiTkO+IoDEHApHd+vClHLmF8E=;
+ b=NRWTdrpQx7U1oJ/7ablQC25nJUWoFqG64cB1fg3qbO+UQ2XezTfYjBVhzgvxzpHrXj
+ LYk/V49LdNqVx1OmvmoweRj4GJnUYErm/iVsP2As36Ln/zJntJ/RZ9P3xS8q7N+EuiAG
+ TRv/c+dQdyWScwW0OjmW73xZPo2nFIFL+b8ol4z6IYAXzvmpTdGb6UdcQWVqbmzhihs1
+ rmoYUDmInaxmudebfuQ9zFYcz6iiHPlK1Fbf5Z5JfV33r2TE065wqiz3eiDEn6ccKNVq
+ P8p5sC/2lg+he+9N4jUQyizg4n3oNXlF4gz9RftYi2t1+5Rui6k3vy69jmstalH9spc9
+ L9iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
+ :mime-version:content-transfer-encoding;
+ bh=/eiwcrN4ADbCrGdR4ROiTkO+IoDEHApHd+vClHLmF8E=;
+ b=VvQPQo9vIDNWwjc0Q/gv/OqVBh77FJSk5AkhglrONpTMG90bMX7mZ63RvtUnTloJqj
+ J4DpRbeUh1bUcbDPqJ9qmQlDVCaWHLf1VHJ9zOpmQVwndfJFbS2+5AKP+n+pujToZ1Dv
+ ohW2OgUH2eMNDX+fTx0eSDR6QsXlhyYpRvzF2BI+AnRqHZLwsScNsGuO2pYJ7DanaDdZ
+ 7xIrrW5Ls3TWp5bziRHQ4Ux488sWBi3N1166GBgGQEe+jhQuDphQzqOpLOJjEIMa10CP
+ Eji9Xgtzwhnhl8r4s2V1+OItvV+rRO9p/wl03VmEzx/NzzcF9aLED5ITKwr8WEQpGtM0
+ tskw==
+X-Gm-Message-State: AOAM533wOJI76So4wTceZ2EZ40JUHKMkg8QoEAuDr6N5bTCGRLGVhbA8
+ WqSvCHhmq9sSx7/LUi7L34I=
+X-Google-Smtp-Source: ABdhPJzA5t8Iw5+WX85Tv+GB0Iq3xAsTYdBjK1LVPlY/HRT+Ie5OzSnEamjM3sxowBnw7qNOjavtCg==
+X-Received: by 2002:a17:902:74ca:b0:14f:acf5:a5b8 with SMTP id
+ f10-20020a17090274ca00b0014facf5a5b8mr5194316plt.54.1645427044404; 
+ Sun, 20 Feb 2022 23:04:04 -0800 (PST)
+Received: from localhost.localdomain ([45.124.203.14])
+ by smtp.gmail.com with ESMTPSA id s6sm11447175pfk.86.2022.02.20.23.04.01
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 20 Feb 2022 23:04:03 -0800 (PST)
+From: Joel Stanley <joel@jms.id.au>
+To: Corey Minyard <minyard@acm.org>,
+	Andrew Jeffery <andrew@aj.id.au>
+Date: Mon, 21 Feb 2022 17:33:51 +1030
+Message-Id: <20220221070351.121905-1-joel@jms.id.au>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdWi8gno_FBbc=AwsdRtDJik8_bANjQrrRtUOOBRjFN=KA@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: openipmi-developer@lists.sourceforge.net
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: 0.4 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hello Geert, On Mon, Feb 14, 2022 at 10:01:14AM +0100, Geert
- Uytterhoeven wrote: > Also IMHO, the dummy value handling is a red herring.
- Contrary to > optional clocks and resets, a missing optional interrupt does
- [...] Content analysis details:   (-2.3 points, 6.0 required)
+ Content preview:  The AST2600 is already described in the bindings, but the
+ driver never gained a compatible string. Signed-off-by: Joel Stanley
+ <joel@jms.id.au>
+ --- drivers/char/ipmi/kcs_bmc_aspeed.c | 1 + 1 file changed, 1 insertion(+)
+ Content analysis details:   (0.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [85.220.165.71 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.216.41 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.216.41 listed in wl.mailspike.net]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1nJbuN-001ZGr-I2
-X-Mailman-Approved-At: Mon, 14 Feb 2022 20:31:50 +0000
-Subject: Re: [Openipmi-developer] [PATCH v2 1/2] platform: make
- platform_get_irq_optional() optional
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [joel.stan[at]gmail.com]
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1nM2jy-0003yh-3J
+Subject: [Openipmi-developer] [PATCH] ipmi: kcs: aspeed: Add AST2600
+ compatible string
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,123 +126,38 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
- Vignesh Raghavendra <vigneshr@ti.com>, kvm@vger.kernel.org,
- "Rafael J. Wysocki" <rafael@kernel.org>, linux-iio@vger.kernel.org,
- Linus Walleij <linus.walleij@linaro.org>, Amit Kucheria <amitk@kernel.org>,
- alsa-devel@alsa-project.org, Joakim Zhang <qiangqing.zhang@nxp.com>,
- Guenter Roeck <groeck@chromium.org>, Thierry Reding <thierry.reding@gmail.com>,
- linux-mtd@lists.infradead.org, linux-i2c@vger.kernel.org,
- Miquel Raynal <miquel.raynal@bootlin.com>, linux-phy@lists.infradead.org,
- netdev@vger.kernel.org, linux-spi@vger.kernel.org,
- Lee Jones <lee.jones@linaro.org>, openipmi-developer@lists.sourceforge.net,
- Peter Korsgaard <peter@korsgaard.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
- Kamal Dasu <kdasu.kdev@gmail.com>, Jiri Slaby <jirislaby@kernel.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Kishon Vijay Abraham I <kishon@ti.com>, bcm-kernel-feedback-list@broadcom.com,
- linux-serial@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
- Zhang Rui <rui.zhang@intel.com>, Jaroslav Kysela <perex@perex.cz>,
- platform-driver-x86@vger.kernel.org, linux-pwm@vger.kernel.org,
- Hans de Goede <hdegoede@redhat.com>, Zha Qipeng <qipeng.zha@intel.com>,
- Corey Minyard <minyard@acm.org>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, John Garry <john.garry@huawei.com>,
- William Breathitt Gray <vilhelm.gray@gmail.com>,
- Mark Gross <markgross@kernel.org>, linux-gpio@vger.kernel.org,
- Alex Williamson <alex.williamson@redhat.com>, Mark Brown <broonie@kernel.org>,
- linux-mediatek@lists.infradead.org, Matthias Brugger <matthias.bgg@gmail.com>,
- Takashi Iwai <tiwai@suse.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Benson Leung <bleung@chromium.org>, linux-arm-kernel@lists.infradead.org,
- Sergey Shtylyov <s.shtylyov@omp.ru>, Mun Yew Tham <mun.yew.tham@intel.com>,
- Eric Auger <eric.auger@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Cornelia Huck <cohuck@redhat.com>, linux-mmc@vger.kernel.org,
- Liam Girdwood <lgirdwood@gmail.com>, Oleksij Rempel <linux@rempel-privat.de>,
- linux-renesas-soc@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Richard Weinberger <richard@nod.at>,
- Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
- Brian Norris <computersforpeace@gmail.com>,
- "David S. Miller" <davem@davemloft.net>
-Content-Type: multipart/mixed; boundary="===============1239343791694018109=="
+Cc: openipmi-developer@lists.sourceforge.net,
+ linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
+The AST2600 is already described in the bindings, but the driver never
+gained a compatible string.
 
---===============1239343791694018109==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mxy3a336cmbyaspi"
-Content-Disposition: inline
+Signed-off-by: Joel Stanley <joel@jms.id.au>
+---
+ drivers/char/ipmi/kcs_bmc_aspeed.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-
---mxy3a336cmbyaspi
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello Geert,
-
-On Mon, Feb 14, 2022 at 10:01:14AM +0100, Geert Uytterhoeven wrote:
-> Also IMHO, the dummy value handling is a red herring.  Contrary to
-> optional clocks and resets, a missing optional interrupt does not
-> always mean there is nothing to do: in case of polling, something
-> else must definitely be done.=20
-
-Note this is exactly why I don't like this change. I'd even go so far
-and claim that "a missing optional interrupt hardly ever means there is
-nothing to do".
-
-> So even if request_irq() would accept a dummy interrupt zero and just
-> do nothing, it would give the false impression that that is all there
-> is to do, while an actual check for zero with polling code handling
-> may still need to be present, thus leading to more not less bugs.
-
-Yes, a dummy irq value will just not be possible.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---mxy3a336cmbyaspi
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmIKYHgACgkQwfwUeK3K
-7AkfUwf+PjHT71nPQKjE5hOrUJs08gV3dPyFE+Lky6h3jHjtzp+VwX3waHB3n4Iy
-r1fdR+06wiK9BWaTD2PdT8FdEYo9n0yQlTx+03PQXtLFnutK7QSb0fBMQs7sVAfa
-nxp4CK8a1wlf0mzj1zSaeiGm6BYTsoJxoblrZ8hWbpbiVfhF6Eo5zXr0toHMI0WF
-QOhqgWNpQjHlpU+2paIvbOnBpNxJaXj3cycd6036NHAFQvZN5xrDdqHa+By0jeU0
-bm8NmjRjwHCqvhBpRYUglt+KhyRYWWTC/83WFKviLwnPV7tnkh5ZhJE50aUUp1Lr
-hyNbZjQKG8NIOTLNKMgY4nM0uni8jg==
-=vr2/
------END PGP SIGNATURE-----
-
---mxy3a336cmbyaspi--
+diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
+index 92a37b33494c..b555286016b1 100644
+--- a/drivers/char/ipmi/kcs_bmc_aspeed.c
++++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
+@@ -693,6 +693,7 @@ static const struct of_device_id ast_kcs_bmc_match[] = {
+ 	{ .compatible = "aspeed,ast2500-kcs-bmc", .data = &of_v1_ops },
+ 	{ .compatible = "aspeed,ast2400-kcs-bmc-v2", .data = &of_v2_ops },
+ 	{ .compatible = "aspeed,ast2500-kcs-bmc-v2", .data = &of_v2_ops },
++	{ .compatible = "aspeed,ast2600-kcs-bmc", .data = &of_v2_ops },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, ast_kcs_bmc_match);
+-- 
+2.34.1
 
 
---===============1239343791694018109==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============1239343791694018109==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============1239343791694018109==--
-
