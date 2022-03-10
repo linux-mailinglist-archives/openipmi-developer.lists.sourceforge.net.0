@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB97E4D47E3
-	for <lists+openipmi-developer@lfdr.de>; Thu, 10 Mar 2022 14:16:41 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 144ED4D47E4
+	for <lists+openipmi-developer@lfdr.de>; Thu, 10 Mar 2022 14:16:52 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nSIek-0008GB-T0; Thu, 10 Mar 2022 13:16:37 +0000
+	id 1nSIev-0002ti-G5; Thu, 10 Mar 2022 13:16:48 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <quan@os.amperecomputing.com>) id 1nSIej-0008Fy-LS
- for openipmi-developer@lists.sourceforge.net; Thu, 10 Mar 2022 13:16:36 +0000
+ (envelope-from <quan@os.amperecomputing.com>) id 1nSIet-0002tc-Ph
+ for openipmi-developer@lists.sourceforge.net; Thu, 10 Mar 2022 13:16:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=MIME-Version:Content-Type:Content-Transfer-Encoding
  :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Wjv6CnSj3V2zB6DLMhx0xgB/PBPemXBO36wqpNHB844=; b=GTouQrwI14zB2HnjPEUFX2XBlL
- tT12FoElsuzVfaBwN1KkrhGKM3B0HYUMnj4xxuxIrFr7RgSGu40TCaVoTvS4nxju88l2VO6W5feqh
- x/zq2p8AfHas5jQ2eAQ306G/6Cm6J8i6LRGXo/VLb3/lMATkld5Gv3Rr5X8iaz2tu0E0=;
+ bh=KU1ZJg5C+nGqp4Oe4CPdv7Z+79jbTyAJc3DLyeLAnNw=; b=BykMB13SZQYzA3dN8PjQuXYlcN
+ VNRoJUnGCNcs/HLTSw6sBIL8GNLMswJpNIEzEoR66lkddsscxQZKZ2XI4K1E51XJqbZR+UPXDiO/l
+ wQkbTnv54bqI6lOJ0A7bSYQoBiiDIFqFIS3Aa/vPlqN/6FYELusXQG04u/+PtfxXRyjU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=MIME-Version:Content-Type:Content-Transfer-Encoding:References:
@@ -29,22 +29,22 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Wjv6CnSj3V2zB6DLMhx0xgB/PBPemXBO36wqpNHB844=; b=LaEWn1tyiW88BoCcsWnQ92DND7
- 3Twke14A27SiCDGaDIRpqZoJLIg0pQGy0avz649JtRrUMZby2JHowV0lkoO8HoU7STd3JUxG3jMwY
- zI41sLjI89Xu9oPKQmkgOYeLeIqPu7GkNc8v6etUiXgf5nOp8bD/3+rPHIU/FIF+433U=;
-Received: from mail-mw2nam10on2106.outbound.protection.outlook.com
- ([40.107.94.106] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+ bh=KU1ZJg5C+nGqp4Oe4CPdv7Z+79jbTyAJc3DLyeLAnNw=; b=FG+VvTVSfT6/sHPhixFTG6kzaK
+ MVaBRU5IUqF/vHJm0yRRB1lVWiaGWrZ4u/xTAYdsQPK1YizmjOJ08GsKZHGT69ShpVDQfZWtUFGLn
+ HV1QFLvToEQ1SrfH8V+0ciiJ8h3U/NFsorCX79aTmfRbbJdiBU7faGP9VKIB8WbwtfHw=;
+Received: from mail-mw2nam10on2102.outbound.protection.outlook.com
+ ([40.107.94.102] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nSIee-0004CU-Fu
- for openipmi-developer@lists.sourceforge.net; Thu, 10 Mar 2022 13:16:35 +0000
+ id 1nSIer-0004D9-ID
+ for openipmi-developer@lists.sourceforge.net; Thu, 10 Mar 2022 13:16:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=KXT5WyL6I62ZiOrAiOifuf5tPMZ7CQU+nRpTZ7A0xextQy33s6dxJJuJMaI6IG8NhFAmAiFiwGJskHnkC4Ixui/gFDfNpExv1XME/wH6z+bXfd1v8g+PGeuxdKpm3/ux9GcKByfRrwTnhUO2b5XlD5E6qOLKHswcLdtNAEL9ZUCvOkMenZX9ipGy+g8My+U1c43gCmOpZx7psd0KZ6H5fx4CGvs/9WHGaUKyVR6S9VfiEZHn5O9JHDCVLOu/Zy4zbXKg6nvJFUrMF3brYrqIg0HzZOWtQiP01YT+LIDZHZteIWzvf2I3mU7KljPbiY7U7WA3KDWhfmwuS2MMl5U9TQ==
+ b=bROqIM85hNjZKBI1R+PG28XaePZGzk0Msr3KhVgapg+Hs9ctfeO+iNWiETXoyKjE5fzOafpMsJK2ZVUZVh2iDz/taFfcMGDIdB5HXi3mJ+0qLhmm0/zCCGImTZeZctXyBObLYmVydQl8uUQurZ6mMhl2BZ0ktFTT5QpVEckfkflRGqD409n5gpehExL4iKobxkh4jd6cVMm776hXMk7D12L76ewQL7uSN93pVf/r8xaWiJiRYvbqehmVDi6fuSxXm74mfcJRFUWOnHKy7FG8B+XSAC7ACGUKiejZvPkcW9sNjLPZb+CSqSxfUHEtV6BrN/3I2rQ7hdPIVfBZwOWcug==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Wjv6CnSj3V2zB6DLMhx0xgB/PBPemXBO36wqpNHB844=;
- b=UB3ZZdzjlnD7gVr5GMIkEQSLgiBY0sPn+YGLfzGgHbSr19YjN89D5v7tFsMJ1IJmnQ0LCe5SDAK+EjZwz7zQVIwXwxHPQXP5m0+BP6PYedaCNtvRhh/niJQTxIyjFE0A85i6iyj/62Ul2nQ7R2030opF6kLOonZ3vKjzHP7LyBpJSc7tgRcor50e95S7IaYQwmQCyJ5853YbSRqgwAOw45Coarivk1wXSj1x8zrspRj/FI//XQlag4hZOT0GVMsYZW/2wNkfCDMLroSa6k6yt6XuXTfVjcKXJ4abzhGq73oyd5VBCrqBZZpLGYXUkF8EXllUqdOSjn9FjQyFc7e54g==
+ bh=KU1ZJg5C+nGqp4Oe4CPdv7Z+79jbTyAJc3DLyeLAnNw=;
+ b=JeyJgbalw3Hye4adjthIGTcUL0z/AEda92JfU+PDzMh/NrAQ1gJPWqQ+hJlEH6W5iY21hcJ1K/mXArESzxL+lPpvSvJ8rOzzYhDI3c1GdPO4qNZM4TKVrxGOtYZCh9iqV7Ej8nCOVkGov9yEHXl6dKX1R2gt9z+ItEagRiO7ZdqtAfBEUJT2bLLogy8X47RKTKTti5dmgVxmKA9Gg/M8v0aX3ZHJgpLmFwt+rl6tg8/Z6eTQa07ZB/UNhLrJ07WuMN8f5jgdp0DZcB93TyLPnS15RSGMZGhTEtDTwK4CFH6z38jvxKLADz7Yy9V7X4I1bziqC9AkzPwGIn+gqfJatw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -52,19 +52,19 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Wjv6CnSj3V2zB6DLMhx0xgB/PBPemXBO36wqpNHB844=;
- b=BpfuAd0d8VlshMLiJ9HxODYsd1UMoLp+Q/XY0TAI8J6mjhzPsOpmlWA6LllOfqJxRH3QgHz6kRfGpP2Fto7FXP8LMSx2AO1p/CcaABaEejC5Dokv54sRgYjlOjb3XXo3T8Wnhr8LbeGp7z7pl/lvGDkza9tNt0LhnBdvXsePjj4=
+ bh=KU1ZJg5C+nGqp4Oe4CPdv7Z+79jbTyAJc3DLyeLAnNw=;
+ b=ZDKyUgwS0Gso3yz7MibbdpXvKLofLCB5EEZ3Q8Ibk7xXmjwE2aMS/zSCYTBm6zzng3PErha9dPYcUS4BD8HR7zlRY5GJVLbISI6yL4Exiu9/OYvuqx8NwAv1VS3jjYIIw0idsmqUPyJj3mOFmEWppmeSuzBi2pp0bHGK3ddhv8M=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from SJ0PR01MB7282.prod.exchangelabs.com (2603:10b6:a03:3f2::24) by
  DM6PR01MB3771.prod.exchangelabs.com (2603:10b6:5:82::24) with
  Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.5038.16; Thu, 10 Mar 2022 11:42:04 +0000
+ 15.20.5038.16; Thu, 10 Mar 2022 11:42:09 +0000
 Received: from SJ0PR01MB7282.prod.exchangelabs.com
  ([fe80::cd24:39ed:7042:46d6]) by SJ0PR01MB7282.prod.exchangelabs.com
  ([fe80::cd24:39ed:7042:46d6%6]) with mapi id 15.20.5038.027; Thu, 10 Mar 2022
- 11:42:04 +0000
+ 11:42:09 +0000
 To: Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
@@ -74,8 +74,8 @@ To: Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
  linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org
-Date: Thu, 10 Mar 2022 18:41:18 +0700
-Message-Id: <20220310114119.13736-4-quan@os.amperecomputing.com>
+Date: Thu, 10 Mar 2022 18:41:19 +0700
+Message-Id: <20220310114119.13736-5-quan@os.amperecomputing.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220310114119.13736-1-quan@os.amperecomputing.com>
 References: <20220310114119.13736-1-quan@os.amperecomputing.com>
@@ -84,89 +84,85 @@ X-ClientProxiedBy: SG2PR02CA0125.apcprd02.prod.outlook.com
  (2603:10b6:a03:3f2::24)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: d611fabd-8eee-4196-a55f-08da028aff19
+X-MS-Office365-Filtering-Correlation-Id: b3a4c552-b099-4a0f-ef2b-08da028b0246
 X-MS-TrafficTypeDiagnostic: DM6PR01MB3771:EE_
-X-Microsoft-Antispam-PRVS: <DM6PR01MB37717B97790867DDFD848F73F20B9@DM6PR01MB3771.prod.exchangelabs.com>
+X-Microsoft-Antispam-PRVS: <DM6PR01MB377144B46DCED636056DA583F20B9@DM6PR01MB3771.prod.exchangelabs.com>
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: gky5Ab+W//BAhQk2IwggqqVPiUdUz6CmYQK7gtFQU6smKtkQuu5hgIH6u7EM/ibgk0xGACeIdFTc5kyLcghSZOLk6q7aHuxfNkdtf43CnXmO3ePzP49EOCN7QU27MfGL9y/6Va4SBj86i6htfeed9UOnkU4QKOSRONGZ5ABn6X4TnlKZpBgdpwVaLxhFzrYDWEn6XrLqqWs3LOy4vs//5AwsHibV67w8yqPRNqi4CPHHpM8nQ9meyWflNUwZrckAfLpuw5hxPUlqhaPCIcQdlI7lY9kxQmTf0hT3C6oYDWE0QoD1b/zF92PrLy7FwxKlwO9HFEieUl8s/Xln7mUmjBjNCSdUleEphAnp1QzDgCi+dufBXclWbHwBDk0LNKST4ah56e+k4PXH79ewYK+YLRoWinotcclZ0pFKBEXNf4FtVZh6MlP0c0MuQfAitZbAQZpRlTXMDaBmX7+2hy79dwQMOIL0jDcN12631qb2hFe50ZymKW9Rj+DgQhEscsJUkS7By0X6sca828js+mX1GrBcGpP3bmlXN6yXCdDQE3BPcctkAr6HhzSl+wrl0Zn7EpabvxYy1D26iWRj+Yd/qww5tURqsH75ABC6XzLaYMdHFAW9weybPZ3QV4RPTUfTN8onlS5Q4qnlLX7r9MqjUvCjcL8sYuMVEJszNw37tzf2fMEYK4ac7TXp2RzArHghHOiLLCf0ngUdH7E6kuZ9ufidKfMCFNop5rrqfZ1ixs0=
+X-Microsoft-Antispam-Message-Info: 4C/LvfNyNMDHEA4bt2d2du3FQxLZhbxWEvj4d3FiOymfYvoK3R7rwYO1zQhB+cSSNhCp0duJFLSdjgPcPC2jzKHtm46eDSkx7oAd9G1bHKMF7MNitQ6Jd0pWvR9kLJ0HwFnXiJxhM4uI2//lUXHkpou1glCvSJW+1JiejTrZQFFaUd1XfXRJIy9vPWjuCVkejWV3snabknZv1ndQOuBtgKJKZHGPjhqmIEfWPStMTTj08p9xxwk/Qm7Hg3vW35wG5YzCetz9Q+NzqxtZiOx5zLQUFBQmSuXiPkgVCUvqJLezjYjiWJoEGsQd9lESA04g5jc9D/izH/ayRGvLNLmkdiT9ac0Yo6k0ILjdsrad2o29y5AmbUPOTrns4uEuI1Oqk42OAHj4ZwUXACF7lQpbvPuxqrM8bX1c0kogEdypyA/TVU9ynWoEpP8A2pxCsM9fEwyTAr8sgH6MB8WAm7ISLZmRJagKRpZbCM0f56z3EbRsQ6t5ed7JqD8sHnvTmX6jklZVzrpQJF1jJlKlS2UBqZTgoiPIumpF2pbNTxKmDtrj9voh4RNJPvQRPJYX4p1bU/wfc4UtH0RSeDUZiBTN+dy7tTYzmf0jTnkHpH6NLxy8EthA5OG4dLbxu/ezY210kxundCtG+8ba/cp3crP/3wgXgsTviN+9vwQqNkLhd6MFQnXOC46e+FDtScy/imAUHXSB+B/nQ2tax5NEmchGlFyHdqMLl5QJf1DvPJgBoIQ=
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:SJ0PR01MB7282.prod.exchangelabs.com; PTR:; CAT:NONE;
  SFS:(13230001)(4636009)(366004)(38100700002)(38350700002)(83380400001)(186003)(26005)(107886003)(921005)(54906003)(66946007)(110136005)(2616005)(316002)(6512007)(1076003)(52116002)(2906002)(6506007)(6666004)(86362001)(66476007)(66556008)(8936002)(7416002)(5660300002)(6486002)(508600001)(4326008)(8676002);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BefJ29iVA7lzH+Tc0cl5Wwn/hWvI8l4RxyxBQLpFKF8i9y6QQxyHSuth/y28?=
- =?us-ascii?Q?gVfy5UxfB491HizQZWEDZbgrKujFVlql6uVQ/RzFgRS/Q0FB9886GqOCIh15?=
- =?us-ascii?Q?kCTQF7uMSgraTCs1+E9qsM92gklfyqDdJ6yXSdcpgISEGNT78OVKMUeUYZmA?=
- =?us-ascii?Q?2RFNftQN5YJDyiAkb5fCWjOrvHpqYRfWSV/5iqobIgHakB77j+HGSEtPqt/X?=
- =?us-ascii?Q?L9ICWJWh+7HJR67ybXjr/kWLZXdyD16PzKhDerfkSXNpiRv+2ynw87dQCZ6y?=
- =?us-ascii?Q?uS95MFMDz4quTHW0CUPN7IpWaW0/QPFdVwtg6Z1S43Kmj3BT8R/JzK3RewC3?=
- =?us-ascii?Q?UazP7P/JC7OtLP4/wk7fXiSUa2ugmaqfax5QRF2qOzvZ8GnhbbpUNn0VWjW5?=
- =?us-ascii?Q?dUCLiiT7CQhCQVrgjZPyybsApszkXVizoAj5I+KCZpPINWyoaR2kY91yN6ju?=
- =?us-ascii?Q?DbyNf8O5n/bEmQt7Niry4DQzlN0ZisAXv+H0sU9bl/WrvIh4+pi+VPR0J9lW?=
- =?us-ascii?Q?MD4QkmstqH6WjnW1Qey1Q6K6oggdnwe7tnP2FvCD9UlcB8gHY7QAXuYC67lI?=
- =?us-ascii?Q?2rpeFG5pAKzBmB4BYr+7g18zHkpeNwNV4wG2s/Wek1xqioK20P0rrDHkf4Vv?=
- =?us-ascii?Q?AdAvI1ZoGi4ZxUXbxJLt8RvH+yHP9338MOnBtKd+jhkMv2t46Qkys9RD/7Lz?=
- =?us-ascii?Q?HgPUvHndKnaPC/mCiEz1wVqVuEVxiLmwJHrG8Qes5qmWbRCjaWpe5bbugQrA?=
- =?us-ascii?Q?5Q+R7mEjIz/5FEN5t5f3noh+tSs8qq7tNazxNBaeDPq5cFKqL+vWADwFqVVx?=
- =?us-ascii?Q?aTVWAgKJLsO5X5qXIV7qXc64t6YWxEuE1qKDIlo6i4j5LCAfMbaPdH27BMYf?=
- =?us-ascii?Q?ngoT/6bzc76YOHEr0iXrJAQ8k82VX/3ltwZ3Va2gtFmMcbrdLU0u4VwgCeBn?=
- =?us-ascii?Q?pc7Rf4T5VuJU7DpS8EiI///Rp9SWHqhB164jtKl4mVF/eWhGm/JXxJ4D7SA1?=
- =?us-ascii?Q?Mim731gGz2C2I1dyTNywGwlRMorzSkvgLVyNaA9BUUGcdJcWEwVO/yTPftQb?=
- =?us-ascii?Q?8QMGYS5cG1vOzzjLtmnyTzXqYpEe+f0SuMHlk4HOzX0OTwPnXA2ckn4ritr1?=
- =?us-ascii?Q?ioaTlob7fLcUHX27VephVAq315dFQTnBU0CWVZ/AUYid4jUeVBo8Q2AYY3Yt?=
- =?us-ascii?Q?Vwir7gq9moyDMl/sLhPsefP+N1C7WnUkmKceNuzi9fxUo3yRsdbOUnceZzn3?=
- =?us-ascii?Q?9mZGWC05dtAYDFXdQETOhtngLaS4Jl1YuwCmoVu7F3yNB09V51EnJhMz8WCW?=
- =?us-ascii?Q?ZZlcLQCMrQeznC3fEhmWeaQOxB4PGXoMmA5S3YFZlYpoHEQdaPtU7TT6efmS?=
- =?us-ascii?Q?geLFqJuC2rRtvXDQnnkCmSd/g8c4tdIA1mbI9TI0jN9DqVLBsR4so9/uqXf0?=
- =?us-ascii?Q?fe2y9uudYuisPlb8as617S9Xc4g+X1zRaO61RFxODPb/etK2SzuDvfd7FT7Z?=
- =?us-ascii?Q?FkUpjXSG8G7sXhRihGcKO2F7AvmC21uVVX6dpyLPCbat1gG5Io5Bvu3309rX?=
- =?us-ascii?Q?Yg6N/54b9SqzXUmXw9klFjwal5XEMN2LDL32BhUHAvoojpPt9teeeyLsNI58?=
- =?us-ascii?Q?PFHaGgfHszgaeKfx4sTt6HsXHKrq2zCllO13hJUYmCzsvFJV1FUysqqoekbq?=
- =?us-ascii?Q?XuABkSua2acs46PzD0U/fRrNYa8=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YCK5nNdfEgjTUJpSJLnrsIRImQjNGPDjcxhudtZ8+q5m7JmS4HfARUsh/I6Z?=
+ =?us-ascii?Q?IaM5aPwHLUyo41ESx7qWC4yS0gozSXgDGky4vCl0OzsDRh8HhOBlZUv0LVxy?=
+ =?us-ascii?Q?EYD35dshvcUfBQ+kGSl9nHNPMyDNy/wHA6pTiWTZm2qx1JwMtwdpSvIHrGk1?=
+ =?us-ascii?Q?UnIDj2ACd3UfiEjnt8DWPeZHxTy67tRH3Q52RZGP6eypx0icxs6hJAKM0GkR?=
+ =?us-ascii?Q?juZ4PjdCBhNZCQZ6TxgufZbhH4xCIpE6kcwkI80HYnPRIArbUGXqPiSxsTkI?=
+ =?us-ascii?Q?ZY5IEDGeUAA7wHWu1gBxWuVp3swpkwLcrO/0kzymmFzkBrxUwd509gZlq2Dt?=
+ =?us-ascii?Q?E9kwTQlZUPMyK6z05waB0MDMTlJLLmyoGDmKvc5JOnGEOx+z+8s88rMXrLvt?=
+ =?us-ascii?Q?BZrIbwsr0ZbplkzniazNaupdo9L4m8p7hiw9qhf2RlENBenCE6YYHAYaFTmn?=
+ =?us-ascii?Q?na8wQXB6faDyMXlPk+vTnxSrCvIqGR+GHcuMdxOwnTaSX0uoARLCEkVeNqVH?=
+ =?us-ascii?Q?2S/frLghaRcvzWWZFqPtNsa2KX9kNmwVNHnVwT4Hz4v7YuveiaxkpeHBGAPa?=
+ =?us-ascii?Q?0HP0dn8LP0vsDpzy/QAB2QGK+4xxETH4PmWsmNcl6uq5d+25CBPZjA10CckK?=
+ =?us-ascii?Q?4/kLEkKRVfYd0tfXMmTZmrmagbIXc98yJPtM35jgd1PyVwe9zPXFXLvOdchJ?=
+ =?us-ascii?Q?9RKyH8e7dWrarm6DxEOCHy3hVtGbjc/iQVXhwN3lrOSWvlzOSac95CqZBoV1?=
+ =?us-ascii?Q?QajqXQLoV8P6AOT4ljdujePvfoJ+/Gm0gO2kucqCZBLOtK9090BHbGWAYR2i?=
+ =?us-ascii?Q?VI417/4yQ31lI/v1X3bxOvybvLY35JlnQaB4oVcqEK/9eAq6/6r7ISyybp1f?=
+ =?us-ascii?Q?smdRqlXHLsSZKZmYx3GdPAcBZI1GdNeSaChQwa5lFbNjv4+6U/sPq0E/laoT?=
+ =?us-ascii?Q?Y5hXEZBs4MH+MuxLLDlUk/12tca6m8IbugOvSwjZrBKVOz+BTJAnOJlORAJJ?=
+ =?us-ascii?Q?CJIzBx9m3Fv/O4Ah81uIPOZx9dxv/khCSjFLDNe0lpBhd+OJNq1OWsGV4llg?=
+ =?us-ascii?Q?1RAgDvLN/stQSNsJfcOiI3abdcasGq+ypA1asuRIpIUtE1X+URl9ZDvOCDUb?=
+ =?us-ascii?Q?a4NswJI74SdAz4wbemEFojWt+T3s+n9BQZduN5RFL6sbfFh61M3aI/2HROkw?=
+ =?us-ascii?Q?ZKyN0/xGB+HwoAFqU+YakzYa8S+q/JEHuv0tmn7t6SZnHRJHNZcHm+rw0Gx2?=
+ =?us-ascii?Q?wCmDtUS0abNQh65fyAivkzJ1MPq2IdYYx8kg/NTMMxlJMdE8ofeveLT90nVf?=
+ =?us-ascii?Q?imQA41bXFEnNZw11uhzEbpgSxyIH2coEwb7fSqJHeiV1izc/G+mp68ewMTL9?=
+ =?us-ascii?Q?eHaFq4c2OD+w7D79jmd2kbMjFV6yrz7m27FIJqDWFlfPL4twg4Ov3A13qkES?=
+ =?us-ascii?Q?0E9iWcePqxdkWA6JnyhYTkTt/gbH4cLlkAlHupOTedvgy/wr8SYEtYzXbbW1?=
+ =?us-ascii?Q?Si6sVD7udXZjFZQ5WGt/aRrj/RdsD26MkeFVLGR4Gf0zKf8nDFrNz07VRHN1?=
+ =?us-ascii?Q?9f2yRJRpbCRuBMwhUI1Mkr12jOSFatuQyiXIjRz0bGcBAAaQdXBYnmhTkEAI?=
+ =?us-ascii?Q?QWVzVJxv6fGJmyc33ZGil4tdEJ/M371/p8VchntmdONMZ3mGwfwOnbPE2ki/?=
+ =?us-ascii?Q?BUQUyxQr4w2FuFnQB7u9VMFvd4g=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d611fabd-8eee-4196-a55f-08da028aff19
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3a4c552-b099-4a0f-ef2b-08da028b0246
 X-MS-Exchange-CrossTenant-AuthSource: SJ0PR01MB7282.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2022 11:42:04.2627 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2022 11:42:09.3414 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TNUhbl8uD63EvAfj4sc0kNU9N19a/JQFOlQEhdOjrYdbB2pB5pvO2WWXcWraPKmIRX4jCqFk1idU1mYsLfGbdjV/hE+HMOKVNjoY9vZuhCY=
+X-MS-Exchange-CrossTenant-UserPrincipalName: X4spJGlTI+MK/043WYpvFUs/UU6XQr2C6lEdlrBeSh0RD5CWobXFoHMFp8G+suBegiA7riOnKpNzjy+CfW6jZvczFDsdQy7rBw2Ti+pWHzE=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR01MB3771
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: From: Dan Carpenter <dan.carpenter@oracle.com> The
- copy_from_user()
- function returns the number of bytes remaining to be copied but we should
- return -EFAULT here. Fixes: 501c25b59508 ("ipmi: ssif_bmc: Add SSIF BMC
- driver")
- Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com> Signed-off-by: Corey
- Minyard <cminyard@mvista.com> Signed-off-by: Quan Nguyen <quan@ [...] 
+ Content preview:  When processing I2C_SLAVE_WRITE_REQUESTED event, if slave
+ returns -EBUSY, i2c controller should issue RxCmdLast command to assert NAK
+ on the bus. Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com> ---
+ v6: + New introduced in v6 [Quan] 
  Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [40.107.94.106 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [40.107.94.106 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ no trust [40.107.94.102 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1nSIee-0004CU-Fu
-Subject: [Openipmi-developer] [PATCH v6 3/4] ipmi: ssif_bmc: Return -EFAULT
- if copy_from_user() fails
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [40.107.94.102 listed in wl.mailspike.net]
+X-Headers-End: 1nSIer-0004D9-ID
+Subject: [Openipmi-developer] [PATCH v6 4/4] i2c: aspeed: Assert NAK when
+ slave is busy
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -189,38 +185,41 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: Dan Carpenter <dan.carpenter@oracle.com>
+When processing I2C_SLAVE_WRITE_REQUESTED event, if slave returns
+-EBUSY, i2c controller should issue RxCmdLast command to assert NAK
+on the bus.
 
-The copy_from_user() function returns the number of bytes remaining to
-be copied but we should return -EFAULT here.
-
-Fixes: 501c25b59508 ("ipmi: ssif_bmc: Add SSIF BMC driver")
-Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
-Signed-off-by: Corey Minyard <cminyard@mvista.com>
 Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
 ---
 v6:
-  + New add in v6, thanks Dan for the patch     [Dan]
+  + New introduced in v6                      [Quan]
 
- drivers/char/ipmi/ssif_bmc.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/i2c/busses/i2c-aspeed.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
-index 62db97773654..91ac2cae756e 100644
---- a/drivers/char/ipmi/ssif_bmc.c
-+++ b/drivers/char/ipmi/ssif_bmc.c
-@@ -87,9 +87,8 @@ static ssize_t ssif_bmc_write(struct file *file, const char __user *buf, size_t
- 	if (count > sizeof(struct ssif_msg))
- 		return -EINVAL;
+diff --git a/drivers/i2c/busses/i2c-aspeed.c b/drivers/i2c/busses/i2c-aspeed.c
+index 771e53d3d197..ebc2b92656c8 100644
+--- a/drivers/i2c/busses/i2c-aspeed.c
++++ b/drivers/i2c/busses/i2c-aspeed.c
+@@ -244,6 +244,7 @@ static u32 aspeed_i2c_slave_irq(struct aspeed_i2c_bus *bus, u32 irq_status)
+ 	u32 command, irq_handled = 0;
+ 	struct i2c_client *slave = bus->slave;
+ 	u8 value;
++	int ret;
  
--	ret = copy_from_user(&msg, buf, count);
--	if (ret)
--		return ret;
-+	if (copy_from_user(&msg, buf, count))
-+		return -EFAULT;
- 
- 	if (!msg.len || count < ssif_msg_len(&msg))
- 		return -EINVAL;
+ 	if (!slave)
+ 		return 0;
+@@ -311,7 +312,9 @@ static u32 aspeed_i2c_slave_irq(struct aspeed_i2c_bus *bus, u32 irq_status)
+ 		break;
+ 	case ASPEED_I2C_SLAVE_WRITE_REQUESTED:
+ 		bus->slave_state = ASPEED_I2C_SLAVE_WRITE_RECEIVED;
+-		i2c_slave_event(slave, I2C_SLAVE_WRITE_REQUESTED, &value);
++		ret = i2c_slave_event(slave, I2C_SLAVE_WRITE_REQUESTED, &value);
++		if (ret == -EBUSY)
++			writel(ASPEED_I2CD_M_S_RX_CMD_LAST, bus->base + ASPEED_I2C_CMD_REG);
+ 		break;
+ 	case ASPEED_I2C_SLAVE_WRITE_RECEIVED:
+ 		i2c_slave_event(slave, I2C_SLAVE_WRITE_RECEIVED, &value);
 -- 
 2.35.1
 
