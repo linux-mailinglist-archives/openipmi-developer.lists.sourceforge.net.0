@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 82BAD4D480E
-	for <lists+openipmi-developer@lfdr.de>; Thu, 10 Mar 2022 14:30:18 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id AB97E4D47E3
+	for <lists+openipmi-developer@lfdr.de>; Thu, 10 Mar 2022 14:16:41 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nSIrw-0002Zd-D1; Thu, 10 Mar 2022 13:30:15 +0000
+	id 1nSIek-0008GB-T0; Thu, 10 Mar 2022 13:16:37 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <quan@os.amperecomputing.com>) id 1nSIrt-0002ZW-QU
- for openipmi-developer@lists.sourceforge.net; Thu, 10 Mar 2022 13:30:12 +0000
+ (envelope-from <quan@os.amperecomputing.com>) id 1nSIej-0008Fy-LS
+ for openipmi-developer@lists.sourceforge.net; Thu, 10 Mar 2022 13:16:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=MIME-Version:Content-Type:Content-Transfer-Encoding
  :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=E0opcG/Cvy0b1rf9v+7qbFb1Q7nos6/NCRqgdqSinto=; b=AteKEtfAiVgr6U2HcxNZvfS7Zg
- 2osuqEd+B73rSychSlnK4V8B0bzDqrzOgAEhxpySp4qIMk7DKcq9vKfFg0kOLE5ddSIX3xlyDgy/C
- f2aOd2Wql/OZzf+1mQmoA7YG85KhSVA1VZY8IARP8TveaBgWCFMBSvhAIqNW/6q3L/Ys=;
+ bh=Wjv6CnSj3V2zB6DLMhx0xgB/PBPemXBO36wqpNHB844=; b=GTouQrwI14zB2HnjPEUFX2XBlL
+ tT12FoElsuzVfaBwN1KkrhGKM3B0HYUMnj4xxuxIrFr7RgSGu40TCaVoTvS4nxju88l2VO6W5feqh
+ x/zq2p8AfHas5jQ2eAQ306G/6Cm6J8i6LRGXo/VLb3/lMATkld5Gv3Rr5X8iaz2tu0E0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=MIME-Version:Content-Type:Content-Transfer-Encoding:References:
@@ -29,22 +29,22 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=E0opcG/Cvy0b1rf9v+7qbFb1Q7nos6/NCRqgdqSinto=; b=NgyD69wlRXzdFjGMRxPueVE4RI
- 4tSrrBOtjl45f5B0zaifIGMcBzGpCMuPXMyuE/f8ZK28Ubte3Lfawg7YMqybS0zWxYTOnY2DeN8vn
- S6mx51tXS5munGEobnYz+MJ3oIOXQ8eaRvsvGzR+KiGSHAlGUc8MSak61+1n0RlZIxwc=;
-Received: from mail-bn7nam10on2117.outbound.protection.outlook.com
- ([40.107.92.117] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=Wjv6CnSj3V2zB6DLMhx0xgB/PBPemXBO36wqpNHB844=; b=LaEWn1tyiW88BoCcsWnQ92DND7
+ 3Twke14A27SiCDGaDIRpqZoJLIg0pQGy0avz649JtRrUMZby2JHowV0lkoO8HoU7STd3JUxG3jMwY
+ zI41sLjI89Xu9oPKQmkgOYeLeIqPu7GkNc8v6etUiXgf5nOp8bD/3+rPHIU/FIF+433U=;
+Received: from mail-mw2nam10on2106.outbound.protection.outlook.com
+ ([40.107.94.106] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nSIrr-00Axtd-Gl
- for openipmi-developer@lists.sourceforge.net; Thu, 10 Mar 2022 13:30:12 +0000
+ id 1nSIee-0004CU-Fu
+ for openipmi-developer@lists.sourceforge.net; Thu, 10 Mar 2022 13:16:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=MQVesjGnqlnAQUk8lx58VCw/+IvocxTbs4TCZlfc65MLzRvwRWHwL37KG0ZOL04w+o88dyvRDsgm7KCtC1BdmHK0aJzXs0y4dJDoNHXmfSi485xv4dlZnclH4InALyGb1rpyTwfDeDSXo8krp0JDSxvimBKNZ+8spe5ZD6JOk/tQiq2B99WgmJQtb83EWUYZChbfNBevpCMlr099G2n2pVsC3iz6vQaHJBQ5J/kckRox7go26MbP13MBiNS5TGEQFMfIs/obDF7CLYi1UuQ468owhr/yTwsDv9wDWvldtm5IkTUmY8/FSFdF5LnL0bVIFOqk0dYDA0Cn0gQzj4N1sg==
+ b=KXT5WyL6I62ZiOrAiOifuf5tPMZ7CQU+nRpTZ7A0xextQy33s6dxJJuJMaI6IG8NhFAmAiFiwGJskHnkC4Ixui/gFDfNpExv1XME/wH6z+bXfd1v8g+PGeuxdKpm3/ux9GcKByfRrwTnhUO2b5XlD5E6qOLKHswcLdtNAEL9ZUCvOkMenZX9ipGy+g8My+U1c43gCmOpZx7psd0KZ6H5fx4CGvs/9WHGaUKyVR6S9VfiEZHn5O9JHDCVLOu/Zy4zbXKg6nvJFUrMF3brYrqIg0HzZOWtQiP01YT+LIDZHZteIWzvf2I3mU7KljPbiY7U7WA3KDWhfmwuS2MMl5U9TQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=E0opcG/Cvy0b1rf9v+7qbFb1Q7nos6/NCRqgdqSinto=;
- b=gn90lo98cnU6MdnGnN0JWPmjHeI6JoWOA0XmZnhRRqEs2ZuBoV7T91VUTQk6n2OTvMzvQ/MccfAAn2tUAEoy1cw1uzXfSDQgml+7aSVqLvoiuKcfT4fZzI38zyqnsTdMCMN7ONDVlSWMFBDtquQmeHlGe+iiJCyzuwQF/023qfxhDDw5m1S5QkZvfyOId6GR46PXEH9vNuPoonWZXIopLDhyhJipV7QbThwa0hE7p0MHiD5lmpbKgBn0c5w0G7dJUUj9xhH3pkSEY2seLK10T7b/O5xnZveCLWpioMNd4wK54dK9MFeyo0vCCO4UpVjaSxqZWaOHITClCclpkReT+g==
+ bh=Wjv6CnSj3V2zB6DLMhx0xgB/PBPemXBO36wqpNHB844=;
+ b=UB3ZZdzjlnD7gVr5GMIkEQSLgiBY0sPn+YGLfzGgHbSr19YjN89D5v7tFsMJ1IJmnQ0LCe5SDAK+EjZwz7zQVIwXwxHPQXP5m0+BP6PYedaCNtvRhh/niJQTxIyjFE0A85i6iyj/62Ul2nQ7R2030opF6kLOonZ3vKjzHP7LyBpJSc7tgRcor50e95S7IaYQwmQCyJ5853YbSRqgwAOw45Coarivk1wXSj1x8zrspRj/FI//XQlag4hZOT0GVMsYZW/2wNkfCDMLroSa6k6yt6XuXTfVjcKXJ4abzhGq73oyd5VBCrqBZZpLGYXUkF8EXllUqdOSjn9FjQyFc7e54g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -52,19 +52,19 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=E0opcG/Cvy0b1rf9v+7qbFb1Q7nos6/NCRqgdqSinto=;
- b=UXnkCesS2kkNeM9fSVaCddRCRj+0YREUKyopqQd3e/J5gg2OBf7L6NZDtGlK4BcL/Uv+5uEBHNUuCuRHkF8DA3ac1xhLvl5Na3JmCGCsIoQ0K6wdSsFM2fEIfTuf9Hj7QAk8chCh0CSmFAC+M136L5MU/HPbNRkAOuTEO5xu1Kc=
+ bh=Wjv6CnSj3V2zB6DLMhx0xgB/PBPemXBO36wqpNHB844=;
+ b=BpfuAd0d8VlshMLiJ9HxODYsd1UMoLp+Q/XY0TAI8J6mjhzPsOpmlWA6LllOfqJxRH3QgHz6kRfGpP2Fto7FXP8LMSx2AO1p/CcaABaEejC5Dokv54sRgYjlOjb3XXo3T8Wnhr8LbeGp7z7pl/lvGDkza9tNt0LhnBdvXsePjj4=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from SJ0PR01MB7282.prod.exchangelabs.com (2603:10b6:a03:3f2::24) by
- BL0PR01MB4305.prod.exchangelabs.com (2603:10b6:208:4d::23) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.5061.22; Thu, 10 Mar 2022 11:41:59 +0000
+ DM6PR01MB3771.prod.exchangelabs.com (2603:10b6:5:82::24) with
+ Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5038.16; Thu, 10 Mar 2022 11:42:04 +0000
 Received: from SJ0PR01MB7282.prod.exchangelabs.com
  ([fe80::cd24:39ed:7042:46d6]) by SJ0PR01MB7282.prod.exchangelabs.com
  ([fe80::cd24:39ed:7042:46d6%6]) with mapi id 15.20.5038.027; Thu, 10 Mar 2022
- 11:41:59 +0000
+ 11:42:04 +0000
 To: Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
@@ -74,8 +74,8 @@ To: Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
  linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org
-Date: Thu, 10 Mar 2022 18:41:17 +0700
-Message-Id: <20220310114119.13736-3-quan@os.amperecomputing.com>
+Date: Thu, 10 Mar 2022 18:41:18 +0700
+Message-Id: <20220310114119.13736-4-quan@os.amperecomputing.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220310114119.13736-1-quan@os.amperecomputing.com>
 References: <20220310114119.13736-1-quan@os.amperecomputing.com>
@@ -84,82 +84,89 @@ X-ClientProxiedBy: SG2PR02CA0125.apcprd02.prod.outlook.com
  (2603:10b6:a03:3f2::24)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 587551bb-3583-4c1e-9629-08da028afbfb
-X-MS-TrafficTypeDiagnostic: BL0PR01MB4305:EE_
-X-Microsoft-Antispam-PRVS: <BL0PR01MB4305FC322644F48517309C2AF20B9@BL0PR01MB4305.prod.exchangelabs.com>
+X-MS-Office365-Filtering-Correlation-Id: d611fabd-8eee-4196-a55f-08da028aff19
+X-MS-TrafficTypeDiagnostic: DM6PR01MB3771:EE_
+X-Microsoft-Antispam-PRVS: <DM6PR01MB37717B97790867DDFD848F73F20B9@DM6PR01MB3771.prod.exchangelabs.com>
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: kTsMVvrOXmQPYBk/166e48jMo87stUMFgfb648/Tm42k5tTvyYYdjbULMrv4Nuv4NxtaVccDATgtGZwwATXSfyNBvsr7TfIDHkx+j/HulMUph76gNExtNNeiIBNxOPiaPOUfj5pNBV2A+P8RTOLak6Jh6xa40T6eLnj2mT6y6/RaBd+1ggvlEbKC5O49Sz09W0CtCKrqTP3DjkuV+SAINtAD2fChlPtQI8Im39qQ3/wuG+LKP2o5ChjKrox1+HOBO/lTWGBJvaDU4f84Uw/F+L9RFuOivjNi5/pXKjseAaacAHdYDxYc3tnms4JD2oll319tbCA69SE54unSKAdOiftOl+3JdikFjpDog42p5+0+RsoVRVQQ7ZBkoxO1d+GIelNLAf2A8Sq7NcG8sdVXk3phhZZLHB5+mpKEWprpcvDdSKnc0kqf11EEBNZYx/rADi+MObPkVy3QH56f4yTvd3R2JD6am1iCHJbs/b1Pdth/Z2PS+DmxNtmT/A7b0jsvQYDmxAcz6XY/1OnrXqe3UZUTMlATxD3B4ksUw4C26rXT2nZjddUnnV07TcmPD3KUuzAnkel2DSFK8ME5BMIKKut5F23pWARH8vM781Z/Cv3FuWNBcaboYHwoX7MKeRbzjlEF2affMyjvkJVLVI0cKABo+PNfddDx32vVri/9BE3r6jz9dMXJOTpSbd3G4eBha/COVR/kAzfd78SlF2H5A4MLEJM+JgiIpaPkx42nGRrVnAG32vUFmGIoMGjKskmszDWYTgdMrzy7cuGEdfAYrJj6NQbA8nWXC+hAnZNetD9yDZg3VWy52qS/zGHNkzfx
+X-Microsoft-Antispam-Message-Info: gky5Ab+W//BAhQk2IwggqqVPiUdUz6CmYQK7gtFQU6smKtkQuu5hgIH6u7EM/ibgk0xGACeIdFTc5kyLcghSZOLk6q7aHuxfNkdtf43CnXmO3ePzP49EOCN7QU27MfGL9y/6Va4SBj86i6htfeed9UOnkU4QKOSRONGZ5ABn6X4TnlKZpBgdpwVaLxhFzrYDWEn6XrLqqWs3LOy4vs//5AwsHibV67w8yqPRNqi4CPHHpM8nQ9meyWflNUwZrckAfLpuw5hxPUlqhaPCIcQdlI7lY9kxQmTf0hT3C6oYDWE0QoD1b/zF92PrLy7FwxKlwO9HFEieUl8s/Xln7mUmjBjNCSdUleEphAnp1QzDgCi+dufBXclWbHwBDk0LNKST4ah56e+k4PXH79ewYK+YLRoWinotcclZ0pFKBEXNf4FtVZh6MlP0c0MuQfAitZbAQZpRlTXMDaBmX7+2hy79dwQMOIL0jDcN12631qb2hFe50ZymKW9Rj+DgQhEscsJUkS7By0X6sca828js+mX1GrBcGpP3bmlXN6yXCdDQE3BPcctkAr6HhzSl+wrl0Zn7EpabvxYy1D26iWRj+Yd/qww5tURqsH75ABC6XzLaYMdHFAW9weybPZ3QV4RPTUfTN8onlS5Q4qnlLX7r9MqjUvCjcL8sYuMVEJszNw37tzf2fMEYK4ac7TXp2RzArHghHOiLLCf0ngUdH7E6kuZ9ufidKfMCFNop5rrqfZ1ixs0=
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:SJ0PR01MB7282.prod.exchangelabs.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(107886003)(6666004)(66556008)(66476007)(66946007)(1076003)(5660300002)(2616005)(7416002)(316002)(38350700002)(38100700002)(86362001)(4326008)(8676002)(8936002)(83380400001)(26005)(186003)(921005)(2906002)(52116002)(6512007)(508600001)(110136005)(6506007)(6486002)(966005)(54906003);
+ SFS:(13230001)(4636009)(366004)(38100700002)(38350700002)(83380400001)(186003)(26005)(107886003)(921005)(54906003)(66946007)(110136005)(2616005)(316002)(6512007)(1076003)(52116002)(2906002)(6506007)(6666004)(86362001)(66476007)(66556008)(8936002)(7416002)(5660300002)(6486002)(508600001)(4326008)(8676002);
  DIR:OUT; SFP:1102; 
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zcyFbJhktMmJffr9g+3/Uo5ZAovBi8uoIgh1IPBWecK4s6LN4CeFaAyU78NO?=
- =?us-ascii?Q?n45IsLAL7PtTO2ZAKEUHrEL6pjmHEMaLJaTKOmFgpPdSZKqT4UzfNrylhUfv?=
- =?us-ascii?Q?Ty2wZ+okPIk55p3Cl6+TfCHjpwazqgDth93W3UNriJHMi0ZaaJ46AVQJ1Lxi?=
- =?us-ascii?Q?C7net86KxzKxej1pjaCEbP0wRkFYKqi4T5RqbofEZNW2l+3bbGqEAnFKWLUz?=
- =?us-ascii?Q?pVcRHL3Pk2anbqW0K+mcRQWYsbfmgXmG0IHfGAHDGNq4qPLwKGefvWToiq2E?=
- =?us-ascii?Q?Rl6I7Ch5Qvh73wayviyyoDZbhZmyclZwH2Tg7pD/0+Y0pO0g/dwiHktghSaG?=
- =?us-ascii?Q?pV9qPNPZ/zIdHsxDBv0UQcNJlvtFQ9zXv38DoeiHgHlqGhU6KF2HMQH7V5O8?=
- =?us-ascii?Q?taZ7Xss9dVVrNud0G3jOlmcZk1gsIS+PhZtG6H6zMM3ejfFFCvH1+eyvZE1/?=
- =?us-ascii?Q?tyUkjhLH1Ffw38yejZVaCCuHx3HlD760f0Efm2fGav6o3HlCwVLJ2rqESpMa?=
- =?us-ascii?Q?xbgftoVf4qcIIBe7WiT+T9dGZ6NbKR0peibKKHCoUSolRMNxjg1CiSx8sCqT?=
- =?us-ascii?Q?Old9Lx6b07SAepIbiJ19JWDjDw1y5fDlGti1QoJn6RE6OtU+9Mq0U8bJuFxa?=
- =?us-ascii?Q?oChaRBrit5E/DwVoViKCMMr0/Fcqfe8azDhf/bWqeUNWY5IBIOHs6cxEwKzz?=
- =?us-ascii?Q?xbWnsvv+VO0nETwOjE9AZdWeOxJoPXq/jibKtm8kJBB0mVnpFvs6tCq3ix1T?=
- =?us-ascii?Q?peyLxf9pGMk1QtXxOuPIUXvbZdp6ExipoDrYcQMaxJsBTQZ4ntZsVvi3QVGH?=
- =?us-ascii?Q?HVurUVPgn8tEV3qi8A1CIddJ6CHjwWaHRJF4j3RtmGBZ8OO1cdxF3LPtjaxf?=
- =?us-ascii?Q?Sd1kifievdShdDW67mA8E/i5wwAvIWYkbhpxeb4c7vIabRWaNjNl6zmXqXym?=
- =?us-ascii?Q?JkKjL7Tcbcr42SBrNIt+3F7dh3mhImMW5408ZbBlTlwOomh9kasdIqZpcRvf?=
- =?us-ascii?Q?0hpZpOnkALuUprOYHSSIu3UZ0vx7y77/4cU97kIW70UP29RjICIJcD/C16Am?=
- =?us-ascii?Q?mTN03w8BlD6JxfOQFxOS+ZUaau4eeCAlF6Wg7VVFEqgB4Wisdklfdy5qWW4f?=
- =?us-ascii?Q?sGuawo9WeJ9TKy+Fd3FI0zXEZ08RZDP4WArcvzXT82aWHp4tr2vLUsgsoZoh?=
- =?us-ascii?Q?HoFKs91wr7LFsnQMFKerAnAvnzbCZinyKgnH/46CItc+K5FS5Q/p5yZbHMDy?=
- =?us-ascii?Q?jAwqxkxFHk3TgVUbX+lwkSAd+mLUO36UYVEwbsiJLVgG5fc5cP3B1Y2YPSKc?=
- =?us-ascii?Q?2ioZZIxyS8mJQzh3eG3ftfno+kmbI7ZkodQQwKxaKTHP7gRYfPP+J51rM2Vk?=
- =?us-ascii?Q?S59YupC5HUYO3YwlN8EoY8NC2VMUAlKxnmjZORfQzuRlnvPV8Nf5Qhjw49g/?=
- =?us-ascii?Q?HWbXltUkyS1Aqr9YLJ20BMGfg4hevmLa3SRQADndbBoyp1kn/7hcCUnYSJ0h?=
- =?us-ascii?Q?lcyRhjrpNTR31f0=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BefJ29iVA7lzH+Tc0cl5Wwn/hWvI8l4RxyxBQLpFKF8i9y6QQxyHSuth/y28?=
+ =?us-ascii?Q?gVfy5UxfB491HizQZWEDZbgrKujFVlql6uVQ/RzFgRS/Q0FB9886GqOCIh15?=
+ =?us-ascii?Q?kCTQF7uMSgraTCs1+E9qsM92gklfyqDdJ6yXSdcpgISEGNT78OVKMUeUYZmA?=
+ =?us-ascii?Q?2RFNftQN5YJDyiAkb5fCWjOrvHpqYRfWSV/5iqobIgHakB77j+HGSEtPqt/X?=
+ =?us-ascii?Q?L9ICWJWh+7HJR67ybXjr/kWLZXdyD16PzKhDerfkSXNpiRv+2ynw87dQCZ6y?=
+ =?us-ascii?Q?uS95MFMDz4quTHW0CUPN7IpWaW0/QPFdVwtg6Z1S43Kmj3BT8R/JzK3RewC3?=
+ =?us-ascii?Q?UazP7P/JC7OtLP4/wk7fXiSUa2ugmaqfax5QRF2qOzvZ8GnhbbpUNn0VWjW5?=
+ =?us-ascii?Q?dUCLiiT7CQhCQVrgjZPyybsApszkXVizoAj5I+KCZpPINWyoaR2kY91yN6ju?=
+ =?us-ascii?Q?DbyNf8O5n/bEmQt7Niry4DQzlN0ZisAXv+H0sU9bl/WrvIh4+pi+VPR0J9lW?=
+ =?us-ascii?Q?MD4QkmstqH6WjnW1Qey1Q6K6oggdnwe7tnP2FvCD9UlcB8gHY7QAXuYC67lI?=
+ =?us-ascii?Q?2rpeFG5pAKzBmB4BYr+7g18zHkpeNwNV4wG2s/Wek1xqioK20P0rrDHkf4Vv?=
+ =?us-ascii?Q?AdAvI1ZoGi4ZxUXbxJLt8RvH+yHP9338MOnBtKd+jhkMv2t46Qkys9RD/7Lz?=
+ =?us-ascii?Q?HgPUvHndKnaPC/mCiEz1wVqVuEVxiLmwJHrG8Qes5qmWbRCjaWpe5bbugQrA?=
+ =?us-ascii?Q?5Q+R7mEjIz/5FEN5t5f3noh+tSs8qq7tNazxNBaeDPq5cFKqL+vWADwFqVVx?=
+ =?us-ascii?Q?aTVWAgKJLsO5X5qXIV7qXc64t6YWxEuE1qKDIlo6i4j5LCAfMbaPdH27BMYf?=
+ =?us-ascii?Q?ngoT/6bzc76YOHEr0iXrJAQ8k82VX/3ltwZ3Va2gtFmMcbrdLU0u4VwgCeBn?=
+ =?us-ascii?Q?pc7Rf4T5VuJU7DpS8EiI///Rp9SWHqhB164jtKl4mVF/eWhGm/JXxJ4D7SA1?=
+ =?us-ascii?Q?Mim731gGz2C2I1dyTNywGwlRMorzSkvgLVyNaA9BUUGcdJcWEwVO/yTPftQb?=
+ =?us-ascii?Q?8QMGYS5cG1vOzzjLtmnyTzXqYpEe+f0SuMHlk4HOzX0OTwPnXA2ckn4ritr1?=
+ =?us-ascii?Q?ioaTlob7fLcUHX27VephVAq315dFQTnBU0CWVZ/AUYid4jUeVBo8Q2AYY3Yt?=
+ =?us-ascii?Q?Vwir7gq9moyDMl/sLhPsefP+N1C7WnUkmKceNuzi9fxUo3yRsdbOUnceZzn3?=
+ =?us-ascii?Q?9mZGWC05dtAYDFXdQETOhtngLaS4Jl1YuwCmoVu7F3yNB09V51EnJhMz8WCW?=
+ =?us-ascii?Q?ZZlcLQCMrQeznC3fEhmWeaQOxB4PGXoMmA5S3YFZlYpoHEQdaPtU7TT6efmS?=
+ =?us-ascii?Q?geLFqJuC2rRtvXDQnnkCmSd/g8c4tdIA1mbI9TI0jN9DqVLBsR4so9/uqXf0?=
+ =?us-ascii?Q?fe2y9uudYuisPlb8as617S9Xc4g+X1zRaO61RFxODPb/etK2SzuDvfd7FT7Z?=
+ =?us-ascii?Q?FkUpjXSG8G7sXhRihGcKO2F7AvmC21uVVX6dpyLPCbat1gG5Io5Bvu3309rX?=
+ =?us-ascii?Q?Yg6N/54b9SqzXUmXw9klFjwal5XEMN2LDL32BhUHAvoojpPt9teeeyLsNI58?=
+ =?us-ascii?Q?PFHaGgfHszgaeKfx4sTt6HsXHKrq2zCllO13hJUYmCzsvFJV1FUysqqoekbq?=
+ =?us-ascii?Q?XuABkSua2acs46PzD0U/fRrNYa8=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 587551bb-3583-4c1e-9629-08da028afbfb
+X-MS-Exchange-CrossTenant-Network-Message-Id: d611fabd-8eee-4196-a55f-08da028aff19
 X-MS-Exchange-CrossTenant-AuthSource: SJ0PR01MB7282.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2022 11:41:58.9531 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2022 11:42:04.2627 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +1EgMWXFDPcSqkch2J7VSIo/Ln3J3k5+OrUGyy33tADGOXtFx0tRHXrgKyy7qGkvYp1SbkYXJo4VNEiFGaH7o3LzUkKfy9bV7Yl7Cuyo0vU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR01MB4305
+X-MS-Exchange-CrossTenant-UserPrincipalName: TNUhbl8uD63EvAfj4sc0kNU9N19a/JQFOlQEhdOjrYdbB2pB5pvO2WWXcWraPKmIRX4jCqFk1idU1mYsLfGbdjV/hE+HMOKVNjoY9vZuhCY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR01MB3771
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Add device tree binding document for the SSIF BMC driver.
- Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com> Message-Id:
- <20210714033833.11640-4-quan@os.amperecomputing.com>
- Reviewed-by: Rob Herring <robh@kernel.org> Signed-off-by: Corey Minyard <cminy
- [...] Content analysis details:   (-0.1 points, 6.0 required)
+ Content preview: From: Dan Carpenter <dan.carpenter@oracle.com> The
+ copy_from_user()
+ function returns the number of bytes remaining to be copied but we should
+ return -EFAULT here. Fixes: 501c25b59508 ("ipmi: ssif_bmc: Add SSIF BMC
+ driver")
+ Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com> Signed-off-by: Corey
+ Minyard <cminyard@mvista.com> Signed-off-by: Quan Nguyen <quan@ [...] 
+ Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [40.107.92.117 listed in wl.mailspike.net]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [40.107.92.117 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ no trust [40.107.94.106 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [40.107.94.106 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1nSIrr-00Axtd-Gl
-Subject: [Openipmi-developer] [PATCH v6 2/4] bindings: ipmi: Add binding for
- SSIF BMC driver
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1nSIee-0004CU-Fu
+Subject: [Openipmi-developer] [PATCH v6 3/4] ipmi: ssif_bmc: Return -EFAULT
+ if copy_from_user() fails
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -182,77 +189,38 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Add device tree binding document for the SSIF BMC driver.
+From: Dan Carpenter <dan.carpenter@oracle.com>
 
-Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
-Message-Id: <20210714033833.11640-4-quan@os.amperecomputing.com>
-Reviewed-by: Rob Herring <robh@kernel.org>
+The copy_from_user() function returns the number of bytes remaining to
+be copied but we should return -EFAULT here.
+
+Fixes: 501c25b59508 ("ipmi: ssif_bmc: Add SSIF BMC driver")
+Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
 Signed-off-by: Corey Minyard <cminyard@mvista.com>
+Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
 ---
 v6:
-  + None
+  + New add in v6, thanks Dan for the patch     [Dan]
 
-v5:
-  + None
+ drivers/char/ipmi/ssif_bmc.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-v4:
-  + Fix warning with dt_binding_check [Rob]
-  + Change aspeed-ssif-bmc.yaml to ssif-bmc.yaml [Quan]
-
-v3:
-  + Switched to use DT schema format [Rob]
-
-v2:
-  + None
-
- .../devicetree/bindings/ipmi/ssif-bmc.yaml    | 38 +++++++++++++++++++
- 1 file changed, 38 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml
-
-diff --git a/Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml b/Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml
-new file mode 100644
-index 000000000000..917a577c2f29
---- /dev/null
-+++ b/Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml
-@@ -0,0 +1,38 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/ipmi/ssif-bmc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SSIF IPMI BMC interface
-+
-+description: SSIF IPMI BMC device bindings
-+
-+maintainers:
-+  - Quan Nguyen <quan@os.amperecomputing.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - ampere,ssif-bmc
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ssif-bmc@10 {
-+            compatible = "ampere,ssif-bmc";
-+            reg = <0x10>;
-+        };
-+    };
+diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
+index 62db97773654..91ac2cae756e 100644
+--- a/drivers/char/ipmi/ssif_bmc.c
++++ b/drivers/char/ipmi/ssif_bmc.c
+@@ -87,9 +87,8 @@ static ssize_t ssif_bmc_write(struct file *file, const char __user *buf, size_t
+ 	if (count > sizeof(struct ssif_msg))
+ 		return -EINVAL;
+ 
+-	ret = copy_from_user(&msg, buf, count);
+-	if (ret)
+-		return ret;
++	if (copy_from_user(&msg, buf, count))
++		return -EFAULT;
+ 
+ 	if (!msg.len || count < ssif_msg_len(&msg))
+ 		return -EINVAL;
 -- 
 2.35.1
 
