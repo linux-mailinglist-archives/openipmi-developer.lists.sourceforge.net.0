@@ -2,115 +2,183 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1369B4D8E63
-	for <lists+openipmi-developer@lfdr.de>; Mon, 14 Mar 2022 21:42:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 08C2F4DC069
+	for <lists+openipmi-developer@lfdr.de>; Thu, 17 Mar 2022 08:45:56 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nTrVz-00070s-FU; Mon, 14 Mar 2022 20:42:02 +0000
+	id 1nUkpU-0003LA-Mh; Thu, 17 Mar 2022 07:45:51 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <quic_jaehyoo@quicinc.com>) id 1nTpSw-000386-10
- for openipmi-developer@lists.sourceforge.net; Mon, 14 Mar 2022 18:30:44 +0000
+ (envelope-from <quan@os.amperecomputing.com>) id 1nUkpS-0003JI-EL
+ for openipmi-developer@lists.sourceforge.net; Thu, 17 Mar 2022 07:45:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:CC:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
+ :In-Reply-To:From:References:To:Subject:Date:Message-ID:Sender:Reply-To:Cc:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=guV8D/zoqDzwVA8g73Md7rMeJWwPReKW2B+3M1C5VXE=; b=YQEvJc0o317EMSwfwS6/9PXSOc
- fVOtl7YESL17lHHXejy+tcYxPz7LoMaaRNzuH91vECamcN2BZufAKhLXjY2ceazE9HlRZx1QLLJ5b
- bH20j2a2Vl26TU0rCxekCR+iOe76dUNWI08H2ZhtO/GqdL3aqigOpMTz73P3y7ZNrK8E=;
+ bh=2TT1BbLE0dKSi7i9LFluVaG481IREHPR0NXb6VkIQSA=; b=CNJW2PCkF2IGKff5+3Rt+6/xHI
+ VfPrGY7IQpT44kVvR2iSaDgYNZPkPY+JxPrQCw8JkBj3qYIxpLFMukVupd0Rzh3sQunRktvSY7yrp
+ SUmtxfJIJPvthZnY7A6xzLiAhHP4q3BVJo7tl345lj3oGyuTPecIfaihkWpMj5aBJRqI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+ References:To:Subject:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=guV8D/zoqDzwVA8g73Md7rMeJWwPReKW2B+3M1C5VXE=; b=lCI+kATb/Em2HPq4dQpbpSHId6
- ynSEBR3QNFugYmt+9JiwjXVvOtMj/9clQ1fXkXVNioUYcyOGrBpFFl+BVD0lcHMt/n7BhLMGzSb2i
- Nil4JGzfFPkBOqk1pJSTENsikxSN0Tm8/JF7Neu68/cO6GMG1EZErag7Cyyve7MUzFqQ=;
-Received: from alexa-out-sd-01.qualcomm.com ([199.106.114.38])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps (TLS1.2:AES256-SHA:256)
- (Exim 4.94.2) id 1nTpSp-0004sC-U5
- for openipmi-developer@lists.sourceforge.net; Mon, 14 Mar 2022 18:30:43 +0000
+ bh=2TT1BbLE0dKSi7i9LFluVaG481IREHPR0NXb6VkIQSA=; b=mcdMaCKI+yrZ9vwRUxm7wxjuNC
+ yspK5Gz4K437xW/4tom5dYEhy6GAtfWPUwGH37/k18t5tODK749a8Ey0InFWB8YEbMXBmJbfH34p3
+ mNUOhs9azJWA7HyAV6tn+pTqAM1QAmpPdsQ5P9UyuerxIZdRLEXdBs/mGYb7zO9fR4Vo=;
+Received: from mail-mw2nam10on2137.outbound.protection.outlook.com
+ ([40.107.94.137] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
+ id 1nUkpI-001fSX-3u
+ for openipmi-developer@lists.sourceforge.net; Thu, 17 Mar 2022 07:45:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Pabr0xoDhvoyEgGT/UYFTo6g57SF9btUbXbYygXh5tN+JTgDCtcD6Ip495D8P4f5bwiL1KawcI2fZtuJDJ4mR0zBImn10yxPWqvL41P6IJZVRs4Cz4o1rLdDcr3Rfd5KQaIRHrvxTPFFcB9JdvZ7mH8csVC/mG7amrxGEq8EpYwCtxByVSG0RA95aMi3KzDWkMDukFfKlFwOmSIWX9P5EwyccgPFTCp8HVBw33inQoznKb5MkqVeFWNvT/nkGo3nDFODPLWq3/Zcxm12jy0RnKgcfl7Aip2aTO/VSz0nfQ4yUIeVOFy9LTiwTwR86Ct+QwDmQCMPSpYM7PNMWFp9JA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2TT1BbLE0dKSi7i9LFluVaG481IREHPR0NXb6VkIQSA=;
+ b=iBeSpOTdB6lBK5Ea/OQrPNt4LG7sEWGL9oc8+djr2BbMAxKwQNY5S0aHse7QYXpHjaB2znWjvb7MJKYMVYKC1fCKeOaCKD0cEGFJ1Wf+iBuZMzaBLiQsGGlOSNIKN6g1sUTU8nLyq9k0l+p8aNOzTOvcmsYMWo2e+pivfBcqNsCXVlb8bByHjxV53XlWWYrTNInjNsYziTjPvEEj8Zy14jDbcRik4Pf21nvJ+OzPUAw20llEHDgoOEG+QAmzpwHN8V+g+emdx8mQeF0BtKpS3mtOlCXV1QcWQQeGSxfScCVEkSDSB4Bpzi4GLi8ydwKwQ88ZJYL7+MNnH2/yWPZR7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=quicinc.com; i=@quicinc.com; q=dns/txt; s=qcdkim;
- t=1647282639; x=1678818639;
- h=message-id:date:mime-version:subject:to:cc:references:
- from:in-reply-to:content-transfer-encoding;
- bh=guV8D/zoqDzwVA8g73Md7rMeJWwPReKW2B+3M1C5VXE=;
- b=kIoTLtdyZpmKrhM6uPBhbvO6xxl9YGvql1MwKFNTUGDQMi1RQKF7ECxC
- kfJkZwW7cUz9svoWx1mnSdKoOZElGg7zZzFk+kRzEB0ef7pbrLvBWbRq1
- 7fm5GC+297ZDBqPcf11obCjY0tl0s8EWLwZqD7Xgt5fGwqUYaQIIo9HhI E=;
-Received: from unknown (HELO ironmsg02-sd.qualcomm.com) ([10.53.140.142])
- by alexa-out-sd-01.qualcomm.com with ESMTP; 14 Mar 2022 11:16:02 -0700
-X-QCInternal: smtphost
-Received: from nasanex01c.na.qualcomm.com ([10.47.97.222])
- by ironmsg02-sd.qualcomm.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 14 Mar 2022 11:16:01 -0700
-Received: from nalasex01a.na.qualcomm.com (10.47.209.196) by
- nasanex01c.na.qualcomm.com (10.47.97.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.986.15; Mon, 14 Mar 2022 11:16:01 -0700
-Received: from [10.110.69.79] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.986.22; Mon, 14 Mar
- 2022 11:16:00 -0700
-Message-ID: <7cd9301f-f417-e555-6025-74acfc53598a@quicinc.com>
-Date: Mon, 14 Mar 2022 11:15:52 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.2
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2TT1BbLE0dKSi7i9LFluVaG481IREHPR0NXb6VkIQSA=;
+ b=DAmTDZp/yzni0PijX7J7JACoFoTEnkNSYARHkI5Rnj0CHnSk+PmLPppGdkpNIb3WzNY2Pxw9nAs2Eb+0jitRJZYB3hLn/HvsUzP7CF0riZB/PJaU/DdOOy2KDR3F2uibNiSm9ehK+hn0SWCAHnXCPVnNqCglvWAcL9vD63LR+5c=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ0PR01MB7282.prod.exchangelabs.com (2603:10b6:a03:3f2::24) by
+ DM6PR01MB4283.prod.exchangelabs.com (2603:10b6:5:1d::27) with
+ Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5061.26; Thu, 17 Mar 2022 07:45:32 +0000
+Received: from SJ0PR01MB7282.prod.exchangelabs.com
+ ([fe80::cd24:39ed:7042:46d6]) by SJ0PR01MB7282.prod.exchangelabs.com
+ ([fe80::cd24:39ed:7042:46d6%8]) with mapi id 15.20.5081.017; Thu, 17 Mar 2022
+ 07:45:32 +0000
+Message-ID: <db5a879e-5e2f-24f0-c0fb-4971679a45cb@os.amperecomputing.com>
+Date: Thu, 17 Mar 2022 14:45:19 +0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
+ Gecko/20100101 Thunderbird/91.6.0
 Content-Language: en-US
-To: Quan Nguyen <quan@os.amperecomputing.com>, Corey Minyard
- <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski@canonical.com>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@aj.id.au>, Brendan Higgins <brendanhiggins@google.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>, Wolfram Sang
- <wsa@kernel.org>, <openipmi-developer@lists.sourceforge.net>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
- <linux-i2c@vger.kernel.org>, <openbmc@lists.ozlabs.org>
+To: Dan Carpenter <dan.carpenter@oracle.com>, Wolfram Sang <wsa@kernel.org>,
+ Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ Brendan Higgins <brendanhiggins@google.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ openipmi-developer@lists.sourceforge.net, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ openbmc@lists.ozlabs.org,
+ Open Source Submission <patches@amperecomputing.com>,
+ Phong Vo <phong@os.amperecomputing.com>,
+ "Thang Q . Nguyen" <thang@os.amperecomputing.com>
 References: <20220310114119.13736-1-quan@os.amperecomputing.com>
- <20220310114119.13736-2-quan@os.amperecomputing.com>
-From: Jae Hyun Yoo <quic_jaehyoo@quicinc.com>
-In-Reply-To: <20220310114119.13736-2-quan@os.amperecomputing.com>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-Spam-Score: -2.5 (--)
+ <20220310114119.13736-4-quan@os.amperecomputing.com>
+ <YirzJj/BBUQTbKS3@ninjato>
+In-Reply-To: <YirzJj/BBUQTbKS3@ninjato>
+X-ClientProxiedBy: HK2PR02CA0157.apcprd02.prod.outlook.com
+ (2603:1096:201:1f::17) To SJ0PR01MB7282.prod.exchangelabs.com
+ (2603:10b6:a03:3f2::24)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 63223b2b-a7e6-4583-7619-08da07ea1c97
+X-MS-TrafficTypeDiagnostic: DM6PR01MB4283:EE_
+X-Microsoft-Antispam-PRVS: <DM6PR01MB4283C132FAD0E0D67D14D2F7F2129@DM6PR01MB4283.prod.exchangelabs.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: +V0CdS9yUxLg2Dqc5BgXYGbS/LcPrbLY4LpUt76yocRgcg1XU0tVAGqRM4/93qeyPaIpepXolGDaxtAZvNDNDo4+CBtEy4Hs0E7KLscwLqj2fkp+v1M4k2c5f9Z/24cV9M6Y6NzS6LBm7JpuewXncnp0pvoOp16Bq18h34kPJVir9agv1Gavh+4tYf8JdxsCFzRMTR3GVmrZhmNWKHVMhhHV1XtpsVJXl8x8ZBfPQmVVkVjecAagWLkigPo+ngmSA9ARajgRJSInTz5d7HXN2g3O0+a3KBTs9gZMtAMJV00P2eWN//irR2IGpzn4prfjIEU4Sx/jvgDwr6TBOA+QJNoKpetuFBnlE42MXJgHUF63KfJkPmWg2dm3YptA/pMoxD9AatI4nQrnS4qIrH1qt3wmtVEt9NKzOB8Ba8IRRwQWSAkEwHM5NmKrF2MJQso0c15IvHdD0N0IRuoUckXHRWQsz6olgyPjcLR69DpAI22t3UQTP3Llzj0sqltHFQPm1yA6AIGFsjrztJcMYdipwBODcaS8KPEjO+673QF+MIJvsjVni5X855yQLr/e5fbPEXA24aSTfZ3CI99Z/MtMKiIUZ9uq+ooRhCquT34HUM+R9cdbE2nZ+g4Qw3Krs/sjCQ2OgwaC2pbQJw8DzHatp8qrGfu4f0lDlHNsXLVaYNZ+2ZAK6ZJou3u3I2715ylqYX9S6NPWRlp0HzLUa/PSRRnbx6zIvEyNrvP1jaRPr7/4MvleJVXW4xfE+mEWhn/T
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SJ0PR01MB7282.prod.exchangelabs.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(6666004)(8936002)(38100700002)(38350700002)(921005)(66476007)(66946007)(66556008)(86362001)(31696002)(53546011)(6506007)(55236004)(8676002)(6636002)(316002)(52116002)(508600001)(6486002)(6512007)(110136005)(7416002)(2906002)(186003)(26005)(31686004)(5660300002)(2616005)(83380400001)(43740500002);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N21CV2NwWVZTbGZQNDBGeFJ4SFBHOFNMSnZsczFJaktMdkZiamxoMlBNK2p3?=
+ =?utf-8?B?UXpyaU1rZ1g0Z1RWUDhZbnZaL1RaRUcrQVU5ZVFTYzZhb3ZOd3IxQTY3SVRB?=
+ =?utf-8?B?Q0t5RkhCTGl0akFRS0lkY3VUeVNVUnBNN2FIRzU2dmMweDVhR3B0c0gwc0FW?=
+ =?utf-8?B?cUpOQjVMd3FTUTNaaTdmanZPZnVtMjA2Z2dyTENrbWd2MWVJbThHVlVYeGJH?=
+ =?utf-8?B?MktudDRGL0MyZ1FkVm1jZEVyajVRV2h1UmZISGpmVU55NXBnYW1tYkFlbGU1?=
+ =?utf-8?B?d0F6dCtWL01WK0VUQTBFd3Z4ZnBvenRQeFZRVmNOVjV0TEh4TXJnaS9IaXRw?=
+ =?utf-8?B?VjV6c3BOQzhQNmdGT3orOS9OazgvcDhZTDdENHBhT004UGFBOURlL3pSZlVl?=
+ =?utf-8?B?b3JiZDZZVHh0N1Z1T3I1M0R6OEZGcFcxVkhHZVR3aWtlNzRsSG1MaVMxYitS?=
+ =?utf-8?B?Yi9QZVRhWDJEU0c1d21zY2hMS1ZWVWFTTTA0UXl6Ym5vbUc1L0Q3WW9McVEr?=
+ =?utf-8?B?YVJnemg3N0xNcjFkV1hQa3VrUkh6TnhwQVg0dyt4aWdXNklVaDdCOXNzVTVP?=
+ =?utf-8?B?cjM1cjR5Nlk4OUowUDBMMm1jWFd6Z0ttcmp3RVdJYk9tQmJWUzA1YWxobmpj?=
+ =?utf-8?B?QVRVczVJbmdURi80MkxjSUNZaXk3U0MveGtjM3Jxa2g2Qm5kWUFwN0l0Z0dx?=
+ =?utf-8?B?N3dRMkxoRFl2WW1VZ29CMVgrNjNlczhXek0wcG9ZKzk1b0RqOG5CUzBzd3VZ?=
+ =?utf-8?B?c3RRQ2xNVENYUUVab1FBN0hyNTMzRm9ybXQ4NDNRaDc5ZkpGOEtCM0Y0M0R0?=
+ =?utf-8?B?YTFaYThhekNCcUhYTWtaVDgyNEsxd3pxei9NVXpweUNSTnNaeVBDTVVldGhr?=
+ =?utf-8?B?OU1iNGZVMFJuQm8wN1lCOUdkYW8rY3RZTkthK294dW9zQitTcHBqMmQrVFJ6?=
+ =?utf-8?B?MTlHelk0andCVVZjeENGRWMyMy9HQzVDMThsOVdSeHRmN05xMFl0NWxybVVB?=
+ =?utf-8?B?WHZtaUdNQVVYNkFmcWU3QnpodEFNOURrV0hCWWJFT3Z0ajFwY2t0YkFQcjh4?=
+ =?utf-8?B?YUUzUWkweis0dFg0ZUtSUzFnMnc1OGppdDNiWjBEMW1MWjBVN3ZnbFRoTjdP?=
+ =?utf-8?B?aU4xbHZNYXhCRXpkZzgvbW1oVUxETW55a2haaTNBbU13S2xVTWlKZzNpQ3gz?=
+ =?utf-8?B?d1ZSZlVhS1p0bTFFcWZOVlBkc0ExYXNjRGlubllKemc3WDhINDRXZzRUY2Ru?=
+ =?utf-8?B?SVJpSjZvalVPOXR0UytNbHdiMnFHd3FjUUp5SURadFp4TEFTTW1NeTczcjBH?=
+ =?utf-8?B?ZHIzblZtbUNuQmUwajFteUdGSW9NNFV1RStnS0FhRWk3ZmUraW9KQ0lwbHJa?=
+ =?utf-8?B?Q0M2SDR4clNXNjkxdndpT0VsdnY2WU1oWUZsS0xvMlJUTUlIWE9JbklNMXM4?=
+ =?utf-8?B?eWxsYlRmaHVycWRnRDd3WDRZdzNwNG9qZTFSb1picmQ4VWFmTzNacHNYYS9R?=
+ =?utf-8?B?bVJTL2JGZUtUdFVlbjlQMi8walBxUWVvRzIzVGdCT0hBNHBURGtqdlVOWDVB?=
+ =?utf-8?B?aWV4ckdwSkFZQnE1dCtReGV6QS9vMkJ0cVluNTVNbU9UTVNuZjIwOEpmdW9z?=
+ =?utf-8?B?VEFBMlZlanJDczRSTUhOVkdsc1AxM01UMWY0UjJtbGJvUW9qd0VIdDkyTVlN?=
+ =?utf-8?B?NEtJK2FHRU43L0tzQjdPMzRTaW9wSk5kS1k2aEI4THE1aGNOM2syZHlVY1lp?=
+ =?utf-8?B?RWM5THNDYTNXZjhGejZmbVo0YUVaZWs0R1VBaStSQWNKd1AzVldzZ0dTbUJS?=
+ =?utf-8?B?NzBPS2lrTFloWHk0UG1jODlRcGlPUnMwMFJXVW0wVTh5aWNpSGgvUnRWRWc4?=
+ =?utf-8?B?YjI5cU9xaGtRV04zWURac1VyQVVJUlhtdmEwV3NJdXBGUXlYVmRGaXFTQ0VV?=
+ =?utf-8?B?eDAvNmgrbjdCYjAvM1QyR29RRk5KTUNlWWwwVklQSVBvUVlDekxoWUtHa3Fo?=
+ =?utf-8?Q?OsDK9NnnmoCTcfQO9IJjGRbq77Fi+8=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63223b2b-a7e6-4583-7619-08da07ea1c97
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR01MB7282.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Mar 2022 07:45:32.3692 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: F62kzhaywn6eBDU5aMgP2qM4ZxNsHEaaLtYu1cMzxJXl1dm3+9qtDfjZuHM6XpV4n6m0tCj9eGrhhUpbAJz+6GzFK4sR25WjTxcHuqnEVhs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR01MB4283
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Quan, [...] > +static void on_read_requested_event(struct
- ssif_bmc_ctx *ssif_bmc, u8 *val) > +{ > + if (ssif_bmc->state == SSIF_READY
- || > + ssif_bmc->state == SSIF_START || > + ssif_bmc->state == SSIF_REQ_RECVIN
- [...] Content analysis details:   (-2.5 points, 6.0 required)
+ Content preview: Added Dan as I have missed Dan's email address in the first
+ place. My apologize, - Quan On 11/03/2022 13:58, Wolfram Sang wrote: > On
+ Thu, Mar 10, 2022 at 06:41:18PM +0700,
+ Quan Nguyen wrote: >> From: Dan Carpenter
+ <dan.carpenter@oracle.com> >> >> The copy_from_user() function returns th
+ [...] Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [40.107.94.137 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [40.107.94.137 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [199.106.114.38 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
  -0.0 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1nTpSp-0004sC-U5
-X-Mailman-Approved-At: Mon, 14 Mar 2022 20:41:59 +0000
-Subject: Re: [Openipmi-developer] [PATCH v6 1/4] ipmi: ssif_bmc: Add SSIF
- BMC driver
+X-Headers-End: 1nUkpI-001fSX-3u
+Subject: Re: [Openipmi-developer] [PATCH v6 3/4] ipmi: ssif_bmc: Return
+ -EFAULT if copy_from_user() fails
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -123,79 +191,60 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Open Source Submission <patches@amperecomputing.com>,
- "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
- Phong Vo <phong@os.amperecomputing.com>
+From: Quan Nguyen via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Quan Nguyen <quan@os.amperecomputing.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi Quan,
+Added Dan as I have missed Dan's email address in the first place.
+My apologize,
+- Quan
 
-[...]
-
-> +static void on_read_requested_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
-> +{
-> +	if (ssif_bmc->state == SSIF_READY ||
-> +	    ssif_bmc->state == SSIF_START ||
-> +	    ssif_bmc->state == SSIF_REQ_RECVING ||
-> +	    ssif_bmc->state == SSIF_RES_SENDING) {
-> +		ssif_bmc->state = SSIF_BAD_SMBUS;
-> +		dev_warn(&ssif_bmc->client->dev,
-> +			 "Warn: %s unexpected READ REQUESTED in state=%s\n",
-> +			 __func__, state_to_string(ssif_bmc->state));
-
-It will print out that the case happens in SSIF_BAD_SMBUS state always
-because ssif_bmc->state is already assigned as SSIF_BAD_SMBUS above.
-Move the assignment to after the dev_warn printing.
-
-[...]
-
-> +static const struct of_device_id ssif_bmc_match[] = {
-> +	{ .compatible = "ampere,ssif-bmc" },
-
-Does this driver have any Ampere specific handling? If not, it could be
-"ssif-bmc" as a generic SSIF driver.
-
-> +	{ },
-> +};
-
-Add 'MODULE_DEVICE_TABLE(of, ssif_bmc_match);'
-
-> +
-> +static const struct i2c_device_id ssif_bmc_id[] = {
-> +	{ DEVICE_NAME, 0 },
-> +	{ },
-> +};
-> +
-
-Remove this blank line.
-
-> +MODULE_DEVICE_TABLE(i2c, ssif_bmc_id);
-> +
-> +static struct i2c_driver ssif_bmc_driver = {
-> +	.driver         = {
-> +		.name           = DEVICE_NAME,
-> +		.of_match_table = ssif_bmc_match,
-> +	},
-> +	.probe          = ssif_bmc_probe,
-> +	.remove         = ssif_bmc_remove,
-> +	.id_table       = ssif_bmc_id,
-> +};
-> +
-
-Remove this blank line too.
-
--Jae
-
-> +module_i2c_driver(ssif_bmc_driver);
-> +
-> +MODULE_AUTHOR("Quan Nguyen <quan@os.amperecomputing.com>");
-> +MODULE_AUTHOR("Chuong Tran <chuong@os.amperecomputing.com>");
-> +MODULE_DESCRIPTION("Linux device driver of the BMC IPMI SSIF interface.");
-> +MODULE_LICENSE("GPL");
-
-[...]
+On 11/03/2022 13:58, Wolfram Sang wrote:
+> On Thu, Mar 10, 2022 at 06:41:18PM +0700, Quan Nguyen wrote:
+>> From: Dan Carpenter <dan.carpenter@oracle.com>
+>>
+>> The copy_from_user() function returns the number of bytes remaining to
+>> be copied but we should return -EFAULT here.
+>>
+>> Fixes: 501c25b59508 ("ipmi: ssif_bmc: Add SSIF BMC driver")
+>> Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
+>> Signed-off-by: Corey Minyard <cminyard@mvista.com>
+>> Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
+> 
+> It is nice that you want to keep this patch seperate to give Dan
+> credits, but I still think it should be merged into patch 1, so the
+> initial driver is as flawless as it can be. You could give Dan still
+> credits by mentioning him in the commit message IMO. Dan, would you be
+> fine with this?
+> 
+>> v6:
+>>    + New add in v6, thanks Dan for the patch     [Dan]
+>>
+>>   drivers/char/ipmi/ssif_bmc.c | 5 ++---
+>>   1 file changed, 2 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
+>> index 62db97773654..91ac2cae756e 100644
+>> --- a/drivers/char/ipmi/ssif_bmc.c
+>> +++ b/drivers/char/ipmi/ssif_bmc.c
+>> @@ -87,9 +87,8 @@ static ssize_t ssif_bmc_write(struct file *file, const char __user *buf, size_t
+>>   	if (count > sizeof(struct ssif_msg))
+>>   		return -EINVAL;
+>>   
+>> -	ret = copy_from_user(&msg, buf, count);
+>> -	if (ret)
+>> -		return ret;
+>> +	if (copy_from_user(&msg, buf, count))
+>> +		return -EFAULT;
+>>   
+>>   	if (!msg.len || count < ssif_msg_len(&msg))
+>>   		return -EINVAL;
+>> -- 
+>> 2.35.1
+>>
 
 
 _______________________________________________
