@@ -2,93 +2,94 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id D032F4E7E4F
-	for <lists+openipmi-developer@lfdr.de>; Sat, 26 Mar 2022 02:00:25 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 06CA14E88FA
+	for <lists+openipmi-developer@lfdr.de>; Sun, 27 Mar 2022 18:48:22 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nXuep-0004WC-ON; Sat, 26 Mar 2022 01:00:07 +0000
+	id 1nYW3u-0001S6-Bw; Sun, 27 Mar 2022 16:48:17 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <pr-tracker-bot@kernel.org>) id 1nXuen-0004W1-6X
- for openipmi-developer@lists.sourceforge.net; Sat, 26 Mar 2022 01:00:05 +0000
+ (envelope-from <chen.chenchacha@foxmail.com>) id 1nYW3p-0001Rz-4p
+ for openipmi-developer@lists.sourceforge.net; Sun, 27 Mar 2022 16:48:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Cc:To:Date:Message-Id:References:In-Reply-To:From:
- Subject:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Date:Subject
+ :Cc:To:From:Message-ID:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=t7uC0vNmakMsQsoYjFHdHwQ/QTgN10yZsRFI1ypOTYM=; b=O/7+8y9JCpwdmEHYUwG/uh+3DN
- tQaOM5XxpgtZYh3GTR8fjqC87w95lnRCth26Uz6I1GyJj4q2q3/2afDwcNA7o7aMYYQ7MG3B01mUs
- EgD4KC85bZ0QU7ay76j0SA03/+0wFZt3yLh2J1ParYcggyYeQTp/Mi0HFUGG3dq4wpa0=;
+ bh=vw4W9bVJMiNkljXZ10sTQBSfdwZmVEGDdSStOzPsh80=; b=bM5jFGVzszXjtgNVb+k7UmSjyE
+ vCT2MXEPXxf9qE+ujrETcDns9I5HmNt/nEC77FvuiEPoh/AGt6nAT/I5ygxpFMeQfXqZneZklkwsP
+ 11WujwwcZ8UpML21pGR5+2BSuijWTF3MmzN+o61r+IzX9N00xqia5nCxy/5GnHU6LIzc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Cc:To:Date:Message-Id:References:In-Reply-To:From:Subject:Sender:Reply-To
- :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=t7uC0vNmakMsQsoYjFHdHwQ/QTgN10yZsRFI1ypOTYM=; b=ckEvHqwjOxJKaf2cKVQ5IuG+1W
- Wql+sHUqBJ5LRxpqeN/DlevhkWnI+BOboWqraddFvMsbO6tfmabLeWofxNgFS/rVkAGf/RAlCpDr3
- zX+OVuZ/5rT0shGig3FvrhuL/7xiMp/3AB2eozhOlVrzi9PDybnW4vRbI1eZPyx8TyEA=;
-Received: from sin.source.kernel.org ([145.40.73.55])
+ h=Content-Transfer-Encoding:MIME-Version:Date:Subject:Cc:To:From:Message-ID
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=vw4W9bVJMiNkljXZ10sTQBSfdwZmVEGDdSStOzPsh80=; b=D
+ ttuyaG2XH7qv9iYf5OzE0AnchfxexhqXxr4NV2E/pcUfiF+iQ+E928yj45XxTot+RaKZqRKO0QjKO
+ HH6rBlklOikN8dynK7wDkaJnKRwUAab0+DRBQGGBrFJwoGFFoo0EuBkVQ4YpullYSW6SMIj1v0VoY
+ ZI5bUEbEaIuz34c8=;
+Received: from out162-62-57-64.mail.qq.com ([162.62.57.64])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nXumd-0003H7-Mv
- for openipmi-developer@lists.sourceforge.net; Sat, 26 Mar 2022 01:00:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id 92E9FCE2C3F;
- Sat, 26 Mar 2022 00:59:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0297CC2BBE4;
- Sat, 26 Mar 2022 00:59:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1648256383;
- bh=/Q9VpfpcWnMk9MjFYLSoqVj6gorSj9cMvda2V+ytNi4=;
- h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
- b=BbQ8yEy89meNh14feOQwdT7CzPUZ4WAKy77FAyqIUZfWYOTEoqpE9FCaQZB11LKUQ
- 7Zp/OHad48+I5ZUWmpfXpmGzPFn30zyO8/2Eitr2Sy9I2aOI+JaSi3fKZYlVYmubcs
- uucc4aVBhhWgsOMoUQcUJ7ZQep32DiJ3RzIuNuXpwsWakSHlqOHVOc4oIkYvvivukO
- rZn43dkSg18xFeMDBg/AbEMoM2/6Uvw1/9nmRXTLO1Eq4+ehaLItKavZjJX14XHDtu
- rEJ/qV1sxsx1aJnqY3071NBl2QT+X/ZL/Cji6Yy5v3MYEbS5eBSBY/+c0UIBxuXemS
- hnZ/UUtsDk4yQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org
- (localhost.localdomain [127.0.0.1])
- by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id
- E5DCEE6BBCA; Sat, 26 Mar 2022 00:59:42 +0000 (UTC)
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20220324172941.GI3457@minyard.net>
-References: <20220324172941.GI3457@minyard.net>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20220324172941.GI3457@minyard.net>
-X-PR-Tracked-Remote: https://github.com/cminyard/linux-ipmi.git
- tags/for-linus-5.17-1
-X-PR-Tracked-Commit-Id: 8d10ea152e2fb9b4a42b282cb90bfc4d98e319a3
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 52d543b5497cf31d6baeb0bcfe5a5474c3238578
-Message-Id: <164825638293.25400.17727938399988511631.pr-tracker-bot@kernel.org>
-Date: Sat, 26 Mar 2022 00:59:42 +0000
-To: Corey Minyard <minyard@acm.org>
-X-Spam-Score: -5.9 (-----)
+ id 1nYW3e-0001Qe-Fz
+ for openipmi-developer@lists.sourceforge.net; Sun, 27 Mar 2022 16:48:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+ s=s201512; t=1648399669;
+ bh=vw4W9bVJMiNkljXZ10sTQBSfdwZmVEGDdSStOzPsh80=;
+ h=From:To:Cc:Subject:Date;
+ b=NrTjkP1GnLChuvvYTP0HOjxXy/AKuKvaEIWtKB9tM3e70os1r39eaglGS6gsR1cTn
+ HBZ2dJhZohJNLOi3ZBdxewrAPy9mB3vPI4RG5bSlu2kIVOBnyIKTUXNYaBOZmhyNps
+ /32KC9JeradYi4hJBtPzu2N85zUEQFVTg38oAOq8=
+Received: from localhost.localdomain ([120.245.132.52])
+ by newxmesmtplogicsvrszc10.qq.com (NewEsmtp) with SMTP
+ id BEF2A844; Mon, 28 Mar 2022 00:47:47 +0800
+X-QQ-mid: xmsmtpt1648399667tlb3y4xea
+Message-ID: <tencent_BD6D4CB98B6D7FAA04F63D28F6457F10F40A@qq.com>
+X-QQ-XMAILINFO: N9ac962MYdaQI8JmvpMXs1D0cKUe/X5p8kMNGhsvS/GIyjZWryGFu2A++pL2Wm
+ 51+aYaC1CLp0PFmlpf30msASKlPkEYHeYX+30k1iRh7BXABFsfY+BfnK0X+P2m7pMIfGBJTQdbVn
+ R8q1fC6NLabS9pa1qRq8yeljY8LMGfFi+XEjRzBorGh4yVkJJhuH0rKG4KzKrLPeTZ1pJuakLFn3
+ nMyhQGdw2yMgaWnZ/eDTk5t4O89U9a5ZiturHaIfyILxsjXJAOtOMHVjZgX1k4jw0PsKy/KxpsIA
+ uNJPhFiwWgtiiP2qS4svAeCJrgUXTRR/cWCKS+QB7Q0Q0YOiMh6l0HuCl8b6VYi+n1lEdjFZhc3d
+ Zie5acf57Qbw8ZDoLkK2QaS32S0RgNgC4PzCdQ9ew/T/hZr5gnMDax5mZDSYoqGR2dI/ovKeKZR4
+ iKrwzxvaTsVwS5ArMjzIkP2mmZoMMloqnmo1WK47KHDdf4hpk9XmOZerEptLBOJ2IT1GSHQbXjlY
+ 2+IX2+vObBgbzwwlmV2T5yb/2Ug8aDTXLJ/AOFgO3H//ZVgdLn9/fNPcyMcKLANVw8857QDA29uX
+ 4mQVatneGiswe+X3jJYe95/+YTozbaMED2llRJLHermw8924tRDt7A8tfyJo2BulvPyjNaQ7n7Aa
+ ogVdklNT2KQmeDoTN8eQlpUpxyJ+aA8qbIyKT7rlv8s7wNSaKsGZgDqaJicWc0JR1OrZ1sNQ7UYs
+ yOKK1XQciQb/vjkobi1Xx2aNw/JDt1YGrUJcQNJuk6RVMUxm6NuqlTKUj0+9eizRzJkQGpVaGqQC
+ Da9lE3UIZTo12TvgAmnrGbnkRCgX89Pq5MYLevyPbQydqZg0geAvUkjp0Von6+j/gTtA6oHNyaI6
+ 3LVyx9DWuje7fbxp0A6LDWU9GsmC5qSpa52w63ECVwU39gBa0bLaKAv5i6iTalQlVu+P+mmOpTHB
+ GgZO5zdk4hbNqR/ei69hk9TGTEK5hV3leHY2cNklc=
+From: Chen Guanqiao <chen.chenchacha@foxmail.com>
+To: minyard@acm.org, openipmi-developer@lists.sourceforge.net,
+ linux-kernel@vger.kernel.org
+Date: Mon, 28 Mar 2022 00:47:41 +0800
+X-OQ-MSGID: <cover.1648397283.git.chen.chenchacha@foxmail.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+X-Spam-Score: 3.4 (+++)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  The pull request you sent on Thu, 24 Mar 2022 12:29:41 -0500:
- > https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.17-1 has been
- merged into torvalds/linux.git:
- https://git.kernel.org/torvalds/c/52d543b5497cf31d6baeb0bcfe5a5474c3238578
- Content analysis details:   (-5.9 points, 6.0 required)
+ Content preview:  At present, a scenario has been found that there are too many
+ ipmi messages in a short period of time, and a large number of users and
+ messages are blocked in the ipmi modules, resulting in a large am [...] 
+ Content analysis details:   (3.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [145.40.73.55 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [162.62.57.64 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
+ [162.62.57.64 listed in wl.mailspike.net]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [chen.chenchacha[at]foxmail.com]
+ 0.0 T_SPF_TEMPERROR        SPF: test of record failed (temperror)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
@@ -97,9 +98,14 @@ X-Spam-Report: Spam detection software,
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nXumd-0003H7-Mv
-Subject: Re: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 5.17
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.4 RDNS_DYNAMIC           Delivered to internal network by host with
+ dynamic-looking rDNS
+ 3.2 HELO_DYNAMIC_IPADDR    Relay HELO'd using suspicious hostname (IP
+ addr 1)
+X-Headers-End: 1nYW3e-0001Qe-Fz
+Subject: [Openipmi-developer] [PATCH 0/3] ipmi: msghandler: check the users
+ and msgs causing the system to block
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -112,26 +118,33 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: openipmi-developer@lists.sourceforge.net,
- Linus Torvalds <torvalds@linux-foundation.org>,
- linux-kernel <linux-kernel@vger.kernel.org>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-The pull request you sent on Thu, 24 Mar 2022 12:29:41 -0500:
+At present, a scenario has been found that there are too many ipmi messages in a
+short period of time, and a large number of users and messages are blocked in
+the ipmi modules, resulting in a large amount of system memory being occupied by
+ipmi, and ipmi communication always fails.
 
-> https://github.com/cminyard/linux-ipmi.git tags/for-linus-5.17-1
+Frequent calls ipmi and failure of hardware communication will cause this
+exception. And ipmi has no way to detect and perceive this problem, therefore
+it is impossible to located and perceived online.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/52d543b5497cf31d6baeb0bcfe5a5474c3238578
+This patch provides a method to view the current number of users and messages in
+ipmi, and introduce a simple interface to clear the message queue.
 
-Thank you!
+Chen Guanqiao (3):
+  ipmi: Get the number of user through sysfs
+  ipmi: Get the number of message through sysfs
+  ipmi: add a interface to clean message queue in sysfs
+
+ drivers/char/ipmi/ipmi_msghandler.c | 159 ++++++++++++++++++++++++++++
+ 1 file changed, 159 insertions(+)
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.25.1
+
 
 
 _______________________________________________
