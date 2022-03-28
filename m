@@ -2,88 +2,113 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0DBC14E9B4F
-	for <lists+openipmi-developer@lfdr.de>; Mon, 28 Mar 2022 17:46:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E89F64E9B4E
+	for <lists+openipmi-developer@lfdr.de>; Mon, 28 Mar 2022 17:46:33 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nYrZf-0000wS-Hs; Mon, 28 Mar 2022 15:46:30 +0000
+	id 1nYrZf-0000wY-Jy; Mon, 28 Mar 2022 15:46:30 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <steve@sk2.org>) id 1nXSCE-0004g7-Dh
- for openipmi-developer@lists.sourceforge.net; Thu, 24 Mar 2022 18:28:29 +0000
+ (envelope-from <chen.chenchacha@qq.com>) id 1nYr9R-0004vx-Pl
+ for openipmi-developer@lists.sourceforge.net; Mon, 28 Mar 2022 15:27:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=zZ4ZrNctwAtZsyQ3GIs/bJEfAJEofShNqc+mP6VzLSk=; b=N6bjDsgjzxwkXoAdfUpSf0wsY6
- VP/41YBHaAlaHNAkoCXpeG4d6+/3I+mdxpJaLKVYsmKYRv2aTAnKzC5NUaqSmCgCWcEUwnTGcvl6G
- C7iDV23sag4CPc1Hbg9q4Nz82ePqUnctMksMnPUiH8gq3RymULEd0l90wTgtNlny2jek=;
+ bh=rl+jHvCKPWpE6h+zOi20QX/K8dLZP6IAdrpsulCmybU=; b=S3ZFpJ049nMFDYr6iHcXBwMIyy
+ lhLkggOz/fUVWg/l8+FSrI4mOuUBznZ9JFfbFK203vbDTYbpMa+tyCEKN/mGUHhENHeecv9VfQ6t/
+ 7SK0JgoqQW0DnOD5RzPTfwKxLl0wdlfo30UQR/b/lRGHCP++GMJywjQ7GeGKx/thhesM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=zZ4ZrNctwAtZsyQ3GIs/bJEfAJEofShNqc+mP6VzLSk=; b=W
- HbLA4Yl2AfXK4BYY5oH1GmJXWSlnmvq9FxeWWC+di2LNgnhOMlnyzIBDH3uXrIxRcbnlkBvRHaTrH
- 0dyx6UZuFCHcJaE8BnOeAfI2KnhkwsJIfDan7HQ0etZjnuZyjCHZnuChDntn35wKuV2WTIYiwy766
- YyOd51mzjwUP162M=;
-Received: from 5.mo575.mail-out.ovh.net ([46.105.62.179])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=rl+jHvCKPWpE6h+zOi20QX/K8dLZP6IAdrpsulCmybU=; b=YGLPVQCovUI6f1R+sfHDA1Yw9g
+ eUA+W3jp+JUbd4hAafht+U9605x1vh1LcI1pe0kqK32A4bhzknHS0oH3B8ZGgxXhk1usyWM0A8V/X
+ E/o/FopdHDQFNl/0a6VVIPh9+ARXPsKEnckrq6/rK0iQTqM+Rw6Jsl3PD4QECj+b5t9M=;
+Received: from [203.205.251.36] (helo=out203-205-251-36.mail.qq.com)
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nXSCA-00AfFy-W7
- for openipmi-developer@lists.sourceforge.net; Thu, 24 Mar 2022 18:28:28 +0000
-Received: from player728.ha.ovh.net (unknown [10.110.171.131])
- by mo575.mail-out.ovh.net (Postfix) with ESMTP id BE45D24A03
- for <openipmi-developer@lists.sourceforge.net>;
- Thu, 24 Mar 2022 17:12:15 +0000 (UTC)
-Received: from sk2.org (82-65-25-201.subs.proxad.net [82.65.25.201])
- (Authenticated sender: steve@sk2.org)
- by player728.ha.ovh.net (Postfix) with ESMTPSA id 4F1F928AEF1BE;
- Thu, 24 Mar 2022 17:12:11 +0000 (UTC)
-Authentication-Results: garm.ovh; auth=pass
- (GARM-102R00476d4bff7-adb1-4465-b39a-27e7b6ccfe9d,
- 78FFD8E4238D9337B8F0C8EEA79873C5FE5514E5) smtp.auth=steve@sk2.org
-X-OVh-ClientIp: 82.65.25.201
-From: Stephen Kitt <steve@sk2.org>
-To: Corey Minyard <minyard@acm.org>
-Date: Thu, 24 Mar 2022 18:11:59 +0100
-Message-Id: <20220324171159.544565-1-steve@sk2.org>
-X-Mailer: git-send-email 2.27.0
+ id 1nYrHA-0008GS-TM
+ for openipmi-developer@lists.sourceforge.net; Mon, 28 Mar 2022 15:27:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+ t=1648481228; bh=rl+jHvCKPWpE6h+zOi20QX/K8dLZP6IAdrpsulCmybU=;
+ h=Date:Subject:To:Cc:References:From:In-Reply-To;
+ b=MZL+guxGuNx38KDuVafK0fI3/fObQqyqiAi3EGAVO5eF/P3otkeg4APDFNRutthPA
+ l0Zsb7VdysVNzPQPFRVWzuGEdou//Ujk+t8L/UITJV/YY9i8HLEFZe+6x5P94dSwAT
+ G3dFQ14C1gcXeZAq23wlTLcEWSe1QfvenVf93TNk=
+Received: from [192.168.31.6] ([120.245.132.52])
+ by newxmesmtplogicsvrszb6.qq.com (NewEsmtp) with SMTP
+ id 6C6B925A; Mon, 28 Mar 2022 23:27:06 +0800
+X-QQ-mid: xmsmtpt1648481226tqgpbcr35
+Message-ID: <tencent_071EACFAEE3F0CFA14A674C4603E39026F09@qq.com>
+X-QQ-XMAILINFO: OMIjnSQFC3bt7j4Xv30Ml+TdzqBG3Q2nsvAe40dzC3awt6uBWv3Bk3Uy6R4Qvg
+ f5T236LIEUt0jcMdf0sOgxStRHsb85APbzcbqRvqg/RZvXQABCg9OhQLxT2EEb56dgE7bHJ+D/HB
+ aWf8XwazGMjNMTJA60ljyQEXKZmhJvv1SwHCGX9+KauA5jYNE+gXsI99DbfXjASdZng+HBp6RPls
+ Tr3SMb9j6vnjOdaAM/eAT5PZlRecM6FdUqAnKMucZ4ybFqW5alXaBTK0hd66dLWV/JjRWlwzuMyx
+ OeoFhco/2lg4IoK0el868nxN0DwqTs/TF2wTl6V4k9ZiWAfzcdEHjj7w94HWsrpUCisKQ0bVSpjU
+ DpZa8vNPrScUSONTTM0CzX3bCliUnHDAE8Arcn1ZsJSgbWMwpcD2WsuwcGp/K4n8bTZGLkPZMmAC
+ 64TtZocSLfa31fsJ5lGw3yQhph8lqTqlXUhRQ3u9aa5O1qw1ueR3GbalV6KFUM5OBwtVCgA8mPLU
+ sfGL/ftiqHPNbrNh3dglyW6Q2todh3589DmlX+xGa/hl2QB+fYC7f3NwVpC87lExvox9LB1Kz5uk
+ 6OzyZakwkD1tyaQR4fAg3ZO+2ctoTwXOn8uVUAVZpaRvlH1vzXW2K16mQVJ4PHaR9Mpy1C4zn27j
+ tmgIG46SayWYTB/7Jp3dnzFVY/K57Qfp/0vqa+XBO4lceK3pJ7TBRzLXXq4WsAGS9uMpThgbTPQF
+ oPYtOsNxvvLD6bRnFMlKDUN6c765JNcTnAC3jsvIif9IoGVsDGGs7u6ugo1KTR20urvPi5J2rGZ/
+ gFxkUbOOiZwiw/fBYaQNv0fQkd9Ifa1iyrstFqu563cHJKI30+x5eb9yMWaEZC7UeP0oT1yhcIPE
+ oMO984MYtGL4qOhuUMscyAbfIef1JkTmOVO2IsA/8GHadtdyPXV8LjbaxJ+KOgkzwZPyUFwyvb
+X-OQ-MSGID: <fe327e43-60cf-6570-f129-338c8dfcd1e7@qq.com>
+Date: Mon, 28 Mar 2022 23:27:06 +0800
 MIME-Version: 1.0
-X-Ovh-Tracer-Id: 11992804335307884166
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedvvddrudegledgleegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuqfggjfdpvefjgfevmfevgfenuceurghilhhouhhtmecuhedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefuthgvphhhvghnucfmihhtthcuoehsthgvvhgvsehskhdvrdhorhhgqeenucggtffrrghtthgvrhhnpeetgedugfelkeeikeetgeegteevfeeufeetuefgudeiiedthfehtdeffeekvdeffeenucfkpheptddrtddrtddrtddpkedvrdeihedrvdehrddvtddunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmohguvgepshhmthhpohhuthdphhgvlhhopehplhgrhigvrhejvdekrdhhrgdrohhvhhdrnhgvthdpihhnvghtpedtrddtrddtrddtpdhmrghilhhfrhhomhepshhtvghvvgesshhkvddrohhrghdpnhgspghrtghpthhtohepuddprhgtphhtthhopehophgvnhhiphhmihdquggvvhgvlhhophgvrheslhhishhtshdrshhouhhrtggvfhhorhhgvgdrnhgvth
-X-Spam-Score: -0.0 (/)
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.7.0
+Content-Language: en-US
+To: minyard@acm.org, Chen Guanqiao <chen.chenchacha@foxmail.com>
+References: <tencent_BD6D4CB98B6D7FAA04F63D28F6457F10F40A@qq.com>
+ <20220328013842.GN3457@minyard.net>
+In-Reply-To: <20220328013842.GN3457@minyard.net>
+X-Spam-Score: 4.9 (++++)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  The i2c probe functions here don't use the id information
- provided in their second argument, so the single-parameter i2c probe function
- ("probe_new") can be used instead. This avoids scanning the identifier tables
- during probes. 
- Content analysis details:   (-0.0 points, 6.0 required)
+ Content preview:  On 2022/3/28 09:38, Corey Minyard wrote: > On Mon, Mar 28,
+ 2022 at 12:47:41AM +0800, Chen Guanqiao wrote: >> At present, a scenario
+ has been found that there are too many ipmi messages in a >> short p [...]
+ Content analysis details:   (4.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.105.62.179 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [46.105.62.179 listed in wl.mailspike.net]
+ no trust [203.205.251.36 listed in list.dnswl.org]
+ -1.0 RCVD_IN_MSPIKE_H5      RBL: Excellent reputation (+5)
+ [203.205.251.36 listed in wl.mailspike.net]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [chen.chenchacha[at]qq.com]
+ 0.0 T_SPF_TEMPERROR        SPF: test of record failed (temperror)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 1.3 RDNS_NONE Delivered to internal network by a host with no rDNS
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1nXSCA-00AfFy-W7
+ 3.2 HELO_DYNAMIC_IPADDR    Relay HELO'd using suspicious hostname (IP
+ addr 1) -0.0 NICE_REPLY_A           Looks like a legit reply (A)
+ 1.6 FORGED_MUA_MOZILLA     Forged mail pretending to be from Mozilla
+X-Headers-End: 1nYrHA-0008GS-TM
 X-Mailman-Approved-At: Mon, 28 Mar 2022 15:46:28 +0000
-Subject: [Openipmi-developer] [PATCH] ipmi: use simple i2c probe function
+Subject: Re: [Openipmi-developer] [PATCH 0/3] ipmi: msghandler: check the
+ users and msgs causing the system to block
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,95 +121,97 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Wolfram Sang <wsa@kernel.org>, openipmi-developer@lists.sourceforge.net,
- Stephen Kitt <steve@sk2.org>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+From: chenchacha via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: chenchacha <chen.chenchacha@qq.com>
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-The i2c probe functions here don't use the id information provided in
-their second argument, so the single-parameter i2c probe function
-("probe_new") can be used instead.
+On 2022/3/28 09:38, Corey Minyard wrote:
+> On Mon, Mar 28, 2022 at 12:47:41AM +0800, Chen Guanqiao wrote:
+>> At present, a scenario has been found that there are too many ipmi messages in a
+>> short period of time, and a large number of users and messages are blocked in
+>> the ipmi modules, resulting in a large amount of system memory being occupied by
+>> ipmi, and ipmi communication always fails.
+>>
+>> Frequent calls ipmi and failure of hardware communication will cause this
+>> exception. And ipmi has no way to detect and perceive this problem, therefore
+>> it is impossible to located and perceived online.
+> 
+> Hmm.  So you have an application that just keeps sending IPMI messages
+> and not waiting for responses?  I think the first order of business
+> would be to fix your applications to not do that.
 
-This avoids scanning the identifier tables during probes.
+Hi, Corey
 
-Signed-off-by: Stephen Kitt <steve@sk2.org>
----
- drivers/char/ipmi/ipmb_dev_int.c | 5 ++---
- drivers/char/ipmi/ipmi_ipmb.c    | 5 ++---
- drivers/char/ipmi/ipmi_ssif.c    | 4 ++--
- 3 files changed, 6 insertions(+), 8 deletions(-)
+Actually, The patch just provides a way to located and perceived this 
+problem online: display number of users and messages. How to solve the 
+problem gracefully, I haven't fully thought about it. To cleanup msgs 
+queue is one of method for administrator.
 
-diff --git a/drivers/char/ipmi/ipmb_dev_int.c b/drivers/char/ipmi/ipmb_dev_int.c
-index 49b8f22fdcf0..db40037eb347 100644
---- a/drivers/char/ipmi/ipmb_dev_int.c
-+++ b/drivers/char/ipmi/ipmb_dev_int.c
-@@ -299,8 +299,7 @@ static int ipmb_slave_cb(struct i2c_client *client,
- 	return 0;
- }
- 
--static int ipmb_probe(struct i2c_client *client,
--			const struct i2c_device_id *id)
-+static int ipmb_probe(struct i2c_client *client)
- {
- 	struct ipmb_dev *ipmb_dev;
- 	int ret;
-@@ -369,7 +368,7 @@ static struct i2c_driver ipmb_driver = {
- 		.name = "ipmb-dev",
- 		.acpi_match_table = ACPI_PTR(acpi_ipmb_id),
- 	},
--	.probe = ipmb_probe,
-+	.probe_new = ipmb_probe,
- 	.remove = ipmb_remove,
- 	.id_table = ipmb_id,
- };
-diff --git a/drivers/char/ipmi/ipmi_ipmb.c b/drivers/char/ipmi/ipmi_ipmb.c
-index ba0c2d2c6bbe..845387d17efb 100644
---- a/drivers/char/ipmi/ipmi_ipmb.c
-+++ b/drivers/char/ipmi/ipmi_ipmb.c
-@@ -436,8 +436,7 @@ static int ipmi_ipmb_remove(struct i2c_client *client)
- 	return 0;
- }
- 
--static int ipmi_ipmb_probe(struct i2c_client *client,
--			   const struct i2c_device_id *id)
-+static int ipmi_ipmb_probe(struct i2c_client *client)
- {
- 	struct device *dev = &client->dev;
- 	struct ipmi_ipmb_dev *iidev;
-@@ -528,7 +527,7 @@ static struct i2c_driver ipmi_ipmb_driver = {
- 		.name = DEVICE_NAME,
- 		.of_match_table = of_ipmi_ipmb_match,
- 	},
--	.probe		= ipmi_ipmb_probe,
-+	.probe_new	= ipmi_ipmb_probe,
- 	.remove		= ipmi_ipmb_remove,
- 	.id_table	= ipmi_ipmb_id,
- };
-diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-index 48aab77abebf..9fa8755bbb6a 100644
---- a/drivers/char/ipmi/ipmi_ssif.c
-+++ b/drivers/char/ipmi/ipmi_ssif.c
-@@ -1619,7 +1619,7 @@ static int ssif_check_and_remove(struct i2c_client *client,
- 	return 0;
- }
- 
--static int ssif_probe(struct i2c_client *client, const struct i2c_device_id *id)
-+static int ssif_probe(struct i2c_client *client)
- {
- 	unsigned char     msg[3];
- 	unsigned char     *resp;
-@@ -2037,7 +2037,7 @@ static struct i2c_driver ssif_i2c_driver = {
- 	.driver		= {
- 		.name			= DEVICE_NAME
- 	},
--	.probe		= ssif_probe,
-+	.probe_new	= ssif_probe,
- 	.remove		= ssif_remove,
- 	.alert		= ssif_alert,
- 	.id_table	= ssif_id,
--- 
-2.27.0
+Because the memory consumption of the module is counted in the 
+consumption of the kernel, most of the time, the administrator does not 
+know the state of ipmi, so it is impossible to guess where the memory goes.
+
+Only when they tried to execute 'rmmod ipmi' did they find out: oh ,the 
+memory is in ipmi.
+
+> The ipmi driver will eventually clean things out, but the timeouts are
+> pretty long.  In the 5 second range per message.
+> 
+> However, as you say, there are no limits on users or messages, and that
+> is perhaps a problem.  I mean, only root can send IPMI message, and root
+> can do a lot more harm than that.  But it's probably bad in principle.
+> Nobody has ever reported this problem before.
+If the bmc communication of the device is abnormal, for example, the 
+hardware is blocked, and the monitoring program repeatedly checks the bmc.
+
+The scenario is often seen in automated monitoring tool.
+
+Of course, this problem is a bit rare, one hundred out of ten thousand 
+machines, 1% probability.
+
+> Anyway, a better solution for the kernel side of things, I think, would
+> be to add limits on the number of users and the number of messages per
+> user.  That's more inline with what other kernel things do.  I know of
+> nothing else in the kernel that does what you are proposing.
+
+The precondition for add limits, is that people known that ipmi has too 
+many users and messages cause problems, this patch is to let 
+administrator known that.
+
+In addition, different machines have different limit, My server my block 
+700,000 messages and it's fine, and my NAS pc went to OOM when it 
+probably blocked for 10,000 messages. So, to limit the number of users 
+and messages, can wait until we have accumulated some online experience?
+
+> 
+> Does that make sense?
+> 
+> -corey
+> 
+
+thanks
+--
+
+Chen Guanqiao
+>>
+>> This patch provides a method to view the current number of users and messages in
+>> ipmi, and introduce a simple interface to clear the message queue.
+>>
+>> Chen Guanqiao (3):
+>>    ipmi: Get the number of user through sysfs
+>>    ipmi: Get the number of message through sysfs
+>>    ipmi: add a interface to clean message queue in sysfs
+>>
+>>   drivers/char/ipmi/ipmi_msghandler.c | 159 ++++++++++++++++++++++++++++
+>>   1 file changed, 159 insertions(+)
+>>
+>> -- 
+>> 2.25.1
+>>
 
 
 
