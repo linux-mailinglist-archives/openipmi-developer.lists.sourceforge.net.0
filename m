@@ -2,115 +2,122 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B5A14E8900
-	for <lists+openipmi-developer@lfdr.de>; Sun, 27 Mar 2022 18:51:29 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5F9E74E8BAE
+	for <lists+openipmi-developer@lfdr.de>; Mon, 28 Mar 2022 03:39:01 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nYW6w-0004oz-A2; Sun, 27 Mar 2022 16:51:24 +0000
+	id 1nYeLQ-0006lJ-Jb; Mon, 28 Mar 2022 01:38:55 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <chen.chenchacha@foxmail.com>) id 1nYW6u-0004os-V2
- for openipmi-developer@lists.sourceforge.net; Sun, 27 Mar 2022 16:51:23 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1nYeLO-0006lC-HE
+ for openipmi-developer@lists.sourceforge.net; Mon, 28 Mar 2022 01:38:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Date:Subject:Cc:To:From:Message-ID:Sender:Reply-To:Content-Type:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=DvwSii+5xmJOQpLDDgt+t39uWXr7culJhCY3W1SQzmY=; b=Y/nsyC2vYLuX9MCg8oCv1InWoy
- BvajQFc7dAtIw3I+HZoxKUWjO9sjNLgh878PRwaC/Wy3xTexTFoWM4euIctbR+hmAYMEGEQ/p7N2k
- 9HYa88Qf9Qoblj48sFZTTSEcGfNXy/wL06nPyhQ/9//xQYsKeTwTKQ38VuCVKpkuoLms=;
+ bh=eRVimM/CbpiWSNvnFN5TSgMFECx9ETly/qXbNK5IPo0=; b=kP7Ve9olNLlCC21OqxqYPc/gFe
+ UfvornXq5KPJ3U+HdW1iIIGzHaXNy1I/42i3V7aFkVO4NmE/tItgX3IN0jae3fgcUo3tYstj5o4a+
+ xTAcRKLRfHkepIJ4lFPB7DJGT3MXE8NXHM3HKFXj3TkTR97fl/RPPbg4RQ+BQ344BPMQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Date:
- Subject:Cc:To:From:Message-ID:Sender:Reply-To:Content-Type:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=DvwSii+5xmJOQpLDDgt+t39uWXr7culJhCY3W1SQzmY=; b=O9ONrSBhReVq8VtXP6RqygkhD7
- KZvx2RbTLlOBRJGSOcnziOuIGE4e5A7TZ9CRCKZtlyYBTAuVl5b+v1Qn4MM0o0LImbE8R0uQk15Fl
- Pi+UHoeaQGGt0buON3hPIXU8vlqzgaFsAEi+0MljEODtkGuCgRx2leS2w6ushl+/gMKo=;
-Received: from out162-62-57-137.mail.qq.com ([162.62.57.137])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nYW6p-00Dnk6-95
- for openipmi-developer@lists.sourceforge.net; Sun, 27 Mar 2022 16:51:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
- s=s201512; t=1648399870;
- bh=DvwSii+5xmJOQpLDDgt+t39uWXr7culJhCY3W1SQzmY=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References;
- b=Wov2+HLQWBfKUX4ERx2qSePCPVJv0LQFfqmd7m0oDfRttPur616T9w/oXYH0z105y
- UBqMheSu5xwZ/j8maIBY+UlH2Uk02BGfSt0UCWwWBjTAS1GJHyCRw/5Gse9LeVEraE
- URgrMglv7ic/0jMqQ1S6Bdr2574/yPD98OHS1wCY=
-Received: from localhost.localdomain ([120.245.132.52])
- by newxmesmtplogicsvrszc10.qq.com (NewEsmtp) with SMTP
- id BEF2A844; Mon, 28 Mar 2022 00:47:47 +0800
-X-QQ-mid: xmsmtpt1648399671t033mo6ba
-Message-ID: <tencent_4BC3A56F75CA5B8CE8D32E90FC61A78FFF05@qq.com>
-X-QQ-XMAILINFO: NMGzQWUSIfvTAI8iMz2DU92qQIfxOBcGpkpB3mZLyf36XSYXaJrSP90aPsTyUY
- Dn3Oeym1u2Nj8/3a8yFMFbFrHMohGhn6JpCZ+65rBVOClj9EPZaXQ4pGXY8+RBhRJ3qnpQYgppZO
- xgSW24H2gqwl11DriM2cc7uE9d0h+be2183AJs6Tg4XNBQAUqPNct8rd6gWVQQKItRf9EekT0Qcu
- LskRRlnPZZeOdRItXzSnrZZb9uyoLlL3Xylq5QLnLBP5gaA2TppC//erlIC5Qo3SKUBHwblP5x4W
- fRAAa6TyE/Uz+rYrlXOAM31lD2LZ65IwQfNkcYWoXb+ktlE4ODHhhkG62Uj2cFoXvRreY7xnIAAp
- bWC0c77mc3kRM6L67exKOFA2tczMW315bIMrdANqAsPW7r9CEGq5E8m4gkb4fdJGMisGOLy3Lqx4
- 9FdtPJR5aE5v2InDV8mtV/jVhq1HmcTAJ49VSk+YIFEs7xghpfQEAnMzZa6rlKxdHxw8vayRug0w
- dNP2Lyq13BYm8zq8EC+mwQR2AEC+xzm5r/4p0rtZ4E433HIN2qZwAmMDSzceU74DOmebjP8CTrX0
- 0Sb4ihj9mvbCOOIvxc+cOErlGSoQhyQjUdTDXoMoAmykxw+/bCaihZZBP/MfM9V+YMpP5W7BOq+u
- ieneQEkKrMY87zwhRXBk+1SATbWAnd06rTrAo1j7Cv33uAcFe6Pt30uOg0RTebzcGYwvtjvsXY5f
- U0AMMK6KMXGbPUnCkNazed7+8G27nvejIwPUq96taZlR6HdWBCqE4o0MufpRCVbgrzeLJ7vgBsbq
- gLlhjaIabFQGhvnUXOob1XOXHzY0f8AV5qPm8O4A+ZBp65Avq4BncWjYzYKgSA+nPKZuCpAWd78m
- OLM0rnYvBntOn1mwrV6M93LiFEZZgfbbxmPO81ibPXgjGbeXW0nW6yBZdLILWUY/jVn9a2OHxRIB
- 4HzJts0RucX/dxt60/ra0TOG5BNHmtiRYiBc18ZgEjNu4xR2tdpTyCdteYcsJPhQH8OD0W32YhbE
- laaBSOymhG0LppOthj
-From: Chen Guanqiao <chen.chenchacha@foxmail.com>
-To: minyard@acm.org, openipmi-developer@lists.sourceforge.net,
- linux-kernel@vger.kernel.org
-Date: Mon, 28 Mar 2022 00:47:44 +0800
-X-OQ-MSGID: <9268e77879ce2c970f23d44522a6cc8526e13227.1648397283.git.chen.chenchacha@foxmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1648397283.git.chen.chenchacha@foxmail.com>
-References: <cover.1648397283.git.chen.chenchacha@foxmail.com>
+ bh=eRVimM/CbpiWSNvnFN5TSgMFECx9ETly/qXbNK5IPo0=; b=D4U0JoD06OQ2kRMi1bKPY2/CuJ
+ GD2msYt1bMGPadgbFRmPiiPGF1/3gx7pr6/DGWJMF2BsYvLzA3hpwlM6Ww0ueQm46nnyz8gVkLCI+
+ rrYw7QKyMdsDaoYU7qED0nxCOay6VOaEzTELkRx3LYTG9M1MjfHcZhAGNdSDmVLEODEY=;
+Received: from mail-qt1-f177.google.com ([209.85.160.177])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
+ id 1nYeLL-0001XK-GF
+ for openipmi-developer@lists.sourceforge.net; Mon, 28 Mar 2022 01:38:53 +0000
+Received: by mail-qt1-f177.google.com with SMTP id t7so11170301qta.10
+ for <openipmi-developer@lists.sourceforge.net>;
+ Sun, 27 Mar 2022 18:38:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:date:from:to:cc:subject:message-id:reply-to:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=eRVimM/CbpiWSNvnFN5TSgMFECx9ETly/qXbNK5IPo0=;
+ b=BsK0FQNd3Pe5IfDYDzvgRs8mmoqcuOnHIcdO75fkq7ujs5Z6t5NPmSUSn+TUuHtQlo
+ yp+bTJ1lTJ4jkK4o/LSmw2rh8wmKXy1nbweOE0ZYHaUUhfWesMrJ/VdLfm1yRwXiHIRJ
+ UWZZoMjAetOqPD9zrwZDPltGe1BGEQoc8yt3yVynCwmofsjuu6n57SWgPoce/P6cRe2u
+ 0kruZRBBsjOeUwKTbjJ+hyhRHjHuuxVpUp+QnrOpg5DsVSN1+2c0JEFaHiQvW7dBSGQJ
+ A+aStgfS+fPICLgIqjl4rBMKuD4Vc7BMiQ9jRYr9moPhnT8tw1Lb+LAEGPgHjSPKBYKs
+ 0ddw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :reply-to:references:mime-version:content-disposition:in-reply-to;
+ bh=eRVimM/CbpiWSNvnFN5TSgMFECx9ETly/qXbNK5IPo0=;
+ b=7jPmgP2+DrCXf3hREczgNiw3BBWj/60xz5soPxP+WrUGjJlz1S2C5z6ysNz+9OE2ri
+ zkWK9wCxJaqgs3HOujsHGmTJ4Qx4IRTrYi55Tk7LlqY6Le4Nem6qADmAkIvzrCkl24GY
+ tPaaJ9J7pw8P9nYujabL38XZ5PHdPJHxsPepMecYrhSGlMl62Q8BYdF8B8H/um20NWKM
+ d9o8KhNpjalqzCUts/OEXHoBhmp+CwqevwAE/K2DIOIWj3nwTUjGfxZ1tEUr3ZCEVemk
+ XNALaorfTiVlfXUOvs8QQbQ4g1GyYE16+sl7XZF5CCfyu922K7oTdE0yC/V1Q9FioGM0
+ kpJQ==
+X-Gm-Message-State: AOAM533MxeHQgy+fsVOOGlze9QnRiBVF86R6Em68DzP6DaIeGOssE65e
+ fxQnqvq0UC+0N/aFTa2eg2A6kdXL4Q==
+X-Google-Smtp-Source: ABdhPJz8fngwQ/xG+IMm80gH2TCqQ5pMeJXfiv3AGjpMsPQewfjNH2hNRmdG0jkuk8/0IkPXb+Qwrg==
+X-Received: by 2002:a05:622a:134b:b0:2eb:843e:47a8 with SMTP id
+ w11-20020a05622a134b00b002eb843e47a8mr1456650qtk.400.1648431525619; 
+ Sun, 27 Mar 2022 18:38:45 -0700 (PDT)
+Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
+ by smtp.gmail.com with ESMTPSA id
+ u11-20020a05622a14cb00b002e1fd9dce3dsm11795784qtx.60.2022.03.27.18.38.44
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 27 Mar 2022 18:38:45 -0700 (PDT)
+Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:5dff:4364:311c:ff])
+ by serve.minyard.net (Postfix) with ESMTPSA id C85C61817BD;
+ Mon, 28 Mar 2022 01:38:43 +0000 (UTC)
+Date: Sun, 27 Mar 2022 20:38:42 -0500
+From: Corey Minyard <minyard@acm.org>
+To: Chen Guanqiao <chen.chenchacha@foxmail.com>
+Message-ID: <20220328013842.GN3457@minyard.net>
+References: <tencent_BD6D4CB98B6D7FAA04F63D28F6457F10F40A@qq.com>
 MIME-Version: 1.0
-X-Spam-Score: 3.4 (+++)
+Content-Disposition: inline
+In-Reply-To: <tencent_BD6D4CB98B6D7FAA04F63D28F6457F10F40A@qq.com>
+X-Spam-Score: 0.4 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  The further approach, add a cleanup interface in sysfs. The
- administrator write '1' to clean_msg, and ipmi clear the entire message queue.
- Signed-off-by: Chen Guanqiao --- drivers/char/ipmi/ipmi_msghandler.c | 82
- +++++++++++++++++++++++++++++ 1 file changed, 82 insertions(+) 
- Content analysis details:   (3.4 points, 6.0 required)
+ Content preview:  On Mon, Mar 28, 2022 at 12:47:41AM +0800,
+ Chen Guanqiao wrote:
+ > At present, a scenario has been found that there are too many ipmi messages
+ in a > short period of time, and a large number of users an [...] 
+ Content analysis details:   (0.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [162.62.57.137 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [162.62.57.137 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [chen.chenchacha[at]foxmail.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [tcminyard[at]gmail.com]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.4 RDNS_DYNAMIC           Delivered to internal network by host with
- dynamic-looking rDNS
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- 3.2 HELO_DYNAMIC_IPADDR    Relay HELO'd using suspicious hostname (IP
- addr 1)
-X-Headers-End: 1nYW6p-00Dnk6-95
-Subject: [Openipmi-developer] [PATCH 3/3] ipmi: msghandler: add a interface
- to clean message queue in sysfs
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.160.177 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.160.177 listed in wl.mailspike.net]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1nYeLL-0001XK-GF
+Subject: Re: [Openipmi-developer] [PATCH 0/3] ipmi: msghandler: check the
+ users and msgs causing the system to block
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -123,135 +130,58 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
+Reply-To: minyard@acm.org
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-The further approach, add a cleanup interface in sysfs. The administrator write
-'1' to clean_msg, and ipmi clear the entire message queue.
+On Mon, Mar 28, 2022 at 12:47:41AM +0800, Chen Guanqiao wrote:
+> At present, a scenario has been found that there are too many ipmi messages in a
+> short period of time, and a large number of users and messages are blocked in
+> the ipmi modules, resulting in a large amount of system memory being occupied by
+> ipmi, and ipmi communication always fails.
+> 
+> Frequent calls ipmi and failure of hardware communication will cause this
+> exception. And ipmi has no way to detect and perceive this problem, therefore
+> it is impossible to located and perceived online.
 
-Signed-off-by: Chen Guanqiao <chen.chenchacha@foxmail.com>
----
- drivers/char/ipmi/ipmi_msghandler.c | 82 +++++++++++++++++++++++++++++
- 1 file changed, 82 insertions(+)
+Hmm.  So you have an application that just keeps sending IPMI messages
+and not waiting for responses?  I think the first order of business
+would be to fix your applications to not do that.
 
-diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 0238be81c435..29d6779a569f 100644
---- a/drivers/char/ipmi/ipmi_msghandler.c
-+++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -46,6 +46,9 @@ static void handle_new_recv_msgs(struct ipmi_smi *intf);
- static void need_waiter(struct ipmi_smi *intf);
- static int handle_one_recv_msg(struct ipmi_smi *intf,
- 			       struct ipmi_smi_msg *msg);
-+static void deliver_smi_err_response(struct ipmi_smi *intf,
-+				     struct ipmi_smi_msg *msg,
-+				     unsigned char err);
- 
- static bool initialized;
- static bool drvregistered;
-@@ -2761,6 +2764,71 @@ static void get_msg_count(unsigned int *hp_count, unsigned int *count)
- 	*count = hp_msg_count;
- }
- 
-+static void __cleanup_msgs_queue(struct ipmi_smi *intf)
-+{
-+	int i;
-+	unsigned long flags;
-+	int run_to_completion = intf->run_to_completion;
-+
-+	rcu_read_lock();
-+	if (!run_to_completion)
-+		spin_lock_irqsave(&intf->xmit_msgs_lock, flags);
-+	if (!intf->in_shutdown) {
-+		struct ipmi_smi_msg *msg;
-+		struct list_head *entry = NULL;
-+
-+		while (!list_empty(&intf->xmit_msgs)) {
-+			if (!list_empty(&intf->hp_xmit_msgs))
-+				entry = intf->hp_xmit_msgs.next;
-+			else if (!list_empty(&intf->xmit_msgs))
-+				entry = intf->xmit_msgs.next;
-+
-+			if (!entry)
-+				continue;
-+
-+			list_del(entry);
-+			msg = list_entry(entry, struct ipmi_smi_msg, link);
-+			deliver_smi_err_response(intf, msg,
-+						 IPMI_ERR_UNSPECIFIED);
-+		}
-+	}
-+	if (!run_to_completion)
-+		spin_unlock_irqrestore(&intf->xmit_msgs_lock, flags);
-+	rcu_read_unlock();
-+
-+	spin_lock_irqsave(&intf->seq_lock, flags);
-+	for (i = 0; i < IPMI_IPMB_NUM_SEQ; i++) {
-+		struct seq_table *ent = &intf->seq_table[i];
-+
-+		if (!ent->inuse)
-+			continue;
-+		deliver_err_response(intf, ent->recv_msg, IPMI_ERR_UNSPECIFIED);
-+	}
-+	spin_unlock_irqrestore(&intf->seq_lock, flags);
-+}
-+
-+static void cleanup_msgs_queue(void)
-+{
-+	struct ipmi_smi *intf;
-+	int index;
-+
-+	index = srcu_read_lock(&ipmi_interfaces_srcu);
-+	list_for_each_entry_rcu(intf, &ipmi_interfaces, link) {
-+		struct bmc_device *bmc = intf->bmc;
-+
-+		kref_get(&intf->refcount);
-+		mutex_lock(&intf->bmc_reg_mutex);
-+		mutex_lock(&bmc->dyn_mutex);
-+
-+		__cleanup_msgs_queue(intf);
-+
-+		mutex_unlock(&bmc->dyn_mutex);
-+		mutex_unlock(&intf->bmc_reg_mutex);
-+		kref_put(&intf->refcount, intf_free);
-+	}
-+	srcu_read_unlock(&ipmi_interfaces_srcu, index);
-+}
-+
- static ssize_t device_id_show(struct device *dev,
- 			      struct device_attribute *attr,
- 			      char *buf)
-@@ -2950,6 +3018,19 @@ static ssize_t msg_count_show(struct device *dev, struct device_attribute *attr,
- }
- static DEVICE_ATTR_ADMIN_RO(msg_count);
- 
-+static ssize_t clean_msgs_store(struct device *dev,
-+				struct device_attribute *attr, const char *buf,
-+				size_t count)
-+{
-+	if (!sysfs_streq(buf, "1"))
-+		return -EINVAL;
-+
-+	cleanup_msgs_queue();
-+
-+	return count;
-+}
-+static DEVICE_ATTR_WO(clean_msgs);
-+
- static struct attribute *bmc_dev_attrs[] = {
- 	&dev_attr_device_id.attr,
- 	&dev_attr_provides_device_sdrs.attr,
-@@ -2963,6 +3044,7 @@ static struct attribute *bmc_dev_attrs[] = {
- 	&dev_attr_guid.attr,
- 	&dev_attr_user_count.attr,
- 	&dev_attr_msg_count.attr,
-+	&dev_attr_clean_msgs.attr,
- 	NULL
- };
- 
--- 
-2.25.1
+The ipmi driver will eventually clean things out, but the timeouts are
+pretty long.  In the 5 second range per message.
 
+However, as you say, there are no limits on users or messages, and that
+is perhaps a problem.  I mean, only root can send IPMI message, and root
+can do a lot more harm than that.  But it's probably bad in principle.
+Nobody has ever reported this problem before.
+
+Anyway, a better solution for the kernel side of things, I think, would
+be to add limits on the number of users and the number of messages per
+user.  That's more inline with what other kernel things do.  I know of
+nothing else in the kernel that does what you are proposing.
+
+Does that make sense?
+
+-corey
+
+> 
+> This patch provides a method to view the current number of users and messages in
+> ipmi, and introduce a simple interface to clear the message queue.
+> 
+> Chen Guanqiao (3):
+>   ipmi: Get the number of user through sysfs
+>   ipmi: Get the number of message through sysfs
+>   ipmi: add a interface to clean message queue in sysfs
+> 
+>  drivers/char/ipmi/ipmi_msghandler.c | 159 ++++++++++++++++++++++++++++
+>  1 file changed, 159 insertions(+)
+> 
+> -- 
+> 2.25.1
+> 
 
 
 _______________________________________________
