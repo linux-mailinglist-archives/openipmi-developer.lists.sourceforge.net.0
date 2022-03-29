@@ -2,112 +2,110 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 114654EB178
-	for <lists+openipmi-developer@lfdr.de>; Tue, 29 Mar 2022 18:10:48 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 87C254EB194
+	for <lists+openipmi-developer@lfdr.de>; Tue, 29 Mar 2022 18:13:08 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nZEQd-0003td-6i; Tue, 29 Mar 2022 16:10:42 +0000
+	id 1nZEKz-0003QV-6X; Tue, 29 Mar 2022 16:13:05 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <chen.chenchacha@foxmail.com>) id 1nZEQb-0003tX-N3
- for openipmi-developer@lists.sourceforge.net; Tue, 29 Mar 2022 16:10:40 +0000
+ (envelope-from <chen.chenchacha@foxmail.com>) id 1nZEKr-0003QF-TU
+ for openipmi-developer@lists.sourceforge.net; Tue, 29 Mar 2022 16:12:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Date:Subject
+ :Cc:To:From:Message-ID:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mE9DRDsHIsIHAbKbJFK2/CHjDpNdpunTcLE/Dg65eAI=; b=GnFWpYzdcw4g1MTUiCxeZ9Vuqn
- VLCqkKVQke56WMDLbDFBFe5CK0HNbarmEiuVtHvsps39eSAV6LJwaGR4JyAC6REi8T3Ki+YlRNVgh
- 9edNr474fOIatvq1puCGf4oVYxjFzEDRUyFiLqvCvSS7NotuSm+Vo06T8VMcDk+mwqos=;
+ bh=plXQD20lQSzZsGQoCpi+P8XSYcFNpRSGduCnfS0GTkU=; b=duhLg8/JGoRH9R5SJCUcQH8oua
+ ppGSaDcV7KUpV8UL5ba4Ihe2ejhxtNIMxiBXte9jmD8CliyHfhuXNHQ7fkxst3pZMBkXWza93L75K
+ 4wVhFVoIpxS5Pc8iUxapZFaL8rmP3WAUmprCmLnk1krT6lvV3ZpVukzNRKmWosjoAQG4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=mE9DRDsHIsIHAbKbJFK2/CHjDpNdpunTcLE/Dg65eAI=; b=EywH5tROOr34oed5rldVV270XK
- 2vgYTx9tPOiPO4oIbVURd0LIki0bd87SuQDOpeN9A+GrMU9Fb6hk5zFtV8nTD2zbO0Ms192MqUO25
- QjWIsY4CukMtvD8q9puZO4B35l4QlSrDk0YJKZGNQrEU2PWKCMEnZlOqb83ApM3jurAo=;
+ h=Content-Transfer-Encoding:MIME-Version:Date:Subject:Cc:To:From:Message-ID
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=plXQD20lQSzZsGQoCpi+P8XSYcFNpRSGduCnfS0GTkU=; b=I
+ kkLIkankpJmFwmnBYkH+XY32RFFMqvFW44PryzfSZkLHBUlc4olP4H4A8aqv5kHLCjQxVjSG8O+Fx
+ EU4nV3Sdbo+Cs3xHJl0ybj5fnXSLUSCpGk+N3JYVZo5NP99XVeumyIAPTIM6nEOb/xX0mEbaGdHAJ
+ DlaFVYsBLOJCo2EU=;
 Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nZEQR-00FxlE-6r
- for openipmi-developer@lists.sourceforge.net; Tue, 29 Mar 2022 16:10:39 +0000
+ id 1nZESl-00Fxyo-6O
+ for openipmi-developer@lists.sourceforge.net; Tue, 29 Mar 2022 16:12:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
- s=s201512; t=1648570210;
- bh=mE9DRDsHIsIHAbKbJFK2/CHjDpNdpunTcLE/Dg65eAI=;
- h=Date:Subject:To:Cc:References:From:In-Reply-To;
- b=Dvu/zZXYxlw+7IC7fC0iLm3ZvARxX7CzLK6ef6jjY2f3IAZfB5ZLL2hblPoO5RND/
- ZYGn2SmomZNzlrEdvCjIlJKB8KrSRjRjepuvOGxguDEQZgipSKniIYkd7ukpAzlSHJ
- uSkiM4ol6edA557OquaKshsZG3ugr+t6AdMeo2jI=
-Received: from [192.168.31.6] ([120.245.132.52])
- by newxmesmtplogicsvrszc11.qq.com (NewEsmtp) with SMTP
- id 28897A01; Wed, 30 Mar 2022 00:10:08 +0800
-X-QQ-mid: xmsmtpt1648570208tm8np4p8u
-Message-ID: <tencent_39A03E44FA72A77EC50A3F8F02C71F0EFA09@qq.com>
-X-QQ-XMAILINFO: OYji31yNgomxdzawO0x/piNS6YFdtMMQ9FSm2rMyK0ZKdKsF7BqYhCbcqbwoqe
- zIDca7AZHfKpDI2L+27tL+KnvLyR9x6RzBCEIZ9B4BkS4ik46njjwKNB77HhZuCnWbCkUAC3kfuU
- 5zRur5hZB4BU8eSlXIT8XrWbuaDw1HXA1prNkvtjhVT8I0MRkRKzlePtdeMb61HC5mLlUWhzzp2+
- EZkazy60AjWGEKJ6K3bmuiAOs1AA0XaMs2g7YgdimbIuvuKvybhQn6qXSpUQ+RleaQJFoqft692N
- h6mAAVIpGEAWyAej6EJKSqzt+MrWubXLWaS9F5j4S82FSY89gxKFGZLYstjUHz1zI6hglcNRE73p
- 22aT0X9P1QSwB4y90BxwIjWZU8Eq8otD7wr0cHJfGJU0PGOZbwT1S8PYhhnOEvVB2Z2VnQ7DH0bk
- 7ClNIi+Tcxk2nR/LJ0LZLRRQKWFjSSvcV441pEkF/nLnetAXA2f8Ex9ESiQHnZjhZMaHzWNEQbMB
- dCO8+6/Pw4u0X9FRqtX+2ol8DHvX/jReSSGr7dBAtICO5hna3OmGuflNrdsAuGxNMubnkhSJ0Rww
- Jai9IVA8zbE/iBNJV1vOxcVXjN7mXr8kvaMCP9ZuFHGRyvetQXqbMimDKIhZ9O6kfMgURpoRlc5X
- H+kfaggx7eOUabExe3RmT0R3reL1c3UyZ3DjeHihkTwMX9OlfKqr91nFgU4A3X3GUge10khC+jco
- wxZPSH8Xs1JqeJV01u4HSWKcyONaFG7XsEc93HDPOn7qTBvsvufxpDRhhMOZ/ryQ/Cvh9BYsm8yI
- 2pGoCzQDrI8/dBhoA5H6tqlEQ4IwsMm2zwpWM829u2kc5RaB8/AwpMB9I73dP3Gs+psCKeCE7sB5
- yYzEw4mTBCK4JAlwLVrQs=
-X-OQ-MSGID: <0c20c29b-acc5-3bfa-4947-b7629c2a56ea@foxmail.com>
-Date: Wed, 30 Mar 2022 00:10:08 +0800
+ s=s201512; t=1648570366;
+ bh=plXQD20lQSzZsGQoCpi+P8XSYcFNpRSGduCnfS0GTkU=;
+ h=From:To:Cc:Subject:Date;
+ b=dCIMk3uy6U/ecJMb/ifOpvekCEc5WAFEjnGeqPVdPezbPfi1qsKXMsN301a0WCco/
+ Qab7U69GN5NWSCkAb+K7S9/s5DtfzcCEokDtlle8qpB3rBtdDeWM586e8YUfiPY1IU
+ Xpij+RRjwAGj5nu0mB4UxeJLtt9A7D8DIGbrSfyY=
+Received: from localhost.localdomain ([120.245.132.52])
+ by newxmesmtplogicsvrsza5.qq.com (NewEsmtp) with SMTP
+ id 32C96631; Wed, 30 Mar 2022 00:12:44 +0800
+X-QQ-mid: xmsmtpt1648570364twlbk78iv
+Message-ID: <tencent_9D994CB589E97D7605023F5CF51D7DA4F50A@qq.com>
+X-QQ-XMAILINFO: OMWm0AbyvxL+nDZ7vqp4YyGvUM+RaNvkyO5/mPxfy0VDt3hvjjTxH72ZE0svhb
+ BND5Vi4zyQj7Ou32QjC7Ug2XhbrLf9uRcKLylz9I7lQHEIdw4+W+Jxdy/MFf8EvfFE9uixVZ30+C
+ yje6kmwm0Wwp8LiW6LXFpeM8CfwEmCw1ojABUkI4iPxu+PnjFFkWj053DY+nqcUiYn0nZQw2uNIt
+ ddA+KF5moCqMggH/ctgPHygRd9ME8h852CWVpkookTYYH1G7hcMvbE4GoKvUDvtA3CnHUjJKnBoN
+ H6Hg+NdIVMF6Dfkf2inHpN60dwBOTl3dLRxIKbQSa4zurXcBcv+4JTTLoqToZaMGab7Zqxqc9LTQ
+ 0eI7zFE24/2eNg6pkxBlt21slxCjRLnnIpLMXzmOYgHxsWpJ7SPbr56p4Ev037bS19W7+adi8F/y
+ Ml3HS54dMbdAjnqTP4UbcH62AJf9jva2emCR0J09csNwRA43YC1DAbElL42n/tfibvNp2GpnG5T0
+ XtwLznXTHWVRzh4EfOdzIjyS4WbmBuCrMIo84w5n+4+/T6BW8e4ZsHO35YHRtFliWdOhuuODhd9z
+ nEuRkTPWRnxqybL9b8QP11a/9AgePMMHpWKRw5FwiMSwDrztRkFR/zM6yJZDyNvuZXROuzcipDxZ
+ CghNvram0cpq89hOGSO9vfeKxIT5IB4AhwIG1wuLwdH9MhYhtZ4XfvYfWpH4rWFTuVvqMth2xFyv
+ ZfJRAD0RKDkgoy+7oM9QVeDQuET+jrrHC7/0D+D2wT6S+t0Yd5m3vTQCNq60KFzUkCcexCtn8Gl1
+ 2uqXIZpyIj4q0ZhpmOJH0s4AMNXJcDAjxHLkNSjl7ZqwloqF919AI8Ni4U4hECWVfMVZlq4qTVYK
+ svm9tH7Y5zqS8byK1NaHalrLQsTndlWu/AA99P2eRm6ESBm+/Ya65yDaUZOw8httPbQyRb3HpT
+From: Chen Guanqiao <chen.chenchacha@foxmail.com>
+To: minyard@acm.org, openipmi-developer@lists.sourceforge.net,
+ linux-kernel@vger.kernel.org
+Date: Wed, 30 Mar 2022 00:12:38 +0800
+X-OQ-MSGID: <20220329161242.76457-1-chen.chenchacha@foxmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.7.0
-Content-Language: en-US
-To: minyard@acm.org
-References: <tencent_BD6D4CB98B6D7FAA04F63D28F6457F10F40A@qq.com>
- <20220328013842.GN3457@minyard.net>
- <tencent_071EACFAEE3F0CFA14A674C4603E39026F09@qq.com>
- <20220328154545.GP3457@minyard.net>
-From: chenchacha <chen.chenchacha@foxmail.com>
-In-Reply-To: <20220328154545.GP3457@minyard.net>
-X-Spam-Score: 5.4 (+++++)
+X-Spam-Score: 3.4 (+++)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 2022/3/28 23:45, Corey Minyard wrote: > On Mon, Mar 28,
- 2022 at 11:27:06PM +0800, chenchacha wrote: >> >>> Anyway, a better solution
- for the kernel side of things, I think, would >>> be to add limi [...] 
- Content analysis details:   (5.4 points, 6.0 required)
+ Content preview:  In some case, ipmi is frequently accessed,
+ and the communication
+ of bmc device is blocked, ipmi will consume a large amount of memory. This
+ patch provides some limits for the number of user and messages in ipmi. 
+ Content analysis details:   (3.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
  no trust [162.62.57.210 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [162.62.57.210 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [chen.chenchacha[at]foxmail.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 T_SPF_HELO_TEMPERROR   SPF: test of HELO record failed (temperror)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- 0.1 DKIM_INVALID           DKIM or DK signature exists, but is not valid
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
+ [162.62.57.210 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  0.4 RDNS_DYNAMIC           Delivered to internal network by host with
  dynamic-looking rDNS
  3.2 HELO_DYNAMIC_IPADDR    Relay HELO'd using suspicious hostname (IP
- addr 1) -0.0 NICE_REPLY_A           Looks like a legit reply (A)
- 1.6 FORGED_MUA_MOZILLA     Forged mail pretending to be from Mozilla
-X-Headers-End: 1nZEQR-00FxlE-6r
-Subject: Re: [Openipmi-developer] [PATCH 0/3] ipmi: msghandler: check the
- users and msgs causing the system to block
+ addr 1)
+X-Headers-End: 1nZESl-00Fxyo-6O
+Subject: [Openipmi-developer] [PATCH v2 0/4] add limit on the total number
+ of users and oustanding messages
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -120,53 +118,38 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
+In some case, ipmi is frequently accessed, and the communication of bmc
+device is blocked, ipmi will consume a large amount of memory.
 
+This patch provides some limits for the number of user and messages in
+ipmi.
 
-On 2022/3/28 23:45, Corey Minyard wrote:
-> On Mon, Mar 28, 2022 at 11:27:06PM +0800, chenchacha wrote:
->>
->>> Anyway, a better solution for the kernel side of things, I think, would
->>> be to add limits on the number of users and the number of messages per
->>> user.  That's more inline with what other kernel things do.  I know of
->>> nothing else in the kernel that does what you are proposing.
->>
->> The precondition for add limits, is that people known that ipmi has too many
->> users and messages cause problems, this patch is to let administrator known
->> that.
->>
->> In addition, different machines have different limit, My server my block
->> 700,000 messages and it's fine, and my NAS pc went to OOM when it probably
->> blocked for 10,000 messages. So, to limit the number of users and messages,
->> can wait until we have accumulated some online experience?
-> 
-> I don't mean a limit on the total number of messages, but a limit on the
-> total number of oustanding messages, and a limit on the total number of
-> users.  No user should have more than a handful of oustanding message,
-> and limiting the number of users to 20 or 30 should be more than enough
-> for any system.
-> 
-> Having those limits in place would probably help you trace down your
-> problem, as you would hit the limits and it should report it at the
-> source of the problem.
-> 
-> -corey
+In addition, this patch also provides a method to view the current number
+of users and messages in ipmi, Used to diagnose and troubleshoot issues.
+and introduce a simple interface to clear the message queue.
 
-Hi Corey:
+Changelog v2:
+- Add a limit on the number of users
+- Add a less rigid limit on the number of oustanding messages
+- The interface for viewing the number of users and messages is retained
+- The interface for cleanup messages is retained
 
-According to your suggestion, I have don some tests. After adding 
-limits, event if the bmc hardware fails, the ipmi will not occupy a 
-large memory in system.
+Chen Guanqiao (4):
+  ipmi: msghandler: Add a limit for the number of users
+  ipmi: msghandler: Add a limit for the number of messages
+  ipmi: msghandler: Get the number of users and messages through sysfs
+  ipmi: msghandler: Add a interface to clean message queue in sysfs
 
-The modifications are in the next version of the patch.
+ drivers/char/ipmi/ipmi_msghandler.c | 207 ++++++++++++++++++++++++++++
+ 1 file changed, 207 insertions(+)
 
-Thanks
 --
-Chen Guanqiao
+2.25.1
+
 
 
 _______________________________________________
