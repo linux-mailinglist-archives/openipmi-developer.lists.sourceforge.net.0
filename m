@@ -2,95 +2,119 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F1244EBDAA
-	for <lists+openipmi-developer@lfdr.de>; Wed, 30 Mar 2022 11:29:29 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id C48664EC5AF
+	for <lists+openipmi-developer@lfdr.de>; Wed, 30 Mar 2022 15:31:54 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nZUVt-000751-JN; Wed, 30 Mar 2022 09:29:25 +0000
+	id 1nZYQQ-00065d-En; Wed, 30 Mar 2022 13:31:49 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <wsa@kernel.org>) id 1nZUVs-00074v-LT
- for openipmi-developer@lists.sourceforge.net; Wed, 30 Mar 2022 09:29:24 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1nZYQO-00065X-NB
+ for openipmi-developer@lists.sourceforge.net; Wed, 30 Mar 2022 13:31:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Reply-To:Message-ID:Subject:To:From:Date:Sender:Cc:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Hp4RlrHug0KaKVvDVGbTXqg7ImRDGfoP8dhsLxkB6M4=; b=G0x0UYvJ+QkSDXyhvOrmCjFucx
- LJakz2+30R19h2tTbxMcVVTQNITqWt1oIVH+qD3iSex3CQczyZh5p0o2F97KBH921huzHiZceG6Tv
- wzpdrG3O9sP0aL36IVRfqsJfGoHeZwnOurM+IurPjTaN2IddEQfqVlybWbuZnGECLoqk=;
+ bh=sleTbU3o2LpxIYiBmlX/kKYFsR/lkVlTPZZsTo+MWCM=; b=ZgYgrOz4aq4xiC7QNWdSGG1kSQ
+ yCmBxsSn3ZxTAK7OGYZIjXTDXAbh1gyOxPvUZlOFEEPKTxo3n0QQ68WmJR8oR882sKvFaNka5KMdu
+ QUe7G91FjzWRDNPh6BJY8TnfkW9lfgReOqaW6ObnjnU51ndLbGT0sp/MIvQ0YaZwC0qk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:To:From:Date:Sender:Cc:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Hp4RlrHug0KaKVvDVGbTXqg7ImRDGfoP8dhsLxkB6M4=; b=lPNLoJ1alvwc1wvppHe8+cxDDQ
- GpPtJ8/T7i6hLG2LezlfPQWWG5YHVP9FONVWNBRbNyIS8QuASv4Ti7vilqugbV6kppJBEs7y5u/P7
- Imz/AeYODtLbpSzev7xp5rSuniMHq4FfIewpJV8IFOF3e1ccwUmdbs4kGJqPKgQDHsF4=;
-Received: from ams.source.kernel.org ([145.40.68.75])
+ bh=sleTbU3o2LpxIYiBmlX/kKYFsR/lkVlTPZZsTo+MWCM=; b=EKKRUD7gbMSJJE4ZvLs3i7KhgW
+ t4EqSzWEIeJ8xk0Xw6f/E7zBXPRzVOJoMXFVwfsEx+aAU92OO8e3t2NAuKb7AFg0tN+65A6Esn2Gi
+ c2KExTmM+ceTTyT0DGcvlzqAGZhgZ0GYPu5gS2bageA7zuoprjNwdgafoIBrxjH2cW20=;
+Received: from mail-qt1-f175.google.com ([209.85.160.175])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nZUdn-0003pW-He
- for openipmi-developer@lists.sourceforge.net; Wed, 30 Mar 2022 09:29:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 42674B81BB9;
- Wed, 30 Mar 2022 09:29:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63DF3C340EE;
- Wed, 30 Mar 2022 09:29:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1648632556;
- bh=Hp4RlrHug0KaKVvDVGbTXqg7ImRDGfoP8dhsLxkB6M4=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=eHN9Oa/qVk6GfP9pPC5136dbzWTGkgUCzxNCGUPttW4jmoujgyWAeFTzI1ZpM16kT
- DzfTygo+YvzQ4cTd/JcMPxR5FPt/Ip+m6MDBfRQ5MDrTDlJ1Yo9zrOzZjk2p0h2w+R
- oYrSHaBJXwAxFSgikqXdQhmfPoJ8r1ekzxHKb4qKTdOOPgilZSgutP1os57LFIcBri
- FseRO0GDiMi+Yao88CHI102+lHfF0Vs3PucVi6KDRPZ00l+/IAbmQAEqwRn+cHJaog
- brs1GXJC5SP2LB8NEv5VQ8JvS30gOlQbxLtMqh4ZKjLt6kmqNkIq8Eum4cPmLSCxDu
- fg4SYPRKPMnNQ==
-Date: Wed, 30 Mar 2022 11:29:12 +0200
-From: Wolfram Sang <wsa@kernel.org>
-To: Stephen Kitt <steve@sk2.org>
-Message-ID: <YkQi6EIhknRJgv3i@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
- Stephen Kitt <steve@sk2.org>, Corey Minyard <minyard@acm.org>,
- openipmi-developer@lists.sourceforge.net,
- linux-kernel@vger.kernel.org
-References: <20220324171159.544565-1-steve@sk2.org>
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
+ id 1nZYQG-0002Md-J4
+ for openipmi-developer@lists.sourceforge.net; Wed, 30 Mar 2022 13:31:46 +0000
+Received: by mail-qt1-f175.google.com with SMTP id z19so14747245qtw.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 30 Mar 2022 06:31:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:date:from:to:subject:message-id:reply-to:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=sleTbU3o2LpxIYiBmlX/kKYFsR/lkVlTPZZsTo+MWCM=;
+ b=S11wbdv1fZMuKBFRCOo0G8y41Hc56Qh5/q7m5rprd9dpQVKyucpMvT5wMtAebrJBLY
+ vDmTjmtE5Q2fCE18kywy1GtidztsePxM5Owt5Lok+ghb4Z3eb7xFEZyYYk6Cd8Q7xrPo
+ Uq8d4U6Exn0adT+R+j7qzLOGTKaol8mVhBzJI/3RMmkbaCKWgLZM4LWt8M83brUKJfFf
+ rv3oAcaPGVycMfhF7gBYRtuXGCXNUUCm0yXGluEWv20o6ziUMQhlcNvJ3gN8jNP6aM5F
+ 2EfuGYilPS8PisNifJGl/z/S8oms75Wv1XwIJUYMeeMDmDPBXFzDPbdshCDJG7bQTf1C
+ JjoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:sender:date:from:to:subject:message-id:reply-to
+ :references:mime-version:content-disposition:in-reply-to;
+ bh=sleTbU3o2LpxIYiBmlX/kKYFsR/lkVlTPZZsTo+MWCM=;
+ b=EXiZhkytqELie/KDUP1WQjuCk4zz/mPNboEgytiXLsM46r6WskYdGq1MmivtRFplxj
+ 95SXeBttO9eo4M8DDJPs79v36Gr6g1oYlR5i17dA8NAfMspVS0//PpfFAokEAZrzTzSh
+ qc3kjuwf7bdXKhoe8cn6WmZI5a6u10S5glxfZGe8KqEthJbL5N7qCM/gBRqQO1QTkGAO
+ 4x+a4Ho9UfWfsCwzjanfJXcjbT+tcX8dWOyJlGHtBpCB83ajCtkYvJCfhLtJTs4CKJhW
+ jXbDL+K9mXqCDycGSSEYDWLBkLaBSq4dr+kPUVzH0M8zcPBR58P5fJaHjSyt4OxQItdw
+ +hjg==
+X-Gm-Message-State: AOAM532SdQfpZ6b3hM5laMMhIKzC1VcyXggH3N7pmnbTWX1F0wh2BUq4
+ xJsdKfmUXF+tfqsJI7L83zm8kvIrgg==
+X-Google-Smtp-Source: ABdhPJx9eZ5FPr2dLUqGAaQrb8udGsxnJKIokkzHWbt9HfdNcc31DVVKZV6LDvtNnJIin4EZXPl8Tw==
+X-Received: by 2002:a05:622a:653:b0:2e1:c046:4825 with SMTP id
+ a19-20020a05622a065300b002e1c0464825mr33430655qtb.430.1648647094638; 
+ Wed, 30 Mar 2022 06:31:34 -0700 (PDT)
+Received: from serve.minyard.net ([47.184.144.75])
+ by smtp.gmail.com with ESMTPSA id
+ a7-20020a05622a064700b002e238d6db02sm17611593qtb.54.2022.03.30.06.31.33
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 30 Mar 2022 06:31:34 -0700 (PDT)
+Received: from minyard.net (unknown
+ [IPv6:2001:470:b8f6:1b:dcc2:ca6d:a437:b3e0])
+ by serve.minyard.net (Postfix) with ESMTPSA id B33D91800BB;
+ Wed, 30 Mar 2022 13:31:32 +0000 (UTC)
+Date: Wed, 30 Mar 2022 08:31:31 -0500
+From: Corey Minyard <minyard@acm.org>
+To: Wolfram Sang <wsa@kernel.org>, Stephen Kitt <steve@sk2.org>,
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Message-ID: <20220330133131.GU3457@minyard.net>
+References: <20220324171159.544565-1-steve@sk2.org> <YkQi6EIhknRJgv3i@shikoro>
 MIME-Version: 1.0
-In-Reply-To: <20220324171159.544565-1-steve@sk2.org>
-X-Spam-Score: -5.9 (-----)
+Content-Disposition: inline
+In-Reply-To: <YkQi6EIhknRJgv3i@shikoro>
+X-Spam-Score: 0.4 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Thu, Mar 24, 2022 at 06:11:59PM +0100, Stephen Kitt wrote:
- > The i2c probe functions here don't use the id information provided in >
- their second argument, so the single-parameter i2c probe functio [...] 
- Content analysis details:   (-5.9 points, 6.0 required)
+ Content preview:  On Wed, Mar 30, 2022 at 11:29:12AM +0200, Wolfram Sang wrote:
+ > On Thu, Mar 24, 2022 at 06:11:59PM +0100, Stephen Kitt wrote: > > The i2c
+ probe functions here don't use the id information provided in [...] 
+ Content analysis details:   (0.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [145.40.68.75 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [tcminyard[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nZUdn-0003pW-He
+ valid -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.160.175 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.160.175 listed in list.dnswl.org]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+X-Headers-End: 1nZYQG-0002Md-J4
 Subject: Re: [Openipmi-developer] [PATCH] ipmi: use simple i2c probe function
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -104,77 +128,36 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- Corey Minyard <minyard@acm.org>
-Content-Type: multipart/mixed; boundary="===============7344401013389215774=="
+Reply-To: minyard@acm.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============7344401013389215774==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Y5Y8YpsuyBp6Sni+"
-Content-Disposition: inline
-
-
---Y5Y8YpsuyBp6Sni+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Mar 24, 2022 at 06:11:59PM +0100, Stephen Kitt wrote:
-> The i2c probe functions here don't use the id information provided in
-> their second argument, so the single-parameter i2c probe function
-> ("probe_new") can be used instead.
->=20
-> This avoids scanning the identifier tables during probes.
->=20
-> Signed-off-by: Stephen Kitt <steve@sk2.org>
-
-Looks good and builds fine:
-
-Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+On Wed, Mar 30, 2022 at 11:29:12AM +0200, Wolfram Sang wrote:
+> On Thu, Mar 24, 2022 at 06:11:59PM +0100, Stephen Kitt wrote:
+> > The i2c probe functions here don't use the id information provided in
+> > their second argument, so the single-parameter i2c probe function
+> > ("probe_new") can be used instead.
+> > 
+> > This avoids scanning the identifier tables during probes.
+> > 
+> > Signed-off-by: Stephen Kitt <steve@sk2.org>
+> 
+> Looks good and builds fine:
+> 
+> Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> 
 
 
---Y5Y8YpsuyBp6Sni+
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks, I have this queued and I've added the review.
 
------BEGIN PGP SIGNATURE-----
+I'm just waiting for the merge window to close before I put it into the
+next tree.
 
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmJEIugACgkQFA3kzBSg
-KbYzPxAAnN1jaP+MzBCgNTKk4nwfK6Tfc/1LLV3SQv1oX178sDzuUrJCLJWe7TAV
-Isu/tGqzNlJZdaSYlgEsyvQe+fymxhssUAnkjZPdLai40THDXihpxGBQ3vI4K+mX
-B0Qq8nwkhdNF3qSyAT7o3fBghte8NbrzXPxs9SVD6zIpS+BOzyA3pfkPRkwS//iv
-qAJ5UiFPuJB0RfleP62P7yQ9H7XkdyGtmDtnKSETmUQHor9ipcOJzH6bgOwL+TIK
-TwyhQHFpDIbe5382QxiSMKBCPTUeDCtsEeRaKbKgwkD8rhrnFYkn71Ft0q0P3Vp2
-EQkytOq0gtxAwRkAa6+QhiPCmABILQruuSi9TwhWWn41cgC0e+q/x8ZwnMFQ/93I
-Y06hHmGBRxtsfgCwZ5jDGyy8pXGxk/3DMxNQW+rggAigHBgbRpl4MyPHABN1iAk6
-3Bg/wp7EP5X3j+irYx+RNwhyP4l9RsZj+/SIajubYSU+uH+ZgxPHy834wIcWexUk
-pgQKFL8UiJI8o3IN69uCexCPBgc4FAbhHixJI/nLKthios3aUhNYEoUKyqCWg7/D
-/UESDwwBnma4ARZtAEuXbuIf1rZwy9T1t+0WBah5r9//MKcROOmU8yg+vHReKIZP
-mYPdWdB/KYVg5CIVfTB75Zhpxwmtvq0oz9tNk+5m9PlBQDXP5vc=
-=oWtJ
------END PGP SIGNATURE-----
+-corey
 
---Y5Y8YpsuyBp6Sni+--
-
-
---===============7344401013389215774==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============7344401013389215774==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============7344401013389215774==--
-
