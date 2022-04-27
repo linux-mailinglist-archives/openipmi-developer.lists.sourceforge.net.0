@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B91D3512836
-	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Apr 2022 02:43:20 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E16B951283B
+	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Apr 2022 02:43:21 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1njsFZ-0005Pf-CD; Thu, 28 Apr 2022 00:43:16 +0000
+	id 1njsFa-0005RP-IT; Thu, 28 Apr 2022 00:43:17 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1njr23-0002hn-Q0
- for openipmi-developer@lists.sourceforge.net; Wed, 27 Apr 2022 23:25:16 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1njr2d-0005LP-I0
+ for openipmi-developer@lists.sourceforge.net; Wed, 27 Apr 2022 23:25:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Vlo9T2/mvIa7VmsgTZAplfpKcY639xSpi9Lsc7QD2sA=; b=YPhVITCrBt4pXY3Mh537qoffA8
- a0brJJ/mhUlwC6qzNnOGRT9HIEmahAAWqMlkB6oMt0qS2vLC7PCF1HeHGn7lIJQ89V2wgmtsJCjsn
- bEzehWoxr8KxoJ4LI9PqqWk/zCjMJGoAvZXtfatq/yXsZGglTyVAGSXjijJJpLZwK5uo=;
+ bh=C9iT/xJ8gF8J/f7SmqQO2c8pu+KvBPlFfkqGdYboS2I=; b=XaT3PniP8da5Nyq59AVibiwqJr
+ 5y+QnBU802UpvExtNgl+88TFMCSojzKfont9w8N3bvEwIFfpDR6VFtv5yvPshTTK5oyZna7thMC8e
+ ZaFP+cTiAwVIKnrWDCJYb3kavnsoz/QmY8R9O3ea8qOEQAGM/r+u2M9TDWZ33G6VfKTU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,14 +29,14 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Vlo9T2/mvIa7VmsgTZAplfpKcY639xSpi9Lsc7QD2sA=; b=kz1SK5F7OIeliQ+bgIhk+4EzAW
- rODSLPwc3ZMW1GRU1r25//tffl/DL6Uww0NfP2WopWS4HtYRy2UV1NNoa1yN6rPl+a88UUWC/Or0q
- 8BtHT5IzUkiJyiNi8uC1epWQoRPhycQgozEeHgvVhSKKWphAjmbiPQJ5sI6OFo7joosU=;
+ bh=C9iT/xJ8gF8J/f7SmqQO2c8pu+KvBPlFfkqGdYboS2I=; b=cLHf8e3zYZgOuqVTSrvaQ3rfZC
+ 5+vZiTuRSjmECfuZ+0cwzWB88T1vcSY2pZAZXZNxdg4HjJhyYqn9zSvTZPrboC/tkzT9cRGnTkrj3
+ LaiWSYAte5p4eDxjtgaolVHnmChZMYkOEOsLMMMzp1xApJKInF57qM2++W41xFC5GY3I=;
 Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1njr23-00CA0S-UE
- for openipmi-developer@lists.sourceforge.net; Wed, 27 Apr 2022 23:25:16 +0000
+ id 1njr2b-00082Y-WB
+ for openipmi-developer@lists.sourceforge.net; Wed, 27 Apr 2022 23:25:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
  s=20170329;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
@@ -44,52 +44,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Vlo9T2/mvIa7VmsgTZAplfpKcY639xSpi9Lsc7QD2sA=; b=ZiYAT8sJyiBNaHzrk2673FL4+8
- 1oiyWalKP6LGmKEc9hZJWoXC6cS5nMMrcCw5Iicmmfaanay2XW+Ea9CLz93XJRZPptEPdWhd8bk0b
- rKw9muPDbsgcmhx+6dtX/C/iDyONNGYxGodf7FR5gZ6gaCx9CBSOMyg/WgkwloH6LwMYOPDHwMc9i
- DlZzPF1Rmfq/gUUioCECpXAnYQMmNjWP7xmmSjqLdHZxdMlvMlgrtO3h+d5FTnJJbisLeLao1OJx/
- z7mwY9pmIo/3ja9SO2+rtPXIxKaESObUyZjm7eg6MS41mJJ7ZAlwRmPdpw93iK7tmvwyFHIvecdrE
- ZFlVRrJg==;
+ bh=C9iT/xJ8gF8J/f7SmqQO2c8pu+KvBPlFfkqGdYboS2I=; b=PMFgjQG40D4y0EE10+nqxAPHVI
+ yNLZ1EZJdP0IH30iYafdBfM788VaINOAVfe8Gnevld0DclzQJRd8t+br/vJapdawGOEWHQTLdmHei
+ 1IQvYGZ//MLpN+QQDVtOXWSfDQyyspNE1J3gOgOC4NUam3dGx8JeBgJ9jpYRHFoaP71Y3fG1ERN+7
+ JvwIb059Xf3lNBTrEP8JiyuPOh5ugwSvNao5NfaR+bMPV8BospKPkEU02jshVAtp1UBbOdjrRb2r2
+ ze90RIwfaZigyOQntmQCmXs163wt4gsMUWHmf1nSoidLeEjFKj9WA7H531Eyz4iqvzof4LvLiIP9u
+ dq8Lxg9g==;
 Received: from [179.113.53.197] (helo=localhost)
  by fanzine2.igalia.com with esmtpsa 
  (Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
- id 1njqb3-0002Tm-Pi; Thu, 28 Apr 2022 00:57:22 +0200
+ id 1njqbL-0002UI-QD; Thu, 28 Apr 2022 00:57:40 +0200
 From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
 To: akpm@linux-foundation.org, bhe@redhat.com, pmladek@suse.com,
  kexec@lists.infradead.org
-Date: Wed, 27 Apr 2022 19:49:20 -0300
-Message-Id: <20220427224924.592546-27-gpiccoli@igalia.com>
+Date: Wed, 27 Apr 2022 19:49:21 -0300
+Message-Id: <20220427224924.592546-28-gpiccoli@igalia.com>
 X-Mailer: git-send-email 2.36.0
 In-Reply-To: <20220427224924.592546-1-gpiccoli@igalia.com>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
 MIME-Version: 1.0
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: Since commit a11589563e96 ("x86/Hyper-V: Report crash
- register
- data or kmsg before running crash kernel") Hyper-V forcibly sets the kernel
- parameter "crash_kexec_post_notifiers"; with that, it did enf [...] 
+ Content preview: Commit 06e629c25daa ("powerpc/fadump: Fix inaccurate CPU
+ state
+ info in vmcore generated with panic") introduced a hardcoded setting of kernel
+ parameter "crash_kexec_post_notifiers", effectively forcin [...] 
  Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
-X-Headers-End: 1njr23-00CA0S-UE
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+X-Headers-End: 1njr2b-00082Y-WB
 X-Mailman-Approved-At: Thu, 28 Apr 2022 00:43:10 +0000
-Subject: [Openipmi-developer] [PATCH 26/30] Drivers: hv: Do not force all
- panic notifiers to execute before kdump
+Subject: [Openipmi-developer] [PATCH 27/30] powerpc: Do not force all panic
+ notifiers to execute before kdump
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -104,23 +104,21 @@ List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
  gregkh@linuxfoundation.org, peterz@infradead.org,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
  alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
  feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
- sparclinux@vger.kernel.org, "K. Y. Srinivasan" <kys@microsoft.com>,
- will@kernel.org, tglx@linutronix.de, linux-leds@vger.kernel.org,
- Stephen Brennan <stephen.s.brennan@oracle.com>, linux-s390@vger.kernel.org,
- Wei Liu <wei.liu@kernel.org>, mikelley@microsoft.com,
+ Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
+ linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
  john.ogness@linutronix.de, corbet@lwn.net, paulmck@kernel.org,
- fabiomirmar@gmail.com, x86@kernel.org, Dexuan Cui <decui@microsoft.com>,
- mingo@redhat.com, bcm-kernel-feedback-list@broadcom.com,
- xen-devel@lists.xenproject.org, dyoung@redhat.com,
- Haiyang Zhang <haiyangz@microsoft.com>, vgoyal@redhat.com,
- Andrea Parri <parri.andrea@gmail.com>, linux-xtensa@linux-xtensa.org,
- dave.hansen@linux.intel.com, Tianyu Lan <Tianyu.Lan@microsoft.com>,
+ fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, Hari Bathini <hbathini@linux.ibm.com>,
+ xen-devel@lists.xenproject.org, dyoung@redhat.com, vgoyal@redhat.com,
+ linux-xtensa@linux-xtensa.org, dave.hansen@linux.intel.com,
  keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
  coresight@lists.linaro.org, linux-um@lists.infradead.org, rostedt@goodmis.org,
- rcu@vger.kernel.org, bp@alien8.de, luto@kernel.org,
- linux-tegra@vger.kernel.org, Stephen Hemminger <sthemmin@microsoft.com>,
+ rcu@vger.kernel.org, bp@alien8.de, Nicholas Piggin <npiggin@gmail.com>,
+ luto@kernel.org, linux-tegra@vger.kernel.org,
  openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
  senozhatsky@chromium.org, linux-arm-kernel@lists.infradead.org,
  linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
@@ -132,75 +130,61 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Since commit a11589563e96 ("x86/Hyper-V: Report crash register
-data or kmsg before running crash kernel") Hyper-V forcibly sets
-the kernel parameter "crash_kexec_post_notifiers"; with that, it
-did enforce the execution of *all* panic notifiers before kdump.
-The main reason behind that is that Hyper-V has an hypervisor
-notification mechanism that has the ability of warning the
-hypervisor when the guest panics.
+Commit 06e629c25daa ("powerpc/fadump: Fix inaccurate CPU state info in
+vmcore generated with panic") introduced a hardcoded setting of kernel
+parameter "crash_kexec_post_notifiers", effectively forcing all the
+panic notifiers to execute earlier in the panic path, before kdump.
 
-Happens that after the panic notifiers refactor, we now have 3 lists
-and a level mechanism that defines the ordering of the notifiers
-execution with regards to kdump. And for Hyper-V, the specific
-notifier to inform the hypervisor about a panic lies in the first
-list, which *by default* is set to execute before kdump. Hence,
-this patch removes the hardcoded setting, effectively reverting
-the aforementioned commit.
+The reason for that was a fadump issue on collecting data accurately,
+due to smp_send_stop() setting all CPUs offline, so the net effect
+desired with this change was to avoid calling the regular CPU
+shutdown function, and instead rely on crash_smp_send_stop(), which
+copes fine with fadump. The collateral effect was to increase the
+risk for kdump if fadump is not used, since it forces all panic
+notifiers to execute early, before kdump.
 
-One of the problems with the forced approach was greatly exposed by
-commit d57d6fe5bf34 ("drivers: hv: log when enabling crash_kexec_post_notifiers")
-which ended-up confusing the user that didn't expect the notifiers
-to execute before kdump, since it's a user setting and wasn't
-enabled by such user. With the patch hereby proposed, that kind
-of issue doesn't happen anymore, the panic notifiers level is
-well-documented and users can expect a predictable behavior.
+Happens that, after a panic refactor, crash_smp_send_stop() is
+now used by default in the panic path, so there is no reason to
+mess with the notifiers ordering (which was also improved in the
+refactor) from within arch code.
 
-Fixes: a11589563e96 ("x86/Hyper-V: Report crash register data or kmsg before running crash kernel")
-Fixes: d57d6fe5bf34 ("drivers: hv: log when enabling crash_kexec_post_notifiers"
-Cc: Andrea Parri (Microsoft) <parri.andrea@gmail.com>
-Cc: Dexuan Cui <decui@microsoft.com>
-Cc: Haiyang Zhang <haiyangz@microsoft.com>
-Cc: "K. Y. Srinivasan" <kys@microsoft.com>
-Cc: Michael Kelley <mikelley@microsoft.com>
-Cc: Stephen Brennan <stephen.s.brennan@oracle.com>
-Cc: Stephen Hemminger <sthemmin@microsoft.com>
-Cc: Tianyu Lan <Tianyu.Lan@microsoft.com>
-Cc: Wei Liu <wei.liu@kernel.org>
-Tested-by: Fabio A M Martins <fabiomirmar@gmail.com>
+Fixes: 06e629c25daa ("powerpc/fadump: Fix inaccurate CPU state info in vmcore generated with panic")
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Hari Bathini <hbathini@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Paul Mackerras <paulus@samba.org>
 Signed-off-by: Guilherme G. Piccoli <gpiccoli@igalia.com>
 ---
 
-Special thanks to Michael Kelley for the good information about the Hyper-V
-panic path in email threads some months ago, and to Fabio for the testing
-performed.
+We'd like to thanks specially the MiniCloud infrastructure [0] maintainers,
+that allow us to test PowerPC code in a very complete, functional and FREE
+environment.
 
- drivers/hv/hv_common.c | 12 ------------
- 1 file changed, 12 deletions(-)
+[0] https://openpower.ic.unicamp.br/minicloud
 
-diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-index ae68298c0dca..af59793de523 100644
---- a/drivers/hv/hv_common.c
-+++ b/drivers/hv/hv_common.c
-@@ -73,18 +73,6 @@ int __init hv_common_init(void)
- {
- 	int i;
+ arch/powerpc/kernel/fadump.c | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/arch/powerpc/kernel/fadump.c b/arch/powerpc/kernel/fadump.c
+index 65562c4a0a69..35ae8c09af66 100644
+--- a/arch/powerpc/kernel/fadump.c
++++ b/arch/powerpc/kernel/fadump.c
+@@ -1649,14 +1649,6 @@ int __init setup_fadump(void)
+ 		register_fadump();
+ 	}
  
 -	/*
--	 * Hyper-V expects to get crash register data or kmsg when
--	 * crash enlightment is available and system crashes. Set
--	 * crash_kexec_post_notifiers to be true to make sure that
--	 * calling crash enlightment interface before running kdump
--	 * kernel.
+-	 * In case of panic, fadump is triggered via ppc_panic_event()
+-	 * panic notifier. Setting crash_kexec_post_notifiers to 'true'
+-	 * lets panic() function take crash friendly path before panic
+-	 * notifiers are invoked.
 -	 */
--	if (ms_hyperv.misc_features & HV_FEATURE_GUEST_CRASH_MSR_AVAILABLE) {
--		crash_kexec_post_notifiers = true;
--		pr_info("Hyper-V: enabling crash_kexec_post_notifiers\n");
--	}
+-	crash_kexec_post_notifiers = true;
 -
- 	/*
- 	 * Allocate the per-CPU state for the hypercall input arg.
- 	 * If this allocation fails, we will not be able to setup
+ 	return 1;
+ }
+ /*
 -- 
 2.36.0
 
