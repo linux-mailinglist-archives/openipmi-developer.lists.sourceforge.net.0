@@ -2,131 +2,136 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D6F551546B
-	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Apr 2022 21:26:30 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6FEEB51546A
+	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Apr 2022 21:26:06 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nkWG3-00043K-Au; Fri, 29 Apr 2022 19:26:26 +0000
+	id 1nkWFe-0003kN-5l; Fri, 29 Apr 2022 19:26:01 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>) id 1nkVEb-0001Qb-Ki
- for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 18:20:52 +0000
+ (envelope-from <hca@linux.ibm.com>) id 1nkVeg-000250-Pi
+ for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 18:47:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:In-Reply-To:
- Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=oBfDL4yaK3+68sXtbWK5OXfwyx7UKwnXAjtbpjinnys=; b=X36VtVrtir5KrA+GR2Q4ghivET
- SJm9CWewcYhkSz1rVD2+Dp/JXJg8hl+9ycWZWRyp6Nmt93tTx4Q2UKcH/NdD1Fh9rh455+s17Bie2
- Iqo38qVsqkTgQbn9yIbNiOCFkaxrEbmHfAYMKeQ2ivF+RRsg4znKgoKcWEWoD8KMT7Lo=;
+ bh=CmQcpniDwe+mXgnPI+CYX47gDa+lF4VP2K5Tb10PSgo=; b=EXUaySd+DqXt7vuZ1/QdBsWNwj
+ mLcqRM+C8Z/HfaWKKiEW9z1Ffs2l3plH19lMGeOpnUA+YV3m8ulVpmVjd8L5BCDnyJ0gD3go5U208
+ jzhh9BJkZOvw/PW45gonVE9JYU1a1Lc06Cwb67jpOiEmmct3mR5Lbo/IMSNSAkRfGkus=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
- Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=oBfDL4yaK3+68sXtbWK5OXfwyx7UKwnXAjtbpjinnys=; b=LcVcm1EmNRTWIDCxGcJVr3kGyQ
- SgdKmkJGZ1zdSUf/dpm1ne5z/5g4f2lOlY0u/8WhaE9HMBr4GZ/rc+/iTTiuL73osMkG1FmySIiTP
- lCmfsRh2jUyYGksspUsOhU9o6kyAjh9aPDiVPlMXknMg67SQuTR/t0FlcgMU5d5MIxSQ=;
-Received: from ams.source.kernel.org ([145.40.68.75])
+ bh=CmQcpniDwe+mXgnPI+CYX47gDa+lF4VP2K5Tb10PSgo=; b=J9m9GZPuT+3Bsh97VT+QZENdy7
+ TJRvPqEyYc/2jdJxpG3dHKxufxazsHH//cz+Cr4xqLV/7aK8wr1Tq2fOOExby5ETng0w27DogfXJ6
+ RzGfLFFCz3D8Y2gbYioxhbKnEh0FZ7T+1p9rIvrSZpdGfhyKg/CZYsvQZL8AZaNMLPJ4=;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nkVEV-00012Q-C6
- for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 18:20:52 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id DB7C1B8376C;
- Fri, 29 Apr 2022 18:20:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C6C7C385A7;
- Fri, 29 Apr 2022 18:20:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1651256432;
- bh=7UlwWJyNgO5O8HAPQY4CevoguxGtN71USDYsxCC4Y1I=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=u0+tCCPLMcAPDoyXRHMoixV/Z0LeuwRRZuVV6YJqDPXCMAyu6bp1HqrLhdZjG9Cyh
- QYJFW5R7kiAcrSezRCwm7ENodSCUhCJjtpqzm8cd/HFpkS4sMGegRRQASH5n2SihkJ
- 71HJ1xTMFivjTVqgd4DPNTs7LM6lfZnZ8DzEzNE0oyYqPlKCdTvIv23u3eGTMBYaOt
- 2wiCePOny8nv8PLW7e+Nz32vtmsDfQhUnorB1/3LgjVu9HRSU6K6LoPIEjrMtXRAwq
- gSkSxWg9xur9RU7CW+BnHL/qWaY7Tt1AlSEuqbaVhcTiKCDIrzlj5v67mhP4+8Bla0
- PK6vOCY0vQL6g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <maz@kernel.org>)
- id 1nkVED-0080Zl-Vn; Fri, 29 Apr 2022 19:20:30 +0100
-Date: Fri, 29 Apr 2022 19:20:29 +0100
-Message-ID: <87mtg392fm.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
+ id 1nkVec-0005Gi-Er
+ for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 18:47:49 +0000
+Received: from pps.filterd (m0098419.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 23TIhYbi008240;
+ Fri, 29 Apr 2022 18:46:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=pp1; bh=CmQcpniDwe+mXgnPI+CYX47gDa+lF4VP2K5Tb10PSgo=;
+ b=bTNrOnkDXh09pnCHUKCfVTj5O7a2rMkLSO1DAFMikxnzlOk842BnVGNnlxjbavr8wxSm
+ aOP4oPacZVwhk2+nACPTWiDhwPxyd0jlejF5h74fWWI1oIVsbhF16gpgLRcULgtREdDE
+ ZVJN5BEU2k3dT7ownrQWfbB7t+hMkUYaYJeBX/g91k8XSQa3Vre/7LGhk8wcXzDf1kiv
+ oQ2iUNVOdBVbKDS9SyEcnVmbm4ZhnqmtglnqQQ9AIucI/CNGWOo+s+8TbDE7Hi7pEpcO
+ DHP4bZPnfDn7+LocgB0sqZLpX0rqcpBhSBx8Sg3u1bbgRievtyCZGncSkoY2WOU7WhmC jw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3frnhvg21h-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 29 Apr 2022 18:46:47 +0000
+Received: from m0098419.ppops.net (m0098419.ppops.net [127.0.0.1])
+ by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 23TIjCZm012916;
+ Fri, 29 Apr 2022 18:46:46 GMT
+Received: from ppma02fra.de.ibm.com (47.49.7a9f.ip4.static.sl-reverse.com
+ [159.122.73.71])
+ by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3frnhvg20t-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 29 Apr 2022 18:46:45 +0000
+Received: from pps.filterd (ppma02fra.de.ibm.com [127.0.0.1])
+ by ppma02fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 23TIcqwO026358;
+ Fri, 29 Apr 2022 18:46:43 GMT
+Received: from b06cxnps3074.portsmouth.uk.ibm.com
+ (d06relay09.portsmouth.uk.ibm.com [9.149.109.194])
+ by ppma02fra.de.ibm.com with ESMTP id 3fpuygbgfw-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 29 Apr 2022 18:46:43 +0000
+Received: from d06av23.portsmouth.uk.ibm.com (d06av23.portsmouth.uk.ibm.com
+ [9.149.105.59])
+ by b06cxnps3074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 23TIkenH33554928
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Fri, 29 Apr 2022 18:46:40 GMT
+Received: from d06av23.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 153A4A4057;
+ Fri, 29 Apr 2022 18:46:40 +0000 (GMT)
+Received: from d06av23.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id EA594A4053;
+ Fri, 29 Apr 2022 18:46:37 +0000 (GMT)
+Received: from osiris (unknown [9.145.187.229])
+ by d06av23.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Fri, 29 Apr 2022 18:46:37 +0000 (GMT)
+Date: Fri, 29 Apr 2022 20:46:36 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
 To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <20220427224924.592546-3-gpiccoli@igalia.com>
+Message-ID: <YmwyjMtT7QTZiHaa@osiris>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-3-gpiccoli@igalia.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: gpiccoli@igalia.com, akpm@linux-foundation.org,
- bhe@redhat.com, pmladek@suse.com, kexec@lists.infradead.org,
- linux-kernel@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
- coresight@lists.linaro.org, linuxppc-dev@lists.ozlabs.org,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-edac@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-leds@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-remoteproc@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-um@lists.infradead.org,
- linux-xtensa@linux-xtensa.org, netdev@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net, rcu@vger.kernel.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org,
- kernel-dev@igalia.com, kernel@gpiccoli.net, halves@canonical.com,
- fabiomirmar@gmail.com, alejandro.j.jimenez@oracle.com,
- andriy.shevchenko@linux.intel.com, arnd@arndb.de, bp@alien8.de, corbe
- t@lwn.net, d.hatayama@jp.fujitsu.com, dave.hansen@linux.intel.com,
- dyoung@redhat.com, feng.tang@intel.com, gregkh@linuxfoundation.org,
- mikelley@microsoft.com, hidehiro.kawai.ez@hitachi.com, jgross@suse.com,
- john.ogness@linutronix.de, keescook@chromium.org, luto@kernel.org,
- mhiramat@kernel.org, mingo@redhat.com, paulmck@kernel.org,
- peterz@infradead.org, rostedt@goodmis.org, senozhatsky@chromium.org,
- stern@rowland.harvard.edu, tglx@linutronix.de, vgoyal@redhat.com,
- vkuznets@redhat.com, will@kernel.org, linux@armlinux.org.uk
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
-X-Spam-Score: -5.9 (-----)
+ <20220427224924.592546-14-gpiccoli@igalia.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220427224924.592546-14-gpiccoli@igalia.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: ot_aQO11mG-F1A04tqv6Sk5P4k7ltRIu
+X-Proofpoint-ORIG-GUID: vOdOmdbQUdbprpYu7qwc87i31NSF1LbM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.858,Hydra:6.0.486,FMLib:17.11.64.514
+ definitions=2022-04-29_09,2022-04-28_01,2022-02-23_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 adultscore=0
+ malwarescore=0 phishscore=0 mlxlogscore=368 impostorscore=0 clxscore=1011
+ spamscore=0 lowpriorityscore=0 priorityscore=1501 mlxscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2202240000
+ definitions=main-2204290095
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, 27 Apr 2022 23:48:56 +0100, "Guilherme G. Piccoli"
- <gpiccoli@igalia.com> wrote: > > Currently the regular CPU shutdown path
- for ARM disables IRQs/FIQs > in the secondary CPUs - smp_send_stop() [...]
- Content analysis details:   (-5.9 points, 6.0 required)
+ Content preview:  On Wed, Apr 27, 2022 at 07:49:07PM -0300,
+ Guilherme G. Piccoli
+ wrote: > Currently many console drivers for s390 rely on panic/reboot
+ notifiers
+ > to invoke callbacks on these events. The panic() functi [...] 
+ Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [145.40.68.75 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nkVEV-00012Q-C6
-X-Mailman-Approved-At: Fri, 29 Apr 2022 19:26:25 +0000
-Subject: Re: [Openipmi-developer] [PATCH 02/30] ARM: kexec: Disable
- IRQs/FIQs also on crash CPUs shutdown path
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1nkVec-0005Gi-Er
+X-Mailman-Approved-At: Fri, 29 Apr 2022 19:26:00 +0000
+Subject: Re: [Openipmi-developer] [PATCH 13/30] s390/consoles: Improve panic
+ notifiers reliability
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -143,14 +148,17 @@ Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
  linux-xtensa@linux-xtensa.org, peterz@infradead.org,
  alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
  feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
- sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
- linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
- john.ogness@linutronix.de, bhe@redhat.com, corbet@lwn.net, paulmck@kernel.org,
- fabiomirmar@gmail.com, x86@kernel.org, Russell King <linux@armlinux.org.uk>,
- mingo@redhat.com, bcm-kernel-feedback-list@broadcom.com,
- xen-devel@lists.xenproject.org, dyoung@redhat.com, vgoyal@redhat.com,
- pmladek@suse.com, dave.hansen@linux.intel.com, keescook@chromium.org,
- arnd@arndb.de, linux-pm@vger.kernel.org, coresight@lists.linaro.org,
+ sparclinux@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ will@kernel.org, tglx@linutronix.de, linux-leds@vger.kernel.org,
+ linux-s390@vger.kernel.org, mikelley@microsoft.com, john.ogness@linutronix.de,
+ bhe@redhat.com, corbet@lwn.net, paulmck@kernel.org, fabiomirmar@gmail.com,
+ x86@kernel.org, mingo@redhat.com, bcm-kernel-feedback-list@broadcom.com,
+ xen-devel@lists.xenproject.org,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, dyoung@redhat.com,
+ vgoyal@redhat.com, Sven Schnelle <svens@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, pmladek@suse.com,
+ dave.hansen@linux.intel.com, keescook@chromium.org, arnd@arndb.de,
+ linux-pm@vger.kernel.org, coresight@lists.linaro.org,
  linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
  gregkh@linuxfoundation.org, bp@alien8.de, luto@kernel.org,
  linux-tegra@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
@@ -165,55 +173,77 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, 27 Apr 2022 23:48:56 +0100,
-"Guilherme G. Piccoli" <gpiccoli@igalia.com> wrote:
+On Wed, Apr 27, 2022 at 07:49:07PM -0300, Guilherme G. Piccoli wrote:
+> Currently many console drivers for s390 rely on panic/reboot notifiers
+> to invoke callbacks on these events. The panic() function disables local
+> IRQs, secondary CPUs and preemption, so callbacks invoked on panic are
+> effectively running in atomic context.
 > 
-> Currently the regular CPU shutdown path for ARM disables IRQs/FIQs
-> in the secondary CPUs - smp_send_stop() calls ipi_cpu_stop(), which
-> is responsible for that. This makes sense, since we're turning off
-> such CPUs, putting them in an endless busy-wait loop.
+> Happens that most of these console callbacks from s390 doesn't take the
+> proper care with regards to atomic context, like taking spinlocks that
+> might be taken in other function/CPU and hence will cause a lockup
+> situation.
 > 
-> Problem is that there is an alternative path for disabling CPUs,
-> in the form of function crash_smp_send_stop(), used for kexec/panic
-> paths. This functions relies in a SMP call that also triggers a
-> busy-wait loop [at machine_crash_nonpanic_core()], but *without*
-> disabling interrupts. This might lead to odd scenarios, like early
-> interrupts in the boot of kexec'd kernel or even interrupts in
-> other CPUs while the main one still works in the panic path and
-> assumes all secondary CPUs are (really!) off.
+> The goal for this patch is to improve the notifiers reliability, acting
+> on 4 console drivers, as detailed below:
 > 
-> This patch mimics the ipi_cpu_stop() interrupt disable mechanism
-> in the crash CPU shutdown path, hence disabling IRQs/FIQs in all
-> secondary CPUs in the kexec/panic path as well.
+> (1) con3215: changed a regular spinlock to the trylock alternative.
 > 
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Russell King <linux@armlinux.org.uk>
+> (2) con3270: also changed a regular spinlock to its trylock counterpart,
+> but here we also have another problem: raw3270_activate_view() takes a
+> different spinlock. So, we worked a helper to validate if this other lock
+> is safe to acquire, and if so, raw3270_activate_view() should be safe.
+> 
+> Notice though that there is a functional change here: it's now possible
+> to continue the notifier code [reaching con3270_wait_write() and
+> con3270_rebuild_update()] without executing raw3270_activate_view().
+> 
+> (3) sclp: a global lock is used heavily in the functions called from
+> the notifier, so we added a check here - if the lock is taken already,
+> we just bail-out, preventing the lockup.
+> 
+> (4) sclp_vt220: same as (3), a lock validation was added to prevent the
+> potential lockup problem.
+> 
+> Besides (1)-(4), we also removed useless void functions, adding the
+> code called from the notifier inside its own body, and changed the
+> priority of such notifiers to execute late, since they are "heavyweight"
+> for the panic environment, so we aim to reduce risks here.
+> Changed return values to NOTIFY_DONE as well, the standard one.
+> 
+> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
+> Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
+> Cc: Heiko Carstens <hca@linux.ibm.com>
+> Cc: Sven Schnelle <svens@linux.ibm.com>
+> Cc: Vasily Gorbik <gor@linux.ibm.com>
 > Signed-off-by: Guilherme G. Piccoli <gpiccoli@igalia.com>
 > ---
->  arch/arm/kernel/machine_kexec.c | 3 +++
->  1 file changed, 3 insertions(+)
 > 
-> diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
-> index f567032a09c0..ef788ee00519 100644
-> --- a/arch/arm/kernel/machine_kexec.c
-> +++ b/arch/arm/kernel/machine_kexec.c
-> @@ -86,6 +86,9 @@ void machine_crash_nonpanic_core(void *unused)
->  	set_cpu_online(smp_processor_id(), false);
->  	atomic_dec(&waiting_for_crash_ipi);
->  
-> +	local_fiq_disable();
-> +	local_irq_disable();
-> +
+> As a design choice, the option used here to verify a given spinlock is taken
+> was the function "spin_is_locked()" - but we noticed that it is not often used.
+> An alternative would to take the lock with a spin_trylock() and if it succeeds,
+> just release the spinlock and continue the code. But that seemed weird...
+> 
+> Also, we'd like to ask a good validation of case (2) potential functionality
+> change from the s390 console experts - far from expert here, and in our naive
+> code observation, that seems fine, but that analysis might be missing some
+> corner case.
+> 
+> Thanks in advance!
+> 
+>  drivers/s390/char/con3215.c    | 36 +++++++++++++++--------------
+>  drivers/s390/char/con3270.c    | 34 +++++++++++++++------------
+>  drivers/s390/char/raw3270.c    | 18 +++++++++++++++
+>  drivers/s390/char/raw3270.h    |  1 +
+>  drivers/s390/char/sclp_con.c   | 28 +++++++++++++----------
+>  drivers/s390/char/sclp_vt220.c | 42 +++++++++++++++++++---------------
+>  6 files changed, 96 insertions(+), 63 deletions(-)
 
-My expectations would be that, since we're getting here using an IPI,
-interrupts are already masked. So what reenabled them the first place?
+Code looks good, and everything still seems to work. I applied this
+internally for the time being, and if it passes testing, I'll schedule
+it for the next merge window.
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks!
 
 
 _______________________________________________
