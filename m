@@ -2,133 +2,97 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id AE2BD514DAF
-	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Apr 2022 16:41:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C4B00514C26
+	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Apr 2022 16:03:04 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nkRo3-0000Wd-OY; Fri, 29 Apr 2022 14:41:15 +0000
+	id 1nkRD0-0003sE-VP; Fri, 29 Apr 2022 14:03:00 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <schnelle@linux.ibm.com>) id 1nkRo1-0000WT-Gr
- for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 14:41:13 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1nkRCx-0003s4-RX
+ for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 14:02:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=0Xc8cWyJ2NjLttXNIONLG4ddbwBws1F37EFqTTA4s0k=; b=HndHSvuQI9PBU+npnOsrxNzZ2s
- 0dGT4XyeEjJpeom13CfDo7+NsAwC3F5tFl7jBJu3Yx3g7ffZDzA4eWGYgFFenp4Z49VXHbpvZnYJv
- 0whtGI3V2gZJpCAX4qPU1r0RU+LnW845WmD/kTQQDQ9jtn+ewfwJ0Nycfg3C1hYSwHAg=;
+ bh=kwZz8z1ErGu8KMfXFyk29Ho8CQRFEY51B59OF6or4Ek=; b=kLMKqzKBAtHRwcmBbB/5ubg3kS
+ wcDoA7XTZxxiPJz0JGzvVP+EGwuPTs+t44liFxyr4fyfTWP70kQD7J64shMBlAf/YVi2o5Cl9OaAy
+ 65AUTPLcLZVM+n/gJT/7lMt9ae3rC4OdkVAOCBGxUxZ+YcfD0E69ALemdnzwgrX2CqWg=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=0Xc8cWyJ2NjLttXNIONLG4ddbwBws1F37EFqTTA4s0k=; b=G2pVqtR+E5pRabXXSdQJKKEX6I
- +92lmhsjTOFrJgORH17J8uvK8fwnd9WRlPNGt9QhNyxMRjdFDcIM71Ajcudq5C4hqJ/Xd216ORxl2
- PB1J3j4pCT/gg3oxGGN6aAMxJWmEmVc3B/whQ+BE1qB74WJKO34cKJp2wCoFdzgNvKbk=;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
- helo=mx0a-001b2d01.pphosted.com)
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=kwZz8z1ErGu8KMfXFyk29Ho8CQRFEY51B59OF6or4Ek=; b=LbqVgVwyfLmmgJSr0JSoQ903mL
+ E9Zpts7GDB8nBAfO/ZLJxCboq+vA4KC4G+mlA3SV6ozaWbkMhNEXnALFdZi3S8ECH9ZiHT+EwF7uK
+ 9BmTGbj9k2NuZ4H3OIotOrAI289UtsZ1CgCabUlQjAa11oPgAultfCbVNlqr6M66VxlU=;
+Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nkRnw-0006ax-R2
- for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 14:41:12 +0000
-Received: from pps.filterd (m0098420.ppops.net [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 23TCc4dv016905;
- Fri, 29 Apr 2022 13:51:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=from : to : cc : subject
- : date : message-id : in-reply-to : references : mime-version :
- content-transfer-encoding; s=pp1;
- bh=0Xc8cWyJ2NjLttXNIONLG4ddbwBws1F37EFqTTA4s0k=;
- b=eWZic8B6/s9qeZKdySJQhfQ7gkYU2G1oBfSW7a0s9YiUKNApT8VrgD99NL8lj0yZDerf
- e7rPahImlv4oclMHSVcCaDmj3Gr9d3Q7fKBfFYHvj3h+kI6ps9ZnG/qXx083q+gb+caL
- Vi6adne4/VgjSulB+5h2sypOe1T12jDVNq/IzoPNwfSHYIv03CWouYJDpRHU0dOHXywb
- 1/9ks1Qy9Ttb3ZWk6Oi4OoQMd7H+jg0ZffQo8yBkNeuDQQgfz/OOh0l7Nnq5xlvTyRem
- No0At5X2MadI5GU867KlC0/wt5V+MIrvJPs5w1s+EluUKLBWc4wZhQacm7ye9TnLEeDA cQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3fqqtnsudk-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 29 Apr 2022 13:51:18 +0000
-Received: from m0098420.ppops.net (m0098420.ppops.net [127.0.0.1])
- by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 23TDgAv5023460;
- Fri, 29 Apr 2022 13:51:18 GMT
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com
- [169.51.49.98])
- by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3fqqtnsucv-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 29 Apr 2022 13:51:18 +0000
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
- by ppma03ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 23TDQknd021533;
- Fri, 29 Apr 2022 13:51:16 GMT
-Received: from b06cxnps4074.portsmouth.uk.ibm.com
- (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
- by ppma03ams.nl.ibm.com with ESMTP id 3fm93917qq-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Fri, 29 Apr 2022 13:51:16 +0000
-Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
- [9.149.105.58])
- by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 23TDpEet34013462
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 29 Apr 2022 13:51:14 GMT
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 0EB9E4C044;
- Fri, 29 Apr 2022 13:51:14 +0000 (GMT)
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id AB0A74C04A;
- Fri, 29 Apr 2022 13:51:13 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
- by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTP;
- Fri, 29 Apr 2022 13:51:13 +0000 (GMT)
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 29 Apr 2022 15:50:04 +0200
-Message-Id: <20220429135108.2781579-7-schnelle@linux.ibm.com>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20220429135108.2781579-1-schnelle@linux.ibm.com>
-References: <20220429135108.2781579-1-schnelle@linux.ibm.com>
+ id 1nkRCy-00DrsO-1D
+ for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 14:02:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
+ s=20170329;
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+ References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=kwZz8z1ErGu8KMfXFyk29Ho8CQRFEY51B59OF6or4Ek=; b=PV6iGrw6a2PVwUqtN4K8zn62B4
+ AVOvfuxpf+YqiDNw4wPls4rd7BZZRLk+DlIthCPmmpYzWeS6x1CxEGIJ+6ftYWBgJvBFfwGJOqCh5
+ xlyk58zJVRPZef1SLet0zp5ibM7QDVVnOlmapmbP9P5ItPWzgMAPliAvmIbKMRpx1ZzLU5PWVzzn/
+ sHvml72t32exF/AwwtKJVJzJexH4h9oxDHF0YV+DR3EbrkMYfXiYu6ewm7xFOm0g961CiqJr+h+xh
+ qH6hC6fDAmncBkbOEiIY7tl+ZJgFaXJC+Qr6IL6xzP0mvIw9YmD61TykJP9krK0bs+lwyGwpmSvki
+ syiNIcrw==;
+Received: from [179.113.53.197] (helo=[192.168.1.60])
+ by fanzine2.igalia.com with esmtpsa 
+ (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+ id 1nkRCW-0007vi-1F; Fri, 29 Apr 2022 16:02:28 +0200
+Message-ID: <79472351-c6ce-a060-ef24-f64b6dce1637@igalia.com>
+Date: Fri, 29 Apr 2022 11:01:59 -0300
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: AZRYnlRzTQKDSjgjO_HSkX3FwzSks3wM
-X-Proofpoint-GUID: iGMO7oNA9IIubfBNxVJGwmk2j693ADIn
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.858,Hydra:6.0.486,FMLib:17.11.64.514
- definitions=2022-04-29_06,2022-04-28_01,2022-02-23_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 bulkscore=0
- adultscore=0 impostorscore=0 malwarescore=0 suspectscore=0 phishscore=0
- priorityscore=1501 spamscore=0 clxscore=1011 mlxlogscore=898
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2202240000 definitions=main-2204290078
-X-Spam-Score: -0.1 (/)
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Content-Language: en-US
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, akpm@linux-foundation.org,
+ bhe@redhat.com, pmladek@suse.com, kexec@lists.infradead.org
+References: <20220427224924.592546-1-gpiccoli@igalia.com>
+ <20220427224924.592546-10-gpiccoli@igalia.com>
+ <3cafe4fd-8a0b-2633-44a3-2995abd6c38c@arm.com>
+From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+In-Reply-To: <3cafe4fd-8a0b-2633-44a3-2995abd6c38c@arm.com>
+X-Spam-Score: -2.2 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  In a future patch HAS_IOPORT=n will result in inb()/outb()
- and friends not being declared. We thus need to add this dependency and ifdef
- sections of code using inb()/outb() as alternative access metho [...] 
- Content analysis details:   (-0.1 points, 6.0 required)
+ Content preview:  On 28/04/2022 05:11, Suzuki K Poulose wrote: > Hi Guilherme, 
+ > [...] > How would you like to proceed with queuing this ? I am happy >
+ either way. In case you plan to push this as part of this > series [...] 
+ Content analysis details:   (-2.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1nkRnw-0006ax-R2
-Subject: [Openipmi-developer] [RFC v2 04/39] char: impi,
- tpm: depend on HAS_IOPORT
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1nkRCy-00DrsO-1D
+Subject: Re: [Openipmi-developer] [PATCH 09/30] coresight: cpu-debug:
+ Replace mutex with mutex_trylock on panic notifier
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -141,206 +105,57 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>,
- Corey Minyard <minyard@acm.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Jarkko Sakkinen <jarkko@kernel.org>, linux-pci@vger.kernel.org,
- "open list:TPM DEVICE DRIVER" <linux-integrity@vger.kernel.org>,
- Peter Huewe <peterhuewe@gmx.de>,
- "moderated list:IPMI SUBSYSTEM" <openipmi-developer@lists.sourceforge.net>
+Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
+ gregkh@linuxfoundation.org, peterz@infradead.org,
+ alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
+ feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
+ sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
+ linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
+ john.ogness@linutronix.de, corbet@lwn.net, paulmck@kernel.org,
+ fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
+ dyoung@redhat.com, vgoyal@redhat.com, Mike Leach <mike.leach@linaro.org>,
+ linux-xtensa@linux-xtensa.org, dave.hansen@linux.intel.com,
+ keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
+ coresight@lists.linaro.org, Leo Yan <leo.yan@linaro.org>,
+ linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
+ bp@alien8.de, luto@kernel.org, linux-tegra@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
+ jgross@suse.com, Mathieu Poirier <mathieu.poirier@linaro.org>,
+ linux-parisc@vger.kernel.org, netdev@vger.kernel.org, kernel@gpiccoli.net,
+ linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
+ senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
+ kernel-dev@igalia.com, linux-alpha@vger.kernel.org, vkuznets@redhat.com,
+ linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
-not being declared. We thus need to add this dependency and ifdef
-sections of code using inb()/outb() as alternative access methods.
+On 28/04/2022 05:11, Suzuki K Poulose wrote:
+> Hi Guilherme,
+> [...] 
+> How would you like to proceed with queuing this ? I am happy
+> either way. In case you plan to push this as part of this
+> series (I don't see any potential conflicts) :
+> 
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Co-developed-by: Arnd Bergmann <arnd@kernel.org>
-Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
----
- drivers/char/Kconfig             |  3 ++-
- drivers/char/ipmi/Makefile       | 11 ++++-------
- drivers/char/ipmi/ipmi_si_intf.c |  3 ++-
- drivers/char/ipmi/ipmi_si_pci.c  |  3 +++
- drivers/char/tpm/Kconfig         |  1 +
- drivers/char/tpm/tpm_infineon.c  | 14 ++++++++++----
- drivers/char/tpm/tpm_tis_core.c  | 19 ++++++++-----------
- 7 files changed, 30 insertions(+), 24 deletions(-)
+Thanks for your review Suzuki, much appreciated!
 
-diff --git a/drivers/char/Kconfig b/drivers/char/Kconfig
-index 55f48375e3fe..463b82935e78 100644
---- a/drivers/char/Kconfig
-+++ b/drivers/char/Kconfig
-@@ -33,6 +33,7 @@ config TTY_PRINTK_LEVEL
- config PRINTER
- 	tristate "Parallel printer support"
- 	depends on PARPORT
-+	depends on HAS_IOPORT
- 	help
- 	  If you intend to attach a printer to the parallel port of your Linux
- 	  box (as opposed to using a serial printer; if the connector at the
-@@ -346,7 +347,7 @@ config NVRAM
- 
- config DEVPORT
- 	bool "/dev/port character device"
--	depends on ISA || PCI
-+	depends on HAS_IOPORT
- 	default y
- 	help
- 	  Say Y here if you want to support the /dev/port device. The /dev/port
-diff --git a/drivers/char/ipmi/Makefile b/drivers/char/ipmi/Makefile
-index 7ce790efad92..439bed4feb3a 100644
---- a/drivers/char/ipmi/Makefile
-+++ b/drivers/char/ipmi/Makefile
-@@ -5,13 +5,10 @@
- 
- ipmi_si-y := ipmi_si_intf.o ipmi_kcs_sm.o ipmi_smic_sm.o ipmi_bt_sm.o \
- 	ipmi_si_hotmod.o ipmi_si_hardcode.o ipmi_si_platform.o \
--	ipmi_si_port_io.o ipmi_si_mem_io.o
--ifdef CONFIG_PCI
--ipmi_si-y += ipmi_si_pci.o
--endif
--ifdef CONFIG_PARISC
--ipmi_si-y += ipmi_si_parisc.o
--endif
-+	ipmi_si_mem_io.o
-+ipmi_si-$(CONFIG_HAS_IOPORT) += ipmi_si_port_io.o
-+ipmi_si-$(CONFIG_PCI) += ipmi_si_pci.o
-+ipmi_si-$(CONFIG_PARISC) += ipmi_si_parisc.o
- 
- obj-$(CONFIG_IPMI_HANDLER) += ipmi_msghandler.o
- obj-$(CONFIG_IPMI_DEVICE_INTERFACE) += ipmi_devintf.o
-diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-index 64dedb3ef8ec..e8094b4007de 100644
---- a/drivers/char/ipmi/ipmi_si_intf.c
-+++ b/drivers/char/ipmi/ipmi_si_intf.c
-@@ -1881,7 +1881,8 @@ int ipmi_si_add_smi(struct si_sm_io *io)
- 	}
- 
- 	if (!io->io_setup) {
--		if (io->addr_space == IPMI_IO_ADDR_SPACE) {
-+		if (IS_ENABLED(CONFIG_HAS_IOPORT) &&
-+		    io->addr_space == IPMI_IO_ADDR_SPACE) {
- 			io->io_setup = ipmi_si_port_setup;
- 		} else if (io->addr_space == IPMI_MEM_ADDR_SPACE) {
- 			io->io_setup = ipmi_si_mem_setup;
-diff --git a/drivers/char/ipmi/ipmi_si_pci.c b/drivers/char/ipmi/ipmi_si_pci.c
-index 74fa2055868b..b83d55685b22 100644
---- a/drivers/char/ipmi/ipmi_si_pci.c
-+++ b/drivers/char/ipmi/ipmi_si_pci.c
-@@ -97,6 +97,9 @@ static int ipmi_pci_probe(struct pci_dev *pdev,
- 	}
- 
- 	if (pci_resource_flags(pdev, 0) & IORESOURCE_IO) {
-+		if (!IS_ENABLED(CONFIG_HAS_IOPORT))
-+			return -ENXIO;
-+
- 		io.addr_space = IPMI_IO_ADDR_SPACE;
- 		io.io_setup = ipmi_si_port_setup;
- 	} else {
-diff --git a/drivers/char/tpm/Kconfig b/drivers/char/tpm/Kconfig
-index 4a5516406c22..4bc52ed08015 100644
---- a/drivers/char/tpm/Kconfig
-+++ b/drivers/char/tpm/Kconfig
-@@ -137,6 +137,7 @@ config TCG_NSC
- config TCG_ATMEL
- 	tristate "Atmel TPM Interface"
- 	depends on PPC64 || HAS_IOPORT_MAP
-+	depends on HAS_IOPORT
- 	help
- 	  If you have a TPM security chip from Atmel say Yes and it 
- 	  will be accessible from within Linux.  To compile this driver 
-diff --git a/drivers/char/tpm/tpm_infineon.c b/drivers/char/tpm/tpm_infineon.c
-index 9c924a1440a9..2d2ae37153ba 100644
---- a/drivers/char/tpm/tpm_infineon.c
-+++ b/drivers/char/tpm/tpm_infineon.c
-@@ -51,34 +51,40 @@ static struct tpm_inf_dev tpm_dev;
- 
- static inline void tpm_data_out(unsigned char data, unsigned char offset)
- {
-+#ifdef CONFIG_HAS_IOPORT
- 	if (tpm_dev.iotype == TPM_INF_IO_PORT)
- 		outb(data, tpm_dev.data_regs + offset);
- 	else
-+#endif
- 		writeb(data, tpm_dev.mem_base + tpm_dev.data_regs + offset);
- }
- 
- static inline unsigned char tpm_data_in(unsigned char offset)
- {
-+#ifdef CONFIG_HAS_IOPORT
- 	if (tpm_dev.iotype == TPM_INF_IO_PORT)
- 		return inb(tpm_dev.data_regs + offset);
--	else
--		return readb(tpm_dev.mem_base + tpm_dev.data_regs + offset);
-+#endif
-+	return readb(tpm_dev.mem_base + tpm_dev.data_regs + offset);
- }
- 
- static inline void tpm_config_out(unsigned char data, unsigned char offset)
- {
-+#ifdef CONFIG_HAS_IOPORT
- 	if (tpm_dev.iotype == TPM_INF_IO_PORT)
- 		outb(data, tpm_dev.config_port + offset);
- 	else
-+#endif
- 		writeb(data, tpm_dev.mem_base + tpm_dev.index_off + offset);
- }
- 
- static inline unsigned char tpm_config_in(unsigned char offset)
- {
-+#ifdef CONFIG_HAS_IOPORT
- 	if (tpm_dev.iotype == TPM_INF_IO_PORT)
- 		return inb(tpm_dev.config_port + offset);
--	else
--		return readb(tpm_dev.mem_base + tpm_dev.index_off + offset);
-+#endif
-+	return readb(tpm_dev.mem_base + tpm_dev.index_off + offset);
- }
- 
- /* TPM header definitions */
-diff --git a/drivers/char/tpm/tpm_tis_core.c b/drivers/char/tpm/tpm_tis_core.c
-index dc56b976d816..1efb58dc1b41 100644
---- a/drivers/char/tpm/tpm_tis_core.c
-+++ b/drivers/char/tpm/tpm_tis_core.c
-@@ -879,11 +879,6 @@ static void tpm_tis_clkrun_enable(struct tpm_chip *chip, bool value)
- 		clkrun_val &= ~LPC_CLKRUN_EN;
- 		iowrite32(clkrun_val, data->ilb_base_addr + LPC_CNTRL_OFFSET);
- 
--		/*
--		 * Write any random value on port 0x80 which is on LPC, to make
--		 * sure LPC clock is running before sending any TPM command.
--		 */
--		outb(0xCC, 0x80);
- 	} else {
- 		data->clkrun_enabled--;
- 		if (data->clkrun_enabled)
-@@ -894,13 +889,15 @@ static void tpm_tis_clkrun_enable(struct tpm_chip *chip, bool value)
- 		/* Enable LPC CLKRUN# */
- 		clkrun_val |= LPC_CLKRUN_EN;
- 		iowrite32(clkrun_val, data->ilb_base_addr + LPC_CNTRL_OFFSET);
--
--		/*
--		 * Write any random value on port 0x80 which is on LPC, to make
--		 * sure LPC clock is running before sending any TPM command.
--		 */
--		outb(0xCC, 0x80);
- 	}
-+
-+#ifdef CONFIG_HAS_IOPORT
-+	/*
-+	 * Write any random value on port 0x80 which is on LPC, to make
-+	 * sure LPC clock is running before sending any TPM command.
-+	 */
-+	outb(0xCC, 0x80);
-+#endif
- }
- 
- static const struct tpm_class_ops tpm_tis = {
--- 
-2.32.0
+About your question, I'm not sure yet - in case the core changes would
+take a while (like if community find them polemic, require many changes,
+etc) I might split this series in 2 parts, the fixes part vs the
+improvements per se. Either way, a V2 is going to happen for sure, and
+in that moment, I'll let you know what I think it's best.
 
+But either way, any choice you prefer is fine by me as well (like if you
+want to merge it now or postpone to get merged in the future), this is
+not an urgent fix I think =)
+Cheers,
+
+
+Guilherme
 
 
 _______________________________________________
