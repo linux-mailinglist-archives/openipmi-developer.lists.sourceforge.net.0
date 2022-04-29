@@ -2,112 +2,124 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2C9CB513A7C
-	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Apr 2022 18:57:38 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B2C251492E
+	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Apr 2022 14:23:56 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nk7SP-0004Ye-43; Thu, 28 Apr 2022 16:57:34 +0000
+	id 1nkPf6-000741-LL; Fri, 29 Apr 2022 12:23:51 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <deller@gmx.de>) id 1nk7SO-0004YY-1L
- for openipmi-developer@lists.sourceforge.net; Thu, 28 Apr 2022 16:57:33 +0000
+ (envelope-from <sergei.shtylyov@gmail.com>) id 1nkMq8-0003my-FD
+ for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 09:23:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=qPmPtkvexOMadInTANC7BdzvVBSW8aZDkpoMsv2B6ZM=; b=mcC5OkiTPv8qWA9gCnNblTYoZd
- qGEZG/ZV09YnN3RFzoj0+QMAbWsJtordt4q2wyQZy/XlE7tDAhb8E2JYa5MX+iHqPgIrUgftixszf
- Ph8hV2Q7kzjOQ9UBioQr1KFNSAc5St3oc8ph8J/eEz70Lh8C+PPekfoK+h2eJdovaHAs=;
+ bh=bhPxd6svpKOboxST/6guS4MOSMze/71rIJIgOQA8rZo=; b=NkOVX7fO0H/Hh4rG2WcwOxK3de
+ rrAd+4UTsgyXMQwSPrwEx+LP6z47X12sG4OhBLDLMplloZSwYfsjURGnKgnEjVLIB9JtfoCVZsKqG
+ 9A+FbB1q3T69DTKS6CJEOOeq8OkbhVW+mR6mxmxPVxSOq4gGh2HqgsndQX1OgW8uQHbk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=qPmPtkvexOMadInTANC7BdzvVBSW8aZDkpoMsv2B6ZM=; b=KCf/B/vMn2JGFO0TbVkTZPnGLA
- qZyJYYlqu8/Yxp8/xqvZWaRgPPu0ITIZb90L0TJ4GCLMn2sqJ0QD1aa4+oOklk/aQHoGJzK1YdvIj
- ffKomm2eqPDxMrHabwBBW/hDQGJ0JAw5NEDPYq+VquPBOQKS6uG1k6Fje2wZC1u1ZAgc=;
-Received: from mout.gmx.net ([212.227.15.15])
+ bh=bhPxd6svpKOboxST/6guS4MOSMze/71rIJIgOQA8rZo=; b=Z0rahQWId7dyFD5jff+VVKKSo8
+ 0SfIS54ac6iFV9/e8Pw0FIEoeyBZt318aS7XKskwDbEjlhKtSg45kDrwBzEUjCjqaLbiPBTjfuHB8
+ 20NV1Uw85DFDjWZLe0/2TNQbBgz+Cn5Z6WrDrg9bvkOn75bNxSMA4y6TEtSPC3o/CQT8=;
+Received: from mail-lf1-f49.google.com ([209.85.167.49])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nk7SN-00CyKu-CH
- for openipmi-developer@lists.sourceforge.net; Thu, 28 Apr 2022 16:57:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1651164963;
- bh=DUb16bHT8ZVVcSBzzE8lnieko2RHZpG2zbwsEWdWo2c=;
- h=X-UI-Sender-Class:Date:Subject:To:Cc:References:From:In-Reply-To;
- b=TrwFfhoA2P1jqiZSh6qbThQbWQ3kajZ2U+JQrRL/jSZxckwFV1BopRKv6DRaeQSKC
- DM8QpY2fv9fsoSq055uYb4MCMz8e9HvG+guo2m9xr29cJoYbxYguo2PwZIKFp/JXdB
- qy9XbYXMKcmj9vbKxczpPpGqEow6LzKi+qj1B+ao=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.20.60] ([92.116.133.159]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MzyuS-1o6TNU3b1S-00x2R3; Thu, 28
- Apr 2022 18:56:03 +0200
-Message-ID: <6a7c924a-54a9-c5ea-8a9d-3ea92987b436@gmx.de>
-Date: Thu, 28 Apr 2022 18:55:52 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Content-Language: en-US
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
+ id 1nkMpz-00Di3j-PJ
+ for openipmi-developer@lists.sourceforge.net; Fri, 29 Apr 2022 09:22:57 +0000
+Received: by mail-lf1-f49.google.com with SMTP id p12so12970747lfs.5
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 29 Apr 2022 02:22:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=bhPxd6svpKOboxST/6guS4MOSMze/71rIJIgOQA8rZo=;
+ b=CcHlI3Au6GCo1UVzpXVov/h1wYElTNB9KLySGMMq2ve/a+TtvK5YlNIE1buiqFG4Nl
+ u/yJNPitTZt8sIeOJjB65Ui/1u355v1A2H7rivfKbBLHtHs+twE1aeJijeY6w74gk/C9
+ beognAtlmiiMUVoRPY2P2xBjOD5kn8WzXajIeBHjp2IbcVFILkaLGvvcgQymLNFVLX7W
+ O2NCAewH21dEqhwgYIy8zCJ1hXEDN8sGRLk/bc4Oj4c5AC8PD4Xjq19cf3SOi69El8Xe
+ CE7Bw/RGpPKDZ+W4HqGQMjQxaF5kblB25nziyJo7yUSAzUuWVoHRSngnqULHAZHmFVOo
+ K43A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=bhPxd6svpKOboxST/6guS4MOSMze/71rIJIgOQA8rZo=;
+ b=2HSxXydzAwDWd3qq5BxDuydqBQs2PyfFQDJKerghrqAEr7+k5GCSmUKlJv22ArW7KK
+ oM68pvoNNSbbG2KiXodfNxt/CQ38p2mqZ6ZsBUSbasVdiDphotv5qJNUg0JdmLCVLS73
+ +VVjcpd1/9eelTg4VAUmELVpl238ernY2A5PZuVb7bJ5g0IjjQgzyjsWM1++Ib9aySiV
+ uCh+PfqFxLyb7unJ4B1zjkXJJPnnXBJvezjPFHd/Odur869edPlgP30gwyD4NLc8pJRO
+ FyPKPVz8dkUOhN4i4mdY3CgkL3U3wHrdmXf3uoI+LhXDPrhDJ/Ng/IgSeDmodZFBr7Ss
+ xVUA==
+X-Gm-Message-State: AOAM531sdCmFPFcpFDcGFo3+pZGf6qy9UCuwwG1Tra6ffgHvOD1uha3T
+ F9SGznh/kpm/umYFjPIIGMg=
+X-Google-Smtp-Source: ABdhPJzFja3bmADODH1fdpoqaNJXuuCGiOo+I2PKC036x77KFxdRqfAwbMVEMu8UhB/GID87ZxayFg==
+X-Received: by 2002:a05:6512:3ba0:b0:472:49f2:a752 with SMTP id
+ g32-20020a0565123ba000b0047249f2a752mr1049387lfv.374.1651224168844; 
+ Fri, 29 Apr 2022 02:22:48 -0700 (PDT)
+Received: from [192.168.1.103] ([178.176.73.25])
+ by smtp.gmail.com with ESMTPSA id
+ e1-20020a196741000000b0046bc4be1d60sm192072lfj.123.2022.04.29.02.22.45
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 29 Apr 2022 02:22:48 -0700 (PDT)
 To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>, akpm@linux-foundation.org,
  bhe@redhat.com, pmladek@suse.com, kexec@lists.infradead.org
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-13-gpiccoli@igalia.com>
-From: Helge Deller <deller@gmx.de>
-In-Reply-To: <20220427224924.592546-13-gpiccoli@igalia.com>
-X-Provags-ID: V03:K1:5vdTXh07+igNuefls5XBW8Vnc+iEgtAi7WYk6EGDKuqY95FwGMe
- QwcWZKzUaEoh4UB+55vjZve/tYEaItgGsgQfOqHuHHkvtwYyxsf6YShgZsftQKYSmO6WQ+T
- ZC1GiQE33MbntUGomNddrKZxDF5sJxGJRqGlvPVNWYXBnGaRnQV/WvjdEKXY9QfAk5iDfpf
- 2SF7pYcym4psStLDUUMNQ==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:seIPaj7dpZM=:yycTg0fvdDhrITiv3IZXzI
- e4yFHTYHbrGUy0XcNvNSnWURkRH0CwdNhQ3CWNfifJgMcKrsF971kE1ZPU9NMQWdlbTy3YHHQ
- kdbLaclaoLvW+e4KLLE5yocf48/EeAYglXhY84PxWcp1QGdF7y7nXLElZka6kp2R0F8+61JyB
- loph7JvlvHMoA0h4saDhDgOi28CBTeWf2mZxC+/EkMY8v85s5wN3/znVOlOIi2kLzQZEdEUxg
- qZqRAEH0zpZWVc5jenddLnwtNUslbH1ysbnT6Jz+8m3SINHv4Rwqo8qzXPYlIEhtABEOB2CCo
- zGH68oxcPKpqrqbFPSUrvmevYIsFthSN4Qa4ESwcyflnmJb/H2yYOm3idKBPcHZoAc7MXpKFp
- RR3P6Q1355mAy9N9Htg1IQRALV21oxx1PunXwbHOYiOH77jvrab76cf+pliKkaIi4EdHQpQqw
- 9mxPXAGH7PZiMiQ7xVCBiONFGbdiXxNWW9WgP8A6pz6E89Sx90IwrTRc9D73bLfwpGwDmjWxi
- fFfVa4k8dmCqUPhBM1VhxPpxNRnj9QzEWrSQ0xThSfPtnfKEaiZ6CAhESljw6d2UOOHcDSLiC
- pYk2Il0xe7DktL7r83T2I0B8fYcU06QnK7MXlbmtGkMbQFBGucQc+IB7UEgTcN0uT8ZaS6/FI
- jkfGMBIY2eSkyrlErzq+vnajUsa0b9zENmsHS55RE7h43gLxmwE2UNFRUH8bWmdFhfJcUWhCo
- 0TAcvRyne9VEKfs0HrQjTEdgbmSa875UQ1egzran3Xhi4XGH8Atz9id4q//uvXHDPEYGUcpM1
- 1jCttDZecf4rq/B12RMkoMxP6zY3FZKwK7quDBpUSTid+jJEDxaXtx0XaeJ0Hg0rDMgviRyZ9
- HzUcPocKiz/LqCSxQKJ+5LacyVgyzC2Eg/QV5UE+RmBe/a0+mK1ccbKXN/YmWVo5xcoOe11r/
- LQC+womcGp8ubOddU8soGYLdecjhj+rpnt5TdzsPY9fawi7HlwarnA+ConVoG4a/SWDHYon/e
- QtxJhYG5A/NQ3aDfGGrPKFQkR4D9mAqQmSL7oHO9wv65NzEickiapaFqe4ZYqD4oBbohP/rOw
- OHyJm5CjSYyJJQ=
-X-Spam-Score: -0.7 (/)
+ <20220427224924.592546-18-gpiccoli@igalia.com>
+From: Sergei Shtylyov <sergei.shtylyov@gmail.com>
+Message-ID: <b8771b37-01f5-f50b-dbb3-9db4ee26e67e@gmail.com>
+Date: Fri, 29 Apr 2022 12:22:44 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.1
+MIME-Version: 1.0
+In-Reply-To: <20220427224924.592546-18-gpiccoli@igalia.com>
+Content-Language: en-US
+X-Spam-Score: -2.2 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 4/28/22 00:49, Guilherme G. Piccoli wrote: > The panic
- notifiers' callbacks execute in an atomic context, with > interrupts/preemption
- disabled, and all CPUs not running the panic > function are of [...] 
- Content analysis details:   (-0.7 points, 6.0 required)
+ Content preview:  Hello! On 4/28/22 1:49 AM,
+ Guilherme G. Piccoli wrote: > Currently
+ the tracing dump_on_oops feature is implemented > through separate notifiers, 
+ one for die/oops and the other > for panic. With the addition of panic
+ notifier "id", this > patch makes use o [...] 
+ Content analysis details:   (-2.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [212.227.15.15 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [deller[at]gmx.de]
+ provider [sergei.shtylyov[at]gmail.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.167.49 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1nk7SN-00CyKu-CH
-Subject: Re: [Openipmi-developer] [PATCH 12/30] parisc: Replace regular
- spinlock with spin_trylock on panic path
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.49 listed in wl.mailspike.net]
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1nkMpz-00Di3j-PJ
+X-Mailman-Approved-At: Fri, 29 Apr 2022 12:23:50 +0000
+Subject: Re: [Openipmi-developer] [PATCH 17/30] tracing: Improve panic/die
+ notifiers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -123,12 +135,11 @@ List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer
 Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
  gregkh@linuxfoundation.org, peterz@infradead.org,
  alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
- feng.tang@intel.com, linux-mips@vger.kernel.org,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- hidehiro.kawai.ez@hitachi.com, sparclinux@vger.kernel.org, will@kernel.org,
- tglx@linutronix.de, linux-leds@vger.kernel.org, linux-s390@vger.kernel.org,
- mikelley@microsoft.com, john.ogness@linutronix.de, corbet@lwn.net,
- paulmck@kernel.org, fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
+ sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
+ linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
+ john.ogness@linutronix.de, corbet@lwn.net, paulmck@kernel.org,
+ fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
  bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
  dyoung@redhat.com, vgoyal@redhat.com, linux-xtensa@linux-xtensa.org,
  dave.hansen@linux.intel.com, keescook@chromium.org, arnd@arndb.de,
@@ -146,144 +157,84 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 4/28/22 00:49, Guilherme G. Piccoli wrote:
-> The panic notifiers' callbacks execute in an atomic context, with
-> interrupts/preemption disabled, and all CPUs not running the panic
-> function are off, so it's very dangerous to wait on a regular
-> spinlock, there's a risk of deadlock.
->
-> This patch refactors the panic notifier of parisc/power driver
-> to make use of spin_trylock - for that, we've added a second
-> version of the soft-power function. Also, some comments were
-> reorganized and trailing white spaces, useless header inclusion
-> and blank lines were removed.
->
-> Cc: Helge Deller <deller@gmx.de>
-> Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Hello!
+
+On 4/28/22 1:49 AM, Guilherme G. Piccoli wrote:
+
+> Currently the tracing dump_on_oops feature is implemented
+> through separate notifiers, one for die/oops and the other
+> for panic. With the addition of panic notifier "id", this
+> patch makes use of such "id" to unify both functions.
+> 
+> It also comments the function and changes the priority of the
+> notifier blocks, in order they run early compared to other
+> notifiers, to prevent useless trace data (like the callback
+> names for the other notifiers). Finally, we also removed an
+> unnecessary header inclusion.
+> 
 > Signed-off-by: Guilherme G. Piccoli <gpiccoli@igalia.com>
-
-You may add:
-Acked-by: Helge Deller <deller@gmx.de> # parisc
-
-Helge
-
-
 > ---
->  arch/parisc/include/asm/pdc.h |  1 +
->  arch/parisc/kernel/firmware.c | 27 +++++++++++++++++++++++----
->  drivers/parisc/power.c        | 17 ++++++++++-------
->  3 files changed, 34 insertions(+), 11 deletions(-)
->
-> diff --git a/arch/parisc/include/asm/pdc.h b/arch/parisc/include/asm/pdc.h
-> index b643092d4b98..7a106008e258 100644
-> --- a/arch/parisc/include/asm/pdc.h
-> +++ b/arch/parisc/include/asm/pdc.h
-> @@ -83,6 +83,7 @@ int pdc_do_firm_test_reset(unsigned long ftc_bitmap);
->  int pdc_do_reset(void);
->  int pdc_soft_power_info(unsigned long *power_reg);
->  int pdc_soft_power_button(int sw_control);
-> +int pdc_soft_power_button_panic(int sw_control);
->  void pdc_io_reset(void);
->  void pdc_io_reset_devices(void);
->  int pdc_iodc_getc(void);
-> diff --git a/arch/parisc/kernel/firmware.c b/arch/parisc/kernel/firmware.c
-> index 6a7e315bcc2e..0e2f70b592f4 100644
-> --- a/arch/parisc/kernel/firmware.c
-> +++ b/arch/parisc/kernel/firmware.c
-> @@ -1232,15 +1232,18 @@ int __init pdc_soft_power_info(unsigned long *power_reg)
->  }
->
->  /*
-> - * pdc_soft_power_button - Control the soft power button behaviour
-> - * @sw_control: 0 for hardware control, 1 for software control
-> + * pdc_soft_power_button{_panic} - Control the soft power button behaviour
-> + * @sw_control: 0 for hardware control, 1 for software control
->   *
->   *
->   * This PDC function places the soft power button under software or
->   * hardware control.
-> - * Under software control the OS may control to when to allow to shut
-> - * down the system. Under hardware control pressing the power button
-> + * Under software control the OS may control to when to allow to shut
-> + * down the system. Under hardware control pressing the power button
->   * powers off the system immediately.
-> + *
-> + * The _panic version relies in spin_trylock to prevent deadlock
-> + * on panic path.
->   */
->  int pdc_soft_power_button(int sw_control)
+>  kernel/trace/trace.c | 57 +++++++++++++++++++++++++-------------------
+>  1 file changed, 32 insertions(+), 25 deletions(-)
+> 
+> diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+> index f4de111fa18f..c1d8a3622ccc 100644
+> --- a/kernel/trace/trace.c
+> +++ b/kernel/trace/trace.c
+[...]
+> @@ -9767,38 +9766,46 @@ static __init int tracer_init_tracefs(void)
+>  
+>  fs_initcall(tracer_init_tracefs);
+>  
+> -static int trace_panic_handler(struct notifier_block *this,
+> -			       unsigned long event, void *unused)
+> +/*
+> + * The idea is to execute the following die/panic callback early, in order
+> + * to avoid showing irrelevant information in the trace (like other panic
+> + * notifier functions); we are the 2nd to run, after hung_task/rcu_stall
+> + * warnings get disabled (to prevent potential log flooding).
+> + */
+> +static int trace_die_panic_handler(struct notifier_block *self,
+> +				unsigned long ev, void *unused)
 >  {
-> @@ -1254,6 +1257,22 @@ int pdc_soft_power_button(int sw_control)
->  	return retval;
->  }
->
-> +int pdc_soft_power_button_panic(int sw_control)
-> +{
-> +	int retval;
-> +	unsigned long flags;
+> -	if (ftrace_dump_on_oops)
+> +	int do_dump;
+
+   bool?
+
 > +
-> +	if (!spin_trylock_irqsave(&pdc_lock, flags)) {
-> +		pr_emerg("Couldn't enable soft power button\n");
-> +		return -EBUSY; /* ignored by the panic notifier */
+> +	if (!ftrace_dump_on_oops)
+> +		return NOTIFY_DONE;
+> +
+> +	switch (ev) {
+> +	case DIE_OOPS:
+> +		do_dump = 1;
+> +		break;
+> +	case PANIC_NOTIFIER:
+> +		do_dump = 1;
+> +		break;
+
+   Why not:
+
+	case DIE_OOPS:
+	case PANIC_NOTIFIER:
+		do_dump = 1;
+		break;
+
+> +	default:
+> +		do_dump = 0;
+> +		break;
 > +	}
 > +
-> +	retval = mem_pdc_call(PDC_SOFT_POWER, PDC_SOFT_POWER_ENABLE, __pa(pdc_result), sw_control);
-> +	spin_unlock_irqrestore(&pdc_lock, flags);
+> +	if (do_dump)
+>  		ftrace_dump(ftrace_dump_on_oops);
+> -	return NOTIFY_OK;
 > +
-> +	return retval;
-> +}
-> +
->  /*
->   * pdc_io_reset - Hack to avoid overlapping range registers of Bridges devices.
->   * Primarily a problem on T600 (which parisc-linux doesn't support) but
-> diff --git a/drivers/parisc/power.c b/drivers/parisc/power.c
-> index 456776bd8ee6..8512884de2cf 100644
-> --- a/drivers/parisc/power.c
-> +++ b/drivers/parisc/power.c
-> @@ -37,7 +37,6 @@
->  #include <linux/module.h>
->  #include <linux/init.h>
->  #include <linux/kernel.h>
-> -#include <linux/notifier.h>
->  #include <linux/panic_notifier.h>
->  #include <linux/reboot.h>
->  #include <linux/sched/signal.h>
-> @@ -175,16 +174,21 @@ static void powerfail_interrupt(int code, void *x)
->
->
->
-> -/* parisc_panic_event() is called by the panic handler.
-> - * As soon as a panic occurs, our tasklets above will not be
-> - * executed any longer. This function then re-enables the
-> - * soft-power switch and allows the user to switch off the system
-> +/*
-> + * parisc_panic_event() is called by the panic handler.
-> + *
-> + * As soon as a panic occurs, our tasklets above will not
-> + * be executed any longer. This function then re-enables
-> + * the soft-power switch and allows the user to switch off
-> + * the system. We rely in pdc_soft_power_button_panic()
-> + * since this version spin_trylocks (instead of regular
-> + * spinlock), preventing deadlocks on panic path.
->   */
->  static int parisc_panic_event(struct notifier_block *this,
->  		unsigned long event, void *ptr)
->  {
->  	/* re-enable the soft-power switch */
-> -	pdc_soft_power_button(0);
-> +	pdc_soft_power_button_panic(0);
->  	return NOTIFY_DONE;
+> +	return NOTIFY_DONE;
 >  }
->
-> @@ -193,7 +197,6 @@ static struct notifier_block parisc_panic_block = {
->  	.priority	= INT_MAX,
->  };
->
-> -
->  static int __init power_init(void)
->  {
->  	unsigned long ret;
+[...]
 
+MBR, Sergey
 
 
 _______________________________________________
