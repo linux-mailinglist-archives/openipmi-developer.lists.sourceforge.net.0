@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9AEB251FD3D
-	for <lists+openipmi-developer@lfdr.de>; Mon,  9 May 2022 14:51:30 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 93E1A51FDA5
+	for <lists+openipmi-developer@lfdr.de>; Mon,  9 May 2022 15:11:08 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1no2rG-0002eq-7n; Mon, 09 May 2022 12:51:24 +0000
+	id 1no3AH-0002zU-Sr; Mon, 09 May 2022 13:11:04 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1no2rF-0002ek-4Y
- for openipmi-developer@lists.sourceforge.net; Mon, 09 May 2022 12:51:23 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1no3AG-0002zO-F6
+ for openipmi-developer@lists.sourceforge.net; Mon, 09 May 2022 13:11:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=vNWZxas8t1kFoCf13D7/vaEHrhXkMcvheesCeQUODMg=; b=Q2UIssm0ne0GJ9RNGeaDhesU9t
- WYkJh14Kq0bo7g1Qr8ThAcdzL98zEIjzlINmILE4B6nBIUScX6g0sRvWuzt9nbRaysVv2O1ekoIPF
- 1l8+jTZfRNnAXqxOa3JuPk2fu7xnJgJNr64MABatFoUnLUJ/6dkxkgU6hraXAa03cnts=;
+ bh=c6E44QfcLWCPcpfVVn8DZm/tazb9qDNjecxU8jgjjwM=; b=XMjoK8r10BW4UKGe33EM25ZGfo
+ b9iBioHF2iR7OVpz7beVpROXTn7aXmu30DufUTly/NxD6QL3sauNqi1seZgeu0lcNt1/hFm4zN4wC
+ 2DpMf6waL7Hy6tSaPS231pndvJ2j/exmdh5cTKt5h/g/U9xeg9rkIjQVh9T+KAyZ1FbE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
@@ -29,14 +29,14 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=vNWZxas8t1kFoCf13D7/vaEHrhXkMcvheesCeQUODMg=; b=fIQoTYOS0J2eENhsEluSYHWGWp
- 0wohccEK2C6a/54noytCRiYE+7ShRX7DYSdvJ++FGwbBB7idKU+z+x2YX1LntClIkSrDOPHfJf2Zu
- YUNKJ2UebF4AWq9JuwQlc0nqWX3hDwlCmrk5jpDtcrjFavuB0td68uZSZ5ecg2QHfUrg=;
+ bh=c6E44QfcLWCPcpfVVn8DZm/tazb9qDNjecxU8jgjjwM=; b=NBMoPQMYFCTDfVdH2lt/r5wy1S
+ aPmhRJUgTQNrlO7L7FbTT1VYMOSOre2WrMFp9THJebmvAjsC2znRpePD8tyrIuTmlE1iGhw1lXAWH
+ nmTi0yUJHSXKKvDhYenlrzT3EETdKVlFU4fwApGAjNB5BsngX3WD1uV5lXErjwEMqVzg=;
 Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1no2r8-0008Ml-Ox
- for openipmi-developer@lists.sourceforge.net; Mon, 09 May 2022 12:51:23 +0000
+ id 1no3AC-0002Ih-DM
+ for openipmi-developer@lists.sourceforge.net; Mon, 09 May 2022 13:11:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
  s=20170329;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
@@ -44,58 +44,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=vNWZxas8t1kFoCf13D7/vaEHrhXkMcvheesCeQUODMg=; b=LiRqvKrtw9XJxMP26bz+wzbn1n
- fBHqZS6c/XR8QMIkcDbMMcoNGulyS43Rfp83nqthIjvwxcC0/rE6EUbNIf51/kQdvFB0MZLjpT1Zt
- jPlWUhML/RrgwA/8AbWtoLwz1yzaOdGTpwde1q8bM8ZApOffPjJ50hQj+UprMTPvFMZ+3kTukzvDC
- T+M3aUntgoIptglMOe9noJu8WxIIHyHpxsCC1uL0UNNnEkCrtSTA6MLc7ESoFMKljoD3/1VBzhboF
- ZG7o2pwmSFhOEypVckR6q5+g5/pOsvXV3qshYFBj5WEOrVLcV95X7vQdrWZ9lJh80TjIodpEGtnLe
- +KvSh8AA==;
+ bh=c6E44QfcLWCPcpfVVn8DZm/tazb9qDNjecxU8jgjjwM=; b=JQ1X+XDjDPRoAxPLkbe9tWes8w
+ l11iC7oa/HVnyRK3qB7UvK9JEgQqPIREqD5654T0lMLes3kGheOm/R45s0nxu4hyBPxmCTVnzlJkN
+ ZvlwDaZFuWVIh4IaLUzoP+QdJvpm215SH2+0rVomODoRdVpIAavgxOQl3rDnkTMN+fyPnfNOV7B7S
+ PwRkKHJor0sF94EKnip9+x+OMSUvYBWlrOB2NiCodRGVM8ztswBp00gdyDLuMLY0TLuRV/nOMh+Z7
+ dku4FKzrs/p9E3LkAgwz4nFi/oHL/EcQWXaMAdDUro5POIL0/IvuDCL2llWo8K6mm9F1PYJhGhMV8
+ hibQS8tw==;
 Received: from [177.183.162.244] (helo=[192.168.0.5])
  by fanzine2.igalia.com with esmtpsa 
  (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
- id 1no2qT-0003gn-07; Mon, 09 May 2022 14:50:37 +0200
-Message-ID: <f9c3de3c-1709-a1aa-2ece-c9fbfd5e6d6a@igalia.com>
-Date: Mon, 9 May 2022 09:50:05 -0300
+ id 1no39b-0005V6-KV; Mon, 09 May 2022 15:10:24 +0200
+Message-ID: <65f24bc5-2211-0139-ee12-b2608e81ceb1@igalia.com>
+Date: Mon, 9 May 2022 10:09:21 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.8.1
 Content-Language: en-US
-To: Hari Bathini <hbathini@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, akpm@linux-foundation.org,
+ bhe@redhat.com, pmladek@suse.com, kexec@lists.infradead.org
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-9-gpiccoli@igalia.com>
- <3c34d8e2-6f84-933f-a4ed-338cd300d6b0@linux.ibm.com>
+ <20220427224924.592546-10-gpiccoli@igalia.com>
+ <3cafe4fd-8a0b-2633-44a3-2995abd6c38c@arm.com>
 From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <3c34d8e2-6f84-933f-a4ed-338cd300d6b0@linux.ibm.com>
-X-Spam-Score: -1.3 (-)
+In-Reply-To: <3cafe4fd-8a0b-2633-44a3-2995abd6c38c@arm.com>
+X-Spam-Score: -2.2 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 05/05/2022 15:55, Hari Bathini wrote: > [...] > The change
- looks good. I have tested it on an LPAR (ppc64). > > Reviewed-by: Hari Bathini
- <hbathini@linux.ibm.com> > Hi Michael. do you think it's possible to add
- this one to powerpc/next (or something like that), or do you prefer a V2 with
- his tag? Thanks, 
- Content analysis details:   (-1.3 points, 6.0 required)
+ Content preview:  On 28/04/2022 05:11, Suzuki K Poulose wrote: > Hi Guilherme, 
+ > > On 27/04/2022 23:49, Guilherme G. Piccoli wrote: >> The panic notifier
+ infrastructure executes registered callbacks when >> a panic eve [...] 
+ Content analysis details:   (-2.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- -1.1 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1no2r8-0008Ml-Ox
-Subject: Re: [Openipmi-developer] [PATCH 08/30] powerpc/setup:
- Refactor/untangle panic notifiers
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1no3AC-0002Ih-DM
+Subject: Re: [Openipmi-developer] [PATCH 09/30] coresight: cpu-debug:
+ Replace mutex with mutex_trylock on panic notifier
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,24 +106,24 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
- linux-xtensa@linux-xtensa.org, peterz@infradead.org,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ gregkh@linuxfoundation.org, peterz@infradead.org,
  alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
  feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
- Paul Mackerras <paulus@samba.org>, sparclinux@vger.kernel.org, will@kernel.org,
- tglx@linutronix.de, linux-leds@vger.kernel.org, linux-s390@vger.kernel.org,
- mikelley@microsoft.com, john.ogness@linutronix.de, bhe@redhat.com,
- corbet@lwn.net, paulmck@kernel.org, fabiomirmar@gmail.com, x86@kernel.org,
- mingo@redhat.com, bcm-kernel-feedback-list@broadcom.com,
- xen-devel@lists.xenproject.org, dyoung@redhat.com, vgoyal@redhat.com,
- pmladek@suse.com, dave.hansen@linux.intel.com, keescook@chromium.org,
- arnd@arndb.de, linux-pm@vger.kernel.org, linux-um@lists.infradead.org,
- rostedt@goodmis.org, rcu@vger.kernel.org, gregkh@linuxfoundation.org,
- bp@alien8.de, Nicholas Piggin <npiggin@gmail.com>, luto@kernel.org,
- linux-tegra@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
- andriy.shevchenko@linux.intel.com, akpm@linux-foundation.org,
- linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
- netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
+ sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
+ linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
+ john.ogness@linutronix.de, corbet@lwn.net, paulmck@kernel.org,
+ fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
+ dyoung@redhat.com, vgoyal@redhat.com, Mike Leach <mike.leach@linaro.org>,
+ linux-xtensa@linux-xtensa.org, dave.hansen@linux.intel.com,
+ keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
+ coresight@lists.linaro.org, Leo Yan <leo.yan@linaro.org>,
+ linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
+ bp@alien8.de, luto@kernel.org, linux-tegra@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
+ jgross@suse.com, Mathieu Poirier <mathieu.poirier@linaro.org>,
+ linux-parisc@vger.kernel.org, netdev@vger.kernel.org, kernel@gpiccoli.net,
  linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
  senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
  kernel-dev@igalia.com, linux-alpha@vger.kernel.org, vkuznets@redhat.com,
@@ -135,16 +132,44 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 05/05/2022 15:55, Hari Bathini wrote:
-> [...] 
-> The change looks good. I have tested it on an LPAR (ppc64).
+On 28/04/2022 05:11, Suzuki K Poulose wrote:
+> Hi Guilherme,
 > 
-> Reviewed-by: Hari Bathini <hbathini@linux.ibm.com>
+> On 27/04/2022 23:49, Guilherme G. Piccoli wrote:
+>> The panic notifier infrastructure executes registered callbacks when
+>> a panic event happens - such callbacks are executed in atomic context,
+>> with interrupts and preemption disabled in the running CPU and all other
+>> CPUs disabled. That said, mutexes in such context are not a good idea.
+>>
+>> This patch replaces a regular mutex with a mutex_trylock safer approach;
+>> given the nature of the mutex used in the driver, it should be pretty
+>> uncommon being unable to acquire such mutex in the panic path, hence
+>> no functional change should be observed (and if it is, that would be
+>> likely a deadlock with the regular mutex).
+>>
+>> Fixes: 2227b7c74634 ("coresight: add support for CPU debug module")
+>> Cc: Leo Yan <leo.yan@linaro.org>
+>> Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
+>> Cc: Mike Leach <mike.leach@linaro.org>
+>> Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Guilherme G. Piccoli <gpiccoli@igalia.com>
 > 
+> How would you like to proceed with queuing this ? I am happy
+> either way. In case you plan to push this as part of this
+> series (I don't see any potential conflicts) :
+> 
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-Hi Michael. do you think it's possible to add this one to powerpc/next
-(or something like that), or do you prefer a V2 with his tag?
-Thanks,
+Hi Suzuki, some other maintainers are taking the patches to their next
+branches for example. I'm working on V2, and I guess in the end would be
+nice to reduce the size of the series a bit.
+
+So, do you think you could pick this one for your coresight/next branch
+(or even for rc cycle, your call - this is really a fix)?
+This way, I won't re-submit this one in V2, since it's gonna be merged
+already in your branch.
+
+Thanks in advance,
 
 
 Guilherme
