@@ -2,72 +2,71 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 96CE551FF5A
-	for <lists+openipmi-developer@lfdr.de>; Mon,  9 May 2022 16:17:15 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DDA2851FFA1
+	for <lists+openipmi-developer@lfdr.de>; Mon,  9 May 2022 16:26:14 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1no4CH-0004Tz-Du; Mon, 09 May 2022 14:17:11 +0000
+	id 1no4Kt-0004vN-BM; Mon, 09 May 2022 14:26:05 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1no4CG-0004Tt-5N
- for openipmi-developer@lists.sourceforge.net; Mon, 09 May 2022 14:17:10 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1no4Kr-0004vH-06
+ for openipmi-developer@lists.sourceforge.net; Mon, 09 May 2022 14:26:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=vHtkmd2lwLYVtO4FWqrbyaVkWxRk4axb2Qa+PPeChZA=; b=Xdn4FaQQKCgg1mwQ3acdkEvqBj
- QonwMwS+Zbw7LSdxRRb/LYam4cr3jkWOIUbq7hn8mTrvtigXBcpI52rdI+f/n4H/H4vGU8S0d4sOM
- iaIEU6/sZ1VJEt3V69AN/1D8ZcBMVIUlXeWI1Y1a2nI5KHKB03xtePpGyKYFUUruGW9o=;
+ bh=P7ItdBTC+KXB0aqEwbSMXisX2R2Wb9V+tpF+BUJ3fMQ=; b=Dpcb0LPDSoMGqUuOJgDSTOiZj2
+ 3tgmQorXoOAm4Fxo/u3wOcD6zSklzyn69QiT03YICk6zz60Rv/YwlP7llLKE4IjX/zq89Y07Qg68Y
+ 9gKAkMYbIldTonvoJkuyig4kj143DHMlRwXrAV4trSo4NfXgIenaRmAMbE8tHcedUZGA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
  Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=vHtkmd2lwLYVtO4FWqrbyaVkWxRk4axb2Qa+PPeChZA=; b=kmsFg1uyihMZqWJfcJaR3N7a05
- eaPHM3Pr6YvH8N+ZoHKfpCGUEHkso5DuZbUZ4NHvjFqtiOwd0ThxbgJmZaOMyOV3Qmpmb7zREwf1g
- EDOr/yXUmNO2qH+TwVPQmfjtHLQH1lI2JCw9/2JAA2EFHKYRuGb50dBFeEKax668eaQM=;
+ bh=P7ItdBTC+KXB0aqEwbSMXisX2R2Wb9V+tpF+BUJ3fMQ=; b=INtweEvWpFEXjd1MfMZLpvxriI
+ MElv6mIygiH4rHd2xXHRzU//Lok8aTBSdxHyio/96ozkbpz/qdx2nOsC2NI8hUFryeImSZvpXzYmZ
+ DYAdxZSbd1Hgpd6l3yNnzletbd7PCjrfwsMksb3/qqrn3ZeaSJRRemv1SQ2ZK6cWvUNU=;
 Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1no4CC-0001A0-P7
- for openipmi-developer@lists.sourceforge.net; Mon, 09 May 2022 14:17:10 +0000
+ id 1no4Ko-006L4d-F5
+ for openipmi-developer@lists.sourceforge.net; Mon, 09 May 2022 14:26:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
  s=20170329;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
- References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=vHtkmd2lwLYVtO4FWqrbyaVkWxRk4axb2Qa+PPeChZA=; b=LskkzzJmYfWYXPeDfr2IdCaTLR
- 3hA3AwAXsFwPvw1yZOWysZYMySqHGiMeZOm0bDb2Q6RbJ01gLxUFvc0TPbGO4CNTknFlmWLHek9+j
- fNw6GIgfVAC2AwFEbPjx/A49ZgvLf4C98a1NhLhauKhl6X16yGXgUhVYkbLiMhd2bcyjc8FRhGAlV
- b0fE3r5ZHANgTVnzKk9zmgNYn+K1dB4VlK+OrOntysNOTeFSF6+gnM24q5MRGfpCActKh2ASDkGBP
- /lhbboZ2BaxSaPQdOYRyUWk/WZOTlB1ImMULVLiCjsomiGL/EUGjICR18d54kbZvnwoQGALy9IH6V
- nZhYpE5g==;
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
+ Cc:To:From:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=P7ItdBTC+KXB0aqEwbSMXisX2R2Wb9V+tpF+BUJ3fMQ=; b=afqWOj15+1L7ZOehgz4TDp3T9b
+ MarVdwm0LTk8+i9B4YSy7xFp7vHwG1/w4WbfDff1U5lUjMxS0vk2DRuV0fJ7wbVLLeaMw89VjYM5x
+ WVJwpPzVyva0X5NmUi/i4nuSyMS2YeO8WasLcgi1Y8xImc6fOPpwaaWR9ocIpTn6nZEFaqdopezXx
+ OHjXA1hjw9QuPDRbTOoKOwl5vTqszrquVcmDp1xGYYzEdEOTzOi8SiNmSxJjEIE9o/SJMrBbQG4MO
+ b+UdR8rUhoog9dM2StftHOG35g7VaJwxTPUyd5VBoTJ128N6lfMi0IgW+WU1FzuWQA7pga9h2J0Nf
+ 78MmVTaA==;
 Received: from [177.183.162.244] (helo=[192.168.0.5])
  by fanzine2.igalia.com with esmtpsa 
  (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
- id 1no4Bp-000ApE-Jf; Mon, 09 May 2022 16:16:45 +0200
-Message-ID: <7017c234-7c73-524a-11b6-fefdd5646f59@igalia.com>
-Date: Mon, 9 May 2022 11:16:10 -0300
+ id 1no4KQ-000BPa-6C; Mon, 09 May 2022 16:25:38 +0200
+Message-ID: <260dccd8-a4f6-882c-8767-5bc27576df14@igalia.com>
+Date: Mon, 9 May 2022 11:25:06 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.8.1
 Content-Language: en-US
-To: Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>, Heiko Carstens <hca@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>
-References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-23-gpiccoli@igalia.com>
 From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <20220427224924.592546-23-gpiccoli@igalia.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+References: <20220427224924.592546-1-gpiccoli@igalia.com>
+ <20220427224924.592546-25-gpiccoli@igalia.com>
+ <4fe85e9c-4e96-e9d5-9fd8-f062bafcda4f@infradead.org>
+ <7518924e-5bb4-e6e9-0e3e-3f5cb03bf946@igalia.com>
+In-Reply-To: <7518924e-5bb4-e6e9-0e3e-3f5cb03bf946@igalia.com>
 X-Spam-Score: -1.3 (-)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
@@ -75,9 +74,10 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 27/04/2022 19:49, Guilherme G. Piccoli wrote: > Currently
- we have 3 notifier lists in the panic path, which will > be wired in a way
- to allow the notifier callbacks to run in > different moments at [...] 
+ Content preview:  On 29/04/2022 13:04,
+ Guilherme G. Piccoli wrote: > On 27/04/2022
+ 21:28, Randy Dunlap wrote: >> >> >> On 4/27/22 15:49, Guilherme G. Piccoli
+ wrote: >>> + crash_kexec_post_notifiers >>> + This was DEPRE [...] 
  Content analysis details:   (-1.3 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -92,9 +92,9 @@ X-Spam-Report: Spam detection software,
  author's domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
  -1.1 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1no4CC-0001A0-P7
-Subject: Re: [Openipmi-developer] [PATCH 22/30] panic: Introduce the panic
- post-reboot notifier list
+X-Headers-End: 1no4Ko-006L4d-F5
+Subject: Re: [Openipmi-developer] [PATCH 24/30] panic: Refactor the panic
+ path
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,8 +107,8 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
- linux-xtensa@linux-xtensa.org, peterz@infradead.org,
+Cc: linux-hyperv@vger.kernel.org, halves@canonical.com, pmladek@suse.com,
+ gregkh@linuxfoundation.org, peterz@infradead.org,
  alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
  feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
  sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
@@ -116,10 +116,10 @@ Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
  john.ogness@linutronix.de, bhe@redhat.com, corbet@lwn.net, paulmck@kernel.org,
  fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
  bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
- dyoung@redhat.com, vgoyal@redhat.com, pmladek@suse.com,
+ dyoung@redhat.com, vgoyal@redhat.com, linux-xtensa@linux-xtensa.org,
  dave.hansen@linux.intel.com, keescook@chromium.org, arnd@arndb.de,
  linux-pm@vger.kernel.org, linux-um@lists.infradead.org, rostedt@goodmis.org,
- rcu@vger.kernel.org, gregkh@linuxfoundation.org, bp@alien8.de, luto@kernel.org,
+ rcu@vger.kernel.org, bp@alien8.de, luto@kernel.org,
  linux-tegra@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
  andriy.shevchenko@linux.intel.com, vkuznets@redhat.com,
  linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
@@ -132,37 +132,33 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 27/04/2022 19:49, Guilherme G. Piccoli wrote:
-> Currently we have 3 notifier lists in the panic path, which will
-> be wired in a way to allow the notifier callbacks to run in
-> different moments at panic time, in a subsequent patch.
+On 29/04/2022 13:04, Guilherme G. Piccoli wrote:
+> On 27/04/2022 21:28, Randy Dunlap wrote:
+>>
+>>
+>> On 4/27/22 15:49, Guilherme G. Piccoli wrote:
+>>> +	crash_kexec_post_notifiers
+>>> +			This was DEPRECATED - users should always prefer the
+>>
+>> 			This is DEPRECATED - users should always prefer the
+>>
+>>> +			parameter "panic_notifiers_level" - check its entry
+>>> +			in this documentation for details on how it works.
+>>> +			Setting this parameter is exactly the same as setting
+>>> +			"panic_notifiers_level=4".
+>>
 > 
-> But there is also an odd set of architecture calls hardcoded in
-> the end of panic path, after the restart machinery. They're
-> responsible for late time tunings / events, like enabling a stop
-> button (Sparc) or effectively stopping the machine (s390).
+> Thanks Randy, for your suggestion - but I confess I couldn't understand
+> it properly. It's related to spaces/tabs, right? What you suggest me to
+> change in this formatting? Just by looking the email I can't parse.
 > 
-> This patch introduces yet another notifier list to offer the
-> architectures a way to add callbacks in such late moment on
-> panic path without the need of ifdefs / hardcoded approaches.
+> Cheers,
 > 
-> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-> Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: Sven Schnelle <svens@linux.ibm.com>
-> Cc: Vasily Gorbik <gor@linux.ibm.com>
-> Signed-off-by: Guilherme G. Piccoli <gpiccoli@igalia.com>
+> 
+> Guilherme
 
-Hey S390/SPARC folks, sorry for the ping!
-
-Any reviews on this V1 would be greatly appreciated, I'm working on V2
-and seeking feedback in the non-reviewed patches.
-
-Thanks in advance,
-
-
-Guilherme
+Complete lack of attention from me, apologies!
+The suggestions was s/was/is - already fixed for V2, thanks Randy.
 
 
 _______________________________________________
