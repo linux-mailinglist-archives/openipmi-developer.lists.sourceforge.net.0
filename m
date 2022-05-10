@@ -2,92 +2,97 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id E3F98521B96
-	for <lists+openipmi-developer@lfdr.de>; Tue, 10 May 2022 16:13:48 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 43CB5521B7B
+	for <lists+openipmi-developer@lfdr.de>; Tue, 10 May 2022 16:12:21 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1noQcT-00060U-Sg; Tue, 10 May 2022 14:13:44 +0000
+	id 1noQaz-0001bz-Ux; Tue, 10 May 2022 14:12:14 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <mpe@ellerman.id.au>) id 1noQcS-00060O-JI
- for openipmi-developer@lists.sourceforge.net; Tue, 10 May 2022 14:13:43 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1noQay-0001bj-Dz
+ for openipmi-developer@lists.sourceforge.net; Tue, 10 May 2022 14:12:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Message-ID:Date:
- References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=RKiZUE5HvPhTVnUibJtmltdG/qpHsl+mSP0bgs2lHhQ=; b=GzyZ0/JFzRtiqhbpfsGM5Fobil
- KaB5Dx9+Km34S0LvAdGLK8efQ+5xcbyGZvbIR/4bgBcfXUTv5bbgBpKHHzGntjDm8jPrS9y2OtsvP
- fw36573j/2ZrZKFOhc4hxHC9c2oM3xa3fMIkBvpKaFHA+QHrOLDyy1ytVdQFSseaTJfE=;
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=vlPcmXA97Qhtkz3pBw6LdXf1X8P0UYvVzj4VthO5jgc=; b=OfbwwqUF0aZAMAN79gVrVAUu+2
+ w348oPNUqZ49lUu/LMh4ad6DmGzZAXDcYl3UdNMG0qrO5TvuLh9Sx68lvxZwC4lFJdg0zb7FZyGOl
+ hN5zVbtY4H0qtQamqOiXXhV8ERR7y4hz0LCLtxVD8fzu2nGoiUTJZDPYyY3JkgQZ6Rog=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:
- Cc:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=RKiZUE5HvPhTVnUibJtmltdG/qpHsl+mSP0bgs2lHhQ=; b=Ti/JHccjrpkiHtEplXKY0iy4OS
- qWWYH9bOTG0Sqmv03lsyuQ939U//IwWwtT83YyO/l+xHvg2V48FBEEBibePY+Nq54ESP2eUdYmEJA
- GFt8xjU5M+L90MqAXEEF4ci689tjcXy0WWMDMbk/AlVHFQAQojta/oK6BASVV+I1CMG0=;
-Received: from gandalf.ozlabs.org ([150.107.74.76])
+ bh=vlPcmXA97Qhtkz3pBw6LdXf1X8P0UYvVzj4VthO5jgc=; b=maV8BH841DYPS8vr4uJiNQPN5n
+ Qlw0wAyNXKgY0AwmYSWq8oqm4o4kOEe7tro1M3S4EvC364NqfG0gYcKAX5Ycx8zfAdyQpUQipuIIJ
+ 1mzm0AjBvRbteSoum61jVTClhT90tzrgbQ4efaTWUKIdc96E+o10mcImb1fElAbvntE4=;
+Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1noQcP-0003ho-BA
- for openipmi-developer@lists.sourceforge.net; Tue, 10 May 2022 14:13:42 +0000
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (No client certificate requested)
- by mail.ozlabs.org (Postfix) with ESMTPSA id 4KyKJp4qqdz4yTd;
- Tue, 10 May 2022 23:54:02 +1000 (AEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
- s=201909; t=1652190848;
- bh=RKiZUE5HvPhTVnUibJtmltdG/qpHsl+mSP0bgs2lHhQ=;
- h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
- b=Z05kSyfn/tRZEkMC+xx0iIJQ7Am+MQO7HLgvv0mZSHOcfpqTom2o/uwqzS0x8Mf2S
- +MV9rZ+Fzf71f3gh47v8ZN6FuQpE+0hL2e6Ug+4kF9Y6fEpYke0W/joqSUA70Lwp5I
- 4Ppma9tFa9PkRNG20BN4X8MRlMpJ63sRO/S19u9v0FZlEHa4Js3eqk1sS3wGAa85dR
- +Jh96R1o2OAtJhZFfuVMo1EZ8CMSa8mkEAFP0AyoLzOV+kygqKbLAfKRxs3fKgbcsD
- 1Vaxn4RMiVSaImYmC7RQ1ktIs3LG4P5Jb+tgoFnzybYroBhkWvfkc77elbZWKz1nx/
- 2xhke52QkhhQQ==
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Hari Bathini
- <hbathini@linux.ibm.com>
-In-Reply-To: <f9c3de3c-1709-a1aa-2ece-c9fbfd5e6d6a@igalia.com>
+ id 1noQas-0003dX-Ui
+ for openipmi-developer@lists.sourceforge.net; Tue, 10 May 2022 14:12:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
+ s=20170329;
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+ References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=vlPcmXA97Qhtkz3pBw6LdXf1X8P0UYvVzj4VthO5jgc=; b=e9qBavzt7iSXqotIL+kEfOWSDC
+ iVRppT3Hb/vZk3YrAi/b/1Sks4coJ4CDDP+7PsBf/3PYaPFt1gdo8rsOdKqYQ7smquEWj28eStWqL
+ CRF+oqCbuJG6ZM1a8GSMIH+b891MTAxbko/s3bV28TSILNPx0vJS6lKq9Hi1OrpvIOMJ2yAsDH+AE
+ 5UZLLIZnAX0XkUOFElR9JGQkkK04aCtF/juYrAyo+JJs0W0WZech05pCgMVZEF/gDbG3lXHdR+nlg
+ gc7p3pNqQj2cprKtyF3OhhaP7dxC5PNGfWWqohU3giKekM5UQ60wlcwHLGqdoJfnT4tcYUBBcGgto
+ etn8qzNQ==;
+Received: from [177.183.162.244] (helo=[192.168.0.5])
+ by fanzine2.igalia.com with esmtpsa 
+ (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+ id 1noQa0-000AUZ-9j; Tue, 10 May 2022 16:11:12 +0200
+Message-ID: <58837e3d-0e2a-42ac-f198-9fe7be7aa823@igalia.com>
+Date: Tue, 10 May 2022 11:10:40 -0300
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.1
+Content-Language: en-US
+To: Michael Ellerman <mpe@ellerman.id.au>,
+ Hari Bathini <hbathini@linux.ibm.com>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
  <20220427224924.592546-9-gpiccoli@igalia.com>
  <3c34d8e2-6f84-933f-a4ed-338cd300d6b0@linux.ibm.com>
  <f9c3de3c-1709-a1aa-2ece-c9fbfd5e6d6a@igalia.com>
-Date: Tue, 10 May 2022 23:53:56 +1000
-Message-ID: <87fslh8pe3.fsf@mpe.ellerman.id.au>
-MIME-Version: 1.0
-X-Spam-Score: -0.2 (/)
+ <87fslh8pe3.fsf@mpe.ellerman.id.au>
+From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+In-Reply-To: <87fslh8pe3.fsf@mpe.ellerman.id.au>
+X-Spam-Score: -2.2 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  "Guilherme G. Piccoli" <gpiccoli@igalia.com> writes: > On
- 05/05/2022 15:55, Hari Bathini wrote: >> [...] >> The change looks good. I
- have tested it on an LPAR (ppc64). >> >> Reviewed-by: Hari Bathini [...] 
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content preview:  On 10/05/2022 10:53, Michael Ellerman wrote: > "Guilherme
+ G. Piccoli" <gpiccoli@igalia.com> writes: >> On 05/05/2022 15:55, Hari Bathini
+ wrote: >>> [...] >>> The change looks good. I have tested it on [...] 
+ Content analysis details:   (-2.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1noQcP-0003ho-BA
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1noQas-0003dX-Ui
 Subject: Re: [Openipmi-developer] [PATCH 08/30] powerpc/setup:
  Refactor/untangle panic notifiers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -129,23 +134,39 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-"Guilherme G. Piccoli" <gpiccoli@igalia.com> writes:
-> On 05/05/2022 15:55, Hari Bathini wrote:
->> [...] 
->> The change looks good. I have tested it on an LPAR (ppc64).
->> 
->> Reviewed-by: Hari Bathini <hbathini@linux.ibm.com>
->> 
->
-> Hi Michael. do you think it's possible to add this one to powerpc/next
-> (or something like that), or do you prefer a V2 with his tag?
+On 10/05/2022 10:53, Michael Ellerman wrote:
+> "Guilherme G. Piccoli" <gpiccoli@igalia.com> writes:
+>> On 05/05/2022 15:55, Hari Bathini wrote:
+>>> [...] 
+>>> The change looks good. I have tested it on an LPAR (ppc64).
+>>>
+>>> Reviewed-by: Hari Bathini <hbathini@linux.ibm.com>
+>>>
+>>
+>> Hi Michael. do you think it's possible to add this one to powerpc/next
+>> (or something like that), or do you prefer a V2 with his tag?
+> 
+> Ah sorry, I assumed it was going in as part of the whole series. I guess
+> I misread the cover letter.
+> 
+> So you want me to take this patch on its own via the powerpc tree?
+> 
+> cheers
 
-Ah sorry, I assumed it was going in as part of the whole series. I guess
-I misread the cover letter.
+Hi Michael, thanks for the prompt response!
 
-So you want me to take this patch on its own via the powerpc tree?
+You didn't misread, that was the plan heh
+But some maintainers start to take patches and merge in their trees, and
+in the end, it seems to make sense - almost half of this series are
+fixes or clean-ups, that are not really necessary to get merged altogether.
 
-cheers
+So, if you can take this one, I'd appreciate - it'll make V2 a bit
+smaller =)
+
+Cheers,
+
+
+Guilherme
 
 
 _______________________________________________
