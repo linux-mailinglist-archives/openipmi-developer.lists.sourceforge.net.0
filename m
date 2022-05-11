@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A095F523E83
-	for <lists+openipmi-developer@lfdr.de>; Wed, 11 May 2022 22:12:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 32959523EDD
+	for <lists+openipmi-developer@lfdr.de>; Wed, 11 May 2022 22:24:36 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nosgj-0008MF-Mb; Wed, 11 May 2022 20:12:00 +0000
+	id 1nossr-0000OR-5d; Wed, 11 May 2022 20:24:32 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1nosgZ-0008Lj-Hd
- for openipmi-developer@lists.sourceforge.net; Wed, 11 May 2022 20:11:50 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1nossp-0000OH-QL
+ for openipmi-developer@lists.sourceforge.net; Wed, 11 May 2022 20:24:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=CJFn3sQ0AXqP082WliZpvB/FNlzjPtgRZLj1CZSBav8=; b=jmcIqTGUu0BQpOFpEaAZeU4gjB
- rQdzdsb6xZq9fNUnBLLqMNOWAquvBe1lIydGG/yoo2zutnfoO+VMcCPQnP5JsPhjcWTaMbvfH3bPd
- MK9vrt5Z5JiRkoTKeDcqtKJipVm+JLzl4XF1aTK4MhEhWaLxsJMxm81XBLyJLWyoRjFU=;
+ bh=LCKlEcL/+gLbho7zoJo89g9MDYx2GFkg8N7n1nlW+0g=; b=MWlOm7jAceixcDyhSOiHNPbl1K
+ QHdid+AtCbAXh6Ygl7NdcGGcexu1UI6n+MLqUtNZ/GQRiZonAp3OL0fVO1w+99m3s20zyLTZrPCDn
+ /Xxf3SNpg2v1YnFR0K/dPJvOfx5ah8wW58X9AZxwHiAwIV2tmCvQOCKy472BeyhX02zA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
@@ -29,14 +29,14 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=CJFn3sQ0AXqP082WliZpvB/FNlzjPtgRZLj1CZSBav8=; b=kHm/ufwxamWwmmGLROJxLmmtIE
- VwqnhHIAaF0U4HoSVpdk0ON9TBauGHicq4ciH5NmDtU3vTDfo4aS15yr8UQYKdeCEfXhi9PCH2yBk
- adfaqLm/MJqjIrfcavsL8vb+x9/zNVi+WRNY+zpqMu1i08nSHNH0sdwMhZArosSYRYUQ=;
+ bh=LCKlEcL/+gLbho7zoJo89g9MDYx2GFkg8N7n1nlW+0g=; b=CNMrvLxLuqCZOlLrV3lLcD1RDC
+ uwP4X5ErwTiz/gGUVXlA8JnT0GiPahJX/TFk1xwjyZjnoFEEldLLJsfat9wm2GjAX61Ot9XLVq4k7
+ a6zImmbyQsd3SxWNZzFJrNc4ik587rYb6qqychZewjXr6g5hO3GRAQ+DGHPCf+z5givc=;
 Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nosgU-00009u-Kg
- for openipmi-developer@lists.sourceforge.net; Wed, 11 May 2022 20:11:50 +0000
+ id 1nosso-0095DI-6q
+ for openipmi-developer@lists.sourceforge.net; Wed, 11 May 2022 20:24:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
  s=20170329;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
@@ -44,28 +44,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=CJFn3sQ0AXqP082WliZpvB/FNlzjPtgRZLj1CZSBav8=; b=H0RwJ9q3twuN5LBJHRtfqxptfc
- +ZBTnXeu+L1QTWv6VeJ074IpruVUqgFdW2irvRDjWrUeZMfUmFqRter3RBPu9sBjZvDxvw8AhX4xB
- NGR1Fc+pyWr1+lwnwPjEPDyZEUU6BxtInHBrU2MsFuhkvRoiyT0qN7DKB5jSGNAhlNUyQGg7oS78I
- 1IGokeMYkc2KXY4h6njrMqutcn89GTgmPXm9L8Rca7UD8k1O9WKCSzu2tsWk1It1LXW6uhsh6pzXU
- eq99TNaaB0b0wsrDl7wLGrG68y5q49uL+rS1rPP4MnQKtWlwuuoA5/zs3LiCVa22Xsjm4CNZYglTD
- lORMiUaA==;
+ bh=LCKlEcL/+gLbho7zoJo89g9MDYx2GFkg8N7n1nlW+0g=; b=MQpyMZ3nMM+SlSF0Ic+7AggIHS
+ wWCWxLFJNdpcNC/qKw1wNJR3uSo8xMkfiJlq7d2aikSbZG9yuq1pfGOyawWDcFgWnRsla4fbF455Y
+ 3RXCIUoMIO9o6uix81B+J++RZraHoxYIg5AFTEzg2KmNpXSrs7BEjvRicrp5TYhs6s3mYN27kkyAz
+ njPDxaRSeQ75fkZPzqisnL9xIuav4szhmycF8VItK7avDyCoEE8U/Zs7xTZO8x+jizmxi0qGskMhG
+ GsWdK7oyZ7kJDFhpPsgWAmAhF7aiE+T5aNpN2RQ5WYTzC7ql7jtRy3esjCfYNiJNCeB+2D6JHceeB
+ Ayva3vzg==;
 Received: from [177.183.162.244] (helo=[192.168.0.5])
  by fanzine2.igalia.com with esmtpsa 
  (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
- id 1nosg4-0009ub-Ok; Wed, 11 May 2022 22:11:21 +0200
-Message-ID: <37190938-8133-aafa-ea4a-e50f574dd73b@igalia.com>
-Date: Wed, 11 May 2022 17:10:06 -0300
+ id 1noss0-000Aod-US; Wed, 11 May 2022 22:23:41 +0200
+Message-ID: <4b003501-f5c3-cd66-d222-88d98c93e141@igalia.com>
+Date: Wed, 11 May 2022 17:22:22 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.8.1
 Content-Language: en-US
-To: Petr Mladek <pmladek@suse.com>
+To: Petr Mladek <pmladek@suse.com>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Richard Weinberger <richard@nod.at>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-11-gpiccoli@igalia.com>
- <f6def662-5742-b3a8-544f-bf15c636d83d@igalia.com> <YnpzpkfuwzJYbPYj@alley>
+ <20220427224924.592546-12-gpiccoli@igalia.com> <Ynp2hRodh04K3pzK@alley>
 From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <YnpzpkfuwzJYbPYj@alley>
+In-Reply-To: <Ynp2hRodh04K3pzK@alley>
 X-Spam-Score: -0.9 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
@@ -73,9 +75,9 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 10/05/2022 11:16, Petr Mladek wrote: > [...] > Yeah, it
- is pretty strange behavior. > > I looked into the history. This notifier
- was added into the alpha code > in 2.4.0-test2pre2. In this historic [...]
+ Content preview:  On 10/05/2022 11:28, Petr Mladek wrote: > [...] > It is not
+ clear to me why user mode linux should not care about > the other notifiers.
+ It might be because I do not know much > about the user mode li [...] 
  Content analysis details:   (-0.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -90,9 +92,9 @@ X-Spam-Report: Spam detection software,
  author's domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
  -0.7 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1nosgU-00009u-Kg
-Subject: Re: [Openipmi-developer] [PATCH 10/30] alpha: Clean-up the panic
- notifier code
+X-Headers-End: 1nosso-0095DI-6q
+Subject: Re: [Openipmi-developer] [PATCH 11/30] um: Improve panic notifiers
+ consistency and ordering
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,54 +111,61 @@ Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
  gregkh@linuxfoundation.org, peterz@infradead.org,
  alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
  feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
- sparclinux@vger.kernel.org, will@kernel.org,
- openipmi-developer@lists.sourceforge.net, linux-leds@vger.kernel.org,
- linux-s390@vger.kernel.org, mikelley@microsoft.com, john.ogness@linutronix.de,
- bhe@redhat.com, corbet@lwn.net, paulmck@kernel.org, fabiomirmar@gmail.com,
- x86@kernel.org, mingo@redhat.com, bcm-kernel-feedback-list@broadcom.com,
- xen-devel@lists.xenproject.org, Matt Turner <mattst88@gmail.com>,
+ sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
+ linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
+ john.ogness@linutronix.de, bhe@redhat.com, corbet@lwn.net, paulmck@kernel.org,
+ fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
  dyoung@redhat.com, vgoyal@redhat.com, linux-xtensa@linux-xtensa.org,
  dave.hansen@linux.intel.com, keescook@chromium.org, arnd@arndb.de,
  linux-pm@vger.kernel.org, linux-um@lists.infradead.org, rostedt@goodmis.org,
- rcu@vger.kernel.org, Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- luto@kernel.org, linux-tegra@vger.kernel.org, rth@gcc.gnu.org,
+ rcu@vger.kernel.org, bp@alien8.de, luto@kernel.org,
+ linux-tegra@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
  andriy.shevchenko@linux.intel.com, vkuznets@redhat.com,
  linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
  netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
  linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
- senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, tglx@linutronix.de,
- mhiramat@kernel.org, kernel-dev@igalia.com, linux-alpha@vger.kernel.org,
- bp@alien8.de, akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
+ senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
+ kernel-dev@igalia.com, linux-alpha@vger.kernel.org, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 10/05/2022 11:16, Petr Mladek wrote:
+On 10/05/2022 11:28, Petr Mladek wrote:
 > [...]
-> Yeah, it is pretty strange behavior.
+> It is not clear to me why user mode linux should not care about
+> the other notifiers. It might be because I do not know much
+> about the user mode linux.
 > 
-> I looked into the history. This notifier was added into the alpha code
-> in 2.4.0-test2pre2. In this historic code, the default panic() code
-> either rebooted after a timeout or ended in a infinite loop. There
-> was not crasdump at that times.
+> Is the because they always create core dump or are never running
+> in a hypervisor or ...?
 > 
-> The notifier allowed to change the behavior. There were 3 notifiers:
-> 
->    + mips and mips64 ended with blinking in panic()
->    + alpha did __halt() in this srm case
-> 
-> They both still do this. I guess that it is some historic behavior
-> that people using these architectures are used to.
-> 
-> Anyway, it makes sense to do this as the last notifier after
-> dumping other information.
-> 
-> Reviewed-by: Petr Mladek <pmladek@suse.com>
-> 
-> Best Regards,
-> Petr
+> AFAIK, the notifiers do many different things. For example, there
+> is a notifier that disables RCU watchdog, print some extra
+> information. Why none of them make sense here?
+>
 
-Thanks a bunch for the review - added your tag for V2 =)
+Hi Petr, my understanding is that UML is a form of running Linux as a
+regular userspace process for testing purposes. With that said, as soon
+as we exit in the error path, less "pollution" would happen, so users
+can use GDB to debug the core dump for example.
+
+In later patches of this series (when we split the panic notifiers in 3
+lists) these UML notifiers run in the pre-reboot list, so they run after
+the informational notifiers for example (in the default level).
+But without the list split we cannot order properly, so my gut feeling
+is that makes sense to run them rather earlier than later in the panic
+process...
+
+Maybe Anton / Johannes / Richard could give their opinions - appreciate
+that, I'm not attached to the priority here, it's more about users'
+common usage of UML I can think of...
+
+Cheers,
+
+
+Guilherme
 
 
 _______________________________________________
