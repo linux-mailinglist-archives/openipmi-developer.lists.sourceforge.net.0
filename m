@@ -2,122 +2,95 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6441B524BA2
-	for <lists+openipmi-developer@lfdr.de>; Thu, 12 May 2022 13:29:56 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5DB3F524F42
+	for <lists+openipmi-developer@lfdr.de>; Thu, 12 May 2022 16:03:36 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1np70y-0000Pt-TU; Thu, 12 May 2022 11:29:52 +0000
+	id 1np9Ph-0007N5-Gj; Thu, 12 May 2022 14:03:32 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <linmq006@gmail.com>) id 1np0hC-00048n-HI
- for openipmi-developer@lists.sourceforge.net; Thu, 12 May 2022 04:45:01 +0000
+ (envelope-from <pmladek@suse.com>) id 1np9Pg-0007Mz-7y
+ for openipmi-developer@lists.sourceforge.net; Thu, 12 May 2022 14:03:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=R30IJVXwSL1ZnJ1BIT6fsASUfGoZMEuIG7wV6MAjJno=; b=j8HwqNZh5QjYbD8fMmxfcLllJk
- 1jsY/LPxSMR4n5l9sIfcyuHPwnCvct1KkGgkZUB9uayFQhtjdYLNju4i2gNQ6KPax8+sKwMzpLdDy
- /zzR2UHd/EdLKWsL/svC2Dbp0wDf/Lv6nQbPnIyD0EY4ltdBevRFPU26XJdHRyT88nGo=;
+ bh=LqB96ySSQJ4ly+3J+rYGGuH/Fd7fkvILEbloF31pDTM=; b=UsrQnad2Z1d/ThWjIG97xVik7O
+ 7SJNG+iMtQFH3CY8o6iIjt5AX8ZkxAaM0nY2mzsKbdJO5ooprOhjPgsaJz++zo9MdUpMRfCkzxIUu
+ WTKo5UhLX9DxUJhfAgzQ2bDDg/bies61ERhKfIw318TZTPfLccanGgd489Ts3LyYUqUE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=R30IJVXwSL1ZnJ1BIT6fsASUfGoZMEuIG7wV6MAjJno=; b=h
- D7xhxbLB1T90vLMx+CjFkfL519mgvuJMVUvNO1t/ayYH0vLXq4JbfJMjCjfhXNRouuciUbXUzzo/H
- 4ocYqYYyKxYgzwwM0fACWGjY9GD+wDEveHu28xfOdciw5cyEySExHYbAxzRiI3IwL9j2gx76iJQAJ
- PtMSxIN8SlABGKVI=;
-Received: from mail-pf1-f170.google.com ([209.85.210.170])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=LqB96ySSQJ4ly+3J+rYGGuH/Fd7fkvILEbloF31pDTM=; b=jtOhgpaB0kwZ1nAK6iNsmxcR6j
+ p4+wW8SksIhKhzkn3M++AIJF7ECK9txJWMKIs2lvOxWtTDpb+iKSumdTLeMUKzsPQvHoAXYsaepZm
+ Xt5Sj6pR9t1jxQwhds0FwqqYyLkFNvbZVeBj5WVPxJqzerjI3VJcq59bmhc78QZsky3c=;
+Received: from smtp-out1.suse.de ([195.135.220.28])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
- id 1np0h9-009NUn-KI
- for openipmi-developer@lists.sourceforge.net; Thu, 12 May 2022 04:45:01 +0000
-Received: by mail-pf1-f170.google.com with SMTP id 204so3762934pfx.3
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 11 May 2022 21:44:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=R30IJVXwSL1ZnJ1BIT6fsASUfGoZMEuIG7wV6MAjJno=;
- b=h+dZ7D555Y0ff/nw/PrelqhTvfGg6mV1wkRwlHQISW4SAYlgve8QYXHoBXLJYVvAX3
- V7dIXIcR7GpkdYPqL97NaURewls84oNM/BmyPIGFZxb85VSJHecbsYINz/YPqIf0zoZL
- 5PiSm6RVfuYl6+iDo0QGHbhNR/gsVdvxiso6axaNYfWPyIiazAJj/CW1t1Cvnv6d0vEH
- +XMG2dSO1vRHo0Sv7pYBiMqGRN2IH/PvvEmG9OH3F1Qkm+DzuWtNGfiecKPqOeQQnp3h
- HF1QE8CFU4X+pr874n5hRKOUhtPVtdVNOdWgzGXqkSaBjNUUzjhKvObBKQndnLbfw0n9
- jHrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=R30IJVXwSL1ZnJ1BIT6fsASUfGoZMEuIG7wV6MAjJno=;
- b=2Cvv4tPifKd5M3AGR1cjxP2XyWFUuBdJ5Hl43P15/p+K7MsOQcLsoQHqTSyCQb3uu1
- GjUnGnkZiZ95zgFYmlPE6bU2VNM7NIsol31IaSge8/wKKoaL4x7paYhwlWTkBlBUMPxu
- 6lTc3VVc7SKIdCSYW/dHj6FFqVZr9MMP2BWxzotmZ54pHlTcGWhT3KPxODrhM/Hr7OA9
- yl7AbbLRX2iWtZHFJsczXEiUwYNKE+MtDqdooV0FYIFK/nsOeVFB1d281aIlnedtR45I
- bxRD7nqX/VHm3tAYCWNS9s36Z0nbKlsmM+oKwEPLdRKZfojNS6lscPjhO9XXCZE83FZp
- KxJA==
-X-Gm-Message-State: AOAM530KGbcR5YzasQjCLfvJEI0hVuq3rPaP9e0qXEgtq//seZDFPfep
- 5+zMcphoH2Ebg5dZdLn+Rm0=
-X-Google-Smtp-Source: ABdhPJx647XsCpk5dUpr8pTM+cEV6eKbfb7pvLcYKJx4e47f2P98TMMu9EY80y2LRb9+xo0KYSXA6A==
-X-Received: by 2002:a05:6a00:14cc:b0:510:4b70:403e with SMTP id
- w12-20020a056a0014cc00b005104b70403emr28190061pfu.55.1652330694042; 
- Wed, 11 May 2022 21:44:54 -0700 (PDT)
-Received: from localhost.localdomain ([202.120.234.246])
- by smtp.googlemail.com with ESMTPSA id
- s7-20020a17090aba0700b001d5943e826asm794167pjr.20.2022.05.11.21.44.51
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 11 May 2022 21:44:53 -0700 (PDT)
-From: Miaoqian Lin <linmq006@gmail.com>
-To: Corey Minyard <minyard@acm.org>, openipmi-developer@lists.sourceforge.net,
- linux-kernel@vger.kernel.org
-Date: Thu, 12 May 2022 08:44:45 +0400
-Message-Id: <20220512044445.3102-1-linmq006@gmail.com>
-X-Mailer: git-send-email 2.25.1
+ id 1np9PZ-0001bM-UE
+ for openipmi-developer@lists.sourceforge.net; Thu, 12 May 2022 14:03:30 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+ by smtp-out1.suse.de (Postfix) with ESMTP id 600DB21B2F;
+ Thu, 12 May 2022 14:03:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1652364196; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=LqB96ySSQJ4ly+3J+rYGGuH/Fd7fkvILEbloF31pDTM=;
+ b=q3SRuDuz1bsrtNT6AQbijhKvd/E1pyV5ISS04f4B5Eo/MpxJkThlvlpzsrdXZrusqFVq1r
+ 7s+CTa1eDnSZSlcSzDLMEjhXIjmmjm5vpsFw4wJd/0EtFszB2sl8NlJGjykorM6dG2+lpF
+ 5FiP1kelHffEWxoWnmRZqh37k1tv6Lg=
+Received: from suse.cz (unknown [10.100.208.146])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by relay2.suse.de (Postfix) with ESMTPS id 5C2702C141;
+ Thu, 12 May 2022 14:03:13 +0000 (UTC)
+Date: Thu, 12 May 2022 16:03:10 +0200
+To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Message-ID: <Yn0TnsWVxCcdB2yO@alley>
+References: <20220427224924.592546-1-gpiccoli@igalia.com>
+ <20220427224924.592546-25-gpiccoli@igalia.com>
 MIME-Version: 1.0
-X-Spam-Score: 0.0 (/)
+Content-Disposition: inline
+In-Reply-To: <20220427224924.592546-25-gpiccoli@igalia.com>
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: of_parse_phandle() returns a node pointer with refcount
- incremented, 
- we should use of_node_put() on it when done. Add missing of_node_put() to
- avoid refcount leak. Fixes: 00d93611f002 ("ipmi:ipmb: Add the ability to
- have a separate slave and master device") Signed-off-by: Miaoqian Lin ---
- drivers/char/ipmi/ipmi_ipmb.c | 1 + 1 file changed, 1 insertion(+) 
- Content analysis details:   (0.0 points, 6.0 required)
+ Content preview:  Hello, first, I am sorry for stepping into the discussion
+ so late. I was busy with some other stuff and this patchset is far from
+ trivial.
+ Second, thanks a lot for putting so much effort into it. Most of the changes
+ look pretty good, especially all the fixes of particular notifiers and split
+ into four lists. 
+ Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [linmq006[at]gmail.com]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [linmq006[at]gmail.com]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.28 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.170 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.170 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1np0h9-009NUn-KI
-X-Mailman-Approved-At: Thu, 12 May 2022 11:29:50 +0000
-Subject: [Openipmi-developer] [PATCH] ipmi:ipmb: Fix refcount leak in
- ipmi_ipmb_probe
+X-Headers-End: 1np9PZ-0001bM-UE
+Subject: Re: [Openipmi-developer] [PATCH 24/30] panic: Refactor the panic
+ path
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -130,36 +103,416 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linmq006@gmail.com
+From: Petr Mladek via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Petr Mladek <pmladek@suse.com>
+Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
+ gregkh@linuxfoundation.org, peterz@infradead.org,
+ alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
+ feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
+ sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
+ linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
+ john.ogness@linutronix.de, bhe@redhat.com, corbet@lwn.net, paulmck@kernel.org,
+ fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
+ dyoung@redhat.com, vgoyal@redhat.com, linux-xtensa@linux-xtensa.org,
+ dave.hansen@linux.intel.com, keescook@chromium.org, arnd@arndb.de,
+ linux-pm@vger.kernel.org, coresight@lists.linaro.org,
+ linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
+ bp@alien8.de, luto@kernel.org, linux-tegra@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
+ vkuznets@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
+ netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
+ senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
+ kernel-dev@igalia.com, linux-alpha@vger.kernel.org, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-of_parse_phandle() returns a node pointer with refcount
-incremented, we should use of_node_put() on it when done.
-Add missing of_node_put() to avoid refcount leak.
+Hello,
 
-Fixes: 00d93611f002 ("ipmi:ipmb: Add the ability to have a separate slave and master device")
-Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
----
- drivers/char/ipmi/ipmi_ipmb.c | 1 +
- 1 file changed, 1 insertion(+)
+first, I am sorry for stepping into the discussion so late.
+I was busy with some other stuff and this patchset is far
+from trivial.
 
-diff --git a/drivers/char/ipmi/ipmi_ipmb.c b/drivers/char/ipmi/ipmi_ipmb.c
-index b81b862532fb..a8bfe0ade082 100644
---- a/drivers/char/ipmi/ipmi_ipmb.c
-+++ b/drivers/char/ipmi/ipmi_ipmb.c
-@@ -476,6 +476,7 @@ static int ipmi_ipmb_probe(struct i2c_client *client,
- 	slave_np = of_parse_phandle(dev->of_node, "slave-dev", 0);
- 	if (slave_np) {
- 		slave_adap = of_get_i2c_adapter_by_node(slave_np);
-+		of_node_put(slave_np);
- 		if (!slave_adap) {
- 			dev_notice(&client->dev,
- 				   "Could not find slave adapter\n");
--- 
-2.25.1
+Second, thanks a lot for putting so much effort into it.
+Most of the changes look pretty good, especially all
+the fixes of particular notifiers and split into
+four lists.
 
+Though this patch will need some more love. See below
+for more details.
+
+
+On Wed 2022-04-27 19:49:18, Guilherme G. Piccoli wrote:
+> The panic() function is somewhat convoluted - a lot of changes were
+> made over the years, adding comments that might be misleading/outdated
+> now, it has a code structure that is a bit complex to follow, with
+> lots of conditionals, for example. The panic notifier list is something
+> else - a single list, with multiple callbacks of different purposes,
+> that run in a non-deterministic order and may affect hardly kdump
+> reliability - see the "crash_kexec_post_notifiers" workaround-ish flag.
+> 
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -3784,6 +3791,33 @@
+>  			timeout < 0: reboot immediately
+>  			Format: <timeout>
+>  
+> +	panic_notifiers_level=
+> +			[KNL] Set the panic notifiers execution order.
+> +			Format: <unsigned int>
+> +			We currently have 4 lists of panic notifiers; based
+> +			on the functionality and risk (for panic success) the
+> +			callbacks are added in a given list. The lists are:
+> +			- hypervisor/FW notification list (low risk);
+> +			- informational list (low/medium risk);
+> +			- pre_reboot list (higher risk);
+> +			- post_reboot list (only run late in panic and after
+> +			kdump, not configurable for now).
+> +			This parameter defines the ordering of the first 3
+> +			lists with regards to kdump; the levels determine
+> +			which set of notifiers execute before kdump. The
+> +			accepted levels are:
+
+This talks only about kdump. The reality is much more complicated.
+The level affect the order of:
+
+    + notifiers vs. kdump
+    + notifiers vs. crash_dump
+    + crash_dump vs. kdump
+
+There might theoretically many variants of the ordering of kdump,
+crash_dump, and the 4 notifier list. Some variants do not make
+much sense. You choose 5 variants and tried to select them by
+a level number.
+
+The question is if we really could easily describe the meaning this
+way. It is not only about a "level" of notifiers before kdump. It is
+also about the ordering of crash_dump vs. kdump. IMHO, "level"
+semantic does not fit there.
+
+Maybe more parameters might be easier to understand the effect.
+Anyway, we first need to agree on the chosen variants.
+I am going to discuss it more in the code, see below.
+
+
+
+> +			0: kdump is the first thing to run, NO list is
+> +			executed before kdump.
+> +			1: only the hypervisor list is executed before kdump.
+> +			2 (default level): the hypervisor list and (*if*
+> +			there's any kmsg_dumper defined) the informational
+> +			list are executed before kdump.
+> +			3: both the hypervisor and the informational lists
+> +			(always) execute before kdump.
+> +			4: the 3 lists (hypervisor, info and pre_reboot)
+> +			execute before kdump - this behavior is analog to the
+> +			deprecated parameter "crash_kexec_post_notifiers".
+> +
+>  	panic_print=	Bitmask for printing system info when panic happens.
+>  			User can chose combination of the following bits:
+>  			bit 0: print all tasks info
+> --- a/kernel/panic.c
+> +++ b/kernel/panic.c
+> @@ -183,6 +195,112 @@ static void panic_print_sys_info(bool console_flush)
+>  		ftrace_dump(DUMP_ALL);
+>  }
+>  
+> +/*
+> + * Helper that accumulates all console flushing routines executed on panic.
+> + */
+> +static void console_flushing(void)
+> +{
+> +#ifdef CONFIG_VT
+> +	unblank_screen();
+> +#endif
+> +	console_unblank();
+> +
+> +	/*
+> +	 * In this point, we may have disabled other CPUs, hence stopping the
+> +	 * CPU holding the lock while still having some valuable data in the
+> +	 * console buffer.
+> +	 *
+> +	 * Try to acquire the lock then release it regardless of the result.
+> +	 * The release will also print the buffers out. Locks debug should
+> +	 * be disabled to avoid reporting bad unlock balance when panic()
+> +	 * is not being called from OOPS.
+> +	 */
+> +	debug_locks_off();
+> +	console_flush_on_panic(CONSOLE_FLUSH_PENDING);
+> +
+> +	panic_print_sys_info(true);
+> +}
+> +
+> +#define PN_HYPERVISOR_BIT	0
+> +#define PN_INFO_BIT		1
+> +#define PN_PRE_REBOOT_BIT	2
+> +#define PN_POST_REBOOT_BIT	3
+> +
+> +/*
+> + * Determine the order of panic notifiers with regards to kdump.
+> + *
+> + * This function relies in the "panic_notifiers_level" kernel parameter
+> + * to determine how to order the notifiers with regards to kdump. We
+> + * have currently 5 levels. For details, please check the kernel docs for
+> + * "panic_notifiers_level" at Documentation/admin-guide/kernel-parameters.txt.
+> + *
+> + * Default level is 2, which means the panic hypervisor and informational
+> + * (unless we don't have any kmsg_dumper) lists will execute before kdump.
+> + */
+> +static void order_panic_notifiers_and_kdump(void)
+> +{
+> +	/*
+> +	 * The parameter "crash_kexec_post_notifiers" is deprecated, but
+> +	 * valid. Users that set it want really all panic notifiers to
+> +	 * execute before kdump, so it's effectively the same as setting
+> +	 * the panic notifiers level to 4.
+> +	 */
+> +	if (panic_notifiers_level >= 4 || crash_kexec_post_notifiers)
+> +		return;
+> +
+> +	/*
+> +	 * Based on the level configured (smaller than 4), we clear the
+> +	 * proper bits in "panic_notifiers_bits". Notice that this bitfield
+> +	 * is initialized with all notifiers set.
+> +	 */
+> +	switch (panic_notifiers_level) {
+> +	case 3:
+> +		clear_bit(PN_PRE_REBOOT_BIT, &panic_notifiers_bits);
+> +		break;
+> +	case 2:
+> +		clear_bit(PN_PRE_REBOOT_BIT, &panic_notifiers_bits);
+> +
+> +		if (!kmsg_has_dumpers())
+> +			clear_bit(PN_INFO_BIT, &panic_notifiers_bits);
+> +		break;
+> +	case 1:
+> +		clear_bit(PN_PRE_REBOOT_BIT, &panic_notifiers_bits);
+> +		clear_bit(PN_INFO_BIT, &panic_notifiers_bits);
+> +		break;
+> +	case 0:
+> +		clear_bit(PN_PRE_REBOOT_BIT, &panic_notifiers_bits);
+> +		clear_bit(PN_INFO_BIT, &panic_notifiers_bits);
+> +		clear_bit(PN_HYPERVISOR_BIT, &panic_notifiers_bits);
+> +		break;
+> +	}
+> +}
+>
+> +/*
+> + * Set of helpers to execute the panic notifiers only once.
+> + * Just the informational notifier cares about the return.
+> + */
+> +static inline bool notifier_run_once(struct atomic_notifier_head head,
+> +				     char *buf, long bit)
+> +{
+> +	if (test_and_change_bit(bit, &panic_notifiers_bits)) {
+> +		atomic_notifier_call_chain(&head, PANIC_NOTIFIER, buf);
+> +		return true;
+> +	}
+> +	return false;
+> +}
+
+Here is the code using the above functions. It helps to discuss
+the design and logic.
+
+<kernel/panic.c>
+	order_panic_notifiers_and_kdump();
+
+	/* If no level, we should kdump ASAP. */
+	if (!panic_notifiers_level)
+		__crash_kexec(NULL);
+
+	crash_smp_send_stop();
+	panic_notifier_hypervisor_once(buf);
+
+	if (panic_notifier_info_once(buf))
+		kmsg_dump(KMSG_DUMP_PANIC);
+
+	panic_notifier_pre_reboot_once(buf);
+
+	__crash_kexec(NULL);
+
+	panic_notifier_hypervisor_once(buf);
+
+	if (panic_notifier_info_once(buf))
+		kmsg_dump(KMSG_DUMP_PANIC);
+
+	panic_notifier_pre_reboot_once(buf);
+</kernel/panic.c>
+
+I have to say that the logic is very unclear. Almost all
+functions are called twice:
+
+   + __crash_kexec()
+   + kmsg_dump()
+   + panic_notifier_hypervisor_once()
+   + panic_notifier_pre_reboot_once()
+   + panic_notifier_info_once()
+
+It is pretty hard to find what functions are always called in the same
+order and where the order can be inverted.
+
+The really used code path is defined by order_panic_notifiers_and_kdump()
+that encodes "level" into "bits". The bits are then flipped in
+panic_notifier_*_once() calls that either do something or not.
+kmsg_dump() is called according to the bit flip.
+
+It is an interesting approach. I guess that you wanted to avoid too
+many if/then/else levels in panic(). But honestly, it looks like
+a black magic to me.
+
+IMHO, it is always easier to follow if/then/else logic than using
+a translation table that requires additional bit flips when
+a value is used more times.
+
+Also I guess that it is good proof that "level" abstraction does
+not fit here. Normal levels would not need this kind of magic.
+
+
+OK, the question is how to make it better. Let's start with
+a clear picture of the problem:
+
+1. panic() has basically two funtions:
+
+      + show/store debug information (optional ways and amount)
+      + do something with the system (reboot, stay hanged)
+
+
+2. There are 4 ways how to show/store the information:
+
+      + tell hypervisor to store what it is interested about
+      + crash_dump
+      + kmsg_dump()
+      + consoles
+
+  , where crash_dump and consoles are special:
+
+     + crash_dump does not return. Instead it ends up with reboot.
+
+     + Consoles work transparently. They just need an extra flush
+       before reboot or staying hanged.
+
+
+3. The various notifiers do things like:
+
+     + tell hypervisor about the crash
+     + print more information (also stop watchdogs)
+     + prepare system for reboot (touch some interfaces)
+     + prepare system for staying hanged (blinking)
+
+   Note that it pretty nicely matches the 4 notifier lists.
+
+
+Now, we need to decide about the ordering. The main area is how
+to store the debug information. Consoles are transparent so
+the quesition is about:
+
+     + hypervisor
+     + crash_dump
+     + kmsg_dump
+
+Some people need none and some people want all. There is a
+risk that system might hung at any stage. This why people want to
+make the order configurable.
+
+But crash_dump() does not return when it succeeds. And kmsg_dump()
+users havn't complained about hypervisor problems yet. So, that
+two variants might be enough:
+
+    + crash_dump (hypervisor, kmsg_dump as fallback)
+    + hypervisor, kmsg_dump, crash_dump
+
+One option "panic_prefer_crash_dump" should be enough.
+And the code might look like:
+
+void panic()
+{
+[...]
+	dump_stack();
+	kgdb_panic(buf);
+
+	< ---  here starts the reworked code --- >
+
+	/* crash dump is enough when enabled and preferred. */
+	if (panic_prefer_crash_dump)
+		__crash_kexec(NULL);
+
+	/* Stop other CPUs and focus on handling the panic state. */
+	if (has_kexec_crash_image)
+		crash_smp_send_stop();
+	else
+		smp_send_stop()
+
+	/* Notify hypervisor about the system panic. */
+	atomic_notifier_call_chain(&panic_hypervisor_list, 0, NULL);
+
+	/*
+	 * No need to risk extra info when there is no kmsg dumper
+	 * registered.
+	 */
+	if (!has_kmsg_dumper())
+		__crash_kexec(NULL);
+
+	/* Add extra info from different subsystems. */
+	atomic_notifier_call_chain(&panic_info_list, 0, NULL);
+
+	kmsg_dump(KMSG_DUMP_PANIC);
+	__crash_kexec(NULL);
+
+	/* Flush console */
+	unblank_screen();
+	console_unblank();
+	debug_locks_off();
+	console_flush_on_panic(CONSOLE_FLUSH_PENDING);
+
+	if (panic_timeout > 0) {
+		delay()
+	}
+
+	/*
+	 * Prepare system for eventual reboot and allow custom
+	 * reboot handling.
+	 */
+	atomic_notifier_call_chain(&panic_reboot_list, 0, NULL);
+
+	if (panic_timeout != 0) {
+		reboot();
+	}
+
+	/*
+	 * Prepare system for the infinite waiting, for example,
+	 * setup blinking.
+	 */
+	atomic_notifier_call_chain(&panic_loop_list, 0, NULL);
+
+	infinite_loop();
+}
+
+
+__crash_kexec() is there 3 times but otherwise the code looks
+quite straight forward.
+
+Note 1: I renamed the two last notifier list. The name 'post-reboot'
+	did sound strange from the logical POV ;-)
+
+Note 2: We have to avoid the possibility to call "reboot" list
+	before kmsg_dump(). All callbacks providing info
+	have to be in the info list. It a callback combines
+	info and reboot functionality then it should be split.
+
+	There must be another way to calm down problematic
+	info callbacks. And it has to be solved when such
+	a problem is reported. Is there any known issue, please?
+
+It is possible that I have missed something important.
+But I would really like to make the logic as simple as possible.
+
+Best Regards,
+Petr
 
 
 _______________________________________________
