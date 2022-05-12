@@ -2,86 +2,104 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 32959523EDD
-	for <lists+openipmi-developer@lfdr.de>; Wed, 11 May 2022 22:24:36 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6441B524BA2
+	for <lists+openipmi-developer@lfdr.de>; Thu, 12 May 2022 13:29:56 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nossr-0000OR-5d; Wed, 11 May 2022 20:24:32 +0000
+	id 1np70y-0000Pt-TU; Thu, 12 May 2022 11:29:52 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1nossp-0000OH-QL
- for openipmi-developer@lists.sourceforge.net; Wed, 11 May 2022 20:24:30 +0000
+ (envelope-from <linmq006@gmail.com>) id 1np0hC-00048n-HI
+ for openipmi-developer@lists.sourceforge.net; Thu, 12 May 2022 04:45:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=LCKlEcL/+gLbho7zoJo89g9MDYx2GFkg8N7n1nlW+0g=; b=MWlOm7jAceixcDyhSOiHNPbl1K
- QHdid+AtCbAXh6Ygl7NdcGGcexu1UI6n+MLqUtNZ/GQRiZonAp3OL0fVO1w+99m3s20zyLTZrPCDn
- /Xxf3SNpg2v1YnFR0K/dPJvOfx5ah8wW58X9AZxwHiAwIV2tmCvQOCKy472BeyhX02zA=;
+ bh=R30IJVXwSL1ZnJ1BIT6fsASUfGoZMEuIG7wV6MAjJno=; b=j8HwqNZh5QjYbD8fMmxfcLllJk
+ 1jsY/LPxSMR4n5l9sIfcyuHPwnCvct1KkGgkZUB9uayFQhtjdYLNju4i2gNQ6KPax8+sKwMzpLdDy
+ /zzR2UHd/EdLKWsL/svC2Dbp0wDf/Lv6nQbPnIyD0EY4ltdBevRFPU26XJdHRyT88nGo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=LCKlEcL/+gLbho7zoJo89g9MDYx2GFkg8N7n1nlW+0g=; b=CNMrvLxLuqCZOlLrV3lLcD1RDC
- uwP4X5ErwTiz/gGUVXlA8JnT0GiPahJX/TFk1xwjyZjnoFEEldLLJsfat9wm2GjAX61Ot9XLVq4k7
- a6zImmbyQsd3SxWNZzFJrNc4ik587rYb6qqychZewjXr6g5hO3GRAQ+DGHPCf+z5givc=;
-Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=R30IJVXwSL1ZnJ1BIT6fsASUfGoZMEuIG7wV6MAjJno=; b=h
+ D7xhxbLB1T90vLMx+CjFkfL519mgvuJMVUvNO1t/ayYH0vLXq4JbfJMjCjfhXNRouuciUbXUzzo/H
+ 4ocYqYYyKxYgzwwM0fACWGjY9GD+wDEveHu28xfOdciw5cyEySExHYbAxzRiI3IwL9j2gx76iJQAJ
+ PtMSxIN8SlABGKVI=;
+Received: from mail-pf1-f170.google.com ([209.85.210.170])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nosso-0095DI-6q
- for openipmi-developer@lists.sourceforge.net; Wed, 11 May 2022 20:24:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
- s=20170329;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
- References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=LCKlEcL/+gLbho7zoJo89g9MDYx2GFkg8N7n1nlW+0g=; b=MQpyMZ3nMM+SlSF0Ic+7AggIHS
- wWCWxLFJNdpcNC/qKw1wNJR3uSo8xMkfiJlq7d2aikSbZG9yuq1pfGOyawWDcFgWnRsla4fbF455Y
- 3RXCIUoMIO9o6uix81B+J++RZraHoxYIg5AFTEzg2KmNpXSrs7BEjvRicrp5TYhs6s3mYN27kkyAz
- njPDxaRSeQ75fkZPzqisnL9xIuav4szhmycF8VItK7avDyCoEE8U/Zs7xTZO8x+jizmxi0qGskMhG
- GsWdK7oyZ7kJDFhpPsgWAmAhF7aiE+T5aNpN2RQ5WYTzC7ql7jtRy3esjCfYNiJNCeB+2D6JHceeB
- Ayva3vzg==;
-Received: from [177.183.162.244] (helo=[192.168.0.5])
- by fanzine2.igalia.com with esmtpsa 
- (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
- id 1noss0-000Aod-US; Wed, 11 May 2022 22:23:41 +0200
-Message-ID: <4b003501-f5c3-cd66-d222-88d98c93e141@igalia.com>
-Date: Wed, 11 May 2022 17:22:22 -0300
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
+ id 1np0h9-009NUn-KI
+ for openipmi-developer@lists.sourceforge.net; Thu, 12 May 2022 04:45:01 +0000
+Received: by mail-pf1-f170.google.com with SMTP id 204so3762934pfx.3
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 11 May 2022 21:44:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=R30IJVXwSL1ZnJ1BIT6fsASUfGoZMEuIG7wV6MAjJno=;
+ b=h+dZ7D555Y0ff/nw/PrelqhTvfGg6mV1wkRwlHQISW4SAYlgve8QYXHoBXLJYVvAX3
+ V7dIXIcR7GpkdYPqL97NaURewls84oNM/BmyPIGFZxb85VSJHecbsYINz/YPqIf0zoZL
+ 5PiSm6RVfuYl6+iDo0QGHbhNR/gsVdvxiso6axaNYfWPyIiazAJj/CW1t1Cvnv6d0vEH
+ +XMG2dSO1vRHo0Sv7pYBiMqGRN2IH/PvvEmG9OH3F1Qkm+DzuWtNGfiecKPqOeQQnp3h
+ HF1QE8CFU4X+pr874n5hRKOUhtPVtdVNOdWgzGXqkSaBjNUUzjhKvObBKQndnLbfw0n9
+ jHrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=R30IJVXwSL1ZnJ1BIT6fsASUfGoZMEuIG7wV6MAjJno=;
+ b=2Cvv4tPifKd5M3AGR1cjxP2XyWFUuBdJ5Hl43P15/p+K7MsOQcLsoQHqTSyCQb3uu1
+ GjUnGnkZiZ95zgFYmlPE6bU2VNM7NIsol31IaSge8/wKKoaL4x7paYhwlWTkBlBUMPxu
+ 6lTc3VVc7SKIdCSYW/dHj6FFqVZr9MMP2BWxzotmZ54pHlTcGWhT3KPxODrhM/Hr7OA9
+ yl7AbbLRX2iWtZHFJsczXEiUwYNKE+MtDqdooV0FYIFK/nsOeVFB1d281aIlnedtR45I
+ bxRD7nqX/VHm3tAYCWNS9s36Z0nbKlsmM+oKwEPLdRKZfojNS6lscPjhO9XXCZE83FZp
+ KxJA==
+X-Gm-Message-State: AOAM530KGbcR5YzasQjCLfvJEI0hVuq3rPaP9e0qXEgtq//seZDFPfep
+ 5+zMcphoH2Ebg5dZdLn+Rm0=
+X-Google-Smtp-Source: ABdhPJx647XsCpk5dUpr8pTM+cEV6eKbfb7pvLcYKJx4e47f2P98TMMu9EY80y2LRb9+xo0KYSXA6A==
+X-Received: by 2002:a05:6a00:14cc:b0:510:4b70:403e with SMTP id
+ w12-20020a056a0014cc00b005104b70403emr28190061pfu.55.1652330694042; 
+ Wed, 11 May 2022 21:44:54 -0700 (PDT)
+Received: from localhost.localdomain ([202.120.234.246])
+ by smtp.googlemail.com with ESMTPSA id
+ s7-20020a17090aba0700b001d5943e826asm794167pjr.20.2022.05.11.21.44.51
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 11 May 2022 21:44:53 -0700 (PDT)
+From: Miaoqian Lin <linmq006@gmail.com>
+To: Corey Minyard <minyard@acm.org>, openipmi-developer@lists.sourceforge.net,
+ linux-kernel@vger.kernel.org
+Date: Thu, 12 May 2022 08:44:45 +0400
+Message-Id: <20220512044445.3102-1-linmq006@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
-Content-Language: en-US
-To: Petr Mladek <pmladek@suse.com>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Richard Weinberger <richard@nod.at>
-References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-12-gpiccoli@igalia.com> <Ynp2hRodh04K3pzK@alley>
-From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <Ynp2hRodh04K3pzK@alley>
-X-Spam-Score: -0.9 (/)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 10/05/2022 11:28, Petr Mladek wrote: > [...] > It is not
- clear to me why user mode linux should not care about > the other notifiers.
- It might be because I do not know much > about the user mode li [...] 
- Content analysis details:   (-0.9 points, 6.0 required)
+ Content preview: of_parse_phandle() returns a node pointer with refcount
+ incremented, 
+ we should use of_node_put() on it when done. Add missing of_node_put() to
+ avoid refcount leak. Fixes: 00d93611f002 ("ipmi:ipmb: Add the ability to
+ have a separate slave and master device") Signed-off-by: Miaoqian Lin ---
+ drivers/char/ipmi/ipmi_ipmb.c | 1 + 1 file changed, 1 insertion(+) 
+ Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [linmq006[at]gmail.com]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [linmq006[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
@@ -90,11 +108,16 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.170 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.210.170 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- -0.7 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1nosso-0095DI-6q
-Subject: Re: [Openipmi-developer] [PATCH 11/30] um: Improve panic notifiers
- consistency and ordering
+X-Headers-End: 1np0h9-009NUn-KI
+X-Mailman-Approved-At: Thu, 12 May 2022 11:29:50 +0000
+Subject: [Openipmi-developer] [PATCH] ipmi:ipmb: Fix refcount leak in
+ ipmi_ipmb_probe
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,65 +130,36 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
- gregkh@linuxfoundation.org, peterz@infradead.org,
- alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
- feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
- sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
- linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
- john.ogness@linutronix.de, bhe@redhat.com, corbet@lwn.net, paulmck@kernel.org,
- fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
- bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
- dyoung@redhat.com, vgoyal@redhat.com, linux-xtensa@linux-xtensa.org,
- dave.hansen@linux.intel.com, keescook@chromium.org, arnd@arndb.de,
- linux-pm@vger.kernel.org, linux-um@lists.infradead.org, rostedt@goodmis.org,
- rcu@vger.kernel.org, bp@alien8.de, luto@kernel.org,
- linux-tegra@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
- andriy.shevchenko@linux.intel.com, vkuznets@redhat.com,
- linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
- netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
- linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
- senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
- kernel-dev@igalia.com, linux-alpha@vger.kernel.org, akpm@linux-foundation.org,
- linuxppc-dev@lists.ozlabs.org
+Cc: linmq006@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 10/05/2022 11:28, Petr Mladek wrote:
-> [...]
-> It is not clear to me why user mode linux should not care about
-> the other notifiers. It might be because I do not know much
-> about the user mode linux.
-> 
-> Is the because they always create core dump or are never running
-> in a hypervisor or ...?
-> 
-> AFAIK, the notifiers do many different things. For example, there
-> is a notifier that disables RCU watchdog, print some extra
-> information. Why none of them make sense here?
->
+of_parse_phandle() returns a node pointer with refcount
+incremented, we should use of_node_put() on it when done.
+Add missing of_node_put() to avoid refcount leak.
 
-Hi Petr, my understanding is that UML is a form of running Linux as a
-regular userspace process for testing purposes. With that said, as soon
-as we exit in the error path, less "pollution" would happen, so users
-can use GDB to debug the core dump for example.
+Fixes: 00d93611f002 ("ipmi:ipmb: Add the ability to have a separate slave and master device")
+Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
+---
+ drivers/char/ipmi/ipmi_ipmb.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-In later patches of this series (when we split the panic notifiers in 3
-lists) these UML notifiers run in the pre-reboot list, so they run after
-the informational notifiers for example (in the default level).
-But without the list split we cannot order properly, so my gut feeling
-is that makes sense to run them rather earlier than later in the panic
-process...
+diff --git a/drivers/char/ipmi/ipmi_ipmb.c b/drivers/char/ipmi/ipmi_ipmb.c
+index b81b862532fb..a8bfe0ade082 100644
+--- a/drivers/char/ipmi/ipmi_ipmb.c
++++ b/drivers/char/ipmi/ipmi_ipmb.c
+@@ -476,6 +476,7 @@ static int ipmi_ipmb_probe(struct i2c_client *client,
+ 	slave_np = of_parse_phandle(dev->of_node, "slave-dev", 0);
+ 	if (slave_np) {
+ 		slave_adap = of_get_i2c_adapter_by_node(slave_np);
++		of_node_put(slave_np);
+ 		if (!slave_adap) {
+ 			dev_notice(&client->dev,
+ 				   "Could not find slave adapter\n");
+-- 
+2.25.1
 
-Maybe Anton / Johannes / Richard could give their opinions - appreciate
-that, I'm not attached to the priority here, it's more about users'
-common usage of UML I can think of...
-
-Cheers,
-
-
-Guilherme
 
 
 _______________________________________________
