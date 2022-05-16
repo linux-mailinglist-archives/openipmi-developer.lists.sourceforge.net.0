@@ -2,187 +2,95 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F3F3C527BF6
-	for <lists+openipmi-developer@lfdr.de>; Mon, 16 May 2022 04:32:48 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id EF0995281C5
+	for <lists+openipmi-developer@lfdr.de>; Mon, 16 May 2022 12:22:12 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nqQXM-0002w9-Ha; Mon, 16 May 2022 02:32:43 +0000
+	id 1nqXrb-00050U-KY; Mon, 16 May 2022 10:22:08 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <quan@os.amperecomputing.com>) id 1nqQXG-0002vy-HZ
- for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 02:32:37 +0000
+ (envelope-from <pmladek@suse.com>) id 1nqXrY-000501-LG
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 10:22:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :In-Reply-To:From:References:To:Subject:Date:Message-ID:Sender:Reply-To:Cc:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=C6sKrDrgYHUgXwcECj1+dOy7fpJ5Awx1w3spblHAoj0=; b=U4SkGh+QTItVc5fTggX1uHdBoW
- tvPhsFKgtn9Z14Ajq3KEIePH/WH1Mek3f2NJ9kNvhRKRPIg0GQ6rMK6jGV/eItSuRvnWJGIeiecrX
- 9vbcRR4FNMt8jw6aLyVRCkmnBVTbqo3GevDzhAe7HUxvoNPYrcpvQwVaxSBL5AxjULVo=;
+ bh=9SKwT5B95E5YN9xa81VvHUpO+QGR+zcfCsbhuV2Jgp4=; b=Yxz6uVGc3CqwNHplj5LGxDDSmb
+ S6ABQ7fpr3Df5OWxQcWrejLOqTRvrSG0BzntdetLxg/Si9+LA43rxMgRuDBMbYVetOk2hWnkK+XGt
+ WAXMieFjN+vcORhUtp6Hmhc0Ge2Wk0kdqsyVn754xo+7E/BUHNU2J5WvM2UvLiSwEPDw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
- References:To:Subject:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=C6sKrDrgYHUgXwcECj1+dOy7fpJ5Awx1w3spblHAoj0=; b=mLs2J72i8eH8tx7IwNuLdMeLz7
- vjElubx6ZpoEvfd8fztljniHhOXNtKRKFepQlZD1WofOJh7udQXmsNh7bRDQ+ttsc1IgKfTds61P7
- WUfRrdMpr4QWLO1G57sWWIYmb2q9FRtLDutcCbEthM+Ddm3tPvd7vbyxNe7FoZ3Jq26g=;
-Received: from mail-bn8nam12on2119.outbound.protection.outlook.com
- ([40.107.237.119] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nqQX9-00G61j-Hg
- for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 02:32:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=oU7EMGokbbH9yyz+AXqTI2PJ0qIFZX84lET4z/9CsuMoKiSAt5thUSLCLbvwADnLOFpx3inwzh4r6RZzl9dN1Hhf8QnBn5W1jKfciZFBrAtUsU8H1s0kNRhIf7mJdxgHzeOVIwK6OGw0ZmYWiXSqnZG8b550MjkvZtW+RsAqHcvs3RUYxxeZkgXabDGDkbywRuBd4H62Je8hx4hK3/cWAC2LWG4rXtBUj7s5KIiIoiksiQ9StpXaKTeUi3+pxuugEf9G0BxG63FQAEH2g192ljXj6ko4fvHV6Ha4jLGwLZAk/q/DI+8of7WR1iUgcIfVohIVCSbPHmOTf104OARlEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C6sKrDrgYHUgXwcECj1+dOy7fpJ5Awx1w3spblHAoj0=;
- b=EZ5jLebIaQH+igcVqDeug1/1fo7FmMhFQAo1kXRs3pW4V7WnAo5uqMuLAu6F4N/xMo8ODH8wP4XWvEVC9ECnp2JhYzo0Tk9AF9l6Kf7bz1J0JyzwsKDKyW7/f066Y7bEz0JsWDu8iiHaiHzIYyDtfr4sW8QYbh0DfQ4EO9l+s9RirHdlSxbyxkfcuZzSH5CRi/WcYj5YcZPcPmg/4yESLRxIcBWVcn7sQXX+MeAWmoRXZHBLR9Po3P47rxner2d0l+JemsIaqTBstFoR8GR51SbKORHgJ2C1Ag7sY7am6NnMLkoFSyrc+GIdchAnooSv9VloZ26ZE3rkRB41NM+sXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C6sKrDrgYHUgXwcECj1+dOy7fpJ5Awx1w3spblHAoj0=;
- b=Eh36kZ3GQsNEgZPRSdggywQFNgkWBr/brk2eyuaBBbjKBc5u5Um0yC3YywlIZOMemR47+mKP+G06vAsH7CRlwIAnrSRZXVrmB+GblYx7DXUZye7konxYZHb6UM2FRviLAQDqZNntytToqG/PoxRn06OmogpZxhRtr4LFr0yJXX0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SJ0PR01MB7282.prod.exchangelabs.com (2603:10b6:a03:3f2::24) by
- DM6PR01MB5099.prod.exchangelabs.com (2603:10b6:5:59::18) with
- Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.5250.13; Mon, 16 May 2022 02:32:22 +0000
-Received: from SJ0PR01MB7282.prod.exchangelabs.com
- ([fe80::319b:4612:e6f4:f22c]) by SJ0PR01MB7282.prod.exchangelabs.com
- ([fe80::319b:4612:e6f4:f22c%3]) with mapi id 15.20.5250.018; Mon, 16 May 2022
- 02:32:22 +0000
-Message-ID: <fc422a06-c035-f6e5-231b-74ea6afe8467@os.amperecomputing.com>
-Date: Mon, 16 May 2022 09:32:08 +0700
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
- Gecko/20100101 Thunderbird/91.9.0
-Content-Language: en-US
-To: Wolfram Sang <wsa@kernel.org>, Corey Minyard <minyard@acm.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
- Brendan Higgins <brendanhiggins@google.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- openipmi-developer@lists.sourceforge.net, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- openbmc@lists.ozlabs.org,
- Open Source Submission <patches@amperecomputing.com>,
- Phong Vo <phong@os.amperecomputing.com>,
- "Thang Q . Nguyen" <thang@os.amperecomputing.com>
-References: <20220422040803.2524940-1-quan@os.amperecomputing.com>
- <20220422040803.2524940-4-quan@os.amperecomputing.com>
- <Yn+9QBoPdH8fMm/m@shikoro>
-In-Reply-To: <Yn+9QBoPdH8fMm/m@shikoro>
-X-ClientProxiedBy: SG2PR01CA0152.apcprd01.prod.exchangelabs.com
- (2603:1096:4:8f::32) To SJ0PR01MB7282.prod.exchangelabs.com
- (2603:10b6:a03:3f2::24)
+ bh=9SKwT5B95E5YN9xa81VvHUpO+QGR+zcfCsbhuV2Jgp4=; b=Ed20nEj46CBr9xik2OB34GU0J9
+ IN0fwXoA3qtJfr1kYOnHFc6n++lHlO6qOfBj5uSR93Fv9Q+aXTmraX8WFn5bACxXu90r7v4LPqNTL
+ 2IzQub8H/ROkxdx7R8HPZGYWXe/ee0rnYQ/IhjOGPOd9KG4Lf0ifmbPzSwbNNTcM3C+E=;
+Received: from smtp-out2.suse.de ([195.135.220.29])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
+ id 1nqXrU-0001hS-O5
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 10:22:04 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+ by smtp-out2.suse.de (Postfix) with ESMTP id 02AF51F930;
+ Mon, 16 May 2022 10:21:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1652696511; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=9SKwT5B95E5YN9xa81VvHUpO+QGR+zcfCsbhuV2Jgp4=;
+ b=LWTnDo04g2ZIMR91v0c2MAsYmxaUOl80sz+tTo9fRyqmuLzfAZ1jmcmhBu1F/2SwEKbidr
+ AAgP6W9p9YHXuK9IdMK0VKJ5T49DYuwEAzjkXZlkWl2knT/MPCmRsL91fAF4WZ26S0Lq+5
+ GaIq0ymGLcl5C1bryaGKOpn3k9Ph6bU=
+Received: from suse.cz (unknown [10.100.208.146])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by relay2.suse.de (Postfix) with ESMTPS id 89FB92C141;
+ Mon, 16 May 2022 10:21:48 +0000 (UTC)
+Date: Mon, 16 May 2022 12:21:48 +0200
+To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Message-ID: <YoIlvFxbqoiDsD1l@alley>
+References: <20220427224924.592546-1-gpiccoli@igalia.com>
+ <20220427224924.592546-25-gpiccoli@igalia.com>
+ <Yn0TnsWVxCcdB2yO@alley>
+ <d313eec2-96b6-04e3-35cd-981f103d010e@igalia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: fdce3981-267d-4de2-48cb-08da36e44e39
-X-MS-TrafficTypeDiagnostic: DM6PR01MB5099:EE_
-X-Microsoft-Antispam-PRVS: <DM6PR01MB5099C07C7AB070E5A60CF106F2CF9@DM6PR01MB5099.prod.exchangelabs.com>
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: k89acXMin/kCS5QfJCCg74y0uLr5cIAB4L81v1enq6wKPQSJmEPtE7q5PRG0r0az1c2WX8G8S27RTTi/Qm6iV5aYOW7kH0As246IJ1tonLbM4XNIJ/X0kIIWRe7+JwoWP7gmULvfIZTNidPpj+hWV7GYpbif6eQuduJQCAtT462ky9Mwagqlg+jRlqZ+QkuGODbJmFFNLC5FZtJNZse/ypERT2BIfCBtFR6IIIWG7DfKQVdXtywZ5yK1kS6P24qHVX2yfzpsg60kQ7Br9+04npvmIvylJDsiKlnDkaNa00ESE7k3MnfI4y9H4roxcj10e7FlsjIx/6zU+Jcj+IFyx8VNG8HLOWaB8hJU1pcUNLAKXkMMzS+NixHyec+UmMiEz1t83z0mSF/NpLYSG/dOKweaauWYPQpdk0BCWC19AmxdIZqiC3EWmoapDuLdc5HAp0GetClDop+Twafp/ITo0MYlb5m+dIJ54wY2c1XoITkH4QOcdd5s//1SrdBT1y1Eat8gHe6EIvc9+947s6IZ2BI9ilYGLMmsKwG8dQ48crWDkPY2Lj5j/lVeKcP6S+f6lZ8KLEXEzuX5/VQON0UYINV6E9Mg+05jqFllsMY+EO0QRcZxItvxcDsPTGu0P2d12AjxnfOZjgarl++Lbks5WodBSb7T3t+xfZpkFJzwUZa8e0ycKjdxFgWaPWoHlz78c/9LRa09Z2XhpSY1a11Ig2xdcDfzRa+DOGgJeA4yviIUBbQ2/tUSlQEit19OXcCS
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:SJ0PR01MB7282.prod.exchangelabs.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(921005)(53546011)(2906002)(316002)(110136005)(52116002)(86362001)(186003)(6506007)(8676002)(83380400001)(31696002)(6666004)(26005)(2616005)(6512007)(8936002)(38350700002)(31686004)(6486002)(7416002)(5660300002)(508600001)(6636002)(66556008)(66946007)(38100700002)(66476007)(43740500002);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?emFqdlVOdTJkd2srdWg5UHorQm1Jd2hMb1Bxa0RPQUJ5S09aSCsrSDhRK1Uz?=
- =?utf-8?B?QkErKzZyd25vWjJRNnAxbCtZRW1ZWlN6eTcxSWlZelF2YmhmVWU2bFRBam5Q?=
- =?utf-8?B?d2tEdmR4SFpJdENHSHhqaFNGQm9YajI5MmUwTWJMdko5QTg3VWc5dzlLeEFU?=
- =?utf-8?B?OVE4NE55aGRnQk9uSDRLeVVadXY4VnNUNlNPaTh1TitGdXFJZzlFTHBSTTZ5?=
- =?utf-8?B?RXBPUGIxUXRmcU9qY2VoVEh0NWFvUEhnNEhSeTN4c0NLdEtLUG4wMDZiYTY2?=
- =?utf-8?B?T2taemdvRHBTdGFhNXM4NTVvb0oyZHB6U21oKzcvVitDcWRteWxUTm1FU3BD?=
- =?utf-8?B?ZGs2TVFUbklKUTh4dWJZbGZuMXJzSkw3aHBSUldUZUVlMHlTNHpCVUZTVGpy?=
- =?utf-8?B?L21oME5iS1pOMWlUL09MdnZNL1hCemZrN2hjR2xPWENGeW9lRDl2WFczTUpy?=
- =?utf-8?B?VTZGOUg4YlNKbGx2MHFhZTBuKzdMYWlSSFNDcW9sVTJuaHNWTkRab0FZQXVG?=
- =?utf-8?B?dmRwc080R3UrUGJqZWpod3NBc0E3amh2dDduMHRPdVZuUVlWaVVjTVU2cFJv?=
- =?utf-8?B?NHZJbWNBUXhhMjBFRU5kOHFiZzVsK0MxMGJPRUpMMFdwSkxqMStFZTdqUVM5?=
- =?utf-8?B?U08xMjFoMytqQUo0NWZ1Znc1ckw0VTcxSm4zazdTMnc3OHZUUUJuKytpSkpY?=
- =?utf-8?B?Y2NXOHZoZndDWnAyUEZOc1VGUTlXUHZlS0I3c3hZUlozQ0J5YWlrMTk2U0pS?=
- =?utf-8?B?VW0rODZyRVNjeW1DT1V6NUlSbDI5WWFZeit2ZUhtT2E3ZEF0aXJHVSs5TDln?=
- =?utf-8?B?M0ZESXlnQi9LZ2VzK2FXSG5rK2loODZOektiOFFtM3ZPdzdVYTROMnNUbFE5?=
- =?utf-8?B?S3AwbXgxUEltditFRjlJYk1zTGVLQUp6ckVBZ2U2OERnbVRlWTRCSkJlOS94?=
- =?utf-8?B?QjlUbHhqQm9mM0pVK1VRQUR0SnJwZGdSQ1JZNXZBNnlFcDdwVThVOXEzZjJY?=
- =?utf-8?B?c1dEVGJEZ09pbDN2REJpU0FORWxncXdjTHFBajFGQVRIWG02dHNTemRiRktl?=
- =?utf-8?B?VzkrMWpPMkFvU0RqUUZjbmVzaHhRUE93QytzUS9UU05KdThUNEZNREhjdjdw?=
- =?utf-8?B?cHg4MXdpYTRVaGlXOVlXdWdoS0V5ZVpqYU45eWJ1MWhhOUxwZGNZdElwdWdp?=
- =?utf-8?B?ck45LzhVT2lNSUkybkVwREEvUlNqUUhraWlqWXdVK1d3RG93NmxReElYN2VE?=
- =?utf-8?B?T3J2Nit0V3p6N1VrRTVXdnZMTURHQmhzTDVYM3Z0VCtKM05NWGlvYTdVekxO?=
- =?utf-8?B?a210M3d2cjZPQ29TaDQydDIvUVR1SmFHNEllWFpmd2d4SDhPTGRwNkphWWZ1?=
- =?utf-8?B?eE0rQzZkUTk3c2NQdGJxQjFtc1FuUTBDR1FpK3VjSXY4cEk4YUs0RHpTQWR1?=
- =?utf-8?B?Wno0VXBHU1ZWNHpwdUxYU3VVMUJ5T3VnSWh4a2ZKUVduenI0Wk9xRHNnYW5D?=
- =?utf-8?B?RnZ4NEVDN2xvN25ZODA5QlZlTlpsRjRUaFVLakdLdVlRK01ORG9xZlNBczFl?=
- =?utf-8?B?Z1FDdmsyQ2VZUGRHeUJhMnQ2Tm55R0ZWejlEaTJZRExiUzVFUkpmWk84N3BN?=
- =?utf-8?B?Y1c3Q1JOMDd1eWdVRkVTaGtlMGxvMmk2Sys3cUxxUTd1azhud0RScXRVSGlx?=
- =?utf-8?B?b2dQNlJxUlJ2MTZ3eXhCdlZLTkV4Q0llQ0loMjM2S1lhRk1Wdmd1LzhlZ3NP?=
- =?utf-8?B?dXhTeE9Ec21XMkR6VTE3a3k3aWZBMGdmUHJDWSsweXVXZlA4OEpRaFpORTNV?=
- =?utf-8?B?S2h2aGl3Yy8ra3J2bjIzMXhSUjhqVVBrYnBndXpiemJhRmhQZUd0T2J5TS9B?=
- =?utf-8?B?OGd2cFlydC9QYVlLZWlTSXZldHdaTUJPR2xhbTZYWExQeURseWkwN2VlbGNL?=
- =?utf-8?B?OGd3K0ZaTlc2NnIrU2IvMENjRkFObWpXMm9SZHhyMjk4TlVDQWhablpvQWxN?=
- =?utf-8?B?ZjUrRkNPMmlzd3ZiVXBzdGtGN21mNnZIUk90K2hiOENWOU41dUczc3REeE83?=
- =?utf-8?B?STIxU1VCb0htdExKSFNmd1BvNDBvWXdBalJSd3ZuaFBHdVBQOS9DQWdLSmpX?=
- =?utf-8?B?U0szekNjZ3NlNE05d1FhcGM1WHlpUXk0UjVHeS82bW5RUng5TFE3dlVTd0JD?=
- =?utf-8?B?eGV0YTNHYmJ0MVhiSC9JWGY3T0RBOTRNZ1psOG1lWlBQaUk4ckFFVnRkR1Bu?=
- =?utf-8?B?N0Q4eGpHWkVVMEs3Ykg2RUZJdTJ4K1lBNUZ4cmM2TGkzQ1YxWkV3VW80Mkx6?=
- =?utf-8?B?YTNldGQvSDc4NWIxcXVBNGRscGRtbHMvUE9NeFJLOStMcW1qY082Nm5NUXRE?=
- =?utf-8?Q?ZN71XmZHHCz3AGLscLUSwujhpIACeXd+1DKL4?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fdce3981-267d-4de2-48cb-08da36e44e39
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR01MB7282.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 May 2022 02:32:22.3867 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /uCnwwLJDzgFj6UQIDq+LD1uKciF+v6P1+zEMw1+nZ+2uH6yDdI5DM5lyt1xP0NzfEGuZgBSxgvZPTYmQWxbeP0ThBVvGVCdqCWLjZK3lZo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR01MB5099
-X-Spam-Score: -1.8 (-)
+Content-Disposition: inline
+In-Reply-To: <d313eec2-96b6-04e3-35cd-981f103d010e@igalia.com>
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 14/05/2022 21:31, Wolfram Sang wrote: > On Fri, Apr 22,
- 2022 at 11:08:03AM +0700,
- Quan Nguyen wrote: >> When processing I2C_SLAVE_WRITE_REQUESTED
- event, if slave returns >> -EBUSY, i2c controller s [...] 
- Content analysis details:   (-1.8 points, 6.0 required)
+ Content preview:  On Sun 2022-05-15 19:47:39, Guilherme G. Piccoli wrote: >
+ On 12/05/2022 11:03, Petr Mladek wrote: > > This talks only about kdump. The
+ reality is much more complicated. > > The level affect the order [...] 
+ Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [40.107.237.119 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [40.107.237.119 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.29 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- -1.6 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1nqQX9-00G61j-Hg
-Subject: Re: [Openipmi-developer] [PATCH v7 3/3] i2c: aspeed: Assert NAK
- when slave is busy
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1nqXrU-0001hS-O5
+Subject: Re: [Openipmi-developer] [PATCH 24/30] panic: Refactor the panic
+ path
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -195,52 +103,284 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Quan Nguyen via Openipmi-developer
+From: Petr Mladek via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
-Reply-To: Quan Nguyen <quan@os.amperecomputing.com>
+Reply-To: Petr Mladek <pmladek@suse.com>
+Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
+ gregkh@linuxfoundation.org, peterz@infradead.org,
+ alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
+ feng.tang@intel.com, "michael Kelley \(LINUX\)" <mikelley@microsoft.com>,
+ hidehiro.kawai.ez@hitachi.com, sparclinux@vger.kernel.org, will@kernel.org,
+ tglx@linutronix.de, linux-leds@vger.kernel.org, linux-s390@vger.kernel.org,
+ john.ogness@linutronix.de, Baoquan He <bhe@redhat.com>, corbet@lwn.net,
+ paulmck@kernel.org, fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
+ linux-mips@vger.kernel.org, Dave Young <dyoung@redhat.com>, vgoyal@redhat.com,
+ linux-xtensa@linux-xtensa.org, dave.hansen@linux.intel.com,
+ keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
+ linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
+ bp@alien8.de, luto@kernel.org, linux-tegra@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
+ vkuznets@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
+ netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
+ senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
+ kernel-dev@igalia.com, linux-alpha@vger.kernel.org, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 14/05/2022 21:31, Wolfram Sang wrote:
-> On Fri, Apr 22, 2022 at 11:08:03AM +0700, Quan Nguyen wrote:
->> When processing I2C_SLAVE_WRITE_REQUESTED event, if slave returns
->> -EBUSY, i2c controller should issue RxCmdLast command to assert NAK
->> on the bus.
+On Sun 2022-05-15 19:47:39, Guilherme G. Piccoli wrote:
+> On 12/05/2022 11:03, Petr Mladek wrote:
+> > This talks only about kdump. The reality is much more complicated.
+> > The level affect the order of:
+> > 
+> >     + notifiers vs. kdump
+> >     + notifiers vs. crash_dump
+> >     + crash_dump vs. kdump
 > 
-> That should be I2C_SLAVE_WRITE_RECEIVED and it should be NAKed on all
-> errnos. Have you tested it?
+> First of all, I'd like to ask you please to clarify to me *exactly* what
+> are the differences between "crash_dump" and "kdump". I'm sorry if
+> that's a silly question, I need to be 100% sure I understand the
+> concepts the same way you do.
+
+Ah, it should have been:
+
+     + notifiers vs. kmsg_dump
+     + notifiers vs. crash_dump
+     + crash_dump vs. kmsg_dump
+
+I am sorry for the confusion. Even "crash_dump" is slightly
+misleading because there is no function with this name.
+But it seems to be easier to understand than __crash_kexec().
+
+
+> > There might theoretically many variants of the ordering of kdump,
+> > crash_dump, and the 4 notifier list. Some variants do not make
+> > much sense. You choose 5 variants and tried to select them by
+> > a level number.
+> > 
+> > The question is if we really could easily describe the meaning this
+> > way. It is not only about a "level" of notifiers before kdump. It is
+> > also about the ordering of crash_dump vs. kdump. IMHO, "level"
+> > semantic does not fit there.
+> > 
+> > Maybe more parameters might be easier to understand the effect.
+> > Anyway, we first need to agree on the chosen variants.
+> > I am going to discuss it more in the code, see below.
+> > 
+> > 
+> > [...] 
+> > Here is the code using the above functions. It helps to discuss
+> > the design and logic.
+> > 
+> > I have to say that the logic is very unclear. Almost all
+> > functions are called twice:
+> > 
+> > The really used code path is defined by order_panic_notifiers_and_kdump()
+> > that encodes "level" into "bits". The bits are then flipped in
+> > panic_notifier_*_once() calls that either do something or not.
+> > kmsg_dump() is called according to the bit flip.
+> > 
+> > Also I guess that it is good proof that "level" abstraction does
+> > not fit here. Normal levels would not need this kind of magic.
 > 
+> Heheh OK, I appreciate your opinion, but I guess we'll need to agree in
+> disagree here - I'm much more fond to this kind of code than a bunch of
+> if/else blocks that almost give headaches. Encoding such "level" logic
+> in the if/else scheme is very convoluted, generates a very big code. And
+> the functions aren't so black magic - they map a level in bits, and the
+> functions _once() are called...once! Although we switch the position in
+> the code, so there are 2 calls, one of them is called and the other not.
 
-Dear Wolfram,
+I see. Well, I would consider this as a warning that the approach is
+too complex. If the code, using if/then/else, would cause headaches
+then also understanding of the behavior would cause headaches for
+both users and programmers.
 
-Thanks for the comment.
 
-Yes, we have tested this patch with ast2500 and see it works well 
-without the need of the ugly slave_enable/disable() as before.
+> But that's totally fine to change - especially if we're moving away from
+> the "level" logic. I see below you propose a much simpler approach - if
+> we follow that, definitely we won't need the "black magic" approach heheh
 
-When tested with ast2500, it is observed that there's always a 
-I2C_SLAVE_WRITE_REQUESTED comes first then other 
-I2C_SLAVE_WRITE_RECEIVED's follow for all transactions.
+I do not say that my proposal is fully correct. But we really need
+this kind of simpler approach.
 
-In case slave is busy, the NAK will be asserted on the first occurrence 
-of I2C_SLAVE_WRITE_REQUESTED make host to stop the current transaction 
-(host later will retry with other transaction) until slave ready.
 
-This behavior is expected as we want host to drop all transactions while 
-slave is busy on working on the response. That is why we choose to 
-assert NAK on the first I2C_SLAVE_WRITE_REQUESTED of the transaction 
-instead of I2C_SLAVE_WRITE_RECEIVED.
+> > OK, the question is how to make it better.
 
-As we are interested in this specific case, ie: to assert NAK only when 
-slave busy, we dont want to force the current aspeed's slave to assert 
-NAK in all errno's. That is why we choose to NAK only when there is an 
-explicitly -EBUSY return from slave.
+> > One option "panic_prefer_crash_dump" should be enough.
+> > And the code might look like:
+> > 
+> > void panic()
+> > {
+> > [...]
+> > 	dump_stack();
+> > 	kgdb_panic(buf);
+> > 
+> > 	< ---  here starts the reworked code --- >
+> > 
+> > 	/* crash dump is enough when enabled and preferred. */
+> > 	if (panic_prefer_crash_dump)
+> > 		__crash_kexec(NULL);
+> > 
+> > 	/* Stop other CPUs and focus on handling the panic state. */
+> > 	if (has_kexec_crash_image)
+> > 		crash_smp_send_stop();
+> > 	else
+> > 		smp_send_stop()
+> > 
+> 
+> Here we have a very important point. Why do we need 2 variants of SMP
+> CPU stopping functions? I disagree with that - my understanding of this
+> after some study in architectures is that the crash_() variant is
+> "stronger", should work in all cases and if not, we should fix that -
+> that'd be a bug.
+> 
+> Such variant either maps to smp_send_stop() (in various architectures,
+> including XEN/x86) or overrides the basic function with more proper
+> handling for panic() case...I don't see why we still need such
+> distinction, if you / others have some insight about that, I'd like to
+> hear =)
 
-Thank you for the review and hope to see further comments.
-Thanks,
-- Quan
+The two variants were introduced by the commit 0ee59413c967c35a6dd
+("x86/panic: replace smp_send_stop() with kdump friendly version in
+panic path")
 
+It points to https://lkml.org/lkml/2015/6/24/44 that talks about
+still running watchdogs.
+
+It is possible that the problem could be fixed another way. It is
+even possible that it has already been fixed by the notifiers
+that disable the watchdogs.
+
+Anyway, any change of the smp_send_stop() behavior should be done
+in a separate patch. It will help with bisection of possible
+regression. Also it would require a good explanation in
+the commit message. I would personally do it in a separate
+patch(set).
+
+
+> > 	/* Notify hypervisor about the system panic. */
+> > 	atomic_notifier_call_chain(&panic_hypervisor_list, 0, NULL);
+> > 
+> > 	/*
+> > 	 * No need to risk extra info when there is no kmsg dumper
+> > 	 * registered.
+> > 	 */
+> > 	if (!has_kmsg_dumper())
+> > 		__crash_kexec(NULL);
+> > 
+> > 	/* Add extra info from different subsystems. */
+> > 	atomic_notifier_call_chain(&panic_info_list, 0, NULL);
+> > 
+> > 	kmsg_dump(KMSG_DUMP_PANIC);
+> > 	__crash_kexec(NULL);
+> > 
+> > 	/* Flush console */
+> > 	unblank_screen();
+> > 	console_unblank();
+> > 	debug_locks_off();
+> > 	console_flush_on_panic(CONSOLE_FLUSH_PENDING);
+> > 
+> > 	if (panic_timeout > 0) {
+> > 		delay()
+> > 	}
+> > 
+> > 	/*
+> > 	 * Prepare system for eventual reboot and allow custom
+> > 	 * reboot handling.
+> > 	 */
+> > 	atomic_notifier_call_chain(&panic_reboot_list, 0, NULL);
+> 
+> You had the order of panic_reboot_list VS. consoles flushing inverted.
+> It might make sense, although I didn't do that in V1...
+
+IMHO, it makes sense:
+
+  1. panic_reboot_list contains notifiers that do the reboot
+     immediately, for example, xen_panic_event, alpha_panic_event.
+     The consoles have to be flushed earlier.
+
+  2. console_flush_on_panic() ignores the result of console_trylock()
+     and always calls console_unlock(). As a result the lock should
+     be unlocked at the end. And any further printk() should be able
+     to printk the messages to the console immediately. It means
+     that any messages printed by the reboot notifiers should appear
+     on the console as well.
+
+> Are you OK in having a helper for console flushing, as I did in V1? It
+> makes code of panic() a bit less polluted / more focused I feel.
+
+Yes, it makes sense. Well, it would better to do it in a separate
+patch. The patch patch reworking the logic should be as small
+as possible. It will simplify the review.
+
+
+> > 	if (panic_timeout != 0) {
+> > 		reboot();
+> > 	}
+> > 
+> > 	/*
+> > 	 * Prepare system for the infinite waiting, for example,
+> > 	 * setup blinking.
+> > 	 */
+> > 	atomic_notifier_call_chain(&panic_loop_list, 0, NULL);
+> > 
+> > 	infinite_loop();
+> > }
+> > 
+> > 
+> > __crash_kexec() is there 3 times but otherwise the code looks
+> > quite straight forward.
+> > 
+> > Note 1: I renamed the two last notifier list. The name 'post-reboot'
+> > 	did sound strange from the logical POV ;-)
+> > 
+> > Note 2: We have to avoid the possibility to call "reboot" list
+> > 	before kmsg_dump(). All callbacks providing info
+> > 	have to be in the info list. It a callback combines
+> > 	info and reboot functionality then it should be split.
+> > 
+> > 	There must be another way to calm down problematic
+> > 	info callbacks. And it has to be solved when such
+> > 	a problem is reported. Is there any known issue, please?
+> > 
+> > It is possible that I have missed something important.
+> > But I would really like to make the logic as simple as possible.
+> 
+> OK, I agree with you! It's indeed simpler and if others agree, I can
+> happily change the logic to what you proposed. Although...currently the
+> "crash_kexec_post_notifiers" allows to call _all_ panic_reboot_list
+> callbacks _before kdump_.
+>
+> We need to mention this change in the commit messages, but I really
+> would like to hear the opinions of heavy users of notifiers (as
+> Michael/Hyper-V) and the kdump interested parties (like Baoquan / Dave
+> Young / Hayatama). If we all agree on such approach, will change that
+> for V2 =)
+
+Sure, we need to make sure that we call everything that is needed.
+And it should be documented.
+
+I believe that this is the right way because:
+
+  + It was actually the motivation for this patchset. We split
+    the notifiers into separate lists because we want to call
+    only the really needed ones before kmsg_dump and crash_dump.
+
+  + If anything is needed for crash_dump that it should be called
+    even when crash_dump is called first. It should be either
+    hardcoded into crash_dump() or we would need another notifier
+    list that will be always called before crash_dump.
+
+
+Thanks a lot for working on this.
+
+Best Regards,
+Petr
 
 
 _______________________________________________
