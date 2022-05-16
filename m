@@ -2,125 +2,98 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 517BA528BA0
-	for <lists+openipmi-developer@lfdr.de>; Mon, 16 May 2022 19:11:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5B804528A7D
+	for <lists+openipmi-developer@lfdr.de>; Mon, 16 May 2022 18:33:24 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nqeFX-0003Ov-F2; Mon, 16 May 2022 17:11:14 +0000
+	id 1nqder-0002Pw-8o; Mon, 16 May 2022 16:33:19 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <tony.luck@intel.com>) id 1nqdQH-0005c2-1S
- for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:18:16 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1nqdeq-0002Pq-9o
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:33:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=+l+W5AAGJYF9POu96DFeN42Yp1wDBbNs2cT6ebzm1Q4=; b=T/ndgzOrSvXrkdXSrGxJyjXky5
- HtMN9PBwOyNp/URwnfzaRq6MBuOuHUbp22ztD/b5C+jhIaAryVPClBWpb/zyh87uuas7GmgiQkYJ2
- 2tAqEU9fJvuqVTl/QpKsjFqkveonABLdbZPdmh8Ujut4JwBm7rjAJdSUntdNFNNkbUp4=;
+ bh=snNEotF/NnF6oRsYP9tQxjPI6hsRS2uTTzGW3F44uFU=; b=I+GolczAMMWO5b0pjHPGXXPa5e
+ MSGA+drx8fLz0VerbLE5mUkO/0g8V4ZTPOk+vwUYeZp1RRTnBrDfZuve6QOx5G0bGFdTqTHrEvv3x
+ V7ZeNfhhpXU5JwugXy8ThgzMejND/hPlf7KgZVj/cy7AG9C6fX82dE/43abaSn63v+aY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:
- References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=+l+W5AAGJYF9POu96DFeN42Yp1wDBbNs2cT6ebzm1Q4=; b=N+JRTgQMmkLfCov1WhYu/gzUfS
- WJtoZ5Rv/UheK8RzBb049gpsP8btd3D5VRHl3r980zQ/geKhzVDnsYBK/utEDMrKkerAYrXRB6Ry0
- +6RY390thIyNlU7P0xwLtmZIMcuzX2l0a/jqsEtfw9ddgxjjbqSiFWwPsztquvRU8UzI=;
-Received: from mga02.intel.com ([134.134.136.20])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=snNEotF/NnF6oRsYP9tQxjPI6hsRS2uTTzGW3F44uFU=; b=MG0jXweQs8gLHchCsRRzR14lVI
+ 4ThjS/EFoOyYKnKCn6D5Ac/WdhNcYwzeUtMnx7PR0nYJPp/5q7Vi4zEfk2UeG53um/9AfMvxbxMeH
+ 4u+wKDtsxrT8XLvW/mT7Zzromtdph7WNLA7Oc1q2n0c5NIb4Xe50Df8AD/QM6vqlnyWU=;
+Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nqdQE-0005Em-7y
- for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:18:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1652717894; x=1684253894;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-transfer-encoding:mime-version;
- bh=+l+W5AAGJYF9POu96DFeN42Yp1wDBbNs2cT6ebzm1Q4=;
- b=JQW4nQHcGndASl0EkVeIgQMdlqMsqCPYuzXowygjhDr0hXfGI1rQ7tEb
- gKP6M0TdHrL+W1bz0IlBDvpNumzngZRuuU4pQj8sf8GpixYsT8zdFWz9b
- 4r4TkuogyBDlJTiMOsyTCoUbENFhF7hYF+5EWTN+KjjCgNeoMZ8E/lF0N
- KxsF92bcMwPQdKGC1MLPoYyGkjEYH2kv6X/s4eG4KPFSSithIE/dporJI
- /DbNrbXZqobyOSUd5pDAJvHrsJVXneSlfLObM3N+IDzY7+NEi7jyme1nv
- 2WOkYPuTDfIfnftUgWR4i+t0PxidldUBHG4ErEs5E+yRKhK7c2gx+TeVb A==;
-X-IronPort-AV: E=McAfee;i="6400,9594,10349"; a="258449016"
-X-IronPort-AV: E=Sophos;i="5.91,230,1647327600"; d="scan'208";a="258449016"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
- by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 16 May 2022 09:18:08 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.91,230,1647327600"; d="scan'208";a="596591798"
-Received: from fmsmsx605.amr.corp.intel.com ([10.18.126.85])
- by orsmga008.jf.intel.com with ESMTP; 16 May 2022 09:18:05 -0700
-Received: from fmsmsx612.amr.corp.intel.com (10.18.126.92) by
- fmsmsx605.amr.corp.intel.com (10.18.126.85) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.27; Mon, 16 May 2022 09:18:05 -0700
-Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
- fmsmsx612.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2308.27; Mon, 16 May 2022 09:18:04 -0700
-Received: from fmsmsx610.amr.corp.intel.com ([10.18.126.90]) by
- fmsmsx610.amr.corp.intel.com ([10.18.126.90]) with mapi id 15.01.2308.027;
- Mon, 16 May 2022 09:18:04 -0700
-From: "Luck, Tony" <tony.luck@intel.com>
-To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Petr Mladek
- <pmladek@suse.com>, Dinh Nguyen <dinguyen@kernel.org>
-Thread-Topic: [PATCH 21/30] panic: Introduce the panic pre-reboot notifier list
-Thread-Index: AQHYWooLnXaT7guJw0OCpuGv/IkEoK0iJCSAgAAZuAD//40QkA==
-Date: Mon, 16 May 2022 16:18:04 +0000
-Message-ID: <bed66b9467254a5a8bafc1983dad643a@intel.com>
-References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-22-gpiccoli@igalia.com> <YoJgcC8c6LaKADZV@alley>
- <63a74b56-89ef-8d1f-d487-cdb986aab798@igalia.com>
-In-Reply-To: <63a74b56-89ef-8d1f-d487-cdb986aab798@igalia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-dlp-product: dlpe-windows
-dlp-reaction: no-action
-dlp-version: 11.6.401.20
-x-originating-ip: [10.1.200.100]
+ id 1nqden-00HVld-RD
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:33:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
+ s=20170329;
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+ References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=snNEotF/NnF6oRsYP9tQxjPI6hsRS2uTTzGW3F44uFU=; b=IrCfuw38CFBNzUUmwO4z/x0ude
+ e9PSigrpJmmkANb9hFO8MYFTYKFJ+f2pDfg9ZWd+jWh0me4IY2UjT4bBJdJuG6aHpan97hS9RvfOH
+ pKOQ4g3CadR7oxkIRI3RkZhas481ugQtknW2dOyn8WDu4fqTLFzYzJFnX5BjK36hBguKTcosLNdPK
+ XLSo/vQGgUIYFydsMQwjF4Cl6fcPC+lWayRTRUcaC/1DW89DyT+5i4PUQlvBei/VhxE3uCiNyFXXu
+ //FxcgwLDGTfxmReP4BgKaOgOZfz1x9KSbEjS92ORoxS5FR3YrIsPaoJlMSUKXKS/BK4yktUJz/OW
+ jzuoL6kQ==;
+Received: from [177.183.162.244] (helo=[192.168.0.5])
+ by fanzine2.igalia.com with esmtpsa 
+ (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+ id 1nqdeI-006uBd-EQ; Mon, 16 May 2022 18:32:46 +0200
+Message-ID: <0a9ba385-84b2-4137-ced1-f7044efff562@igalia.com>
+Date: Mon, 16 May 2022 13:32:14 -0300
 MIME-Version: 1.0
-X-Spam-Score: -3.2 (---)
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.0
+Content-Language: en-US
+To: Petr Mladek <pmladek@suse.com>
+References: <20220427224924.592546-1-gpiccoli@igalia.com>
+ <20220427224924.592546-25-gpiccoli@igalia.com> <Yn0TnsWVxCcdB2yO@alley>
+ <d313eec2-96b6-04e3-35cd-981f103d010e@igalia.com> <YoIlvFxbqoiDsD1l@alley>
+From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+In-Reply-To: <YoIlvFxbqoiDsD1l@alley>
+X-Spam-Score: -0.6 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  > So, my reasoning here is: this notifier should fit the info
- list, > definitely! But...it's very high risk for kdump. It deep dives into
- the > regmap API (there are locks in such code) plus there is [...] 
- Content analysis details:   (-3.2 points, 6.0 required)
+ Content preview:  On 16/05/2022 07:21, Petr Mladek wrote: > [...] > Ah,
+ it should
+ have been: > > + notifiers vs. kmsg_dump > + notifiers vs. crash_dump > +
+ crash_dump vs. kmsg_dump > > I am sorry for the confusion. Eve [...] 
+ Content analysis details:   (-0.6 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [134.134.136.20 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [134.134.136.20 listed in wl.mailspike.net]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nqdQE-0005Em-7y
-X-Mailman-Approved-At: Mon, 16 May 2022 17:11:13 +0000
-Subject: Re: [Openipmi-developer] [PATCH 21/30] panic: Introduce the panic
- pre-reboot notifier list
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+ -0.4 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1nqden-00HVld-RD
+Subject: Re: [Openipmi-developer] [PATCH 24/30] panic: Refactor the panic
+ path
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -133,104 +106,188 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>,
- "stern@rowland.harvard.edu" <stern@rowland.harvard.edu>,
- "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>, Matt
- Turner <mattst88@gmail.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
- "luto@kernel.org" <luto@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
- Alex Elder <elder@kernel.org>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "senozhatsky@chromium.org" <senozhatsky@chromium.org>,
- "d.hatayama@jp.fujitsu.com" <d.hatayama@jp.fujitsu.com>,
- Bjorn Andersson <bjorn.andersson@linaro.org>,
- Sven Schnelle <svens@linux.ibm.com>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Max Filippov <jcmvbkbc@gmail.com>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, Stefano
- Stabellini <sstabellini@kernel.org>, Stephen Hemminger <sthemmin@microsoft.com>,
- Corey Minyard <minyard@acm.org>, Helge Deller <deller@gmx.de>,
- "vgoyal@redhat.com" <vgoyal@redhat.com>,
- "mhiramat@kernel.org" <mhiramat@kernel.org>, Vasily
- Gorbik <gor@linux.ibm.com>,
- "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
- "john.ogness@linutronix.de" <john.ogness@linutronix.de>,
- "hidehiro.kawai.ez@hitachi.com" <hidehiro.kawai.ez@hitachi.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Chris Zankel <chris@zankel.net>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- James Morse <james.morse@arm.com>,
- "kernel-dev@igalia.com" <kernel-dev@igalia.com>,
- "fabiomirmar@gmail.com" <fabiomirmar@gmail.com>,
- "halves@canonical.com" <halves@canonical.com>,
- "alejandro.j.jimenez@oracle.com" <alejandro.j.jimenez@oracle.com>, "Tang,
- Feng" <feng.tang@intel.com>, "will@kernel.org" <will@kernel.org>,
- "bhe@redhat.com" <bhe@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>,
- Dexuan Cui <decui@microsoft.com>, "bcm-kernel-feedback-list@broadcom.com"
- <bcm-kernel-feedback-list@broadcom.com>,
- "keescook@chromium.org" <keescook@chromium.org>,
- "arnd@arndb.de" <arnd@arndb.de>, Haiyang Zhang <haiyangz@microsoft.com>,
- "rostedt@goodmis.org" <rostedt@goodmis.org>,
- "rcu@vger.kernel.org" <rcu@vger.kernel.org>, "bp@alien8.de" <bp@alien8.de>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
- "mikelley@microsoft.com" <mikelley@microsoft.com>, "H. Peter
- Anvin" <hpa@zytor.com>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-leds@vger.kernel.org" <linux-leds@vger.kernel.org>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, Richard
- Weinberger <richard@nod.at>, "x86@kernel.org" <x86@kernel.org>,
- "mingo@redhat.com" <mingo@redhat.com>, "dyoung@redhat.com" <dyoung@redhat.com>,
- "paulmck@kernel.org" <paulmck@kernel.org>, Heiko
- Carstens <hca@linux.ibm.com>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
- "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
- "jgross@suse.com" <jgross@suse.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "kernel@gpiccoli.net" <kernel@gpiccoli.net>,
- "kexec@lists.infradead.org" <kexec@lists.infradead.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
- "vkuznets@redhat.com" <vkuznets@redhat.com>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-hyperv@vger.kernel.org,
+ halves@canonical.com, gregkh@linuxfoundation.org, peterz@infradead.org,
+ alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
+ feng.tang@intel.com, "michael Kelley \(LINUX\)" <mikelley@microsoft.com>,
+ hidehiro.kawai.ez@hitachi.com, sparclinux@vger.kernel.org, will@kernel.org,
+ tglx@linutronix.de, linux-leds@vger.kernel.org, linux-s390@vger.kernel.org,
+ Marc Zyngier <maz@kernel.org>, john.ogness@linutronix.de,
+ Baoquan He <bhe@redhat.com>, corbet@lwn.net, paulmck@kernel.org,
+ fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
+ linux-mips@vger.kernel.org, Dave Young <dyoung@redhat.com>, vgoyal@redhat.com,
+ linux-xtensa@linux-xtensa.org, dave.hansen@linux.intel.com,
+ keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
+ linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
+ bp@alien8.de, luto@kernel.org, linux-tegra@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
+ vkuznets@redhat.com,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
+ netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
+ senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
+ kernel-dev@igalia.com, linux-alpha@vger.kernel.org, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-> So, my reasoning here is: this notifier should fit the info list,
-> definitely! But...it's very high risk for kdump. It deep dives into the
-> regmap API (there are locks in such code) plus there is an (MM)IO write
-> to the device and an ARM firmware call. So, despite the nature of this
-> notifier _fits the informational list_, the _code is risky_ so we should
-> avoid running it before a kdump.
->
-> Now, we indeed have a chicken/egg problem: want to avoid it before
-> kdump, BUT in case kdump is not set, kmsg_dump() (and console flushing,
-> after your suggestion Petr) will run before it and not save collected
-> information from EDAC PoV.
+On 16/05/2022 07:21, Petr Mladek wrote:
+> [...]
+> Ah, it should have been:
+> 
+>      + notifiers vs. kmsg_dump
+>      + notifiers vs. crash_dump
+>      + crash_dump vs. kmsg_dump
+> 
+> I am sorry for the confusion. Even "crash_dump" is slightly
+> misleading because there is no function with this name.
+> But it seems to be easier to understand than __crash_kexec().
 
-Would it be possible to have some global "kdump is configured + enabled" flag?
+Cool, thanks! Now it's totally clear for me =)
+I feel crash dump is the proper term, but I personally prefer kdump to
+avoid mess-up with user space "core dump" concept heheh
+Also, KDUMP is an entry on MAINTAINERS file.
 
-Then notifiers could make an informed choice on whether to deep dive to
-get all the possible details (when there is no kdump) or just skim the high
-level stuff (to maximize chance of getting a successful kdump).
 
--Tony
+> [...]
+>> Heheh OK, I appreciate your opinion, but I guess we'll need to agree in
+>> disagree here - I'm much more fond to this kind of code than a bunch of
+>> if/else blocks that almost give headaches. Encoding such "level" logic
+>> in the if/else scheme is very convoluted, generates a very big code. And
+>> the functions aren't so black magic - they map a level in bits, and the
+>> functions _once() are called...once! Although we switch the position in
+>> the code, so there are 2 calls, one of them is called and the other not.
+> 
+> I see. Well, I would consider this as a warning that the approach is
+> too complex. If the code, using if/then/else, would cause headaches
+> then also understanding of the behavior would cause headaches for
+> both users and programmers.
+> 
+> 
+>> But that's totally fine to change - especially if we're moving away from
+>> the "level" logic. I see below you propose a much simpler approach - if
+>> we follow that, definitely we won't need the "black magic" approach heheh
+> 
+> I do not say that my proposal is fully correct. But we really need
+> this kind of simpler approach.
+
+It's cool, I agree that your idea is much simpler and makes sense - mine
+seems to be an over-engineering effort. Let's see the opinions of the
+interested parties, I'm curious to see if everybody agrees here, that'd
+would be ideal (and kind of "wishful thinking" I guess heheh - panic
+path is polemic).
+
+
+> [...] 
+>> Here we have a very important point. Why do we need 2 variants of SMP
+>> CPU stopping functions? I disagree with that - my understanding of this
+>> after some study in architectures is that the crash_() variant is
+>> "stronger", should work in all cases and if not, we should fix that -
+>> that'd be a bug.
+>>
+>> Such variant either maps to smp_send_stop() (in various architectures,
+>> including XEN/x86) or overrides the basic function with more proper
+>> handling for panic() case...I don't see why we still need such
+>> distinction, if you / others have some insight about that, I'd like to
+>> hear =)
+> 
+> The two variants were introduced by the commit 0ee59413c967c35a6dd
+> ("x86/panic: replace smp_send_stop() with kdump friendly version in
+> panic path")
+> 
+> It points to https://lkml.org/lkml/2015/6/24/44 that talks about
+> still running watchdogs.
+> 
+> It is possible that the problem could be fixed another way. It is
+> even possible that it has already been fixed by the notifiers
+> that disable the watchdogs.
+> 
+> Anyway, any change of the smp_send_stop() behavior should be done
+> in a separate patch. It will help with bisection of possible
+> regression. Also it would require a good explanation in
+> the commit message. I would personally do it in a separate
+> patch(set).
+
+Thanks for the archeology and interesting findings. I agree that is
+better to split in smaller patches. I'm planning a split in 3 patches
+for V2: clean-up (comment, console flushing idea, useless header), the
+refactor itself and finally, this SMP change.
+
+
+> [...] 
+>> You had the order of panic_reboot_list VS. consoles flushing inverted.
+>> It might make sense, although I didn't do that in V1...
+> 
+> IMHO, it makes sense:
+> 
+>   1. panic_reboot_list contains notifiers that do the reboot
+>      immediately, for example, xen_panic_event, alpha_panic_event.
+>      The consoles have to be flushed earlier.
+> 
+>   2. console_flush_on_panic() ignores the result of console_trylock()
+>      and always calls console_unlock(). As a result the lock should
+>      be unlocked at the end. And any further printk() should be able
+>      to printk the messages to the console immediately. It means
+>      that any messages printed by the reboot notifiers should appear
+>      on the console as well.
+> [...] 
+>> OK, I agree with you! It's indeed simpler and if others agree, I can
+>> happily change the logic to what you proposed. Although...currently the
+>> "crash_kexec_post_notifiers" allows to call _all_ panic_reboot_list
+>> callbacks _before kdump_.
+>>
+>> We need to mention this change in the commit messages, but I really
+>> would like to hear the opinions of heavy users of notifiers (as
+>> Michael/Hyper-V) and the kdump interested parties (like Baoquan / Dave
+>> Young / Hayatama). If we all agree on such approach, will change that
+>> for V2 =)
+> 
+> Sure, we need to make sure that we call everything that is needed.
+> And it should be documented.
+> 
+> I believe that this is the right way because:
+> 
+>   + It was actually the motivation for this patchset. We split
+>     the notifiers into separate lists because we want to call
+>     only the really needed ones before kmsg_dump and crash_dump.
+> 
+>   + If anything is needed for crash_dump that it should be called
+>     even when crash_dump is called first. It should be either
+>     hardcoded into crash_dump() or we would need another notifier
+>     list that will be always called before crash_dump.
+
+Ack, makes sense! Will do that in V2 =)
+
+For the "hardcoded" part, we have the custom machine_crash_kexec() in
+some archs (like x86), unfortunately not in all of them - this path is
+ideally for mandatory code that is required for a successful crash_kexec().
+
+The problem is the "same old, same old" - architecture folks push that
+to panic notifiers; notifiers folks push it to the arch custom shutdown
+handler (see [0] heheh).
+(CCed Marc / Mark in case they want to chime-in here...)
+
+
+>[...] 
+> Thanks a lot for working on this.
+> 
+> Best Regards,
+> Petr
+
+
+You're welcome, _thank you_ for the great and detailed reviews!
+Cheers,
+
+
+Guilherme
+
+
+[0]
+https://lore.kernel.org/lkml/427a8277-49f0-4317-d6c3-4a15d7070e55@igalia.com/
+
 
 _______________________________________________
 Openipmi-developer mailing list
