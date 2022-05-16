@@ -2,99 +2,125 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0BD28528A0D
-	for <lists+openipmi-developer@lfdr.de>; Mon, 16 May 2022 18:15:19 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 517BA528BA0
+	for <lists+openipmi-developer@lfdr.de>; Mon, 16 May 2022 19:11:19 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nqdNL-0005X8-S4; Mon, 16 May 2022 16:15:15 +0000
+	id 1nqeFX-0003Ov-F2; Mon, 16 May 2022 17:11:14 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1nqdNK-0005X1-OW
- for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:15:13 +0000
+ (envelope-from <tony.luck@intel.com>) id 1nqdQH-0005c2-1S
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:18:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
+ :In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=PIv49Au7mWUtjtiXxMXTyggVGnciDRRtT7um8nVDYk4=; b=W95g6EWSa4zEmU5dX8KZHSoagv
- Id6V8lIVegLy2QThGjWfHTZ89/zpLbSecyBe/P25GbOzF0vwS0FVMPIHnhFyP/0sF6J2z3GYTtCdR
- P9kViuroDXzEoWbXuCCJp9NB6RsETLsA5HnT35aohF3BOqPSVjz69+C+XrkgmEnJaiMg=;
+ bh=+l+W5AAGJYF9POu96DFeN42Yp1wDBbNs2cT6ebzm1Q4=; b=T/ndgzOrSvXrkdXSrGxJyjXky5
+ HtMN9PBwOyNp/URwnfzaRq6MBuOuHUbp22ztD/b5C+jhIaAryVPClBWpb/zyh87uuas7GmgiQkYJ2
+ 2tAqEU9fJvuqVTl/QpKsjFqkveonABLdbZPdmh8Ujut4JwBm7rjAJdSUntdNFNNkbUp4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ References:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=PIv49Au7mWUtjtiXxMXTyggVGnciDRRtT7um8nVDYk4=; b=gZkLsMvu8MNC6dSJNBdnWt55ms
- bRNEuSSTAd+teuGC34Sok5uJE1O9sKMsOkcsiQgeVbGiMgAYEr22BnzRfuE+AUmCd1HG9OjWc/ihb
- m09eQEqy7UHCf1k4XSNIRPu/V8Oveq05hAEdlDMBMENs2AeUv2pehMLe0w2T0nG7m3BI=;
-Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=+l+W5AAGJYF9POu96DFeN42Yp1wDBbNs2cT6ebzm1Q4=; b=N+JRTgQMmkLfCov1WhYu/gzUfS
+ WJtoZ5Rv/UheK8RzBb049gpsP8btd3D5VRHl3r980zQ/geKhzVDnsYBK/utEDMrKkerAYrXRB6Ry0
+ +6RY390thIyNlU7P0xwLtmZIMcuzX2l0a/jqsEtfw9ddgxjjbqSiFWwPsztquvRU8UzI=;
+Received: from mga02.intel.com ([134.134.136.20])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nqdNJ-00HT2W-0C
- for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:15:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
- s=20170329;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
- References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=PIv49Au7mWUtjtiXxMXTyggVGnciDRRtT7um8nVDYk4=; b=W9A8UVl73mnQpa2JfREz1/RjUD
- zYyRgDERy8oLTucF5f6T3XYTYFxiYllr5CQxIlx/2/XHDyXsh2W9hjY4uVe+74TxD7M98QISaac+a
- M7XywdJvFk3YG6Om4dgtt5ZeREfbqmya73Q1q8sGS0PyxTmdYWxoXovpo5Reb9GHmn6GX3kYePtt9
- IQtccx7PFkV6oeWvXiWxYIASmBN1PSkHoG23EqfeJ4/9AnnlTg/3Cg5Gj6/V0JoJ4G9Oz6SNv0UpO
- oX86uCQ+LAaAZQRMJjQodINX8vAHrHrxg8rbSrTF+qNyz++8FSDvG3i4nZYWzKQgJVfsg8L/5DYyI
- pIoBjijQ==;
-Received: from [177.183.162.244] (helo=[192.168.0.5])
- by fanzine2.igalia.com with esmtpsa 
- (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
- id 1nqdMt-006sm6-Mg; Mon, 16 May 2022 18:14:47 +0200
-Message-ID: <90133fbb-2b5e-e7cd-e1fc-1f74e8bcd388@igalia.com>
-Date: Mon, 16 May 2022 13:14:17 -0300
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.0
-Content-Language: en-US
-To: Steven Rostedt <rostedt@goodmis.org>, Xiaoming Ni <nixiaoming@huawei.com>
+ id 1nqdQE-0005Em-7y
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:18:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1652717894; x=1684253894;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-transfer-encoding:mime-version;
+ bh=+l+W5AAGJYF9POu96DFeN42Yp1wDBbNs2cT6ebzm1Q4=;
+ b=JQW4nQHcGndASl0EkVeIgQMdlqMsqCPYuzXowygjhDr0hXfGI1rQ7tEb
+ gKP6M0TdHrL+W1bz0IlBDvpNumzngZRuuU4pQj8sf8GpixYsT8zdFWz9b
+ 4r4TkuogyBDlJTiMOsyTCoUbENFhF7hYF+5EWTN+KjjCgNeoMZ8E/lF0N
+ KxsF92bcMwPQdKGC1MLPoYyGkjEYH2kv6X/s4eG4KPFSSithIE/dporJI
+ /DbNrbXZqobyOSUd5pDAJvHrsJVXneSlfLObM3N+IDzY7+NEi7jyme1nv
+ 2WOkYPuTDfIfnftUgWR4i+t0PxidldUBHG4ErEs5E+yRKhK7c2gx+TeVb A==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10349"; a="258449016"
+X-IronPort-AV: E=Sophos;i="5.91,230,1647327600"; d="scan'208";a="258449016"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+ by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 16 May 2022 09:18:08 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.91,230,1647327600"; d="scan'208";a="596591798"
+Received: from fmsmsx605.amr.corp.intel.com ([10.18.126.85])
+ by orsmga008.jf.intel.com with ESMTP; 16 May 2022 09:18:05 -0700
+Received: from fmsmsx612.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx605.amr.corp.intel.com (10.18.126.85) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.27; Mon, 16 May 2022 09:18:05 -0700
+Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx612.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.27; Mon, 16 May 2022 09:18:04 -0700
+Received: from fmsmsx610.amr.corp.intel.com ([10.18.126.90]) by
+ fmsmsx610.amr.corp.intel.com ([10.18.126.90]) with mapi id 15.01.2308.027;
+ Mon, 16 May 2022 09:18:04 -0700
+From: "Luck, Tony" <tony.luck@intel.com>
+To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>, Petr Mladek
+ <pmladek@suse.com>, Dinh Nguyen <dinguyen@kernel.org>
+Thread-Topic: [PATCH 21/30] panic: Introduce the panic pre-reboot notifier list
+Thread-Index: AQHYWooLnXaT7guJw0OCpuGv/IkEoK0iJCSAgAAZuAD//40QkA==
+Date: Mon, 16 May 2022 16:18:04 +0000
+Message-ID: <bed66b9467254a5a8bafc1983dad643a@intel.com>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-19-gpiccoli@igalia.com>
- <9f44aae6-ec00-7ede-ec19-6e67ceb74510@huawei.com>
- <20220510132922.61883db0@gandalf.local.home>
-From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <20220510132922.61883db0@gandalf.local.home>
-X-Spam-Score: -0.6 (/)
+ <20220427224924.592546-22-gpiccoli@igalia.com> <YoJgcC8c6LaKADZV@alley>
+ <63a74b56-89ef-8d1f-d487-cdb986aab798@igalia.com>
+In-Reply-To: <63a74b56-89ef-8d1f-d487-cdb986aab798@igalia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+dlp-product: dlpe-windows
+dlp-reaction: no-action
+dlp-version: 11.6.401.20
+x-originating-ip: [10.1.200.100]
+MIME-Version: 1.0
+X-Spam-Score: -3.2 (---)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 10/05/2022 14:29, Steven Rostedt wrote: > [...] > Also,
- don't sprinkle #ifdef in C code. Instead: > > if
- (IS_ENABLED(CONFIG_DEBUG_NOTIFIERS))
- > pr_info("notifers: regsiter %ps()\n", > n->notifer_ca [...] 
- Content analysis details:   (-0.6 points, 6.0 required)
+ Content preview:  > So, my reasoning here is: this notifier should fit the info
+ list, > definitely! But...it's very high risk for kdump. It deep dives into
+ the > regmap API (there are locks in such code) plus there is [...] 
+ Content analysis details:   (-3.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [134.134.136.20 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [134.134.136.20 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- -0.4 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1nqdNJ-00HT2W-0C
-Subject: Re: [Openipmi-developer] [PATCH 18/30] notifier: Show function
- names on notifier routines if DEBUG_NOTIFIERS is set
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1nqdQE-0005Em-7y
+X-Mailman-Approved-At: Mon, 16 May 2022 17:11:13 +0000
+Subject: Re: [Openipmi-developer] [PATCH 21/30] panic: Introduce the panic
+ pre-reboot notifier list
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,52 +133,104 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
- linux-xtensa@linux-xtensa.org, peterz@infradead.org,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
- feng.tang@intel.com, linux-mips@vger.kernel.org, hidehiro.kawai.ez@hitachi.com,
- sparclinux@vger.kernel.org, will@kernel.org, tglx@linutronix.de,
- linux-leds@vger.kernel.org, linux-s390@vger.kernel.org, mikelley@microsoft.com,
- john.ogness@linutronix.de, bhe@redhat.com, corbet@lwn.net, paulmck@kernel.org,
- fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
- bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
- dyoung@redhat.com, Valentin Schneider <valentin.schneider@arm.com>,
- vgoyal@redhat.com, pmladek@suse.com, dave.hansen@linux.intel.com,
- keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
- coresight@lists.linaro.org, linux-um@lists.infradead.org, rcu@vger.kernel.org,
- gregkh@linuxfoundation.org, bp@alien8.de, luto@kernel.org,
- linux-tegra@vger.kernel.org, Cong Wang <xiyou.wangcong@gmail.com>,
- openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
- Arjan van de Ven <arjan@linux.intel.com>, vkuznets@redhat.com,
- linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
- jgross@suse.com, linux-parisc@vger.kernel.org, netdev@vger.kernel.org,
- kernel@gpiccoli.net, kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
- stern@rowland.harvard.edu, senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com,
- mhiramat@kernel.org, kernel-dev@igalia.com, linux-alpha@vger.kernel.org,
- akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "stern@rowland.harvard.edu" <stern@rowland.harvard.edu>,
+ "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>, Matt
+ Turner <mattst88@gmail.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+ "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+ "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
+ "luto@kernel.org" <luto@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
+ Alex Elder <elder@kernel.org>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "senozhatsky@chromium.org" <senozhatsky@chromium.org>,
+ "d.hatayama@jp.fujitsu.com" <d.hatayama@jp.fujitsu.com>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Max Filippov <jcmvbkbc@gmail.com>,
+ "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>, Stefano
+ Stabellini <sstabellini@kernel.org>, Stephen Hemminger <sthemmin@microsoft.com>,
+ Corey Minyard <minyard@acm.org>, Helge Deller <deller@gmx.de>,
+ "vgoyal@redhat.com" <vgoyal@redhat.com>,
+ "mhiramat@kernel.org" <mhiramat@kernel.org>, Vasily
+ Gorbik <gor@linux.ibm.com>,
+ "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
+ "john.ogness@linutronix.de" <john.ogness@linutronix.de>,
+ "hidehiro.kawai.ez@hitachi.com" <hidehiro.kawai.ez@hitachi.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Chris Zankel <chris@zankel.net>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ James Morse <james.morse@arm.com>,
+ "kernel-dev@igalia.com" <kernel-dev@igalia.com>,
+ "fabiomirmar@gmail.com" <fabiomirmar@gmail.com>,
+ "halves@canonical.com" <halves@canonical.com>,
+ "alejandro.j.jimenez@oracle.com" <alejandro.j.jimenez@oracle.com>, "Tang,
+ Feng" <feng.tang@intel.com>, "will@kernel.org" <will@kernel.org>,
+ "bhe@redhat.com" <bhe@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>,
+ Dexuan Cui <decui@microsoft.com>, "bcm-kernel-feedback-list@broadcom.com"
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "keescook@chromium.org" <keescook@chromium.org>,
+ "arnd@arndb.de" <arnd@arndb.de>, Haiyang Zhang <haiyangz@microsoft.com>,
+ "rostedt@goodmis.org" <rostedt@goodmis.org>,
+ "rcu@vger.kernel.org" <rcu@vger.kernel.org>, "bp@alien8.de" <bp@alien8.de>,
+ "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+ "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+ "mikelley@microsoft.com" <mikelley@microsoft.com>, "H. Peter
+ Anvin" <hpa@zytor.com>,
+ "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+ "linux-leds@vger.kernel.org" <linux-leds@vger.kernel.org>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, Richard
+ Weinberger <richard@nod.at>, "x86@kernel.org" <x86@kernel.org>,
+ "mingo@redhat.com" <mingo@redhat.com>, "dyoung@redhat.com" <dyoung@redhat.com>,
+ "paulmck@kernel.org" <paulmck@kernel.org>, Heiko
+ Carstens <hca@linux.ibm.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+ "jgross@suse.com" <jgross@suse.com>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "kernel@gpiccoli.net" <kernel@gpiccoli.net>,
+ "kexec@lists.infradead.org" <kexec@lists.infradead.org>,
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 10/05/2022 14:29, Steven Rostedt wrote:
-> [...]
-> Also, don't sprinkle #ifdef in C code. Instead:
-> 
-> 	if (IS_ENABLED(CONFIG_DEBUG_NOTIFIERS))
-> 		pr_info("notifers: regsiter %ps()\n",
-> 			n->notifer_call);
-> 
-> 
-> Or define a print macro at the start of the C file that is a nop if it is
-> not defined, and use the macro.
+> So, my reasoning here is: this notifier should fit the info list,
+> definitely! But...it's very high risk for kdump. It deep dives into the
+> regmap API (there are locks in such code) plus there is an (MM)IO write
+> to the device and an ARM firmware call. So, despite the nature of this
+> notifier _fits the informational list_, the _code is risky_ so we should
+> avoid running it before a kdump.
+>
+> Now, we indeed have a chicken/egg problem: want to avoid it before
+> kdump, BUT in case kdump is not set, kmsg_dump() (and console flushing,
+> after your suggestion Petr) will run before it and not save collected
+> information from EDAC PoV.
 
-Thanks, I'll go with the IS_ENABLED() idea in V2 - appreciate the hint.
-Cheers,
+Would it be possible to have some global "kdump is configured + enabled" flag?
 
+Then notifiers could make an informed choice on whether to deep dive to
+get all the possible details (when there is no kdump) or just skim the high
+level stuff (to maximize chance of getting a successful kdump).
 
-Guilherme
-
+-Tony
 
 _______________________________________________
 Openipmi-developer mailing list
