@@ -2,106 +2,86 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0D23A5289C8
-	for <lists+openipmi-developer@lfdr.de>; Mon, 16 May 2022 18:09:50 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id ED64552897D
+	for <lists+openipmi-developer@lfdr.de>; Mon, 16 May 2022 18:07:22 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nqdI3-0005I8-2A; Mon, 16 May 2022 16:09:46 +0000
+	id 1nqdFe-0001Bn-G3; Mon, 16 May 2022 16:07:17 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <evgreen@chromium.org>) id 1nqdI1-0005I2-8X
- for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:09:44 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1nqdFb-0001Bg-Ao
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:07:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
- In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
- :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ScgtWm2uFkOxfulqs7520gHM/my4MYIe3yq/VcV3Ozw=; b=JwAngNFh4O2bqUGw/a/yaV7/6J
- lRSOM5v5ytcClymWVYQTtyEGRniisaoKqlEdHd/E226U8n73/BBZ6qpwCsa8l17EeNCdbHxfndhaq
- 76S26UUhC2TBVttpOSDwFGybKj/KUrWNR9BxDt//nm0CNCC0KGS87qExeSxLCXxqttBQ=;
+ bh=hkxxY/QtEmLaEz91h3ZbibgaO5mIVJpTDxNjCMnCCRs=; b=Ng3LSJQqi5K22hn4IJoZPfLIUw
+ bEIqIX8iriCT2K/Rt10V/A+SBxoF5vF7xF7L2hiutoMzsKoJdr3rPjmW1ozNKWm6sRaTwq7TgbzfX
+ MLZdoPyZjrvmY5h+2NXtB1zVe3eMw47zF6YDszbqlMZ54GojVgyWWmpa9nqaiwVQK9B0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
- MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=ScgtWm2uFkOxfulqs7520gHM/my4MYIe3yq/VcV3Ozw=; b=WJhSUtIAem+1u1R8+o1gmLolsH
- xTNnbiTS37n5ev7M2ZteunIrqEskYJhUoBVm+5vCUa0fewVrD2aOK4eZnCGZImPKXb+FiJvRvg/VA
- oDBAOHKqbf+vn5zVSRyvG5iVAKpHtIEHjbZH8jHuDLLMTT7zgfsY9iLOsrODRKV5YPYY=;
-Received: from mail-oi1-f181.google.com ([209.85.167.181])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
- id 1nqdHv-00HSFl-R6
- for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:09:43 +0000
-Received: by mail-oi1-f181.google.com with SMTP id v66so19184414oib.3
- for <openipmi-developer@lists.sourceforge.net>;
- Mon, 16 May 2022 09:09:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ScgtWm2uFkOxfulqs7520gHM/my4MYIe3yq/VcV3Ozw=;
- b=Ui6BaQ6lQ9IwPfOUL4TJm7cJvfYf8UFV8wI0yIE/ecSwLqobvQf4rTIikXPC8Ksnp/
- JRSTr3Fgwya3hm14X44WgUx1HJGuc9H1MoeHAN4VBzxuhJEnypxN8+xF6HAWoKiAVAs3
- mxYrKvjtDKZ5Z0eJvjVSmqSHIwF8R/De7GbNU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ScgtWm2uFkOxfulqs7520gHM/my4MYIe3yq/VcV3Ozw=;
- b=eCvEt3GpdKAlE/8elnetmZ+u1ZKwt+ClACE3udLI/vlfo2eZo165+aqrjpHxX1r87+
- MIAc6F0bzBwQpjLbcrSIWTpExA41zYLiFb0SlZ0bFLQR5yl34ichNcQcKSNvoWKDYFmo
- G8H1EaTekoZ4PCcU91BZV9/K9ZUCwZnujrl+3I9Kkf/wO7mlmdOcFvldYcIlZ9CcGez9
- hkrHI4DtG2u8VLJ9+hU07oRU7jC1UFG38ae4skZWqSIj3UKwytUVaQzCE0htb+MucOdG
- P55wI5uzYvG0mlD8Wiw9qiryEgm9slYj5wEJN8MqAXPVRfpqe/IFk73LoSqdMSTpBJlq
- 9RGA==
-X-Gm-Message-State: AOAM533oE+nYSY7BnKfpk+D7uprPzXx4KBbwubREDvZ3eNdmFPgAXEDM
- sWpwpcfJf9YLJ/OTp/srA9ZMBgtYdmEueaCI
-X-Google-Smtp-Source: ABdhPJzPRqTR95C8leSFyvDJE2wYiHdU0z9Jlw/gWIBLO0iUmsmmrsqz+b+lMkafOXIe+376MdMf3A==
-X-Received: by 2002:a05:6870:7d08:b0:ee:7028:8829 with SMTP id
- os8-20020a0568707d0800b000ee70288829mr15256199oab.106.1652716983410; 
- Mon, 16 May 2022 09:03:03 -0700 (PDT)
-Received: from mail-oa1-f46.google.com (mail-oa1-f46.google.com.
- [209.85.160.46]) by smtp.gmail.com with ESMTPSA id
- 9-20020aca1209000000b00325cda1ff8esm3961610ois.13.2022.05.16.09.02.58
- for <openipmi-developer@lists.sourceforge.net>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 16 May 2022 09:03:00 -0700 (PDT)
-Received: by mail-oa1-f46.google.com with SMTP id
- 586e51a60fabf-d39f741ba0so20657170fac.13
- for <openipmi-developer@lists.sourceforge.net>;
- Mon, 16 May 2022 09:02:58 -0700 (PDT)
-X-Received: by 2002:a05:6870:63a0:b0:f1:8bca:8459 with SMTP id
- t32-20020a05687063a000b000f18bca8459mr4861359oap.174.1652716966894; Mon, 16
- May 2022 09:02:46 -0700 (PDT)
+ bh=hkxxY/QtEmLaEz91h3ZbibgaO5mIVJpTDxNjCMnCCRs=; b=iVCFhGlax6AmuMSDClhKfEwt5s
+ H3MeP6LS3wSX2zabhMpV7hz0gIqEwTdZgYGuQ63sYXrjSsERMWHdghnAetcEGGubEvQNBtiIssq5O
+ gzBy3hpCNfKlhBFt/EFVRGDCrwPR53ObELsa2PYOjBcDloQVPZow3iacLTZy/MCaEFY8=;
+Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
+ id 1nqdFV-0003VQ-HJ
+ for openipmi-developer@lists.sourceforge.net; Mon, 16 May 2022 16:07:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
+ s=20170329;
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+ References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=hkxxY/QtEmLaEz91h3ZbibgaO5mIVJpTDxNjCMnCCRs=; b=QJKb57mFKwMFscTO5WFY4RSj23
+ KQ6n8H9l2g2SttLbeQWPGo2evZPJbMnkbERgI1GrlJbCyaovBQ7YNgsYgYWZV4AUB43bBYpAdAI4t
+ tSUTgJhvOvNj6CgwWpUnZT0VvP1nPFnrhSTYeteC8TI+m63sh71ROWTeeLMsXDtJw57P/+L4voDEA
+ fAA2sLoZLSjWU8escrCVSpKI49cJB+42jd6GXOMXbMkFbQNvfMy7UNTlghfu62nr5uAdPO/Hn/wFd
+ nMAbmXIqsuv6JnFGW2A+NmrSU+Aj1YnRvsm6Le3RHEDyDM6bMieEJqNdqhsYzjUU2qgiLiCJOh07u
+ ze5flEbQ==;
+Received: from [177.183.162.244] (helo=[192.168.0.5])
+ by fanzine2.igalia.com with esmtpsa 
+ (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+ id 1nqdEm-006s2D-Fy; Mon, 16 May 2022 18:06:24 +0200
+Message-ID: <63a74b56-89ef-8d1f-d487-cdb986aab798@igalia.com>
+Date: Mon, 16 May 2022 13:05:44 -0300
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.0
+Content-Language: en-US
+To: Petr Mladek <pmladek@suse.com>, Tony Luck <tony.luck@intel.com>,
+ Dinh Nguyen <dinguyen@kernel.org>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-20-gpiccoli@igalia.com>
- <YoJZVZl/MH0KiE/J@alley> <ad082ce7-db50-13bb-3dbb-9b595dfa78be@igalia.com>
-In-Reply-To: <ad082ce7-db50-13bb-3dbb-9b595dfa78be@igalia.com>
-From: Evan Green <evgreen@chromium.org>
-Date: Mon, 16 May 2022 09:02:10 -0700
-X-Gmail-Original-Message-ID: <CAE=gft7ds+dHfEkRz8rnSH1EbTpGTpKbi5Wxj9DW0Jr5mX_j4w@mail.gmail.com>
-Message-ID: <CAE=gft7ds+dHfEkRz8rnSH1EbTpGTpKbi5Wxj9DW0Jr5mX_j4w@mail.gmail.com>
-To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-X-Spam-Score: -0.9 (/)
+ <20220427224924.592546-22-gpiccoli@igalia.com> <YoJgcC8c6LaKADZV@alley>
+From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+In-Reply-To: <YoJgcC8c6LaKADZV@alley>
+X-Spam-Score: -2.2 (--)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, May 16,
- 2022 at 8:07 AM Guilherme G. Piccoli <gpiccoli@igalia.com>
- wrote: > > Thanks for the review! > > I agree with the blinking stuff, I
- can rework and add all LED/blinking > stuff into the [...] 
- Content analysis details:   (-0.9 points, 6.0 required)
+ Content preview: Thanks again for the review! Comments inline below: On
+ 16/05/2022
+ 11:33, Petr Mladek wrote: > [...] >> --- a/drivers/edac/altera_edac.c >>
+ +++ b/drivers/edac/altera_edac.c >> @@ -2163, 7 +2162,
+ 7 @@ static int altr_edac_a10_probe(struct
+ platform_device * [...] 
+ Content analysis details:   (-2.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.167.181 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -111,12 +91,10 @@ X-Spam-Report: Spam detection software,
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.181 listed in wl.mailspike.net]
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nqdHv-00HSFl-R6
-Subject: Re: [Openipmi-developer] [PATCH 19/30] panic: Add the panic
- hypervisor notifier list
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1nqdFV-0003VQ-HJ
+Subject: Re: [Openipmi-developer] [PATCH 21/30] panic: Introduce the panic
+ pre-reboot notifier list
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -130,132 +108,136 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Justin Chen <justinpopo6@gmail.com>,
- Pavel Machek <pavel@ucw.cz>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
  "K. Y. Srinivasan" <kys@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Alan Stern <stern@rowland.harvard.edu>,
- xen-devel@lists.xenproject.org,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Petr Mladek <pmladek@suse.com>, Linux PM <linux-pm@vger.kernel.org>,
- linux-um@lists.infradead.org, Nicholas Piggin <npiggin@gmail.com>,
- Stephen Boyd <swboyd@chromium.org>, luto@kernel.org,
- Mihai Carabas <mihai.carabas@oracle.com>, Thomas Gleixner <tglx@linutronix.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- LKML <linux-kernel@vger.kernel.org>, senozhatsky@chromium.org,
- d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, linux-hyperv@vger.kernel.org,
- dave.hansen@linux.intel.com, linux-s390@vger.kernel.org,
- Stephen Hemminger <sthemmin@microsoft.com>, Vasily Gorbik <gor@linux.ibm.com>,
- vgoyal@redhat.com, Sven Schnelle <svens@linux.ibm.com>,
- Andrea Parri <parri.andrea@gmail.com>, linux-xtensa@linux-xtensa.org,
- john.ogness@linutronix.de, Scott Branden <scott.branden@broadcom.com>,
- Doug Berger <opendmb@gmail.com>, Markus Mayer <mmayer@broadcom.com>,
- hidehiro.kawai.ez@hitachi.com,
- linux-arm Mailing List <linux-arm-kernel@lists.infradead.org>,
- kernel-dev@igalia.com, fabiomirmar@gmail.com, halves@canonical.com,
- alejandro.j.jimenez@oracle.com, feng.tang@intel.com,
- Will Deacon <will@kernel.org>, Florian Fainelli <f.fainelli@gmail.com>,
- bhe@redhat.com, Jonathan Corbet <corbet@lwn.net>,
- Dexuan Cui <decui@microsoft.com>, zhenwei pi <pizhenwei@bytedance.com>,
- bcm-kernel-feedback-list@broadcom.com, Tianyu Lan <Tianyu.Lan@microsoft.com>,
- Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
- Haiyang Zhang <haiyangz@microsoft.com>, rostedt@goodmis.org,
- rcu@vger.kernel.org, Borislav Petkov <bp@alien8.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, stern@rowland.harvard.edu,
+ xen-devel@lists.xenproject.org, Matt Turner <mattst88@gmail.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, linux-pm@vger.kernel.org,
+ linux-um@lists.infradead.org, luto@kernel.org, tglx@linutronix.de,
+ Alex Elder <elder@kernel.org>, gregkh@linuxfoundation.org,
+ linux-kernel@vger.kernel.org, senozhatsky@chromium.org,
+ d.hatayama@jp.fujitsu.com, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Sven Schnelle <svens@linux.ibm.com>, akpm@linux-foundation.org,
+ linux-hyperv@vger.kernel.org, dave.hansen@linux.intel.com,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Max Filippov <jcmvbkbc@gmail.com>, linux-s390@vger.kernel.org,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Stephen Hemminger <sthemmin@microsoft.com>, Corey Minyard <minyard@acm.org>,
+ Helge Deller <deller@gmx.de>, vgoyal@redhat.com, mhiramat@kernel.org,
+ Vasily Gorbik <gor@linux.ibm.com>, linux-xtensa@linux-xtensa.org,
+ john.ogness@linutronix.de, hidehiro.kawai.ez@hitachi.com,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Chris Zankel <chris@zankel.net>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ James Morse <james.morse@arm.com>, kernel-dev@igalia.com,
+ fabiomirmar@gmail.com, halves@canonical.com, alejandro.j.jimenez@oracle.com,
+ feng.tang@intel.com, will@kernel.org, bhe@redhat.com, corbet@lwn.net,
+ Dexuan Cui <decui@microsoft.com>, bcm-kernel-feedback-list@broadcom.com,
+ keescook@chromium.org, arnd@arndb.de, Haiyang Zhang <haiyangz@microsoft.com>,
+ rostedt@goodmis.org, rcu@vger.kernel.org, bp@alien8.de,
  openipmi-developer@lists.sourceforge.net,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-parisc@vger.kernel.org,
- Sebastian Reichel <sre@kernel.org>, linux-alpha@vger.kernel.org,
- Brian Norris <computersforpeace@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, peterz@infradead.org,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, linux-parisc@vger.kernel.org,
+ linux-alpha@vger.kernel.org, peterz@infradead.org,
  linux-remoteproc@vger.kernel.org, mikelley@microsoft.com,
- sparclinux@vger.kernel.org, Lee Jones <lee.jones@linaro.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-leds@vger.kernel.org, x86@kernel.org,
- mingo@redhat.com, dyoung@redhat.com, paulmck@kernel.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Shile Zhang <shile.zhang@linux.alibaba.com>,
- Wang ShaoBo <bobo.shaobowang@huawei.com>,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- David Gow <davidgow@google.com>, linux-tegra@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Hari Bathini <hbathini@linux.ibm.com>, linux-edac@vger.kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+ linux-leds@vger.kernel.org, Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Richard Weinberger <richard@nod.at>, x86@kernel.org, mingo@redhat.com,
+ dyoung@redhat.com, paulmck@kernel.org, Heiko Carstens <hca@linux.ibm.com>,
+ linux-tegra@vger.kernel.org, andriy.shevchenko@linux.intel.com,
+ Johannes Berg <johannes@sipsolutions.net>, linux-edac@vger.kernel.org,
  jgross@suse.com, netdev@vger.kernel.org, kernel@gpiccoli.net,
  kexec@lists.infradead.org, linux-mips@vger.kernel.org,
- Julius Werner <jwerner@chromium.org>, vkuznets@redhat.com,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, vkuznets@redhat.com,
  linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, May 16, 2022 at 8:07 AM Guilherme G. Piccoli
-<gpiccoli@igalia.com> wrote:
->
-> Thanks for the review!
->
-> I agree with the blinking stuff, I can rework and add all LED/blinking
-> stuff into the loop list, it does make sense. I'll comment a bit in the
-> others below...
->
-> On 16/05/2022 11:01, Petr Mladek wrote:
-> > [...]
-> >> --- a/arch/mips/sgi-ip22/ip22-reset.c
-> >> +++ b/arch/mips/sgi-ip22/ip22-reset.c
-> >> @@ -195,7 +195,7 @@ static int __init reboot_setup(void)
-> >>      }
-> >>
-> >>      timer_setup(&blink_timer, blink_timeout, 0);
-> >> -    atomic_notifier_chain_register(&panic_notifier_list, &panic_block);
-> >> +    atomic_notifier_chain_register(&panic_hypervisor_list, &panic_block);
-> >
-> > This notifier enables blinking. It is not much safe. It calls
-> > mod_timer() that takes a lock internally.
-> >
-> > This kind of functionality should go into the last list called
-> > before panic() enters the infinite loop. IMHO, all the blinking
-> > stuff should go there.
-> > [...]
-> >> --- a/arch/mips/sgi-ip32/ip32-reset.c
-> >> +++ b/arch/mips/sgi-ip32/ip32-reset.c
-> >> @@ -145,7 +144,7 @@ static __init int ip32_reboot_setup(void)
-> >>      pm_power_off = ip32_machine_halt;
-> >>
-> >>      timer_setup(&blink_timer, blink_timeout, 0);
-> >> -    atomic_notifier_chain_register(&panic_notifier_list, &panic_block);
-> >> +    atomic_notifier_chain_register(&panic_hypervisor_list, &panic_block);
-> >
-> > Same here. Should be done only before the "loop".
-> > [...]
->
-> Ack.
->
->
-> >> --- a/drivers/firmware/google/gsmi.c
-> >> +++ b/drivers/firmware/google/gsmi.c
-> >> @@ -1034,7 +1034,7 @@ static __init int gsmi_init(void)
-> >>
-> >>      register_reboot_notifier(&gsmi_reboot_notifier);
-> >>      register_die_notifier(&gsmi_die_notifier);
-> >> -    atomic_notifier_chain_register(&panic_notifier_list,
-> >> +    atomic_notifier_chain_register(&panic_hypervisor_list,
-> >>                                     &gsmi_panic_notifier);
-> >
-> > I am not sure about this one. It looks like some logging or
-> > pre_reboot stuff.
-> >
->
-> Disagree here. I'm looping Google maintainers, so they can comment.
-> (CCed Evan, David, Julius)
->
-> This notifier is clearly a hypervisor notification mechanism. I've fixed
-> a locking stuff there (in previous patch), I feel it's low-risk but even
-> if it's mid-risk, the class of such callback remains a perfect fit with
-> the hypervisor list IMHO.
+Thanks again for the review! Comments inline below:
 
-This logs a panic to our "eventlog", a tiny logging area in SPI flash
-for critical and power-related events. In some cases this ends up
-being the only clue we get in a Chromebook feedback report that a
-panic occurred, so from my perspective moving it to the front of the
-line seems like a good idea.
 
--Evan
+On 16/05/2022 11:33, Petr Mladek wrote:
+> [...]
+>> --- a/drivers/edac/altera_edac.c
+>> +++ b/drivers/edac/altera_edac.c
+>> @@ -2163,7 +2162,7 @@ static int altr_edac_a10_probe(struct platform_device *pdev)
+>>  		int dberror, err_addr;
+>>  
+>>  		edac->panic_notifier.notifier_call = s10_edac_dberr_handler;
+>> -		atomic_notifier_chain_register(&panic_notifier_list,
+>> +		atomic_notifier_chain_register(&panic_pre_reboot_list,
+> 
+> My understanding is that this notifier first prints info about ECC
+> errors and then triggers reboot. It might make sense to split it
+> into two notifiers.
+
+I disagree here - looping the maintainers for comments (CCing Dinh /
+Tony). BTW, sorry for not having you on CC already Dinh, it was my mistake.
+
+So, my reasoning here is: this notifier should fit the info list,
+definitely! But...it's very high risk for kdump. It deep dives into the
+regmap API (there are locks in such code) plus there is an (MM)IO write
+to the device and an ARM firmware call. So, despite the nature of this
+notifier _fits the informational list_, the _code is risky_ so we should
+avoid running it before a kdump.
+
+Now, we indeed have a chicken/egg problem: want to avoid it before
+kdump, BUT in case kdump is not set, kmsg_dump() (and console flushing,
+after your suggestion Petr) will run before it and not save collected
+information from EDAC PoV.
+
+My idea: I could call a second kmsg_dump() or at least a panic console
+flush for within such notifier. Let me know what you think Petr (also
+Dinh / Tony and all interested parties).
+
+
+> [...] 
+>> --- a/drivers/leds/trigger/ledtrig-panic.c
+>> +++ b/drivers/leds/trigger/ledtrig-panic.c
+>> @@ -64,7 +63,7 @@ static long led_panic_blink(int state)
+>>  
+>>  static int __init ledtrig_panic_init(void)
+>>  {
+>> -	atomic_notifier_chain_register(&panic_notifier_list,
+>> +	atomic_notifier_chain_register(&panic_pre_reboot_list,
+>>  				       &led_trigger_panic_nb);
+> 
+> Blinking => should go to the last "post_reboot/loop" list.
+> [...] 
+>> --- a/drivers/misc/ibmasm/heartbeat.c
+>> +++ b/drivers/misc/ibmasm/heartbeat.c
+>> @@ -32,20 +31,23 @@ static int suspend_heartbeats = 0;
+>>  static int panic_happened(struct notifier_block *n, unsigned long val, void *v)
+>>  {
+>>  	suspend_heartbeats = 1;
+>> -	return 0;
+>> +	return NOTIFY_DONE;
+>>  }
+>>  
+>> -static struct notifier_block panic_notifier = { panic_happened, NULL, 1 };
+>> +static struct notifier_block panic_notifier = {
+>> +	.notifier_call = panic_happened,
+>> +};
+>>  
+>>  void ibmasm_register_panic_notifier(void)
+>>  {
+>> -	atomic_notifier_chain_register(&panic_notifier_list, &panic_notifier);
+>> +	atomic_notifier_chain_register(&panic_pre_reboot_list,
+>> +					&panic_notifier);
+> 
+> Same here. Blinking => should go to the last "post_reboot/loop" list.
+
+Ack on both.
+
+IBMasm is not blinking IIUC, but still fits properly the loop list. This
+notifier would make a heartbeat mechanism stop, and once it's stopped,
+service processor is allowed to reboot - that's my understanding.
+
+
+Cheers,
+
+
+Guilherme
 
 
 _______________________________________________
