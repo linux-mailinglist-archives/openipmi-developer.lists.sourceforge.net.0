@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 21F7952A5FC
-	for <lists+openipmi-developer@lfdr.de>; Tue, 17 May 2022 17:20:27 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 037C852A6BD
+	for <lists+openipmi-developer@lfdr.de>; Tue, 17 May 2022 17:33:54 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nqyzm-0001cB-77; Tue, 17 May 2022 15:20:21 +0000
+	id 1nqzCm-0001uN-9S; Tue, 17 May 2022 15:33:48 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1nqyzj-0001c1-Dl
- for openipmi-developer@lists.sourceforge.net; Tue, 17 May 2022 15:20:20 +0000
+ (envelope-from <gpiccoli@igalia.com>) id 1nqzCl-0001uG-47
+ for openipmi-developer@lists.sourceforge.net; Tue, 17 May 2022 15:33:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=wF3LghB7qFMkIN+RAhS0nW2784Fxel03VlqG6SoZfk8=; b=PXs8naj8oZBk7ogNn+qRHO9lzH
- wPSf8JvrhZa6NXWOIPaeXw+ux7wAkPw7h4RBlg+7WsuGo02KghRAngf2aFQOuju+waKQi86QelVCz
- 1Adzj6MiaxvtWsjEY+Z5rQqD2ITI58I+18HHSn5GEw8YgbrSPN+f/kHdvbYYTNIvgEA8=;
+ bh=sBxOdf5zzlugJkhZHabZzTAtpXD19gBRD4MewoqTr3w=; b=Otwt0MinI8ggr+qw8qUsmoZPJo
+ UtrWl39vfUdyVb5GHEH827b+rWMNrLP9XyYv9VmRy7uz2ZsYk9xxo7HT5Hn0ARoIFT5mM8SLx4QsX
+ 5jbcs+Nvpl4ePd0OMS3YhKZQkt/64ThzXfN1j6FJ7Bk8n6XDx537RPdlR6zpsSCN9Z4M=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
@@ -29,14 +29,14 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=wF3LghB7qFMkIN+RAhS0nW2784Fxel03VlqG6SoZfk8=; b=k5kT0w+Iv5SLIqzQWUnJZqsJrT
- ZXqnDbb/EFXNAfbJE+jmkSyc+OtdwwKO0Vj26JPLSm42ZFYk8fY0JttM4lD8RD18f9xDHuIAQbnTy
- gVQk2eGaSQKDmY9g/KohtUzQtvgSeZTjNht5sfvpD0Ti4FKStGuwiIOT1FWWePkqGW2w=;
+ bh=sBxOdf5zzlugJkhZHabZzTAtpXD19gBRD4MewoqTr3w=; b=butYYua33Y65rLHgaxZX9gNjJP
+ xz7UDqjMq4t9dnyz/kEH83tFzDBlbTxHuARkGipcmDVcHoz59o8JDg4hisalssVm7VMIpNqO94Sf8
+ mH2Zm8+DcO2v6mqTNhhXVIEVYDT4aX+wWj3nhT8EkNUi+g2rcaQVSfI974XrpJ2LX3V8=;
 Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nqyzf-0006WW-08
- for openipmi-developer@lists.sourceforge.net; Tue, 17 May 2022 15:20:18 +0000
+ id 1nqzCi-0007Fq-5E
+ for openipmi-developer@lists.sourceforge.net; Tue, 17 May 2022 15:33:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
  s=20170329;
  h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
@@ -44,28 +44,27 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=wF3LghB7qFMkIN+RAhS0nW2784Fxel03VlqG6SoZfk8=; b=giQ6MXmBG17+JbZaHvCpLgBjCU
- FwsDXgX/b02O0QP8I+vkUwgy5+Lo+D5E+EJOGL5/JJvM2lmeYDRT6QF5s/JgDpbjXa08hzTZAOCcp
- H5UDG57PmVcXgDQ83UJ5J0cHOAPIvQgCaZLx9/QPzE06aTWYPlZURlCiNkAkSPoI1FmBlizReQXpJ
- dIElRXTKibRc33b/9HZXXl+Wf0mzN1goXhA+a9ZGenrB/fdH27xO8ledb2joDR0cLh2vGAmqvotM+
- JR0bWUJ+tmRYLx16LGJtXMspUiQTF3daEYzd/24Q2VypEyjqgtCV1aoMRt2LQ9YZpXkratOMOe37t
- 53QKNYiQ==;
+ bh=sBxOdf5zzlugJkhZHabZzTAtpXD19gBRD4MewoqTr3w=; b=NsQp7JvDHeiG0InrgCzgj6qEMn
+ +0HDDirskWRJUwtuX9QZNgVpRKlGO/3aNrbmen6tXlKUhuV0+BbQy2aMCyUUGcetLiuWPChDYhZG2
+ uActfFtkCGU4c6w7jw5eo3KbRLxEWlPGvaIXcW9KuVcgcDuIdvQJ7CUukGXL9th36+kW270UNj6cp
+ KwfiG//V+ceMXkXz56bGppHfbEL7x2Yf8p2OfzRzA+P3gciDRGzrJlW3tYAmf8L72SPmNmKgXgiQH
+ oN/Ktah8yVYeK7YuYx/7jPfAZeKiiCyehjDs7pB9vGbI0WRx7KI28Glco3R/cH3PEM9mA0rVYqkMG
+ 3w57FnRw==;
 Received: from 200-161-159-120.dsl.telesp.net.br ([200.161.159.120]
  helo=[192.168.1.60]) by fanzine2.igalia.com with esmtpsa 
  (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
- id 1nqyyz-008b70-84; Tue, 17 May 2022 17:19:33 +0200
-Message-ID: <bc485d09-0958-0ddc-7b2d-cbc806cf6a01@igalia.com>
-Date: Tue, 17 May 2022 12:19:02 -0300
+ id 1nqzCM-008c9O-8K; Tue, 17 May 2022 17:33:22 +0200
+Message-ID: <007af382-dcf5-b06d-acad-08f8d6ec7f8b@igalia.com>
+Date: Tue, 17 May 2022 12:32:39 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.9.0
 Content-Language: en-US
-To: Petr Mladek <pmladek@suse.com>
+To: Petr Mladek <pmladek@suse.com>, Florian Fainelli <f.fainelli@gmail.com>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-15-gpiccoli@igalia.com> <YnqBsXBImU64PAOL@alley>
- <244a412c-4589-28d1-bb77-d3648d4f0b12@igalia.com> <YoOe7ifxfW8CEHdt@alley>
+ <20220427224924.592546-16-gpiccoli@igalia.com> <YnqEqDnMfUgC4dM6@alley>
 From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <YoOe7ifxfW8CEHdt@alley>
+In-Reply-To: <YnqEqDnMfUgC4dM6@alley>
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
@@ -73,10 +72,9 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 17/05/2022 10:11,
- Petr Mladek wrote: > [...] >> You mentioned
- 2 cases: >> >> (a) Same notifier_list used in different situations; >> >>
- (b) Same *notifier callback* used in different lists; >> >> M [...] 
+ Content preview:  On 10/05/2022 12:28, Petr Mladek wrote: > [...] > IMHO, the
+ check of the @self parameter was the proper solution. > > "gisb_die_notifier"
+ list uses @val from enum die_val. > "gisb_panic_notifier" list [...] 
  Content analysis details:   (-2.3 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -91,9 +89,9 @@ X-Spam-Report: Spam detection software,
  envelope-from domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
  -2.1 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1nqyzf-0006WW-08
-Subject: Re: [Openipmi-developer] [PATCH 14/30] panic: Properly identify the
- panic event to the notifiers' callbacks
+X-Headers-End: 1nqzCi-0007Fq-5E
+Subject: Re: [Openipmi-developer] [PATCH 15/30] bus: brcmstb_gisb: Clean-up
+ panic/die notifiers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -121,69 +119,38 @@ Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
  rcu@vger.kernel.org, bp@alien8.de, luto@kernel.org,
  linux-tegra@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
  andriy.shevchenko@linux.intel.com, vkuznets@redhat.com,
- linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
- netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
- linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
- senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
- kernel-dev@igalia.com, linux-alpha@vger.kernel.org, akpm@linux-foundation.org,
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
+ jgross@suse.com, linux-parisc@vger.kernel.org, netdev@vger.kernel.org,
+ kernel@gpiccoli.net, kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stern@rowland.harvard.edu, senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com,
+ mhiramat@kernel.org, kernel-dev@igalia.com, linux-alpha@vger.kernel.org,
+ akpm@linux-foundation.org, Brian Norris <computersforpeace@gmail.com>,
  linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 17/05/2022 10:11, Petr Mladek wrote:
+On 10/05/2022 12:28, Petr Mladek wrote:
 > [...]
->> You mentioned 2 cases:
->>
->> (a) Same notifier_list used in different situations;
->>
->> (b) Same *notifier callback* used in different lists;
->>
->> Mine is case (b), right? Can you show me an example of case (a)?
+> IMHO, the check of the @self parameter was the proper solution.
 > 
-> There are many examples of case (a):
+> "gisb_die_notifier" list uses @val from enum die_val.
+> "gisb_panic_notifier" list uses @val from enum panic_notifier_val.
 > 
-> [... snip ...] 
-> These all call the same list/chain in different situations.
-> The situation is distinguished by @val.
+> These are unrelated types. It might easily break when
+> someone defines the same constant also in enum die_val.
 > 
-> 
->> You can see in the following patches (or grep the kernel) that people are using
->> this identification parameter to determine which kind of OOPS trigger
->> the callback to condition the execution of the function to specific
->> cases.
-> 
-> Could you please show me some existing code for case (b)?
-> I am not able to find any except in your patches.
-> 
+> Best Regards,
+> Petr
 
-Hi Petr, thanks for the examples - I agree with you. In the end, seems
-I'm kind of abusing the API. This id is used to distinguish different
-situations in which the callback is called, but in the same
-"realm"/notifier list.
+OK Petr, I'll drop this idea for V2 - will just remove the useless
+header / prototype then. (CC Florian)
 
-In my case I have different list calling the same callback and
-(ab-)using the id to make distinction. I can rework the patches using
-pointer comparison, it's fine =)
 
-So, I'll drop this patch in V2.
+Cheers,
 
-> Anyway, the solution in 16th patch is bad, definitely.
-> hv_die_panic_notify_crash() uses "val" to disinguish
-> both:
-> 
->      + "panic_notifier_list" vs "die_chain"
->      + die_val when callen via "die_chain"
-> 
-> The API around "die_chain" API is not aware of enum panic_notifier_val
-> and the API using "panic_notifier_list" is not aware of enum die_val.
-> As I said, it is mixing apples and oranges and it is error prone.
-> 
 
-OK, I'll re-work that patch - there's more there to be changed, that one
-is complex heheh
-
-Cheers!
+Guilherme
 
 
 _______________________________________________
