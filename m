@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A210652A3FE
-	for <lists+openipmi-developer@lfdr.de>; Tue, 17 May 2022 15:57:47 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id EC15E52A45E
+	for <lists+openipmi-developer@lfdr.de>; Tue, 17 May 2022 16:11:21 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nqxho-0007eL-Db; Tue, 17 May 2022 13:57:43 +0000
+	id 1nqxux-00031i-6p; Tue, 17 May 2022 14:11:17 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <pmladek@suse.com>) id 1nqxhn-0007eF-Qv
- for openipmi-developer@lists.sourceforge.net; Tue, 17 May 2022 13:57:42 +0000
+ (envelope-from <pmladek@suse.com>) id 1nqxuv-00031c-Or
+ for openipmi-developer@lists.sourceforge.net; Tue, 17 May 2022 14:11:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=F/28g65NUYRrE0kqo9hb+aIMt4lDnxj7qFXJPB2SFKQ=; b=jRQKdAyeFUe2QkbCQdAD9PmNAd
- d1tYQ96VRGmMAHTClrgF7wsafERkxojxH/06GYCMbqqmdBBb/5DBQsI1sSko2OQxfNbRn1PFBJ/kn
- grjmjZ/CZp5rrPy/YvGqbTd/EkqmzS6nHvxksICYfWyNgngMIsZM3fAftZz7d8pLDJXI=;
+ bh=UazRNADyyJz2HI+RS6R0a4/dm7+XkEeyBn9yGoLISk0=; b=Q8NSaaYBskYxB3RgjtnNmcqeEz
+ TGxaQTl2wRTXRGrob9um1NRFB/bx2sWSbEyAiIbR74F2rKfNkgESAcAhbRerq0tOu/Bm+C2iRex8T
+ pVtSolDLoyPfLr2LePpeVPOaz2RDInle1Sxr7bk/r6IYqvW14a8/Z8QlepiY1AGenLdE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -29,50 +29,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=F/28g65NUYRrE0kqo9hb+aIMt4lDnxj7qFXJPB2SFKQ=; b=PTfCEMHGOZnV9ER9hWpkaZtjdI
- 3VzwG0LFdXeW64XeKo4HTDWSyWSsXKRc9cVzHXZFm09gfnPSb7f+r6OZBc8CE7zVz89IaT+9b8phC
- HScKuEO8y/xXXE7kAzCC+ms1vUolGoOvkDjumvqsctlQ5NrH91I5WML5L1A5wM/PsBDo=;
+ bh=UazRNADyyJz2HI+RS6R0a4/dm7+XkEeyBn9yGoLISk0=; b=mBX32Q4u7kJE+SPne9S5CqigQN
+ YFEA9yxcU2XsM3GPeTCZHVlAt7ajsLyezE9LZ0cBZB50Vhj6MOIx6EUqnO6rkqXFpEaLPsQP9vU/r
+ /VKv6DbgD60h5AfCHjhoa7WhQL1NjAVL1nuAuLDHouwgqC8grs/+x/XHHP7X78ZFUxwg=;
 Received: from smtp-out2.suse.de ([195.135.220.29])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
- id 1nqxhl-0001c5-O9
- for openipmi-developer@lists.sourceforge.net; Tue, 17 May 2022 13:57:42 +0000
+ id 1nqxuq-004QUM-5O
+ for openipmi-developer@lists.sourceforge.net; Tue, 17 May 2022 14:11:16 +0000
 Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
- by smtp-out2.suse.de (Postfix) with ESMTP id 5FD4E1F8CA;
- Tue, 17 May 2022 13:57:34 +0000 (UTC)
+ by smtp-out2.suse.de (Postfix) with ESMTP id 67D211F8CA;
+ Tue, 17 May 2022 14:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1652795854; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ t=1652796665; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
  mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=F/28g65NUYRrE0kqo9hb+aIMt4lDnxj7qFXJPB2SFKQ=;
- b=La0hw1fimyOXZWGy7NhUralYCHdeUAgxZ7Jx2l4teL3ZObgxCoYN3MJlutKivdf7Tw8ScF
- Jcou2BEeZy+SMDvZr2KkytW34i2oUnUQq/Rvj3HIt6rmBgE0M6mmkljwufeUEZWWTXnkMR
- l7FZzEHlQDvQ7gIrbLVQoj/qRxAknBE=
+ bh=UazRNADyyJz2HI+RS6R0a4/dm7+XkEeyBn9yGoLISk0=;
+ b=BKp7+FEVfq6NcVwdI04E/j1IXhL8fav2W9wQb6/2V+MLS4zVCpGBL04+5kiZPUHpPEWWSJ
+ UCuw6cy5UFA5oDKAHRw0jxrGspZnMX7jbttS2tX8QWMEWQryA8mHzjbrpe5MfzzbeKkAE+
+ HL6pRS/de3kEkB9TyLHSW9ZDBKYUAwA=
 Received: from suse.cz (unknown [10.100.201.202])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by relay2.suse.de (Postfix) with ESMTPS id 47D802C141;
- Tue, 17 May 2022 13:57:32 +0000 (UTC)
-Date: Tue, 17 May 2022 15:57:29 +0200
+ by relay2.suse.de (Postfix) with ESMTPS id 10D772C141;
+ Tue, 17 May 2022 14:11:04 +0000 (UTC)
+Date: Tue, 17 May 2022 16:11:00 +0200
 To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Message-ID: <YoOpyW1+q+Z5as78@alley>
+Message-ID: <YoOs9GJ5Ovq63u5Q@alley>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-20-gpiccoli@igalia.com>
- <YoJZVZl/MH0KiE/J@alley>
- <ad082ce7-db50-13bb-3dbb-9b595dfa78be@igalia.com>
+ <20220427224924.592546-22-gpiccoli@igalia.com>
+ <YoJgcC8c6LaKADZV@alley>
+ <63a74b56-89ef-8d1f-d487-cdb986aab798@igalia.com>
+ <bed66b9467254a5a8bafc1983dad643a@intel.com>
+ <e895ce94-e6b9-caf6-e5d3-06bf0149445c@igalia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ad082ce7-db50-13bb-3dbb-9b595dfa78be@igalia.com>
+In-Reply-To: <e895ce94-e6b9-caf6-e5d3-06bf0149445c@igalia.com>
 X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon 2022-05-16 12:06:17, Guilherme G. Piccoli wrote: >
- Thanks for the review! > > I agree with the blinking stuff, I can rework and
- add all LED/blinking > stuff into the loop list, it does make sen [...] 
+ Content preview:  On Mon 2022-05-16 13:33:51, Guilherme G. Piccoli wrote: >
+ On 16/05/2022 13:18, Luck, Tony wrote: > >> [...] > > Would it be possible
+ to have some global "kdump is configured + enabled" flag? > > > > T [...]
  Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -81,15 +83,16 @@ X-Spam-Report: Spam detection software,
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
-X-Headers-End: 1nqxhl-0001c5-O9
-Subject: Re: [Openipmi-developer] [PATCH 19/30] panic: Add the panic
- hypervisor notifier list
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1nqxuq-004QUM-5O
+Subject: Re: [Openipmi-developer] [PATCH 21/30] panic: Introduce the panic
+ pre-reboot notifier list
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -106,191 +109,106 @@ From: Petr Mladek via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
 Reply-To: Petr Mladek <pmladek@suse.com>
 Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Justin Chen <justinpopo6@gmail.com>,
- Pavel Machek <pavel@ucw.cz>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
  "K. Y. Srinivasan" <kys@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, stern@rowland.harvard.edu,
- xen-devel@lists.xenproject.org,
- Christian Borntraeger <borntraeger@linux.ibm.com>, linux-pm@vger.kernel.org,
- linux-um@lists.infradead.org, Nicholas Piggin <npiggin@gmail.com>,
- luto@kernel.org, Mihai Carabas <mihai.carabas@oracle.com>, tglx@linutronix.de,
- gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
- senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
- akpm@linux-foundation.org, linux-hyperv@vger.kernel.org,
- dave.hansen@linux.intel.com, linux-s390@vger.kernel.org,
- Stephen Hemminger <sthemmin@microsoft.com>, Vasily Gorbik <gor@linux.ibm.com>,
- vgoyal@redhat.com, Sven Schnelle <svens@linux.ibm.com>,
- Andrea Parri <parri.andrea@gmail.com>, linux-xtensa@linux-xtensa.org,
- john.ogness@linutronix.de, Scott Branden <scott.branden@broadcom.com>,
- Doug Berger <opendmb@gmail.com>, Markus Mayer <mmayer@broadcom.com>,
- hidehiro.kawai.ez@hitachi.com, linux-arm-kernel@lists.infradead.org,
- kernel-dev@igalia.com, fabiomirmar@gmail.com, halves@canonical.com,
- alejandro.j.jimenez@oracle.com, feng.tang@intel.com,
- zhenwei pi <pizhenwei@bytedance.com>, will@kernel.org,
- Florian Fainelli <f.fainelli@gmail.com>, bhe@redhat.com, corbet@lwn.net,
- Dexuan Cui <decui@microsoft.com>, Evan Green <evgreen@chromium.org>,
- bcm-kernel-feedback-list@broadcom.com, Tianyu Lan <Tianyu.Lan@microsoft.com>,
- keescook@chromium.org, arnd@arndb.de, Haiyang Zhang <haiyangz@microsoft.com>,
- rostedt@goodmis.org, rcu@vger.kernel.org, bp@alien8.de,
- openipmi-developer@lists.sourceforge.net,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-parisc@vger.kernel.org,
- Sebastian Reichel <sre@kernel.org>, linux-alpha@vger.kernel.org,
- Brian Norris <computersforpeace@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, peterz@infradead.org,
- linux-remoteproc@vger.kernel.org, mikelley@microsoft.com,
- sparclinux@vger.kernel.org, Lee Jones <lee.jones@linaro.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-leds@vger.kernel.org, x86@kernel.org,
- mingo@redhat.com, dyoung@redhat.com, paulmck@kernel.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Shile Zhang <shile.zhang@linux.alibaba.com>,
- Wang ShaoBo <bobo.shaobowang@huawei.com>,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- David Gow <davidgow@google.com>, linux-tegra@vger.kernel.org,
- andriy.shevchenko@linux.intel.com, Hari Bathini <hbathini@linux.ibm.com>,
- linux-edac@vger.kernel.org, jgross@suse.com, netdev@vger.kernel.org,
- kernel@gpiccoli.net, kexec@lists.infradead.org, linux-mips@vger.kernel.org,
- Julius Werner <jwerner@chromium.org>, vkuznets@redhat.com,
- linuxppc-dev@lists.ozlabs.org
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "stern@rowland.harvard.edu" <stern@rowland.harvard.edu>,
+ "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>,
+ Matt Turner <mattst88@gmail.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+ "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
+ "luto@kernel.org" <luto@kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
+ Alex Elder <elder@kernel.org>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "senozhatsky@chromium.org" <senozhatsky@chromium.org>,
+ "d.hatayama@jp.fujitsu.com" <d.hatayama@jp.fujitsu.com>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ "mhiramat@kernel.org" <mhiramat@kernel.org>,
+ "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Max Filippov <jcmvbkbc@gmail.com>,
+ "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Stephen Hemminger <sthemmin@microsoft.com>, Corey Minyard <minyard@acm.org>,
+ Helge Deller <deller@gmx.de>, "vgoyal@redhat.com" <vgoyal@redhat.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
+ "john.ogness@linutronix.de" <john.ogness@linutronix.de>,
+ "hidehiro.kawai.ez@hitachi.com" <hidehiro.kawai.ez@hitachi.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Chris Zankel <chris@zankel.net>,
+ "Luck, Tony" <tony.luck@intel.com>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, James Morse <james.morse@arm.com>,
+ "kernel-dev@igalia.com" <kernel-dev@igalia.com>,
+ "fabiomirmar@gmail.com" <fabiomirmar@gmail.com>,
+ "halves@canonical.com" <halves@canonical.com>,
+ "alejandro.j.jimenez@oracle.com" <alejandro.j.jimenez@oracle.com>, "Tang,
+ Feng" <feng.tang@intel.com>, "will@kernel.org" <will@kernel.org>,
+ "bhe@redhat.com" <bhe@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>,
+ Dexuan Cui <decui@microsoft.com>, "bcm-kernel-feedback-list@broadcom.com"
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "keescook@chromium.org" <keescook@chromium.org>,
+ "arnd@arndb.de" <arnd@arndb.de>, Haiyang Zhang <haiyangz@microsoft.com>,
+ "rostedt@goodmis.org" <rostedt@goodmis.org>,
+ "rcu@vger.kernel.org" <rcu@vger.kernel.org>, "bp@alien8.de" <bp@alien8.de>,
+ "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
+ "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+ "mikelley@microsoft.com" <mikelley@microsoft.com>,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+ "linux-leds@vger.kernel.org" <linux-leds@vger.kernel.org>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Richard Weinberger <richard@nod.at>, "x86@kernel.org" <x86@kernel.org>,
+ "mingo@redhat.com" <mingo@redhat.com>, "dyoung@redhat.com" <dyoung@redhat.com>,
+ "paulmck@kernel.org" <paulmck@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
+ "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+ "jgross@suse.com" <jgross@suse.com>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "kernel@gpiccoli.net" <kernel@gpiccoli.net>,
+ "kexec@lists.infradead.org" <kexec@lists.infradead.org>,
+ "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon 2022-05-16 12:06:17, Guilherme G. Piccoli wrote:
-> Thanks for the review!
-> 
-> I agree with the blinking stuff, I can rework and add all LED/blinking
-> stuff into the loop list, it does make sense. I'll comment a bit in the
-> others below...
-> 
-> On 16/05/2022 11:01, Petr Mladek wrote:
-> >> --- a/drivers/firmware/google/gsmi.c
-> >> +++ b/drivers/firmware/google/gsmi.c
-> >> @@ -1034,7 +1034,7 @@ static __init int gsmi_init(void)
-> >>  
-> >>  	register_reboot_notifier(&gsmi_reboot_notifier);
-> >>  	register_die_notifier(&gsmi_die_notifier);
-> >> -	atomic_notifier_chain_register(&panic_notifier_list,
-> >> +	atomic_notifier_chain_register(&panic_hypervisor_list,
-> >>  				       &gsmi_panic_notifier);
+On Mon 2022-05-16 13:33:51, Guilherme G. Piccoli wrote:
+> On 16/05/2022 13:18, Luck, Tony wrote:
+> >> [...]
+> > Would it be possible to have some global "kdump is configured + enabled" flag?
 > > 
-> > I am not sure about this one. It looks like some logging or
-> > pre_reboot stuff.
+> > Then notifiers could make an informed choice on whether to deep dive to
+> > get all the possible details (when there is no kdump) or just skim the high
+> > level stuff (to maximize chance of getting a successful kdump).
 > > 
+> > -Tony
 > 
-> Disagree here. I'm looping Google maintainers, so they can comment.
-> (CCed Evan, David, Julius)
-> 
-> This notifier is clearly a hypervisor notification mechanism. I've fixed
-> a locking stuff there (in previous patch), I feel it's low-risk but even
-> if it's mid-risk, the class of such callback remains a perfect fit with
-> the hypervisor list IMHO.
+> Good idea Tony! What if I wire a kexec_crash_loaded() in the notifier?
 
-It is similar to drivers/soc/bcm/brcmstb/pm/pm-arm.c.
-See below for another idea.
+I like this idea.
 
-> >> --- a/drivers/misc/bcm-vk/bcm_vk_dev.c
-> >> +++ b/drivers/misc/bcm-vk/bcm_vk_dev.c
-> >> @@ -1446,7 +1446,7 @@ static int bcm_vk_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
-> >>  
-> >>  	/* register for panic notifier */
-> >>  	vk->panic_nb.notifier_call = bcm_vk_on_panic;
-> >> -	err = atomic_notifier_chain_register(&panic_notifier_list,
-> >> +	err = atomic_notifier_chain_register(&panic_hypervisor_list,
-> >>  					     &vk->panic_nb);
-> > 
-> > It seems to reset some hardware or so. IMHO, it should go into the
-> > pre-reboot list.
-> 
-> Mixed feelings here, I'm looping Broadcom maintainers to comment.
-> (CC Scott and Broadcom list)
-> 
-> I'm afraid it breaks kdump if this device is not reset beforehand - it's
-> a doorbell write, so not high risk I think...
-> 
-> But in case the not-reset device can be probed normally in kdump kernel,
-> then I'm fine in moving this to the reboot list! I don't have the HW to
-> test myself.
+One small problem is that kexec_crash_loaded() has valid result
+only under kexec_mutex. On the other hand, it should stay true
+once loaded so that the small race window should be innocent.
 
-Good question. Well, it if has to be called before kdump then
-even "hypervisor" list is a wrong place because is not always
-called before kdump.
+> With that, are you/Petr/Dinh OK in moving it for the info list?
 
-
-> >> --- a/drivers/power/reset/ltc2952-poweroff.c
-> >> +++ b/drivers/power/reset/ltc2952-poweroff.c
-> >> @@ -279,7 +279,7 @@ static int ltc2952_poweroff_probe(struct platform_device *pdev)
-> >>  	pm_power_off = ltc2952_poweroff_kill;
-> >>  
-> >>  	data->panic_notifier.notifier_call = ltc2952_poweroff_notify_panic;
-> >> -	atomic_notifier_chain_register(&panic_notifier_list,
-> >> +	atomic_notifier_chain_register(&panic_hypervisor_list,
-> >>  				       &data->panic_notifier);
-> > 
-> > I looks like this somehow triggers the reboot. IMHO, it should go
-> > into the pre_reboot list.
-> 
-> Mixed feeling again here - CCing the maintainers for comments (Sebastian
-> / PM folks).
-> 
-> This is setting a variable only, and once it's set (data->kernel_panic
-> is the bool's name), it just bails out the IRQ handler and a timer
-> setting - this timer seems kinda tricky, so bailing out ASAP makes sense
-> IMHO.
-
-IMHO, the timer informs the hardware that the system is still alive
-in the middle of panic(). If the timer is not working then the
-hardware (chip) will think that the system frozen in panic()
-and will power off the system. See the comments in
-drivers/power/reset/ltc2952-poweroff.c:
-
- * The following GPIOs are used:
- * - trigger (input)
- *     A level change indicates the shut-down trigger. If it's state reverts
- *     within the time-out defined by trigger_delay, the shut down is not
- *     executed. If no pin is assigned to this input, the driver will start the
- *     watchdog toggle immediately. The chip will only power off the system if
- *     it is requested to do so through the kill line.
- *
- * - watchdog (output)
- *     Once a shut down is triggered, the driver will toggle this signal,
- *     with an internal (wde_interval) to stall the hardware shut down.
-
-IMHO, we really have to keep it alive until we reach the reboot stage.
-
-Another question is how it actually works when the interrupts are
-disabled during panic() and the timer callbacks are not handled.
-
-
-> > [...]
-> >> --- a/drivers/soc/bcm/brcmstb/pm/pm-arm.c
-> >> +++ b/drivers/soc/bcm/brcmstb/pm/pm-arm.c
-> >> @@ -814,7 +814,7 @@ static int brcmstb_pm_probe(struct platform_device *pdev)
-> >>  		goto out;
-> >>  	}
-> >>  
-> >> -	atomic_notifier_chain_register(&panic_notifier_list,
-> >> +	atomic_notifier_chain_register(&panic_hypervisor_list,
-> >>  				       &brcmstb_pm_panic_nb);
-> > 
-> > I am not sure about this one. It instruct some HW to preserve DRAM.
-> > IMHO, it better fits into pre_reboot category but I do not have
-> > strong opinion.
-> 
-> Disagree here, I'm CCing Florian for information.
-> 
-> This notifier preserves RAM so it's *very interesting* if we have
-> kmsg_dump() for example, but maybe might be also relevant in case kdump
-> kernel is configured to store something in a persistent RAM (then,
-> without this notifier, after kdump reboots the system data would be lost).
-
-I see. It is actually similar problem as with
-drivers/firmware/google/gsmi.c.
-
-I does similar things like kmsg_dump() so it should be called in
-the same location (after info notifier list and before kdump).
-
-A solution might be to put it at these notifiers at the very
-end of the "info" list or make extra "dump" notifier list.
+Sounds good to me.
 
 Best Regards,
 Petr
