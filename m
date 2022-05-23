@@ -2,97 +2,120 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB78552EABB
-	for <lists+openipmi-developer@lfdr.de>; Fri, 20 May 2022 13:25:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 994FF530E95
+	for <lists+openipmi-developer@lfdr.de>; Mon, 23 May 2022 13:44:56 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ns0kd-0005Do-Mv; Fri, 20 May 2022 11:24:58 +0000
+	id 1nt6UW-00086l-IB; Mon, 23 May 2022 11:44:51 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1ns0kc-0005Dh-MW
- for openipmi-developer@lists.sourceforge.net; Fri, 20 May 2022 11:24:58 +0000
+ (envelope-from <tcminyard@gmail.com>) id 1nt6UU-00086e-8O
+ for openipmi-developer@lists.sourceforge.net; Mon, 23 May 2022 11:44:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=DGPrrkXTp6oI8cbbgByz5QLKv15GNHxUgmjuIwTAy/E=; b=MtZkx3V7FhRjLlY8TUKEZNI97j
- HqOtRn12YOfA7Hva630mplGQQoSmf+COyCNcUDjjvCcI0/M08z8hRDSEJiiOteDNtZeTxIj+VlkzS
- 254PMGJhxoq4WV0Y7IEetpj/i8ZHMGQjyeVbTMxPo/5HepN0Ul0y0KMhQhW06oz+Esps=;
+ bh=3aVJI5c5O7jSRmeZkmnQH6lIAVqqKmbO2pfiDyl8EZU=; b=hZ7jj0vHX5IDNuA60ZsaooBWmy
+ jYDicUgvZme1j3JxizEJ5GloEXiSCVTwt8Jhs42uya//uFub1zoS8YzzWpHYHHEjCA0imf1pfhasw
+ dRONZo1Wc7pN0kBfGQb5H27dIsI+iVr/WUvkl4Y1QQZtySlZEdWpa+BgEW/bm3qQdrzw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=DGPrrkXTp6oI8cbbgByz5QLKv15GNHxUgmjuIwTAy/E=; b=X+MKmKhOUVTL8D9mDprP8Lbjex
- yCln3aNvHo6xmCMy18rAlBwyiFK5kvI0NHyYXqtV2tQLr1JLcvENQ5/xDwY8v+F8FD1lps0a3CquS
- Rd6WkahWcWMLNn1yHdb8+bNSdtoHjpvoLKBE004AA1vS72hQPWiOSTQ4wQ4XNHjj7RmM=;
-Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1ns0kW-00CbrV-Ng
- for openipmi-developer@lists.sourceforge.net; Fri, 20 May 2022 11:24:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
- s=20170329;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
- References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=DGPrrkXTp6oI8cbbgByz5QLKv15GNHxUgmjuIwTAy/E=; b=eqnE/suLTpG3xbkMCBtDpxLY3n
- NIRgLQiaBi0sCvdNCD4AFRLhJwRt1fDLW5HSSGFY7WXFEGFCYXn6Q0dC8gIFph3vTjXA6DvyBiQwz
- I5PwxVn4HFAkq1g0udGCDh7f8awWYDjllyLtGAcRh6eSoRE6OIuNpAwHVy7SfEQenDYcne2doKiCl
- jXXzZQlRm486qDYGQtQ0jW8Ms6RtpLdk65Qcz7YJ7/YEdFvKdb+dzF1Re9Q6nwXZnFrLVKgAD5Mwb
- LfHsy0RngN1antwERG5D/EtoEWfAXqtoLg2k7TzZKasJtkGm7zpf+kH+Fd2GGS1HnQh8pXfJiIePS
- VAbFF/9w==;
-Received: from 200-161-159-120.dsl.telesp.net.br ([200.161.159.120]
- helo=[192.168.1.60]) by fanzine2.igalia.com with esmtpsa 
- (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
- id 1ns0jj-00Cb4k-Od; Fri, 20 May 2022 13:24:04 +0200
-Message-ID: <ded31ec0-076b-2c5b-0fe6-0c274954821f@igalia.com>
-Date: Fri, 20 May 2022 08:23:33 -0300
+ h=Content-Type:MIME-Version:Reply-To:Message-ID:Subject:Cc:To:From:Date:
+ Sender:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=3aVJI5c5O7jSRmeZkmnQH6lIAVqqKmbO2pfiDyl8EZU=; b=E
+ f2jBgjDuUst7Ekw99YEViCPRb5MPzrBHxvLZRg8yhCEoWF9N9UeziV3eNJEhQsE6icHp5aTp+EO/d
+ XNTaPnRhowiWZQpsKiwQ1NZxChU+rAcmdsSJwl5e3UxWPscOb/JBVNpXLqjvxeCTeuBr79kJdmPJE
+ 9aIBFDW24BVD2044=;
+Received: from mail-qt1-f171.google.com ([209.85.160.171])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
+ id 1nt6UO-0007CU-8g
+ for openipmi-developer@lists.sourceforge.net; Mon, 23 May 2022 11:44:49 +0000
+Received: by mail-qt1-f171.google.com with SMTP id b9so6093463qtx.11
+ for <openipmi-developer@lists.sourceforge.net>;
+ Mon, 23 May 2022 04:44:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:date:from:to:cc:subject:message-id:reply-to:mime-version
+ :content-disposition;
+ bh=3aVJI5c5O7jSRmeZkmnQH6lIAVqqKmbO2pfiDyl8EZU=;
+ b=dhT1tTlWhGNbttlcLl4Y5fWajhOaXFyuZ2HHTqdyC4e4dN7K9VvWEl/jvuVKMbMEqr
+ hEqft0M9ImFSgiBn3uta3LM1IM7bY2hjUdpiX2Snqe1/fhgFbD/2kDpqmro2DliDsqNA
+ x942o9YqnV49E+C75zV2q81nwNAZIr1LQSTQRv0MDMM3S6r9H7EMHeoGghBbFR7whlYO
+ Vk9cdN4HNe9CmDMls2sZ/58f4weVHGYCj4s1nwKpscyTMv820QQ0CCQD3pyBhGdu6ZYt
+ R27WuJGXPw+5Pe+2DixQdTWPXtjuPLKtgES/BpXqsZ2/ogEB6n45l0i+3D5hoPbQL6Ps
+ CU4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :reply-to:mime-version:content-disposition;
+ bh=3aVJI5c5O7jSRmeZkmnQH6lIAVqqKmbO2pfiDyl8EZU=;
+ b=Rlua7p/+qvdfg5z6tSmU85C1XqjZZJAkPPIBPJ1ZNtprCspNp8W7Fi0gmRdz93mX0p
+ J5gOgSwogccfka3ER4KkyLky+BwRztqJCK5ch+B64/RJJuClDXhQWU9b80R8D49dg8VB
+ tS/bf8xXWsspqarJqBLNgpdjDkrNHvrpegHpEA+eeoxbb2bZ/8v3kKOX7STjnOjGFe7u
+ DCdzHW64OimPA8lqxborgFMYKXIFjPCduQWEJ0ro16cHpE2cnLo2zzKtbLX25MCaB5hp
+ csz/7f4yQwKV9L5xotkOFLXUe81RimJggXgXPmCMpBfbNiFHhn7fZuyAw8lfHOEpb3j5
+ MQCA==
+X-Gm-Message-State: AOAM530VVMSkjQl6VAfUGt/CVPu3Ydk7kgb6GxEaBFFsy3GoXd3okxTc
+ VTjJP0gvob7mkVRBfOe809K/JnAPcg==
+X-Google-Smtp-Source: ABdhPJwjG10A9KRoD/7HLjsZameMg7bZMBi1dJt3007qZj1gnTAlUB442LXftvJM1onztMZ0uIMPiQ==
+X-Received: by 2002:ac8:7fc4:0:b0:2f3:f174:e8c4 with SMTP id
+ b4-20020ac87fc4000000b002f3f174e8c4mr16010968qtk.572.1653306278379; 
+ Mon, 23 May 2022 04:44:38 -0700 (PDT)
+Received: from serve.minyard.net ([47.184.144.75])
+ by smtp.gmail.com with ESMTPSA id
+ 131-20020a370989000000b0069fe1fc72e7sm4350941qkj.90.2022.05.23.04.44.37
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 23 May 2022 04:44:37 -0700 (PDT)
+Received: from minyard.net (unknown
+ [IPv6:2001:470:b8f6:1b:75dd:56d5:b937:8615])
+ by serve.minyard.net (Postfix) with ESMTPSA id A757F18000C;
+ Mon, 23 May 2022 11:44:36 +0000 (UTC)
+Date: Mon, 23 May 2022 06:44:35 -0500
+From: Corey Minyard <minyard@acm.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <20220523114435.GH3767252@minyard.net>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.0
-Content-Language: en-US
-To: Baoquan He <bhe@redhat.com>, Petr Mladek <pmladek@suse.com>
-References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-25-gpiccoli@igalia.com> <Yn0TnsWVxCcdB2yO@alley>
- <d313eec2-96b6-04e3-35cd-981f103d010e@igalia.com>
- <20220519234502.GA194232@MiWiFi-R3L-srv>
-From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <20220519234502.GA194232@MiWiFi-R3L-srv>
-X-Spam-Score: -2.2 (--)
+Content-Disposition: inline
+X-Spam-Score: 0.4 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 19/05/2022 20:45, Baoquan He wrote: > [...] >> I really
- appreciate the summary skill you have, to convert complex >> problems in
- very clear and concise ideas. Thanks for that, very useful! >> I agr [...]
- Content analysis details:   (-2.2 points, 6.0 required)
+ Content preview: The following changes since commit
+ a7391ad3572431a354c927cf8896e86e50d7d0bf:
+ Merge tag 'iomm-fixes-v5.18-rc5' of
+ git://git.kernel.org/pub/scm/linux/kernel/git/joro/iommu
+ (2022-05-04 11:04:52 -0700) are available in the Git repository at: 
+ Content analysis details:   (0.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.160.171 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [tcminyard[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -2.0 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1ns0kW-00CbrV-Ng
-Subject: Re: [Openipmi-developer] [PATCH 24/30] panic: Refactor the panic
- path
+ valid -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.160.171 listed in wl.mailspike.net]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1nt6UO-0007CU-8g
+Subject: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 4.19
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,80 +128,68 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
- gregkh@linuxfoundation.org, peterz@infradead.org,
- alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
- feng.tang@intel.com, "michael Kelley \(LINUX\)" <mikelley@microsoft.com>,
- hidehiro.kawai.ez@hitachi.com, sparclinux@vger.kernel.org, will@kernel.org,
- tglx@linutronix.de, linux-leds@vger.kernel.org, linux-s390@vger.kernel.org,
- john.ogness@linutronix.de, corbet@lwn.net, paulmck@kernel.org,
- fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
- bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
- linux-mips@vger.kernel.org, Dave Young <dyoung@redhat.com>, vgoyal@redhat.com,
- linux-xtensa@linux-xtensa.org, dave.hansen@linux.intel.com,
- keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
- linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
- bp@alien8.de, luto@kernel.org, linux-tegra@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
- vkuznets@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
- netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
- linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
- senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
- kernel-dev@igalia.com, linux-alpha@vger.kernel.org, akpm@linux-foundation.org,
- linuxppc-dev@lists.ozlabs.org
+Reply-To: minyard@acm.org
+Cc: openipmi-developer@lists.sourceforge.net,
+ linux-kernel <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 19/05/2022 20:45, Baoquan He wrote:
-> [...]
->> I really appreciate the summary skill you have, to convert complex
->> problems in very clear and concise ideas. Thanks for that, very useful!
->> I agree with what was summarized above.
-> 
-> I want to say the similar words to Petr's reviewing comment when I went
-> through the patches and traced each reviewing sub-thread to try to
-> catch up. Petr has reivewed this series so carefully and given many
-> comments I want to ack immediately.
-> 
-> I agree with most of the suggestions from Petr to this patch, except of
-> one tiny concern, please see below inline comment.
+The following changes since commit a7391ad3572431a354c927cf8896e86e50d7d0bf:
 
-Hi Baoquan, thanks! I'm glad you're also reviewing that =)
+  Merge tag 'iomm-fixes-v5.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/joro/iommu (2022-05-04 11:04:52 -0700)
 
+are available in the Git repository at:
 
-> [...]
-> 
-> I like the proposed skeleton of panic() and code style suggested by
-> Petr very much. About panic_prefer_crash_dump which might need be added,
-> I hope it has a default value true. This makes crash_dump execute at
-> first by default just as before, unless people specify
-> panic_prefer_crash_dump=0|n|off to disable it. Otherwise we need add
-> panic_prefer_crash_dump=1 in kernel and in our distros to enable kdump,
-> this is inconsistent with the old behaviour.
+  https://github.com/cminyard/linux-ipmi.git tags/for-linus-4.19-1
 
-I'd like to understand better why the crash_kexec() must always be the
-first thing in your use case. If we keep that behavior, we'll see all
-sorts of workarounds - see the last patches of this series, Hyper-V and
-PowerPC folks hardcoded "crash_kexec_post_notifiers" in order to force
-execution of their relevant notifiers (like the vmbus disconnect,
-specially in arm64 that has no custom machine_crash_shutdown, or the
-fadump case in ppc). This led to more risk in kdump.
+for you to fetch changes up to a508e33956b538e034ed5df619a73ec7c15bda72:
 
-The thing is: with the notifiers' split, we tried to keep only the most
-relevant/necessary stuff in this first list, things that ultimately
-should improve kdump reliability or if not, at least not break it. My
-feeling is that, with this series, we should change the idea/concept
-that kdump must run first nevertheless, not matter what. We're here
-trying to accommodate the antagonistic goals of hypervisors that need
-some clean-up (even for kdump to work) VS. kdump users, that wish a
-"pristine" system reboot ASAP after the crash.
+  ipmi:ipmb: Fix refcount leak in ipmi_ipmb_probe (2022-05-12 10:00:04 -0500)
 
-Cheers,
+----------------------------------------------------------------
+Fixes for IPMI
 
+Add limits on the number of users and messages, plus sysfs interfaces
+to control those limits.
 
-Guilherme
+Other than that, little cleanups, use dev_xxx() insted of pr_xxx(),
+create initializers for structures, fix a refcount leak, etc.
+
+----------------------------------------------------------------
+Corey Minyard (11):
+      ipmi: Add a limit on the number of users that may use IPMI
+      ipmi: Limit the number of message a user may have outstanding
+      ipmi: Add a sysfs interface to view the number of users
+      ipmi: Add a sysfs count of total outstanding messages for an interface
+      ipmi:ssif: Check for NULL msg when handling events and messages
+      ipmi: Add an intializer for ipmi_smi_msg struct
+      ipmi: Add an intializer for ipmi_recv_msg struct
+      ipmi: Fix pr_fmt to avoid compilation issues
+      ipmi: Convert pr_debug() to dev_dbg()
+      ipmi:si: Convert pr_debug() to dev_dbg()
+      ipmi: Make two logs unique
+
+Miaoqian Lin (1):
+      ipmi:ipmb: Fix refcount leak in ipmi_ipmb_probe
+
+Stephen Kitt (1):
+      ipmi: use simple i2c probe function
+
+Yu Zhe (1):
+      ipmi: remove unnecessary type castings
+
+ drivers/char/ipmi/ipmb_dev_int.c    |   5 +-
+ drivers/char/ipmi/ipmi_ipmb.c       |   6 +-
+ drivers/char/ipmi/ipmi_msghandler.c | 111 ++++++++++++++++++++++++++++++++----
+ drivers/char/ipmi/ipmi_poweroff.c   |   8 +--
+ drivers/char/ipmi/ipmi_si_intf.c    |  17 +++---
+ drivers/char/ipmi/ipmi_ssif.c       |  33 +++++++++--
+ drivers/char/ipmi/ipmi_watchdog.c   |  28 ++++-----
+ include/linux/ipmi.h                |   5 ++
+ include/linux/ipmi_smi.h            |   6 ++
+ 9 files changed, 165 insertions(+), 54 deletions(-)
+
 
 
 _______________________________________________
