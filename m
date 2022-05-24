@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 331D35324DD
-	for <lists+openipmi-developer@lfdr.de>; Tue, 24 May 2022 10:05:07 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id ED21F53254F
+	for <lists+openipmi-developer@lfdr.de>; Tue, 24 May 2022 10:32:28 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ntPXL-0004LF-1A; Tue, 24 May 2022 08:05:03 +0000
+	id 1ntPxq-0005nU-4Y; Tue, 24 May 2022 08:32:25 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <pmladek@suse.com>) id 1ntPXK-0004Ky-0d
- for openipmi-developer@lists.sourceforge.net; Tue, 24 May 2022 08:05:02 +0000
+ (envelope-from <bhe@redhat.com>) id 1ntPxo-0005nO-MM
+ for openipmi-developer@lists.sourceforge.net; Tue, 24 May 2022 08:32:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=+HrTVIvXJDgrzNQFl8Mhx0wGW/HWHO1IHY/NT0Ch0wc=; b=Lpn1A207d+F0pytjQYgBkQDDI6
- 9jqSsuyum0I4cU77qeHAUqIXQK66W+tZs0GTE6xKhsg6l9DzgCxrsyNDPhYr5wvvbN5BKQQrdDGC6
- J8HQZQQUvijUU1PyEFDE3KUv55Bfz/jmxAVcXuHViXl0sgIdZBzJ8RfECeEJ+uWgGRDk=;
+ bh=e85r4r+pHFKTSezhh+x5QBd1PQ0NIYybBUBi1C3eVdc=; b=fCOPZ9YaEPGGwKkmVqm41GXUIc
+ n4uUWZ6aQJSkbbaLq9z/RrK0YLGIZMBZvVAod7ccCbFsbMlRenBIN4uVlOZcgZ/dcqVDbOCr5fpdN
+ HdR+eOVeqmfbUUqSQZBCHWsDstDUb6M1/mlPa06l4yD+ZO4Lbi9pm3Ag+V0MhEnE+3Lg=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -29,73 +29,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=+HrTVIvXJDgrzNQFl8Mhx0wGW/HWHO1IHY/NT0Ch0wc=; b=FkTR6LJytLDigAM8ROtXaFWWac
- y25BRi0NY8S4t/qe0bmgH/4Py52twswhNNHSiMHcmVwahGxcCO4PH8XMye/K/h+XJcvNWvN7PpS95
- KKOJBqp7HaH50iAjl0IAVqcLYeOaid02Z4Zns6u7I+/mZs3MlVxaeUDOYYfSms5Z0Co8=;
-Received: from smtp-out2.suse.de ([195.135.220.29])
+ bh=e85r4r+pHFKTSezhh+x5QBd1PQ0NIYybBUBi1C3eVdc=; b=W/kYgbmejLo6wANFjmfYTT8yyD
+ mnJHIpULLrG3D3GCJacGxuOyeOfrcOcIPCjpy/jpRiAFJnze8FqW5qAdDa1OLAr97MjXkl3ntvmCb
+ /W2TuqlQaTxhomAY62lJXhRqkcnn9NwECYGKdQ7KU/9wdWYUJfjxcpU31v3C22wO5SJY=;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
- id 1ntPXI-004NPN-Dw
- for openipmi-developer@lists.sourceforge.net; Tue, 24 May 2022 08:05:02 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
- by smtp-out2.suse.de (Postfix) with ESMTP id C6A001F8B8;
- Tue, 24 May 2022 08:04:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1653379492; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
+ id 1ntPxj-004SAq-Bv
+ for openipmi-developer@lists.sourceforge.net; Tue, 24 May 2022 08:32:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1653381133;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=+HrTVIvXJDgrzNQFl8Mhx0wGW/HWHO1IHY/NT0Ch0wc=;
- b=cmANZ9kaIvAGzRMHaeCxB0LLBkrlXozlKGlr2MQNHSGuBkVg9GZ4ULppK80AYEMbn3sHQ3
- SRCkpAxtJlotC4dIBTUf4LWabWRfn+CV2iXTLVzyyBDKp8B9onijAa8QBBUxy4R2DAxIkT
- C3aqZP5pWFL7HdTOLlEm50sKDepVyxc=
-Received: from suse.cz (unknown [10.100.201.202])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ bh=e85r4r+pHFKTSezhh+x5QBd1PQ0NIYybBUBi1C3eVdc=;
+ b=cZmHilPa2kbOELYmoGtcqZNJVXlRK6+olA3pPYQBnreha6u82wujsso8LR6Sq0VO2/FlcI
+ hwdNPzfrXor6YbPgrQ0tlDKVEvy5Q9xqlNXw/OWbsGg31EumM1dIWYGN9T4LTqZJofFB99
+ wltawbWZorc7y8PrG8vHS/FqLCieAK0=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-48-GCnb1baRM8qQLgvBsjrHmA-1; Tue, 24 May 2022 04:32:11 -0400
+X-MC-Unique: GCnb1baRM8qQLgvBsjrHmA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
+ [10.11.54.4])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by relay2.suse.de (Postfix) with ESMTPS id A47272C141;
- Tue, 24 May 2022 08:04:51 +0000 (UTC)
-Date: Tue, 24 May 2022 10:04:51 +0200
+ by mimecast-mx02.redhat.com (Postfix) with ESMTPS id DE3C73C01D91;
+ Tue, 24 May 2022 08:32:09 +0000 (UTC)
+Received: from localhost (ovpn-13-156.pek2.redhat.com [10.72.13.156])
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id 7602F2026D6A;
+ Tue, 24 May 2022 08:32:08 +0000 (UTC)
+Date: Tue, 24 May 2022 16:32:03 +0800
+From: Baoquan He <bhe@redhat.com>
 To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Message-ID: <YoyRo6gJrr4lsFpD@alley>
+Message-ID: <YoyYAz6jOShsfzbM@MiWiFi-R3L-srv>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-20-gpiccoli@igalia.com>
- <YoJZVZl/MH0KiE/J@alley>
- <ad082ce7-db50-13bb-3dbb-9b595dfa78be@igalia.com>
- <YoOpyW1+q+Z5as78@alley>
- <d72b9aab-675c-ac89-b73a-b1de4a0b722d@igalia.com>
- <81878a67-21f1-fee8-1add-f381bc8b05df@broadcom.com>
- <edbaa4fa-561c-6f5e-f2ab-43ae68acaede@igalia.com>
- <d1cc0bee-2a98-0c2e-8796-6fb7fae6b803@broadcom.com>
- <0fac8c71-6f18-d15c-23f5-075dbc45f3f9@igalia.com>
+ <20220427224924.592546-25-gpiccoli@igalia.com>
+ <Yn0TnsWVxCcdB2yO@alley>
+ <d313eec2-96b6-04e3-35cd-981f103d010e@igalia.com>
+ <20220519234502.GA194232@MiWiFi-R3L-srv>
+ <ded31ec0-076b-2c5b-0fe6-0c274954821f@igalia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <0fac8c71-6f18-d15c-23f5-075dbc45f3f9@igalia.com>
-X-Spam-Score: -2.5 (--)
+In-Reply-To: <ded31ec0-076b-2c5b-0fe6-0c274954821f@igalia.com>
+X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+X-Spam-Score: -1.6 (-)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon 2022-05-23 11:56:12, Guilherme G. Piccoli wrote: >
- On 19/05/2022 16:20, Scott Branden wrote: > > [...] > >> Hi Scott / Desmond,
- thanks for the detailed answer! Is this adapter > >> designed to [...] 
- Content analysis details:   (-2.5 points, 6.0 required)
+ Content preview:  On 05/20/22 at 08:23am,
+ Guilherme G. Piccoli wrote: > On 19/05/2022
+ 20:45, Baoquan He wrote: > > [...] > >> I really appreciate the summary skill
+ you have, to convert complex > >> problems in very cle [...] 
+ Content analysis details:   (-1.6 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.29 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [170.10.133.124 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1ntPXI-004NPN-Dw
-Subject: Re: [Openipmi-developer] [PATCH 19/30] panic: Add the panic
- hypervisor notifier list
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1ntPxj-004SAq-Bv
+Subject: Re: [Openipmi-developer] [PATCH 24/30] panic: Refactor the panic
+ path
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -108,98 +115,146 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Petr Mladek via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Petr Mladek <pmladek@suse.com>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Justin Chen <justinpopo6@gmail.com>,
- Pavel Machek <pavel@ucw.cz>, Alexander Gordeev <agordeev@linux.ibm.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, stern@rowland.harvard.edu,
- xen-devel@lists.xenproject.org,
- Christian Borntraeger <borntraeger@linux.ibm.com>, linux-pm@vger.kernel.org,
- linux-um@lists.infradead.org, Nicholas Piggin <npiggin@gmail.com>,
- luto@kernel.org, Mihai Carabas <mihai.carabas@oracle.com>, tglx@linutronix.de,
- gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
- senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
- akpm@linux-foundation.org, linux-hyperv@vger.kernel.org,
- dave.hansen@linux.intel.com, linux-s390@vger.kernel.org,
- Stephen Hemminger <sthemmin@microsoft.com>, Vasily Gorbik <gor@linux.ibm.com>,
- vgoyal@redhat.com, Sven Schnelle <svens@linux.ibm.com>,
- Andrea Parri <parri.andrea@gmail.com>, linux-xtensa@linux-xtensa.org,
- john.ogness@linutronix.de, Scott Branden <scott.branden@broadcom.com>,
- Doug Berger <opendmb@gmail.com>, Markus Mayer <mmayer@broadcom.com>,
- hidehiro.kawai.ez@hitachi.com, linux-arm-kernel@lists.infradead.org,
- kernel-dev@igalia.com, fabiomirmar@gmail.com, halves@canonical.com,
- alejandro.j.jimenez@oracle.com, feng.tang@intel.com,
- zhenwei pi <pizhenwei@bytedance.com>, will@kernel.org,
- Florian Fainelli <f.fainelli@gmail.com>, bhe@redhat.com, corbet@lwn.net,
- Dexuan Cui <decui@microsoft.com>, Evan Green <evgreen@chromium.org>,
- bcm-kernel-feedback-list@broadcom.com, Tianyu Lan <Tianyu.Lan@microsoft.com>,
- keescook@chromium.org, arnd@arndb.de, Haiyang Zhang <haiyangz@microsoft.com>,
- rostedt@goodmis.org, rcu@vger.kernel.org, bp@alien8.de,
- openipmi-developer@lists.sourceforge.net,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-parisc@vger.kernel.org,
- Sebastian Reichel <sre@kernel.org>, linux-alpha@vger.kernel.org,
- Brian Norris <computersforpeace@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, peterz@infradead.org,
- linux-remoteproc@vger.kernel.org, mikelley@microsoft.com,
- sparclinux@vger.kernel.org, Lee Jones <lee.jones@linaro.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-leds@vger.kernel.org, x86@kernel.org,
- mingo@redhat.com, Desmond yan <desmond.yan@broadcom.com>, dyoung@redhat.com,
- paulmck@kernel.org, Heiko Carstens <hca@linux.ibm.com>,
- Shile Zhang <shile.zhang@linux.alibaba.com>,
- Wang ShaoBo <bobo.shaobowang@huawei.com>,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- David Gow <davidgow@google.com>, linux-tegra@vger.kernel.org,
- andriy.shevchenko@linux.intel.com, Hari Bathini <hbathini@linux.ibm.com>,
- linux-edac@vger.kernel.org, jgross@suse.com, netdev@vger.kernel.org,
- kernel@gpiccoli.net, kexec@lists.infradead.org, linux-mips@vger.kernel.org,
- Julius Werner <jwerner@chromium.org>, vkuznets@redhat.com,
- linuxppc-dev@lists.ozlabs.org
+Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
+ linux-xtensa@linux-xtensa.org, peterz@infradead.org,
+ alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
+ feng.tang@intel.com, "michael Kelley \(LINUX\)" <mikelley@microsoft.com>,
+ hidehiro.kawai.ez@hitachi.com, sparclinux@vger.kernel.org, will@kernel.org,
+ tglx@linutronix.de, linux-leds@vger.kernel.org, linux-s390@vger.kernel.org,
+ john.ogness@linutronix.de, corbet@lwn.net, paulmck@kernel.org,
+ fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
+ linux-mips@vger.kernel.org, Dave Young <dyoung@redhat.com>, vgoyal@redhat.com,
+ Petr Mladek <pmladek@suse.com>, dave.hansen@linux.intel.com,
+ keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
+ linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
+ gregkh@linuxfoundation.org, bp@alien8.de, luto@kernel.org,
+ linux-tegra@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ andriy.shevchenko@linux.intel.com, vkuznets@redhat.com,
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
+ jgross@suse.com, linux-parisc@vger.kernel.org, netdev@vger.kernel.org,
+ kernel@gpiccoli.net, kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stern@rowland.harvard.edu, senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com,
+ mhiramat@kernel.org, kernel-dev@igalia.com, linux-alpha@vger.kernel.org,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon 2022-05-23 11:56:12, Guilherme G. Piccoli wrote:
-> On 19/05/2022 16:20, Scott Branden wrote:
-> > [...] 
-> >> Hi Scott / Desmond, thanks for the detailed answer! Is this adapter
-> >> designed to run in x86 only or you have other architectures' use cases?
-> > The adapter may be used in any PCIe design that supports DMA.
-> > So it may be possible to run in arm64 servers.
-> >>
-> >> [...]
-> >> With that said, and given this is a lightweight notifier that ideally
-> >> should run ASAP, I'd keep this one in the hypervisor list. We can
-> >> "adjust" the semantic of this list to include lightweight notifiers that
-> >> reset adapters.
-> > Sounds the best to keep system operating as tested today.
-> >>
-> >> With that said, Petr has a point - not always such list is going to be
-> >> called before kdump. So, that makes me think in another idea: what if we
-> >> have another list, but not on panic path, but instead in the custom
-> >> crash_shutdown()? Drivers could add callbacks there that must execute
-> >> before kexec/kdump, no matter what.
-> > It may be beneficial for some other drivers but for our use we would 
-> > then need to register for the panic path and the crash_shutdown path. 
-> > We notify the VK card for 2 purposes: one to stop DMA so memory stop 
-> > changing during a kdump.  And also to get the card into a good state so 
-> > resets happen cleanly.
+On 05/20/22 at 08:23am, Guilherme G. Piccoli wrote:
+> On 19/05/2022 20:45, Baoquan He wrote:
+> > [...]
+> >> I really appreciate the summary skill you have, to convert complex
+> >> problems in very clear and concise ideas. Thanks for that, very useful!
+> >> I agree with what was summarized above.
+> > 
+> > I want to say the similar words to Petr's reviewing comment when I went
+> > through the patches and traced each reviewing sub-thread to try to
+> > catch up. Petr has reivewed this series so carefully and given many
+> > comments I want to ack immediately.
+> > 
+> > I agree with most of the suggestions from Petr to this patch, except of
+> > one tiny concern, please see below inline comment.
 > 
-> Thanks Scott! With that, I guess it's really better to keep this
-> notifier in this hypervisor/early list - I'm planning to do that for V2.
-> Unless Petr or somebody has strong feelings against that, of course.
+> Hi Baoquan, thanks! I'm glad you're also reviewing that =)
+> 
+> 
+> > [...]
+> > 
+> > I like the proposed skeleton of panic() and code style suggested by
+> > Petr very much. About panic_prefer_crash_dump which might need be added,
+> > I hope it has a default value true. This makes crash_dump execute at
+> > first by default just as before, unless people specify
+> > panic_prefer_crash_dump=0|n|off to disable it. Otherwise we need add
+> > panic_prefer_crash_dump=1 in kernel and in our distros to enable kdump,
+> > this is inconsistent with the old behaviour.
+> 
+> I'd like to understand better why the crash_kexec() must always be the
+> first thing in your use case. If we keep that behavior, we'll see all
+> sorts of workarounds - see the last patches of this series, Hyper-V and
+> PowerPC folks hardcoded "crash_kexec_post_notifiers" in order to force
+> execution of their relevant notifiers (like the vmbus disconnect,
+> specially in arm64 that has no custom machine_crash_shutdown, or the
+> fadump case in ppc). This led to more risk in kdump.
 
-I am fine with it because we do not have a better solution at the
-moment.
+Firstly, kdump is not always the first thing. In any use case, if kdump
+kernel is not loaded, it's not the first thing at all. Not to mention
+if crash_kexec_post_notifiers is specified.
 
-It might be a good candidate for the 5th notifier list mentioned
-in the thread https://lore.kernel.org/r/YoyQyHHfhIIXSX0U@alley .
-But I am not sure if the 5th list is worth the complexity.
+if kdump kernel is loaded, kdump has been executing firslty, since it
+was added into kenrel/panic(); Until 2014, Masa added crash_kexec_post_notifiers
+kernel parameter to make panic notifiers be able to execute before kdump
+if specified.
 
-Best Regards,
-Petr
+	commit dc009d92435f99498cbc579ce76bf28e837e2c14
+	Author: Eric W. Biederman <ebiederm@xmission.com>
+	Date:   Sat Jun 25 14:57:52 2005 -0700
+	
+	    [PATCH] kexec: add kexec syscalls
+ 
+	commit f06e5153f4ae2e2f3b0300f0e260e40cb7fefd45
+	Author: Masami Hiramatsu <masami.hiramatsu.pt@hitachi.com>
+	Date:   Fri Jun 6 14:37:07 2014 -0700
+	
+	    kernel/panic.c: add "crash_kexec_post_notifiers" option for kdump after panic_notifers
+
+Changing this will cause regression. During these years, nobody ever doubt
+kdump should execute firstly if crashkernel is reserved and kdump kernel is
+loaded. That's not saying we can't change
+this, but need a convincing justification.
+
+Secondly, even with the notifiers' split, we can't guarantee people will
+absolutely add notifiers into right list in the future. Letting kdump
+execute behind lists by default will put kdump into risk.
+
+For example, you replied to Hatamata saying you have been working with
+kdump in the last 3, 4 years, and you have have been working on these
+panic notifiers refactoring issue in the recent months. However, in your
+refactoring patches of introducing hypervisor/info/pre-reboot, I noticed
+you acked the suggestion from Petr that several notifiers need be moved to
+correct position. So even you can't make sure these, how can other people
+be able to recognize which list should be 100% appropriate when they try
+to register one notifier for their sub-component?
+
+At last, I am wondering why fadump matters. I don't know in which case
+people wants to load kdump kernel, but expect to trigger crash fadump.
+Power people need consider this carefully and makes some change. Fadump
+just borrows the crashkernel reservation mechanism. If fadump would rather
+take risk to run all panic notifiers, whether fadump really needs them
+or not, then execute crash_fadump(), that's powerpc's business.
+
+As for Hyper-V, if it enforces to terminate VMbus connection, no matter
+it's kdump or not, why not taking it out of panic notifiers list and
+execute it before kdump unconditionally. Below is abstracted from
+Michael's words.
+
+https://lore.kernel.org/all/MWHPR21MB15933573F5C81C5250BF6A1CD75E9@MWHPR21MB1593.namprd21.prod.outlook.com/T/#u
+=======
+I looked at the code again, and should revise my previous comments
+somewhat.   The Hyper-V resets that I described indeed must be done
+prior to kexec'ing the kdump kernel.   Most such resets are actually
+done via __crash_kexec() -> machine_crash_shutdown(), not via the
+panic notifier. However, the Hyper-V panic notifier must terminate the
+VMbus connection, because that must be done even if kdump is not
+being invoked.  See commit 74347a99e73.
+=======
+
+> 
+> The thing is: with the notifiers' split, we tried to keep only the most
+> relevant/necessary stuff in this first list, things that ultimately
+> should improve kdump reliability or if not, at least not break it. My
+> feeling is that, with this series, we should change the idea/concept
+> that kdump must run first nevertheless, not matter what. We're here
+> trying to accommodate the antagonistic goals of hypervisors that need
+> some clean-up (even for kdump to work) VS. kdump users, that wish a
+> "pristine" system reboot ASAP after the crash.
+> 
+> Cheers,
+> 
+> 
+> Guilherme
+> 
+
 
 
 _______________________________________________
