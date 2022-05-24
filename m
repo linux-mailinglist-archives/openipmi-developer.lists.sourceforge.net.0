@@ -2,97 +2,96 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 957835315FA
-	for <lists+openipmi-developer@lfdr.de>; Mon, 23 May 2022 22:41:35 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id DF7595324BD
+	for <lists+openipmi-developer@lfdr.de>; Tue, 24 May 2022 10:01:44 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ntErq-0006jk-T7; Mon, 23 May 2022 20:41:30 +0000
+	id 1ntPU4-0003hT-9V; Tue, 24 May 2022 08:01:38 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gpiccoli@igalia.com>) id 1ntErn-0006jK-Ny
- for openipmi-developer@lists.sourceforge.net; Mon, 23 May 2022 20:41:27 +0000
+ (envelope-from <pmladek@suse.com>) id 1ntPU3-0003hN-0a
+ for openipmi-developer@lists.sourceforge.net; Tue, 24 May 2022 08:01:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=LG2HkLvcft3PZ/5y+RaNtcoQpztQykGkc8EQp8pxJfI=; b=h3U3JV0Qvax837OH/jOU0HgTlY
- /R09dYwjJhhatQfcIBJAYsLtyUh5sWuIv/82Nj5Y9Bw7IFjI9Jq+lYYHj2bWG7firLQjCiC2I1O1m
- YZZwQXBEJQLr6AvQmTHpyJNEdHZMo3pgs/8Hh1LXy6Ko73CqnGV9angmLUDFgkIhA21M=;
+ bh=YfQDkbqSOT+1qjQjuAj/jCMAhUotd54M/3ml94s/xOo=; b=UcVuDlpcCK9E7cdCxz2srjz//6
+ wGCMmlh2tdG+vdrmTx49943ejIGlEQ7d7KhXEGw2PpOYmSIoWik4/ANAYACsWIir+OIHleXUbfV12
+ NdJBy98dqyaSpHom3HdYDPK7rJIdzviHwhOtg0YDodGo1M+jCsWJTN8v/ABPEI9OKkHU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=LG2HkLvcft3PZ/5y+RaNtcoQpztQykGkc8EQp8pxJfI=; b=CCbw5PZLB2MV+lj5FS5jkzgKji
- 2dBB4afcZbj5v6JxQDpktiaLLwRf/ZT/BhCFbxlVJHG7DBoqMJSiAG13aO4yWicOfdlNG6ZTKoZn8
- ZGikHWEQc7u+/UNYu4uARLTWKo5o55YYXwzjuNn1/uqguwfsg72hsBnPWlrpSNOUV4gE=;
-Received: from fanzine.igalia.com ([178.60.130.6] helo=fanzine2.igalia.com)
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1ntErh-00089C-Q8
- for openipmi-developer@lists.sourceforge.net; Mon, 23 May 2022 20:41:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com; 
- s=20170329;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
- References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=LG2HkLvcft3PZ/5y+RaNtcoQpztQykGkc8EQp8pxJfI=; b=fPCMiuZns16FgBzoGF9Je3OLkO
- LL4L2QHAG/wGtiXgEhS21zRsWqE1LMzGwwDxe6f9KpfZaY9eV7CGD4vwhcqTRNInSSR1HDaLnpPpS
- miMpU8/+9j0GmfawjCEu88Tqk7uAI9V6UbtlRLQsT2Paj7KpRr9Eexx/1nt9uyC0/PRdqZ6qso//5
- 331flFwFw5rYDxq1lD4s7YGntuImz8x8p2XDCS463SY8sQhksTBKudAp4pKnME8DpTbZ4fGAvbQxT
- wafY442u8mSqR6x/cwniP7CEUq4fd8W+eVImWzP4xrptC52doj1jXiLwbdsJQSnWbw0nF1P7Xd8f/
- wPYC4mSw==;
-Received: from 200-161-159-120.dsl.telesp.net.br ([200.161.159.120]
- helo=[192.168.1.60]) by fanzine2.igalia.com with esmtpsa 
- (Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
- id 1ntEr0-00Gje9-7b; Mon, 23 May 2022 22:40:38 +0200
-Message-ID: <0dda86c0-3a54-8c70-d1e7-18bbb4d41bab@igalia.com>
-Date: Mon, 23 May 2022 17:40:07 -0300
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.0
-Content-Language: en-US
-To: Helge Deller <deller@gmx.de>
+ bh=YfQDkbqSOT+1qjQjuAj/jCMAhUotd54M/3ml94s/xOo=; b=ibuS3SFErNPehjNsKi407+CE+1
+ mzKRsYMwmMmbX1M69gKTSWfP6UfMwrBJPAafzAZWSbz0OC8pNeO5qHwjnHr/vNAs+jrhz4hucMRDR
+ gWGDEWYZe9l2lUWVt+ATBtV82YYdjQ9OAJLaGfUfNhoBj57d3SIs9RmpDyuUHGihMBAk=;
+Received: from smtp-out1.suse.de ([195.135.220.28])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
+ id 1ntPTw-004Mw1-Dt
+ for openipmi-developer@lists.sourceforge.net; Tue, 24 May 2022 08:01:37 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+ by smtp-out1.suse.de (Postfix) with ESMTP id 15D07219F1;
+ Tue, 24 May 2022 08:01:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1653379274; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=YfQDkbqSOT+1qjQjuAj/jCMAhUotd54M/3ml94s/xOo=;
+ b=PgXddxLSPksORjL/S6Twz65MXnqRLkhNWsZMkeMCJl5txCWJEZdmdegZfTAX/9coTEEbNM
+ 8MuciDtA/meSONuDDeUgJuaMT6sJm3SP6OoP4PPs2H8u+yjTfPOAegS/VmQ3g6ca5OFCQB
+ kRtlLyoJ6CAvfuEa9KvE4DbHA1Jh8JI=
+Received: from suse.cz (unknown [10.100.201.202])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by relay2.suse.de (Postfix) with ESMTPS id 8ADCF2C141;
+ Tue, 24 May 2022 08:01:12 +0000 (UTC)
+Date: Tue, 24 May 2022 10:01:12 +0200
+To: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Message-ID: <YoyQyHHfhIIXSX0U@alley>
 References: <20220427224924.592546-1-gpiccoli@igalia.com>
- <20220427224924.592546-13-gpiccoli@igalia.com>
- <6a7c924a-54a9-c5ea-8a9d-3ea92987b436@gmx.de>
-From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <6a7c924a-54a9-c5ea-8a9d-3ea92987b436@gmx.de>
-X-Spam-Score: -3.5 (---)
+ <20220427224924.592546-25-gpiccoli@igalia.com>
+ <Yn0TnsWVxCcdB2yO@alley>
+ <d313eec2-96b6-04e3-35cd-981f103d010e@igalia.com>
+ <20220519234502.GA194232@MiWiFi-R3L-srv>
+ <ded31ec0-076b-2c5b-0fe6-0c274954821f@igalia.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <ded31ec0-076b-2c5b-0fe6-0c274954821f@igalia.com>
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 28/04/2022 13:55, Helge Deller wrote: > [...] > You may
- add: > Acked-by: Helge Deller <deller@gmx.de> # parisc > > Helge Hi Helge,
- do you think would be possible to still pick this one for v5.19 or do you
- prefer to hold for the next release? 
- Content analysis details:   (-3.5 points, 6.0 required)
+ Content preview:  On Fri 2022-05-20 08:23:33, Guilherme G. Piccoli wrote: >
+ On 19/05/2022 20:45, Baoquan He wrote: > > [...] > >> I really appreciate
+ the summary skill you have, to convert complex > >> problems in very [...]
+ Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.28 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- -3.3 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1ntErh-00089C-Q8
-Subject: Re: [Openipmi-developer] [PATCH 12/30] parisc: Replace regular
- spinlock with spin_trylock on panic path
+X-Headers-End: 1ntPTw-004Mw1-Dt
+Subject: Re: [Openipmi-developer] [PATCH 24/30] panic: Refactor the panic
+ path
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,47 +104,112 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
+From: Petr Mladek via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Petr Mladek <pmladek@suse.com>
 Cc: linux-hyperv@vger.kernel.org, halves@canonical.com,
- linux-xtensa@linux-xtensa.org, peterz@infradead.org,
+ gregkh@linuxfoundation.org, peterz@infradead.org,
  alejandro.j.jimenez@oracle.com, linux-remoteproc@vger.kernel.org,
- feng.tang@intel.com, linux-mips@vger.kernel.org,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ feng.tang@intel.com, "michael Kelley \(LINUX\)" <mikelley@microsoft.com>,
  hidehiro.kawai.ez@hitachi.com, sparclinux@vger.kernel.org, will@kernel.org,
  tglx@linutronix.de, linux-leds@vger.kernel.org, linux-s390@vger.kernel.org,
- mikelley@microsoft.com, john.ogness@linutronix.de, bhe@redhat.com,
- corbet@lwn.net, paulmck@kernel.org, fabiomirmar@gmail.com, x86@kernel.org,
- mingo@redhat.com, bcm-kernel-feedback-list@broadcom.com,
- xen-devel@lists.xenproject.org, dyoung@redhat.com, vgoyal@redhat.com,
- pmladek@suse.com, dave.hansen@linux.intel.com, keescook@chromium.org,
- arnd@arndb.de, linux-pm@vger.kernel.org, linux-um@lists.infradead.org,
- rostedt@goodmis.org, rcu@vger.kernel.org, gregkh@linuxfoundation.org,
+ john.ogness@linutronix.de, Baoquan He <bhe@redhat.com>, corbet@lwn.net,
+ paulmck@kernel.org, fabiomirmar@gmail.com, x86@kernel.org, mingo@redhat.com,
+ bcm-kernel-feedback-list@broadcom.com, xen-devel@lists.xenproject.org,
+ linux-mips@vger.kernel.org, Dave Young <dyoung@redhat.com>, vgoyal@redhat.com,
+ linux-xtensa@linux-xtensa.org, dave.hansen@linux.intel.com,
+ keescook@chromium.org, arnd@arndb.de, linux-pm@vger.kernel.org,
+ linux-um@lists.infradead.org, rostedt@goodmis.org, rcu@vger.kernel.org,
  bp@alien8.de, luto@kernel.org, linux-tegra@vger.kernel.org,
  openipmi-developer@lists.sourceforge.net, andriy.shevchenko@linux.intel.com,
- vkuznets@redhat.com, linux-edac@vger.kernel.org, jgross@suse.com,
- linux-parisc@vger.kernel.org, netdev@vger.kernel.org, kernel@gpiccoli.net,
- kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
- stern@rowland.harvard.edu, senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com,
- mhiramat@kernel.org, kernel-dev@igalia.com, linux-alpha@vger.kernel.org,
- akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
+ vkuznets@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-edac@vger.kernel.org, jgross@suse.com, linux-parisc@vger.kernel.org,
+ netdev@vger.kernel.org, kernel@gpiccoli.net, kexec@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stern@rowland.harvard.edu,
+ senozhatsky@chromium.org, d.hatayama@jp.fujitsu.com, mhiramat@kernel.org,
+ kernel-dev@igalia.com, linux-alpha@vger.kernel.org, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 28/04/2022 13:55, Helge Deller wrote:
-> [...]
-> You may add:
-> Acked-by: Helge Deller <deller@gmx.de> # parisc
+On Fri 2022-05-20 08:23:33, Guilherme G. Piccoli wrote:
+> On 19/05/2022 20:45, Baoquan He wrote:
+> > [...]
+> >> I really appreciate the summary skill you have, to convert complex
+> >> problems in very clear and concise ideas. Thanks for that, very useful!
+> >> I agree with what was summarized above.
+> > 
+> > I want to say the similar words to Petr's reviewing comment when I went
+> > through the patches and traced each reviewing sub-thread to try to
+> > catch up. Petr has reivewed this series so carefully and given many
+> > comments I want to ack immediately.
+> > 
+> > I agree with most of the suggestions from Petr to this patch, except of
+> > one tiny concern, please see below inline comment.
 > 
-> Helge
+> Hi Baoquan, thanks! I'm glad you're also reviewing that =)
+> 
+> 
+> > [...]
+> > 
+> > I like the proposed skeleton of panic() and code style suggested by
+> > Petr very much. About panic_prefer_crash_dump which might need be added,
+> > I hope it has a default value true. This makes crash_dump execute at
+> > first by default just as before, unless people specify
+> > panic_prefer_crash_dump=0|n|off to disable it. Otherwise we need add
+> > panic_prefer_crash_dump=1 in kernel and in our distros to enable kdump,
+> > this is inconsistent with the old behaviour.
+> 
+> I'd like to understand better why the crash_kexec() must always be the
+> first thing in your use case. If we keep that behavior, we'll see all
+> sorts of workarounds - see the last patches of this series, Hyper-V and
+> PowerPC folks hardcoded "crash_kexec_post_notifiers" in order to force
+> execution of their relevant notifiers (like the vmbus disconnect,
+> specially in arm64 that has no custom machine_crash_shutdown, or the
+> fadump case in ppc). This led to more risk in kdump.
+> 
+> The thing is: with the notifiers' split, we tried to keep only the most
+> relevant/necessary stuff in this first list, things that ultimately
+> should improve kdump reliability or if not, at least not break it. My
+> feeling is that, with this series, we should change the idea/concept
+> that kdump must run first nevertheless, not matter what. We're here
+> trying to accommodate the antagonistic goals of hypervisors that need
+> some clean-up (even for kdump to work) VS. kdump users, that wish a
+> "pristine" system reboot ASAP after the crash.
 
-Hi Helge, do you think would be possible to still pick this one for
-v5.19 or do you prefer to hold for the next release?
+Good question. I wonder if Baoquan knows about problems caused by the
+particular notifiers that will end up in the hypervisor list. Note
+that there will be some shuffles and the list will be slightly
+different in V2.
 
-I'm working on V2, so if it's merged for 5.19 I won't send it again.
-Thanks,
+Anyway, I see four possible solutions:
 
+  1. The most conservative approach is to keep the current behavior
+     and call kdump first by default.
 
-Guilherme
+  2. A medium conservative approach to change the default default
+     behavior and call hypervisor and eventually the info notifiers
+     before kdump. There still would be the possibility to call kdump
+     first by the command line parameter.
+
+  3. Remove the possibility to call kdump first completely. It would
+     assume that all the notifiers in the info list are super safe
+     or that they make kdump actually more safe.
+
+  4. Create one more notifier list for operations that always should
+     be called before crash_dump.
+
+Regarding the extra notifier list (4th solution). It is not clear to
+me whether it would be always called even before hypervisor list or
+when kdump is not enabled. We must not over-engineer it.
+
+2nd proposal looks like a good compromise. But maybe we could do
+this change few releases later. The notifiers split is a big
+change on its own.
+
+Best Regards,
+Petr
 
 
 _______________________________________________
