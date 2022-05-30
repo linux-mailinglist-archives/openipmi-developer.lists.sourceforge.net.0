@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0D8D9537BF9
+	by mail.lfdr.de (Postfix) with ESMTPS id 3C591537BFA
 	for <lists+openipmi-developer@lfdr.de>; Mon, 30 May 2022 15:29:23 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nvfSQ-0003FB-T0; Mon, 30 May 2022 13:29:19 +0000
+	id 1nvfSS-00038Y-PJ; Mon, 30 May 2022 13:29:19 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <sashal@kernel.org>) id 1nvfSP-0003Em-F9
- for openipmi-developer@lists.sourceforge.net; Mon, 30 May 2022 13:29:17 +0000
+ (envelope-from <sashal@kernel.org>) id 1nvfSR-00038S-CG
+ for openipmi-developer@lists.sourceforge.net; Mon, 30 May 2022 13:29:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=YxYFOcUpr7Ow61sPUmCT4V7LeiDpMGmS1HmTs+JqSwI=; b=jOE8tQpX1Ixnmx8wS6FtatQnIG
- kytN88gOT6bINU+qulToO4aOD86i+dD9LnDCHEIN/v6wlonjWbDVM9iTWRUSZtmOCRh1AJAUrOrXJ
- lYfzV9rPCwQf9kTuolRJLHY4Qsb3H8HGVvc3qqCytnkCL2+NrEwl5fIINtgJrqtoHTa4=;
+ bh=WgD6bTYQzv9TDumkiZZc3ek6HkC1sBzGPCgy9G+wteY=; b=QU9YDSjEOcAw2BwnqZY3KtKixO
+ e1F138CgM8ofPgdx5j3svu8OuOT0Wdt2mqv/nlTKDLi1Gb3WxoQZbHhNE5QqTrevMKA+escatVB/R
+ 3yoNFPIbG/fkZ5PvznEapX/kf1tHUPikqUjkUbvJzyxku5XE+9jFt7d9czgnpMReNdA8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,36 +29,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=YxYFOcUpr7Ow61sPUmCT4V7LeiDpMGmS1HmTs+JqSwI=; b=OGeypnyqd8jiOHpGLCyu7yhpK4
- henWxdO4hSVQiXIFjRfpAkQfGJGtO3tQuz0PkYkLE8mBLyvdNodyCtAizOa3ESDKRchLeFjDfcCIY
- 72UQTBWVRdYsYvd58IIfC5AFP5jMoanEgT5PDmFzjrpJkh0ufIrj82CsYkR9aR7RCGP4=;
+ bh=WgD6bTYQzv9TDumkiZZc3ek6HkC1sBzGPCgy9G+wteY=; b=EO8Boaei+iMEj6/AUXhjZC0ePo
+ tW7PBlUVV/n8OCvq8ppVLoQrhHJ9XTbSSA2WjLqnZ9sFVWyDHHmNqJ9A2B5wHqhJhfphNoAJhiHIR
+ Cgb9RSewF6pIHzcabx3eLSMRDNTb3gSzCdjBLgnQIYjhuk2xJ+n0r1mjNv3lcykskE/I=;
 Received: from ams.source.kernel.org ([145.40.68.75])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nvfSO-002pWJ-Rz
+ id 1nvfSM-0004DC-Nt
  for openipmi-developer@lists.sourceforge.net; Mon, 30 May 2022 13:29:17 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 9431EB80D89;
- Mon, 30 May 2022 13:29:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B758EC36AE5;
- Mon, 30 May 2022 13:29:06 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id C508DB80DAC;
+ Mon, 30 May 2022 13:29:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0469C3411A;
+ Mon, 30 May 2022 13:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1653917347;
- bh=4YDsHdimR8u7sWuDUcn+7M1z80A9tCO2U93t+ProAg8=;
+ s=k20201202; t=1653917348;
+ bh=O/cCnmDC0+HiYEH7R5Qp6f1XM/22h+N2T5KYNs2lq7s=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=atsPl3job3auhVZJcjRZrkiC6ixw/kqE4aNEqUNx5cJwm2gI0Wzgu+B6rinRmGdtq
- L+NFKhpcxRgk2fqgvzZbhBUWbN7rmi06k0J/0bLl5b3qHHZh5Cylus5YHlx0vmqEl2
- OXEOLy+RGLBNTnKFQnfaX9Cje8R9NBCLtc50d58KdmAG/6U0hn1P0fXaB68Zo++fjM
- pkigvqsquk7h5MsqjDGYt1he6Rc9Z/QSlkKFb4yFOfx3wh1sFoKoR+sZYM9uBqB6/Q
- lEcEyX1SeJM8lTpqBxZjvlktYAUW8AkOtJyLUPTmMJVWvx6PGuGJu1Anc1szAkhgB/
- ftQkTSQdfGkBg==
+ b=qMG8WlARTN9suMxYJvVNHgH3fbU3PHmBdlpe2pDE3QQyaL3SuJOCvUZOhI6DuBZV7
+ RRPZE9hjRpZ84wWxbiQMywd2HAm0GOaLQw2obI2bNvDK2Md6ut6hY+8vHHZpftJzvr
+ YLtTIOyLHLhfHf5g21819PKjGcpPVgyCX787xKUtleHAGQRWIuQfmRNQWejDZxWNa5
+ 14CrXcF+WoyyT14eO7k2Jb48mc78lF7k8j0wpEfZ5cPpPmjPp8y/kMsEu0XQl8Kjs1
+ ECJbXVAHsIgDgizI8KFanz0NL5t37tgk97cPwiKURDgRO54UuqJEzUKqmTBgHgGA5x
+ MRIUjwUXA+UnA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Date: Mon, 30 May 2022 09:23:30 -0400
-Message-Id: <20220530132425.1929512-105-sashal@kernel.org>
+Date: Mon, 30 May 2022 09:23:31 -0400
+Message-Id: <20220530132425.1929512-106-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220530132425.1929512-1-sashal@kernel.org>
 References: <20220530132425.1929512-1-sashal@kernel.org>
@@ -73,10 +73,8 @@ X-Spam-Report: Spam detection software,
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  Content preview: From: Corey Minyard <cminyard@mvista.com> [ Upstream commit
- 9824117dd964ecebf5d81990dbf21dfb56445049 ] There was a "type" element added
- to this structure, but some static values were missed. The default value
- will be zero, which is correct, but create an initializer for the type and
- initialize the type [...] 
+ 2ebaf18a0b7fb764bba6c806af99fe868cee93de ] The was it was wouldn't work in
+ some situations, simplify it. What was there was unnecessary complexity. 
  Content analysis details:   (-5.8 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -93,9 +91,9 @@ X-Spam-Report: Spam detection software,
  author's domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
  -0.6 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nvfSO-002pWJ-Rz
-Subject: [Openipmi-developer] [PATCH AUTOSEL 5.18 105/159] ipmi: Add an
- intializer for ipmi_smi_msg struct
+X-Headers-End: 1nvfSM-0004DC-Nt
+Subject: [Openipmi-developer] [PATCH AUTOSEL 5.18 106/159] ipmi: Fix pr_fmt
+ to avoid compilation issues
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,100 +107,40 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: Sasha Levin <sashal@kernel.org>, Corey Minyard <cminyard@mvista.com>,
- openipmi-developer@lists.sourceforge.net, Joe Wiese <jwiese@rackspace.com>
+ openipmi-developer@lists.sourceforge.net, kernel test robot <lkp@intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
 From: Corey Minyard <cminyard@mvista.com>
 
-[ Upstream commit 9824117dd964ecebf5d81990dbf21dfb56445049 ]
+[ Upstream commit 2ebaf18a0b7fb764bba6c806af99fe868cee93de ]
 
-There was a "type" element added to this structure, but some static
-values were missed.  The default value will be zero, which is correct,
-but create an initializer for the type and initialize the type properly
-in the initializer to avoid future issues.
+The was it was wouldn't work in some situations, simplify it.  What was
+there was unnecessary complexity.
 
-Reported-by: Joe Wiese <jwiese@rackspace.com>
+Reported-by: kernel test robot <lkp@intel.com>
 Signed-off-by: Corey Minyard <cminyard@mvista.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/char/ipmi/ipmi_poweroff.c |  4 +---
- drivers/char/ipmi/ipmi_watchdog.c | 14 +++++---------
- include/linux/ipmi_smi.h          |  6 ++++++
- 3 files changed, 12 insertions(+), 12 deletions(-)
+ drivers/char/ipmi/ipmi_msghandler.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/char/ipmi/ipmi_poweroff.c b/drivers/char/ipmi/ipmi_poweroff.c
-index bc3a18daf97a..62e71c46ac5f 100644
---- a/drivers/char/ipmi/ipmi_poweroff.c
-+++ b/drivers/char/ipmi/ipmi_poweroff.c
-@@ -94,9 +94,7 @@ static void dummy_recv_free(struct ipmi_recv_msg *msg)
- {
- 	atomic_dec(&dummy_count);
- }
--static struct ipmi_smi_msg halt_smi_msg = {
--	.done = dummy_smi_free
--};
-+static struct ipmi_smi_msg halt_smi_msg = INIT_IPMI_SMI_MSG(dummy_smi_free);
- static struct ipmi_recv_msg halt_recv_msg = {
- 	.done = dummy_recv_free
- };
-diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
-index 0604abdd249a..4c1e9663ea47 100644
---- a/drivers/char/ipmi/ipmi_watchdog.c
-+++ b/drivers/char/ipmi/ipmi_watchdog.c
-@@ -354,9 +354,7 @@ static void msg_free_recv(struct ipmi_recv_msg *msg)
- 			complete(&msg_wait);
- 	}
- }
--static struct ipmi_smi_msg smi_msg = {
--	.done = msg_free_smi
--};
-+static struct ipmi_smi_msg smi_msg = INIT_IPMI_SMI_MSG(msg_free_smi);
- static struct ipmi_recv_msg recv_msg = {
- 	.done = msg_free_recv
- };
-@@ -475,9 +473,8 @@ static void panic_recv_free(struct ipmi_recv_msg *msg)
- 	atomic_dec(&panic_done_count);
- }
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index f1827257ef0e..2610e809c802 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -11,8 +11,8 @@
+  * Copyright 2002 MontaVista Software Inc.
+  */
  
--static struct ipmi_smi_msg panic_halt_heartbeat_smi_msg = {
--	.done = panic_smi_free
--};
-+static struct ipmi_smi_msg panic_halt_heartbeat_smi_msg =
-+	INIT_IPMI_SMI_MSG(panic_smi_free);
- static struct ipmi_recv_msg panic_halt_heartbeat_recv_msg = {
- 	.done = panic_recv_free
- };
-@@ -516,9 +513,8 @@ static void panic_halt_ipmi_heartbeat(void)
- 		atomic_sub(2, &panic_done_count);
- }
+-#define pr_fmt(fmt) "%s" fmt, "IPMI message handler: "
+-#define dev_fmt pr_fmt
++#define pr_fmt(fmt) "IPMI message handler: " fmt
++#define dev_fmt(fmt) pr_fmt(fmt)
  
--static struct ipmi_smi_msg panic_halt_smi_msg = {
--	.done = panic_smi_free
--};
-+static struct ipmi_smi_msg panic_halt_smi_msg =
-+	INIT_IPMI_SMI_MSG(panic_smi_free);
- static struct ipmi_recv_msg panic_halt_recv_msg = {
- 	.done = panic_recv_free
- };
-diff --git a/include/linux/ipmi_smi.h b/include/linux/ipmi_smi.h
-index 9277d21c2690..5d69820d8b02 100644
---- a/include/linux/ipmi_smi.h
-+++ b/include/linux/ipmi_smi.h
-@@ -125,6 +125,12 @@ struct ipmi_smi_msg {
- 	void (*done)(struct ipmi_smi_msg *msg);
- };
- 
-+#define INIT_IPMI_SMI_MSG(done_handler) \
-+{						\
-+	.done = done_handler,			\
-+	.type = IPMI_SMI_MSG_TYPE_NORMAL	\
-+}
-+
- struct ipmi_smi_handlers {
- 	struct module *owner;
- 
+ #include <linux/module.h>
+ #include <linux/errno.h>
 -- 
 2.35.1
 
