@@ -2,26 +2,26 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 219CB537E29
-	for <lists+openipmi-developer@lfdr.de>; Mon, 30 May 2022 15:52:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 399BB537E36
+	for <lists+openipmi-developer@lfdr.de>; Mon, 30 May 2022 15:53:08 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nvfoK-0003EE-Hb; Mon, 30 May 2022 13:51:57 +0000
+	id 1nvfpP-0003MS-Oj; Mon, 30 May 2022 13:53:04 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <sashal@kernel.org>) id 1nvfoJ-0003E6-Ky
- for openipmi-developer@lists.sourceforge.net; Mon, 30 May 2022 13:51:56 +0000
+ (envelope-from <sashal@kernel.org>) id 1nvfpO-0003MH-A4
+ for openipmi-developer@lists.sourceforge.net; Mon, 30 May 2022 13:53:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=/MCnA9xMg9wsAIufDiLd3LjblJ5FXJE4dgD65WvCEno=; b=Qs9na0AUWg0NL5djOenZKSbH8y
- y3PThJuuLpeaRTQQbWAl9zXyVQLz5YSsrbMLgFmgRL43EhNAarFCHXvxqBeC5EC6igLj5mK5CjWnH
- UbfGkErjxTfNv7OheZkl20DuGe7rhqoqrsD4nsapG9TFIBE+13Ht2eHv+S/aexdKRG1U=;
+ bh=0p4YzJ/lUTbiaQvBDWsq+p14sqeZ58CQo1YDhBB0lrE=; b=RJb1/f9BMVTOxmePd8kz65aOBT
+ aiZ1ikeEfhVzFJpGw3XoPH3wYOSgXIriEhXrj+5pG4ad3s9w1Les73P+y9FlXIp+3veZRdx+SnB3d
+ MtInxVu/OCs+AL9wZWAm5JcnjMscvahUfOtA+2y4bdAI291PaPWQOREZWnXHQd4xLbgs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -29,39 +29,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=/MCnA9xMg9wsAIufDiLd3LjblJ5FXJE4dgD65WvCEno=; b=QNMa4JcyIB+NpbUt4m50nbpIR+
- aOHTPHV/K42ix8a1WCB8zfcZ5HtCpoMMstCUTQLD6bU+mx3L62D1z9GaIXWOSlioqmEtSKWfPNJS+
- znuXLH5C2RBfyNNXFqyRiwv3Aj22uoOggeFPQeT4EfoZv49I7yUSbB7pjXiXRfYr7+j0=;
+ bh=0p4YzJ/lUTbiaQvBDWsq+p14sqeZ58CQo1YDhBB0lrE=; b=AS4BPWQE2IezDwmm/HSlN3btPa
+ Ox6/VnpH1ZB9DROh2hFb7YNdWAD4lbDmgjRaIBCUYQj6EsRLAZGOtgY5vJQWcVEjMELGvTNdnnz/y
+ OFI/XBkybs/QX+z6CmtocLh0f42h9ljllS33OJGaywMYZyMkIsNPiKdFYg205NezseKU=;
 Received: from ams.source.kernel.org ([145.40.68.75])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1nvfoJ-002wCi-LB
- for openipmi-developer@lists.sourceforge.net; Mon, 30 May 2022 13:51:56 +0000
+ id 1nvfpO-002wWE-Ay
+ for openipmi-developer@lists.sourceforge.net; Mon, 30 May 2022 13:53:02 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 5C6A8B80ABD;
- Mon, 30 May 2022 13:51:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7015DC36AE5;
- Mon, 30 May 2022 13:51:47 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 182F9B80DC0;
+ Mon, 30 May 2022 13:52:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BCD5C3411C;
+ Mon, 30 May 2022 13:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1653918708;
- bh=ZtsaDR2IWu8SvqQ6ynaqLlc+4Y8bj/DYVgveu4E+KqU=;
+ s=k20201202; t=1653918774;
+ bh=ejMD652Yw8v6FqVr0yyLm749VC0Rg0oqhwUlI6amkUE=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=cq/X/HnwsQvX3bgUjnE8O5h+byzBbD6aB3SwEBOMDSvnEYAv0wauJSy471kzBInCq
- 4WHc6A+NWAcDup2vjA45zmqLzWFTc10FSc8/UbuM0V6qL/cQnwYGbkw8e7WL/fplMF
- Ccx1WBTQwy62RnPU73mdzrwVjexPCQURnOtalaUPFHt5tKngpMhSj87nemVf8qo7hK
- wYMwM9WkeQizaQn9HWn+VmXgSscmsAZjUmkgf0gkdxpeWdhaoUO9OGB6nO5kG8J7TE
- fnlGcV9PzBLQt4+VNo3EvpPHjW4pULOqIW08n92tjvB+sNGb1ahxFKs540MahUj3Np
- 00M2CSManhusg==
+ b=lqs1cbFslqzO4j8spujayMga+0WL74JOtBEJbuDLolCwvkQoDvUBa9BpI3VKDHV06
+ oEKJDU0l2/JDUODGvIWrK5Y6xObD34qwF2meRtkdmoolFbKZMKDtYC5qDFbkskhL+r
+ HdDkcHf5KwO+G7kF213bsg4f7Z74YrrIiLxFDuL+unGfTW31Xyf53c5tr4dDOvc4fI
+ LA6yrysO5tGayCv0YXnDDSoZf7qVeJMAUVIMR1eCmAw7g0g+EgoZ2EXlMHXMjKPsSD
+ E4sFQ9TXAL8Kl+cj7fcxKwfsa62QSKssPBKYJw6IcSi/w4FslGJKgztvdVu4V0J3St
+ hfYoYwweRgihA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Date: Mon, 30 May 2022 09:50:47 -0400
-Message-Id: <20220530135057.1937286-20-sashal@kernel.org>
+Date: Mon, 30 May 2022 09:52:04 -0400
+Message-Id: <20220530135211.1937674-17-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220530135057.1937286-1-sashal@kernel.org>
-References: <20220530135057.1937286-1-sashal@kernel.org>
+In-Reply-To: <20220530135211.1937674-1-sashal@kernel.org>
+References: <20220530135211.1937674-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
@@ -93,9 +93,9 @@ X-Spam-Report: Spam detection software,
  author's domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
  -0.6 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1nvfoJ-002wCi-LB
-Subject: [Openipmi-developer] [PATCH AUTOSEL 4.14 20/29] ipmi:ssif: Check
- for NULL msg when handling events and messages
+X-Headers-End: 1nvfpO-002wWE-Ay
+Subject: [Openipmi-developer] [PATCH AUTOSEL 4.9 17/24] ipmi:ssif: Check for
+ NULL msg when handling events and messages
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -134,10 +134,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 23 insertions(+)
 
 diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-index cf87bfe971e6..171c54c86356 100644
+index a4ef9a6bd367..45117728e735 100644
 --- a/drivers/char/ipmi/ipmi_ssif.c
 +++ b/drivers/char/ipmi/ipmi_ssif.c
-@@ -816,6 +816,14 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+@@ -812,6 +812,14 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
  		break;
  
  	case SSIF_GETTING_EVENTS:
@@ -152,7 +152,7 @@ index cf87bfe971e6..171c54c86356 100644
  		if ((result < 0) || (len < 3) || (msg->rsp[2] != 0)) {
  			/* Error getting event, probably done. */
  			msg->done(msg);
-@@ -839,6 +847,14 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+@@ -835,6 +843,14 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
  		break;
  
  	case SSIF_GETTING_MESSAGES:
@@ -167,7 +167,7 @@ index cf87bfe971e6..171c54c86356 100644
  		if ((result < 0) || (len < 3) || (msg->rsp[2] != 0)) {
  			/* Error getting event, probably done. */
  			msg->done(msg);
-@@ -861,6 +877,13 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
+@@ -857,6 +873,13 @@ static void msg_done_handler(struct ssif_info *ssif_info, int result,
  			deliver_recv_msg(ssif_info, msg);
  		}
  		break;
