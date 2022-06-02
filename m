@@ -2,126 +2,177 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 646B753B071
-	for <lists+openipmi-developer@lfdr.de>; Thu,  2 Jun 2022 02:33:02 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id B86D953B7A3
+	for <lists+openipmi-developer@lfdr.de>; Thu,  2 Jun 2022 13:11:29 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1nwYll-0007T6-DY; Thu, 02 Jun 2022 00:32:56 +0000
+	id 1nwijb-0001h5-OH; Thu, 02 Jun 2022 11:11:24 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <tcminyard@gmail.com>) id 1nwYlj-0007T0-GL
- for openipmi-developer@lists.sourceforge.net; Thu, 02 Jun 2022 00:32:54 +0000
+ (envelope-from <quan@os.amperecomputing.com>) id 1nwija-0001gu-Rz
+ for openipmi-developer@lists.sourceforge.net; Thu, 02 Jun 2022 11:11:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
+ :In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=sh16xGe/echtR67o8EYAV8ZtQjoNwgsJwYaCJqxIORY=; b=cZiXrhzbd4Ii7c2jvQOOn0c7/t
- ezljU3s78zeXRFYReHFiRV1WI6SOkGqLjWDZiXMMepPTqtrdnIQwbSRzNj5ICr8oFEiSI8SC9MhLJ
- LLOrhmk+RWc95mZMHE+nguei7kVA+PaGWNV2lMnw6TkV7S9Y0CN8XRXjuJgQLpZSkRfI=;
+ bh=X0SqOpPTtPfGAfAlQkWR6X0KyhTaxRms5p/wcg66Cco=; b=kheuI4M/PxVx1s20w/UycnR5LX
+ c78DQ43FCjQNLslP0+VCKYpQYvmmk/8Q5oAUcqBc7NFzZaXtxB3X1bPv9jSBzEMbdrMHFvkMPbzwB
+ +I8jh18jbFEGM4qN19ImCvzHLKyRCGu7MnkpgfuQxD1yj5sf8biliANIdyB57MMnH/bU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+ References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=sh16xGe/echtR67o8EYAV8ZtQjoNwgsJwYaCJqxIORY=; b=ltN+1SkwHDqeVr/Wdd2Bcj+nni
- Pnlm3hrjHJPCxs8B2bwG7OM7I5m9AiIGYA95bzgTe0ded+Bp1dgHuAUw0AFfpdxzXBGGSHyKOGqUd
- Lzbv9vvRm9t01+KuBckzmq0liP0Ws1mRW9we3CTKnTVqil0hZH4Bzjn1n7uNmlOI3KQY=;
-Received: from mail-oi1-f176.google.com ([209.85.167.176])
+ bh=X0SqOpPTtPfGAfAlQkWR6X0KyhTaxRms5p/wcg66Cco=; b=H8qOELI/S+htckdSF7o3MbI5Zi
+ l4AT+7zP9SPRpEhC+n7O5WOTVCRvU2xJrPKHjLQNiTzwBCmRJT+ghHXdNc2VmOVmeDRjqxMSZ9yvH
+ yNjCkAUg5HVDicFZ9ur/rK9Jz9CisZs8j9mdSef30bENmXzsFlLXqyyHxlK21f6X1Vo0=;
+Received: from mail-co1nam11on2109.outbound.protection.outlook.com
+ ([40.107.220.109] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
- id 1nwYlg-001aSt-EL
- for openipmi-developer@lists.sourceforge.net; Thu, 02 Jun 2022 00:32:54 +0000
-Received: by mail-oi1-f176.google.com with SMTP id v9so4762605oie.5
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 01 Jun 2022 17:32:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=sender:date:from:to:cc:subject:message-id:reply-to:references
- :mime-version:content-disposition:in-reply-to;
- bh=sh16xGe/echtR67o8EYAV8ZtQjoNwgsJwYaCJqxIORY=;
- b=QPOHKu2JZdnGBtC7fmTtjOSE9oopRqCnfZOiDgt6Xq8NaeFj5LEpiNC4MBvSny6XAZ
- tP23yYoSibaO17BC+tN/4ndFzeu3y9sAlpFxVrvR46zGNkrmktR82tsnRYao912mVlgu
- sFnMmIo/6tg4Mf1sU3/boIWlqZvWGKl6F7TtFJWoKmbeKgyEm9YDB5EQd+wNDBuGyvTX
- E9bkmD/dKERVdm2JsF9okxmr6y9B2DO2czXcmSta8JmSRNupjJh1aMt94eWuHQdZiOYP
- kpQk2+ruD30huk1PRYNfV17WxAzjzkzOE8Zn/WugahtBCADPO8Sj5PlPfroNmHZkNiyY
- 469Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :reply-to:references:mime-version:content-disposition:in-reply-to;
- bh=sh16xGe/echtR67o8EYAV8ZtQjoNwgsJwYaCJqxIORY=;
- b=GOV99g1dO1XS1YNlTawtmdGIUuuj9vdfAtMJ9DsYZeBij6z8TtzN++s8YMz1h7h2oR
- 017bum0RZjGmBeWjZTPcLxwmZJXbGfW5uuVnIW/sgBJWCl0Fp/3e3efworFS8d05Xh3I
- ebHeYRAfYevWoMfgbW/HezrhL4DtN1RUwr+nsMbrRoac05F+LjBCCXgysjYZ4JBF02m1
- xEtba1agDXCN+aq/VMTYZrL0qmmf5WPrbllrc+BRe4GRdAPCl8n2eRCO95OhYpEeKKFm
- RYtfrQ+TwPFn4Mki6KUJmrNcfn5MqbQImsu1PqVJLdS0rB2rQb4ZU/E8yecb9MhWZgFg
- kYPg==
-X-Gm-Message-State: AOAM531yRJG1lWZwpWAq5y7OkzMqisyvrWmmZfZsvKKSSREysvBd9Y7C
- DNcr0dzcLyNZ9kEatHQyfA==
-X-Google-Smtp-Source: ABdhPJzvSVAppomg02HmNv/mcRsuQs1poeKeWSDg8cjkuwsPJmAtobRPluwWod2pXyfwLfpU1Gm0fQ==
-X-Received: by 2002:a05:6808:2196:b0:32b:492a:3b4d with SMTP id
- be22-20020a056808219600b0032b492a3b4dmr1200787oib.255.1654129966739; 
- Wed, 01 Jun 2022 17:32:46 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id
- 12-20020aca120c000000b00325cda1ffa5sm1542462ois.36.2022.06.01.17.32.45
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 01 Jun 2022 17:32:46 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:cca5:4cab:9a61:6930])
- by serve.minyard.net (Postfix) with ESMTPSA id 423751800BB;
- Thu,  2 Jun 2022 00:32:45 +0000 (UTC)
-Date: Wed, 1 Jun 2022 19:32:44 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Quan Nguyen <quan@os.amperecomputing.com>
-Message-ID: <20220602003244.GK3767252@minyard.net>
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
+ id 1nwijT-0024iw-SI
+ for openipmi-developer@lists.sourceforge.net; Thu, 02 Jun 2022 11:11:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=dysr0h4RQopComgOC0mf5NLt8pezQMtDjo39JjG/heZf5toerQ65JIVLcA83xG94PmtaUynqH/HfsAKMm3pi1BH6poTOQTdLMBRv2bTiP4ezMyqU15sK2lhzk0+l3bSwUuNzmP90S2i++XaEpRVL3j17zUjVjH9GsX4kjtqDAk/vz4ApPvvOA3ltHOnH1FHDOApKqDW8HRnQS21PWWDAF94Np/UUN/W2d6eRhgiDB9ygzDaNYdBp6IhlOdJDstVb2/l8nHx1n4w5Kf3zcVmF7DEDo7qaHFr8OfnwXRmGhojG8Rhu0bJxrnymYrSF8k517wPBxHeeohDQjMUlj/TaYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=X0SqOpPTtPfGAfAlQkWR6X0KyhTaxRms5p/wcg66Cco=;
+ b=IUJVkYK/PG39yrBaNCG5fu8/e6Fk557GXPFobj8gc14yK+PJux3M7MiMPyipiKPbpLPHUhtQSpeox5m5UY0llxBP3SdxFS+XkS8XyvtwCpfzqnnI0OFhyCM99k2IYDmW3WvfSnLOCPLw5bPudpAjQogHZ1eJbI2pzlJpQIXOCPUWffSc+stgO/d1Sv4jyum77pg6aUsmWIFD6DUDkJ9tu0T8CpEO36/yps2nBaPF/amNOsn8I2REsGgJitosKoSVgRLgotBaMMIBkSqGU+X5mZlzGuJD/1tyJMdRboJjozsqeT9+zKu1ZLVZC0iag3WuyKBkwUp2xYfuxvwjzp3d6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=X0SqOpPTtPfGAfAlQkWR6X0KyhTaxRms5p/wcg66Cco=;
+ b=kOuXWkDNz3W985uG1KLJmCNdTlvZ7jjM7AY8cg3YvzawILOb3RUHwo1WNm69Gmy+X01cqEVZulAudWEv6Q54d8B7evKIrkN9Bjnmp/MjM8epykQwor6AswnlpyJeaL3+sFtH0EgLw6VjjHJUu49kwihkeviNQN/+vgLTBVNeEbQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ0PR01MB7282.prod.exchangelabs.com (2603:10b6:a03:3f2::24) by
+ MW4PR01MB6500.prod.exchangelabs.com (2603:10b6:303:72::20) with
+ Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5314.12; Thu, 2 Jun 2022 09:38:30 +0000
+Received: from SJ0PR01MB7282.prod.exchangelabs.com
+ ([fe80::e877:bfc6:92a5:d237]) by SJ0PR01MB7282.prod.exchangelabs.com
+ ([fe80::e877:bfc6:92a5:d237%7]) with mapi id 15.20.5314.013; Thu, 2 Jun 2022
+ 09:38:30 +0000
+Message-ID: <052469a4-1f0b-8615-7b4e-fa16159297a2@os.amperecomputing.com>
+Date: Thu, 2 Jun 2022 16:38:19 +0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
+ Gecko/20100101 Thunderbird/91.9.1
+Content-Language: en-US
+To: minyard@acm.org
 References: <20220422040803.2524940-1-quan@os.amperecomputing.com>
  <20220422040803.2524940-2-quan@os.amperecomputing.com>
  <20220423015119.GE426325@minyard.net>
  <ec7b86ec-827f-da64-8fd2-eae09f802694@os.amperecomputing.com>
  <20220504120631.GE3767252@minyard.net>
  <ba084735-0781-7ca2-4d04-a70a4115729a@os.amperecomputing.com>
+ <20220602003244.GK3767252@minyard.net>
+In-Reply-To: <20220602003244.GK3767252@minyard.net>
+X-ClientProxiedBy: SG2P153CA0047.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::16)
+ To SJ0PR01MB7282.prod.exchangelabs.com
+ (2603:10b6:a03:3f2::24)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ba084735-0781-7ca2-4d04-a70a4115729a@os.amperecomputing.com>
-X-Spam-Score: 0.4 (/)
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 1cbea329-f3dd-4f8e-ee21-08da447ba710
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6500:EE_
+X-Microsoft-Antispam-PRVS: <MW4PR01MB6500BA66DFA975A5BBB7C814F2DE9@MW4PR01MB6500.prod.exchangelabs.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: lGFHyzomHBF+YzqpU3JvdXr4+3afFwAhDBIxxs6SbcJ/Og+s3BnHdFE6Gk/HfNBtUJnbbohHvOKS1Ok6MhNnt/Q4WA5Mv05ZjlCzW/+lj42o3K4AC3S3+0vIj6UjNcUnclQzcpf/gkXV16hGZpwckNcC9108p/lle4WO6V5QxnbTmlNU2MGbPY5wCNh7zDTwIOlc/qqlATbclrQpoqNGm7ZMjRZ8zIMKjWLsOP49DERb84LH9V+zFq1vGVBiwYw4whz/4nSh9A6/uQygezYKvHbiNQ48XJ/9dyk/CTO3uN2A/frc1z5qmTdJaXiMUW8w1gYYgmZzbV+Xd8JStr2rbvGdrxFPSZllaH+GtlEtE58jzZ406xWWXVxcJjqCZHZcZ364RMjXjayJsi9xsSx6MYq+ykNw9oT3+xR9xq4MPJnulLuYhGlmgeNRoGD0NoQx/42ri4HLb3iJ2W2TyKVMJMoOUegLlGKlS1jwJ1KBn8o0PxAnoh5yeT6bwDfqJdWT6oZxqjhXxupo/h/jIQwXGaBadj976vSzl4YrtWLnQ7NAVqLITJ96sDlApyh+tPaTsYIZ4xBq78Mi4HwQUmYtmMjm3CvfE9TgueqH1c/4LrXRut7mtuENzYsRbb67caGad0qHPwLp0iaobqqa5W+cm06XRV011bxXivqhGsg2Pjzsc70UE49vibsCCH+hRbKEd/batzYC3pAJCm2/lat7GDj4KNU+LpKlnhqJXbVS4Hu66IEY8LM61ElpWTEL/e2z
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SJ0PR01MB7282.prod.exchangelabs.com; PTR:; CAT:NONE;
+ SFS:(13230001)(4636009)(366004)(186003)(7416002)(2616005)(66476007)(8936002)(83380400001)(6486002)(5660300002)(508600001)(2906002)(26005)(8676002)(4326008)(6506007)(66556008)(6916009)(66946007)(54906003)(38350700002)(38100700002)(52116002)(31686004)(53546011)(31696002)(86362001)(6666004)(316002)(6512007)(43740500002);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NEJmYS8wak5aYzBWQVcrdHJNYnk2bE40RndPTmF2TnZMa0xjL1kwcTJaUzhO?=
+ =?utf-8?B?Q2g3QmQ4N3Fhb0c4bjlKUUpxT1ZPNWI4ZDRxa3daMDdESWE1Y3RqemZQVmZp?=
+ =?utf-8?B?R1FFUUhKK3VLR1VXNXVKMkd5c1Y3Vk9zNnh5NS9RbFBnOWNoQXhWWGNHTzVa?=
+ =?utf-8?B?dmZJNk9lZkVsM2w5b2V2cExpOGEwaFBHVzhJaFV1SHkxejQraDBKZ3ZNZzJx?=
+ =?utf-8?B?ZjlsKytDbVEwenRUUEg5ZTJyckx4MDR1RWlZcGJoOW11Q0x0OFhTVnAyZ2ZJ?=
+ =?utf-8?B?RGZYdHNEVkRRR1dkNzZBSUpaS1ZrbkRUVVliaFRCaDUzYlVneE9JNkZUdmdp?=
+ =?utf-8?B?SnY3NnNWR3QrWG9ja0RaUGNNZS9PeFdMZFdDODdGS0JZZ2xQVThzMHZRTmFE?=
+ =?utf-8?B?SFAvTE5NTWtXRW5PZnRBT1puTVB3UHpqNU5ZRFdFY2hRZjcxOFBCNU1tdjBv?=
+ =?utf-8?B?ZHZac05PL0QwVnBHSE4rSXdiUnpaNHZlc2thQXJnbkY3ODJqTy9GVWthelE4?=
+ =?utf-8?B?dmtmWjd5N2JrUkxLNC90QithdmM4R2E2WnJGYXM3amFNTHFzOW40Vk82Mi9v?=
+ =?utf-8?B?a1FtRzNyekhleDQzRGtYT2d5Mys5aG8yNisyb1dWYVZhbGVMcUlCeE1KNTBs?=
+ =?utf-8?B?Smd1V0VRTUlJa0xRZjhSdTVtUDFWbjNMYm54SjVTVW43UFdRd0s0WGR1bUtH?=
+ =?utf-8?B?RGJ4TjRDMTJqR1dvaTMzTU1UNjYvaGl2SmdoNVRDTHFUcTRYWGlBbWhaOGwx?=
+ =?utf-8?B?UUlTekx0a3FhdGhhbGloUzQ1WDE2Nk5sWGYwTnpndm42WDcrT2NXMGkrUTZq?=
+ =?utf-8?B?YlBYQ3VGZDYreFhmMkpPbWU0dkc2US9nTzNlWFpOd21mV2hjeWVpMGxyQUV5?=
+ =?utf-8?B?MUVyWFBWWGFGVnJoN0VDSXVqRldQZUZXejFHRFdadDJpcVF5MHl4aitmbmg0?=
+ =?utf-8?B?a1JETXdNWWM3R3gxMG9VeHJwM2dsWGN3ZU1NNFNFcGZ4azhDZVYyNzBmeTBv?=
+ =?utf-8?B?cnhxL2pJOTFHOG5rTURzNVFPYXd1TG5OZjEya01LVStEaDljVFYwWjE5QnNG?=
+ =?utf-8?B?WmVrYTZaeFVSM1kvZHQvWVRLSTBycEp5NmtpRU9qL2wvcW5zTzl4UHM4dXpx?=
+ =?utf-8?B?YlRBRkZ5aEZqL2Y1L2Z1SnllUnpCU08wSEdsVE15WWhaMWo4NElqcTBwV0Z1?=
+ =?utf-8?B?SjdGTVB0Mzd4YnVteVpMUWhSTzRqUnhMZ0EveHZlcWRvSmVhZ01kVmZEL09N?=
+ =?utf-8?B?L2k5VzhzaWtLRWF6c0JvanZtQUlSVWtQSXNOdGVmcEJ2YnBuMEtUeXEycmxB?=
+ =?utf-8?B?bCtPZUtOWDA4di83SHk5WENzelY2NUJLVjVvR3lORDdmOHVZcjZkbXF3dllF?=
+ =?utf-8?B?NXR1NlJyaHpoT2s5NnBhK2RnUmIwY201VXZ1L3YyVzFXUzB5MEl1V3dkSC9H?=
+ =?utf-8?B?SURpaGdZeFNTaGVuNWZsdWMzNG9ZbTFpbjZUalZnYTFBMGJkT3dkYzJYMGJn?=
+ =?utf-8?B?eTJsZHFERWJ1Q2R0T2swc05IcFZHSlgyeDJXS0tzTCtMVzF6TThkNjVwaG1m?=
+ =?utf-8?B?TmlwRE1aZzlQRjBiOStlWi94bW5NbUVHamVoOEtWRkhhemVBT0FNVEJtSFF5?=
+ =?utf-8?B?ZzJEZmRUcTlEYURGOVpXZFdadmRRODBabkhZancwek80Mkw0NitwdlpSWHNw?=
+ =?utf-8?B?MW9sZnRUQncrT1FRVnNsTWVvdS95MnpNa0tIZUV6S0pMWHA0UTZJSkVwWVJx?=
+ =?utf-8?B?Uy9LZ3EzNTg5eHNLM2M0VldBZjF5QzlBb2pFaXdCNG85TGkxM2YweFIrZy9C?=
+ =?utf-8?B?cUJ3M2d2K05NeVJ5R0prRXF1T3lUdVIxK1MvZFpSUnV5Qi9UZTloSC9TcHoz?=
+ =?utf-8?B?QUtxODBmT3FaQTJiMTdJM1BVQStGUzRhaUpPVFFVdElXdGpBekJLbGl2Rk11?=
+ =?utf-8?B?Z3NZTU1JS0FoY1VpcGZsdC9RU2x5QjNiWnNadGlRbEI0NUFTQUdicmQ2bUFa?=
+ =?utf-8?B?RlgySHRpOEtaNFVyTDZ3VjNueDdwQTdjdk95VXZNeGZqSXJmMkJFVnd0L0Fu?=
+ =?utf-8?B?WW05ZCt3aHJFUXNxbkhucmxvSVBnMENkM25DcURpYjRFa1g5Q1VCcG1BL1VC?=
+ =?utf-8?B?QjJKSDhtSm1UUkE0dmFwTTZOVTJidm9ZNzNKQmcwU2dEZ0pUNHh5RXhBNDRD?=
+ =?utf-8?B?bEkxQVd3TFpPYmZFdmlSaHNENTdrekJteU5JV0tXQ1NrQ1pNcldwSG42NGJl?=
+ =?utf-8?B?WjRabERpNGdoQ0l4MVFmbUIzcXRaMzM5TU9EeTlDNnZHSWttMXpnRjFCdGFM?=
+ =?utf-8?B?UjRCenlRM1lUZzFzOTlhemMxYlducmw2OFNrcGRzVDJnMzNRQjB3endlcjIr?=
+ =?utf-8?Q?2BY+LlHjEBgniDnqIg8BPPLGa/hGIf/hPaMxq?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1cbea329-f3dd-4f8e-ee21-08da447ba710
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR01MB7282.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2022 09:38:30.6854 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4MVnFJAaGUvXzI0DNakhwdhN9dUunj8PmY4MNXkckCZvdbc9p2t0a+2BbNss/01P69NAZ4ccuMGOsA0dJoA/Cna0/EJ2b5aM3U7xGWHYXTc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR01MB6500
+X-Spam-Score: -2.7 (--)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Jun 01, 2022 at 03:23:11PM +0700, Quan Nguyen wrote:
- > On 04/05/2022 19:06, Corey Minyard wrote: > > On Wed, May 04,
- 2022 at 01:45:03PM
- +0700, Quan Nguyen via Openipmi-developer wrote: > > > > [...] 
- Content analysis details:   (0.4 points, 6.0 required)
+ Content preview:  On 02/06/2022 07:32, Corey Minyard wrote: > On Wed, Jun 01, 
+ 2022 at 03:23:11PM +0700, Quan Nguyen wrote: >> On 04/05/2022 19:06, Corey
+ Minyard wrote: >>> On Wed, May 04, 2022 at 01:45:03PM +0700, Quan [...] 
+ Content analysis details:   (-2.7 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tcminyard[at]gmail.com]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.167.176 listed in list.dnswl.org]
+ no trust [40.107.220.109 listed in list.dnswl.org]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.176 listed in wl.mailspike.net]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ [40.107.220.109 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1nwYlg-001aSt-EL
+ -2.6 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1nwijT-0024iw-SI
 Subject: Re: [Openipmi-developer] [PATCH v7 1/3] ipmi: ssif_bmc: Add SSIF
  BMC driver
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -136,75 +187,76 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
+From: Quan Nguyen via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Quan Nguyen <quan@os.amperecomputing.com>
 Cc: devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
  Andrew Jeffery <andrew@aj.id.au>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>, openbmc@lists.ozlabs.org,
  "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
  Brendan Higgins <brendanhiggins@google.com>, linux-kernel@vger.kernel.org,
  Phong Vo <phong@os.amperecomputing.com>, Wolfram Sang <wsa@kernel.org>,
  Rob Herring <robh+dt@kernel.org>, linux-i2c@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  openipmi-developer@lists.sourceforge.net,
  Open Source Submission <patches@amperecomputing.com>,
  linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Jun 01, 2022 at 03:23:11PM +0700, Quan Nguyen wrote:
-> On 04/05/2022 19:06, Corey Minyard wrote:
-> > On Wed, May 04, 2022 at 01:45:03PM +0700, Quan Nguyen via Openipmi-developer wrote:
-> > > > 
-> > > > I seem to remember mentioning this before, but there is no reason to
-> > > > pack the structures below.
-> > > > 
-> > > 
-> > > The packed structure is because we want to pick the len directly from user
-> > > space without worry about the padding byte.
-> > > 
-> > > As we plan not to use the .h file in next version, I still would like to use
-> > > packed structure internally inside ssif_bmc.c file.
-> > 
-> > Packed doesn't matter for the userspace API.  If you look at other
-> > structures in the userspace API, they are not packed, either.  The
-> > compiler will do the right thing on both ends.
-> > 
-> > > 
-> > > > And second, the following is a userspace API structures, so it needs to
-> > > > be in its own file in include/uapi/linux, along with any supporting
-> > > > things that users will need to use.  And your userspace code should be
-> > > > using that file.
-> > > > 
-> > > 
-> > > Meantime, I'd like not to use .h as I see there is no demand for sharing the
-> > > data structure between kernel and user space yet. But we may do it in the
-> > > future.
-> > 
-> > If you have a userspace API, it needs to be in include/uapi/linux.
-> > You may not be the only user of this code.  In fact, you probably won't
-> > be.  You need to have a .h with the structures in it, you don't want the
-> > same structure in two places if you can help it.
-> > 
+On 02/06/2022 07:32, Corey Minyard wrote:
+> On Wed, Jun 01, 2022 at 03:23:11PM +0700, Quan Nguyen wrote:
+>> On 04/05/2022 19:06, Corey Minyard wrote:
+>>> On Wed, May 04, 2022 at 01:45:03PM +0700, Quan Nguyen via Openipmi-developer wrote:
+>>>>>
+>>>>> I seem to remember mentioning this before, but there is no reason to
+>>>>> pack the structures below.
+>>>>>
+>>>>
+>>>> The packed structure is because we want to pick the len directly from user
+>>>> space without worry about the padding byte.
+>>>>
+>>>> As we plan not to use the .h file in next version, I still would like to use
+>>>> packed structure internally inside ssif_bmc.c file.
+>>>
+>>> Packed doesn't matter for the userspace API.  If you look at other
+>>> structures in the userspace API, they are not packed, either.  The
+>>> compiler will do the right thing on both ends.
+>>>
+>>>>
+>>>>> And second, the following is a userspace API structures, so it needs to
+>>>>> be in its own file in include/uapi/linux, along with any supporting
+>>>>> things that users will need to use.  And your userspace code should be
+>>>>> using that file.
+>>>>>
+>>>>
+>>>> Meantime, I'd like not to use .h as I see there is no demand for sharing the
+>>>> data structure between kernel and user space yet. But we may do it in the
+>>>> future.
+>>>
+>>> If you have a userspace API, it needs to be in include/uapi/linux.
+>>> You may not be the only user of this code.  In fact, you probably won't
+>>> be.  You need to have a .h with the structures in it, you don't want the
+>>> same structure in two places if you can help it.
+>>>
+>>
+>> Dear Corey,
+>>
+>> Is it OK to push the structure definition into the
+>> include/uapi/linux/ipmi_bmc.h ?
+>>
+>> Or should it need to be in separate new header file in uapi/linux ?
 > 
-> Dear Corey,
+> I think a different file, like ipmi_ssif_bmc, to match the file and
+> operation.  Unless you need the things in ipmi_bmc.h, which I don't
+> think is the case.
 > 
-> Is it OK to push the structure definition into the
-> include/uapi/linux/ipmi_bmc.h ?
-> 
-> Or should it need to be in separate new header file in uapi/linux ?
 
-I think a different file, like ipmi_ssif_bmc, to match the file and
-operation.  Unless you need the things in ipmi_bmc.h, which I don't
-think is the case.
+Thanks Corey,
+Will add ipmi_ssif_bmc as you suggested.
 
--corey
-
-> 
-> Thank you,
-> - Quan
-> 
-> 
+-- Quan
 
 
 _______________________________________________
