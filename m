@@ -2,93 +2,102 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id DF0F254E599
-	for <lists+openipmi-developer@lfdr.de>; Thu, 16 Jun 2022 17:03:32 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id E4A1F54EA7F
+	for <lists+openipmi-developer@lfdr.de>; Thu, 16 Jun 2022 22:05:33 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1o1r1t-0000i0-Nq; Thu, 16 Jun 2022 15:03:28 +0000
+	id 1o1vk8-0000PD-Tu; Thu, 16 Jun 2022 20:05:29 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <rdunlap@infradead.org>) id 1o1r1p-0000ht-RQ
- for openipmi-developer@lists.sourceforge.net; Thu, 16 Jun 2022 15:03:27 +0000
+ (envelope-from <lkp@intel.com>) id 1o1vk7-0000P7-F5
+ for openipmi-developer@lists.sourceforge.net; Thu, 16 Jun 2022 20:05:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=eXP8JImYusYVmz1XFgz6F/idOIpZUqokxeO9uXWtnWI=; b=KYP6KnROcXtPDFAebqVXIyRejx
- +4F9w81ssf87D/WG2Rta/WVDTcwKtDAxvs6pjlMz+ADq9R34nnvmcg8sP7ubfIW7R304DiDWO57HF
- 9zRM2Ww9EbEvJ+yi4SnTgjHiz9QbVd/oDMZj/zFCST7FsNi+ODdCvARpY2ZzfymUE2no=;
+ bh=NSX191E1qnHCvH6XddD1ldzCiDbd4InR3MSJQyoy9ME=; b=it8v5/yw6++kxQzY1LTlEQpSt0
+ 63j4Iqd7PYnRgr7Ng2YW/4nGUz0cR2cuqJJh5rOQxczAKhlLIzFKooVLrEl0wsQKsjrcsmtiPJLHy
+ cFujblBofqURWG5tuOUp5fY3rOZ1iG872ndsaOSCW2aOvtPGa7N6FlLB3jqbnYTGmLBc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=eXP8JImYusYVmz1XFgz6F/idOIpZUqokxeO9uXWtnWI=; b=LoZrb7Rlneccu3ujpZDueZ2kvK
- 7iArADwpowYxIVxav23jNvcDU/VHi5dx5hVa/U7+RkRhMpRhDNs4YA1uHiKwEIo6PH7SkHP+ztTqw
- LsC7EsQzCTym9zz6VBceonaZxCDxnc5V3C6tJ9aGLQElB3E9N/TMYRCnhYmoMdZ8KtJ4=;
-Received: from desiato.infradead.org ([90.155.92.199])
+ bh=NSX191E1qnHCvH6XddD1ldzCiDbd4InR3MSJQyoy9ME=; b=ik52R6e9VkxZ4c7GO0iOojwjPq
+ S8GQnt94S9vWtYZv6OPif2LamS94yLuGQW/r3cQNVymASR+OuaPyVvAgC6xoX6PX1sH2JBZTNbtEM
+ rlFnYEKFqiUtI6WtaVy0lkI7UJiWpWzKoo1tMBoHmz3x6B3+Dkdto/KTbwK08Kesi/T0=;
+Received: from mga17.intel.com ([192.55.52.151])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1o1r1n-004FP8-6Z
- for openipmi-developer@lists.sourceforge.net; Thu, 16 Jun 2022 15:03:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
- :In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
- Sender:Reply-To:Content-ID:Content-Description;
- bh=eXP8JImYusYVmz1XFgz6F/idOIpZUqokxeO9uXWtnWI=; b=KRUEUBUyuLXtfTp3+c4njGOSw9
- vEDot6VYfqIJ01TjLkccAS9FePTHekgVapd/ZzYWPmXEXA+RSFIUCXgcE4i50W6m4fCnG86csGQyX
- 2fPfw/RqUdF4HEmx4JlxDoLwTB0EWagiVnntZpQaqWknDkJxM4E1QP0tjaadRQit0B1awN3dL+OZu
- ZsZePFuAxZdy2RY5zt1kIpOlK2HQCMVQRqiaBTPCUQZRHL01dW8Ib9Xq+0BcfW1mwxgzWyFa88QqN
- FSAPYfcU9mx5op4/SWDy3jKI0BU4lwAqlSxpSWdiQOCvm8mzCemKd14GlH1PVzlSGikdp93WSV3Ok
- ZbnXZCJA==;
-Received: from [2601:1c0:6280:3f0::aa0b]
- by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
- id 1o1r0x-008RS8-4P; Thu, 16 Jun 2022 15:02:32 +0000
-Message-ID: <fb8e7e35-7f26-15bc-9fbb-2949fc80a18b@infradead.org>
-Date: Thu, 16 Jun 2022 08:02:22 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-Content-Language: en-US
-To: Quan Nguyen <quan@os.amperecomputing.com>, Corey Minyard
- <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ id 1o1vk4-004SSw-7d
+ for openipmi-developer@lists.sourceforge.net; Thu, 16 Jun 2022 20:05:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1655409924; x=1686945924;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=v8nKn3u5HYJV1okOhvCdZ6oJQPkGSyi/IKm0G/s0MXY=;
+ b=Kw1qAwAkt+w0FfW6jDZvHcJylAwg6Fh9CmTwD9GC+N7ffnMjdVKhicL+
+ S7I8v/kEbxQen5hJ4bR55gd7Z8qbAhKhSsIjMZxyZ9JFukwia1NgyvLcY
+ DXHJHhJrqhfEt7KrkvFE4hL1+VlW0pFAl2Swi6lnzlyHHWPSsLKSBoe3X
+ K0Kb8mhbkWE6ogZPowxEVlvBkZcoCkkxyt2rUXt0rOBrt52j8j6wV9DDx
+ 2CtzeB4htRAiQnT+5/NrKkS95XFV6vJQjVEhnhsLJ+IxCAspiUslzNXVj
+ 1UIcW3N6a1bbtTfxWpFIjn1S8rCxCwf44uRaPoSYSAgusO7LMFluZw9xk g==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10380"; a="259800722"
+X-IronPort-AV: E=Sophos;i="5.92,306,1650956400"; d="scan'208";a="259800722"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+ by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 16 Jun 2022 13:05:17 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.92,306,1650956400"; d="scan'208";a="589791945"
+Received: from lkp-server01.sh.intel.com (HELO 60dabacc1df6) ([10.239.97.150])
+ by fmsmga007.fm.intel.com with ESMTP; 16 Jun 2022 13:05:13 -0700
+Received: from kbuild by 60dabacc1df6 with local (Exim 4.95)
+ (envelope-from <lkp@intel.com>) id 1o1vjs-000Oj3-Vy;
+ Thu, 16 Jun 2022 20:05:12 +0000
+Date: Fri, 17 Jun 2022 04:04:50 +0800
+From: kernel test robot <lkp@intel.com>
+To: Quan Nguyen <quan@os.amperecomputing.com>,
+ Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
  Brendan Higgins <brendanhiggins@google.com>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
  Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
- Wolfram Sang <wsa@kernel.org>, openipmi-developer@lists.sourceforge.net,
+ Wolfram Sang <wsa-dev@sang-engineering.com>,
+ openipmi-developer@lists.sourceforge.net,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
-References: <20220615090259.1121405-1-quan@os.amperecomputing.com>
- <20220615090259.1121405-2-quan@os.amperecomputing.com>
- <8b7841a9-9313-b1d5-8a80-a65cfa8e7b4d@infradead.org>
- <74f94464-a095-f539-746a-853b8f1d52ca@os.amperecomputing.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <74f94464-a095-f539-746a-853b8f1d52ca@os.amperecomputing.com>
-X-Spam-Score: -4.5 (----)
+Message-ID: <202206170337.0kCTfR63-lkp@intel.com>
+References: <20220615090259.1121405-2-quan@os.amperecomputing.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220615090259.1121405-2-quan@os.amperecomputing.com>
+X-Spam-Score: -3.2 (---)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 6/16/22 00:25, Quan Nguyen wrote: > On 15/06/2022 23:06, 
- Randy Dunlap wrote: >> >> >> On 6/15/22 02:02, Quan Nguyen wrote: >>> diff
- --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig >>> [...] 
- Content analysis details:   (-4.5 points, 6.0 required)
+ Content preview:  Hi Quan, I love your patch! Yet something to improve: [auto
+ build test ERROR on cminyard-ipmi/for-next] [also build test ERROR on
+ wsa/i2c/for-next
+ v5.19-rc2 next-20220616] [If your patch is applied to the wrong git tree,
+ kindly drop us a note. And when s [...] 
+ Content analysis details:   (-3.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [90.155.92.199 listed in list.dnswl.org]
+ medium trust [192.55.52.151 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
@@ -96,8 +105,8 @@ X-Spam-Report: Spam detection software,
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -2.0 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1o1r1n-004FP8-6Z
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1o1vk4-004SSw-7d
 Subject: Re: [Openipmi-developer] [PATCH v8 1/3] ipmi: ssif_bmc: Add SSIF
  BMC driver
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -112,34 +121,55 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Open Source Submission <patches@amperecomputing.com>,
- "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
- Phong Vo <phong@os.amperecomputing.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Open Source Submission <patches@amperecomputing.com>, llvm@lists.linux.dev,
+ kbuild-all@lists.01.org, Phong Vo <phong@os.amperecomputing.com>,
+ "Thang Q . Nguyen" <thang@os.amperecomputing.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-CgpPbiA2LzE2LzIyIDAwOjI1LCBRdWFuIE5ndXllbiB3cm90ZToKPiBPbiAxNS8wNi8yMDIyIDIz
-OjA2LCBSYW5keSBEdW5sYXAgd3JvdGU6Cj4+Cj4+Cj4+IE9uIDYvMTUvMjIgMDI6MDIsIFF1YW4g
-Tmd1eWVuIHdyb3RlOgo+Pj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcg
-Yi9kcml2ZXJzL2NoYXIvaXBtaS9LY29uZmlnCj4+PiBpbmRleCBiMDYxZTZiNTEzZWQuLjE4YTg5
-MDkzZDY0ZSAxMDA2NDQKPj4+IC0tLSBhL2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcKPj4+ICsr
-KyBiL2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcKPj4+IEBAIC0xNjksNiArMTY5LDE3IEBAIGNv
-bmZpZyBBU1BFRURfQlRfSVBNSV9CTUMKPj4+IMKgwqDCoMKgwqDCoMKgIGZvdW5kIG9uIEFzcGVl
-ZCBTT0NzIChBU1QyNDAwIGFuZCBBU1QyNTAwKS4gVGhlIGRyaXZlcgo+Pj4gwqDCoMKgwqDCoMKg
-wqAgaW1wbGVtZW50cyB0aGUgQk1DIHNpZGUgb2YgdGhlIEJUIGludGVyZmFjZS4KPj4+IMKgICtj
-b25maWcgU1NJRl9JUE1JX0JNQwo+Pj4gK8KgwqDCoCB0cmlzdGF0ZSAiU1NJRiBJUE1JIEJNQyBk
-cml2ZXIiCj4+PiArwqDCoMKgIHNlbGVjdCBJMkMKPj4KPj4gTm8uIFRoYXQgc2hvdWxkIGJlOgo+
-PiDCoMKgwqDCoGRlcGVuZHMgb24gSTJDCj4+Cj4+IFdlIGRvbid0IHNlbGVjdCBhbiBlbnRpcmUg
-c3Vic3lzdGVtIGp1c3QgdG8gc2F0aXNmeSBvbmUgZHJpdmVyLgo+Pgo+Pj4gK8KgwqDCoCBzZWxl
-Y3QgSTJDX1NMQVZFCj4+PiArwqDCoMKgIGhlbHAKPj4+ICvCoMKgwqDCoMKgIFRoaXMgZW5hYmxl
-cyB0aGUgSVBNSSBTTUJ1cyBzeXN0ZW0gaW50ZXJmYWNlIChTU0lGKSBhdCB0aGUKPj4+ICvCoMKg
-wqDCoMKgIG1hbmFnZW1lbnQgKEJNQykgc2lkZS4KPj4+ICsKPj4+ICvCoMKgwqDCoMKgIFRoZSBk
-cml2ZXIgaW1wbGVtZW50cyB0aGUgQk1DIHNpZGUgb2YgdGhlIFNNQnVzIHN5c3RlbQo+Pj4gK8Kg
-wqDCoMKgwqAgaW50ZXJmYWNlIChTU0lGKS4KPj4+ICsKPj4KPj4gVGhhbmtzLgo+IAo+IFRoYW5r
-cyBSYW5keSwKPiBpdCBzaG91bGQgYmUgY2hhbmdlIHRvICJkZXBlbmRzIG9uIEkyQyAmJiBJMkNf
-U0xBVkUiCgpFaXRoZXIgd2F5IGlzIE9LIGZvciBJMkNfU0xBVkUgQUZBSUsuCgp0aGFua3MuCgot
-LSAKflJhbmR5CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlz
-dHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xp
-c3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+Hi Quan,
+
+I love your patch! Yet something to improve:
+
+[auto build test ERROR on cminyard-ipmi/for-next]
+[also build test ERROR on wsa/i2c/for-next v5.19-rc2 next-20220616]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Quan-Nguyen/Add-SSIF-BMC-driver/20220615-170539
+base:   https://github.com/cminyard/linux-ipmi for-next
+config: i386-randconfig-a006 (https://download.01.org/0day-ci/archive/20220617/202206170337.0kCTfR63-lkp@intel.com/config)
+compiler: clang version 15.0.0 (https://github.com/llvm/llvm-project f0e608de27b3d568000046eebf3712ab542979d6)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/0feb5f0351d090633e7522dbec22de419a04b85f
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Quan-Nguyen/Add-SSIF-BMC-driver/20220615-170539
+        git checkout 0feb5f0351d090633e7522dbec22de419a04b85f
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=i386 SHELL=/bin/bash
+
+If you fix the issue, kindly add following tag where applicable
+Reported-by: kernel test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+   In file included from <built-in>:1:
+>> ./usr/include/linux/ipmi_ssif_bmc.h:13:2: error: unknown type name '__u8'
+           __u8    payload[IPMI_SSIF_PAYLOAD_MAX];
+           ^
+   1 error generated.
+
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
