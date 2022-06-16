@@ -2,114 +2,104 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB7D454E0CD
-	for <lists+openipmi-developer@lfdr.de>; Thu, 16 Jun 2022 14:30:24 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id DF0F254E599
+	for <lists+openipmi-developer@lfdr.de>; Thu, 16 Jun 2022 17:03:32 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1o1odf-0004JU-Ub; Thu, 16 Jun 2022 12:30:20 +0000
+	id 1o1r1t-0000i0-Nq; Thu, 16 Jun 2022 15:03:28 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <wsa@kernel.org>) id 1o1odc-0004JO-TQ
- for openipmi-developer@lists.sourceforge.net; Thu, 16 Jun 2022 12:30:19 +0000
+ (envelope-from <rdunlap@infradead.org>) id 1o1r1p-0000ht-RQ
+ for openipmi-developer@lists.sourceforge.net; Thu, 16 Jun 2022 15:03:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=xPrMkd3cPQrEnsXa7HxJaHp/rZElsuAkgCwfxIhpx74=; b=d5jAwY6BmnhPpiw7fpQpAjO3cF
- 1Ro5+gc29mB8eYEAtSIPtwKGEWCPe7nAqDXTrIMdE0Z8MNTXs1KgFP1ASeavxCuLiAoR7fTqjkpOp
- kqBGlprWFSVM0OZBB77gr1D4T14N6WvyoQZf4NU6Q6KzqPXDTAdMl8zO/3bms2GCD61s=;
+ bh=eXP8JImYusYVmz1XFgz6F/idOIpZUqokxeO9uXWtnWI=; b=KYP6KnROcXtPDFAebqVXIyRejx
+ +4F9w81ssf87D/WG2Rta/WVDTcwKtDAxvs6pjlMz+ADq9R34nnvmcg8sP7ubfIW7R304DiDWO57HF
+ 9zRM2Ww9EbEvJ+yi4SnTgjHiz9QbVd/oDMZj/zFCST7FsNi+ODdCvARpY2ZzfymUE2no=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=xPrMkd3cPQrEnsXa7HxJaHp/rZElsuAkgCwfxIhpx74=; b=B4dex12Q+/dTqD176D5F7/UqWl
- gXOIjfjh1Th5gCmWPUBN4/JX2rCbogvwoYeK6TX41IwWdoWpIcj5VYR07mQnE+aF0adSXJE2KuYkH
- VV/mYPux/OuQFCyyhzlvq+sfrA+gtcAIP8KJCLn4Nvh70eJBrY3uR9FAZLYwLMlqroLU=;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+ bh=eXP8JImYusYVmz1XFgz6F/idOIpZUqokxeO9uXWtnWI=; b=LoZrb7Rlneccu3ujpZDueZ2kvK
+ 7iArADwpowYxIVxav23jNvcDU/VHi5dx5hVa/U7+RkRhMpRhDNs4YA1uHiKwEIo6PH7SkHP+ztTqw
+ LsC7EsQzCTym9zz6VBceonaZxCDxnc5V3C6tJ9aGLQElB3E9N/TMYRCnhYmoMdZ8KtJ4=;
+Received: from desiato.infradead.org ([90.155.92.199])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1o1odb-00496t-Cl
- for openipmi-developer@lists.sourceforge.net; Thu, 16 Jun 2022 12:30:17 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 3153B6167F;
- Thu, 16 Jun 2022 12:30:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC804C34114;
- Thu, 16 Jun 2022 12:30:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1655382604;
- bh=7Znl3b92aroi5ubP2QPuFHtUeB1lmREHe3yTZnLMKio=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=KMYhbB4MGHuQC7Z7rXOsc2FXhm6jOgJDQRBz44Z8dcYeoscvlfWLHXSfXfOu68EQu
- BoSKD2hDsNQOQK6jicDyREOSlXJrg6n8CXz79Vc7dXdOtFAU2eRbyR5GbKzsyHxzNi
- t/Zlz3LGMch7uZaMNxdmHjingGmKLyS9M2YxTemFZBuK4E1zwzbxxiYUWHjcf4liR6
- 3A2ifUFhYkleDyAuQaW685HxWajaIcJ1Vaie+QK/2f68+TECqshItMI7aXiwRlgZTd
- gl8Sm2UnRnBdg2Q3S5rUd0xAEC37GnKbcZdZRiFXXiRPepFplJ/duGh0Argx9ybpb5
- L3VcbWVU3R6rQ==
-Date: Thu, 16 Jun 2022 14:29:57 +0200
-From: Wolfram Sang <wsa@kernel.org>
-To: Quan Nguyen <quan@os.amperecomputing.com>
-Message-ID: <YqsiRW78NAL9rX9S@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
- Quan Nguyen <quan@os.amperecomputing.com>,
- Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ id 1o1r1n-004FP8-6Z
+ for openipmi-developer@lists.sourceforge.net; Thu, 16 Jun 2022 15:03:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+ :In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+ Sender:Reply-To:Content-ID:Content-Description;
+ bh=eXP8JImYusYVmz1XFgz6F/idOIpZUqokxeO9uXWtnWI=; b=KRUEUBUyuLXtfTp3+c4njGOSw9
+ vEDot6VYfqIJ01TjLkccAS9FePTHekgVapd/ZzYWPmXEXA+RSFIUCXgcE4i50W6m4fCnG86csGQyX
+ 2fPfw/RqUdF4HEmx4JlxDoLwTB0EWagiVnntZpQaqWknDkJxM4E1QP0tjaadRQit0B1awN3dL+OZu
+ ZsZePFuAxZdy2RY5zt1kIpOlK2HQCMVQRqiaBTPCUQZRHL01dW8Ib9Xq+0BcfW1mwxgzWyFa88QqN
+ FSAPYfcU9mx5op4/SWDy3jKI0BU4lwAqlSxpSWdiQOCvm8mzCemKd14GlH1PVzlSGikdp93WSV3Ok
+ ZbnXZCJA==;
+Received: from [2601:1c0:6280:3f0::aa0b]
+ by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1o1r0x-008RS8-4P; Thu, 16 Jun 2022 15:02:32 +0000
+Message-ID: <fb8e7e35-7f26-15bc-9fbb-2949fc80a18b@infradead.org>
+Date: Thu, 16 Jun 2022 08:02:22 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Content-Language: en-US
+To: Quan Nguyen <quan@os.amperecomputing.com>, Corey Minyard
+ <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  Brendan Higgins <brendanhiggins@google.com>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- openipmi-developer@lists.sourceforge.net,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ Wolfram Sang <wsa@kernel.org>, openipmi-developer@lists.sourceforge.net,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
- Open Source Submission <patches@amperecomputing.com>,
- Phong Vo <phong@os.amperecomputing.com>,
- "Thang Q . Nguyen" <thang@os.amperecomputing.com>
-References: <20220422040803.2524940-1-quan@os.amperecomputing.com>
- <20220422040803.2524940-4-quan@os.amperecomputing.com>
- <Yn+9QBoPdH8fMm/m@shikoro>
- <fc422a06-c035-f6e5-231b-74ea6afe8467@os.amperecomputing.com>
- <YqpB8A2uBi+4epHM@shikoro>
- <bf001ece-e981-3a06-53fe-6a8b637d69fe@os.amperecomputing.com>
-MIME-Version: 1.0
-In-Reply-To: <bf001ece-e981-3a06-53fe-6a8b637d69fe@os.amperecomputing.com>
-X-Spam-Score: -5.8 (-----)
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
+References: <20220615090259.1121405-1-quan@os.amperecomputing.com>
+ <20220615090259.1121405-2-quan@os.amperecomputing.com>
+ <8b7841a9-9313-b1d5-8a80-a65cfa8e7b4d@infradead.org>
+ <74f94464-a095-f539-746a-853b8f1d52ca@os.amperecomputing.com>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <74f94464-a095-f539-746a-853b8f1d52ca@os.amperecomputing.com>
+X-Spam-Score: -4.5 (----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Quan,
- > On the first occurrence of I2C_SLAVE_WRITE_REQUESTED, 
- the address is already > received with ACK. So if slave return -EBUSY, the
- NAK will occur on the next > Rx byte (on I2C_SLAVE_WRITE_RECEIVED eve [...]
- Content analysis details:   (-5.8 points, 6.0 required)
+ Content preview:  On 6/16/22 00:25, Quan Nguyen wrote: > On 15/06/2022 23:06, 
+ Randy Dunlap wrote: >> >> >> On 6/15/22 02:02, Quan Nguyen wrote: >>> diff
+ --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig >>> [...] 
+ Content analysis details:   (-4.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [139.178.84.217 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [90.155.92.199 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- -0.6 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1o1odb-00496t-Cl
-Subject: Re: [Openipmi-developer] [PATCH v7 3/3] i2c: aspeed: Assert NAK
- when slave is busy
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1o1r1n-004FP8-6Z
+Subject: Re: [Openipmi-developer] [PATCH v8 1/3] ipmi: ssif_bmc: Add SSIF
+ BMC driver
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -122,105 +112,34 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
- Corey Minyard <minyard@acm.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- Andrew Jeffery <andrew@aj.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>, openbmc@lists.ozlabs.org,
+Cc: Open Source Submission <patches@amperecomputing.com>,
  "Thang Q . Nguyen" <thang@os.amperecomputing.com>,
- Brendan Higgins <brendanhiggins@google.com>, linux-kernel@vger.kernel.org,
- Phong Vo <phong@os.amperecomputing.com>, Rob Herring <robh+dt@kernel.org>,
- openipmi-developer@lists.sourceforge.net,
- Open Source Submission <patches@amperecomputing.com>,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org
-Content-Type: multipart/mixed; boundary="===============9219585127238154601=="
+ Phong Vo <phong@os.amperecomputing.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============9219585127238154601==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XXmZpPF7iOB6E+2/"
-Content-Disposition: inline
-
-
---XXmZpPF7iOB6E+2/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi Quan,
-
-> On the first occurrence of I2C_SLAVE_WRITE_REQUESTED, the address is alre=
-ady
-> received with ACK. So if slave return -EBUSY, the NAK will occur on the n=
-ext
-> Rx byte (on I2C_SLAVE_WRITE_RECEIVED event).
-
-This is exactly why I2C_SLAVE_WRITE_RECEIVED allows for an error code.
-=46rom the docs:
-
-=3D=3D=3D
-
-* I2C_SLAVE_WRITE_RECEIVED (mandatory)
-
-  'val': bus driver delivers received byte
-
-  'ret': 0 if the byte should be acked, some errno if the byte should be na=
-cked
-
-Another I2C master has sent a byte to us which needs to be set in 'val'. If=
- 'ret'
-is zero, the bus driver should ack this byte. If 'ret' is an errno, then th=
-e byte
-should be nacked.
-
-=3D=3D=3D
-
-'ret' is used to ACK/NACK the current byte in 'val'. That's exactly what
-you need, or? Does the aspeed driver not support acking the current
-byte?
-
-
---XXmZpPF7iOB6E+2/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmKrIkEACgkQFA3kzBSg
-KbasSRAAnlwPKEfQRtRslfq95yxrYXbK6A2BATY1x3Thu50cFfbarxu+e7KMBRtt
-GXFMJrp6wZaXio1xyqtc34OmNOFnZXpPUN6jClpYG04GMaJ4kZCC9F2gNmiTEE0y
-RrL7ujffpI6IP4TGFP8SRuxHCJiNRN8KdGdGepah5J6r+y3AnMoaOFwmD9ha/ItQ
-nhVcPtEPTF/JKbP0st9jr4EIvjLGEi3f+HWuzUwio/MaC/OFRjmzgw9Zwbu0qY1X
-YoqHBh9SmbNwPcI/Enp54kjyWScxnWhtY3SEOY7bsdguBLGL4MWlsYGQOIeDxlen
-Io/4k5V4Iw5S7oBAcN7YLin2knRiTgyY/IHGlA4G+UbDhH7VbCRVgJ+EE9HsaEHy
-iBN/o3YtN6QmmM1DLYrZY3S4JlLFARhNNdCb6Im4+HGMWAP+3t0vBOJEYBH+/0or
-v1Xv3/bzlHkniG0EtOKfVWLCmSLpFA97p2T98KPBFx5K3NTV42+G9hao529crYtD
-JtLUDJYXKYxs5CdmX4tvpQzBET+GB/NbyzMiFOUJzkydVuOBOpMMRN80GTdbJTOc
-9legjiqnXk797FKiB5zhApNH6UQ8HSmsja5Mr+Jhyi5lr52zZCj0bUJD+rP5Nz2c
-SlNDdUkpNr6Pxkklt/bLg8R0L/Y75gQ2PWPWjOJSaK6JM3tdArg=
-=B2+q
------END PGP SIGNATURE-----
-
---XXmZpPF7iOB6E+2/--
-
-
---===============9219585127238154601==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============9219585127238154601==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============9219585127238154601==--
-
+CgpPbiA2LzE2LzIyIDAwOjI1LCBRdWFuIE5ndXllbiB3cm90ZToKPiBPbiAxNS8wNi8yMDIyIDIz
+OjA2LCBSYW5keSBEdW5sYXAgd3JvdGU6Cj4+Cj4+Cj4+IE9uIDYvMTUvMjIgMDI6MDIsIFF1YW4g
+Tmd1eWVuIHdyb3RlOgo+Pj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcg
+Yi9kcml2ZXJzL2NoYXIvaXBtaS9LY29uZmlnCj4+PiBpbmRleCBiMDYxZTZiNTEzZWQuLjE4YTg5
+MDkzZDY0ZSAxMDA2NDQKPj4+IC0tLSBhL2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcKPj4+ICsr
+KyBiL2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcKPj4+IEBAIC0xNjksNiArMTY5LDE3IEBAIGNv
+bmZpZyBBU1BFRURfQlRfSVBNSV9CTUMKPj4+IMKgwqDCoMKgwqDCoMKgIGZvdW5kIG9uIEFzcGVl
+ZCBTT0NzIChBU1QyNDAwIGFuZCBBU1QyNTAwKS4gVGhlIGRyaXZlcgo+Pj4gwqDCoMKgwqDCoMKg
+wqAgaW1wbGVtZW50cyB0aGUgQk1DIHNpZGUgb2YgdGhlIEJUIGludGVyZmFjZS4KPj4+IMKgICtj
+b25maWcgU1NJRl9JUE1JX0JNQwo+Pj4gK8KgwqDCoCB0cmlzdGF0ZSAiU1NJRiBJUE1JIEJNQyBk
+cml2ZXIiCj4+PiArwqDCoMKgIHNlbGVjdCBJMkMKPj4KPj4gTm8uIFRoYXQgc2hvdWxkIGJlOgo+
+PiDCoMKgwqDCoGRlcGVuZHMgb24gSTJDCj4+Cj4+IFdlIGRvbid0IHNlbGVjdCBhbiBlbnRpcmUg
+c3Vic3lzdGVtIGp1c3QgdG8gc2F0aXNmeSBvbmUgZHJpdmVyLgo+Pgo+Pj4gK8KgwqDCoCBzZWxl
+Y3QgSTJDX1NMQVZFCj4+PiArwqDCoMKgIGhlbHAKPj4+ICvCoMKgwqDCoMKgIFRoaXMgZW5hYmxl
+cyB0aGUgSVBNSSBTTUJ1cyBzeXN0ZW0gaW50ZXJmYWNlIChTU0lGKSBhdCB0aGUKPj4+ICvCoMKg
+wqDCoMKgIG1hbmFnZW1lbnQgKEJNQykgc2lkZS4KPj4+ICsKPj4+ICvCoMKgwqDCoMKgIFRoZSBk
+cml2ZXIgaW1wbGVtZW50cyB0aGUgQk1DIHNpZGUgb2YgdGhlIFNNQnVzIHN5c3RlbQo+Pj4gK8Kg
+wqDCoMKgwqAgaW50ZXJmYWNlIChTU0lGKS4KPj4+ICsKPj4KPj4gVGhhbmtzLgo+IAo+IFRoYW5r
+cyBSYW5keSwKPiBpdCBzaG91bGQgYmUgY2hhbmdlIHRvICJkZXBlbmRzIG9uIEkyQyAmJiBJMkNf
+U0xBVkUiCgpFaXRoZXIgd2F5IGlzIE9LIGZvciBJMkNfU0xBVkUgQUZBSUsuCgp0aGFua3MuCgot
+LSAKflJhbmR5CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlz
+dHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xp
+c3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
