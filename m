@@ -2,84 +2,79 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C80BE5648F5
-	for <lists+openipmi-developer@lfdr.de>; Sun,  3 Jul 2022 20:21:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 039985648FA
+	for <lists+openipmi-developer@lfdr.de>; Sun,  3 Jul 2022 20:21:04 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1o84DJ-00070t-SX; Sun, 03 Jul 2022 18:20:57 +0000
+	id 1o84DM-00073P-Pu; Sun, 03 Jul 2022 18:21:00 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <heikki.krogerus@linux.intel.com>)
- id 1o6SKY-0006Q2-W8; Wed, 29 Jun 2022 07:41:45 +0000
+ (envelope-from <ukl@pengutronix.de>) id 1o6SNA-0000vI-B8
+ for openipmi-developer@lists.sourceforge.net; Wed, 29 Jun 2022 07:44:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=YVrXwuTPggf1EtX7JJxI+g99eW9Kzw38LCP67CQulG4=; b=dSsJ+tY6t09F0/Ge8DAm+kTmZ6
- 6u5PXvBPXuATNsiZT0S1txiqHAZbGxoMjpVUFBkH1iSRJsi8lwRdB0JOyHiaAlOfCcGAfI7XHy51v
- M4Mphni36uzS70EEaRm7CVt1hIFR3ZjDg7oj/dx1/7UTMSzoQcXSajk8yMMxeOU+cuUA=;
+ bh=IiT0UYPEG+p5liPBMja5kd363NHZyWSioarfJse3iA0=; b=f6U+t3/LUM59peeYRms4k6G6OC
+ H1N3Sb3QGcDf0S3b0sCiNn5pGE4aX9o00P8FXqj3ub3LIlSjklMXdayVhEfkW7xmHToasIRWt0b8W
+ 5muABI6WDB244M1jFZTPmms687VqwtnM26H5oPETWSprHeAyRTvc7GJ4KGIdBqfLcxvM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=YVrXwuTPggf1EtX7JJxI+g99eW9Kzw38LCP67CQulG4=; b=Yp5bcXpZ8V33Ste3YqQTB7Ueih
- Gxi11S8pcnaI69wIZNkA8eggkvUGuOAo0lxj/OAKAAS4opOyrQp4nKdjM//n4LifgXvpg/FrBDlyE
- IRP0WsDQc62glNj9MhBAtUFkQk6k50zXqXbQNrQnbO4Yz+RpXxiwPKR9b4Y7LKFe0NBI=;
-Received: from mga11.intel.com ([192.55.52.93])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=IiT0UYPEG+p5liPBMja5kd363NHZyWSioarfJse3iA0=; b=fk+fLu4F4LwyY3u3huvlgbjSNA
+ 1wXu9X2Nf88jqT7DjuUbW2X5pIv05IKs+Vq6dT5pDBV5Osz5OC6AhThDDUSgLGpfVEcK4O0d24wX7
+ 6zLt0tlzk5SaNH/08wni/Bzt2pzi+tV20xBjxm37ylaTcg/xT+lRvsNtLZX3HzN+W1z0=;
+Received: from metis.ext.pengutronix.de ([85.220.165.71])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1o6SKT-00037Q-LJ; Wed, 29 Jun 2022 07:41:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1656488501; x=1688024501;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:content-transfer-encoding:in-reply-to;
- bh=hRLWAheTUgpMqJ+CTyhb8q72eqCf5jXCD+qdlPmQdX8=;
- b=A5AARNcT0OeppGaGwtJd6O4Aq9+Yzq8vlUaqQCGDI22b7urTAcXWUrlp
- FkOtwwe3GRXVBA/C6wc3vj6n4OMHE+knZa0fSf5l5HQucvol8aG0VvExV
- rT4tVyIrPIpnImG+LSnkKY81jO5m8k50td+mPMCV9wKsY3cqTi0YWoswA
- jqNxiXdt4LkxDTi+rwCkFZSX3ixSHsLs35g7V2o3dMTMnbO0mluv96iBf
- l1Q/Pqf97LyHTuJYOqwhOLyDkIoD+i9GmA9/6NtjIH4bw3/nyZbpfR54X
- X2eBPJSkJ+3NiwHz9C83wyRIR/KjkaibWTGY2rqqeE4lR4oMMi1ke2pz3 w==;
-X-IronPort-AV: E=McAfee;i="6400,9594,10392"; a="279498404"
-X-IronPort-AV: E=Sophos;i="5.92,230,1650956400"; d="scan'208";a="279498404"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 29 Jun 2022 00:41:34 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.92,230,1650956400"; d="scan'208";a="733074160"
-Received: from kuha.fi.intel.com ([10.237.72.185])
- by fmsmga001.fm.intel.com with SMTP; 29 Jun 2022 00:40:24 -0700
-Received: by kuha.fi.intel.com (sSMTP sendmail emulation);
- Wed, 29 Jun 2022 10:40:23 +0300
-Date: Wed, 29 Jun 2022 10:40:23 +0300
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Message-ID: <YrwB5xPKZmHlXzrC@kuha.fi.intel.com>
+ id 1o6SN6-000Yqu-2x
+ for openipmi-developer@lists.sourceforge.net; Wed, 29 Jun 2022 07:44:28 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1o6SMc-0000bw-E0; Wed, 29 Jun 2022 09:43:54 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+ by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1o6SML-003M5p-Kh; Wed, 29 Jun 2022 09:43:41 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1o6SMO-001qhO-2i; Wed, 29 Jun 2022 09:43:40 +0200
+Date: Wed, 29 Jun 2022 09:43:37 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Crt Mori <cmo@melexis.com>
+Message-ID: <20220629074337.mks23y5rt6c536wl@pengutronix.de>
 References: <20220628140313.74984-1-u.kleine-koenig@pengutronix.de>
  <20220628140313.74984-7-u.kleine-koenig@pengutronix.de>
+ <CAKv63uu1XXP_XptZOeefDS_RVJvu3six5ZnJ9-oOVCPAK4D9aw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220628140313.74984-7-u.kleine-koenig@pengutronix.de>
-X-Spam-Score: -5.8 (-----)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
+In-Reply-To: <CAKv63uu1XXP_XptZOeefDS_RVJvu3six5ZnJ9-oOVCPAK4D9aw@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: openipmi-developer@lists.sourceforge.net
+X-Spam-Score: -2.3 (--)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  On Tue, Jun 28, 2022 at 04:03:12PM +0200, Uwe Kleine-König
-    wrote: > diff --git a/drivers/usb/typec/hd3ss3220.c b/drivers/usb/typec/hd3ss3220.c
-    > index cd47c3597e19..2a58185fb14c 100644 > --- a/drivers [...] 
+ Content preview:  Hello, On Wed, Jun 29, 2022 at 09:24:55AM +0200, Crt Mori
+   wrote: > On Tue, 28 Jun 2022 at 16:04, Uwe Kleine-König > <u.kleine-koenig@pengutronix.de>
+    wrote: > > static const struct i2c_device_id mlx90614_id[] [...] 
  
- Content analysis details:   (-5.8 points, 6.0 required)
+ Content analysis details:   (-2.3 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -87,20 +82,15 @@ X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.
                              blocked.  See
                              http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
                               for more information.
-                             [URIs: intel.com]
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
-                             high trust
-                             [192.55.52.93 listed in list.dnswl.org]
+                             [URIs: pengutronix.de]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+                             medium trust
+                             [85.220.165.71 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
   0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
-                             valid
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1o6SKT-00037Q-LJ
-X-Mailman-Approved-At: Sun, 03 Jul 2022 18:20:53 +0000
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1o6SN6-000Yqu-2x
+X-Mailman-Approved-At: Sun, 03 Jul 2022 18:20:54 +0000
 Subject: Re: [Openipmi-developer] [PATCH 6/6] i2c: Make remove callback
  return void
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -115,346 +105,311 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Martyn Welch <martyn.welch@collabora.co.uk>,
- Neil Armstrong <narmstrong@baylibre.com>, David Airlie <airlied@linux.ie>,
+Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
+ Jimmy Su <jimmy.su@intel.com>, Russell King <linux@armlinux.org.uk>,
+ Arec Kao <arec.kao@intel.com>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Peter Senna Tschudin <peter.senna@gmail.com>, Sekhar Nori <nsekhar@ti.com>,
- Douglas Anderson <dianders@chromium.org>, Max Filippov <jcmvbkbc@gmail.com>,
- Thierry Reding <thierry.reding@gmail.com>, Paul Mackerras <paulus@samba.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Sekhar Nori <nsekhar@ti.com>,
+ Gwendal Grignou <gwendal@chromium.org>, dri-devel@lists.freedesktop.org,
+ Jaroslav Kysela <perex@perex.cz>,
+ Benjamin Tissoires <benjamin.tissoires@redhat.com>,
+ Paul Mackerras <paulus@samba.org>,
+ Moses Christopher Bollavarapu <mosescb.dev@gmail.com>,
+ Pavel Machek <pavel@ucw.cz>, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Benson Leung <bleung@chromium.org>, Evgeniy Polyakov <zbr@ioremap.net>,
+ Matt Johnston <matt@codeconstruct.com.au>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Olli Salonen <olli.salonen@iki.fi>,
+ Kevin Cernekee <cernekee@chromium.org>, Luka Perkov <luka.perkov@sartura.hr>,
+ Jose Cazarin <joseespiriki@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Daniel Beer <daniel.beer@igorinstitute.com>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Marc Hulsman <m.hulsman@tudelft.nl>, Chanwoo Choi <cw00.choi@samsung.com>,
+ Antti Palosaari <crope@iki.fi>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dongchun Zhu <dongchun.zhu@mediatek.com>, Viorel Suman <viorel.suman@nxp.com>,
+ Steve Longerbeam <slongerbeam@gmail.com>, Bingbu Cao <bingbu.cao@intel.com>,
+ Shunqian Zheng <zhengsq@rock-chips.com>, lijian <lijian@yulong.com>,
+ Dan Carpenter <dan.carpenter@oracle.com>,
+ Alejandro Tafalla <atafalla@dnyon.com>, Petr Machata <petrm@nvidia.com>,
+ Guido =?utf-8?Q?G=C3=BCnther?= <agx@sigxcpu.org>,
+ Jean Delvare <jdelvare@suse.com>, Bastien Nocera <hadess@hadess.net>,
+ linux-pm@vger.kernel.org, Eddie James <eajames@linux.ibm.com>,
+ Riku Voipio <riku.voipio@iki.fi>, James Schulman <james.schulman@cirrus.com>,
+ Scott Wood <oss@buserror.net>, Cai Huoqing <cai.huoqing@linux.dev>,
+ Jonas Malaco <jonas@protocubo.io>, Hsin-Yi Wang <hsinyi@chromium.org>,
+ linux-omap@vger.kernel.org, Petr Cvek <petrcvekcz@gmail.com>,
+ Mac Chiang <mac.chiang@intel.com>, Joe Tessler <jrt@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Andy Shevchenko <andy@kernel.org>,
+ Robert Jones <rjones@gateworks.com>,
+ Jan-Simon Moeller <jansimon.moeller@gmx.de>,
+ George Joseph <george.joseph@fairview5.com>,
+ Robin van der Gracht <robin@protonic.nl>, Randy Dunlap <rdunlap@infradead.org>,
+ Michael Tretter <m.tretter@pengutronix.de>,
+ "Paul J. Murphy" <paul.j.murphy@intel.com>, Phong LE <ple@baylibre.com>,
+ linux-crypto@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Heungjun Kim <riverful.kim@samsung.com>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>, David Lin <CTLIN0@nuvoton.com>,
+ Vladimir Oltean <olteanv@gmail.com>, Maslov Dmitry <maslovdmitry@seeed.cc>,
+ Claudiu Beznea <claudiu.beznea@microchip.com>,
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Guenter Roeck <groeck@chromium.org>,
- Peter Huewe <peterhuewe@gmx.de>, Sam Ravnborg <sam@ravnborg.org>,
- Michael Hennerich <michael.hennerich@analog.com>, Phong LE <ple@baylibre.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
- Chanwoo Choi <cw00.choi@samsung.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Jonas Karlman <jonas@kwiboo.se>,
- Russell King <linux@armlinux.org.uk>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Adrien Grassein <adrien.grassein@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Martin Donnelly <martin.donnelly@ge.com>, Corey Minyard <minyard@acm.org>,
- Tudor Ambarus <tudor.ambarus@microchip.com>, Scott Wood <oss@buserror.net>,
- Benson Leung <bleung@chromium.org>, Herbert Xu <herbert@gondor.apana.org.au>,
- Stephen Boyd <sboyd@kernel.org>, Robin van der Gracht <robin@protonic.nl>,
- Stefan Mavrodiev <stefan@olimex.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Robert Foss <robert.foss@linaro.org>, "David S. Miller" <davem@davemloft.net>,
- Wolfram Sang <wsa@kernel.org>, Jarkko Sakkinen <jarkko@kernel.org>,
- Daniel Vetter <daniel@ffwll.ch>, Broad, Luca Ceresoli <luca@lucaceresoli.net>,
- Claudiu Beznea <claudiu.beznea@microchip.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+ Woojung Huh <woojung.huh@microchip.com>, Miaoqian Lin <linmq006@gmail.com>,
+ Dan Robertson <dan@dlrobertson.com>,
+ Martyn Welch <martyn.welch@collabora.co.uk>,
+ Lucas Tanure <tanureal@opensource.cirrus.com>, David Airlie <airlied@linux.ie>,
+ Jon Nettleton <jon.nettleton@gmail.com>,
+ Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ Marco Felsch <m.felsch@pengutronix.de>, Arnd Bergmann <arnd@arndb.de>,
+ David Rhodes <david.rhodes@cirrus.com>, Max Filippov <jcmvbkbc@gmail.com>,
+ "Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Maximilian Luz <luzmaximilian@gmail.com>, linux-i2c@vger.kernel.org,
+ Martiros Shakhzadyan <vrzh@vrzh.net>, Guenter Roeck <groeck@chromium.org>,
+ Matthias Schwarzott <zzam@gentoo.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Dmitry Rokosov <DDRokosov@sberdevices.ru>, Akihiro Tsukada <tskd08@gmail.com>,
+ Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
+ Saranya Gopal <saranya.gopal@intel.com>, Lars-Peter Clausen <lars@metafoo.de>,
+ Michael Hennerich <michael.hennerich@analog.com>,
+ Evgeny Novikov <novikov@ispras.ru>, Frank Rowand <frowand.list@gmail.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>,
+ Matt Ranostay <matt.ranostay@konsulko.com>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.intel.com>,
+ Minghao Chi <chi.minghao@zte.com.cn>, linux-stm32@st-md-mailman.stormreply.com,
+ Zheyu Ma <zheyuma97@gmail.com>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Charles Gorand <charles.gorand@effinnov.com>,
+ Jagan Teki <jagan@amarulasolutions.com>, Wei Yongjun <weiyongjun1@huawei.com>,
+ Vijendar Mukunda <Vijendar.Mukunda@amd.com>, Miguel Ojeda <ojeda@kernel.org>,
+ Oliver Graute <oliver.graute@kococonnector.com>,
+ Tianshu Qiu <tian.shu.qiu@intel.com>, Martin Donnelly <martin.donnelly@ge.com>,
+ Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
+ Rudolf Marek <r.marek@assembler.cz>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>, linux-watchdog@vger.kernel.org,
+ Corey Minyard <minyard@acm.org>, Ido Schimmel <idosch@nvidia.com>,
+ acpi4asus-user@lists.sourceforge.net,
+ Simon Trimmer <simont@opensource.cirrus.com>, linux-media@vger.kernel.org,
+ Rikard Falkeborn <rikard.falkeborn@gmail.com>,
+ Luca Ceresoli <luca@lucaceresoli.net>,
+ Alex Deucher <alexander.deucher@amd.com>, Jiri Valek - 2N <valek@2n.cz>,
+ Dmitry Vyukov <dvyukov@google.com>, linux-rpi-kernel@lists.infradead.org,
+ Biju Das <biju.das.jz@bp.renesas.com>, Wayne Chang <waynec@nvidia.com>,
+ Sing-Han Chen <singhanc@nvidia.com>, linux-arm-kernel@lists.infradead.org,
+ Tomasz Duszynski <tduszyns@gmail.com>,
+ Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+ linux-gpio@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+ Jens Frederich <jfrederich@gmail.com>,
+ Douglas Anderson <dianders@chromium.org>,
+ "David S. Miller" <davem@davemloft.net>, Wolfram Sang <wsa@kernel.org>,
+ Kyungmin Park <kyungmin.park@samsung.com>, linux-usb@vger.kernel.org,
+ Jacopo Mondi <jacopo+renesas@jmondi.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, CGEL ZTE <cgel.zte@gmail.com>,
+ Colin Leroy <colin@colino.net>, linux-integrity@vger.kernel.org,
+ alsa-devel@alsa-project.org, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
+ Jonathan Cameron <jic23@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Daniel Palmer <daniel@0x0f.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Stephen Kitt <steve@sk2.org>, Sean Young <sean@mess.org>,
+ Neil Armstrong <narmstrong@baylibre.com>, linux-iio@vger.kernel.org,
+ Tom Rix <trix@redhat.com>, Michael Turquette <mturquette@baylibre.com>,
+ Peter Senna Tschudin <peter.senna@gmail.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ platform-driver-x86@vger.kernel.org, Krzysztof Opasiak <k.opasiak@samsung.com>,
+ linux-mtd@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Nikita Travkin <nikita@trvn.ru>,
+ Jeremy Kerr <jk@codeconstruct.com.au>, Jasmin Jessich <jasmin@anw.at>,
+ Jiri Slaby <jirislaby@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ linux-rtc@vger.kernel.org, Tudor Ambarus <tudor.ambarus@microchip.com>,
+ Daniel Thompson <daniel.thompson@linaro.org>,
+ Florian Fainelli <f.fainelli@gmail.com>, Nick Dyer <nick@shmanahar.org>,
+ Stefan Mavrodiev <stefan@olimex.com>, Masahiro Yamada <masahiroy@kernel.org>,
+ linux-staging@lists.linux.dev, wengjianfeng <wengjianfeng@yulong.com>,
+ Eric Dumazet <edumazet@google.com>,
+ Daniele Alessandrelli <daniele.alessandrelli@intel.com>,
+ George McCollister <george.mccollister@gmail.com>,
+ Tony Lindgren <tony@atomide.com>, Chen-Yu Tsai <wens@csie.org>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+ Adrien Grassein <adrien.grassein@gmail.com>,
+ Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>,
+ Yang Yingliang <yangyingliang@huawei.com>, Mats Randgaard <matrandg@cisco.com>,
+ Paolo Abeni <pabeni@redhat.com>, Alexey Dobriyan <adobriyan@gmail.com>,
+ Rui Miguel Silva <rmfrfs@gmail.com>, linux-pwm@vger.kernel.org,
+ Lyude Paul <lyude@redhat.com>, Kees Cook <keescook@chromium.org>,
+ Wenyou Yang <wenyou.yang@microchip.com>,
+ Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>,
+ Tim Harvey <tharvey@gateworks.com>, linux-input@vger.kernel.org,
+ linux-clk@vger.kernel.org, Akinobu Mita <akinobu.mita@gmail.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>, Mark Brown <broonie@kernel.org>,
+ Maxime Ripard <maxime@cerno.tech>, Sven Peter <sven@svenpeter.dev>,
+ Martin Kepplinger <martink@posteo.de>, Daniel Vetter <daniel@ffwll.ch>,
+ openipmi-developer@lists.sourceforge.net,
+ Robert Marko <robert.marko@sartura.hr>,
+ Vincent Knecht <vincent.knecht@mailoo.org>,
+ "Daniel W. S. Almeida" <dwlsalmeida@gmail.com>,
+ Chiranjeevi Rapolu <chiranjeevi.rapolu@intel.com>,
+ Alessandro Zummo <a.zummo@towertech.it>, linux-hwmon@vger.kernel.org,
+ Felipe Balbi <balbi@kernel.org>, Stephan Gerhold <stephan@gerhold.net>,
+ Support Opensource <support.opensource@diasemi.com>,
+ Zheng Yongjun <zhengyongjun3@huawei.com>,
+ Sylvain Petinot <sylvain.petinot@foss.st.com>,
+ Sebastian Reichel <sre@kernel.org>, linux-fbdev@vger.kernel.org,
+ Daniel Scally <djrscally@gmail.com>, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Yang Li <yang.lee@linux.alibaba.com>,
+ Kirill Shilimanov <kirill.shilimanov@huawei.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, patches@opensource.cirrus.com,
+ Adam Ford <aford173@gmail.com>, Peter Rosin <peda@axentia.se>,
+ Arnaud Ferraris <arnaud.ferraris@collabora.com>,
+ Hector Martin <marcan@marcan.st>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Sam Ravnborg <sam@ravnborg.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Seven Lee <wtli@nuvoton.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Paul Cercueil <paul@crapouillou.net>,
+ Alexandru Ardelean <ardeleanalex@gmail.com>,
+ Ricard Wanderlof <ricardw@axis.com>,
+ Antoniu Miclaus <antoniu.miclaus@analog.com>,
+ Alexander Potapenko <glider@google.com>,
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+ Ramesh Shanmugasundaram <rashanmu@gmail.com>, chrome-platform@lists.linux.dev,
+ Peter Huewe <peterhuewe@gmx.de>, UNGLinuxDriver@microchip.com,
+ Lee Jones <lee.jones@linaro.org>, linux-leds@vger.kernel.org,
+ Marek Vasut <marex@denx.de>, Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Eric Piel <eric.piel@tremplin-utc.net>,
+ Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>,
+ Tobias Schrammm <t.schramm@manjaro.org>, Richard Weinberger <richard@nod.at>,
+ Jonas Karlman <jonas@kwiboo.se>, Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Alexey Khoroshilov <khoroshilov@ispras.ru>, linux-serial@vger.kernel.org,
+ Jingoo Han <jingoohan1@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Vivien Didelot <vivien.didelot@gmail.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>, Shawn Tu <shawnx.tu@intel.com>,
+ devicetree@vger.kernel.org, Jiri Kosina <jikos@kernel.org>,
+ Corentin Chary <corentin.chary@gmail.com>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Alistair Francis <alistair@alistair23.me>,
+ Dongliang Mu <mudongliangabcd@gmail.com>,
+ Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+ Eduardo Valentin <edubezval@gmail.com>, Hans de Goede <hdegoede@redhat.com>,
+ Michael Srba <Michael.Srba@seznam.cz>, Yan Lei <yan_lei@dahuatech.com>,
+ linux-mediatek@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ =?utf-8?B?Sm9zw6kgRXhww7NzaXRv?= <jose.exposito89@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, kasan-dev@googlegroups.com,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Nicola Lunghi <nick83ola@gmail.com>,
+ Xin Ji <xji@analogixsemi.com>, Angela Czubak <acz@semihalf.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>, Mark Gross <markgross@kernel.org>,
+ Kevin Tsai <ktsai@capellamicro.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Juerg Haefliger <juergh@gmail.com>, netdev@vger.kernel.org,
+ Shengjiu Wang <shengjiu.wang@nxp.com>, Leon Luo <leonl@leopardimaging.com>,
+ Takashi Iwai <tiwai@suse.com>, Robert Foss <robert.foss@linaro.org>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Alvin =?utf-8?Q?=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
+ Rob Herring <robh+dt@kernel.org>, Oder Chiou <oder_chiou@realtek.com>,
+ Yizhuo <yzhai003@ucr.edu>, Colin Ian King <colin.king@intel.com>,
+ linuxppc-dev@lists.ozlabs.org, Helge Deller <deller@gmx.de>,
+ Lucas Stach <l.stach@pengutronix.de>
+Content-Type: multipart/mixed; boundary="===============6111391373019872655=="
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Jun 28, 2022 at 04:03:12PM +0200, Uwe Kleine-K=F6nig wrote:
-> diff --git a/drivers/usb/typec/hd3ss3220.c b/drivers/usb/typec/hd3ss3220.c
-> index cd47c3597e19..2a58185fb14c 100644
-> --- a/drivers/usb/typec/hd3ss3220.c
-> +++ b/drivers/usb/typec/hd3ss3220.c
-> @@ -245,14 +245,12 @@ static int hd3ss3220_probe(struct i2c_client *clien=
-t,
->  	return ret;
->  }
->  =
 
-> -static int hd3ss3220_remove(struct i2c_client *client)
-> +static void hd3ss3220_remove(struct i2c_client *client)
->  {
->  	struct hd3ss3220 *hd3ss3220 =3D i2c_get_clientdata(client);
->  =
+--===============6111391373019872655==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="udaf7kclxozlbsvv"
+Content-Disposition: inline
 
->  	typec_unregister_port(hd3ss3220->port);
->  	usb_role_switch_put(hd3ss3220->role_sw);
-> -
-> -	return 0;
->  }
->  =
 
->  static const struct of_device_id dev_ids[] =3D {
-> diff --git a/drivers/usb/typec/mux/fsa4480.c b/drivers/usb/typec/mux/fsa4=
-480.c
-> index 6184f5367190..d6495e533e58 100644
-> --- a/drivers/usb/typec/mux/fsa4480.c
-> +++ b/drivers/usb/typec/mux/fsa4480.c
-> @@ -181,14 +181,12 @@ static int fsa4480_probe(struct i2c_client *client)
->  	return 0;
->  }
->  =
+--udaf7kclxozlbsvv
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> -static int fsa4480_remove(struct i2c_client *client)
-> +static void fsa4480_remove(struct i2c_client *client)
->  {
->  	struct fsa4480 *fsa =3D i2c_get_clientdata(client);
->  =
+Hello,
 
->  	typec_mux_unregister(fsa->mux);
->  	typec_switch_unregister(fsa->sw);
-> -
-> -	return 0;
->  }
->  =
-
->  static const struct i2c_device_id fsa4480_table[] =3D {
-> diff --git a/drivers/usb/typec/mux/pi3usb30532.c b/drivers/usb/typec/mux/=
-pi3usb30532.c
-> index 6ce9f282594e..1cd388b55c30 100644
-> --- a/drivers/usb/typec/mux/pi3usb30532.c
-> +++ b/drivers/usb/typec/mux/pi3usb30532.c
-> @@ -160,13 +160,12 @@ static int pi3usb30532_probe(struct i2c_client *cli=
-ent)
->  	return 0;
->  }
->  =
-
-> -static int pi3usb30532_remove(struct i2c_client *client)
-> +static void pi3usb30532_remove(struct i2c_client *client)
->  {
->  	struct pi3usb30532 *pi =3D i2c_get_clientdata(client);
->  =
-
->  	typec_mux_unregister(pi->mux);
->  	typec_switch_unregister(pi->sw);
-> -	return 0;
->  }
->  =
-
->  static const struct i2c_device_id pi3usb30532_table[] =3D {
-> diff --git a/drivers/usb/typec/rt1719.c b/drivers/usb/typec/rt1719.c
-> index f1b698edd7eb..ea8b700b0ceb 100644
-> --- a/drivers/usb/typec/rt1719.c
-> +++ b/drivers/usb/typec/rt1719.c
-> @@ -930,14 +930,12 @@ static int rt1719_probe(struct i2c_client *i2c)
->  	return ret;
->  }
->  =
-
-> -static int rt1719_remove(struct i2c_client *i2c)
-> +static void rt1719_remove(struct i2c_client *i2c)
->  {
->  	struct rt1719_data *data =3D i2c_get_clientdata(i2c);
->  =
-
->  	typec_unregister_port(data->port);
->  	usb_role_switch_put(data->role_sw);
-> -
-> -	return 0;
->  }
->  =
-
->  static const struct of_device_id __maybe_unused rt1719_device_table[] =
-=3D {
-> diff --git a/drivers/usb/typec/stusb160x.c b/drivers/usb/typec/stusb160x.c
-> index e7745d1c2a5c..8638f1d39896 100644
-> --- a/drivers/usb/typec/stusb160x.c
-> +++ b/drivers/usb/typec/stusb160x.c
-> @@ -801,7 +801,7 @@ static int stusb160x_probe(struct i2c_client *client)
->  	return ret;
->  }
->  =
-
-> -static int stusb160x_remove(struct i2c_client *client)
-> +static void stusb160x_remove(struct i2c_client *client)
->  {
->  	struct stusb160x *chip =3D i2c_get_clientdata(client);
->  =
-
-> @@ -823,8 +823,6 @@ static int stusb160x_remove(struct i2c_client *client)
->  =
-
->  	if (chip->main_supply)
->  		regulator_disable(chip->main_supply);
-> -
-> -	return 0;
->  }
->  =
-
->  static int __maybe_unused stusb160x_suspend(struct device *dev)
-> diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fu=
-sb302.c
-> index 96c55eaf3f80..5e9348f28d50 100644
-> --- a/drivers/usb/typec/tcpm/fusb302.c
-> +++ b/drivers/usb/typec/tcpm/fusb302.c
-> @@ -1771,7 +1771,7 @@ static int fusb302_probe(struct i2c_client *client,
->  	return ret;
->  }
->  =
-
-> -static int fusb302_remove(struct i2c_client *client)
-> +static void fusb302_remove(struct i2c_client *client)
->  {
->  	struct fusb302_chip *chip =3D i2c_get_clientdata(client);
->  =
-
-> @@ -1783,8 +1783,6 @@ static int fusb302_remove(struct i2c_client *client)
->  	fwnode_handle_put(chip->tcpc_dev.fwnode);
->  	destroy_workqueue(chip->wq);
->  	fusb302_debugfs_exit(chip);
-> -
-> -	return 0;
->  }
->  =
-
->  static int fusb302_pm_suspend(struct device *dev)
-> diff --git a/drivers/usb/typec/tcpm/tcpci.c b/drivers/usb/typec/tcpm/tcpc=
-i.c
-> index f33e08eb7670..c48fca60bb06 100644
-> --- a/drivers/usb/typec/tcpm/tcpci.c
-> +++ b/drivers/usb/typec/tcpm/tcpci.c
-> @@ -869,7 +869,7 @@ static int tcpci_probe(struct i2c_client *client,
->  	return 0;
->  }
->  =
-
-> -static int tcpci_remove(struct i2c_client *client)
-> +static void tcpci_remove(struct i2c_client *client)
->  {
->  	struct tcpci_chip *chip =3D i2c_get_clientdata(client);
->  	int err;
-> @@ -880,8 +880,6 @@ static int tcpci_remove(struct i2c_client *client)
->  		dev_warn(&client->dev, "Failed to disable irqs (%pe)\n", ERR_PTR(err));
->  =
-
->  	tcpci_unregister_port(chip->tcpci);
-> -
-> -	return 0;
->  }
->  =
-
->  static const struct i2c_device_id tcpci_id[] =3D {
-> diff --git a/drivers/usb/typec/tcpm/tcpci_maxim.c b/drivers/usb/typec/tcp=
-m/tcpci_maxim.c
-> index df2505570f07..a11be5754128 100644
-> --- a/drivers/usb/typec/tcpm/tcpci_maxim.c
-> +++ b/drivers/usb/typec/tcpm/tcpci_maxim.c
-> @@ -493,14 +493,12 @@ static int max_tcpci_probe(struct i2c_client *clien=
-t, const struct i2c_device_id
->  	return ret;
->  }
->  =
-
-> -static int max_tcpci_remove(struct i2c_client *client)
-> +static void max_tcpci_remove(struct i2c_client *client)
->  {
->  	struct max_tcpci_chip *chip =3D i2c_get_clientdata(client);
->  =
-
->  	if (!IS_ERR_OR_NULL(chip->tcpci))
->  		tcpci_unregister_port(chip->tcpci);
-> -
-> -	return 0;
->  }
->  =
-
->  static const struct i2c_device_id max_tcpci_id[] =3D {
-> diff --git a/drivers/usb/typec/tcpm/tcpci_rt1711h.c b/drivers/usb/typec/t=
-cpm/tcpci_rt1711h.c
-> index b56a0880a044..9ad4924b4ba7 100644
-> --- a/drivers/usb/typec/tcpm/tcpci_rt1711h.c
-> +++ b/drivers/usb/typec/tcpm/tcpci_rt1711h.c
-> @@ -263,12 +263,11 @@ static int rt1711h_probe(struct i2c_client *client,
->  	return 0;
->  }
->  =
-
-> -static int rt1711h_remove(struct i2c_client *client)
-> +static void rt1711h_remove(struct i2c_client *client)
->  {
->  	struct rt1711h_chip *chip =3D i2c_get_clientdata(client);
->  =
-
->  	tcpci_unregister_port(chip->tcpci);
-> -	return 0;
->  }
->  =
-
->  static const struct i2c_device_id rt1711h_id[] =3D {
-> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-> index dfbba5ae9487..b637e8b378b3 100644
-> --- a/drivers/usb/typec/tipd/core.c
-> +++ b/drivers/usb/typec/tipd/core.c
-> @@ -857,15 +857,13 @@ static int tps6598x_probe(struct i2c_client *client)
->  	return ret;
->  }
->  =
-
-> -static int tps6598x_remove(struct i2c_client *client)
-> +static void tps6598x_remove(struct i2c_client *client)
->  {
->  	struct tps6598x *tps =3D i2c_get_clientdata(client);
->  =
-
->  	tps6598x_disconnect(tps, 0);
->  	typec_unregister_port(tps->port);
->  	usb_role_switch_put(tps->role_sw);
-> -
-> -	return 0;
->  }
->  =
-
->  static const struct of_device_id tps6598x_of_match[] =3D {
-> diff --git a/drivers/usb/typec/ucsi/ucsi_ccg.c b/drivers/usb/typec/ucsi/u=
-csi_ccg.c
-> index 6db7c8ddd51c..920b7e743f56 100644
-> --- a/drivers/usb/typec/ucsi/ucsi_ccg.c
-> +++ b/drivers/usb/typec/ucsi/ucsi_ccg.c
-> @@ -1398,7 +1398,7 @@ static int ucsi_ccg_probe(struct i2c_client *client,
->  	return status;
->  }
->  =
-
-> -static int ucsi_ccg_remove(struct i2c_client *client)
-> +static void ucsi_ccg_remove(struct i2c_client *client)
->  {
->  	struct ucsi_ccg *uc =3D i2c_get_clientdata(client);
->  =
-
-> @@ -1408,8 +1408,6 @@ static int ucsi_ccg_remove(struct i2c_client *clien=
+On Wed, Jun 29, 2022 at 09:24:55AM +0200, Crt Mori wrote:
+> On Tue, 28 Jun 2022 at 16:04, Uwe Kleine-K=F6nig
+> <u.kleine-koenig@pengutronix.de> wrote:
+> >  static const struct i2c_device_id mlx90614_id[] =3D {
+> > diff --git a/drivers/iio/temperature/mlx90632.c b/drivers/iio/temperatu=
+re/mlx90632.c
+> > index 7ee7ff8047a4..e8ef47147e2b 100644
+> > --- a/drivers/iio/temperature/mlx90632.c
+> > +++ b/drivers/iio/temperature/mlx90632.c
+> > @@ -924,7 +924,7 @@ static int mlx90632_probe(struct i2c_client *client,
+> >         return iio_device_register(indio_dev);
+> >  }
+> >
+> > -static int mlx90632_remove(struct i2c_client *client)
+> > +static void mlx90632_remove(struct i2c_client *client)
+> >  {
+> >         struct iio_dev *indio_dev =3D i2c_get_clientdata(client);
+> >         struct mlx90632_data *data =3D iio_priv(indio_dev);
+> > @@ -936,8 +936,6 @@ static int mlx90632_remove(struct i2c_client *clien=
 t)
->  	ucsi_unregister(uc->ucsi);
->  	ucsi_destroy(uc->ucsi);
->  	free_irq(uc->irq, uc);
-> -
-> -	return 0;
->  }
->  =
+> >         pm_runtime_put_noidle(&client->dev);
+> >
+> >         mlx90632_sleep(data);
+> > -
+> > -       return 0;
+> >  }
+> >
+> For both mlx drivers
+>=20
+> Reviewed-by: "Crt Mori <cmo@melexis.com>"
 
->  static const struct i2c_device_id ucsi_ccg_device_id[] =3D {
-> diff --git a/drivers/usb/typec/wusb3801.c b/drivers/usb/typec/wusb3801.c
-> index e63509f8b01e..3cc7a15ecbd3 100644
-> --- a/drivers/usb/typec/wusb3801.c
-> +++ b/drivers/usb/typec/wusb3801.c
-> @@ -399,7 +399,7 @@ static int wusb3801_probe(struct i2c_client *client)
->  	return ret;
->  }
->  =
+Thanks, it was more complicated than (IMHO) necessary to find these
+lines. I suggest to strip the irrelevant part the quoted mail for the
+next time.
 
-> -static int wusb3801_remove(struct i2c_client *client)
-> +static void wusb3801_remove(struct i2c_client *client)
->  {
->  	struct wusb3801 *wusb3801 =3D i2c_get_clientdata(client);
->  =
+I added your tag without the quotes to my tree.
 
-> @@ -411,8 +411,6 @@ static int wusb3801_remove(struct i2c_client *client)
->  =
+Best regards
+Uwe
 
->  	if (wusb3801->vbus_on)
->  		regulator_disable(wusb3801->vbus_supply);
-> -
-> -	return 0;
->  }
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
 
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+--udaf7kclxozlbsvv
+Content-Type: application/pgp-signature; name="signature.asc"
 
--- =
+-----BEGIN PGP SIGNATURE-----
 
-heikki
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmK8AqYACgkQwfwUeK3K
+7Am8Mwf+IBff11UStG2Xle0ayEs0RLJMDDLQ5ZsJcINntMkiJCCyvH1HrHqcvTWo
+BtqcH/0oNBe5ko1loRbRALlOyYe7r1Q7508Zv+qkQf4Y8DOUmzWtlruJlDlo/HwV
+DqiQBR0Ccfi3rbtXz0hWtvpecZWbgaQd9E/ZiIunLKUo3QcVz8lf+5jLQIZgy5EM
+reJKul9dQD15zMfxqR2qzIVJIT1EK3OVYfO9Q0siHiTLkJ1EoQtEpW/nGYsZcKbj
+OXsaiHqv4yt5atJH7kx1PzmSggDluMwRWcKmTrnQTrOTD766dAE3bxP2z1V8FUTn
+HkMp469vyvmib6S/lNJi+NYdz9jcJw==
+=41Qj
+-----END PGP SIGNATURE-----
 
+--udaf7kclxozlbsvv--
+
+
+--===============6111391373019872655==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+
+--===============6111391373019872655==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+
+--===============6111391373019872655==--
+
