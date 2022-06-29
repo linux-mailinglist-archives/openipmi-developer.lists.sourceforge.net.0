@@ -2,97 +2,97 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04E575648FB
-	for <lists+openipmi-developer@lfdr.de>; Sun,  3 Jul 2022 20:21:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A09575648F4
+	for <lists+openipmi-developer@lfdr.de>; Sun,  3 Jul 2022 20:21:01 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1o84DN-00074C-5u; Sun, 03 Jul 2022 18:21:00 +0000
+	id 1o84DK-00070z-2f; Sun, 03 Jul 2022 18:20:57 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <gregkh@linuxfoundation.org>)
- id 1o6Tdn-0003sD-VH; Wed, 29 Jun 2022 09:05:44 +0000
+ (envelope-from <kabel@kernel.org>)
+ id 1o6TtS-00049S-Lq; Wed, 29 Jun 2022 09:21:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=zwNncmfIE7OqLv2SZd24Vz32Wx5ZUMRjXCTxnZRsdy8=; b=ivOQo1fWgpXmNO0WTfpBaiKTOy
- 6DWgv6t6vSFBIX+aODO6v2wzysMCz3QFLfWM3ShmrUtURc5fnt6mxRWK20L4y6E2ZqQo1ZeE6lBGc
- hdH6I3B1jReMotIgXQqAMt+i3MMWeagYczEuLNfhfvMbhiOygv9CElbWnr584hKhKIC4=;
+ bh=qP4bV8z27UvwcYy45jdJWDX6JPzpOY0v1rrPabA8vGI=; b=cnDzBFMliuUZYOTtIAGO5qvaKj
+ EBt9IiarOZv7Y3rLHC/jVInNOgPVFL1/0jIQgrx5ZIicrNBKiRZVqkp8Ffc5A+5AWH0iYBsD86+ps
+ 0xoz/NTDAQsTP9eCJceg0PsnFjYX76WTfnByAHgjVG4aNZgFYy1qQ5T5+aux04JXyGAQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
+ In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=zwNncmfIE7OqLv2SZd24Vz32Wx5ZUMRjXCTxnZRsdy8=; b=M0giEc+ydSVs/kqgSW+OhxQrwG
- YPPS42BtEpWSqBDrRtTsE9y05CJPmgm19z3dnI8S9Xj9d/Fv5LA8zGgqXzQAnNQtt24bPGorgjSvr
- Vkc+PfY1ujWUg91l2tJuzavIc7JfON7ZPqYh/d7ITzp2nYyqySNs1S9DsgkZHY7YU0nI=;
+ bh=qP4bV8z27UvwcYy45jdJWDX6JPzpOY0v1rrPabA8vGI=; b=JUUK157ec5DAZR/eoWFlRIPSJE
+ Jm6YXBESCKXuwwn38VmHToHcVXoUJwX4uqOxV0iS7mMfztankRJlLS7dNHgiIZiYXDL2DYR5Nv9Px
+ HBmpgabTMJTPpkQCvXMZi5QuT0pqmF8KRQRp2Xejn2G/zCZe9df1x4W2GfFgzLNShDVU=;
 Received: from dfw.source.kernel.org ([139.178.84.217])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1o6Tdl-0000hn-0v; Wed, 29 Jun 2022 09:05:44 +0000
+ id 1o6TtR-000exA-7r; Wed, 29 Jun 2022 09:21:55 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 02A5961DEA;
- Wed, 29 Jun 2022 09:05:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99008C34114;
- Wed, 29 Jun 2022 09:05:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1656493530;
- bh=DF7ifwMvy/zr0ws6n5xa6qx29WuQeaDvG3cYaYrZw0c=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=1CtT3KidxkD/ZCMGyM8VfGmg78oJYirmbsAGV/8dIUa4lEVuGdXcK+MS4YcTrgZBg
- oQbPZ3B+1mxuF8j8bTx2zwHx8JyS8mkQJzcWE2hUZkz4U6AbV5lg3HzwrW0t6S7/92
- H5XbZIYlrrQlOHArA3QEsSQHAPT2+Udnjc8t8CwQ=
-Date: Wed, 29 Jun 2022 11:05:24 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Message-ID: <YrwV1LsLXUjjAInZ@kroah.com>
+ by dfw.source.kernel.org (Postfix) with ESMTPS id DA2E161E2A;
+ Wed, 29 Jun 2022 09:21:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A6A5C34114;
+ Wed, 29 Jun 2022 09:20:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1656494506;
+ bh=HQ25Ow2lpsqgoUrUW/nG+URV4v3uVvi69tP+dqJVwS8=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=KDGJ+ZX0QDwKOanqLEHq4R3Rgk4gw7YBpXQ1tp5J2PbFlN9SFFfxpykmheKoDEBKH
+ GZdb6/Vu19P209bnRNGK3ZFDu4CTBf7M/1tGbAgk0qvALDE6m6bUxa1i55igZp5mYn
+ M9nKXnXHahfEJ1/gD9uIZsD8u8SACyrjQAA5RstBhscMb/v3jVsSe8amKh8qkDuMrS
+ GSpJXwgYiOg6nUIYiiXl948rxcrWW3Rc1By0vwkqaGsbNa0kxgo7uX8LQpEE5EFJvC
+ lXPBmC+HFU37tkvSye7TN5YXt1OC7tohvK8VYqANalwO76xOIXwCRjtMw86pXFhld/
+ h03Us4Elobz6g==
+Date: Wed, 29 Jun 2022 11:20:42 +0200
+From: Marek =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@pengutronix.de>
+Message-ID: <20220629112042.221af80b@thinkpad>
+In-Reply-To: <20220628140313.74984-7-u.kleine-koenig@pengutronix.de>
 References: <20220628140313.74984-1-u.kleine-koenig@pengutronix.de>
  <20220628140313.74984-7-u.kleine-koenig@pengutronix.de>
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220628140313.74984-7-u.kleine-koenig@pengutronix.de>
-X-Spam-Score: -5.9 (-----)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
+X-Spam-Score: -5.6 (-----)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  On Tue, Jun 28, 2022 at 04:03:12PM +0200, Uwe Kleine-König
-    wrote: > From: Uwe Kleine-König <uwe@kleine-koenig.org> > > The value returned
-    by an i2c driver's remove function is mostly ignored. > (Only [...] 
+ Content preview:  On Tue, 28 Jun 2022 16:03:12 +0200 Uwe Kleine-KÃ¶nig <u.kleine-koenig@pengutronix.de>
+    wrote: > From: Uwe Kleine-KÃ¶nig <uwe@kleine-koenig.org> > > The value returned
+    by an i2c driver's remove function is mostly ignored. > (Only an error message
+    is printed if the value is non-zero that the > e [...] 
  
- Content analysis details:   (-5.9 points, 6.0 required)
+ Content analysis details:   (-5.6 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
                              high trust
                              [139.178.84.217 listed in list.dnswl.org]
-  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
-                             blocked.  See
-                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
-                              for more information.
-                             [URIs: linuxfoundation.org]
-  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
   0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
                              valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
                              author's domain
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1o6Tdl-0000hn-0v
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+ -0.4 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1o6TtR-000exA-7r
 X-Mailman-Approved-At: Sun, 03 Jul 2022 18:20:54 +0000
 Subject: Re: [Openipmi-developer] [PATCH 6/6] i2c: Make remove callback
  return void
@@ -134,7 +134,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Dan Carpenter <dan.carpenter@oracle.com>,
  Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>,
  Viorel Suman <viorel.suman@nxp.com>, Petr Machata <petrm@nvidia.com>,
- Guido =?iso-8859-1?Q?G=FCnther?= <agx@sigxcpu.org>,
+ Guido =?UTF-8?B?R8O8bnRoZXI=?= <agx@sigxcpu.org>,
  Jean Delvare <jdelvare@suse.com>, linux-serial@vger.kernel.org,
  linux-pm@vger.kernel.org, Eddie James <eajames@linux.ibm.com>,
  Riku Voipio <riku.voipio@iki.fi>, James Schulman <james.schulman@cirrus.com>,
@@ -173,8 +173,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Martiros Shakhzadyan <vrzh@vrzh.net>, Guenter Roeck <groeck@chromium.org>,
  Matthias Schwarzott <zzam@gentoo.org>,
  Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Eric Dumazet <edumazet@google.com>,
- Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Leon Luo <leonl@leopardimaging.com>,
  Saranya Gopal <saranya.gopal@intel.com>, Lars-Peter Clausen <lars@metafoo.de>,
  Corey Minyard <minyard@acm.org>, Evgeny Novikov <novikov@ispras.ru>,
  Frank Rowand <frowand.list@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>,
@@ -198,18 +197,18 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  linux-rpi-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>,
  Wayne Chang <waynec@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
  Sing-Han Chen <singhanc@nvidia.com>, linux-arm-kernel@lists.infradead.org,
- Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+ Niklas =?UTF-8?B?U8O2ZGVybHVuZA==?= <niklas.soderlund+renesas@ragnatech.se>,
  Hans de Goede <hdegoede@redhat.com>, Stephen Boyd <sboyd@kernel.org>,
  Maslov Dmitry <maslovdmitry@seeed.cc>, linux-gpio@vger.kernel.org,
  Jens Frederich <jfrederich@gmail.com>,
- Douglas Anderson <dianders@chromium.org>, linux-media@vger.kernel.org,
+ Douglas Anderson <dianders@chromium.org>,
  "David S. Miller" <davem@davemloft.net>, Wolfram Sang <wsa@kernel.org>,
  Jarkko Sakkinen <jarkko@kernel.org>, linux-usb@vger.kernel.org,
  Jacopo Mondi <jacopo+renesas@jmondi.org>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, CGEL ZTE <cgel.zte@gmail.com>,
  Colin Leroy <colin@colino.net>, platform-driver-x86@vger.kernel.org,
  linux-integrity@vger.kernel.org, Kevin Tsai <ktsai@capellamicro.com>,
- Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+ Pali =?UTF-8?B?Um9ow6Fy?= <pali@kernel.org>,
  Jonathan Cameron <jic23@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
  Daniel Palmer <daniel@0x0f.com>, Arec Kao <arec.kao@intel.com>,
  Crt Mori <cmo@melexis.com>, Jose Cazarin <joseespiriki@gmail.com>,
@@ -217,7 +216,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Tom Rix <trix@redhat.com>, Michael Turquette <mturquette@baylibre.com>,
  Peter Senna Tschudin <peter.senna@gmail.com>,
  Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+ Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
  Jan-Simon Moeller <jansimon.moeller@gmx.de>,
  Wei Yongjun <weiyongjun1@huawei.com>,
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
@@ -240,7 +239,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Alexey Dobriyan <adobriyan@gmail.com>, linux-input@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, Lyude Paul <lyude@redhat.com>,
  Kees Cook <keescook@chromium.org>,
- Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <uwe@kleine-koenig.org>,
  Jonas Karlman <jonas@kwiboo.se>, Yang Li <yang.lee@linux.alibaba.com>,
  Tim Harvey <tharvey@gateworks.com>, Jiri Kosina <jikos@kernel.org>,
  Akinobu Mita <akinobu.mita@gmail.com>, Mark Gross <markgross@kernel.org>,
@@ -266,7 +265,8 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Alejandro Tafalla <atafalla@dnyon.com>, Peter Rosin <peda@axentia.se>,
  Arnaud Ferraris <arnaud.ferraris@collabora.com>,
  Hector Martin <marcan@marcan.st>, Vignesh Raghavendra <vigneshr@ti.com>,
- Nick Dyer <nick@shmanahar.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Nick Dyer <nick@shmanahar.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Tony Lindgren <tony@atomide.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>, Takashi Iwai <tiwai@suse.com>,
  Paul Cercueil <paul@crapouillou.net>,
@@ -288,14 +288,14 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Thomas Zimmermann <tzimmermann@suse.de>, Bastien Nocera <hadess@hadess.net>,
  Jingoo Han <jingoohan1@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
  Vivien Didelot <vivien.didelot@gmail.com>, Yizhuo <yzhai003@ucr.edu>,
- Shawn Tu <shawnx.tu@intel.com>, Leon Luo <leonl@leopardimaging.com>,
+ Shawn Tu <shawnx.tu@intel.com>, linux-media@vger.kernel.org,
  Yan Lei <yan_lei@dahuatech.com>, Akihiro Tsukada <tskd08@gmail.com>,
  Tudor Ambarus <tudor.ambarus@microchip.com>,
  Dmitry Rokosov <DDRokosov@sberdevices.ru>,
  Oliver Graute <oliver.graute@kococonnector.com>,
  Alistair Francis <alistair@alistair23.me>,
  Dongliang Mu <mudongliangabcd@gmail.com>,
- Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+ Jonathan =?UTF-8?B?TmV1c2Now6RmZXI=?= <j.neuschaefer@gmx.net>,
  Eduardo Valentin <edubezval@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
  Michael Srba <Michael.Srba@seznam.cz>, Rob Herring <robh+dt@kernel.org>,
  linux-mediatek@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
@@ -305,45 +305,38 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Daniele Alessandrelli <daniele.alessandrelli@intel.com>,
  Dmitry Vyukov <dvyukov@google.com>,
  Ramesh Shanmugasundaram <rashanmu@gmail.com>,
- Juerg Haefliger <juergh@gmail.com>, Oder Chiou <oder_chiou@realtek.com>,
- Shengjiu Wang <shengjiu.wang@nxp.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Juerg Haefliger <juergh@gmail.com>,
+ Oder Chiou <oder_chiou@realtek.com>, Shengjiu Wang <shengjiu.wang@nxp.com>,
  Nicolas Ferre <nicolas.ferre@microchip.com>,
  Robert Foss <robert.foss@linaro.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
  Daniel Vetter <daniel@ffwll.ch>,
- Alvin =?utf-8?Q?=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
+ Alvin =?UTF-8?B?xaBpcHJhZ2E=?= <alsi@bang-olufsen.dk>,
  Luca Ceresoli <luca@lucaceresoli.net>,
- =?iso-8859-1?Q?Jos=E9_Exp=F3sito?= <jose.exposito89@gmail.com>,
+ =?UTF-8?B?Sm9zw6kgRXhww7NzaXRv?= <jose.exposito89@gmail.com>,
  Johannes Berg <johannes@sipsolutions.net>,
  Colin Ian King <colin.king@intel.com>,
  Maximilian Luz <luzmaximilian@gmail.com>, Helge Deller <deller@gmx.de>,
  Lucas Stach <l.stach@pengutronix.de>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Jun 28, 2022 at 04:03:12PM +0200, Uwe Kleine-K=F6nig wrote:
-> From: Uwe Kleine-K=F6nig <uwe@kleine-koenig.org>
-> =
-
-> The value returned by an i2c driver's remove function is mostly ignored.
-> (Only an error message is printed if the value is non-zero that the
-> error is ignored.)
-> =
-
-> So change the prototype of the remove function to return no value. This
-> way driver authors are not tempted to assume that passing an error to
-> the upper layer is a good idea. All drivers are adapted accordingly.
-> There is no intended change of behaviour, all callbacks were prepared to
-> return 0 before.
-> =
-
-> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gVHVlLCAyOCBKdW4gMjAyMiAxNjowMzoxMiArMDIwMApVd2UgS2xlaW5lLUvDtm5pZyA8dS5r
+bGVpbmUta29lbmlnQHBlbmd1dHJvbml4LmRlPiB3cm90ZToKCj4gRnJvbTogVXdlIEtsZWluZS1L
+w7ZuaWcgPHV3ZUBrbGVpbmUta29lbmlnLm9yZz4KPiAKPiBUaGUgdmFsdWUgcmV0dXJuZWQgYnkg
+YW4gaTJjIGRyaXZlcidzIHJlbW92ZSBmdW5jdGlvbiBpcyBtb3N0bHkgaWdub3JlZC4KPiAoT25s
+eSBhbiBlcnJvciBtZXNzYWdlIGlzIHByaW50ZWQgaWYgdGhlIHZhbHVlIGlzIG5vbi16ZXJvIHRo
+YXQgdGhlCj4gZXJyb3IgaXMgaWdub3JlZC4pCj4gCj4gU28gY2hhbmdlIHRoZSBwcm90b3R5cGUg
+b2YgdGhlIHJlbW92ZSBmdW5jdGlvbiB0byByZXR1cm4gbm8gdmFsdWUuIFRoaXMKPiB3YXkgZHJp
+dmVyIGF1dGhvcnMgYXJlIG5vdCB0ZW1wdGVkIHRvIGFzc3VtZSB0aGF0IHBhc3NpbmcgYW4gZXJy
+b3IgdG8KPiB0aGUgdXBwZXIgbGF5ZXIgaXMgYSBnb29kIGlkZWEuIEFsbCBkcml2ZXJzIGFyZSBh
+ZGFwdGVkIGFjY29yZGluZ2x5Lgo+IFRoZXJlIGlzIG5vIGludGVuZGVkIGNoYW5nZSBvZiBiZWhh
+dmlvdXIsIGFsbCBjYWxsYmFja3Mgd2VyZSBwcmVwYXJlZCB0bwo+IHJldHVybiAwIGJlZm9yZS4K
+PiAKPiBTaWduZWQtb2ZmLWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUta29lbmlnQHBl
+bmd1dHJvbml4LmRlPgoKRm9yCgo+ICBkcml2ZXJzL2xlZHMvbGVkcy10dXJyaXMtb21uaWEuYyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgfCA0ICstLS0KCkFja2VkLWJ5OiBNYXJlayBCZWjDum4g
+PGthYmVsQGtlcm5lbC5vcmc+CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZl
+bG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0
+L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
