@@ -2,97 +2,117 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 585E95648F8
-	for <lists+openipmi-developer@lfdr.de>; Sun,  3 Jul 2022 20:21:02 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 482E856490D
+	for <lists+openipmi-developer@lfdr.de>; Sun,  3 Jul 2022 20:21:48 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1o84DL-00071s-3y; Sun, 03 Jul 2022 18:20:58 +0000
+	id 1o84E5-0003gN-J1; Sun, 03 Jul 2022 18:21:44 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <jk@codeconstruct.com.au>)
- id 1o6S03-0000iC-3h; Wed, 29 Jun 2022 07:20:36 +0000
+ (envelope-from <prvs=3179ce0c97=benjamin.mugnier@foss.st.com>)
+ id 1o6SMM-0000th-4x; Wed, 29 Jun 2022 07:43:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ MIME-Version:Date:Message-ID:From:References:CC:To:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=eOkMn4BdLyYJIY7WVcJ+BSTGLOGnPlIkZql9k18jmoA=; b=GKraifhSp5rOdyNYf8UIxAxaGt
- q/akHRk5Q2oLItlhXiOYiXH0kcjKK25a1u9gzuU2KBVtICRT38kJO7ZHoYWU+2usJmhvTdHdMufaa
- 1GkKxnQ5aSAX0eCDPVet1gwk+wngonlme7W3qRZUe7t3n7MV9diY3257tmaIDQknMm5U=;
+ bh=UD4IN9gRHJreA7opqpLKSzn8bQhDjxY56nGlMezzYAU=; b=WbbIXmFcv4LGG11knSJKmjgqaE
+ gB86WY30D70kAYP3SZXlGyQfmWigg6TMAS1l8WI1I8UWa1HKPToj121Xb/BrRAmgIpBCXNmhXfMXS
+ 0x6PJnAf3aZnMxhX6fR3UbQu9Ajie66Kmu7iFP+55Zmcx+q0wVqeGshAAjo1JXgdKK3k=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
- In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:From:References:CC:To:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=eOkMn4BdLyYJIY7WVcJ+BSTGLOGnPlIkZql9k18jmoA=; b=K+/23nnURbYBtRbQzzpzUKIZwd
- QjtX5w6Nw9PlpWIAweB5GKlHYHjv00Kk4pyJAS0jQ5QZcB1+PSyigRh9u6Cojk9aAGwr0byN/Yxji
- lCvBEOnHFfWPY8U+Bamw+6rhytc5ExiEFhIa2NWYycqhr89eJbuuvC36GQOYNHBeZ/e0=;
-Received: from pi.codeconstruct.com.au ([203.29.241.158]
- helo=codeconstruct.com.au)
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=UD4IN9gRHJreA7opqpLKSzn8bQhDjxY56nGlMezzYAU=; b=N2FxitoKN/KrBsTW36Y8ciN0qb
+ cgEfps4bVM57qDvIeeTxRiBlCR0mV2taPhF3ascHSDAqBV5q+w+7DbR8C4xvhsgjM3WGVMFIyz8xS
+ cDSQBjZz6uizRv3dyWBlMCt7vtqDngD7+bSVsBkzB9WAdVIs2X6Qb4QWfiNrL4WPlqhg=;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93]
+ helo=mx07-00178001.pphosted.com)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.94.2)
- id 1o6S01-00016j-S1; Wed, 29 Jun 2022 07:20:35 +0000
-Received: from pecola.lan (unknown [159.196.93.152])
- by mail.codeconstruct.com.au (Postfix) with ESMTPSA id A134D2003E;
- Wed, 29 Jun 2022 15:03:54 +0800 (AWST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=codeconstruct.com.au; s=2022a; t=1656486296;
- bh=eOkMn4BdLyYJIY7WVcJ+BSTGLOGnPlIkZql9k18jmoA=;
- h=Subject:From:To:Cc:Date:In-Reply-To:References;
- b=X7tGIzHuAeR/JUSExm+e5NjDSQiwRlcdLfVuh9BkZ2pwDGDpHHek3GUutn7eXKhIE
- EpfLc4w6v3z3ma2rzovh8SXsx0UT6Lnr2obQLRC/B6zKPNgstpxn2MaLyeRg8ol+TC
- FLINtxlpAhbOodDw55rvd2YD5Xl7MpK6vuYF3VMycl4RQqdOBa3inRxzqeLpNKaY+p
- /7DFa6+k09qnV5w+CfRsa+Ldq7puU1Fz8pggPNk/5uHusxFiSYWyJk2W4DNn1lxElh
- eikxJ0l3lmiTV2R1HDTxFvJXUW2A/vCji2H+MMwMsJAaw+VUIG0cxjxBPsfraFCXVz
- eAIJyO4Km+y8Q==
-Message-ID: <60cc6796236f23c028a9ae76dbe00d1917df82a5.camel@codeconstruct.com.au>
-From: Jeremy Kerr <jk@codeconstruct.com.au>
-To: Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>, 
+ id 1o6SMF-000YoD-Pf; Wed, 29 Jun 2022 07:43:37 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+ by mx07-00178001.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 25T722S1031902;
+ Wed, 29 Jun 2022 09:22:17 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ h=subject : to : cc :
+ references : from : message-id : date : mime-version : in-reply-to :
+ content-type : content-transfer-encoding; s=selector1;
+ bh=UD4IN9gRHJreA7opqpLKSzn8bQhDjxY56nGlMezzYAU=;
+ b=3VFKgTf/p8RG5IZvh1DK1LiTPiqTjZEzy2HU+BASYzs9XugYt/QCyJqzlHi4rvxNEFin
+ 1u82NoSLK/tiVm5hi53ykM8580NZSudJINz416VbqZfneu8ZKYyakZXqR98aLOkdVemV
+ hDC1I9UQmS/aF9BuT1TK8wzQgMfdl3WvYrmSDCFK+yVmMcTSmddD7IIxnkn1yzWCgBaL
+ 0ggV4MHbTO9FQuOY0bxxfBASpeHEndobXcPc8dxUeQbwIwyOqr/6TqEDNV2XgMikRgSM
+ udpw3duI72UOtKPakdjkVDUR/WXyo/Qu1xYkOSid/V2EPNWqlIQxAtaBIu772x8sgmRH zA== 
+Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
+ by mx07-00178001.pphosted.com (PPS) with ESMTPS id 3gywry7cfe-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 29 Jun 2022 09:22:17 +0200
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+ by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id AD10310003A;
+ Wed, 29 Jun 2022 09:22:07 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+ by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4612221231F;
+ Wed, 29 Jun 2022 09:22:07 +0200 (CEST)
+Received: from [10.0.2.15] (10.75.127.50) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.2308.20; Wed, 29 Jun
+ 2022 09:22:02 +0200
+To: =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
  Wolfram Sang <wsa@kernel.org>
-Date: Wed, 29 Jun 2022 15:03:54 +0800
-In-Reply-To: <20220628140313.74984-7-u.kleine-koenig@pengutronix.de>
 References: <20220628140313.74984-1-u.kleine-koenig@pengutronix.de>
  <20220628140313.74984-7-u.kleine-koenig@pengutronix.de>
-User-Agent: Evolution 3.44.0-2 
+From: Benjamin Mugnier <benjamin.mugnier@foss.st.com>
+Message-ID: <13e5c267-f0ef-d715-45f4-b4f9bf934028@foss.st.com>
+Date: Wed, 29 Jun 2022 09:21:55 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-X-Spam-Score: -0.2 (/)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
+In-Reply-To: <20220628140313.74984-7-u.kleine-koenig@pengutronix.de>
+Content-Language: en-US
+X-Originating-IP: [10.75.127.50]
+X-ClientProxiedBy: SFHDAG2NODE3.st.com (10.75.127.6) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.883,Hydra:6.0.517,FMLib:17.11.122.1
+ definitions=2022-06-28_11,2022-06-28_01,2022-06-22_01
+X-Spam-Score: -2.8 (--)
+X-Spam-Report: Spam detection software,
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- 
- Content preview:  Hi Uwe, Looks good - just one minor change for the mctp-i2c
-    driver, but only worthwhile if you end up re-rolling this series for other
-    reasons: > -static int mctp_i2c_remove(struct i2c_client *client) > +static
-    void mctp_i2c_remove(struct i2c_client *client) >  { >         struct
-    mctp_i2c_client *mcli = i2c_get_clientdata(client); > [...] 
- 
- Content analysis details:   (-0.2 points, 6.0 required)
- 
-  pts rule name              description
+ Content preview:  Hi Uwe,
+ > diff --git a/drivers/media/i2c/st-mipid02.c b/drivers/media/i2c/st-mipid02.c
+ > index ef976d085d72..0389223a61f7 100644 > ---
+ a/drivers/media/i2c/st-mipid02.c
+ > +++ b/drivers/media/i2c/st-mipid02.c > [...] 
+ Content analysis details:   (-2.8 points, 6.0 required)
+ pts rule name              description
  ---- ---------------------- --------------------------------------------------
-  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
-                             blocked.  See
-                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
-                              for more information.
-                             [URIs: codeconstruct.com.au]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+ blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: st.com]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [91.207.212.93 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
-                             valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
-                             author's domain
-X-Headers-End: 1o6S01-00016j-S1
-X-Mailman-Approved-At: Sun, 03 Jul 2022 18:20:54 +0000
+ author's domain
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1o6SMF-000YoD-Pf
+X-Mailman-Approved-At: Sun, 03 Jul 2022 18:21:42 +0000
 Subject: Re: [Openipmi-developer] [PATCH 6/6] i2c: Make remove callback
  return void
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -127,13 +147,13 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Christophe Leroy <christophe.leroy@csgroup.eu>,
  Chanwoo Choi <cw00.choi@samsung.com>, linux-omap@vger.kernel.org,
  Antti Palosaari <crope@iki.fi>, Wenyou Yang <wenyou.yang@microchip.com>,
- Dongchun Zhu <dongchun.zhu@mediatek.com>, Miaoqian Lin <linmq006@gmail.com>,
+ Dongchun Zhu <dongchun.zhu@mediatek.com>, Viorel Suman <viorel.suman@nxp.com>,
  Steve Longerbeam <slongerbeam@gmail.com>, Bingbu Cao <bingbu.cao@intel.com>,
  Shunqian Zheng <zhengsq@rock-chips.com>, lijian <lijian@yulong.com>,
  Dan Carpenter <dan.carpenter@oracle.com>,
  Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>,
- Viorel Suman <viorel.suman@nxp.com>, Petr Machata <petrm@nvidia.com>,
- Guido =?ISO-8859-1?Q?G=FCnther?= <agx@sigxcpu.org>,
+ alsa-devel@alsa-project.org, Petr Machata <petrm@nvidia.com>,
+ =?UTF-8?Q?Guido_G=c3=bcnther?= <agx@sigxcpu.org>,
  Jean Delvare <jdelvare@suse.com>, linux-serial@vger.kernel.org,
  linux-pm@vger.kernel.org, Eddie James <eajames@linux.ibm.com>,
  Riku Voipio <riku.voipio@iki.fi>, James Schulman <james.schulman@cirrus.com>,
@@ -173,7 +193,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Matthias Schwarzott <zzam@gentoo.org>,
  Sylwester Nawrocki <s.nawrocki@samsung.com>,
  Eric Dumazet <edumazet@google.com>,
- Marek =?ISO-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+ =?UTF-8?Q?Marek_Beh=c3=ban?= <kabel@kernel.org>,
  Saranya Gopal <saranya.gopal@intel.com>, Lars-Peter Clausen <lars@metafoo.de>,
  Corey Minyard <minyard@acm.org>, Evgeny Novikov <novikov@ispras.ru>,
  Frank Rowand <frowand.list@gmail.com>, Bartosz Golaszewski <brgl@bgdev.pl>,
@@ -197,7 +217,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  linux-rpi-kernel@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>,
  Wayne Chang <waynec@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
  Sing-Han Chen <singhanc@nvidia.com>, linux-arm-kernel@lists.infradead.org,
- Niklas =?ISO-8859-1?Q?S=F6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+ =?UTF-8?Q?Niklas_S=c3=b6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
  Hans de Goede <hdegoede@redhat.com>, Stephen Boyd <sboyd@kernel.org>,
  Maslov Dmitry <maslovdmitry@seeed.cc>, linux-gpio@vger.kernel.org,
  Jens Frederich <jfrederich@gmail.com>,
@@ -209,21 +229,21 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, CGEL ZTE <cgel.zte@gmail.com>,
  Colin Leroy <colin@colino.net>, platform-driver-x86@vger.kernel.org,
  linux-integrity@vger.kernel.org, Kevin Tsai <ktsai@capellamicro.com>,
- Pali =?ISO-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+ =?UTF-8?Q?Pali_Roh=c3=a1r?= <pali@kernel.org>,
  Jonathan Cameron <jic23@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
  Daniel Palmer <daniel@0x0f.com>, Arec Kao <arec.kao@intel.com>,
  Crt Mori <cmo@melexis.com>, Jose Cazarin <joseespiriki@gmail.com>,
  Neil Armstrong <narmstrong@baylibre.com>, linux-iio@vger.kernel.org,
  Tom Rix <trix@redhat.com>, Michael Turquette <mturquette@baylibre.com>,
  Peter Senna Tschudin <peter.senna@gmail.com>,
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+ Miaoqian Lin <linmq006@gmail.com>,
+ =?UTF-8?Q?Nuno_S=c3=a1?= <nuno.sa@analog.com>,
  Jan-Simon Moeller <jansimon.moeller@gmx.de>,
  Wei Yongjun <weiyongjun1@huawei.com>,
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
  Andrzej Hajda <andrzej.hajda@intel.com>, Nikita Travkin <nikita@trvn.ru>,
- Jasmin Jessich <jasmin@anw.at>, Sam Ravnborg <sam@ravnborg.org>,
- Kevin Cernekee <cernekee@chromium.org>,
+ Jeremy Kerr <jk@codeconstruct.com.au>, Jasmin Jessich <jasmin@anw.at>,
+ Sam Ravnborg <sam@ravnborg.org>, Kevin Cernekee <cernekee@chromium.org>,
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, linux-rtc@vger.kernel.org,
  Daniel Thompson <daniel.thompson@linaro.org>,
  Florian Fainelli <f.fainelli@gmail.com>,
@@ -240,7 +260,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Alexey Dobriyan <adobriyan@gmail.com>, linux-input@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, Lyude Paul <lyude@redhat.com>,
  Kees Cook <keescook@chromium.org>,
- Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <uwe@kleine-koenig.org>,
  Jonas Karlman <jonas@kwiboo.se>, Yang Li <yang.lee@linux.alibaba.com>,
  Tim Harvey <tharvey@gateworks.com>, Jiri Kosina <jikos@kernel.org>,
  Akinobu Mita <akinobu.mita@gmail.com>, Mark Gross <markgross@kernel.org>,
@@ -279,7 +299,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  UNGLinuxDriver@microchip.com, Lee Jones <lee.jones@linaro.org>,
  linux-mtd@lists.infradead.org, Alexey Khoroshilov <khoroshilov@ispras.ru>,
  Marek Vasut <marex@denx.de>, Yizhuo <yzhai003@ucr.edu>,
- alsa-devel@alsa-project.org, Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
  Eric Piel <eric.piel@tremplin-utc.net>,
  Herbert Xu <herbert@gondor.apana.org.au>,
  Tobias Schrammm <t.schramm@manjaro.org>, Richard Weinberger <richard@nod.at>,
@@ -296,7 +316,7 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Oliver Graute <oliver.graute@kococonnector.com>,
  Alistair Francis <alistair@alistair23.me>,
  Dongliang Mu <mudongliangabcd@gmail.com>,
- Jonathan =?ISO-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+ =?UTF-8?Q?Jonathan_Neusch=c3=a4fer?= <j.neuschaefer@gmx.net>,
  Eduardo Valentin <edubezval@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
  Michael Srba <Michael.Srba@seznam.cz>, Rob Herring <robh+dt@kernel.org>,
  linux-mediatek@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
@@ -312,32 +332,53 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ricardo Ribalda <ribalda@kernel.org>,
  Robert Foss <robert.foss@linaro.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
  Daniel Vetter <daniel@ffwll.ch>,
- Alvin =?UTF-8?Q?=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
+ =?UTF-8?Q?Alvin_=c5=a0ipraga?= <alsi@bang-olufsen.dk>,
  Luca Ceresoli <luca@lucaceresoli.net>,
- =?ISO-8859-1?Q?Jos=E9_Exp=F3sito?= <jose.exposito89@gmail.com>,
+ =?UTF-8?B?Sm9zw6kgRXhww7NzaXRv?= <jose.exposito89@gmail.com>,
  Johannes Berg <johannes@sipsolutions.net>,
  Colin Ian King <colin.king@intel.com>,
  Maximilian Luz <luzmaximilian@gmail.com>, Helge Deller <deller@gmx.de>,
  Lucas Stach <l.stach@pengutronix.de>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-SGkgVXdlLAoKTG9va3MgZ29vZCAtIGp1c3Qgb25lIG1pbm9yIGNoYW5nZSBmb3IgdGhlIG1jdHAt
-aTJjIGRyaXZlciwgYnV0IG9ubHkKd29ydGh3aGlsZSBpZiB5b3UgZW5kIHVwIHJlLXJvbGxpbmcg
-dGhpcyBzZXJpZXMgZm9yIG90aGVyIHJlYXNvbnM6Cgo+IC1zdGF0aWMgaW50IG1jdHBfaTJjX3Jl
-bW92ZShzdHJ1Y3QgaTJjX2NsaWVudCAqY2xpZW50KQo+ICtzdGF0aWMgdm9pZCBtY3RwX2kyY19y
-ZW1vdmUoc3RydWN0IGkyY19jbGllbnQgKmNsaWVudCkKPiDCoHsKPiDCoMKgwqDCoMKgwqDCoMKg
-c3RydWN0IG1jdHBfaTJjX2NsaWVudCAqbWNsaSA9IGkyY19nZXRfY2xpZW50ZGF0YShjbGllbnQp
-Owo+IMKgwqDCoMKgwqDCoMKgwqBzdHJ1Y3QgbWN0cF9pMmNfZGV2ICptaWRldiA9IE5VTEwsICp0
-bXAgPSBOVUxMOwo+IEBAIC0xMDAwLDcgKzEwMDAsNiBAQCBzdGF0aWMgaW50IG1jdHBfaTJjX3Jl
-bW92ZShzdHJ1Y3QgaTJjX2NsaWVudCAqY2xpZW50KQo+IMKgwqDCoMKgwqDCoMKgwqBtY3RwX2ky
-Y19mcmVlX2NsaWVudChtY2xpKTsKPiDCoMKgwqDCoMKgwqDCoMKgbXV0ZXhfdW5sb2NrKCZkcml2
-ZXJfY2xpZW50c19sb2NrKTsKPiDCoMKgwqDCoMKgwqDCoMKgLyogQ2FsbGVycyBpZ25vcmUgcmV0
-dXJuIGNvZGUgKi8KPiAtwqDCoMKgwqDCoMKgwqByZXR1cm4gMDsKPiDCoH0KClRoZSBjb21tZW50
-IHRoZXJlIG5vIGxvbmdlciBtYWtlcyBtdWNoIHNlbnNlLCBJJ2Qgc3VnZ2VzdCByZW1vdmluZyB0
-aGF0CnRvby4gRWl0aGVyIHdheToKClJldmlld2VkLWJ5OiBKZXJlbXkgS2VyciA8amtAY29kZWNv
-bnN0cnVjdC5jb20uYXU+CgpDaGVlcnMsCgoKSmVyZW15CgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlz
-dApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMu
-c291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+Hi Uwe,
+
+> diff --git a/drivers/media/i2c/st-mipid02.c b/drivers/media/i2c/st-mipid02.c
+> index ef976d085d72..0389223a61f7 100644
+> --- a/drivers/media/i2c/st-mipid02.c
+> +++ b/drivers/media/i2c/st-mipid02.c
+> @@ -1041,7 +1041,7 @@ static int mipid02_probe(struct i2c_client *client)
+>  	return ret;
+>  }
+>  
+> -static int mipid02_remove(struct i2c_client *client)
+> +static void mipid02_remove(struct i2c_client *client)
+>  {
+>  	struct v4l2_subdev *sd = i2c_get_clientdata(client);
+>  	struct mipid02_dev *bridge = to_mipid02_dev(sd);
+> @@ -1052,8 +1052,6 @@ static int mipid02_remove(struct i2c_client *client)
+>  	mipid02_set_power_off(bridge);
+>  	media_entity_cleanup(&bridge->sd.entity);
+>  	mutex_destroy(&bridge->lock);
+> -
+> -	return 0;
+>  }
+>  
+>  static const struct of_device_id mipid02_dt_ids[] = {
+
+Thank you. All good for me.
+
+Reviewed-by: Benjamin Mugnier <benjamin.mugnier@foss.st.com>
+
+Cheers,
+
+
+Benjamin
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
