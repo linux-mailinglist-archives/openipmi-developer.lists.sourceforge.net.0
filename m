@@ -2,110 +2,119 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B147589ED3
-	for <lists+openipmi-developer@lfdr.de>; Thu,  4 Aug 2022 17:41:08 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
+	by mail.lfdr.de (Postfix) with ESMTPS id 13F93589F2B
+	for <lists+openipmi-developer@lfdr.de>; Thu,  4 Aug 2022 18:12:34 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.94.2)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1oJcy7-0004TK-1d; Thu, 04 Aug 2022 15:41:03 +0000
+	id 1oJdSX-0003rW-Bu; Thu, 04 Aug 2022 16:12:29 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <tmaimon77@gmail.com>) id 1oJcy5-0004TE-Ex
- for openipmi-developer@lists.sourceforge.net; Thu, 04 Aug 2022 15:41:02 +0000
+ (envelope-from <krzysztof.kozlowski@linaro.org>) id 1oJdSW-0003rN-3l
+ for openipmi-developer@lists.sourceforge.net; Thu, 04 Aug 2022 16:12:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
- Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
- Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
- :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=1leJD2jYdoCH2YF7serqPkhW+3ZM8UEl9gxlKtZpBek=; b=IidtrUrjdFbm7QyN9ETDlXfjWR
- dWVwwNxtW9hXoAkRZoFZ8d1h5YJVh5O/KLffGVyMqi00fqZGGdZWzLT0AA9H5Eutes9BHOQoqrUuA
- 7OMVKtrMPqk3nnsSngkmbAiBkv52xeptpPXvu6IhrHxVGx2qlADjrCqCJajKtJtRAMP0=;
+ bh=NOia1B38YE3Whq97iXD6BLxAeWDOa4nd+CQScRkgm7A=; b=hs1IqOei1i0Y7PJOPElTP7Eyl8
+ LVOfJy7PG7L2n5+W96tVbBooRsK+vjeULTM6DQS5xGmrwNjr9pqwHrRhFQQoa8x0QVBuJYcCN/k5i
+ aSXih+ZOr7R3TwBAjpA9149jyIlzs5BIgVvXt026g5Red3fKYHmniVy3OC/+SWy67DJo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
- :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=1leJD2jYdoCH2YF7serqPkhW+3ZM8UEl9gxlKtZpBek=; b=JgNBz3NCYq9KYTZZLb/Zv6vK4d
- 5D+WO0Fy5IdnOIkfOaN59N9ittY+3Z8dZJNfU+91BX1JOtkWqmrlL/PkC+65q+BKRrgzdRPjrrE+8
- ofal59T4u72IYiNqUbLX2ooJCSKyHET/Tz384g1tAudcJQjYph/4b/0UnRuS7ReQ0ppU=;
-Received: from mail-lj1-f174.google.com ([209.85.208.174])
+ bh=NOia1B38YE3Whq97iXD6BLxAeWDOa4nd+CQScRkgm7A=; b=gH2EJm2HT9Zvx0XZFtVWfVerGu
+ yRgVIjCbZogHITgT2UKsFEbij6bT/VQW7AEo9VJTNsglyYFLmAndr2lPD8kJNwB+b/2mtD+21EYUn
+ ciI6yAzv6vZ2jtB0Y70aT0yKi1/faIzdRLeJpp2DEJhc95DtRoTYDZjao/9wztruMaYE=;
+Received: from mail-lf1-f54.google.com ([209.85.167.54])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.94.2)
- id 1oJcy4-0005gU-E2
- for openipmi-developer@lists.sourceforge.net; Thu, 04 Aug 2022 15:41:02 +0000
-Received: by mail-lj1-f174.google.com with SMTP id v7so272972ljj.4
+ id 1oJdSS-0006wR-1A
+ for openipmi-developer@lists.sourceforge.net; Thu, 04 Aug 2022 16:12:27 +0000
+Received: by mail-lf1-f54.google.com with SMTP id d14so19628895lfl.13
  for <openipmi-developer@lists.sourceforge.net>;
- Thu, 04 Aug 2022 08:41:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:from:to:cc;
- bh=1leJD2jYdoCH2YF7serqPkhW+3ZM8UEl9gxlKtZpBek=;
- b=laH6fB3jX1QrWTXtnY0qRiG3yiIKuZ4sSkr3yP8rxh1K2TGiHIorSIQj6pXgAPPmeB
- xjuQPlvW66l4ncnGmdARxcrcDDCuJip7fBWe/TENNYsO6wB8viV1yd7NePXWO7qdTqYx
- 8MfNKUYe0peXYXpxBRzDrWsNShuAsTnMWECNSf1keJI2JPSIsOflFQGQKG9g3i7souQ4
- vlEEDBcYzkLA3n4eGouBn/EOQRxK7qHWWNwZIozIXzHZExLeIMgz7zNd/S4ay+07kWlX
- Jm52skrNW+E54wGgzw53RO8RayH5aAClCL5hZm0q1mY5SUz9ja90B+8TdmhYjukln66M
- ZsDw==
+ Thu, 04 Aug 2022 09:12:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=message-id:date:mime-version:user-agent:subject:content-language:to
+ :cc:references:from:in-reply-to:content-transfer-encoding;
+ bh=NOia1B38YE3Whq97iXD6BLxAeWDOa4nd+CQScRkgm7A=;
+ b=rs7UDamBA2ETIgqoEJ5UAtg+BNM2bPzkhj4hOO6lGU3TvE9gF9YSlRQ9scPbctefiZ
+ eKbDnpnxMmEjpzzxX83prKVG87t2t2tAamwh8ihOP6jUZbR3blOX7a83wHc757Jip77I
+ mvYvrMWGGwSAnPyom/zmEquyINUEF3HLmaY4CKmUoM6/1hfoLFRIr45QxsWp3quVqs/8
+ KkztRGvKgtE0a5tM470mSB1sZUun3vitkm0rSyCa6E3BIyzfT7OGAn1DmSO+VNFtRaRk
+ UOTDNbUd6GbLwYE2iUwhAgYLfDKt/bY2OIxUnIwMIvVR7nIw69i89bQPokzTVrcY1obI
+ Z+XA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc;
- bh=1leJD2jYdoCH2YF7serqPkhW+3ZM8UEl9gxlKtZpBek=;
- b=H/QgMBDmIqJGuKc8TyqOe+dx9YkBD0BTorjA2End8zV3Femyr9wDfGiLd1wI/zdAqt
- GLkuHBEWYojA+0QjZi2EATOXA4yBo1GtVGvU2TbK8atCcsRhsgjlbG1GZSc12Ml4pov+
- i7oKFHofASM0u6ls4wlTB0L4RhNQDrMzxeIoNfxGWuq5/HjT2oDXJd75IYOPXLgq3hdx
- 6lQf2x2PgkLkjmiqlCVovB+5FTj3i9dyHaHN6QZPVZaH/WhN1XCnnyu5Xp8Aek6A2KXj
- 7vW+Y6Bow+OaCdt1k1lQDTIZ6T4CItAfpIlu5Yuu7+mNJEsqgeMzbg3Ql6XpyQnQ/FrC
- d01Q==
-X-Gm-Message-State: ACgBeo2JDW94PiDogVMSo/bmeE70PL6ER+0n9MKOnh1YLBOaGvJaiqIj
- faah8kF4fX+iVKYuE0woPYkJeEpOZXBbelDjcbwQTWJEizrAag==
-X-Google-Smtp-Source: AA6agR5RGzkugERz/4oeLaBfhq3ArqArrOJPuit3/LvK760dfD+laKr6a9iKinniQ0NQiCL5MKgOdQhbs91FsvnJysg=
-X-Received: by 2002:a05:651c:2d0:b0:25e:6c94:59d5 with SMTP id
- f16-20020a05651c02d000b0025e6c9459d5mr810993ljo.488.1659627653867; Thu, 04
- Aug 2022 08:40:53 -0700 (PDT)
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=NOia1B38YE3Whq97iXD6BLxAeWDOa4nd+CQScRkgm7A=;
+ b=dMzxy/QSe8OLk5J2icQzizDBzK8JSdNPWL9XW3gUmLaBt3J+F/y2j28NFR0SXOuXbj
+ fpa+1kISWAKUVGKFevItYHd8qIoxX5Y6hGMD86F5QwkoVFHXCCrNP00wdnlav0WstatI
+ HmOCgT6n0i9Ojl5E32usTDKpdSRnsH6wtmscRJak5IOh6gZubN/aEhK5hMoK+A32HaCC
+ ifcO32pQqx05nUGev8bCTxB0GDIapxHtzM/tuD5whnayePzIs6SlSokJd+i6gLuYzE2I
+ QVscK6IhhcKt1AZnst0JrPLGxWM8xjT561ZoeSxIrgpmPNXDZG2JlwUgb+ufyO34DZbM
+ zHRg==
+X-Gm-Message-State: ACgBeo2v17t+w21IT5QKMTWlRK6Jerkn2ggiAxpFjYTBYfr2DU5A34Rt
+ UablKRwawdOHZM1TTlP11mJx8O2LJThF9gBJmv8=
+X-Google-Smtp-Source: AA6agR7JVLWDvIVNg6U27naCjDABIHZmPrY0O7mtkyZhQfdguRWg/PygUQvQMY4Rm9fX93k5cxNZAw==
+X-Received: by 2002:a05:651c:211d:b0:25e:4d0b:9ebe with SMTP id
+ a29-20020a05651c211d00b0025e4d0b9ebemr717397ljq.121.1659626064031; 
+ Thu, 04 Aug 2022 08:14:24 -0700 (PDT)
+Received: from [192.168.1.6] ([77.222.167.48])
+ by smtp.gmail.com with ESMTPSA id
+ x6-20020a2e9c86000000b0025e59a76742sm157631lji.14.2022.08.04.08.14.22
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 04 Aug 2022 08:14:23 -0700 (PDT)
+Message-ID: <6c1570c5-bdf4-21bd-ce0f-6bc5513c5dae@linaro.org>
+Date: Thu, 4 Aug 2022 17:14:21 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+Content-Language: en-US
+To: Tomer Maimon <tmaimon77@gmail.com>, avifishman70@gmail.com,
+ tali.perry1@gmail.com, joel@jms.id.au, venture@google.com, yuenn@google.com,
+ benjaminfair@google.com, jic23@kernel.org, minyard@acm.org,
+ robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org
 References: <20220804145516.217482-1-tmaimon77@gmail.com>
- <6fef92f3-6932-5c20-57fe-9eb40d676013@molgen.mpg.de>
-In-Reply-To: <6fef92f3-6932-5c20-57fe-9eb40d676013@molgen.mpg.de>
-From: Tomer Maimon <tmaimon77@gmail.com>
-Date: Thu, 4 Aug 2022 18:40:42 +0300
-Message-ID: <CAP6Zq1hvDdDO3yA=rFAvKMg20EM6OuoiVnxOBMbrpB9oHaMbfw@mail.gmail.com>
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-X-Spam-Score: 0.1 (/)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20220804145516.217482-1-tmaimon77@gmail.com>
+X-Spam-Score: -2.2 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Paul, On Thu, 4 Aug 2022 at 18:01, Paul Menzel wrote: >
- > Dear Tomer, > > > Am 04.08.22 um 16:55 schrieb Tomer Maimon: > > Add to
- npcm845 KCS compatible string a fallback to npcm750 KCS compatible > > str
- [...] Content analysis details:   (0.1 points, 6.0 required)
+ Content preview:  On 04/08/2022 16:55, Tomer Maimon wrote: > Add to npcm845
+ KCS compatible string a fallback to npcm750 KCS compatible > string. It's
+ easily visible in the code what you are doing, so instead you must explain
+ why you are doing it. 
+ Content analysis details:   (-2.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.167.54 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.54 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [tmaimon77[at]gmail.com]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tmaimon77[at]gmail.com]
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.208.174 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.208.174 listed in list.dnswl.org]
-X-Headers-End: 1oJcy4-0005gU-E2
+ -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1oJdSS-0006wR-1A
 Subject: Re: [Openipmi-developer] [PATCH v1] dt-binding: ipmi: add fallback
  to npcm845 compatible
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -120,44 +129,24 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>,
- Benjamin Fair <benjaminfair@google.com>, minyard@acm.org,
- Avi Fishman <avifishman70@gmail.com>, Patrick Venture <venture@google.com>,
- OpenBMC Maillist <openbmc@lists.ozlabs.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Tali Perry <tali.perry1@gmail.com>, Nancy Yuen <yuenn@google.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- openipmi-developer@lists.sourceforge.net, Jonathan Cameron <jic23@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, openbmc@lists.ozlabs.org,
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-SGkgUGF1bCwKCk9uIFRodSwgNCBBdWcgMjAyMiBhdCAxODowMSwgUGF1bCBNZW56ZWwgPHBtZW56
-ZWxAbW9sZ2VuLm1wZy5kZT4gd3JvdGU6Cj4KPiBEZWFyIFRvbWVyLAo+Cj4KPiBBbSAwNC4wOC4y
-MiB1bSAxNjo1NSBzY2hyaWViIFRvbWVyIE1haW1vbjoKPiA+IEFkZCB0byBucGNtODQ1IEtDUyBj
-b21wYXRpYmxlIHN0cmluZyBhIGZhbGxiYWNrIHRvIG5wY203NTAgS0NTIGNvbXBhdGlibGUKPiA+
-IHN0cmluZy4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBUb21lciBNYWltb24gPHRtYWltb243N0Bn
-bWFpbC5jb20+Cj4gPiAtLS0KPiA+ICAgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdz
-L2lwbWkvbnBjbTd4eC1rY3MtYm1jLnR4dCB8IDIgKy0KPiA+ICAgMSBmaWxlIGNoYW5nZWQsIDEg
-aW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL0RvY3VtZW50
-YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9pcG1pL25wY203eHgta2NzLWJtYy50eHQgYi9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvaXBtaS9ucGNtN3h4LWtjcy1ibWMudHh0Cj4g
-PiBpbmRleCBjYmMxMGE2OGRkZWYuLjRmZGE3NmU2MzM5NiAxMDA2NDQKPiA+IC0tLSBhL0RvY3Vt
-ZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9pcG1pL25wY203eHgta2NzLWJtYy50eHQKPiA+
-ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9pcG1pL25wY203eHgta2Nz
-LWJtYy50eHQKPiA+IEBAIC03LDcgKzcsNyBAQCB1c2VkIHRvIHBlcmZvcm0gaW4tYmFuZCBJUE1J
-IGNvbW11bmljYXRpb24gd2l0aCB0aGVpciBob3N0Lgo+ID4gICBSZXF1aXJlZCBwcm9wZXJ0aWVz
-Ogo+ID4gICAtIGNvbXBhdGlibGUgOiBzaG91bGQgYmUgb25lIG9mCj4gPiAgICAgICAibnV2b3Rv
-bixucGNtNzUwLWtjcy1ibWMiCj4gPiAtICAgICJudXZvdG9uLG5wY204NDUta2NzLWJtYyIKPiA+
-ICsgICAgIm51dm90b24sbnBjbTg0NS1rY3MtYm1jIiwgIm51dm90b24sbnBjbTc1MC1rY3MtYm1j
-Igo+Cj4gSXNu4oCZdCB0aGUgYWRkZWQgc3RyaW5nIGV4YWN0bHkgdGhlIHNhbWUgYXMgdGhlIG9u
-ZSBiZWxvdyB0aGUgY29tcGF0aWJsZQo+IGxpbmU/Cml0IGlzIG5vdCB0aGUgc2FtZSwgaXQgZGVz
-Y3JpYmVzIGEgZmFsbGJhY2sgdG8gTlBDTTdYWCBLQ1MgU2luY2UKTlBDTThYWCBLQ1MgYW5kIE5Q
-Q003WFggS0NTIG1vZHVsZXMgYXJlIHNpbWlsYXIuCj4KPiA+ICAgLSBpbnRlcnJ1cHRzIDogaW50
-ZXJydXB0IGdlbmVyYXRlZCBieSB0aGUgY29udHJvbGxlcgo+ID4gICAtIGtjc19jaGFuIDogVGhl
-IEtDUyBjaGFubmVsIG51bWJlciBpbiB0aGUgY29udHJvbGxlcgo+Cj4KPiBLaW5kIHJlZ2FyZHMs
-Cj4KPiBQYXVsCgpCZXN0IHJlZ2FyZHMsCgpUb21lcgoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QK
-T3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNv
-dXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
+On 04/08/2022 16:55, Tomer Maimon wrote:
+> Add to npcm845 KCS compatible string a fallback to npcm750 KCS compatible
+> string.
+
+It's easily visible in the code what you are doing, so instead you must
+explain why you are doing it.
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
