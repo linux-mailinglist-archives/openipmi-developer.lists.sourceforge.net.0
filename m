@@ -2,126 +2,112 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB1AA5AC586
-	for <lists+openipmi-developer@lfdr.de>; Sun,  4 Sep 2022 18:56:31 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 825E65ADC9A
+	for <lists+openipmi-developer@lfdr.de>; Tue,  6 Sep 2022 02:38:06 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1oUsv5-0005s4-3E;
-	Sun, 04 Sep 2022 16:56:27 +0000
+	id 1oVMbK-0003vA-VO;
+	Tue, 06 Sep 2022 00:38:02 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tcminyard@gmail.com>) id 1oUsv1-0005rk-Ik
+ (envelope-from <i.kononenko@yadro.com>) id 1oPnXZ-0001x4-7W
  for openipmi-developer@lists.sourceforge.net;
- Sun, 04 Sep 2022 16:56:23 +0000
+ Sun, 21 Aug 2022 16:11:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
+ :References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=DweC0xGYEQiKuhEU2wfv4BL8C5hOa+ko8JEuIgGa79M=; b=VDKVVYuvhJ8aa2DSUF8CDgblne
- HOdMPAV4cVSEwPouw1gWYdqOVZZACI22+9C9LK6zwhhKTy/JhdICX5cRNL1xqfXCtmvn3qJuNAmRc
- 0PzVbfhzHm/XhWLLCCjFl+wThKoo0SCXw9cis5Sf4qvI2FJ0gMO+KaYEorUHq2g3xFlc=;
+ bh=AhbErICIJ2CLM7HIcMMyunx3y2tCxXW+8CV0K4xksIs=; b=kaOuuyoB+ZqMFaDl9c0DDzWJB+
+ VSraw40fz5Dp2u63Ue6gGXsfi4ygMiJyiYKFLQo+882vn5w/xmgCx5KeXrkXDOTGgcsu2mphX37/O
+ 3Fk0Ua4IGdrq38R8gTwC6Jm6BdxLdwF2fuOJmu7PJasV8YqTWMPSFjZLtEJ3GYzvoj1Q=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=DweC0xGYEQiKuhEU2wfv4BL8C5hOa+ko8JEuIgGa79M=; b=HZIPUDjr/JZ9OqQm7yqhHt7NTy
- jsXv408uDAsZS69O5cd9pF+o4Kb7N8/Y0HMYqS5jCWmdbbRVtWdufAn/cRZ8GOwTE5USL2fiLrxoS
- 30Nd9Buz544F7YvB1/bTEdf56PjS66fXmxWvyqUe/NxCyo5FtpeaoUEoXNSVIbAXGo8c=;
-Received: from mail-qk1-f177.google.com ([209.85.222.177])
+ bh=AhbErICIJ2CLM7HIcMMyunx3y2tCxXW+8CV0K4xksIs=; b=g0EkJK3MrUob23C26qHWJ/3sfU
+ tSF/PXP5NMU4+akou4ncoJCYmGCHeZ0lGoS4u2M0+Xf5tlY60SGSkiYTGdMq0p66FP9fw3DarULaS
+ Q3QU0eoZ3fRqHcqxMKMGT8oA7xeVL+bZX6WAJeUxMdKNvRklMQTZ3YtQMqOnuhR7x8dQ=;
+Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1oUsuw-00ETZn-VS for openipmi-developer@lists.sourceforge.net;
- Sun, 04 Sep 2022 16:56:23 +0000
-Received: by mail-qk1-f177.google.com with SMTP id h27so5060237qkk.9
- for <openipmi-developer@lists.sourceforge.net>;
- Sun, 04 Sep 2022 09:56:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:sender:from:to:cc:subject:date;
- bh=DweC0xGYEQiKuhEU2wfv4BL8C5hOa+ko8JEuIgGa79M=;
- b=LRaoVWgJT9RdH4EGC2nrqbah10twpMB/cBIeHGVoBfRxMiT1wWvOtp0qxDtN0MIIuJ
- zdjvxiXfzblBcqx3wgdHbU1iBqlz+0n6fqIH27IAWlfiCaiwBRw7zISg8nr6y/iAEV1q
- GjM5n3Vv09/1NMPvHHKsfh4lM9dZL9x5+QKIwgWWrHrXX22M4LFtnbcfQFSMluKpUkv1
- MFKJcFDYIZv6CtqWtP53fSqyfDWvhY+L33nJnuNw+qUmEY7yxcs3V6mz0E3ciWdDI3Ci
- voNOS99El6qtL2lqqhT1OGkrMIxDLw9m7gss6fsTRHptHm1U1RYVyQu58DzgALF3Qq9q
- awdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:sender:x-gm-message-state:from
- :to:cc:subject:date;
- bh=DweC0xGYEQiKuhEU2wfv4BL8C5hOa+ko8JEuIgGa79M=;
- b=aiCLOwRm89CMsKrdQbKT6qy6i/MC623DDbhAOe39nDSg2aF99mcaaTdEEhOt/mGlIb
- CN/SZeFwRTNPGkCiZVogVVlQzJ5EY1KO5yg3vCx0scDiayFPWypjcnd5wPSyKrMKrOFC
- OSNa8KJn3ummmAPcFuJ67T96YAzI8fqRhjrOMwDiHG+2D33Yn61SZPawYYxBX+uJLU59
- NMSZ1Ihhwq/I3AppKgVVkbLuoNpaHscUa93+nl4jtyugF4RRruJ1U6Rm620a6+wY+k1R
- T045y9tl3bMstjXPDAkLk6Hb6K25GZxGTV6/d9Q1nJpkXOFKgdqh/8ki13CUGBRWXwsu
- Z/xQ==
-X-Gm-Message-State: ACgBeo0ll60tegxjsjpnLvcZJeuxVhQYerPy2sHb+KtWmSPodp0iFumx
- Nz3bCXk+wwacubh7zmRx+g==
-X-Google-Smtp-Source: AA6agR7ugl73vbBqSVIq3LKbH4H4rLGSvzd8kxJ/CT2BLQss06uJv73Yx8FnWndMyA3intEFDR1fdg==
-X-Received: by 2002:a05:620a:46a8:b0:6bb:29e6:f315 with SMTP id
- bq40-20020a05620a46a800b006bb29e6f315mr30165251qkb.714.1662310570611; 
- Sun, 04 Sep 2022 09:56:10 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id
- 6-20020a370c06000000b006bbbd4ce6e1sm5912645qkm.35.2022.09.04.09.56.09
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 04 Sep 2022 09:56:10 -0700 (PDT)
-Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:e25f:adca:563b:692])
- by serve.minyard.net (Postfix) with ESMTPSA id E16B01828A0;
- Sun,  4 Sep 2022 16:56:08 +0000 (UTC)
-Date: Sun, 4 Sep 2022 11:56:07 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
- Andrew Jeffery <andrew@aj.id.au>
-Message-ID: <YxTYp6Hhmqdou3S9@minyard.net>
-References: <5d69a2d0939ce3917c856b36ef1e41b579081be6.1662298496.git.christophe.jaillet@wanadoo.fr>
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1oPnXW-00C1My-Jk for openipmi-developer@lists.sourceforge.net;
+ Sun, 21 Aug 2022 16:11:09 +0000
+Received: from localhost (unknown [127.0.0.1])
+ by mta-01.yadro.com (Postfix) with ESMTP id 0C51C41370;
+ Sun, 21 Aug 2022 15:54:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=yadro.com; h=
+ content-type:content-type:content-transfer-encoding:mime-version
+ :references:in-reply-to:x-mailer:message-id:date:date:subject
+ :subject:from:from:received:received:received:received; s=
+ mta-01; t=1661097289; x=1662911690; bh=38/mpMH/WKYIqy39p1O3ZnjWk
+ UwjWz1Pf/Gj+eAFiF0=; b=nLoVU14h9w6sZNG5zs/W6EcREd+D0PSM2B7J07aqu
+ c0lmHrqJkH0dg1B5JuZVieCheZlaRzIJGq5USAyja1BlE4R9XRdsI3fpQej2pKbV
+ O0srJcF/OA1251OSC54G4DNeRTN4Lx87N+4JLjBk5fCuDt4ol7WYdIb6GVbnga8S
+ fE=
+X-Virus-Scanned: amavisd-new at yadro.com
+Received: from mta-01.yadro.com ([127.0.0.1])
+ by localhost (mta-01.yadro.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id KZ4spSCFBqGf; Sun, 21 Aug 2022 18:54:49 +0300 (MSK)
+Received: from T-EXCH-02.corp.yadro.com (t-exch-02.corp.yadro.com
+ [172.17.10.102])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mta-01.yadro.com (Postfix) with ESMTPS id A1E08412D6;
+ Sun, 21 Aug 2022 18:54:48 +0300 (MSK)
+Received: from T-EXCH-08.corp.yadro.com (172.17.11.58) by
+ T-EXCH-02.corp.yadro.com (172.17.10.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id
+ 15.1.669.32; Sun, 21 Aug 2022 18:54:48 +0300
+Received: from ik-yadro.yadro.com (10.199.18.154) by T-EXCH-08.corp.yadro.com
+ (172.17.11.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1118.9; Sun, 21 Aug
+ 2022 18:54:43 +0300
+From: Igor Kononenko <i.kononenko@yadro.com>
+To: Corey Minyard <minyard@acm.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@aj.id.au>
+Date: Sun, 21 Aug 2022 18:54:09 +0300
+Message-ID: <fb81dda34f9db0b9f743b247a2464576dcccd7c9.1661094034.git.i.kononenko@yadro.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1661094034.git.i.kononenko@yadro.com>
+References: <cover.1661094034.git.i.kononenko@yadro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5d69a2d0939ce3917c856b36ef1e41b579081be6.1662298496.git.christophe.jaillet@wanadoo.fr>
-X-Spam-Score: 0.4 (/)
+X-Originating-IP: [10.199.18.154]
+X-ClientProxiedBy: T-EXCH-02.corp.yadro.com (172.17.10.102) To
+ T-EXCH-08.corp.yadro.com (172.17.11.58)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Adding Andrew, the author of this code. On Sun, Sep 04, 2022
- at 03:35:16PM +0200, Christophe JAILLET wrote: > KCS_MSG_BUFSIZ is 1000.
- > > When using devm_kmalloc(), there is a small memory overhead and, on most
- > systems, this leads to 40 b [...] 
- Content analysis details:   (0.4 points, 6.0 required)
+ Content preview: The bmc might be rebooted while the host is still reachable
+ and the host might send requests through configured lpc-kcs channels. That
+ leads to raise lpc-snoop interrupts that haven't adjusted IRQ han [...] 
+ Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.177 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.222.177 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tcminyard[at]gmail.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1oUsuw-00ETZn-VS
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: kcs_bmc: Avoid wasting some
- memory.
+X-Headers-End: 1oPnXW-00C1My-Jk
+X-Mailman-Approved-At: Tue, 06 Sep 2022 00:38:00 +0000
+Subject: [Openipmi-developer] [PATCH 1/3] ipmi:kcs_bmc: Add cleanup
+ regmap(interrupt-regs) on a shutdown.
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -134,98 +120,142 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: openipmi-developer@lists.sourceforge.net, kernel-janitors@vger.kernel.org,
- linux-kernel@vger.kernel.org
+Cc: Igor Kononenko <i.kononenko@yadro.com>, linux-aspeed@lists.ozlabs.org,
+ openbmc@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Adding Andrew, the author of this code.
+The bmc might be rebooted while the host is still reachable and the host
+might send requests through configured lpc-kcs channels. That leads to
+raise lpc-snoop interrupts that haven't adjusted IRQ handlers on next
+early kernel boot, because on the aspeed-chip reboot it might keep
+unclear registers on a state that is configured on the last boot.
 
-On Sun, Sep 04, 2022 at 03:35:16PM +0200, Christophe JAILLET wrote:
-> KCS_MSG_BUFSIZ is 1000.
-> 
-> When using devm_kmalloc(), there is a small memory overhead and, on most
-> systems, this leads to 40 bytes of extra memory allocation.
-> So 1040 bytes are expected to be allocated.
-> 
-> The memory allocator works with fixed size hunks of memory. In this case,
-> it will require 2048 bytes of memory because more than 1024 bytes are
-> required.
-> 
-> So, when requesting 3 x 1000 bytes, it ends up to 2048 x 3.
-> 
-> In order to avoid wasting 3ko of memory, allocate buffers all at once.
-> 3000+40 bytes will be required and 4ko allocated. This still wastes 1ko,
-> but it is already better.
-> 
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> ---
-> Looking at this code, I wonder why priv->miscdev.name is not freed in
-> kcs_bmc_ipmi_remove_device()?
+The described case get a `nobody cared` warning about more than 100.000
+requests when another one driver configures the same shared IRQ(e.g. 35)
+and the interrupt will be passed through for lpc-kcs IRQ handler by
+`IRQ_NONE` state flag.
 
-If I understand correctly, none of these need to be freed.  devm
-allocated memory is freed automatically when the device is removed.
+The kernel output of described way is bellow:
+```
+[    1.360110] irq 35: nobody cared (try booting with the "irqpoll" option)
+[    1.360145] CPU: 0 PID: 1 Comm: swapper Not tainted 5.4.43-c109de3-24cc5b6 #1
+[    1.360158] Hardware name: Generic DT based system
+[    1.360168] Backtrace:
+[    1.360228] [<80107f5c>] (dump_backtrace) from [<80108184>] (show_stack+0x20/0x24)
+[    1.360250]  r7:00000023 r6:00000000 r5:00000000 r4:9d12d560
+[    1.360283] [<80108164>] (show_stack) from [<8084ae54>] (dump_stack+0x20/0x28)
+[    1.360316] [<8084ae34>] (dump_stack) from [<80156790>] (__report_bad_irq+0x40/0xc0)
+[    1.360344] [<80156750>] (__report_bad_irq) from [<801566c0>] (note_interrupt+0x238/0x290)
+[    1.360366]  r9:9d0ae000 r8:9d00c600 r7:00000023 r6:00000000 r5:00000000 r4:9d12d560
+[    1.360408] [<80156488>] (note_interrupt) from [<80153594>] (handle_irq_event+0xb4/0xc4)
+[    1.360429]  r10:00000000 r9:9d0ae000 r8:9d00c600 r7:00000001 r6:00000000 r5:00000000
+[    1.360440]  r4:9d12d560 r3:00000000
+[    1.360466] [<801534e0>] (handle_irq_event) from [<8015788c>] (handle_level_irq+0xac/0x180)
+[    1.360480]  r5:80c7d35c r4:9d12d560
+[    1.360503] [<801577e0>] (handle_level_irq) from [<80152a5c>] (__handle_domain_irq+0x6c/0xc8)
+[    1.360519]  r5:80c7d35c r4:9d12d560
+[    1.360545] [<801529f0>] (__handle_domain_irq) from [<801021cc>] (avic_handle_irq+0x68/0x70)
+[    1.360568]  r9:9d0ae000 r8:9d12d608 r7:9d0afc84 r6:ffffffff r5:9d0afc50 r4:9d002380
+[    1.360587] [<80102164>] (avic_handle_irq) from [<80101a6c>] (__irq_svc+0x6c/0x90)
+[    1.360603] Exception stack(0x9d0afc50 to 0x9d0afc98)
+[    1.360620] fc40:                                     00000000 00000100 00000000 00000000
+[    1.360640] fc60: 9d12d560 98bbd0c0 00000000 00000023 9d12d608 60000053 00000000 9d0afcd4
+[    1.360657] fc80: 9d0afc80 9d0afca0 801570ec 80154cdc 40000053 ffffffff
+[    1.360670]  r5:40000053 r4:80154cdc
+[    1.360693] [<801549e0>] (__setup_irq) from [<801555e4>] (request_threaded_irq+0xdc/0x15c)
+[    1.360715]  r9:98bbb340 r8:00000023 r7:9d12d570 r6:9d12d560 r5:00000000 r4:98bbd0c0
+[    1.360741] [<80155508>] (request_threaded_irq) from [<801589d8>] (devm_request_threaded_irq+0x70/0xc4)
+[    1.360762]  r10:80a7353c r9:00000000 r8:98bbb340 r7:9d130e10 r6:00000023 r5:804f4a70
+[    1.360774]  r4:98bbd020 r3:00000080
+[    1.360800] [<80158968>] (devm_request_threaded_irq) from [<804f4ebc>] (aspeed_lpc_snoop_probe+0x100/0x2ac)
+[    1.360821]  r10:00000000 r9:9d130e10 r8:98bbd040 r7:00000000 r6:9d130e00 r5:98bbb340
+[    1.360830]  r4:00000000
+[    1.360851] [<804f4dbc>] (aspeed_lpc_snoop_probe) from [<8056a5c4>] (platform_drv_probe+0x44/0x80)
+[    1.360873]  r9:80c5ef90 r8:00000000 r7:80cc2938 r6:00000000 r5:80c5ef90 r4:9d130e10
+[    1.360910] [<8056a580>] (platform_drv_probe) from [<80568420>] (really_probe+0x26c/0x498)
+[    1.360924]  r5:80cc282c r4:9d130e10
+[    1.360949] [<805681b4>] (really_probe) from [<80568c28>] (driver_probe_device+0x138/0x184)
+[    1.360970]  r10:80b0050c r9:80adadb0 r8:00000007 r7:80c5ef90 r6:9d130e10 r5:00000000
+[    1.360981]  r4:80c5ef90
+[    1.361004] [<80568af0>] (driver_probe_device) from [<80568fe4>] (device_driver_attach+0xb8/0xc0)
+[    1.361020]  r7:80c5ef90 r6:9d130e54 r5:00000000 r4:9d130e10
+[    1.361046] [<80568f2c>] (device_driver_attach) from [<80569070>] (__driver_attach+0x84/0x16c)
+[    1.361063]  r7:80c61128 r6:9d130e10 r5:00000001 r4:80c5ef90
+[    1.361088] [<80568fec>] (__driver_attach) from [<80566068>] (bus_for_each_dev+0x84/0xcc)
+[    1.361106]  r7:80c61128 r6:80568fec r5:80c5ef90 r4:00000000
+[    1.361130] [<80565fe4>] (bus_for_each_dev) from [<80569180>] (driver_attach+0x28/0x30)
+[    1.361147]  r6:00000000 r5:9d1a3d40 r4:80c5ef90
+[    1.361169] [<80569158>] (driver_attach) from [<80566a08>] (bus_add_driver+0x114/0x200)
+[    1.361195] [<805668f4>] (bus_add_driver) from [<80569814>] (driver_register+0x98/0x128)
+[    1.361214]  r7:00000000 r6:80ca0ca0 r5:00000000 r4:80c5ef90
+[    1.361241] [<8056977c>] (driver_register) from [<8056b528>] (__platform_driver_register+0x40/0x54)
+[    1.361256]  r5:000000b8 r4:80b2575c
+[    1.361294] [<8056b4e8>] (__platform_driver_register) from [<80b2577c>] (aspeed_lpc_snoop_driver_init+0x20/0x28)
+[    1.361331] [<80b2575c>] (aspeed_lpc_snoop_driver_init) from [<80b01318>] (do_one_initcall+0x84/0x184)
+[    1.361356] [<80b01294>] (do_one_initcall) from [<80b01540>] (kernel_init_freeable+0x128/0x1ec)
+[    1.361375]  r7:80b3f858 r6:80ca0ca0 r5:000000b8 r4:80b61914
+[    1.361412] [<80b01418>] (kernel_init_freeable) from [<80864060>] (kernel_init+0x18/0x11c)
+[    1.361435]  r10:00000000 r9:00000000 r8:00000000 r7:00000000 r6:00000000 r5:80864048
+[    1.361444]  r4:00000000
+[    1.361470] [<80864048>] (kernel_init) from [<801010e8>] (ret_from_fork+0x14/0x2c)
+[    1.361483] Exception stack(0x9d0affb0 to 0x9d0afff8)
+[    1.361500] ffa0:                                     00000000 00000000 00000000 00000000
+[    1.361518] ffc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    1.361535] ffe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[    1.361547]  r5:80864048 r4:00000000
+[    1.361555] handlers:
+[    1.361592] [<(ptrval)>] aspeed_lpc_snoop_irq
+[    1.361609] Disabling IRQ #35
 
-> 
-> If this make sense, this also mean that KCS_MSG_BUFSIZ can be increased at
-> no cost.
-> Or it could be slightly reduce to around 1024-40-1 bytes to keep the logic
-> which is in place.
-> 
-> Another solution would be to use just kmalloc and add a
-> devm_add_action_or_reset() call and a function that frees the memory.
-> If it make sense, KCS_MSG_BUFSIZ could be increased to 1024 and we would
-> allocate just a little above 3x1024 bytes.
-> ---
->  drivers/char/ipmi/kcs_bmc_cdev_ipmi.c | 11 +++++------
->  1 file changed, 5 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c b/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
-> index 486834a962c3..15a4a39a6478 100644
-> --- a/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
-> +++ b/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
-> @@ -485,14 +485,15 @@ static int kcs_bmc_ipmi_add_device(struct kcs_bmc_device *kcs_bmc)
->  
->  	priv->client.dev = kcs_bmc;
->  	priv->client.ops = &kcs_bmc_ipmi_client_ops;
-> -	priv->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-> -	priv->data_out = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-> -	priv->kbuffer = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-> +	/* Allocate buffers all at once */
-> +	priv->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ * 3, GFP_KERNEL);
-> +	priv->data_out = priv->data_in + KCS_MSG_BUFSIZ;
-> +	priv->kbuffer  = priv->data_in + KCS_MSG_BUFSIZ * 2;
+```
 
-You are doing arithmetic on a possibly NULL pointer.  It's generally ok,
-but kind of frowned upon.
+Note:
+ * The lpc-snoop driver found on the same 1e789080 address and have
+same IRQ#35 as for lpc-kcs
+ * The lpc-snoop initizalied earlier than lpc-kcs.
 
-Andew, what do you think?  I guess it saves a little memory.
+The patch brings a way to masking lpc-kcs interrupt all through
+a bmc-rebooting time.
 
--Corey
+Tested on the YADRO VEGMAN N110 stand.
 
->  
->  	priv->miscdev.minor = MISC_DYNAMIC_MINOR;
->  	priv->miscdev.name = devm_kasprintf(kcs_bmc->dev, GFP_KERNEL, "%s%u", DEVICE_NAME,
->  					   kcs_bmc->channel);
-> -	if (!priv->data_in || !priv->data_out || !priv->kbuffer || !priv->miscdev.name)
-> +	if (!priv->data_in || !priv->miscdev.name)
->  		return -EINVAL;
->  
->  	priv->miscdev.fops = &kcs_bmc_ipmi_fops;
-> @@ -531,8 +532,6 @@ static int kcs_bmc_ipmi_remove_device(struct kcs_bmc_device *kcs_bmc)
->  
->  	misc_deregister(&priv->miscdev);
->  	kcs_bmc_disable_device(priv->client.dev, &priv->client);
-> -	devm_kfree(kcs_bmc->dev, priv->kbuffer);
-> -	devm_kfree(kcs_bmc->dev, priv->data_out);
->  	devm_kfree(kcs_bmc->dev, priv->data_in);
->  	devm_kfree(kcs_bmc->dev, priv);
->  
-> -- 
-> 2.34.1
-> 
+Signed-off-by: Igor Kononenko <i.kononenko@yadro.com>
+---
+ drivers/char/ipmi/kcs_bmc_aspeed.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
+index cdc88cde1e9a..440f31d96bd3 100644
+--- a/drivers/char/ipmi/kcs_bmc_aspeed.c
++++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
+@@ -636,6 +636,13 @@ static int aspeed_kcs_remove(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
++static void aspeed_kcs_shutdown(struct platform_device *pdev)
++{
++	struct kcs_bmc *kcs_bmc = dev_get_drvdata(&pdev->dev);
++
++	aspeed_kcs_irq_mask_update(kcs_bmc, (KCS_BMC_EVENT_TYPE_IBF), 0);
++}
++
+ static const struct of_device_id ast_kcs_bmc_match[] = {
+ 	{ .compatible = "aspeed,ast2400-kcs-bmc-v2" },
+ 	{ .compatible = "aspeed,ast2500-kcs-bmc-v2" },
+@@ -651,6 +658,7 @@ static struct platform_driver ast_kcs_bmc_driver = {
+ 	},
+ 	.probe  = aspeed_kcs_probe,
+ 	.remove = aspeed_kcs_remove,
++	.shutdown = aspeed_kcs_shutdown,
+ };
+ module_platform_driver(ast_kcs_bmc_driver);
+ 
+-- 
+2.25.1
+
 
 
 _______________________________________________
