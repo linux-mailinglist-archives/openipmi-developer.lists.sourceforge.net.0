@@ -2,111 +2,125 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id E776D5F5A59
-	for <lists+openipmi-developer@lfdr.de>; Wed,  5 Oct 2022 21:06:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CDBBD5F5D3E
+	for <lists+openipmi-developer@lfdr.de>; Thu,  6 Oct 2022 01:31:15 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1og9ii-0001YK-Kc;
-	Wed, 05 Oct 2022 19:06:16 +0000
+	id 1ogDr3-0008RC-Gs;
+	Wed, 05 Oct 2022 23:31:09 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <wsa@kernel.org>) id 1og9ih-0001YE-UX
+ (envelope-from <andrew@aj.id.au>) id 1ogDqy-0008R4-Pw
  for openipmi-developer@lists.sourceforge.net;
- Wed, 05 Oct 2022 19:06:15 +0000
+ Wed, 05 Oct 2022 23:31:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Date:References:
+ In-Reply-To:Message-Id:Mime-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=qZOYdCT1aCe/JZjmiQhjcaPpLA57KvbcqFM3TGd0KYo=; b=nWXcyDP0xkkN6P1MDNjfFyTFmZ
- 5LAiDQshzteZO/XMPkdjmboOWFm4cS1kBsk94Pmh5kfApEhlvbAc6aGWQBBiUXikHoCDLsgkgyYI7
- SWgXTIwUuuIvF1rdVUVgZeO81jnxijRRZETADADIvSsooDazoi3X91NB/jZHg6a8589g=;
+ bh=iU/nKCqTxaCxk56ycxXhitLF9EE+iE5NgRpUWDX3ze8=; b=AiO1FpMfTD8PgrcV54YCKoWOfO
+ WwSuWINhT+60AyjqacCVSj2Z2Q5Q5ZGHmBSkHQs1a0LklGcb8Jrhv6ZmMBatZBmZblaYbJzP2xiTX
+ HIrYfkQ+i7vpxknNxfdHMdkVq/ED9yC+cfdwKO634QcHEr87l1JjUqUGPixnGU3CFsOI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Subject:Cc:To:From:Date:References:In-Reply-To:Message-Id:
+ Mime-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=qZOYdCT1aCe/JZjmiQhjcaPpLA57KvbcqFM3TGd0KYo=; b=CJJRSzhkjv2n4YvgJJc+AkunL8
- JStflg8EW+rxve6r+vhJlbX37O575YVy4PPqs7ipm/b0eO+RGYpEU+9CuUXaO8VX3EC1+kaT7SN1H
- LXSP2WfkI2JQSiDQYDRBG3iexgoxjgCEj2rhxDJTCFquGs1dbKGbR4cSuOHtWLr4Xetc=;
-Received: from ams.source.kernel.org ([145.40.68.75])
+ bh=iU/nKCqTxaCxk56ycxXhitLF9EE+iE5NgRpUWDX3ze8=; b=MXslWfnuWHJSKSnEYuoLUrDmWQ
+ Xhmi6UM88vIEiLffIU0/brf95Xa8LMF0EJmVHR3VLLwpg9YfpVmKxt5lxe8FphGweZ8fomQT0oefr
+ wfp/GrvjvqIa/B9AgamB1OaaHpVpjlomrmvWkesbC8KerPBPuY44K7uKRn8nEowSxey4=;
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1og9ih-0003Tp-4F for openipmi-developer@lists.sourceforge.net;
- Wed, 05 Oct 2022 19:06:15 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id E804CB81DE9;
- Wed,  5 Oct 2022 19:06:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E786DC433D6;
- Wed,  5 Oct 2022 19:06:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1664996766;
- bh=qZOYdCT1aCe/JZjmiQhjcaPpLA57KvbcqFM3TGd0KYo=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Qg03rLPpbYIdisynjImLpdYkJO/sEMunrsh0dpMnd0msNKM4q0kwSn9oYsEkYyuoX
- RsSS3sZyqYQJRRR1IrpPXdANdbfCfehXhdmGhrYuQO3LIkr5VNd8jT0d+EjGP+P2Ed
- GFpOL3ADwr16c/4Ad0PTCYiNsIu6SuZa5PNluanuFkHkI2ZZAhaLL07kMIDcjNhx33
- VTm/sxf0RICxP5JnMhRPjFNiYtbYWgVVykluIoecv2Dh7WEsFrF37e121miiJId13X
- QqPVEx5p/xT0sRv3o+iMP4DlRHIUgYvEatArxXRRPQ1TqCcTXJxfHqWsD3NHrxTj20
- b5B48nBs9QVvQ==
-Date: Wed, 5 Oct 2022 21:06:01 +0200
-From: Wolfram Sang <wsa@kernel.org>
-To: Quan Nguyen <quan@os.amperecomputing.com>
-Message-ID: <Yz3VmWCqdolKg5sm@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
- Quan Nguyen <quan@os.amperecomputing.com>,
- Randy Dunlap <rdunlap@infradead.org>,
- Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Brendan Higgins <brendan.higgins@linux.dev>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
- openipmi-developer@lists.sourceforge.net,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- Open Source Submission <patches@amperecomputing.com>,
- Phong Vo <phong@os.amperecomputing.com>,
- thang@os.amperecomputing.com
-References: <20221004093106.1653317-1-quan@os.amperecomputing.com>
- <20221004093106.1653317-4-quan@os.amperecomputing.com>
-MIME-Version: 1.0
-In-Reply-To: <20221004093106.1653317-4-quan@os.amperecomputing.com>
-X-Spam-Score: -5.2 (-----)
+ id 1ogDqm-0007O0-Rt for openipmi-developer@lists.sourceforge.net;
+ Wed, 05 Oct 2022 23:31:04 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+ by mailout.nyi.internal (Postfix) with ESMTP id 56B2D5C0195;
+ Wed,  5 Oct 2022 19:13:23 -0400 (EDT)
+Received: from imap50 ([10.202.2.100])
+ by compute3.internal (MEProxy); Wed, 05 Oct 2022 19:13:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=cc
+ :cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+ :message-id:mime-version:references:reply-to:sender:subject
+ :subject:to:to; s=fm1; t=1665011603; x=1665098003; bh=iU/nKCqTxa
+ Cxk56ycxXhitLF9EE+iE5NgRpUWDX3ze8=; b=bCggjZMY4n18oQN/rXT+r9kqhr
+ KI9lv6wGkTxIklY6JysdNLB1R7dofO6g24hG5YJt7LsR3D4E585mVcmdcmIoRMk5
+ JTTfhQm7u9p43z3b3D9nu8ho+hoOIFMagSU2cPhRmY2Bpv6p/Y22cMvv6MkDetJP
+ 3LbwvHkNBUuIBb5D6oKpSDwzW5Yrwkop/o3FVphVtC3cRNKry1YK7O9N4PCc4Due
+ HDmLGwV7Rvs+ftF3OZDv+rOE1pJPb7iF1jJrKUGvrJ5c7YjPW2u6a2vZ/9v0+7XG
+ mF1hAIG2mVsZpBeuWM8zHD8zqRNxogsH6NPwsL/nak+rV/XJ0222Q+JkqQ2Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+ :feedback-id:from:from:in-reply-to:in-reply-to:message-id
+ :mime-version:references:reply-to:sender:subject:subject:to:to
+ :x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+ fm2; t=1665011603; x=1665098003; bh=iU/nKCqTxaCxk56ycxXhitLF9EE+
+ iE5NgRpUWDX3ze8=; b=0UfdeaWo7/DuxF2KFzWo9tzRulA4MusdpGQRZkZp49K4
+ PjVHBBHr3JIVrH0sBnTMPxADQ9VJDzJHOuGV2e69qD+hNUULdl/g5lDpHiqmoaVk
+ 5JVbWyBJNeq3D+brpVekeu2W3c0IsKdtX7WW562u8R24bS+MRbiNbiBCLt5QcSJt
+ e6jr/jvcBsDAl8FpZnV6xghuj5/V78b9TJDR3rg9C1oZ9ue61y3ehjCSNUBHopoM
+ ff/Vs36v+xowT2rE1r8crLvx24K7ybHcXneWupSBwdf/gODhuV7n5Bad8iS4lu7x
+ an12oDXuz64INAzo9+Z7ukUaEYw/HTXxlkpWtbshjw==
+X-ME-Sender: <xms:kg8-Y0HWzac0cE_D5IsOTBgZ-1NKfZ4y9g01UZ-SiJ4KtAPbiIXP5w>
+ <xme:kg8-Y9W7BIv0dBaUXwFce_lK-7GFXmanvR92Ai7N08FtFAi385bG2lFST3T_CdQdv
+ yTozsQpYcAq4GQ1_A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeeigedgvddtucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehn
+ ughrvgifucflvghffhgvrhihfdcuoegrnhgurhgvfiesrghjrdhiugdrrghuqeenucggtf
+ frrghtthgvrhhnpeekvdekjeekgfejudffteetgeejkeetteduvedtffdtledutdfhheev
+ feetkeeiteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
+ hmpegrnhgurhgvfiesrghjrdhiugdrrghu
+X-ME-Proxy: <xmx:kg8-Y-KvgUd1Et8MnOgIcjMQ4rz9mMBqcI9svm9xGaAclhQswwmFUw>
+ <xmx:kg8-Y2FbeFuLq20oJftCsJOET4_-_d97lSUW7jTqitXlDZdHRZeirQ>
+ <xmx:kg8-Y6XSB6zRsDa3th82xCUOD9ZQoNcw1N5vQNW_AenzEYCzLic29Q>
+ <xmx:kw8-Y5SPgRnbzTHZbOJU-0NPHmZG3YJVnoGoF3vkjggV5lt4Yv3tFw>
+Feedback-ID: idfb84289:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+ id D1F2E1700083; Wed,  5 Oct 2022 19:13:22 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-1015-gaf7d526680-fm-20220929.001-gaf7d5266
+Mime-Version: 1.0
+Message-Id: <08c20621-e75d-4a72-82e6-b1980304e20a@app.fastmail.com>
+In-Reply-To: <20220812144741.240315-1-andrew@aj.id.au>
+References: <20220812144741.240315-1-andrew@aj.id.au>
+Date: Thu, 06 Oct 2022 09:42:57 +1030
+From: "Andrew Jeffery" <andrew@aj.id.au>
+To: openipmi-developer@lists.sourceforge.net, "Corey Minyard" <minyard@acm.org>
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Tue, Oct 04, 2022 at 04:31:06PM +0700, Quan Nguyen wrote:
- > On I2C_SLAVE_WRITE_REQUESTED event, Slave already ACK'ed on the address
- > phase. But as the backend driver is busy and unable to process [...] 
- Content analysis details:   (-5.2 points, 6.0 required)
+ Content preview:  Hi Corey, On Sat, 13 Aug 2022, at 00:17,
+ Andrew Jeffery wrote:
+ > The ASPEED KCS devices don't provide a BMC-side interrupt for the host
+ > reading the output data register (ODR). The act of the host reading ODR
+ [...] Content analysis details:   (-0.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [66.111.4.29 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [145.40.68.75 listed in list.dnswl.org]
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1og9ih-0003Tp-4F
-Subject: Re: [Openipmi-developer] [PATCH v10 3/3] i2c: aspeed: Assert NAK
- when slave is busy
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1ogDqm-0007O0-Rt
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: kcs: Poll OBF briefly to
+ reduce OBE latency
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -119,83 +133,34 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree@vger.kernel.org, thang@os.amperecomputing.com,
- linux-aspeed@lists.ozlabs.org, Corey Minyard <minyard@acm.org>,
- Andrew Jeffery <andrew@aj.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>, openbmc@lists.ozlabs.org,
- Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
- Phong Vo <phong@os.amperecomputing.com>,
- Brendan Higgins <brendan.higgins@linux.dev>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- openipmi-developer@lists.sourceforge.net,
- Open Source Submission <patches@amperecomputing.com>,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org
-Content-Type: multipart/mixed; boundary="===============4233105076785140244=="
+Cc: linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, linux-aspeed@lists.ozlabs.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
+Hi Corey,
 
---===============4233105076785140244==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SJMSzPuygRaHqOAa"
-Content-Disposition: inline
+On Sat, 13 Aug 2022, at 00:17, Andrew Jeffery wrote:
+> The ASPEED KCS devices don't provide a BMC-side interrupt for the host
+> reading the output data register (ODR). The act of the host reading ODR
+> clears the output buffer full (OBF) flag in the status register (STR),
+> informing the BMC it can transmit a subsequent byte.
+>
+> On the BMC side the KCS client must enable the OBE event *and* perform a
+> subsequent read of STR anyway to avoid races - the polling provides a
+> window for the host to read ODR if data was freshly written while
+> minimising BMC-side latency.
 
+Just wondering whether you're happy to pick this one up? I haven't seen 
+it hit the IPMI tree yet.
 
---SJMSzPuygRaHqOAa
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Cheers,
 
-On Tue, Oct 04, 2022 at 04:31:06PM +0700, Quan Nguyen wrote:
-> On I2C_SLAVE_WRITE_REQUESTED event, Slave already ACK'ed on the address
-> phase. But as the backend driver is busy and unable to process any
-> request from Master, issue RxCmdLast for Slave to auto send NACK on
-> next incoming byte.
->=20
-> Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
+Andrew
 
-Applied to for-current, thanks!
-
-
---SJMSzPuygRaHqOAa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmM91ZkACgkQFA3kzBSg
-KbYyDQ/9HuJtmUfec7mVOzYN9yOLKYOWOR5hIQd4A3+vP+K+7P1jObIubesRu2Xn
-4OTZ9aEZMgumnmIWX7dGG9seW67U8FDCXjmRTVXZK1SLasgoL+0FRJbzfvLIqLUY
-/dThu2R6w4xXOScan+snd98o5xj2gJIiRRUdNH0nNP7CioU5aWdxUykvqjoKYdzK
-EVP2nDsPTfLp36vBt2+edcZpJFV2wXtPGhzV7hcypWURm7F7+Phao9vsWphXdPt2
-aLZTFMNrjhkzE/M4PK4HVR11630Xan6D318KoJ3QcSWv0EAax+uxChijf03OYctM
-sz2oXSExvYUGpdgCiErUX3a/3to4HgJZSq6Gqjy4IuScNnpWV55teyW/rWs4gTK9
-yJF3O4Tn2Jq6hBN4WeDs4R79mR3rrAyVSddLzh+9DRQyISYBvVkqyJ5JQ6au+Ps9
-HJsIKXC8G/yq7dd9vop+fBSR6743sLE0Sge67fhxrv4h8tr4xZnXvgr5eRgwMJZW
-Jc/RDTPQGNZVrmiJYvKnUclNRLEbgnKrtryINWGt5nrRLMLu3gVjJGZxhESQqt8b
-C5uVsf1wyyw+K02minkivCVbD0un6hafek5bpILCzjZzLjh1HYoOGY0x6Xcog0uX
-tG4tTm/fOBqpHkJy4WbMBjuT5belbMyNwVrZNkNYjMK1WVRjZwc=
-=U+bJ
------END PGP SIGNATURE-----
-
---SJMSzPuygRaHqOAa--
-
-
---===============4233105076785140244==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============4233105076785140244==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============4233105076785140244==--
-
