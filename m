@@ -2,112 +2,115 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B9075F6AAC
-	for <lists+openipmi-developer@lfdr.de>; Thu,  6 Oct 2022 17:33:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 327FD5F7DCB
+	for <lists+openipmi-developer@lfdr.de>; Fri,  7 Oct 2022 21:17:30 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ogSsF-0006nP-4X;
-	Thu, 06 Oct 2022 15:33:23 +0000
+	id 1ogsqb-0007TJ-LB;
+	Fri, 07 Oct 2022 19:17:25 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <wsa@kernel.org>) id 1ogSsD-0006nJ-N0
+ (envelope-from <zhangyuchen.lcr@bytedance.com>) id 1ogk1s-0002tl-FE
  for openipmi-developer@lists.sourceforge.net;
- Thu, 06 Oct 2022 15:33:21 +0000
+ Fri, 07 Oct 2022 09:52:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=b5fz2Faps9g6VlZUHemqmOjeGlkHE/XuO+Ju+7K214A=; b=B7E2qDfhUndhFv69SZ+iWNoqIU
- jJmzuCDh2HGOvGzPpcNIsoUBub6VYh1dSXUglOnUxidPZAhgKLTbWXpnyqKQYr5heV3RKmn7rBvB4
- 2r3AJsWooyUzE1K3Sy4froPQ3+K8dTZszGByYymad/bdmQ3d+Qab1SJnzKG08nBDlf/w=;
+ bh=xDa4fYIyPpnZcWibGvKtypceWD40K8dmEbb3u80G0WI=; b=itWk9JPENQ4RNjB3qd75kjd4hl
+ 9v/EZ3IWP1agm1A+uMODptO45StvSEQdcQa0g++tR3SHkTSrLZg3q6CXiv6YKJQ+1OhbsI/KamsFz
+ M+e7fTODER/8+x6iGdVOJLAlcRVCaAAjtoFykeUD7bE74sUwrvfFbIb1c0Jn74xiq6kM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=b5fz2Faps9g6VlZUHemqmOjeGlkHE/XuO+Ju+7K214A=; b=Rdj8lsu6yqAW3sqLEaMWIzWGzZ
- WxJNjIHLEe45Sjs8QGe844SXPIQZEU0I3e5V4rUZQD0cLLsogQkolBL53i0rCME6uDmXz8TDY0q/V
- ihRhwDlrP9eny+722z/IVI4gRErqqeDEyaXQBDorNhLpyVm3e37PIZVoCY48m755p48A=;
-Received: from ams.source.kernel.org ([145.40.68.75])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1ogSsC-00Eq3K-Ve for openipmi-developer@lists.sourceforge.net;
- Thu, 06 Oct 2022 15:33:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 9AF18B82067;
- Thu,  6 Oct 2022 15:33:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2208C433D7;
- Thu,  6 Oct 2022 15:33:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1665070393;
- bh=b5fz2Faps9g6VlZUHemqmOjeGlkHE/XuO+Ju+7K214A=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=dqylxaX+JXllTIj8yLEPkVZBqPOA8RVrx3AnU9xEinCebuNlOnMyggpT2Y80GCOKD
- jn8iiFVa+0tWfLJIarZ3gsc9/5t0tmhNFVpZDSmYTxEm3+VkTnm0l0SUpgjsEB63l2
- CggpubewSFAbm+eamVnZO4CyMN9gRy+UD59XmmVr4BYO4qxyiS9KmAjYRaSobvpfXz
- DnSX30IFKdyjSNgEeCssZktyaIUkNxCpFB7k0Lc+SXVgkoMAgW8m2BDe1NFSnP52GJ
- X4HbSOH8Yj7yBUvZLDbotfkDUcHGpOI7PFo5Ulpg6CEjrH0C7sa5mARjW+j67nRLWp
- XjHxO0UAdVaJw==
-Date: Thu, 6 Oct 2022 17:33:10 +0200
-From: Wolfram Sang <wsa@kernel.org>
-To: Quan Nguyen <quan@os.amperecomputing.com>
-Message-ID: <Yz71NjbmLZeRpmM2@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
- Quan Nguyen <quan@os.amperecomputing.com>,
- Randy Dunlap <rdunlap@infradead.org>,
- Corey Minyard <minyard@acm.org>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Brendan Higgins <brendan.higgins@linux.dev>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
- openipmi-developer@lists.sourceforge.net,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- Open Source Submission <patches@amperecomputing.com>,
- Phong Vo <phong@os.amperecomputing.com>,
- thang@os.amperecomputing.com
-References: <20221004093106.1653317-1-quan@os.amperecomputing.com>
- <20221004093106.1653317-4-quan@os.amperecomputing.com>
- <Yz3VmWCqdolKg5sm@shikoro>
- <c8c774c5-b274-a6f9-303b-e84c50800b5c@os.amperecomputing.com>
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=xDa4fYIyPpnZcWibGvKtypceWD40K8dmEbb3u80G0WI=; b=Z
+ 8v1fNUkSqlrvQ30TxC7dhGfY+Wn3fltPV1b+TK9vsftSNzghXGXSLYztZgtJ2qp//wQR1XPIpNH61
+ 0h20fXRi00oJNfNM7lbblueh7hpm8/tvqnjngK6hHbURCyO8qNjtKB3P3z5QVjUhIB3RW2FXuv8xe
+ E1IR9XjgEvF0aODs=;
+Received: from mail-oa1-f48.google.com ([209.85.160.48])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1ogk1l-0000wM-Kg for openipmi-developer@lists.sourceforge.net;
+ Fri, 07 Oct 2022 09:52:28 +0000
+Received: by mail-oa1-f48.google.com with SMTP id
+ 586e51a60fabf-1326637be6eso5003888fac.13
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 07 Oct 2022 02:52:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=bytedance-com.20210112.gappssmtp.com; s=20210112;
+ h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+ :to:from:from:to:cc:subject:date:message-id:reply-to;
+ bh=xDa4fYIyPpnZcWibGvKtypceWD40K8dmEbb3u80G0WI=;
+ b=L40uxyR0CollaFGUsOY6UFpQoE7hzC6H4hwR6PpBjp1I7LWrmKmTsXtVJikTBAmJpl
+ p39jjC02y4EE6Yq9+2SuvnZYdaGAjV2+96bVR++2hWXWBhzBLt7fWctyu8pDJVjLioEL
+ QyBrtd6vbOZvQI7jHCVG7e3SRk8pdlZ/drC0sxtbhz8EEWCbC4Tq1BHejyackmdEZubB
+ Ssr2zh8A+28AqEFKZu721RihY51Gi9jA7xrhB6tJisvD5S8g1RMfwA30Q50HFehD+FsA
+ 9uP6RfG5J/74jQq+ZrbvyIzQhfSGo7YGx5iNCe4IL/yPbJoMyx0yMoCby1GxPZ7VyyTv
+ ThUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+ :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=xDa4fYIyPpnZcWibGvKtypceWD40K8dmEbb3u80G0WI=;
+ b=clbet88KpTojP7gR2iraOqkFXqU+kbx+XUI33A9r+esGnb/nIPsikRN2c1MDw16+rQ
+ D36IHASgqngF9i5ctj8C0N8xHeaQEV2O+zLvoiKD1AxiVt+b2yvZhQLIysaJ65j5lPQg
+ fNmeNVG464fYxdjQ3NPiOozcw/mpqaSYPQSZxl2lEBY2QYdV+aPkJJv+1nAwVjgsnEUE
+ /WxuGvlZgybyaQDY4fGNQY8/1C4LBPulbOHNbno9oSSYjUgxwVvw2HKGTE2MCEX0XGPi
+ 3uY9a2oKnK8KxGeRWJCUdaXnJmsW0SOD6LBpw5Jawwf1sR7vOY9RcGowMXcTKNVRhkGc
+ MpGw==
+X-Gm-Message-State: ACrzQf2ggZmFl1Hwi0woQNDvtiDG4akfwe9VE8OmYc5Pn2Ub2oUigkJx
+ 16Pt4jo4iFcdviDg6AkruWjGeaKEVESf5w==
+X-Google-Smtp-Source: AMsMyM4lrZeF2gYZGijDyGwnJnt3Ew81JbBCVh1HfqgLs39WbwJTTWGlhAhILaunsy/Au06JxEGYCA==
+X-Received: by 2002:a17:90b:4c05:b0:20b:a8f:de4a with SMTP id
+ na5-20020a17090b4c0500b0020b0a8fde4amr8082457pjb.199.1665134787338; 
+ Fri, 07 Oct 2022 02:26:27 -0700 (PDT)
+Received: from localhost.localdomain ([139.177.225.246])
+ by smtp.gmail.com with ESMTPSA id
+ p7-20020a170902e74700b0016ef87334aesm1069394plf.162.2022.10.07.02.26.24
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 07 Oct 2022 02:26:26 -0700 (PDT)
+From: Zhang Yuchen <zhangyuchen.lcr@bytedance.com>
+To: minyard@acm.org
+Date: Fri,  7 Oct 2022 17:26:14 +0800
+Message-Id: <20221007092617.87597-1-zhangyuchen.lcr@bytedance.com>
+X-Mailer: git-send-email 2.37.0 (Apple Git-136)
 MIME-Version: 1.0
-In-Reply-To: <c8c774c5-b274-a6f9-303b-e84c50800b5c@os.amperecomputing.com>
-X-Spam-Score: -5.2 (-----)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: > Thank you for your patience with me through many versions.
- You are welcome. In the end, I think the update of the target interface is
- an improvement, in deed. So, thank you for that! 
- Content analysis details:   (-5.2 points, 6.0 required)
+ Content preview: Our users have reported a memory leak. The IPMI driver
+ consumes
+ a lot of memory. We found this problem because IPMI was slow to release
+ messages
+ after being disconnected, causing what appeared to be a memory leak. 
+ Content analysis details:   (-0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [145.40.68.75 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1ogSsC-00Eq3K-Ve
-Subject: Re: [Openipmi-developer] [PATCH v10 3/3] i2c: aspeed: Assert NAK
- when slave is busy
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.160.48 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.160.48 listed in wl.mailspike.net]
+X-Headers-End: 1ogk1l-0000wM-Kg
+X-Mailman-Approved-At: Fri, 07 Oct 2022 19:17:21 +0000
+Subject: [Openipmi-developer] [PATCH 0/3] ipmi: fix ipmi memleak and unload
+ bug
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -120,78 +123,50 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: devicetree@vger.kernel.org, thang@os.amperecomputing.com,
- linux-aspeed@lists.ozlabs.org, Corey Minyard <minyard@acm.org>,
- Andrew Jeffery <andrew@aj.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>, openbmc@lists.ozlabs.org,
- Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
- Phong Vo <phong@os.amperecomputing.com>,
- Brendan Higgins <brendan.higgins@linux.dev>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- openipmi-developer@lists.sourceforge.net,
- Open Source Submission <patches@amperecomputing.com>,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org
-Content-Type: multipart/mixed; boundary="===============8235958638114840442=="
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ Zhang Yuchen <zhangyuchen.lcr@bytedance.com>, qi.zheng@linux.dev
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
+Our users have reported a memory leak. The IPMI driver consumes a lot of
+memory.
 
---===============8235958638114840442==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+SCqpgtCPKo+UDYP"
-Content-Disposition: inline
+We found this problem because IPMI was slow to release messages after
+being disconnected, causing what appeared to be a memory leak.
 
+Fix commit as:
+  ipmi: fix msg stack when IPMI is disconnected
 
---+SCqpgtCPKo+UDYP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Two other issues were solved in the process of solving this problem.
 
+1. Unloading the driver takes a long time.
 
-> Thank you for your patience with me through many versions.
+Fix commit as:
+  ipmi: fix long wait in unload when IPMI disconnect
 
-You are welcome. In the end, I think the update of the target interface
-is an improvement, in deed. So, thank you for that!
+2. Memory leaks during driver unloading.
 
-
---+SCqpgtCPKo+UDYP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmM+9TYACgkQFA3kzBSg
-KbYACw/9E3V2Y6ViQwRZW439rY0GLtJGPos89UPLB3b8h2XUl/8KWQBrU4MDD46d
-6VEho+Ae8+5OHpqczwMiXkgc+Z/Yc0OtfOUXCqEr339KH09Z2k930RdTb20dZf6t
-UZbq+wAaD9xn4nXBMEBM3YoBDbncbhTEamK0mKkh5lHmD2fZqXXRqpbBtwSZXN5s
-Y+Oshsl9cuGEkqde5gVhRR1DWJrOesWHmg51VhBvq0E74sSlWc3D4ByKYJ2K95qw
-w0gd48NMY5vtSvM8e2X2SqA/1rwYYi91bn5xFCM0hSXWmAU+hKhEW6O0rQrbZPu1
-9mwoOHEvTanaLpYiWCsnevEgEsLifpiKMlojSmQZIQLeFLTg69K36Gdyb57mNzD1
-4+Mb5QP4yjHkjA9uwr03qJv08xDKmQtnQhO/dkjz0iAE3uxdpGYb3XB0chL+YI7p
-rJV9CIETC+HFpzrKiOu9XGRNnLzu7dJ6Jx489UKzS+d2cofL+gZMTsAkeu1WXBEj
-UY8cqIm1rxaOJgy8SBotNJssqRS7TGL/TYtXFgFtQIJ2pISQHB1Yc9FdZSRdXHLF
-5wRpQZlTnIS9/wL/K29aAvePtLJHbDhUgaDIqU0JgNEdA1wA9wUj0RK0FrQyHBP0
-W96sDicwz7oVBGNZuX1lQHtfYGZqdBPIllgG8XaGlwNlwgRCiyg=
-=WHBN
------END PGP SIGNATURE-----
-
---+SCqpgtCPKo+UDYP--
+Fix commit as:
+  ipmi: fix memleak when unload ipmi driver
 
 
---===============8235958638114840442==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Zhang Yuchen (3):
+  ipmi: fix msg stack when IPMI is disconnected
+  ipmi: fix long wait in unload when IPMI disconnect
+  ipmi: fix memleak when unload ipmi driver
+
+ drivers/char/ipmi/ipmi_kcs_sm.c     | 14 ++++++++++----
+ drivers/char/ipmi/ipmi_msghandler.c |  5 ++++-
+ drivers/char/ipmi/ipmi_si_intf.c    | 27 +++++++++++++++++++--------
+ 3 files changed, 33 insertions(+), 13 deletions(-)
+
+-- 
+2.30.2
 
 
---===============8235958638114840442==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============8235958638114840442==--
-
