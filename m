@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A8345F8A57
-	for <lists+openipmi-developer@lfdr.de>; Sun,  9 Oct 2022 11:18:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9B5165F8A5C
+	for <lists+openipmi-developer@lfdr.de>; Sun,  9 Oct 2022 11:25:58 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ohSSG-0002xj-FO;
-	Sun, 09 Oct 2022 09:18:40 +0000
+	id 1ohSZF-00035V-JM;
+	Sun, 09 Oct 2022 09:25:53 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhangyuchen.lcr@bytedance.com>) id 1ohSSA-0002xc-Fs
+ (envelope-from <zhangyuchen.lcr@bytedance.com>) id 1ohSYy-00035E-Op
  for openipmi-developer@lists.sourceforge.net;
- Sun, 09 Oct 2022 09:18:34 +0000
+ Sun, 09 Oct 2022 09:25:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=zzW8eZ7a7hfTNZL5FpK7RIdYTP8PmTGim0k673uis3U=; b=PwBiME8x3OsyT1YvkLBY6M/vpb
- E89Orp+QoqOipzquI5hR45Kpo0bwjsRwfFKFDjJDebU12FNqcEgJvfkdGPN3AZmOfdZsw/jRHX56L
- BLxetd1y6wVLtEYOPkSrBqZ0UvuaR476UUuIqgAMT/MpdRe5sORmkhHT9Mp3yW4QEe24=;
+ bh=kKFjny/9mWuO/iG0Kxc5VvaxquxrAamtdUptPDp0d74=; b=I+XyiFlp3yBgC/wxFbo1ij5AUT
+ YaPzFbPQkwYVWudMMVsmOyN99wu6dQ3P+IYfPARYGBAaemEMQSkyPciea5QS9cQovqBRCQcdnsqwJ
+ FhqM7jd6k8gvKayHBGg+vKiwpfwGoO2y8FxtYJh2Hy1+VmtIZ71ZFA8aPS8StGbrwXcA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -31,88 +31,88 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=zzW8eZ7a7hfTNZL5FpK7RIdYTP8PmTGim0k673uis3U=; b=J+npVHa/ov/PVAX4DMBuzRfnAb
- lz8rMjYv4jAI4ehDRn04ijSvq23h6fMXunwuowP1rMLnaSTMBpsW6mOTARENNVjsRy3iNA2sIv/P5
- GRdBR1F4Q5gh/ZmmndNgvB/a264wveIgz2X8pjCkUNkJQUTU9Jf2qUSB1ZaXDimtPrsU=;
-Received: from mail-pj1-f52.google.com ([209.85.216.52])
+ bh=kKFjny/9mWuO/iG0Kxc5VvaxquxrAamtdUptPDp0d74=; b=GPGV4aVkmPf2l+gTqApK2alyiW
+ Yaf2LaD+5Hz4d/9eojbnPMK+CszEmwFY5YJSdVlk4wc38dVNyug/m7UfjnbPw5j0KgOgNY2LzAYgW
+ N1jyx45bPmifylKB4YCXsISQ+0CkpOpyCTUl+wizz4szpoIqH6uUWAjSCmZt8zTxNIiw=;
+Received: from mail-il1-f180.google.com ([209.85.166.180])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1ohSS5-0004Xw-B1 for openipmi-developer@lists.sourceforge.net;
- Sun, 09 Oct 2022 09:18:34 +0000
-Received: by mail-pj1-f52.google.com with SMTP id
- t10-20020a17090a4e4a00b0020af4bcae10so8096791pjl.3
+ id 1ohSYy-0004qI-0V for openipmi-developer@lists.sourceforge.net;
+ Sun, 09 Oct 2022 09:25:36 +0000
+Received: by mail-il1-f180.google.com with SMTP id y17so4436189ilq.8
  for <openipmi-developer@lists.sourceforge.net>;
- Sun, 09 Oct 2022 02:18:29 -0700 (PDT)
+ Sun, 09 Oct 2022 02:25:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=bytedance-com.20210112.gappssmtp.com; s=20210112;
  h=content-transfer-encoding:mime-version:references:in-reply-to
  :message-id:date:subject:cc:to:from:from:to:cc:subject:date
  :message-id:reply-to;
- bh=zzW8eZ7a7hfTNZL5FpK7RIdYTP8PmTGim0k673uis3U=;
- b=vLWtU1/9k302WJB1R1VTrd+dZzHdZaWXm75UGvq+XOhcUTNQs1q+gO9JDPy2/QGYSa
- /UTrDI1Q9CSViqHTafA2Y7H+ha77O6fOq1lV0t9+19gXEUGImOzCWJCqvOVLt7vyDL+E
- UTilFJb4p6nXPWL7ntw8FQaeB0nJHFGOacrDU4ligDURcGUJcUFflz1GoJPDR1aL8vGx
- uzmpSowMh4Wd4tTNd+e7/mvxFVGb8eojyslp7UqN6NKPiKo6jMuOEba9MeLdA0MD8X0p
- Dh7s6RUf1qjYH4NXj+furAKRluoFagRteWRlGUbsh3QTLVXI3j3LNZwvMlumbWNo2D9Q
- 4+4Q==
+ bh=kKFjny/9mWuO/iG0Kxc5VvaxquxrAamtdUptPDp0d74=;
+ b=ojQqKCdE1xWnmbi41ppc32d+eOC7AWp0Z8fAmyiBCoOubBhyz21Z9rC7wh21wSzkWr
+ Blh98iWF76sGUhTbkD20/++kK597nR3eZKk9Q8+XUaTP7xZWD+znQoJva6NviowPO09E
+ rEpoKXUyqJ3MHO0Zmx9VAIwUuW0LiY/5kEQeOzzmcCSEUys8Csa4jrUuW+b0vbCDKoTd
+ B7A6LKNJo6lZbsYaWcq92O+uPUk7yXDvOYXzCeNlYNSkM0ozVwAc+oBtCrGpyQcsKa3S
+ yIIVa5FTtlLaIPL6tZhecGJu8mYNLn+v+46/m1iBsAely7nOeCqkxF6hZPFePoY1G1wm
+ bw2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=content-transfer-encoding:mime-version:references:in-reply-to
  :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=zzW8eZ7a7hfTNZL5FpK7RIdYTP8PmTGim0k673uis3U=;
- b=R4EcuSJ5waYt4q+tlagw15h9mtAg5IJ3cLnZHNJTK1JTErfU7z3HrVdXGVX/WTK3vf
- Q2eytu0hy1AzO7KkCl9txH+0RdT+7sYcF9MdMMT7zK1tRfdJrDURR0imV2oVJAkK245E
- dyRptCmYol5fXiyPRzInttLl7yKwtdZbvejWtqIUtfpmHJulhOuUCTYglUQ5Aecx3EaJ
- hkwXgLM5+QQ70qQUJmUjsh22gpRjdedayHdIwwOOqshmJ/0I0ihLGyGA+fo4uM58aX+W
- zRiLw7X1fY6A28uF4YjD46zdu+MJb6/C+QEavizqtnnjFmVexTHMHHGA4uoPdgMMnUM5
- xtuA==
-X-Gm-Message-State: ACrzQf1LgaaihlEOEoJUsHHcfTal7mnNlZJoUXrwBVaXgOzp4veTz0FG
- 9dYbtS5f9DDPuwnzHYjM70rg5g==
-X-Google-Smtp-Source: AMsMyM5Pq0fzYL4VXG6ZwI5yV+7ecYkkOYUa+FglI4AO5zX1l3VL+AZd/uxM77w9Qja4hkIUEJ0VoQ==
-X-Received: by 2002:a17:902:9a8b:b0:17a:455:d967 with SMTP id
- w11-20020a1709029a8b00b0017a0455d967mr13415545plp.52.1665307103775; 
- Sun, 09 Oct 2022 02:18:23 -0700 (PDT)
+ bh=kKFjny/9mWuO/iG0Kxc5VvaxquxrAamtdUptPDp0d74=;
+ b=xABJN8AGwueKYcKLlli6aPs3jSg4GDPromm9hiiv/WOK7uKSZH2sbV7U6rJZbVv7qa
+ a9/mrPCQCirUpt6r317lAyXOeC9MmERSqIogJY+SXy17W3tMeNfZnxVF0V5aseP92djk
+ E80tc+wIRTw1SA8BqXZljlnA0zvnhIFZt4dnDUHG3UwLfW5vPhGZiWLhHH+KfUhVn9J2
+ Rj4on+FBbCFXJvcIBfjjKkUND9GXOiaRbshqU3tbxh0Via2uyicoRQ8BxodJo/hn8CM8
+ SWN3h4XWjx5HvWhE0BQqbREMcOMF3a83UV33j/tBOp59FDBfBOwB9TdbYNJmqKsr5OPE
+ E2hg==
+X-Gm-Message-State: ACrzQf0MeVTbmnzAgwmpWX/FIS8+7h9nl9dv6qFM935/6KP3koi8/qhJ
+ LJCU3I1TvrVPLX1zKIoQkIireT+mIOkd+uc+
+X-Google-Smtp-Source: AMsMyM4tSxYbXYtzOq11CTZtT49IL2PjNyOj9GZtNR3Z8wRpNJP4JMMrmFnExO9hOFCydmTujtOhIA==
+X-Received: by 2002:a63:ff1b:0:b0:43c:e4ee:e5e0 with SMTP id
+ k27-20020a63ff1b000000b0043ce4eee5e0mr11382651pgi.540.1665307107095; 
+ Sun, 09 Oct 2022 02:18:27 -0700 (PDT)
 Received: from localhost.localdomain ([139.177.225.234])
  by smtp.gmail.com with ESMTPSA id
- f38-20020a635566000000b004405c6eb962sm4328711pgm.4.2022.10.09.02.18.20
+ f38-20020a635566000000b004405c6eb962sm4328711pgm.4.2022.10.09.02.18.24
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 09 Oct 2022 02:18:23 -0700 (PDT)
+ Sun, 09 Oct 2022 02:18:26 -0700 (PDT)
 From: Zhang Yuchen <zhangyuchen.lcr@bytedance.com>
 To: minyard@acm.org
-Date: Sun,  9 Oct 2022 17:18:09 +0800
-Message-Id: <20221009091811.40240-2-zhangyuchen.lcr@bytedance.com>
+Date: Sun,  9 Oct 2022 17:18:10 +0800
+Message-Id: <20221009091811.40240-3-zhangyuchen.lcr@bytedance.com>
 X-Mailer: git-send-email 2.37.0 (Apple Git-136)
 In-Reply-To: <20221009091811.40240-1-zhangyuchen.lcr@bytedance.com>
 References: <20221009091811.40240-1-zhangyuchen.lcr@bytedance.com>
 MIME-Version: 1.0
-X-Spam-Score: 0.0 (/)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: If you continue to access and send messages at a high
- frequency
- (once every 55s) when the IPMI is disconnected, messages will accumulate
- in intf->[hp_]xmit_msg. If it lasts long enough, it takes up a [...] 
- Content analysis details:   (0.0 points, 6.0 required)
+ Content preview:  When fixing the problem mentioned in PATCH1, we also found
+ the following problem: If the IPMI is disconnected and in the sending process, 
+ the uninstallation driver will be stuck for a long time. The main problem
+ is that uninstalling the driver waits for curr_msg to be sent or HOSED. After
+ stopping tasklet, the only place to trigger the timeout mechanism is the
+ circular poll in shutdown_smi. 
+ Content analysis details:   (-0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.216.52 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.216.52 listed in wl.mailspike.net]
+ no trust [209.85.166.180 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.180 listed in wl.mailspike.net]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1ohSS5-0004Xw-B1
-Subject: [Openipmi-developer] [PATCH v2 1/3] ipmi: fix msg stack when IPMI
- is disconnected
+X-Headers-End: 1ohSYy-0004qI-0V
+Subject: [Openipmi-developer] [PATCH v2 2/3] ipmi: fix long wait in unload
+ when IPMI disconnect
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -131,186 +131,88 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-If you continue to access and send messages at a high frequency (once
-every 55s) when the IPMI is disconnected, messages will accumulate in
-intf->[hp_]xmit_msg. If it lasts long enough, it takes up a lot of
-memory.
+When fixing the problem mentioned in PATCH1, we also found
+the following problem:
 
-The reason is that if IPMI is disconnected, each message will be set to
-IDLE after it returns to HOSED through IDLE->ERROR0->HOSED. The next
-message goes through the same process when it comes in. This process
-needs to wait for IBF_TIMEOUT * (MAX_ERROR_RETRIES + 1) = 55s.
+If the IPMI is disconnected and in the sending process, the
+uninstallation driver will be stuck for a long time.
 
-Each message takes 55S to destroy. This results in a continuous increase
-in memory.
+The main problem is that uninstalling the driver waits for curr_msg to
+be sent or HOSED. After stopping tasklet, the only place to trigger the
+timeout mechanism is the circular poll in shutdown_smi.
 
-I find that if I wait 5 seconds after the first message fails, the
-status changes to ERROR0 in smi_timeout(). The next message will return
-the error code IPMI_NOT_IN_MY_STATE_ERR directly without wait.
+The poll function delays 10us and calls smi_event_handler(smi_info,10).
+Smi_event_handler deducts 10us from kcs->ibf_timeout.
 
-This is more in line with our needs.
+But the poll func is followed by schedule_timeout_uninterruptible(1).
+The time consumed here is not counted in kcs->ibf_timeout.
 
-So instead of setting each message state to IDLE after it reaches the
-state HOSED, set state to ERROR0.
+So when 10us is deducted from kcs->ibf_timeout, at least 1 jiffies has
+actually passed. The waiting time has increased by more than a
+hundredfold.
 
-After testing, the problem has been solved, no matter how many
-consecutive sends, will not cause continuous memory growth. It also
-returns to normal immediately after the IPMI is restored.
+Now instead of calling poll(). call smi_event_handler() directly and
+calculate the elapsed time.
 
-In addition, the HOSED state should also count as invalid. So the HOSED
-is removed from the invalid judgment in start_kcs_transaction().
+For verification, you can directly use ebpf to check the kcs->
+ibf_timeout for each call to kcs_event() when IPMI is disconnected.
+Decrement at normal rate before unloading. The decrement rate becomes
+very slow after unloading.
 
-The verification operations are as follows:
-
-1. Use BPF to record the ipmi_alloc/free_smi_msg().
-
-  $ bpftrace -e 'kretprobe:ipmi_alloc_recv_msg {printf("alloc
-      %p\n",retval);} kprobe:free_recv_msg {printf("free  %p\n",arg0)}'
-
-2. Exec `date; time for x in $(seq 1 2); do ipmitool mc info; done`.
-3. Record the output of `time` and when free all msgs.
-
-Before:
-
-`time` takes 120s, This is because `ipmitool mc info` send 4 msgs and
-waits only 15 seconds for each message. Last msg is free after 440s.
-
-  $ bpftrace -e 'kretprobe:ipmi_alloc_recv_msg {printf("alloc
-      %p\n",retval);} kprobe:free_recv_msg {printf("free  %p\n",arg0)}'
-  Oct 05 11:40:55 Attaching 2 probes...
-  Oct 05 11:41:12 alloc 0xffff9558a05f0c00
-  Oct 05 11:41:27 alloc 0xffff9558a05f1a00
-  Oct 05 11:41:42 alloc 0xffff9558a05f0000
-  Oct 05 11:41:57 alloc 0xffff9558a05f1400
-  Oct 05 11:42:07 free  0xffff9558a05f0c00
-  Oct 05 11:42:07 alloc 0xffff9558a05f7000
-  Oct 05 11:42:22 alloc 0xffff9558a05f2a00
-  Oct 05 11:42:37 alloc 0xffff9558a05f5a00
-  Oct 05 11:42:52 alloc 0xffff9558a05f3a00
-  Oct 05 11:43:02 free  0xffff9558a05f1a00
-  Oct 05 11:43:57 free  0xffff9558a05f0000
-  Oct 05 11:44:52 free  0xffff9558a05f1400
-  Oct 05 11:45:47 free  0xffff9558a05f7000
-  Oct 05 11:46:42 free  0xffff9558a05f2a00
-  Oct 05 11:47:37 free  0xffff9558a05f5a00
-  Oct 05 11:48:32 free  0xffff9558a05f3a00
-
-  $ root@dc00-pb003-t106-n078:~# date;time for x in $(seq 1 2); do
-  ipmitool mc info; done
-
-  Wed Oct  5 11:41:12 CST 2022
-  No data available
-  Get Device ID command failed
-  No data available
-  No data available
-  No valid response received
-  Get Device ID command failed: Unspecified error
-  No data available
-  Get Device ID command failed
-  No data available
-  No data available
-  No valid response received
-  No data available
-  Get Device ID command failed
-
-  real        1m55.052s
-  user        0m0.001s
-  sys        0m0.001s
-
-After:
-
-`time` takes 55s, all msgs is returned and free after 55s.
-
-  $ bpftrace -e 'kretprobe:ipmi_alloc_recv_msg {printf("alloc
-      %p\n",retval);} kprobe:free_recv_msg {printf("free  %p\n",arg0)}'
-
-  Oct 07 16:30:35 Attaching 2 probes...
-  Oct 07 16:30:45 alloc 0xffff955943aa9800
-  Oct 07 16:31:00 alloc 0xffff955943aacc00
-  Oct 07 16:31:15 alloc 0xffff955943aa8c00
-  Oct 07 16:31:30 alloc 0xffff955943aaf600
-  Oct 07 16:31:40 free  0xffff955943aa9800
-  Oct 07 16:31:40 free  0xffff955943aacc00
-  Oct 07 16:31:40 free  0xffff955943aa8c00
-  Oct 07 16:31:40 free  0xffff955943aaf600
-  Oct 07 16:31:40 alloc 0xffff9558ec8f7e00
-  Oct 07 16:31:40 free  0xffff9558ec8f7e00
-  Oct 07 16:31:40 alloc 0xffff9558ec8f7800
-  Oct 07 16:31:40 free  0xffff9558ec8f7800
-  Oct 07 16:31:40 alloc 0xffff9558ec8f7e00
-  Oct 07 16:31:40 free  0xffff9558ec8f7e00
-  Oct 07 16:31:40 alloc 0xffff9558ec8f7800
-  Oct 07 16:31:40 free  0xffff9558ec8f7800
-
-  root@dc00-pb003-t106-n078:~# date;time for x in $(seq 1 2); do
-  ipmitool mc info; done
-  Fri Oct  7 16:30:45 CST 2022
-  No data available
-  Get Device ID command failed
-  No data available
-  No data available
-  No valid response received
-  Get Device ID command failed: Unspecified error
-  Get Device ID command failed: 0xd5 Command not supported in present state
-  Get Device ID command failed: Command not supported in present state
-
-  real        0m55.038s
-  user        0m0.001s
-  sys        0m0.001s
+  $ bpftrace -e 'kprobe:kcs_event {printf("kcs->ibftimeout : %d\n",
+      *(arg0+584));}'
 
 Signed-off-by: Zhang Yuchen <zhangyuchen.lcr@bytedance.com>
 ---
- drivers/char/ipmi/ipmi_kcs_sm.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ drivers/char/ipmi/ipmi_si_intf.c | 27 +++++++++++++++++++--------
+ 1 file changed, 19 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/char/ipmi/ipmi_kcs_sm.c b/drivers/char/ipmi/ipmi_kcs_sm.c
-index efda90dcf5b3..ecfcb50302f6 100644
---- a/drivers/char/ipmi/ipmi_kcs_sm.c
-+++ b/drivers/char/ipmi/ipmi_kcs_sm.c
-@@ -122,10 +122,10 @@ struct si_sm_data {
- 	unsigned long  error0_timeout;
- };
- 
--static unsigned int init_kcs_data(struct si_sm_data *kcs,
--				  struct si_sm_io *io)
-+static unsigned int init_kcs_data_with_state(struct si_sm_data *kcs,
-+				  struct si_sm_io *io, enum kcs_states state)
- {
--	kcs->state = KCS_IDLE;
-+	kcs->state = state;
- 	kcs->io = io;
- 	kcs->write_pos = 0;
- 	kcs->write_count = 0;
-@@ -140,6 +140,12 @@ static unsigned int init_kcs_data(struct si_sm_data *kcs,
- 	return 2;
+diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
+index 6e357ad76f2e..abddd7e43a9a 100644
+--- a/drivers/char/ipmi/ipmi_si_intf.c
++++ b/drivers/char/ipmi/ipmi_si_intf.c
+@@ -2153,6 +2153,20 @@ static int __init init_ipmi_si(void)
  }
+ module_init(init_ipmi_si);
  
-+static unsigned int init_kcs_data(struct si_sm_data *kcs,
-+				  struct si_sm_io *io)
++static void wait_msg_processed(struct smi_info *smi_info)
 +{
-+	return init_kcs_data_with_state(kcs, io, KCS_IDLE);
++	unsigned long jiffies_now;
++	long time_diff;
++
++	while (smi_info->curr_msg || (smi_info->si_state != SI_NORMAL)) {
++		jiffies_now = jiffies;
++		time_diff = (((long)jiffies_now - (long)smi_info->last_timeout_jiffies)
++		     * SI_USEC_PER_JIFFY);
++		smi_event_handler(smi_info, time_diff);
++		schedule_timeout_uninterruptible(1);
++	}
 +}
 +
- static inline unsigned char read_status(struct si_sm_data *kcs)
+ static void shutdown_smi(void *send_info)
  {
- 	return kcs->io->inputb(kcs->io, 1);
-@@ -270,7 +276,7 @@ static int start_kcs_transaction(struct si_sm_data *kcs, unsigned char *data,
- 	if (size > MAX_KCS_WRITE_SIZE)
- 		return IPMI_REQ_LEN_EXCEEDED_ERR;
- 
--	if ((kcs->state != KCS_IDLE) && (kcs->state != KCS_HOSED)) {
-+	if (kcs->state != KCS_IDLE) {
- 		dev_warn(kcs->io->dev, "KCS in invalid state %d\n", kcs->state);
- 		return IPMI_NOT_IN_MY_STATE_ERR;
- 	}
-@@ -495,7 +501,7 @@ static enum si_sm_result kcs_event(struct si_sm_data *kcs, long time)
- 	}
- 
- 	if (kcs->state == KCS_HOSED) {
--		init_kcs_data(kcs, kcs->io);
-+		init_kcs_data_with_state(kcs, kcs->io, KCS_ERROR0);
- 		return SI_SM_HOSED;
- 	}
+ 	struct smi_info *smi_info = send_info;
+@@ -2187,16 +2201,13 @@ static void shutdown_smi(void *send_info)
+ 	 * in the BMC.  Note that timers and CPU interrupts are off,
+ 	 * so no need for locks.
+ 	 */
+-	while (smi_info->curr_msg || (smi_info->si_state != SI_NORMAL)) {
+-		poll(smi_info);
+-		schedule_timeout_uninterruptible(1);
+-	}
++	wait_msg_processed(smi_info);
++
+ 	if (smi_info->handlers)
+ 		disable_si_irq(smi_info);
+-	while (smi_info->curr_msg || (smi_info->si_state != SI_NORMAL)) {
+-		poll(smi_info);
+-		schedule_timeout_uninterruptible(1);
+-	}
++
++	wait_msg_processed(smi_info);
++
+ 	if (smi_info->handlers)
+ 		smi_info->handlers->cleanup(smi_info->si_sm);
  
 -- 
 2.30.2
