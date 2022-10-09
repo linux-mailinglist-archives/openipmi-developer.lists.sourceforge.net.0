@@ -2,124 +2,113 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 23CBA5F88BE
-	for <lists+openipmi-developer@lfdr.de>; Sun,  9 Oct 2022 04:00:06 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 150EB5F8A5B
+	for <lists+openipmi-developer@lfdr.de>; Sun,  9 Oct 2022 11:24:48 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ohLbj-00005u-Rc;
-	Sun, 09 Oct 2022 01:59:59 +0000
+	id 1ohSY8-00033s-BZ;
+	Sun, 09 Oct 2022 09:24:44 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhangyuchen.lcr@bytedance.com>) id 1ohLbh-00005o-W0
+ (envelope-from <zhangyuchen.lcr@bytedance.com>) id 1ohSXy-00033h-O8
  for openipmi-developer@lists.sourceforge.net;
- Sun, 09 Oct 2022 01:59:58 +0000
+ Sun, 09 Oct 2022 09:24:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=yH25RyDrgB/CHrd3oT3w5RJPoVT7/+e3hVxNpT5AUKM=; b=BWr1XmFJLFsLlab5j8rlwwpDgI
- 12wt8F6CJIVRZFEOr2XqaQGgUDzvVG6l5E3yoYGX20BBWKlyTPEbLi7/aC3lnxgUMvU6A80AGqV9J
- QSsI7b3lDLtWeuxOvl9/5Z4pbYrHZjYnmLgyJMWoMagRgnZa/iA5i/sMx0vefAHCKzHQ=;
+ bh=c06vT1tTPVLhSjiDtSw7P/lMUVOV+4NakOUkmc7Sjy8=; b=ESJxWcjvegm19NTO+xtcV0QUVe
+ PWadFRDilfwY9XxZk3ZNzwqI8Z8fYfWOuFTWZk5CspMo30MmP/ChMQMb1kvnnZznfUsdgmtgIhORz
+ nyhlt6Bov5K40Zf57acSXOdOv9RejoJNDLxHHBcr1knBc5GnzUpN7uO317lVmcGLOF5Q=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=yH25RyDrgB/CHrd3oT3w5RJPoVT7/+e3hVxNpT5AUKM=; b=MF3CVcnlDxJmMMkyMSlSf7mm57
- TaxuFQi7OrnPDEVD1qLC1Ai3ieJpPUjIpZMatwBJ6beBROmAl3WtuYEh9t7yXrJ+cPvyAFg7PWVVC
- hXkS/RJY0G0QRbmpyMGWlv0y1j2fn2UBtJP+nrZhMtMA+t04oTHEl4JMG8LOnAPB1x50=;
-Received: from mail-pj1-f47.google.com ([209.85.216.47])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=c06vT1tTPVLhSjiDtSw7P/lMUVOV+4NakOUkmc7Sjy8=; b=H
+ 0nKtdPikK3igd1cQpugmY5GTFg4EIMfdPWGXYtPKD5hSjhmd0Wlpn1PfHN8hyJrga1ANQmrSCAZt2
+ yUXia4xOWg95kIXcYZY6LUjqktz0/fecL5enHQV4acF3PlWhtdPAUNpVGBOxJExTFkAg0eytin4Vj
+ C7BMS3Az1LpHpXC8=;
+Received: from mail-il1-f171.google.com ([209.85.166.171])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1ohLbd-0005R5-IM for openipmi-developer@lists.sourceforge.net;
- Sun, 09 Oct 2022 01:59:57 +0000
-Received: by mail-pj1-f47.google.com with SMTP id
- d7-20020a17090a2a4700b0020d268b1f02so925078pjg.1
+ id 1ohSXt-00HX6d-Ld for openipmi-developer@lists.sourceforge.net;
+ Sun, 09 Oct 2022 09:24:34 +0000
+Received: by mail-il1-f171.google.com with SMTP id y17so4435635ilq.8
  for <openipmi-developer@lists.sourceforge.net>;
- Sat, 08 Oct 2022 18:59:53 -0700 (PDT)
+ Sun, 09 Oct 2022 02:24:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=bytedance-com.20210112.gappssmtp.com; s=20210112;
- h=content-transfer-encoding:in-reply-to:from:references:cc:to
- :content-language:subject:user-agent:mime-version:date:message-id
- :from:to:cc:subject:date:message-id:reply-to;
- bh=yH25RyDrgB/CHrd3oT3w5RJPoVT7/+e3hVxNpT5AUKM=;
- b=wHVWpGwwakxY8QjLniIt4xKr4MTLDNSifAj1pE4j0IC9BMHi/hZdM+cvdt/51j33WO
- Pt5nb29Ii+3VxL7ajUZ7J8HmXrdQcMim7h1WJk0FYIPKMntFoSPD6DcOJJjpk85DjTlh
- A4Da17orqREmCshiGODhBQ4zUsTr+esxy08/BUUxLhdu28sh8g9qcUFAHmfo4+TSreqk
- S9dTH5v/dyQzvfn/UBrUl+8Tp1rSlhW/e4U8AZogOFtzRbri6swEIsId2rwPB7ZOx/8e
- +GMr3RQrNORWXajSNDhJXG3qLLjRBlm7YmRd7LmMgkaOkYmAhZi/dU9IDS1kT8Hsmu7j
- 1+NA==
+ h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+ :to:from:from:to:cc:subject:date:message-id:reply-to;
+ bh=c06vT1tTPVLhSjiDtSw7P/lMUVOV+4NakOUkmc7Sjy8=;
+ b=w1TFRHD0SeT/pmbr0js9hNBvhXIyM993AaQMjjMtyyLMW0jGsSINsekjNidvj8wuPu
+ Gd2M310ffRhfGikgFtxNmvysSYKEjZ1G/cfFGvrU1QOVUHGTM4TR3f5qCoIpvHYZsNFB
+ kyiugeuBqvZcTVIIaRck/AU4i9yeVvKSIk79imh4dx8yNVDpszDM92KFVRIpgdeTyTEk
+ BkgBTqd0xqH6XLx7jRBXJ90lxLGv1K2VsVVnnEu6K/ceZ6fvQvmLQt5a3651j8vm8Sa0
+ HEzJUdBSYy0TpjIrIXctmHOWly0Gd4ARZggDc9xpy3wLeWn0cBoaglO0f8KlI2ffYRsG
+ s4MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=content-transfer-encoding:in-reply-to:from:references:cc:to
- :content-language:subject:user-agent:mime-version:date:message-id
- :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
- bh=yH25RyDrgB/CHrd3oT3w5RJPoVT7/+e3hVxNpT5AUKM=;
- b=o02dy5NgJH2knwQzZUquMzCXn5gnAibRzNALuLr62XeU0DPn5+FCo+gZPvjpOCgA1q
- 0nlt5Y+1QydTHZpKdhMbvH+befF42sq5ti3E6kBNvBQHpxzMFGArIbKx6Ct3Y5xnaDGo
- hoAdaHen8s0D5Fpk4o+qCwGqvi5Yz7+KCAzt1bVq098ubksa5M4v+uUnib/jOZ3v1DjT
- g8N7XyRIZng/WOOQGxbxHeVGz79feTq4xi588XIxa6cGv/dBV+MbEFI3zuNWLYexz7+O
- M0CQUC7z51SCldwFuNpowWlP3rV2XPIVUbYUQjELKYWYsd1L2h+4jx2aXtaFV7MHBy99
- MT4Q==
-X-Gm-Message-State: ACrzQf3VsZe5JjbgMnMstGaHRPptehg7iZlcNDw2rVFuyxPTglLSWFfQ
- 1OxfBm4AoKoF4oBroHyTgDpTpi3qN+OC8g==
-X-Google-Smtp-Source: AMsMyM4gUYBHIPfolci8Wx6a+KdbvBPYFIhxNeIxfHsZbqEINFtVr6P1PmISrWoqLYWx24OK39Sh1w==
-X-Received: by 2002:a17:902:76c3:b0:17a:68:767d with SMTP id
- j3-20020a17090276c300b0017a0068767dmr11964720plt.109.1665276809468; 
- Sat, 08 Oct 2022 17:53:29 -0700 (PDT)
-Received: from [10.200.9.255] ([139.177.225.234])
+ h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+ :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=c06vT1tTPVLhSjiDtSw7P/lMUVOV+4NakOUkmc7Sjy8=;
+ b=KjivDng6pyUSIxvSS/VV/jvs39A5v7m0jVmZpizGIJoFUuuR5E9ez78Kg4pmYohKxw
+ XHoF6qetEYmm4ZFae42iLllJyV8WbZex/tNzN7mo5qJ72iMVQGN8oZaoJkrO4B167zDT
+ cFBUe6pzHGEs9nhnzGluMXi6KEmK5Yxqb2Ky65r9pCsa5aDp/Jc/VY5cvgePOPjV8t7Q
+ oVgBCq70NeXCijMA4q4HOhlwZSK1FLernksxlTR7o8w+gud0w3gDMy2czxFe1p1MVFan
+ F/d/7+MNYLv4s1IuSgCq8aWDdzkjRs11IIE0bWVr6c+zztl5lVDqcmahYJa7dYoAwCu/
+ fEwA==
+X-Gm-Message-State: ACrzQf1BStsU3Ls2R4BthOUn7XOELEU6hilxr4ifHDzZWhokKLO4DYZf
+ VxQseN26+31D1O30x+WrtFotDnu+AVj7Xamj
+X-Google-Smtp-Source: AMsMyM5oASkCz+aHt3lQVY8qf3o3DB9vnyGCnH02sG9l4RpaUOEVXzzk4KCBR2ME7OAWa/v5Cv/13w==
+X-Received: by 2002:a63:1e05:0:b0:451:31d0:8c0f with SMTP id
+ e5-20020a631e05000000b0045131d08c0fmr11829727pge.227.1665307100429; 
+ Sun, 09 Oct 2022 02:18:20 -0700 (PDT)
+Received: from localhost.localdomain ([139.177.225.234])
  by smtp.gmail.com with ESMTPSA id
- d10-20020a170902654a00b0016c50179b1esm3845768pln.152.2022.10.08.17.53.26
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 08 Oct 2022 17:53:28 -0700 (PDT)
-Message-ID: <298867dd-01d9-cd61-cdaa-95bbaf2dd2e4@bytedance.com>
-Date: Sun, 9 Oct 2022 08:53:21 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.3.0
-Content-Language: en-US
+ f38-20020a635566000000b004405c6eb962sm4328711pgm.4.2022.10.09.02.18.17
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 09 Oct 2022 02:18:19 -0700 (PDT)
+From: Zhang Yuchen <zhangyuchen.lcr@bytedance.com>
 To: minyard@acm.org
-References: <20221007092617.87597-1-zhangyuchen.lcr@bytedance.com>
- <20221007092617.87597-2-zhangyuchen.lcr@bytedance.com>
- <Y0CBbRqGPDU3g9hQ@minyard.net>
- <28367829-10e1-1a74-5572-ba01b8f8b716@bytedance.com>
- <Y0FjriRusk0H4Fxp@minyard.net>
-From: Yuchen Zhang <zhangyuchen.lcr@bytedance.com>
-In-Reply-To: <Y0FjriRusk0H4Fxp@minyard.net>
-X-Spam-Score: -3.6 (---)
+Date: Sun,  9 Oct 2022 17:18:08 +0800
+Message-Id: <20221009091811.40240-1-zhangyuchen.lcr@bytedance.com>
+X-Mailer: git-send-email 2.37.0 (Apple Git-136)
+MIME-Version: 1.0
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Ok, I will send v2 today. On 10/8/22 7:49 PM, Corey Minyard
- wrote: > On Sat, Oct 08, 2022 at 09:36:16AM +0800, Yuchen Zhang wrote: >>>
- Also, the following is in start_kcs_transaction(): >>> >>> if ((kcs->state
- != KCS_IDLE) && [...] 
- Content analysis details:   (-3.6 points, 6.0 required)
+ Content preview: Our users have reported a memory leak. The IPMI driver
+ consumes
+ a lot of memory. We found this problem because IPMI was slow to release
+ messages
+ after being disconnected, causing what appeared to be a memory leak. 
+ Content analysis details:   (-0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.216.47 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.216.47 listed in wl.mailspike.net]
+ no trust [209.85.166.171 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.171 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -3.6 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1ohLbd-0005R5-IM
-Subject: Re: [Openipmi-developer] [PATCH 1/3] ipmi: fix msg stack when IPMI
- is disconnected
+X-Headers-End: 1ohSXt-00HX6d-Ld
+Subject: [Openipmi-developer] [PATCH v2 0/3] ipmi: fix ipmi memleak and
+ unload bug
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -133,39 +122,52 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- qi.zheng@linux.dev
+ Zhang Yuchen <zhangyuchen.lcr@bytedance.com>, qi.zheng@linux.dev
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Ok, I will send v2 today.
+Our users have reported a memory leak. The IPMI driver consumes a lot of
+memory.
 
-On 10/8/22 7:49 PM, Corey Minyard wrote:
-> On Sat, Oct 08, 2022 at 09:36:16AM +0800, Yuchen Zhang wrote:
->>> Also, the following is in start_kcs_transaction():
->>>
->>> 	if ((kcs->state != KCS_IDLE) && (kcs->state != KCS_HOSED)) {
->>> 		dev_warn(kcs->io->dev, "KCS in invalid state %d\n", kcs->state);
->>> 		return IPMI_NOT_IN_MY_STATE_ERR;
->>> 	}
->>>
->>> You probably need to remove the (kcs->state != KCS_HOSED) part of this
->>> now.  Would you agree?
->>>
->>> -corey
->>>
->> I agree. KCS_HOSED state should be an invalid state.
-> 
-> Can you make this change, run a quick test, and re-submit this one
-> patch?  With that, I can include this.
-> 
-> Thanks,
-> 
-> -corey
+We found this problem because IPMI was slow to release messages after
+being disconnected, causing what appeared to be a memory leak.
 
---
-Thanks,
-Zhang Yuchen
+Fix commit as:
+  ipmi: fix msg stack when IPMI is disconnected
+
+Two other issues were addressed in the process of solving this problem.
+
+1. Unloading the driver takes a long time.
+
+Fix commit as:
+  ipmi: fix long wait in unload when IPMI disconnect
+
+2. Memory leaks during driver unloading.
+
+Fix commit as:
+  ipmi: fix memleak when unload ipmi driver
+
+
+v1: https://lore.kernel.org/lkml/20221007092617.87597-1-zhangyuchen.lcr@bytedance.com/
+
+Changelog in v1 -> v2 (suggested by corey):
+ - Change HOSED to the invalid state and not allowed to send.[TESTED]
+ - Remove incorrect comment.
+
+Zhang Yuchen (3):
+  ipmi: fix msg stack when IPMI is disconnected
+  ipmi: fix long wait in unload when IPMI disconnect
+  ipmi: fix memleak when unload ipmi driver
+
+ drivers/char/ipmi/ipmi_kcs_sm.c     | 16 +++++++++++-----
+ drivers/char/ipmi/ipmi_msghandler.c |  5 ++++-
+ drivers/char/ipmi/ipmi_si_intf.c    | 27 +++++++++++++++++++--------
+ 3 files changed, 34 insertions(+), 14 deletions(-)
+
+-- 
+2.30.2
+
 
 
 _______________________________________________
