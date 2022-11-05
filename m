@@ -2,27 +2,27 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 00A4D61DED4
-	for <lists+openipmi-developer@lfdr.de>; Sat,  5 Nov 2022 22:46:10 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F1E861DEFC
+	for <lists+openipmi-developer@lfdr.de>; Sat,  5 Nov 2022 22:48:25 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1orQzO-00020I-Lx;
-	Sat, 05 Nov 2022 21:46:06 +0000
+	id 1orR1a-0003WD-1t;
+	Sat, 05 Nov 2022 21:48:22 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <SRS0=G+DL=3F=goodmis.org=rostedt@kernel.org>)
- id 1orQzL-000202-Ll; Sat, 05 Nov 2022 21:46:03 +0000
+ id 1orR1W-0003W0-Uf; Sat, 05 Nov 2022 21:48:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
  :References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gh+hpO2pXbTNAR69Adk+li/F2R5RTSOUTLJAX/LHk7Q=; b=jcbJFnr30Y+V0aDT6JFjTAHsx7
- lOwnfdI3witmukSaTCXlwVyOeQQeMwXfzTXnQihKgGqi/yT23HTTw1YIcTJd1tF64mU8txazhFo+C
- W7FMRMAopt90pkqWOsxQv4R8NvxupxRtWEsyVLJcv3mZ3OD2svpQf24w2OYojXfR2LjA=;
+ bh=tPQ6JQ2e0fLUyAcKgHXy/BE/uDCgrGLetb3YKtdLZSs=; b=UbHUxyjy9YxBrMlDBywjeHOGvb
+ xJZxwx4R/1yDyoMB0SPtjuvtIn/T79/gdXB8QmT/7SNMGFoGvkbaXQ/ZoqluGtl6B0fFAy24w0WyP
+ IFniAjNs+QBnCuhBG6dZA3PKBM4TfxmFKg0RsK9zGOcgEhQMzvd3bcqxOuSxSX5j+1ZQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
@@ -30,24 +30,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=gh+hpO2pXbTNAR69Adk+li/F2R5RTSOUTLJAX/LHk7Q=; b=ZYiGDDWL/TullsPctNxQfb/2mv
- BUtEHGim7OVYFDvzpljr50V3b1zBHwcwCwU+D0XlYBGVZ/LZ5aT2ArBHbN0ZwtWYR8g+qXXDiuhvC
- HR5IkJvIErSSMoDsU2AMW2jYZT7KIUx68z8LYlAPd9yuzn2eG+zQ45nz7A8uwGakMC2Q=;
-Received: from sin.source.kernel.org ([145.40.73.55])
+ bh=tPQ6JQ2e0fLUyAcKgHXy/BE/uDCgrGLetb3YKtdLZSs=; b=gzIM3qH/tfG5I9g6YTN5fSgyTv
+ rTfXzdFtUx15tXL4q3BFlYpolWUk3uyk2SuKA8ZWb4WXFw2xv9tghXRx1CHlYVrgrxSOMyfX4aLig
+ eGXkMd5avprGEQPsWN1pVyh23okqQEOPa2qcG91lWocOmBd/rKNecnGJEQOWmNz0f5lI=;
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1orQzK-00023v-LC; Sat, 05 Nov 2022 21:46:03 +0000
+ id 1orR1J-00027c-KS; Sat, 05 Nov 2022 21:48:09 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by sin.source.kernel.org (Postfix) with ESMTPS id 8A73FCE069C;
- Sat,  5 Nov 2022 21:45:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74BDDC433D6;
- Sat,  5 Nov 2022 21:45:44 +0000 (UTC)
-Date: Sat, 5 Nov 2022 17:45:42 -0400
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 383BD60B9E;
+ Sat,  5 Nov 2022 21:48:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37383C433D6;
+ Sat,  5 Nov 2022 21:47:58 +0000 (UTC)
+Date: Sat, 5 Nov 2022 17:47:56 -0400
 From: Steven Rostedt <rostedt@goodmis.org>
 To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <20221105174542.21bd7e86@rorschach.local.home>
+Message-ID: <20221105174756.38062fce@rorschach.local.home>
 In-Reply-To: <CAHk-=wjkkomrdcrAxxFijs-Lih6vHze+A2TgM+v7-Z7ZkXT+WA@mail.gmail.com>
 References: <20221105060024.598488967@goodmis.org>
  <CAHk-=wi95dGkg7DiuOZ27gGW+mxJipn9ykB6LHB-HrbbLG6OMQ@mail.gmail.com>
@@ -65,19 +65,19 @@ X-Spam-Report: Spam detection software,
  the administrator of that system for details.
  Content preview:  On Sat,
  5 Nov 2022 14:13:14 -0700 Linus Torvalds <torvalds@linux-foundation.org>
- wrote: > And trying "when != ptr->timer" actually does the right thing in
- that > it gets rid of the case where the timer is modified outside of the
- > del_timer() case, *but* it also causes odd other changes [...] 
+ wrote: > (Comparing output is also fun because the ordering of the patches
+ is > random, so consecutive runs with the same rule will give different >
+ patches. I assume that it's just because it's done in para [...] 
  Content analysis details:   (-4.8 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [145.40.73.55 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
  mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1orQzK-00023v-LC
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [139.178.84.217 listed in list.dnswl.org]
+X-Headers-End: 1orR1J-00027c-KS
 Subject: Re: [Openipmi-developer] [PATCH v4a 00/38] timers: Use
  timer_shutdown*() before freeing timers
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -120,43 +120,22 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 On Sat, 5 Nov 2022 14:13:14 -0700
 Linus Torvalds <torvalds@linux-foundation.org> wrote:
 
-> And trying "when != ptr->timer" actually does the right thing in that
-> it gets rid of the case where the timer is modified outside of the
-> del_timer() case, *but* it also causes odd other changes to the
-> output.
-> 
-> Look at what it generates for that
-> 
->    drivers/media/usb/pvrusb2/pvrusb2-hdw.c
-> 
-> file, which finds a lot of triggers with the "when !=  ptr->timer",
-> but only does one without it.
+> (Comparing output is also fun because the ordering of the patches is
+> random, so consecutive runs with the same rule will give different
+> patches. I assume that it's just because it's done in parallel, but it
+> doesn't help the "try to see what changes when you change the script"
+> ;)
 
-I added an expression, and it appears to work:
+What I do to compare is:
 
-At least for this case.
+ patch -p1 < cocci1.patch
+ git commit -a
+ git show | patch -p1 -R
+ patch -p1 < cocci2.patch
+ git diff
 
-@@
-expression E;
-identifier ptr, timer, rfield, slab;
-@@
-(
--       del_timer(&ptr->timer);
-+       timer_shutdown(&ptr->timer);
-|
--       del_timer_sync(&ptr->timer);
-+       timer_shutdown_sync(&ptr->timer);
-)
-  ... when != ptr->timer.function = E;
-(
-        kfree_rcu(ptr, rfield);
-|
-        kmem_cache_free(slab, ptr);
-|
-        kfree(ptr);
-)
-
-Now I need to add return and goto cases here.
+Then I see how things changed. This is how I was able to show you the
+tweaks I made.
 
 -- Steve
 
