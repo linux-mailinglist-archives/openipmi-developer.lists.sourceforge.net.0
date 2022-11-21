@@ -2,100 +2,99 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F3F75631692
-	for <lists+openipmi-developer@lfdr.de>; Sun, 20 Nov 2022 22:28:38 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 16198632227
+	for <lists+openipmi-developer@lfdr.de>; Mon, 21 Nov 2022 13:33:19 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1owrre-0004R7-Iv;
-	Sun, 20 Nov 2022 21:28:34 +0000
+	id 1ox5z7-0000Yh-TV;
+	Mon, 21 Nov 2022 12:33:13 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <sebastian.reichel@collabora.com>) id 1owqWj-0000aA-BB
+ (envelope-from <lee@kernel.org>) id 1ox3US-0000nv-PH
  for openipmi-developer@lists.sourceforge.net;
- Sun, 20 Nov 2022 20:02:53 +0000
+ Mon, 21 Nov 2022 09:53:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=0D3dMIBX7aAulwEEjVVy2yJyqjbteA9Cxab+Ap7tD8A=; b=Zhz6Qmo0s30vrmIX3fFKDaB5ZW
- XSiR73JJBBQfllpVuy6a4o7GblOtQhE84mlpV0NGFu0gZSaWIPZh2fXw3S9/2nk5uDZrO1bZxRTuU
- UfB5iDHHpeuZPQ5cGR4rrd7H36iSIaVL6zpynAqj7Yre8vpPwUYhYqLiEgDH4Y0sbW60=;
+ bh=zKIMCLssyl0fZfxv9qwrDGb1MSMKUlBI4byGPRB54lU=; b=ji/A/6PcPJURVHIKR+WRTJqMbG
+ boxUz26RDg/tg346/MQoz8/6cbw2TvGy/q78z8RdsoFg8UiswTdud2vh8VFYpxFZTGlqTUV2i/FMc
+ wzY43bOQLILHJNJGKttCRqQ93ArYzKkctWHxyz1aEZ2FevcAd4Of0TnQKeteM7U8eGBI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=0D3dMIBX7aAulwEEjVVy2yJyqjbteA9Cxab+Ap7tD8A=; b=Gzbd2xvW4heH1HOiQVIf1AJPoN
- fXKTRuCFlHvUir+wQO8cPpzECIZF1414pf+Gyr0GibQ/RGXuOUVkW7NJ7ZuIJwJfxZWClZiNmzsDg
- nkFL1cVVwlPvtg0ZH4ZHjBLkANs09weOHex8wQp3e43UfZ3yh9LLUNDRFUl3KgsbBZ3g=;
-Received: from madras.collabora.co.uk ([46.235.227.172])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=zKIMCLssyl0fZfxv9qwrDGb1MSMKUlBI4byGPRB54lU=; b=KofHi/ySI11tL96AoY6eXJMSr3
+ 24UJSHSgSgwGDOgM8XWBiNJ8mHMHriSLBWXc6QxaeRkmA5uHFuUPOqEaalWvuln/tsVllnNraWKmB
+ WzNKO8UmznK5S4wrW/3k+Xump1uTbTjIliko601ZiRtF79+leeZR44ykA+wm+5tgT7P4=;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1owqWh-002qJX-Sc for openipmi-developer@lists.sourceforge.net;
- Sun, 20 Nov 2022 20:02:53 +0000
-Received: from mercury (unknown [185.209.196.162])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested) (Authenticated sender: sre)
- by madras.collabora.co.uk (Postfix) with ESMTPSA id 981D16602381;
- Sun, 20 Nov 2022 19:43:45 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1668973425;
- bh=T3nU7r4TDRBfUE21qBPtx6/vbbqNd5aTZrUhEKVEpe8=;
+ id 1ox3US-0002xX-2J for openipmi-developer@lists.sourceforge.net;
+ Mon, 21 Nov 2022 09:53:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id D8EB560F97;
+ Mon, 21 Nov 2022 09:53:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06F83C433C1;
+ Mon, 21 Nov 2022 09:53:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1669024397;
+ bh=m9yZHwnTEqGasYZNomMe1mRJHVzf8B7M3LDSNHYcXeA=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=eTDOl2wCVRsu/tyZH+YPJZtqzX+lTk+zyDWIOt7B5OERtVQXV05JqgkECzvZaxhvq
- GWHynwzbAdTGjQc4EiizPb4JzuNJErOOA6MGMcIE1OOBJsR2nJxdyKqik4rZXW8I8S
- YL9hLYJH9B0qYNlv0ofE25pkedfO3Zr0ukRr6nTWoiYIF0ElBn0uG1ehB/KKpnJkB6
- LmHZCe95IKsjPugXIHsbUyR3TPbe/Uz/FTgEe5YV5fHfIiRZ+dwYB8lU4/MgAmu4vM
- BZjO4bgM9A0wAKu6Ub+wy7zE/lgrgtzyeA/1iFwakjmg/vd8UL0auYvToqpQCZqsxv
- +Bmg67/Ow+Rwg==
-Received: by mercury (Postfix, from userid 1000)
- id 1C1D2106F223; Sun, 20 Nov 2022 20:43:43 +0100 (CET)
-Date: Sun, 20 Nov 2022 20:43:43 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>
-Message-ID: <20221120194343.nnpzhgjapep7iwqk@mercury.elektranox.org>
+ b=Opj/itLbJtFE0syJxd+qkemdvm+GfbfZ1pccF1SGR++3DJnkeyD3YQtGhN+blIjub
+ US8fX8iushvScwunkPr7LKirCchaNKKAU/twl0oVnqHEwdHsHxi0M0d/wgtlpEZqG7
+ k4ovt/Znm0DICj47Y+N6I+Yw47E1MyyiN0e/92S2h9qHrb149jszKe3FalK/2rVJQ+
+ ZppAyMp4v8rjq+XBX9JSBl1ysXWpcIvX0EVYeK13kfbg9IEzo070nVbf9UiCPP9DpS
+ bXABnzNPLB0lPKqHS3KQR0EQyUsQW7BynY23b8Z2+QTbLFxJQgHRN0fjhkCpVJB9+z
+ k93zjyweI0uEQ==
+Date: Mon, 21 Nov 2022 09:53:05 +0000
+From: Lee Jones <lee@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>
+Message-ID: <Y3tKgXPJP7S48i3j@google.com>
 References: <20221118224540.619276-1-uwe@kleine-koenig.org>
 MIME-Version: 1.0
+Content-Disposition: inline
 In-Reply-To: <20221118224540.619276-1-uwe@kleine-koenig.org>
-X-Spam-Score: -0.2 (/)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
+X-Spam-Score: -5.2 (-----)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  Hi, On Fri, Nov 18, 2022 at 11:35:34PM +0100, Uwe Kleine-König
-    wrote: > Hello, > > since commit b8a1a4cd5a98 ("i2c: Provide a temporary
-   .probe_new() > call-back type") from 2016 there is a "temporary" alt [...]
-    
+ Content preview:  On Fri, 18 Nov 2022, Uwe Kleine-KÃ¶nig wrote: > Hello, > >
+    since commit b8a1a4cd5a98 ("i2c: Provide a temporary .probe_new() > call-back
+    type") from 2016 there is a "temporary" alternative probe > callback for
+   i2c drivers. 
  
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content analysis details:   (-5.2 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
-  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
-                             blocked.  See
-                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
-                              for more information.
-                             [URIs: collabora.com]
-  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
-                             author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+                             high trust
+                             [139.178.84.217 listed in list.dnswl.org]
   0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
                              valid
  -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
-X-Headers-End: 1owqWh-002qJX-Sc
-X-Mailman-Approved-At: Sun, 20 Nov 2022 21:28:31 +0000
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1ox3US-0002xX-2J
+X-Mailman-Approved-At: Mon, 21 Nov 2022 12:33:12 +0000
 Subject: Re: [Openipmi-developer] [PATCH 000/606] i2c: Complete conversion
  to i2c_probe_new
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -132,129 +131,128 @@ Cc: alsa-devel@alsa-project.org, linux-staging@lists.linux.dev,
  Wolfram Sang <wsa@kernel.org>, linux-crypto@vger.kernel.org,
  kernel@pengutronix.de, netdev@vger.kernel.org, linux-integrity@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org
-Content-Type: multipart/mixed; boundary="===============9214899114653307221=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============9214899114653307221==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wvm2z6appxwdd5fa"
-Content-Disposition: inline
-
-
---wvm2z6appxwdd5fa
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-On Fri, Nov 18, 2022 at 11:35:34PM +0100, Uwe Kleine-K=F6nig wrote:
-> Hello,
->=20
-> since commit b8a1a4cd5a98 ("i2c: Provide a temporary .probe_new()
-> call-back type") from 2016 there is a "temporary" alternative probe
-> callback for i2c drivers.
->=20
-> This series completes all drivers to this new callback (unless I missed
-> something). It's based on current next/master.
-> A part of the patches depend on commit 662233731d66 ("i2c: core:
-> Introduce i2c_client_get_device_id helper function"), there is a branch t=
-hat
-> you can pull into your tree to get it:
->=20
-> 	https://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git i2c/client=
-_device_id_helper-immutable
->=20
-> I don't think it's feasable to apply this series in one go, so I ask the
-> maintainers of the changed files to apply via their tree. I guess it
-> will take a few kernel release iterations until all patch are in, but I
-> think a single tree creates too much conflicts.
->=20
-> The last patch changes i2c_driver::probe, all non-converted drivers will
-> fail to compile then. So I hope the build bots will tell me about any
-> driver I missed to convert. This patch is obviously not for application
-> now.
->=20
-> I dropped most individuals from the recipents of this mail to not
-> challenge the mail servers and mailing list filters too much. Sorry if
-> you had extra efforts to find this mail.
->=20
-> Best regards
-> Uwe
-
-=2E..
-
->   power: supply: adp5061: Convert to i2c's .probe_new()
->   power: supply: bq2415x: Convert to i2c's .probe_new()
->   power: supply: bq24190: Convert to i2c's .probe_new()
->   power: supply: bq24257: Convert to i2c's .probe_new()
->   power: supply: bq24735: Convert to i2c's .probe_new()
->   power: supply: bq2515x: Convert to i2c's .probe_new()
->   power: supply: bq256xx: Convert to i2c's .probe_new()
->   power: supply: bq25890: Convert to i2c's .probe_new()
->   power: supply: bq25980: Convert to i2c's .probe_new()
->   power: supply: bq27xxx: Convert to i2c's .probe_new()
->   power: supply: ds2782: Convert to i2c's .probe_new()
->   power: supply: lp8727: Convert to i2c's .probe_new()
->   power: supply: ltc2941: Convert to i2c's .probe_new()
->   power: supply: ltc4162-l: Convert to i2c's .probe_new()
->   power: supply: max14656: Convert to i2c's .probe_new()
->   power: supply: max17040: Convert to i2c's .probe_new()
->   power: supply: max17042_battery: Convert to i2c's .probe_new()
->   power: supply: rt5033_battery: Convert to i2c's .probe_new()
->   power: supply: rt9455: Convert to i2c's .probe_new()
->   power: supply: sbs: Convert to i2c's .probe_new()
->   power: supply: sbs-manager: Convert to i2c's .probe_new()
->   power: supply: smb347: Convert to i2c's .probe_new()
->   power: supply: ucs1002: Convert to i2c's .probe_new()
->   power: supply: z2_battery: Convert to i2c's .probe_new()
->   [...]
-
-Thanks, I queued patches 513-536 to the power-supply subsystem.
-
--- Sebastian
-
---wvm2z6appxwdd5fa
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmN6g2YACgkQ2O7X88g7
-+pocPA/+MG7rp45xJuAH0zlIFTM8ovBviXnLvra0hpvK+vMB8SVdh4K8vRCAoeoT
-lxML9oRVfhraHzo/3X6+7V87cw+QzEx3GZbYsIasGqic46MoFYkbA2i3Q8s8hS5y
-qpAcKn/efXJaBtdIxWQnOc0xU0YCiteiIik8Idb9MjHFupUspLxtIjCzTAmvKQ0k
-hJ5u5cqv3d/MP6VpsOCUYPDet9nS9ByPeg8Kr9Ux1a0WEldPYUO+dU0ObqRdhliZ
-agftaEtCvFYkfO9k8ubBL/x00gTn002xOB7gp+5s0V0D3wKfT5EPVYOoUZbeYMIu
-QOZaLHkNkBtV85kGm18h7IFdQZQY9ahcaGTYZplyz/YzHlK/AlfjA2umKS1+rs5m
-A+DDqnAkuWw9fLg0MJ4dLSPwOSPX3VfgmVS3By3Do2gotQkCqXsRdhrG1cIoE1aL
-AZYpSwLTn2rAYF59poL3rgSqx/MhgrLwmKQOH3fjwZ3R7PIAWFhYP1We2UtKdCEM
-Gjpr7QfAUiOuXDKi5OrBbWr4m2eX26A4uifwR62OyldwH8pUWAq3umgkw3rotQAA
-hdwOOPM+cHTyLbtP8kaP1XSR6u0ybuTbw8OQE/XPDNVceoMqR4XxUSYbs0Q0UzY6
-fwljGfbakuGbaNlb7s2LBsy0ESZuiz64Za/0gfJhI5rP1eNRR1U=
-=Dh+o
------END PGP SIGNATURE-----
-
---wvm2z6appxwdd5fa--
-
-
---===============9214899114653307221==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============9214899114653307221==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============9214899114653307221==--
-
+T24gRnJpLCAxOCBOb3YgMjAyMiwgVXdlIEtsZWluZS1Lw7ZuaWcgd3JvdGU6Cgo+IEhlbGxvLAo+
+IAo+IHNpbmNlIGNvbW1pdCBiOGExYTRjZDVhOTggKCJpMmM6IFByb3ZpZGUgYSB0ZW1wb3Jhcnkg
+LnByb2JlX25ldygpCj4gY2FsbC1iYWNrIHR5cGUiKSBmcm9tIDIwMTYgdGhlcmUgaXMgYSAidGVt
+cG9yYXJ5IiBhbHRlcm5hdGl2ZSBwcm9iZQo+IGNhbGxiYWNrIGZvciBpMmMgZHJpdmVycy4KCk9o
+IHllYWgsIHRoaXMhICBUaGFua3MgZm9yIHBpY2tpbmcgdGhpcyB1cCBVd2UsIEkgZ3Vlc3MgSSd2
+ZSBiZWVuCmRpc3RyYWN0ZWQgZm9yIHRoZSBwYXN0IDYgeWVhcnMgb3Igc28uIDopCgo+IFRoaXMg
+c2VyaWVzIGNvbXBsZXRlcyBhbGwgZHJpdmVycyB0byB0aGlzIG5ldyBjYWxsYmFjayAodW5sZXNz
+IEkgbWlzc2VkCj4gc29tZXRoaW5nKS4gSXQncyBiYXNlZCBvbiBjdXJyZW50IG5leHQvbWFzdGVy
+Lgo+IEEgcGFydCBvZiB0aGUgcGF0Y2hlcyBkZXBlbmQgb24gY29tbWl0IDY2MjIzMzczMWQ2NiAo
+ImkyYzogY29yZToKPiBJbnRyb2R1Y2UgaTJjX2NsaWVudF9nZXRfZGV2aWNlX2lkIGhlbHBlciBm
+dW5jdGlvbiIpLCB0aGVyZSBpcyBhIGJyYW5jaCB0aGF0Cj4geW91IGNhbiBwdWxsIGludG8geW91
+ciB0cmVlIHRvIGdldCBpdDoKPiAKPiAJaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xp
+bnV4L2tlcm5lbC9naXQvd3NhL2xpbnV4LmdpdCBpMmMvY2xpZW50X2RldmljZV9pZF9oZWxwZXIt
+aW1tdXRhYmxlCj4gCj4gSSBkb24ndCB0aGluayBpdCdzIGZlYXNhYmxlIHRvIGFwcGx5IHRoaXMg
+c2VyaWVzIGluIG9uZSBnbywgc28gSSBhc2sgdGhlCj4gbWFpbnRhaW5lcnMgb2YgdGhlIGNoYW5n
+ZWQgZmlsZXMgdG8gYXBwbHkgdmlhIHRoZWlyIHRyZWUuIEkgZ3Vlc3MgaXQKPiB3aWxsIHRha2Ug
+YSBmZXcga2VybmVsIHJlbGVhc2UgaXRlcmF0aW9ucyB1bnRpbCBhbGwgcGF0Y2ggYXJlIGluLCBi
+dXQgSQo+IHRoaW5rIGEgc2luZ2xlIHRyZWUgY3JlYXRlcyB0b28gbXVjaCBjb25mbGljdHMuCj4g
+Cj4gVGhlIGxhc3QgcGF0Y2ggY2hhbmdlcyBpMmNfZHJpdmVyOjpwcm9iZSwgYWxsIG5vbi1jb252
+ZXJ0ZWQgZHJpdmVycyB3aWxsCj4gZmFpbCB0byBjb21waWxlIHRoZW4uIFNvIEkgaG9wZSB0aGUg
+YnVpbGQgYm90cyB3aWxsIHRlbGwgbWUgYWJvdXQgYW55Cj4gZHJpdmVyIEkgbWlzc2VkIHRvIGNv
+bnZlcnQuIFRoaXMgcGF0Y2ggaXMgb2J2aW91c2x5IG5vdCBmb3IgYXBwbGljYXRpb24KPiBub3cu
+Cj4gCj4gSSBkcm9wcGVkIG1vc3QgaW5kaXZpZHVhbHMgZnJvbSB0aGUgcmVjaXBlbnRzIG9mIHRo
+aXMgbWFpbCB0byBub3QKPiBjaGFsbGVuZ2UgdGhlIG1haWwgc2VydmVycyBhbmQgbWFpbGluZyBs
+aXN0IGZpbHRlcnMgdG9vIG11Y2guIFNvcnJ5IGlmCj4geW91IGhhZCBleHRyYSBlZmZvcnRzIHRv
+IGZpbmQgdGhpcyBtYWlsLgoKWy4uLl0KCj4gIGRyaXZlcnMvbWZkLzg4cG04MDAuYyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkLzg4cG04MDUuYyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL2FhdDI4
+NzAtY29yZS5jICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZk
+L2FjdDg5NDVhLmMgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZl
+cnMvbWZkL2FkcDU1MjAuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA2ICsrKy0tLQo+
+ICBkcml2ZXJzL21mZC9hcml6b25hLWkyYy5jICAgICAgICAgICAgICAgICAgICAgICAgfCAgNiAr
+KystLS0KPiAgZHJpdmVycy9tZmQvYXMzNzExLmMgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvYXMzNzIyLmMgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvYXRjMjYweC1pMmMuYyAgICAgICAgICAg
+ICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvYXhwMjB4LWkyYy5jICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvYmNtNTkweHguYyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvYmQ5NTcx
+bXd2LmMgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQv
+ZGE5MDN4LmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDYgKysrLS0tCj4gIGRyaXZl
+cnMvbWZkL2RhOTA1Mi1pMmMuYyAgICAgICAgICAgICAgICAgICAgICAgICB8ICA2ICsrKy0tLQo+
+ICBkcml2ZXJzL21mZC9kYTkwNTUtaTJjLmMgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNSAr
+Ky0tLQo+ICBkcml2ZXJzL21mZC9kYTkwNjItY29yZS5jICAgICAgICAgICAgICAgICAgICAgICAg
+fCAgNiArKystLS0KPiAgZHJpdmVycy9tZmQvZGE5MDYzLWkyYy5jICAgICAgICAgICAgICAgICAg
+ICAgICAgIHwgIDYgKysrLS0tCj4gIGRyaXZlcnMvbWZkL2RhOTE1MC1jb3JlLmMgICAgICAgICAg
+ICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL2toYWRhcy1tY3UuYyAgICAg
+ICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL2xtMzUzMy1jb3Jl
+LmMgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL2xwMzk0
+My5jICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA0ICsrLS0KPiAgZHJpdmVycy9tZmQv
+bHA4NzN4LmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVy
+cy9tZmQvbHA4NzU2NS5jICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAg
+ZHJpdmVycy9tZmQvbHA4Nzg4LmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDQgKyst
+LQo+ICBkcml2ZXJzL21mZC9tYWRlcmEtaTJjLmMgICAgICAgICAgICAgICAgICAgICAgICAgfCAg
+NiArKystLS0KPiAgZHJpdmVycy9tZmQvbWF4MTQ1NzcuYyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHwgIDYgKysrLS0tCj4gIGRyaXZlcnMvbWZkL21heDc3NjIwLmMgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8ICA2ICsrKy0tLQo+ICBkcml2ZXJzL21mZC9tYXg3NzY5My5jICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCAgNiArKystLS0KPiAgZHJpdmVycy9tZmQvbWF4Nzc4NDMuYyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDYgKysrLS0tCj4gIGRyaXZlcnMvbWZkL21heDg5
+MDcuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZk
+L21heDg5MjUtaTJjLmMgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZl
+cnMvbWZkL21heDg5OTcuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA2ICsrKy0tLQo+
+ICBkcml2ZXJzL21mZC9tYXg4OTk4LmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNiAr
+KystLS0KPiAgZHJpdmVycy9tZmQvbWMxM3h4eC1pMmMuYyAgICAgICAgICAgICAgICAgICAgICAg
+IHwgIDYgKysrLS0tCj4gIGRyaXZlcnMvbWZkL21lbmVsYXVzLmMgICAgICAgICAgICAgICAgICAg
+ICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL21lbmYyMWJtYy5jICAgICAgICAgICAg
+ICAgICAgICAgICAgICB8ICA0ICsrLS0KPiAgZHJpdmVycy9tZmQvcGFsbWFzLmMgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvcGNmNTA2MzMtY29y
+ZS5jICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvcmM1dDU4
+My5jICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQv
+cmV0dS1tZmQuYyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDQgKystLQo+ICBkcml2ZXJz
+L21mZC9yazgwOC5jICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNSArKy0tLQo+ICBk
+cml2ZXJzL21mZC9yb2htLWJkNzE4eDcuYyAgICAgICAgICAgICAgICAgICAgICAgfCAgNSArKy0t
+LQo+ICBkcml2ZXJzL21mZC9yc211X2kyYy5jICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAg
+NiArKystLS0KPiAgZHJpdmVycy9tZmQvcnQ1MDMzLmMgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvc2VjLWNvcmUuYyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvc2k0NzZ4LWkyYy5jICAgICAgICAg
+ICAgICAgICAgICAgICAgIHwgIDYgKysrLS0tCj4gIGRyaXZlcnMvbWZkL3NreTgxNDUyLmMgICAg
+ICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL3N0bWZ4LmMg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL3N0
+bXBlLWkyYy5jICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrKy0tCj4gIGRyaXZlcnMv
+bWZkL3N0cG1pYzEuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRy
+aXZlcnMvbWZkL3N0dzQ4MXguYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0t
+Cj4gIGRyaXZlcnMvbWZkL3RjMzU4OXguYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICA2
+ICsrKy0tLQo+ICBkcml2ZXJzL21mZC90aS1sbXUuYyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgfCAgNSArKystLQo+ICBkcml2ZXJzL21mZC90cHM2MTA1eC5jICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgfCAgNSArKy0tLQo+ICBkcml2ZXJzL21mZC90cHM2NTAxMC5jICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgfCAgNiArKystLS0KPiAgZHJpdmVycy9tZmQvdHBzNjUwN3guYyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvdHBzNjUwODYu
+YyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9tZmQvdHBz
+NjUwOTAuYyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJpdmVycy9t
+ZmQvdHBzNjUyMTguYyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0KPiAgZHJp
+dmVycy9tZmQvdHBzNjU4NnguYyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDUgKystLS0K
+PiAgZHJpdmVycy9tZmQvdHBzNjU5MTAuYyAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDYg
+KysrLS0tCj4gIGRyaXZlcnMvbWZkL3RwczY1OTEyLWkyYy5jICAgICAgICAgICAgICAgICAgICAg
+ICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL3R3bC1jb3JlLmMgICAgICAgICAgICAgICAgICAg
+ICAgICAgICB8ICA1ICsrKy0tCj4gIGRyaXZlcnMvbWZkL3R3bDYwNDAuYyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL3dsMTI3My1jb3JlLmMgICAg
+ICAgICAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvbWZkL3dtODMxeC1pMmMu
+YyAgICAgICAgICAgICAgICAgICAgICAgICB8ICA2ICsrKy0tLQo+ICBkcml2ZXJzL21mZC93bTgz
+NTAtaTJjLmMgICAgICAgICAgICAgICAgICAgICAgICAgfCAgNSArKy0tLQo+ICBkcml2ZXJzL21m
+ZC93bTg0MDAtY29yZS5jICAgICAgICAgICAgICAgICAgICAgICAgfCAgNSArKy0tLQo+ICBkcml2
+ZXJzL21mZC93bTg5OTQtY29yZS5jICAgICAgICAgICAgICAgICAgICAgICAgfCAgNiArKystLS0K
+CkZvciBteSBvd24gcmVmZXJlbmNlIChhcHBseSB0aGlzIGFzLWlzIHRvIHlvdXIgc2lnbi1vZmYg
+YmxvY2spOgoKICBBY2tlZC1mb3ItTUZELWJ5OiBMZWUgSm9uZXMgPGxlZUBrZXJuZWwub3JnPgoK
+PiAgZHJpdmVycy92aWRlby9iYWNrbGlnaHQvYWRwODg2MF9ibC5jICAgICAgICAgICAgIHwgIDYg
+KysrLS0tCj4gIGRyaXZlcnMvdmlkZW8vYmFja2xpZ2h0L2FkcDg4NzBfYmwuYyAgICAgICAgICAg
+ICB8ICA2ICsrKy0tLQo+ICBkcml2ZXJzL3ZpZGVvL2JhY2tsaWdodC9hcmN4Y25uX2JsLmMgICAg
+ICAgICAgICAgfCAgNCArKy0tCj4gIGRyaXZlcnMvdmlkZW8vYmFja2xpZ2h0L2JkNjEwNy5jICAg
+ICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvdmlkZW8vYmFja2xpZ2h0L2xtMzYz
+MGFfYmwuYyAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvdmlkZW8vYmFja2xpZ2h0
+L2xtMzYzOV9ibC5jICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZlcnMvdmlkZW8vYmFj
+a2xpZ2h0L2xwODU1eF9ibC5jICAgICAgICAgICAgICB8ICA1ICsrKy0tCj4gIGRyaXZlcnMvdmlk
+ZW8vYmFja2xpZ2h0L2x2NTIwN2xwLmMgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4gIGRyaXZl
+cnMvdmlkZW8vYmFja2xpZ2h0L3Rvc2FfYmwuYyAgICAgICAgICAgICAgICB8ICA1ICsrLS0tCj4g
+IGRyaXZlcnMvdmlkZW8vZmJkZXYvbWF0cm94L21hdHJveGZiX21hdmVuLmMgICAgICB8ICA1ICsr
+LS0tCgpGb3IgbXkgb3duIHJlZmVyZW5jZSAoYXBwbHkgdGhpcyBhcy1pcyB0byB5b3VyIHNpZ24t
+b2ZmIGJsb2NrKToKCiAgQWNrZWQtZm9yLUJhY2tsaWdodC1ieTogTGVlIEpvbmVzIDxsZWVAa2Vy
+bmVsLm9yZz4KCi0tIApMZWUgSm9uZXMgW+adjueQvOaWr10KCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBtaS1kZXZlbG9wZXIgbWFpbGluZyBs
+aXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0cHM6Ly9saXN0
+cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVyCg==
