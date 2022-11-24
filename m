@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CAE06637A84
-	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Nov 2022 14:50:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 235CD637B03
+	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Nov 2022 15:03:56 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1oyCcv-0003kv-NO;
-	Thu, 24 Nov 2022 13:50:53 +0000
+	id 1oyCpT-00049x-Uj;
+	Thu, 24 Nov 2022 14:03:51 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <broonie@kernel.org>) id 1oyCcv-0003kp-2D
+ (envelope-from <broonie@kernel.org>) id 1oyCpT-00049r-3l
  for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Nov 2022 13:50:53 +0000
+ Thu, 24 Nov 2022 14:03:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
  :Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=1W6X7rvJIbCNfOdjsHCZpmIAgl4VmwQyU/p4f/vdjME=; b=fWtcXI4atbxAgHBlM/BAO9cRBe
- 5/sJXMmVeLsSmtcHTLCudmG3tsEmPxBotKnXM485LoE/iGDkSRhSse2LTzB4C/8G9HyIFhCUxwVEa
- Upjf2n5PkFHfA8w2Soa+0ERM88A+Zxr17SO8GiEo81rBBsaQVsc4TIWcOlEUEYZOGeuM=;
+ bh=1W6X7rvJIbCNfOdjsHCZpmIAgl4VmwQyU/p4f/vdjME=; b=PySQ8blplo9IBmNMZStsfBNjuX
+ 0Hal4VbEEul9PfHSz/OZ8cXHe4FZ8nhz/KdHpftYvus8K/Npm32UzbfbRdOJbJtBajxeTOn7+RAN3
+ Z0KBhYqL7SlS1WCdReqthoZWmeTwkJ/UrKL0A3JEIH8FnOLFeXs3AqReDhzhxKITSzUQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-Id:
@@ -31,42 +31,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=1W6X7rvJIbCNfOdjsHCZpmIAgl4VmwQyU/p4f/vdjME=; b=B7aaBHDx2nssM3TxZqQQeloj72
- 4QZTdJ8Skxu+duXkcO1zUIg54ofh56jvfHqNbOqAGkMA2IksDH3/1nEVZq62m77rmoK2ttb7Vexfi
- 7HNFgxuf16mf2Q1AwFmmawil9k0P/BGUKWe7717LVcjktDvxgtM/eCPuW/be4ycmXO/Q=;
+ bh=1W6X7rvJIbCNfOdjsHCZpmIAgl4VmwQyU/p4f/vdjME=; b=kmbLIHrNGWGNfZmsMGB/v5QrvP
+ kDJuCYAjkZQsncbmpN2lvbp4zdC1n5wxEhkA8EWsWUZQbnP7BZzho/FhsYkwVGUbDD4rk0SeZPLtP
+ v41HbBpd3HIDaHW4DP8IDHiEzUX/fXy3eQ4v/fqvGwfKTgTRUAyMpOPxItZtPXxAhpmU=;
 Received: from dfw.source.kernel.org ([139.178.84.217])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1oyCcu-004gWB-Ct for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Nov 2022 13:50:53 +0000
+ id 1oyCpR-0006iu-BU for openipmi-developer@lists.sourceforge.net;
+ Thu, 24 Nov 2022 14:03:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 028D6620F4;
- Thu, 24 Nov 2022 13:50:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6776AC4347C;
- Thu, 24 Nov 2022 13:50:38 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id E874262135;
+ Thu, 24 Nov 2022 14:03:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FF70C433C1;
+ Thu, 24 Nov 2022 14:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1669297846;
+ s=k20201202; t=1669298622;
  bh=vSDY92xmrOtkiq1FJrC4dGUzlqSkjlYU9twgxHBDx1E=;
  h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
- b=Hi20oGxzkmEg74j6qRD7Lfpoa1kcTrQCKK089dVyyzd4Ms62GyYEcriKLOdYnSnIB
- BaTy90c7xln7bVVdzp+tZfTor2YCDJ4PfhCFqr+4U1blkF+BSGk+wqWNbDs1GjRxEP
- 5zngiMi62+XsaI5cdT+5MW5QXkwvuvZTdh1mYSgYk++n5bXwjsiaFEUQhZ7smrgwyJ
- TLSH8t2DGrVJraC9jirkwbs0YSutluzSGLevyrPQzPM1RecM+sjiSCNDXdUbmWoX0j
- UbEkRvn5n0p6b+FOMJ6yy/o81uO1xyfZHDSqUS0YA3une+k6GKCtZ+YH0Sav4kxmgU
- 3opwvJAPSvwcQ==
+ b=nZuDMnz0Bnw0wngsvKcCuMi37WyCwRFu1zlLtpyZ8kJ/SUgdR9ueemAGg2ifSRbsS
+ ngE1M/2YBgLMfw1T7s965pyL0rkVPKFx3Xz9+MvCqP9yK41e0OWXVEx5CahX5bpBSX
+ bNSJWq2tkaMnULfxNWsOA9s2gY3f+Y+uputYw5Tuq8d9FDtvZBMoUpfr08tDyv6O0M
+ eMgC//vwInbEPQqZVo/1kvfmh1Za+HNyhoZ6h9vzZD44w2kZMSGHZ4LDLm3mp+PwWW
+ oMryJr+4yq62Q1Zeb0i+ysKQik51u1ingPfNffuYc890dwWCkfHz0wmRSwvJdzbO9V
+ 7lA4LZSoAmcIg==
 From: Mark Brown <broonie@kernel.org>
-To: Wolfram Sang <wsa@kernel.org>, Angel Iglesias <ang.iglesiasg@gmail.com>, Lee Jones <lee.jones@linaro.org>,
- Grant Likely <grant.likely@linaro.org>, Uwe Kleine-König <uwe@kleine-koenig.org>
+To: Grant Likely <grant.likely@linaro.org>, Angel Iglesias <ang.iglesiasg@gmail.com>,
+ Uwe Kleine-König <uwe@kleine-koenig.org>, Wolfram Sang <wsa@kernel.org>, Lee Jones <lee.jones@linaro.org>
 In-Reply-To: <20221118224540.619276-1-uwe@kleine-koenig.org>
 References: <20221118224540.619276-1-uwe@kleine-koenig.org>
-Message-Id: <166929783812.276133.16916757100694771073.b4-ty@kernel.org>
-Date: Thu, 24 Nov 2022 13:50:38 +0000
+Message-Id: <166929861409.291680.9255716235309801017.b4-ty@kernel.org>
+Date: Thu, 24 Nov 2022 14:03:34 +0000
 MIME-Version: 1.0
 X-Mailer: b4 0.10.0-dev-fc921
-X-Spam-Score: -5.2 (-----)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
+X-Spam-Score: -5.9 (-----)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -76,7 +76,7 @@ X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.
     > since commit b8a1a4cd5a98 ("i2c: Provide a temporary .probe_new() > call-back
     type") from 2016 there is a "temporary" alternative probe > [...] 
  
- Content analysis details:   (-5.2 points, 6.0 required)
+ Content analysis details:   (-5.9 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -89,11 +89,11 @@ X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.
                              author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
                              envelope-from domain
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
   0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
                              valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1oyCcu-004gWB-Ct
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1oyCpR-0006iu-BU
 Subject: Re: [Openipmi-developer] (subset) [PATCH 000/606] i2c: Complete
  conversion to i2c_probe_new
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -108,7 +108,7 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
+Cc: alsa-devel@alsa-project.org, linux-pwm@vger.kernel.org,
  linux-iio@vger.kernel.org, linux-fbdev@vger.kernel.org,
  platform-driver-x86@vger.kernel.org, linux-mtd@lists.infradead.org,
  linux-i2c@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
@@ -117,7 +117,7 @@ Cc: alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
  linux-staging@lists.linux.dev,
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
  linux-serial@vger.kernel.org, linux-input@vger.kernel.org,
- linux-media@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-watchdog@vger.kernel.org, linux-pm@vger.kernel.org,
  linux-actions@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
