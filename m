@@ -2,100 +2,113 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1DD5C638C1E
-	for <lists+openipmi-developer@lfdr.de>; Fri, 25 Nov 2022 15:27:31 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id E2C13639AEF
+	for <lists+openipmi-developer@lfdr.de>; Sun, 27 Nov 2022 14:16:15 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1oyZfq-0007fr-5J;
-	Fri, 25 Nov 2022 14:27:26 +0000
+	id 1ozHVy-0001wI-I3;
+	Sun, 27 Nov 2022 13:16:10 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <broonie@kernel.org>) id 1oyZfn-0007fa-UJ
+ (envelope-from <andriy.shevchenko@intel.com>) id 1oyxLh-0007NW-QL
  for openipmi-developer@lists.sourceforge.net;
- Fri, 25 Nov 2022 14:27:23 +0000
+ Sat, 26 Nov 2022 15:44:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Jc6D9Mpz43zuvMZRehmBkDuUVzYLA+EwbJkqGgzN9B4=; b=fETeBzlsb9FzgB0KcEBOTDD7eb
- ZW0sX8vRPsCy5AG4KQI54L9rklBbQbIsRfNVJOTfBwCKdqDC+qAabsrdva/tzxo1x3hIpp4xo/aMV
- pdysJQdhOmfecpdFntrouS6GNznqTWpRmX2hiSkXGiM+ub+KzCnAoSRCyJQWnaIoS9SY=;
+ bh=4Bb3Zb7auvgMvZAuE4484XNN8xPkUxs++SLW6VQm8j8=; b=EnaSJcm2pSWoeD2OnBfpzKwY3o
+ Hz/0FXUaHoV0aDKDJ2+7vtyPjfgVVKRQnvrGQ2+9GtfcklyX+42M/NHOyP1sCeNyQ2fE6U58z9Jqh
+ fl+seA56iR15IKDoKtsya8LkAgM8EeQPe9TcuYWeuS+k+h+Dj1nihUMXdtWf+iL+/uIo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-Id:
- Subject:References:In-Reply-To:Cc:To:From:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Jc6D9Mpz43zuvMZRehmBkDuUVzYLA+EwbJkqGgzN9B4=; b=ll79dllBJZIT4620azjB1rsdEW
- SaYq305xWFA9Q5DAGrgARwRSsHBcnHPR0bvti/TKtL1olSlXctk+ajAn9XxRXlIfyabC8fA76Ha5m
- Wc98HQmA7wchc8tC4IZsrLw33KTeqDBCYL6A7R7utpzn86jNdNLPysA7tzVJZh8+gAfg=;
-Received: from ams.source.kernel.org ([145.40.68.75])
+ bh=4Bb3Zb7auvgMvZAuE4484XNN8xPkUxs++SLW6VQm8j8=; b=lqsztaY42UZBAhp97TTq4JzREf
+ PDlcre8Io529CLLDGnIkRMIlW/ackontf4Gv44qM7TZdXKa3KFRpzzDviH4cf/sRqFvDle2vbf8Tp
+ 9G6EloickXjI8/KWOXYtDSPoYf2xgDh/nYmN4TZQvKcPOmBoTmrt7h7RNt2ZrfZOJFYQ=;
+Received: from mga05.intel.com ([192.55.52.43])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1oyZfl-00AMRa-Nm for openipmi-developer@lists.sourceforge.net;
- Fri, 25 Nov 2022 14:27:22 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 168EEB82B02;
- Fri, 25 Nov 2022 14:27:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C59CBC433D6;
- Fri, 25 Nov 2022 14:27:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1669386434;
- bh=flrWhKxQcLgnkz5HWwKc3eGDBXHd2DZVGZMjdcPc5hY=;
- h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
- b=CyHabUYcBi83iBg+IXQCXTmWKh/Vsse6jNqtBrOcjWNjpEEPUkYxmD/0nZ5c5ugKO
- jo6Z8/gl+MgvM2sAwEq6RdlT5vgN1k6ZJ+hqcP93CQj09ymCKeE30N8oa3t0Dyb2ta
- 8+lhrsfn7LySe/twThGMfi4tdsvHPQplnQuaeGcZds17fbxEN/133XbiwZ446jPLS9
- 1J6PAAF8g/44RhMnx0oz0XFgtuVlOhD80/f7Dhydm3vHtZMKjn7bF0j0c8/R2UsycZ
- cywT0qiXBo9L2PFUprEkr+T5u7/lhadYuK2q+CTR0j12IAxjD6y0soSJBSn9D8biJo
- PV6iVB08gZr+A==
-From: Mark Brown <broonie@kernel.org>
-To: Angel Iglesias <ang.iglesiasg@gmail.com>, Wolfram Sang <wsa@kernel.org>, Lee Jones <lee.jones@linaro.org>,
- Grant Likely <grant.likely@linaro.org>, Uwe Kleine-König <uwe@kleine-koenig.org>
-In-Reply-To: <20221118224540.619276-1-uwe@kleine-koenig.org>
+ id 1oyxLg-00EgIY-FJ for openipmi-developer@lists.sourceforge.net;
+ Sat, 26 Nov 2022 15:44:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1669477452; x=1701013452;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:content-transfer-encoding:in-reply-to;
+ bh=TYZva1qhZaDDzx7ssD6565IlpCg24ayIFbcaC7tY8Tc=;
+ b=V1SxMmpbUl+nWWZ8R41Pd+bRfL9qCWJUUMinYD0rKmcz3vblKHJ9Sn38
+ rFsJVplbr8gt8yW5dMjNxIuLMmO05Y6VmEStILLQO0ISJ4ZS/0uMZ72XB
+ T3U32Q0MB4zv0n1w1jrExqhpup401jlrVa39kIz9Fx45jg8EoDjhgNwW4
+ Ovqdy3rket2RW0vPqcKgbDSBbZJKseap5W6a5UU+bvLDrSulec6eUl7Ng
+ LQnNAjfCe8v5TnzXfFPixZwd3vGCWUdh5RGFjgteu8obCo7tkOIOv6eXi
+ nuHHqUxD+X3gQLqf2C45ar2rd71AsEvAT15gKkgzLQ8Uu9pPdLbi/2QxS g==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10543"; a="400895103"
+X-IronPort-AV: E=Sophos;i="5.96,196,1665471600"; d="scan'208";a="400895103"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+ by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 26 Nov 2022 07:44:06 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10543"; a="620587303"
+X-IronPort-AV: E=Sophos;i="5.96,196,1665471600"; d="scan'208";a="620587303"
+Received: from smile.fi.intel.com ([10.237.72.54])
+ by orsmga006.jf.intel.com with ESMTP; 26 Nov 2022 07:43:54 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+ (envelope-from <andriy.shevchenko@intel.com>) id 1oyxLL-000Bco-1n;
+ Sat, 26 Nov 2022 17:43:51 +0200
+Date: Sat, 26 Nov 2022 17:43:51 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Message-ID: <Y4I0N3KpU/LSJYpd@smile.fi.intel.com>
 References: <20221118224540.619276-1-uwe@kleine-koenig.org>
-Message-Id: <166938642447.506633.10798171870515262916.b4-ty@kernel.org>
-Date: Fri, 25 Nov 2022 14:27:04 +0000
+ <20221122185818.3740200d@jic23-huawei>
+ <20221122201654.5rdaisqho33buibj@pengutronix.de>
 MIME-Version: 1.0
-X-Mailer: b4 0.10.0-dev-fc921
-X-Spam-Score: -5.2 (-----)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
+Content-Disposition: inline
+In-Reply-To: <20221122201654.5rdaisqho33buibj@pengutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-Spam-Score: -3.2 (---)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  On Fri, 18 Nov 2022 23:35:34 +0100, Uwe Kleine-König wrote:
-    > since commit b8a1a4cd5a98 ("i2c: Provide a temporary .probe_new() > call-back
-    type") from 2016 there is a "temporary" alternative probe > [...] 
+ Content preview:  On Tue, Nov 22, 2022 at 09:16:54PM +0100, Uwe Kleine-K�nig
+    wrote: > On Tue, Nov 22, 2022 at 06:58:18PM +0000, Jonathan Cameron wrote:
+    > > Queued all of the below: > > with one tweaked as per your suggestion
+   and the highlighted one dropped on basis > > I was already carrying the equivalent
+    - as you pointed out. > > > > I was already [...] 
  
- Content analysis details:   (-5.2 points, 6.0 required)
+ Content analysis details:   (-3.2 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
-                             high trust
-                             [145.40.68.75 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+                             medium trust
+                             [192.55.52.43 listed in list.dnswl.org]
   0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
-                             valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
                              author's domain
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
                              envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1oyZfl-00AMRa-Nm
-Subject: Re: [Openipmi-developer] (subset) [PATCH 000/606] i2c: Complete
- conversion to i2c_probe_new
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1oyxLg-00EgIY-FJ
+X-Mailman-Approved-At: Sun, 27 Nov 2022 13:16:10 +0000
+Subject: Re: [Openipmi-developer] [PATCH 000/606] i2c: Complete conversion
+ to i2c_probe_new
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -110,62 +123,81 @@ List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
  linux-iio@vger.kernel.org, linux-fbdev@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, linux-mtd@lists.infradead.org,
- linux-i2c@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ platform-driver-x86@vger.kernel.org, netdev@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-i2c@vger.kernel.org,
+ Lee Jones <lee.jones@linaro.org>, linux-stm32@st-md-mailman.stormreply.com,
  linux-leds@vger.kernel.org, linux-rtc@vger.kernel.org,
  chrome-platform@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
  linux-staging@lists.linux.dev,
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
  linux-serial@vger.kernel.org, linux-input@vger.kernel.org,
- linux-media@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-actions@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- openipmi-developer@lists.sourceforge.net, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Purism Kernel Team <kernel@puri.sm>,
- patches@opensource.cirrus.com, linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org,
- kernel@pengutronix.de, netdev@vger.kernel.org, linux-integrity@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ Grant Likely <grant.likely@linaro.org>, linux-media@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-watchdog@vger.kernel.org,
+ Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
+ linux-pm@vger.kernel.org, linux-actions@lists.infradead.org,
+ Wolfram Sang <wsa@kernel.org>, linux-gpio@vger.kernel.org,
+ Angel Iglesias <ang.iglesiasg@gmail.com>, linux-rpi-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, openipmi-developer@lists.sourceforge.net,
+ linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Purism Kernel Team <kernel@puri.sm>, gregkh@linuxfoundation.org,
+ linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-crypto@vger.kernel.org, kernel@pengutronix.de,
+ patches@opensource.cirrus.com, linux-integrity@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, Jonathan Cameron <jic23@kernel.org>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T24gRnJpLCAxOCBOb3YgMjAyMiAyMzozNTozNCArMDEwMCwgVXdlIEtsZWluZS1Lw7ZuaWcgd3Jv
-dGU6Cj4gc2luY2UgY29tbWl0IGI4YTFhNGNkNWE5OCAoImkyYzogUHJvdmlkZSBhIHRlbXBvcmFy
-eSAucHJvYmVfbmV3KCkKPiBjYWxsLWJhY2sgdHlwZSIpIGZyb20gMjAxNiB0aGVyZSBpcyBhICJ0
-ZW1wb3JhcnkiIGFsdGVybmF0aXZlIHByb2JlCj4gY2FsbGJhY2sgZm9yIGkyYyBkcml2ZXJzLgo+
-IAo+IFRoaXMgc2VyaWVzIGNvbXBsZXRlcyBhbGwgZHJpdmVycyB0byB0aGlzIG5ldyBjYWxsYmFj
-ayAodW5sZXNzIEkgbWlzc2VkCj4gc29tZXRoaW5nKS4gSXQncyBiYXNlZCBvbiBjdXJyZW50IG5l
-eHQvbWFzdGVyLgo+IEEgcGFydCBvZiB0aGUgcGF0Y2hlcyBkZXBlbmQgb24gY29tbWl0IDY2MjIz
-MzczMWQ2NiAoImkyYzogY29yZToKPiBJbnRyb2R1Y2UgaTJjX2NsaWVudF9nZXRfZGV2aWNlX2lk
-IGhlbHBlciBmdW5jdGlvbiIpLCB0aGVyZSBpcyBhIGJyYW5jaCB0aGF0Cj4geW91IGNhbiBwdWxs
-IGludG8geW91ciB0cmVlIHRvIGdldCBpdDoKPiAKPiBbLi4uXQoKQXBwbGllZCB0bwoKICAgaHR0
-cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvYnJvb25pZS9zb3Vu
-ZC5naXQgZm9yLW5leHQKClRoYW5rcyEKCls2MDEvNjA2XSBBU29DOiBjb2RlY3M6IGVzODMyNjog
-Q29udmVydCB0byBpMmMncyAucHJvYmVfbmV3KCkKICAgICAgICAgIGNvbW1pdDogNzg0MjUyYmFj
-ODM1YzgzMWUxMGM0OGJlNjMzY2QxZmYwZDY5NzMyNgpbNjAyLzYwNl0gQVNvQzogbWF4OTgzOTY6
-IENvbnZlcnQgdG8gaTJjJ3MgLnByb2JlX25ldygpCiAgICAgICAgICBjb21taXQ6IDJmZjg1MDIw
-ZWM1ZGI0YWYzYjU1ZDM1ZjViODM4NWU4MzBjMzlmZGQKWzYwMy82MDZdIEFTb0M6IGNvZGVjczog
-c3JjNHh4eC1pMmM6IENvbnZlcnQgdG8gaTJjJ3MgLnByb2JlX25ldygpCiAgICAgICAgICBjb21t
-aXQ6IDgzMGEzNWFhMjEyMTI1OGQwYzgyODNhYmU0NWViYjVjM2QyZmQ3OTEKWzYwNC82MDZdIEFT
-b0M6IGNvZGVjczogdGFzMjc4MDogQ29udmVydCB0byBpMmMncyAucHJvYmVfbmV3KCkKICAgICAg
-ICAgIGNvbW1pdDogODhhZGUyYWJiYTFlNDZmZTU4MTYxMDkxMTI0MDA1NDUzOGY4ZGI4OAoKQWxs
-IGJlaW5nIHdlbGwgdGhpcyBtZWFucyB0aGF0IGl0IHdpbGwgYmUgaW50ZWdyYXRlZCBpbnRvIHRo
-ZSBsaW51eC1uZXh0CnRyZWUgKHVzdWFsbHkgc29tZXRpbWUgaW4gdGhlIG5leHQgMjQgaG91cnMp
-IGFuZCBzZW50IHRvIExpbnVzIGR1cmluZwp0aGUgbmV4dCBtZXJnZSB3aW5kb3cgKG9yIHNvb25l
-ciBpZiBpdCBpcyBhIGJ1ZyBmaXgpLCBob3dldmVyIGlmCnByb2JsZW1zIGFyZSBkaXNjb3ZlcmVk
-IHRoZW4gdGhlIHBhdGNoIG1heSBiZSBkcm9wcGVkIG9yIHJldmVydGVkLgoKWW91IG1heSBnZXQg
-ZnVydGhlciBlLW1haWxzIHJlc3VsdGluZyBmcm9tIGF1dG9tYXRlZCBvciBtYW51YWwgdGVzdGlu
-ZwphbmQgcmV2aWV3IG9mIHRoZSB0cmVlLCBwbGVhc2UgZW5nYWdlIHdpdGggcGVvcGxlIHJlcG9y
-dGluZyBwcm9ibGVtcyBhbmQKc2VuZCBmb2xsb3d1cCBwYXRjaGVzIGFkZHJlc3NpbmcgYW55IGlz
-c3VlcyB0aGF0IGFyZSByZXBvcnRlZCBpZiBuZWVkZWQuCgpJZiBhbnkgdXBkYXRlcyBhcmUgcmVx
-dWlyZWQgb3IgeW91IGFyZSBzdWJtaXR0aW5nIGZ1cnRoZXIgY2hhbmdlcyB0aGV5CnNob3VsZCBi
-ZSBzZW50IGFzIGluY3JlbWVudGFsIHVwZGF0ZXMgYWdhaW5zdCBjdXJyZW50IGdpdCwgZXhpc3Rp
-bmcKcGF0Y2hlcyB3aWxsIG5vdCBiZSByZXBsYWNlZC4KClBsZWFzZSBhZGQgYW55IHJlbGV2YW50
-IGxpc3RzIGFuZCBtYWludGFpbmVycyB0byB0aGUgQ0NzIHdoZW4gcmVwbHlpbmcKdG8gdGhpcyBt
-YWlsLgoKVGhhbmtzLApNYXJrCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZl
-bG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0
-L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+On Tue, Nov 22, 2022 at 09:16:54PM +0100, Uwe Kleine-K=F6nig wrote:
+> On Tue, Nov 22, 2022 at 06:58:18PM +0000, Jonathan Cameron wrote:
+
+> > Queued all of the below:
+> > with one tweaked as per your suggestion and the highlighted one dropped=
+ on basis
+> > I was already carrying the equivalent - as you pointed out.
+> > =
+
+> > I was already carrying the required dependency.
+> > =
+
+> > Includes the IIO ones in staging.
+> > =
+
+
+> > p.s. I perhaps foolishly did this in a highly manual way so as to
+> > also pick up Andy's RB.  So might have dropped one...
+> =
+
+> You could have done:
+> =
+
+> 	H=3D$(git rev-parse @)
+> 	b4 am -P 49-190 20221118224540.619276-1-uwe@kleine-koenig.org
+> 	git am ...
+> 	git filter-branch -f --msg-filter "grep -v 'Signed-off-by: Jonathan'; ec=
+ho 'Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>'; echo=
+ 'Signed-off-by: Jonathan Cameron <jic23@kernel.org>'" $H..
+> =
+
+> (untested, but you get the idea).
+
+That's, for example (just last from the history as is), how I usually do it
+(tested):
+
+ git filter-branch --msg-filter 'sed -e "/Signed-off-by: Andy Shevchenko/ a=
+ Tested-by: Daniel Scally <dan.scally@ideasonboard.com>"' -f HEAD~4..HEAD
+
+
+-- =
+
+With Best Regards,
+Andy Shevchenko
+
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
