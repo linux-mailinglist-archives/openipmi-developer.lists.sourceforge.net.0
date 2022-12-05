@@ -2,117 +2,126 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6CA8064285E
-	for <lists+openipmi-developer@lfdr.de>; Mon,  5 Dec 2022 13:25:13 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 436B86428DA
+	for <lists+openipmi-developer@lfdr.de>; Mon,  5 Dec 2022 13:59:13 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1p2AWx-0003tO-Np;
-	Mon, 05 Dec 2022 12:25:07 +0000
+	id 1p2B3t-0007Ek-5f;
+	Mon, 05 Dec 2022 12:59:09 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <yang.yang29@zte.com.cn>) id 1p2A6G-00061v-Jd
+ (envelope-from <tcminyard@gmail.com>) id 1p2B3r-0007Ea-7l
  for openipmi-developer@lists.sourceforge.net;
- Mon, 05 Dec 2022 11:57:32 +0000
+ Mon, 05 Dec 2022 12:59:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Mime-Version:
- Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=8dFgwBsb+ifD3pil3VCawClQZBj9cS0sp8KDUJ4nCDE=; b=kHDbAgJViP5HK5ZZrqVy3zblhd
- kcIJh+uO7tvfJGsFfOMVwPAtZGJXC5st/hfuZDPJVv16fJoS4rkaepYRulUadJsDxGwHSySGbfniC
- j0nR6OQz3Sreur3UWpnWDbuVhaypn1FzRthggxJIsoTnaWVTY31+QfSNn3TrpgebGeLg=;
+ bh=KP/5WQh/mEOzVxXR0lIeI+bfQ61vrivbOH56tMcNgoQ=; b=R3S9jJQyj3FyGdzmK6n28k/l+l
+ 85/rlvtVcVL9acvJDU/O5bMpXldqyogl0inNmXZ1O77ZWohvElWyIi2k6JIaW/SM4uUyVWtka8egQ
+ KjDkiia8i8yDE0pmibBhhL7rRwtekk7wphGZM86qCmQuADMpDWxCIaZobhPrI5nTVrqA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Subject:Cc:To:From:Mime-Version:Message-ID:Date:Sender:
- Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
- :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=8dFgwBsb+ifD3pil3VCawClQZBj9cS0sp8KDUJ4nCDE=; b=A
- dtMCbWo6drQ1eeMmqmy29bC0AZfBI52WLSckAPzYCtG79qMUGkF43DWID1AjODksnZ2Jz8HFiZF0e
- 7sONJ9B9W0DOW7dw34UHxXzLkkQeZ6XFk+X3Ornq6f+NZRpcW6lt0uvKDm4YfFGlyGltVxlQ9WQBI
- sAIT7pEu/b1tivB4=;
-Received: from mxct.zte.com.cn ([58.251.27.85])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1p2A6E-006mrJ-KS for openipmi-developer@lists.sourceforge.net;
- Mon, 05 Dec 2022 11:57:32 +0000
-Received: from mxde.zte.com.cn (unknown [10.35.20.121])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mxct.zte.com.cn (FangMail) with ESMTPS id 4NQhNx4NWcz1Fh3
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=KP/5WQh/mEOzVxXR0lIeI+bfQ61vrivbOH56tMcNgoQ=; b=aFxJp5UnzGeRaEI1yZpMmTiupa
+ +oY6Ewtwji9QygGEvGIwdNjTYTuXMA/v/19csjgsRESOJpcJsJx0esi871y081MxzfjLPtMe2OR3/
+ PgeoTaxaV3ZCqoT327e2Cz5S0mZeaxN/StVmZrK0QEMwY1A4169Vmj/6UHK1BbLIE2KY=;
+Received: from mail-qv1-f45.google.com ([209.85.219.45])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1p2B3p-0001dz-D5 for openipmi-developer@lists.sourceforge.net;
+ Mon, 05 Dec 2022 12:59:07 +0000
+Received: by mail-qv1-f45.google.com with SMTP id s14so8081406qvo.11
  for <openipmi-developer@lists.sourceforge.net>;
- Mon,  5 Dec 2022 19:37:37 +0800 (CST)
-Received: from mxus.zte.com.cn (unknown [10.207.168.8])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mxde.zte.com.cn (FangMail) with ESMTPS id 4NQhNZ1lnpz9vXG3
- for <openipmi-developer@lists.sourceforge.net>;
- Mon,  5 Dec 2022 19:37:18 +0800 (CST)
-Received: from mxhk.zte.com.cn (unknown [192.168.250.138])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mxus.zte.com.cn (FangMail) with ESMTPS id 4NQhNN00lszdmX8k
- for <openipmi-developer@lists.sourceforge.net>;
- Mon,  5 Dec 2022 19:37:08 +0800 (CST)
-Received: from mxct.zte.com.cn (unknown [192.168.251.13])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mxhk.zte.com.cn (FangMail) with ESMTPS id 4NQhN33SPCz4xVnd
- for <openipmi-developer@lists.sourceforge.net>;
- Mon,  5 Dec 2022 19:36:51 +0800 (CST)
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mxct.zte.com.cn (FangMail) with ESMTPS id 4NQhMv42LCz4xpy7;
- Mon,  5 Dec 2022 19:36:43 +0800 (CST)
-Received: from szxlzmapp03.zte.com.cn ([10.5.231.207])
- by mse-fl1.zte.com.cn with SMTP id 2B5BaaYY051373;
- Mon, 5 Dec 2022 19:36:36 +0800 (+08)
- (envelope-from yang.yang29@zte.com.cn)
-Received: from mapi (szxlzmapp02[null]) by mapi (Zmail) with MAPI id mid14;
- Mon, 5 Dec 2022 19:36:40 +0800 (CST)
-Date: Mon, 5 Dec 2022 19:36:40 +0800 (CST)
-X-Zmail-TransId: 2b04638dd7c8ffffffffa569f048
-X-Mailer: Zmail v1.0
-Message-ID: <202212051936400309332@zte.com.cn>
-Mime-Version: 1.0
-From: <yang.yang29@zte.com.cn>
-To: <minyard@acm.org>
-X-MAIL: mse-fl1.zte.com.cn 2B5BaaYY051373
-X-Fangmail-Gw-Spam-Type: 0
-X-FangMail-Miltered: at cgslv5.04-192.168.251.14.novalocal with ID
- 638DD800.000 by FangMail milter!
-X-FangMail-Envelope: 1670240257/4NQhNx4NWcz1Fh3/638DD800.000/10.35.20.121/[10.35.20.121]/mxde.zte.com.cn/<yang.yang29@zte.com.cn>
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 638DD800.000/4NQhNx4NWcz1Fh3
-X-Spam-Score: 0.0 (/)
+ Mon, 05 Dec 2022 04:59:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:sender:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=KP/5WQh/mEOzVxXR0lIeI+bfQ61vrivbOH56tMcNgoQ=;
+ b=ju9s2yD6a403lPEu4ffTSPmB4P9koV8V6cAedPYQgNfH9BTrk3FmI6kgK1i0E9bMz9
+ SEfSXQ9s5bMx0rneD7jQ+p+H6Az/1zPrxgFmbqZioBTKuTHT2kiV/1t8z5jC8l19AdOL
+ HWeKJfsiTKTeY4NWDhq0i4QNz2Mg+Yxtku9+iCnIEunZxcig8dXEY5l0hb/Er7Bq7+dL
+ M7SNsiHhZqepAtLg4aShVpXIiH6C/rfCPYbVn5CH9zZY4DXJFjnkkWa5xg/f4+Lmaxw6
+ 3B9tamuLB4ZvDHXtxfwnx/fDvgasxYtVtljYRhSFRGZ9rJQ8ndwte3tfKNWfwpHdlXvr
+ lbpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:sender:x-gm-message-state:from
+ :to:cc:subject:date:message-id:reply-to;
+ bh=KP/5WQh/mEOzVxXR0lIeI+bfQ61vrivbOH56tMcNgoQ=;
+ b=BAEDL9U73hmCHG7Wa7PRv2blckjx8FwGzdzrcaJWyfuGmkEFxEN6pOvLtFcfTrG4uP
+ +iO5oP8fr2jg1kbNXBABwdiAkjMN3rt9lVlVka1GlD18/45+KxfsQh+gpJTkXScql0Mv
+ iwnkwVmnEU/RjIjzVR/x1Qkn49fSP+UBayeTQkHlDnHHJyiQ1Up0482AmO05RXyMNBZi
+ 1Ho95gah+6mDRvEpeO3HuSH8xWx36kn8wsHtjxRyk2HConbLNiNwgWRJQv+jhzSlYTie
+ lzV4eKthLjpn27xk4qcjz7gEYQznMEcZ6iTJ8Hlg/aSSIMv29bTnSkGwvSWmAf7wmTWP
+ 1P3A==
+X-Gm-Message-State: ANoB5pldBHHJnMjWXXO7W1FJJYbgx4TfJj3DrPa6us0rBCAqQRbHU+YI
+ vmcBfkspze496Mu/oN0+qsSx5L5x+g==
+X-Google-Smtp-Source: AA0mqf6yWjA1bmajIfMwjJqwDtlJuLoQ3+KFzDF3AFDcI3IYNk2ik9OadyMf4zAY2goalZLMVXaEmA==
+X-Received: by 2002:a05:6214:5587:b0:4c7:50d9:ec0b with SMTP id
+ mi7-20020a056214558700b004c750d9ec0bmr9681209qvb.59.1670245139269; 
+ Mon, 05 Dec 2022 04:58:59 -0800 (PST)
+Received: from serve.minyard.net ([47.184.139.94])
+ by smtp.gmail.com with ESMTPSA id
+ d7-20020a05620a240700b006feba101f85sm2998505qkn.13.2022.12.05.04.58.57
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 05 Dec 2022 04:58:57 -0800 (PST)
+Received: from minyard.net (unknown
+ [IPv6:2001:470:b8f6:1b:42e8:b9a0:e0aa:8ed4])
+ by serve.minyard.net (Postfix) with ESMTPSA id 764901800D9;
+ Mon,  5 Dec 2022 12:58:55 +0000 (UTC)
+Date: Mon, 5 Dec 2022 06:58:54 -0600
+From: Corey Minyard <minyard@acm.org>
+To: yang.yang29@zte.com.cn
+Message-ID: <Y43rDpYejtOcne3+@minyard.net>
+References: <202212051936400309332@zte.com.cn>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <202212051936400309332@zte.com.cn>
+X-Spam-Score: 0.3 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: Xu Panda <xu.panda@zte.com.cn> The implementation of
- strscpy()
- is more robust and safer. That's now the recommended way to copy NUL
- terminated
- strings. Signed-off-by: Xu Panda <xu.panda@zte.com.cn> Signed-off-by: Yang
- Yang <yang.yang29@zte.com> --- drivers/char/ipmi/ipmi_watchdog.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-) 
- Content analysis details:   (0.0 points, 6.0 required)
+ Content preview:  On Mon, Dec 05, 2022 at 07:36:40PM +0800,
+ yang.yang29@zte.com.cn
+ wrote: > Xu Panda <xu.panda@zte.com.cn> > > The implementation of strscpy()
+ is more robust and safer. > That's now the recommended way [...] 
+ Content analysis details:   (0.3 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [tcminyard[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
- lines
-X-Headers-End: 1p2A6E-006mrJ-KS
-X-Mailman-Approved-At: Mon, 05 Dec 2022 12:25:05 +0000
-Subject: [Openipmi-developer] =?utf-8?q?=5BPATCH_linux-next=5D_ipmi/watchd?=
- =?utf-8?q?og=3A_use_strscpy=28=29_to_instead_of_strncpy=28=29?=
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.219.45 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.219.45 listed in list.dnswl.org]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+X-Headers-End: 1p2B3p-0001dz-D5
+Subject: Re: [Openipmi-developer] [PATCH linux-next] ipmi/watchdog: use
+ strscpy() to instead of strncpy()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -125,39 +134,46 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: yang.yang29@zte.com.cn, xu.panda@zte.com.cn,
- openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Reply-To: minyard@acm.org
+Cc: xu.panda@zte.com.cn, openipmi-developer@lists.sourceforge.net,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Xu Panda <xu.panda@zte.com.cn>
+On Mon, Dec 05, 2022 at 07:36:40PM +0800, yang.yang29@zte.com.cn wrote:
+> Xu Panda <xu.panda@zte.com.cn>
+> 
+> The implementation of strscpy() is more robust and safer.
+> That's now the recommended way to copy NUL terminated strings.
 
-The implementation of strscpy() is more robust and safer.
-That's now the recommended way to copy NUL terminated strings.
+This looks right.  Applied, thanks.
 
-Signed-off-by: Xu Panda <xu.panda@zte.com.cn>
-Signed-off-by: Yang Yang <yang.yang29@zte.com>
----
- drivers/char/ipmi/ipmi_watchdog.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+-corey
 
-diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
-index 47365150e431..0d4a8dcacfd4 100644
---- a/drivers/char/ipmi/ipmi_watchdog.c
-+++ b/drivers/char/ipmi/ipmi_watchdog.c
-@@ -213,8 +213,7 @@ static int set_param_str(const char *val, const struct kernel_param *kp)
- 	char       valcp[16];
- 	char       *s;
-
--	strncpy(valcp, val, 15);
--	valcp[15] = '\0';
-+	strscpy(valcp, val, 16);
-
- 	s = strstrip(valcp);
-
--- 
-2.15.2
+> 
+> Signed-off-by: Xu Panda <xu.panda@zte.com.cn>
+> Signed-off-by: Yang Yang <yang.yang29@zte.com>
+> ---
+>  drivers/char/ipmi/ipmi_watchdog.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
+> index 47365150e431..0d4a8dcacfd4 100644
+> --- a/drivers/char/ipmi/ipmi_watchdog.c
+> +++ b/drivers/char/ipmi/ipmi_watchdog.c
+> @@ -213,8 +213,7 @@ static int set_param_str(const char *val, const struct kernel_param *kp)
+>  	char       valcp[16];
+>  	char       *s;
+> 
+> -	strncpy(valcp, val, 15);
+> -	valcp[15] = '\0';
+> +	strscpy(valcp, val, 16);
+> 
+>  	s = strstrip(valcp);
+> 
+> -- 
+> 2.15.2
 
 
 _______________________________________________
