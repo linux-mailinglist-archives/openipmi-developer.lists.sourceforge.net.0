@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 755D3650085
-	for <lists+openipmi-developer@lfdr.de>; Sun, 18 Dec 2022 17:16:33 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3F12F6500D1
+	for <lists+openipmi-developer@lfdr.de>; Sun, 18 Dec 2022 17:19:27 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1p6wKz-0002bV-Tc;
-	Sun, 18 Dec 2022 16:16:29 +0000
+	id 1p6wNn-0002et-QN;
+	Sun, 18 Dec 2022 16:19:23 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <sashal@kernel.org>) id 1p6wKy-0002bP-I8
+ (envelope-from <sashal@kernel.org>) id 1p6wNZ-0002eO-Ih
  for openipmi-developer@lists.sourceforge.net;
- Sun, 18 Dec 2022 16:16:28 +0000
+ Sun, 18 Dec 2022 16:19:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=zhmXyOkMCpLdPKbh5hcqtKod/HMgRg740fkM9MKN+e0=; b=aPintCjfQypd7PtBp90s4YCrCI
- qvlGlJPo+49uq5EKmUBzlQUZnzNQgYynb6iDCXy7vRwzpDUI4efNmuAPhUmctDSCLPcfmRdOjeHQK
- LQ6G9GFqI5Zl4qedEFxUxQk9oHBIZZDKkGk+Wo4B2MYb3IuHcgT3rsBK5rtev4zBElrg=;
+ bh=Ei48j9mbEB+vS77GYPF71V+UtQzNMdGNJxBQnnJdWsg=; b=SgRmZ73y7nferxnpcm/u+SAEaq
+ Fn3pnXO2hCiesEhVouwj2PR0mcEtQ6xfXA1BaTCdv48/j3RHo9kgFdOuijfbMjosHW9BFZSzSyMC2
+ wRhqE/mzK+vRwxWHFIsJl6l+uaHytktkCf6/agiIKPyx50FJM005uO5BEJSpLPL8qsPs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -31,45 +31,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=zhmXyOkMCpLdPKbh5hcqtKod/HMgRg740fkM9MKN+e0=; b=DJJQIQav+LgNOgEfWSOaGqzAoh
- 7XtW6h4Hu5ioV5uwaqLpM4K1+EvdyxF+tOSNUGUo3o69KQCIowb6TH5OhrnpfrmTaWENWZCo6TEck
- HfPv37E4bnuIhDVD5c55mYIgM/4dHNesoSZku0nVzxQd0F1YOvcUqcSvDltPvuuBtuD8=;
-Received: from ams.source.kernel.org ([145.40.68.75])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=Ei48j9mbEB+vS77GYPF71V+UtQzNMdGNJxBQnnJdWsg=; b=drxfxc9E1BjltTywHpX+Y5krKv
+ 8d7evMqfsrqy9HcqKOkQVEsnaNeN1NKBemE/HaTg6vYHgf/y6Z+D08nzOHY+QEedHAnucv87EPea9
+ nZC1NazPZBjEh4D+xo7mvKny3kY/H7nNNzz/5fMNR8hKhj/62PjGtI2NVJJ+fgHyNKMo=;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1p6wKx-0007Ff-8G for openipmi-developer@lists.sourceforge.net;
- Sun, 18 Dec 2022 16:16:27 +0000
+ id 1p6wNQ-003TgQ-HR for openipmi-developer@lists.sourceforge.net;
+ Sun, 18 Dec 2022 16:19:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 8728FB80BD9;
- Sun, 18 Dec 2022 16:16:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87F48C433D2;
- Sun, 18 Dec 2022 16:16:17 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 2918660D3D;
+ Sun, 18 Dec 2022 16:18:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2543C433F0;
+ Sun, 18 Dec 2022 16:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1671380178;
- bh=FSsv1Qt4W1/uQvi48LAPtdUt7iKXNJabjclblcQa16o=;
+ s=k20201202; t=1671380334;
+ bh=u9WqrnPVJ9jQElT9xcrWeDMun1mCi1qBsOZz8BvriCg=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=q7LZ3hfK9tP5AktsxXuRjsFVQyC+wIJnlr1NTd/vEmhP6P/85mGmhfm1VkH2QKd7N
- La1hKOo3M9mPlyNyxD78hleNVCK+aA74fEpXrv3IzzDqnE6HtOIlTH2lcjkSoPOXyI
- zD/ITaygBfERyMKMsLOxQCNL72IfWAeWe5QcUbiZtCvsusGD2sQKInWKs7iBBiTRNq
- szuzTcezVPrZ8/2wJv/78lO4HhWzeNBMIAY0NC4aJlwB22zhWKTC+4MttQBeT0cTjD
- oDa2J19vX5wVb6FRbvcw3paBaDof/U931uiGWAwGowx4qL/pXt41zZN31NKav1zk0W
- J9B/Hktjk0Nhw==
+ b=LohxOkLNQ6y+usW1XG5wzYA4qJ5EM3eEEUsFuc/ObLRaSHuzhke7V9XJYEqtIIIGc
+ Q4Ypcs6YPhic3e+pX8sMO2PG9+rbBWm+a+w95W3jGqY//TxdCzocpZhguEWpCZxKYI
+ KYrZN14p6Ywy/FW/L2fyPP1ACRYiU+5N4Vxl6SF4CC+pBOm/73WjcZRZmbAxjJjKFF
+ Ho2V4FKO3nFsI/oREipYqtb65SIlVzWX49kW7aTOQSBrc4GxvsZm7zaDnt0I+1QL4a
+ BkyIbiKck21bLLQZFBrNFmIHKfo/NuDaXao3+DAMWRA+ccysWRsXAq1yFaxd6DMFBL
+ LhTfsN37s2Ovw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Date: Sun, 18 Dec 2022 11:15:26 -0500
-Message-Id: <20221218161559.932604-6-sashal@kernel.org>
+Date: Sun, 18 Dec 2022 11:18:11 -0500
+Message-Id: <20221218161836.933697-6-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20221218161559.932604-1-sashal@kernel.org>
-References: <20221218161559.932604-1-sashal@kernel.org>
+In-Reply-To: <20221218161836.933697-1-sashal@kernel.org>
+References: <20221218161836.933697-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-Spam-Score: -5.2 (-----)
+X-Spam-Score: -5.9 (-----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -79,23 +79,23 @@ X-Spam-Report: Spam detection software,
  problem, the memory kept rising and we tried to unload the driver to free
  the memory. However, only part of the free memory is recovered after the
  driver is uninstalled. Usin [...] 
- Content analysis details:   (-5.2 points, 6.0 required)
+ Content analysis details:   (-5.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [145.40.68.75 listed in list.dnswl.org]
+ high trust [139.178.84.217 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1p6wKx-0007Ff-8G
-Subject: [Openipmi-developer] [PATCH AUTOSEL 5.10 06/39] ipmi: fix memleak
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1p6wNQ-003TgQ-HR
+Subject: [Openipmi-developer] [PATCH AUTOSEL 5.4 06/30] ipmi: fix memleak
  when unload ipmi driver
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -150,10 +150,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 05e7339752ac..223b90247648 100644
+index 736970312bbc..55f38058c0b4 100644
 --- a/drivers/char/ipmi/ipmi_msghandler.c
 +++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -3540,12 +3540,16 @@ static void deliver_smi_err_response(struct ipmi_smi *intf,
+@@ -3535,12 +3535,16 @@ static void deliver_smi_err_response(struct ipmi_smi *intf,
  				     struct ipmi_smi_msg *msg,
  				     unsigned char err)
  {
