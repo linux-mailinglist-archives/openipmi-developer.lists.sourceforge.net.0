@@ -2,123 +2,106 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6874F69F4C3
-	for <lists+openipmi-developer@lfdr.de>; Wed, 22 Feb 2023 13:40:47 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id CDBE769FC88
+	for <lists+openipmi-developer@lfdr.de>; Wed, 22 Feb 2023 20:54:16 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pUoQN-0003QA-Gu;
-	Wed, 22 Feb 2023 12:40:42 +0000
+	id 1pUvBq-0002IY-Fe;
+	Wed, 22 Feb 2023 19:54:09 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tcminyard@gmail.com>) id 1pUoQL-0003Py-AX
+ (envelope-from <pr-tracker-bot@kernel.org>) id 1pUvBl-0002IS-D3
  for openipmi-developer@lists.sourceforge.net;
- Wed, 22 Feb 2023 12:40:40 +0000
+ Wed, 22 Feb 2023 19:54:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Cc:To:Date:Message-Id:References:In-Reply-To:From:
+ Subject:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=H+J7csv9d0zQxAb8tY6wlt0M8ymU6BQrT3Z560sOxYY=; b=bFh+N1x0tM/IN3h3Y/mP4aRbii
- 8hVuZ3F+eaCAFKnforJbywAfIka6eDYK2UFD+9/30bjoCc18bZEEhDbm30gcfCmsiO5SizhJJW+Is
- rfBKPbqvj/eu5p1lBAdjIqQe+iqnAKJjXb/CpouDnbS7WlughiqhPY7c6wLmS6XI6zso=;
+ bh=W9nqjPYW1Q/pNmTnAzcdn+BJt1BQspzQE07Qxb6/NHI=; b=jaEifOFfsDQQ6wQqF+J4qTvJvc
+ 4fGGVtlMta2kCXgbj3WsDvqDl6A7B+5mXqLBPqrNUvugbrNas+ZWyh17IUDJcWWDd0Zx4z/v6SlbS
+ try/7Vvhwf0Fud1TPOkDvso9QDWozAqNZXgaggRFVQt4jyfq0diE4AzZHYANWGtYZFig=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:Reply-To:Message-ID:Subject:Cc:To:From:Date:
- Sender:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=H+J7csv9d0zQxAb8tY6wlt0M8ymU6BQrT3Z560sOxYY=; b=K
- uNAO6cTwjsfNOwjO/tPXaDKK9vLfFwM9tYGE4lx7eInwkop++qe/FQ14H/wHXvozKcP4160wXgtz8
- PWIYcFgW4yEs+LcImSBDo01ixkXicAlfs4YZXSKPdwIxzQVfvK7YH1lCCUu3Lm7tV7MVqL4IBSJA1
- sMk369mgFcMfwjCg=;
-Received: from mail-qv1-f46.google.com ([209.85.219.46])
+ h=Cc:To:Date:Message-Id:References:In-Reply-To:From:Subject:Sender:Reply-To
+ :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=W9nqjPYW1Q/pNmTnAzcdn+BJt1BQspzQE07Qxb6/NHI=; b=Yry9hnyqxMFr5RUeJgGoFlD4P2
+ yPA6FhGgOAk1b8k6H07bpieicboLwKvJ5EhksI7K68mHUPrxFQzWZi0iBffSXGk9CtTorPfnuPgtG
+ 9iSWEqzdtHkSfJmgDBoICKxKEcBbi+xtaDy3eB7m+M08vxfDMru3jjJuuvfVzoO1UTls=;
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1pUoQI-00DWqB-Sp for openipmi-developer@lists.sourceforge.net;
- Wed, 22 Feb 2023 12:40:40 +0000
-Received: by mail-qv1-f46.google.com with SMTP id op8so8758416qvb.11
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 22 Feb 2023 04:40:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=content-disposition:mime-version:reply-to:message-id:subject:cc:to
- :from:date:sender:from:to:cc:subject:date:message-id:reply-to;
- bh=H+J7csv9d0zQxAb8tY6wlt0M8ymU6BQrT3Z560sOxYY=;
- b=aJKU4pHi8S+qc/GwJhn5RC7a3akluPcUv+J0afviPBtwoxPUYvXdUH5ahBuCvdVXSj
- XNopNQ3GVHoXDKWQIDKzhBXeIYBqqdCsL6vk8MQ3f9Fca5rXFxbo2HsGpiEhess0qhD/
- Mu4geppG4vjCDe6TqMpNHOes1MYV+XjAFRn/J/PfPKsSwOfIG0OyFA76kv0qH+j3W7Fw
- acBFOIEx9MYP+Wn0ooJUlWIh4wzo0zb7ZmR/EE1UNJLvgWMsHwUPxaTDZUGfioI0FDIo
- 6c5T2sM+oLpfVyuHwIQkj7XdhuI4qlHQVScH1zMyXhYhfMo4v3mgcB1rpsH5e9l/CM30
- YNXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=content-disposition:mime-version:reply-to:message-id:subject:cc:to
- :from:date:sender:x-gm-message-state:from:to:cc:subject:date
- :message-id:reply-to;
- bh=H+J7csv9d0zQxAb8tY6wlt0M8ymU6BQrT3Z560sOxYY=;
- b=X8y7ByFjDlR0V78dbTkrXLgC3i0VxvIQD7EvYAsJ17adTWKZoaBdDoGLBHzVkR+cCg
- jaFRf+AMXwfxRI0Ihvs4EPKmkdKGZj7C0q3b4Sprrs2aAotG/LU6X7OhMozAM2bEKOSI
- YuVASoQTT/seTE8mfTOcEeelqhAaRqpo3k07vgUn834lSmlCVUuSkzW0OyunuNnr8hWD
- CtGVmSajVv6kwcwQ7X8zP6IfeAOgECy/xfyg6xNiCVpACtBs0X1i8YeioBBlErpoB/FX
- sK4Uqh9TgSXwUD5+JgsLqdnowDEOmwiz5Yl+Qo3ceAq0XPp7Z1Od7igku5g5p5K1bphN
- Ut0Q==
-X-Gm-Message-State: AO0yUKWbBJrWNsUauLlYJS2GjtOOlFOqKnDWDHeRwdrxuEJkz8M2Vmfn
- nReHx4XYd5i1Fq2XZR/oLg==
-X-Google-Smtp-Source: AK7set/ZIRxqvGdxyTZwn5bY1BYVK9pRmyYORHlYi3gekvW2n1ZgEgd+Xsbr3UauedlOzLXNAQJLbg==
-X-Received: by 2002:a05:6214:2429:b0:56e:f05c:9c70 with SMTP id
- gy9-20020a056214242900b0056ef05c9c70mr13981872qvb.44.1677069632915; 
- Wed, 22 Feb 2023 04:40:32 -0800 (PST)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id
- t71-20020a37aa4a000000b00741d87eb5d1sm2711962qke.105.2023.02.22.04.40.31
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 22 Feb 2023 04:40:32 -0800 (PST)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:ffd5:a2e0:f643:870f])
- by serve.minyard.net (Postfix) with ESMTPSA id A5C141800BA;
- Wed, 22 Feb 2023 12:40:30 +0000 (UTC)
-Date: Wed, 22 Feb 2023 06:40:29 -0600
-From: Corey Minyard <minyard@acm.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <Y/YNPWfyZE4KteG2@minyard.net>
-MIME-Version: 1.0
-Content-Disposition: inline
-X-Spam-Score: 0.4 (/)
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1pUvBf-00DpLJ-H0 for openipmi-developer@lists.sourceforge.net;
+ Wed, 22 Feb 2023 19:54:04 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 41E32615A1;
+ Wed, 22 Feb 2023 19:53:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 21F32C4339C;
+ Wed, 22 Feb 2023 19:53:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1677095633;
+ bh=HGs31qSxmLLhd+T2XxTFyujnqkN4aKRJbcNnoeglS1A=;
+ h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+ b=XuC0RzXhPYzgpT2BHBURmVFQid/xlBEKnqRj/aWVyC6Fr/d908yJxIg4fIi05hF9m
+ RiOPpKFpyPWf9oeVGn9WWKU7w46NpaNknzO7JSMlZEEGqVbDoiN+AvqlqGKJLA0Urg
+ EllhAuDHJNcaZ3GZjuUZAjCa6ha9ajivvnKTSoWIgVeKxUClST5IbjmaEz43VYuZZ+
+ UrRVGaAs8B8G8+dwrpinwLsDXOjqzNJ29W4sn1WSpf+P1SgWb69fEFCXrk5pGvFm0o
+ pmfg2leMVi4EW9D5tTeYnog6fDQ3mYhGleWJrfTigBNmw0x2+pxYd9OZISB8QLYwyi
+ MyaDAyYLOib3A==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org
+ (localhost.localdomain [127.0.0.1])
+ by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id
+ 12278C43151; Wed, 22 Feb 2023 19:53:53 +0000 (UTC)
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <Y/YNPWfyZE4KteG2@minyard.net>
+References: <Y/YNPWfyZE4KteG2@minyard.net>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <Y/YNPWfyZE4KteG2@minyard.net>
+X-PR-Tracked-Remote: https://github.com/cminyard/linux-ipmi.git
+ tags/for-linus-6.3-1
+X-PR-Tracked-Commit-Id: befb28f2676a65a5a4cc4626ae224461d8785af6
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: bc009f9382bd0704273c9a0c1cbf72020bbbe1f7
+Message-Id: <167709563307.30115.3799041311740785834.pr-tracker-bot@kernel.org>
+Date: Wed, 22 Feb 2023 19:53:53 +0000
+To: Corey Minyard <minyard@acm.org>
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: The following changes since commit
- 041fae9c105ae342a4245cf1e0dc56a23fbb9d3c:
- Merge tag 'f2fs-for-6.2-rc1' of
- git://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs
- (2022-12-14 15:27:57 -0800) are available in the Git repository at: 
- Content analysis details:   (0.4 points, 6.0 required)
+ Content preview:  The pull request you sent on Wed, 22 Feb 2023 06:40:29 -0600:
+ > https://github.com/cminyard/linux-ipmi.git tags/for-linus-6.3-1 has been
+ merged into torvalds/linux.git:
+ https://git.kernel.org/torvalds/c/bc009f9382bd0704273c9a0c1cbf72020bbbe1f7
+ Content analysis details:   (-5.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.219.46 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [139.178.84.217 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tcminyard[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.219.46 listed in wl.mailspike.net]
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1pUoQI-00DWqB-Sp
-Subject: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 6.3
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1pUvBf-00DpLJ-H0
+Subject: Re: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 6.3
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -131,45 +114,26 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
 Cc: openipmi-developer@lists.sourceforge.net,
+ Linus Torvalds <torvalds@linux-foundation.org>,
  linux-kernel <linux-kernel@vger.kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-The following changes since commit 041fae9c105ae342a4245cf1e0dc56a23fbb9d3c:
+The pull request you sent on Wed, 22 Feb 2023 06:40:29 -0600:
 
-  Merge tag 'f2fs-for-6.2-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs (2022-12-14 15:27:57 -0800)
+> https://github.com/cminyard/linux-ipmi.git tags/for-linus-6.3-1
 
-are available in the Git repository at:
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/bc009f9382bd0704273c9a0c1cbf72020bbbe1f7
 
-  https://github.com/cminyard/linux-ipmi.git tags/for-linus-6.3-1
+Thank you!
 
-for you to fetch changes up to befb28f2676a65a5a4cc4626ae224461d8785af6:
-
-  ipmi: ipmb: Fix the MODULE_PARM_DESC associated to 'retry_time_ms' (2023-02-10 07:38:18 -0600)
-
-----------------------------------------------------------------
-Small fixes to the SMBus IPMI and IPMB driver
-
-Nothing big, cleanups, fixing names, and one small deviation from the
-specification fixed.
-
-----------------------------------------------------------------
-Christophe JAILLET (1):
-      ipmi: ipmb: Fix the MODULE_PARM_DESC associated to 'retry_time_ms'
-
-Corey Minyard (4):
-      ipmi:ssif: resend_msg() cannot fail
-      ipmi_ssif: Rename idle state and check
-      ipmi:ssif: Remove rtc_us_timer
-      ipmi:ssif: Add a timer between request retries
-
- drivers/char/ipmi/ipmi_ipmb.c |   2 +-
- drivers/char/ipmi/ipmi_ssif.c | 113 ++++++++++++++++++++----------------------
- 2 files changed, 56 insertions(+), 59 deletions(-)
-
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 
 _______________________________________________
