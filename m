@@ -2,87 +2,135 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6558E6A5E4F
-	for <lists+openipmi-developer@lfdr.de>; Tue, 28 Feb 2023 18:37:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B08F6A6C90
+	for <lists+openipmi-developer@lfdr.de>; Wed,  1 Mar 2023 13:47:36 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pX3uP-0004gK-Uu;
-	Tue, 28 Feb 2023 17:37:02 +0000
+	id 1pXLrn-0001LN-7H;
+	Wed, 01 Mar 2023 12:47:31 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <ct@flyingcircus.io>) id 1pX3uN-0004g5-6c
+ (envelope-from <hdegoede@redhat.com>) id 1pXLrl-0001LH-VY
  for openipmi-developer@lists.sourceforge.net;
- Tue, 28 Feb 2023 17:36:59 +0000
+ Wed, 01 Mar 2023 12:47:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=To:References:Message-Id:Content-Transfer-Encoding:
- Cc:Date:In-Reply-To:From:Subject:Mime-Version:Content-Type:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=OGqZwdqcqgMsXLC0QwrXEq6CFliE5upN9KrILUqrhLs=; b=Il6vefZPp9ibBlUO1s3CR3vDbb
- 8YnKMjtBv8cobFsqeVMqxvZQxjfmhgWNCafGXteMPFmLQWSInD0LZ0CGIXiUhMr8Odu0I+yE7PnK9
- IFheTCohMHkZDk163+ahon1pOOu/pKJ6fYEWK0lcEGlhBQ2H3aKFieK7cCQII0vuTP94=;
+ bh=PrHWi0O3bp5TW073HxIoo2GqwQh60ydUW1vLbyoS8FU=; b=WjNgk4pqUoKGmeLmN/tXxNxrlM
+ jYl5HcOblWLne0CYDYjptLR392HyVC0Pl53syN5EvJuzbWRsKJ+E1kgCFMak1w0huOXJ8EdVPcwan
+ DdrQErqAhi/gek/xLtsGZ101csIERDJ6mMH7Jn0pwnhHod7YRRwsEyy9LeQ87t/BHmgY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=To:References:Message-Id:Content-Transfer-Encoding:Cc:Date:In-Reply-To:
- From:Subject:Mime-Version:Content-Type:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=OGqZwdqcqgMsXLC0QwrXEq6CFliE5upN9KrILUqrhLs=; b=IjUCA8r+pIyg/dxaea8kkJKHVV
- O1YYV0yLiI8qgBKpnAH49szXS3SS2i1Qg+ViUBlmC0taOSnTi8n0X4clb+t7jMe8Qvjf50/5E3ZCR
- 9N7rGKc01+ohddK+AZVEXk+c3JiryTdeJM7S8glnDWEZL0QYy530oLoS13k6P02APzSo=;
-Received: from mail.flyingcircus.io ([212.122.41.197])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=PrHWi0O3bp5TW073HxIoo2GqwQh60ydUW1vLbyoS8FU=; b=ILh/6cw/zgO08K9S9rzgWpqCT5
+ 4raNUcUfpWeYpt3BU47/UNj1RIYPFbKpF3lOGL4ehZcn39MpZG1/1QbWy+dOohAZ8S4/+ACdJML/a
+ RfRESqnnb4Z+rb6Vy0aXwtatEknH5yx9ozajolynXa9e36Ia0SqB3wnZbSjoUZlYwZT4=;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1pX3uH-0007gy-F6 for openipmi-developer@lists.sourceforge.net;
- Tue, 28 Feb 2023 17:36:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flyingcircus.io;
- s=mail; t=1677605798;
- bh=OGqZwdqcqgMsXLC0QwrXEq6CFliE5upN9KrILUqrhLs=;
- h=Subject:From:In-Reply-To:Date:Cc:References:To;
- b=dzaA+j5X76oBzhGtlB5Xn47S1qgIpmxgACvoIywNk7nZpQ3OSPLeL1Ki5i5iZC07g
- 9Fk8kAnlJNA2se4JbXORZhZbKtxSzKwdd48eO50O3u7jJldWruwOfKlV2vHLAxC+Vy
- WT0lzi2Ul+XVAAGhIcC4CnCu3L7vSYYIaFAsAi1w=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.400.51.1.1\))
-In-Reply-To: <Y/40CIt6lw+0vjv1@minyard.net>
-Date: Tue, 28 Feb 2023 18:36:17 +0100
-Message-Id: <BBC4CC30-BCAC-400C-8804-8E8F6FD296C8@flyingcircus.io>
-References: <4EA3F27B-7819-446F-9F22-C6B167348E88@flyingcircus.io>
- <Y/4tpHxe0irCRxjK@minyard.net>
- <D77B48B4-37B1-49FA-958C-D436407300B1@flyingcircus.io>
- <Y/40CIt6lw+0vjv1@minyard.net>
-To: Corey Minyard <minyard@acm.org>
-X-Spam-Score: -0.2 (/)
+ id 1pXLrg-00AfGu-I9 for openipmi-developer@lists.sourceforge.net;
+ Wed, 01 Mar 2023 12:47:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1677674833;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=PrHWi0O3bp5TW073HxIoo2GqwQh60ydUW1vLbyoS8FU=;
+ b=Qf3YcG57zAu7SpcntW0H/Ru8hbbGgU2H5gbnHEpaxgPGvm4PPe+eKCn568kVbKMLXm8FXF
+ Z9ZbZtotE+iWDWD5IdTC3My+Ri96olxZGVhEhx7BZLcdsJ1p+W1Zyf6CYg68X8BRgag8B/
+ Fk7M3aFfiNkBbA9pmo58edGmSGNSAuE=
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-339-MBxSnux9PeeN5kub5QoISw-1; Wed, 01 Mar 2023 07:47:10 -0500
+X-MC-Unique: MBxSnux9PeeN5kub5QoISw-1
+Received: by mail-ed1-f70.google.com with SMTP id
+ y24-20020aa7ccd8000000b004be3955a42eso786166edt.22
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 01 Mar 2023 04:47:10 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=content-transfer-encoding:in-reply-to:from:references:cc:to
+ :content-language:subject:user-agent:mime-version:date:message-id
+ :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=PrHWi0O3bp5TW073HxIoo2GqwQh60ydUW1vLbyoS8FU=;
+ b=K9zzax4YJ/iRt0YoOOUzSCljyieXm5HFQTkNZNiyOivAImqxfv2M3JfrySwhlBJBKj
+ UKwGWya5ictwVhiTxJUguGcQFqYGcmSRYPOZEt44sDo31x0ix4dvG4Wpx0je0Y22ssJD
+ lTQJYUGVPyXKCdNlKqfNVWGcX/RsaHYhBchUF8yVBF3E9PsoiXbCE2JEu3AtAYaIzPVn
+ ubMVz8hSAnvS03lLCvQCxqzh7Fd0bMpIbq7kaSorixkFI/CalFcSQhhONIoksd7vVE1A
+ t5KO+wHmYcu89o9eYUrRsFGYYXBaUi7SQ1oaCbBM6pqSRfxInAnL5tvQ3RWb8OsAn2yt
+ TtGQ==
+X-Gm-Message-State: AO0yUKXIUxm5/5TdmNUhZRPozEgvDa3awLzQVVyXhbkmttVD91I59Qk1
+ KVlFFPN4+CPiqy5lrAG+fbJD2NDMiGrJStwWtNfvfcDouOhsgBipx21y+U5CUeZcvuMzZdLlZsX
+ vMBRHMe0JROyiVNdG0XTUb88rZjRopwjj1E4TSM5l
+X-Received: by 2002:aa7:d6c4:0:b0:4af:59c0:744a with SMTP id
+ x4-20020aa7d6c4000000b004af59c0744amr7757588edr.24.1677674829575; 
+ Wed, 01 Mar 2023 04:47:09 -0800 (PST)
+X-Google-Smtp-Source: AK7set/gegt3wNPFIA5UaAFSkM0H/Cu2JETEa5VzADkRpzuOeLZLY8c4YHH4dVV9FidRJQJWbeU9sQ==
+X-Received: by 2002:aa7:d6c4:0:b0:4af:59c0:744a with SMTP id
+ x4-20020aa7d6c4000000b004af59c0744amr7757547edr.24.1677674829268; 
+ Wed, 01 Mar 2023 04:47:09 -0800 (PST)
+Received: from ?IPV6:2001:1c00:c32:7800:5bfa:a036:83f0:f9ec?
+ (2001-1c00-0c32-7800-5bfa-a036-83f0-f9ec.cable.dynamic.v6.ziggo.nl.
+ [2001:1c00:c32:7800:5bfa:a036:83f0:f9ec])
+ by smtp.gmail.com with ESMTPSA id
+ b18-20020a50b412000000b004bda465da32sm374934edh.1.2023.03.01.04.47.08
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 01 Mar 2023 04:47:08 -0800 (PST)
+Message-ID: <5bb49015-0a9c-5b9d-b22c-38011439c984@redhat.com>
+Date: Wed, 1 Mar 2023 13:47:07 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.7.1
+To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
+References: <20230226053953.4681-1-rdunlap@infradead.org>
+ <7dd27ec5-0619-128d-8407-6711a05ef271@redhat.com>
+ <6a95a337-2972-427f-635d-5ef4e91a82fa@infradead.org>
+From: Hans de Goede <hdegoede@redhat.com>
+In-Reply-To: <6a95a337-2972-427f-635d-5ef4e91a82fa@infradead.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US, nl
+X-Spam-Score: -2.9 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Thanks,
- both machines report: # cat /sys/module/ipmi_msghandler/parameters/panic_op
- string > On 28. Feb 2023, at 18:04, Corey Minyard <minyard@acm.org> wrote:
- > > Oh, I forgot. You can look at panic_op in
- /sys/module/ipmi_msghandler/parameters/panic_op
- > > -corey > > On Tue, Feb 28, 2023 at [...] 
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content preview:  Hi, On 2/27/23 17:07, Randy Dunlap wrote: > > > On 2/27/23
+ 01:31, Hans de Goede wrote: >> Hi Randy, >> >> On 2/26/23 06:39, Randy Dunlap
+ wrote: >>> REGMAP is a hidden (not user visible) symbol. Users cann [...]
+ Content analysis details:   (-2.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [170.10.129.124 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [170.10.129.124 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
-X-Headers-End: 1pX3uH-0007gy-F6
-Subject: Re: [Openipmi-developer] PANIC / OEM strings missing,
- not sure whether misconfiguration or a bug
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -2.0 NICE_REPLY_A           Looks like a legit reply (A)
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1pXLrg-00AfGu-I9
+Subject: Re: [Openipmi-developer] [PATCH 0/8] drivers: select REGMAP instead
+ of depending on it
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -95,76 +143,134 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Christian Theune via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Christian Theune <ct@flyingcircus.io>
-Cc: openipmi-developer@lists.sourceforge.net
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Vadim Pasternak <vadimp@nvidia.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Amit Kucheria <amitk@kernel.org>,
+ platform-driver-x86@vger.kernel.org, Pavel Machek <pavel@ucw.cz>,
+ Oskar Senft <osk@google.com>, Bin Gao <bin.gao@intel.com>,
+ linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
+ Arnd Bergmann <arnd@arndb.de>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Lee Jones <lee@kernel.org>, linux-serial@vger.kernel.org,
+ Darren Hart <dvhart@infradead.org>, Zhang Rui <rui.zhang@intel.com>,
+ Michael Turquette <mturquette@baylibre.com>, Corey Minyard <minyard@acm.org>,
+ linux-pm@vger.kernel.org, Mark Gross <markgross@kernel.org>,
+ linux-gpio@vger.kernel.org, Dan Murphy <dmurphy@ti.com>,
+ openipmi-developer@lists.sourceforge.net, Andrew Jeffery <andrew@aj.id.au>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Riku Voipio <riku.voipio@linaro.org>, Michael Shych <michaelsh@nvidia.com>,
+ Stephen Boyd <sboyd@kernel.org>, Michael Walle <michael@walle.cc>,
+ Yegnesh S Iyer <yegnesh.s.iyer@intel.com>,
+ Jacek Anaszewski <jacek.anaszewski@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-VGhhbmtzLCBib3RoIG1hY2hpbmVzIHJlcG9ydDoKCiMgY2F0IC9zeXMvbW9kdWxlL2lwbWlfbXNn
-aGFuZGxlci9wYXJhbWV0ZXJzL3BhbmljX29wCnN0cmluZwoKCj4gT24gMjguIEZlYiAyMDIzLCBh
-dCAxODowNCwgQ29yZXkgTWlueWFyZCA8bWlueWFyZEBhY20ub3JnPiB3cm90ZToKPiAKPiBPaCwg
-SSBmb3Jnb3QuICBZb3UgY2FuIGxvb2sgYXQgcGFuaWNfb3AgaW4gL3N5cy9tb2R1bGUvaXBtaV9t
-c2doYW5kbGVyL3BhcmFtZXRlcnMvcGFuaWNfb3AKPiAKPiAtY29yZXkKPiAKPiBPbiBUdWUsIEZl
-YiAyOCwgMjAyMyBhdCAwNTo0ODowN1BNICswMTAwLCBDaHJpc3RpYW4gVGhldW5lIHZpYSBPcGVu
-aXBtaS1kZXZlbG9wZXIgd3JvdGU6Cj4+IEhpLAo+PiAKPj4+IE9uIDI4LiBGZWIgMjAyMywgYXQg
-MTc6MzYsIENvcmV5IE1pbnlhcmQgPG1pbnlhcmRAYWNtLm9yZz4gd3JvdGU6Cj4+PiAKPj4+IE9u
-IFR1ZSwgRmViIDI4LCAyMDIzIGF0IDAyOjUzOjEyUE0gKzAxMDAsIENocmlzdGlhbiBUaGV1bmUg
-dmlhIE9wZW5pcG1pLWRldmVsb3BlciB3cm90ZToKPj4+PiBIaSwKPj4+PiAKPj4+PiBJ4oCZdmUg
-YmVlbiB0cnlpbmcgdG8gZGVidWcgdGhlIFBBTklDIGFuZCBPRU0gc3RyaW5nIGhhbmRsaW5nIGFu
-ZCBhbSBydW5uaW5nIG91dCBvZiBpZGVhcyB3aGV0aGVyIHRoaXMgaXMgYSBidWcgb3Igd2hldGhl
-ciBzb21ldGhpbmcgc28gc3VidGxlIGhhcyBjaGFuZ2VkIGluIG15IGNvbmZpZyB0aGF0IEnigJlt
-IGp1c3Qgbm90IHNlZWluZyBpdC4KPj4+PiAKPj4+PiAoTm90ZTogSeKAmW0gd2lsbGluZyB0byBw
-YXkgZm9yIGNvbnN1bHRpbmcuKQo+Pj4gCj4+PiBQcm9iYWJseSBub3QgbmVjZXNzYXJ5Lgo+PiAK
-Pj4gVGhhbmtzISBUaGUgb2ZmZXIgYWx3YXlzIHN0YW5kcy4gSWYgd2Ugc2hvdWxkIGV2ZXIgbWVl
-dCBJ4oCZbSBhbHNvIGFibGUgdG8gcGF5IGluIGJldmVyYWdlcy4gOykKPj4gCj4+Pj4gSSBoYXZl
-IG1hY2hpbmVzIHRoYXQgd2XigJl2ZSBtb3ZlZCBmcm9tIGFuIG9sZGVyIHNldHVwIChHZW50b28s
-IChtb3N0bHkpIHZhbmlsbGEga2VybmVsIDQuMTkuMTU3KSB0byBhIG5ld2VyIHNldHVwIChOaXhP
-UywgKG1vc3RseSkgdmFuaWxsYSBrZXJuZWwgNS4xMC4xNTkpIGFuZCBJ4oCZbSBub3cgZXhwZXJp
-ZW5jaW5nIGNyYXNoZXMgdGhhdCBzZWVtIHRvIGJlIGtlcm5lbCBwYW5pY3MgYnV0IGRvIG5vdCBn
-ZXQgdGhlIHVzdWFsIG1lc3NhZ2VzIGluIHRoZSBJUE1JIFNFTC4KPj4+IAo+Pj4gSSBqdXN0IHRl
-c3RlZCBvbiBzdG9jayA1LjEwLjE1OSBhbmQgaXQgd29ya2VkIHdpdGhvdXQgaXNzdWUuICBFdmVy
-eXRoaW5nCj4+PiB5b3UgaGF2ZSBiZWxvdyBsb29rcyBvay4KPj4+IAo+Pj4gQ2FuIHlvdSB0ZXN0
-IGJ5IGNhdXNpbmcgYSBjcmFzaCB3aXRoOgo+Pj4gCj4+PiBlY2hvIGMgPi9wcm9jL3N5c3JxLXRy
-aWdnZXIKPj4+IAo+Pj4gYW5kIHNlZSBpZiBpdCB3b3Jrcz8KPj4gCj4+IFllYWgsIGFscmVhZHkg
-dHJpZWQgdGhhdCBhbmQgdW5mb3J0dW5hdGVseSB0aGF0IF9kb2VzbuKAmXRfIHdvcmsuCj4+IAo+
-Pj4gSXQgc291bmRzIGxpa2UgeW91IGFyZSBoYXZpbmcgc29tZSB0eXBlIG9mIGNyYXNoIHRoYXQg
-eW91IHdvdWxkIG5vcm1hbGx5Cj4+PiB1c2UgdGhlIElQTUkgbG9ncyB0byBkZWJ1Zy4gIEhvd2V2
-ZXIsIHRoZXkgYXJlbid0IHBlcmZlY3QsIHRoZSBzeXN0ZW0KPj4+IGhhcyB0byBzdGF5IHVwIGxv
-bmcgZW5vdWdoIHRvIGdldCB0aGVtIGludG8gdGhlIGV2ZW50IGxvZy4KPj4gCj4+IEkgdGhpbmsg
-dGhleSBhcmUgc3RheWluZyB1cCBsb25nIGVub3VnaCBiZWNhdXNlIGEgcGFuaWMgdHJpZ2dlcnMg
-dGhlIDI1NSBzZWNvbmQgYnVtcCBpbiB0aGUgd2F0Y2hkb2cgYW5kIG9ubHkgdGhlbiBwYXNzIG9u
-LiBIb3dldmVyLCBp4oCZdmUgYWxzbyBub3RpY2VkIHRoYXQgdGhlIGtlcm5lbCBfc2hvdWxkXyBi
-ZSByZWJvb3RpbmcgYWZ0ZXIgYSBwYW5pYyBtdWNoIGZhc3RlciAoYW5kIG5vdCByZWx5IG9uIHRo
-ZSB3YXRjaGRvZykgYW5kIHRoYXQgZG9lc27igJl0IGhhcHBlbiBlaXRoZXIuIChTb3JyeSB0aGlz
-IGp1c3QgcG9wcGVkIGZyb20gdGhlIGJhY2sgb2YgbXkgaGVhZCkuCj4+IAo+Pj4gSW4gdGhpcyBz
-aXR1YXRpb24sIGdldHRpbmcgYSBzZXJpYWwgY29uc29sZSAocHJvYmFibHkgdGhyb3VnaCBJUE1J
-Cj4+PiBTZXJpYWwgb3ZlciBMQU4pIGFuZCBnZXR0aW5nIHRoZSBjb25zb2xlIG91dHB1dCBvbiBh
-IGNyYXNoIGlzIHByb2JhYmx5Cj4+PiB5b3VyIGJlc3Qgb3B0aW9uLiAgWW91IGNhbiB1c2UgaXBt
-aXRvb2wgZm9yIHRoaXMsIG9yIEkgaGF2ZSBhIGxpYnJhcnkKPj4+IHRoYXQgaXMgYWJsZSB0byBt
-YWtlIGNvbm5lY3Rpb25zIHRvIHNlcmlhbCBwb3J0cywgaW5jbHVkaW5nIHRocm91Z2ggSVBNSQo+
-Pj4gU29MLgo+PiAKPj4gWXVwLiBCZWVuIHRoZXJlLCB0b28uIDopCj4+IAo+PiBVbmZvcnR1bmF0
-ZWx5IHdl4oCZcmUgY3VycmVudGx5IGNoYXNpbmcgc29tZXRoaW5nIHRoYXQgcG9wcyB1cCB2ZXJ5
-IHJhbmRvbWx5IG9uIHNvbWV3aGF0IG9kZCBtYWNoaW5lcyBhbmQgSSBhbHNvIGhhdmUgdGhlIGZl
-ZWxpbmcgdGhhdCBpdOKAmXMgc3lzdGVtYXRpY2FsbHkgYnJva2VuIHJpZ2h0IG5vdyAoYXMgdGhl
-IOKAnGVjaG8gY+KAnSBkb2VzbuKAmXQgd29yaykuCj4+IAo+PiBUaGFua3MgYSBsb3QsCj4+IENo
-cmlzdGlhbgo+PiAKPj4gLS0gCj4+IENocmlzdGlhbiBUaGV1bmUgwrcgY3RAZmx5aW5nY2lyY3Vz
-LmlvIMK3ICs0OSAzNDUgMjE5NDAxIDAKPj4gRmx5aW5nIENpcmN1cyBJbnRlcm5ldCBPcGVyYXRp
-b25zIEdtYkggwrcgaHR0cHM6Ly9mbHlpbmdjaXJjdXMuaW8KPj4gTGVpcHppZ2VyIFN0ci4gNzAv
-NzEgwrcgMDYxMDggSGFsbGUgKFNhYWxlKSDCtyBEZXV0c2NobGFuZAo+PiBIUiBTdGVuZGFsIEhS
-QiAyMTE2OSDCtyBHZXNjaMOkZnRzZsO8aHJlcjogQ2hyaXN0aWFuIFRoZXVuZSwgQ2hyaXN0aWFu
-IFphZ3JvZG5pY2sKPj4gCj4+IAo+PiAKPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KPj4gT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdAo+PiBP
-cGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cj4+IGh0dHBzOi8vbGlzdHMu
-c291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3BlcgoKTGllYmUg
-R3LDvMOfZSwKQ2hyaXN0aWFuIFRoZXVuZQoKLS0gCkNocmlzdGlhbiBUaGV1bmUgwrcgY3RAZmx5
-aW5nY2lyY3VzLmlvIMK3ICs0OSAzNDUgMjE5NDAxIDAKRmx5aW5nIENpcmN1cyBJbnRlcm5ldCBP
-cGVyYXRpb25zIEdtYkggwrcgaHR0cHM6Ly9mbHlpbmdjaXJjdXMuaW8KTGVpcHppZ2VyIFN0ci4g
-NzAvNzEgwrcgMDYxMDggSGFsbGUgKFNhYWxlKSDCtyBEZXV0c2NobGFuZApIUiBTdGVuZGFsIEhS
-QiAyMTE2OSDCtyBHZXNjaMOkZnRzZsO8aHJlcjogQ2hyaXN0aWFuIFRoZXVuZSwgQ2hyaXN0aWFu
-IFphZ3JvZG5pY2sKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJA
-bGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3Rz
-L2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+Hi,
+
+On 2/27/23 17:07, Randy Dunlap wrote:
+> 
+> 
+> On 2/27/23 01:31, Hans de Goede wrote:
+>> Hi Randy,
+>>
+>> On 2/26/23 06:39, Randy Dunlap wrote:
+>>> REGMAP is a hidden (not user visible) symbol. Users cannot set it
+>>> directly thru "make *config", so drivers should select it instead of
+>>> depending on it if they need it.
+>>>
+>>> Consistently using "select" or "depends on" can also help reduce
+>>> Kconfig circular dependency issues.
+>>>
+>>> REGMAP is selected 94 times and is depended on 11 times in
+>>> current linux-next. Eliminate the uses of "depends on" by
+>>> converting them to "select".
+>>
+>> Thank you for your work on this. Mixing of depends on vs select
+>> is a real problem with many Kconfig symbols.
+>>
+>>>  [PATCH 1/8] ipmi: ASPEED_BT_IPMI_BMC: select REGMAP_MMIO instead of depending on it
+>>>  [PATCH 2/8] clk: HI655X: select REGMAP instead of depending on it
+>>>  [PATCH 3/8] gpio: GPIO_REGMAP: select REGMAP instead of depending on it
+>>>  [PATCH 4/8] leds: TI_LMU_COMMON: select REGMAP instead of depending on it
+>>>  [PATCH 5/8] platform: mellanox: select REGMAP instead of depending on it
+>>>  [PATCH 6/8] platform: x86: MLX_PLATFORM: select REGMAP instead of depending on it
+>>>  [PATCH 7/8] thermal: intel: BXT_PMIC: select REGMAP instead of depending on it
+>>>  [PATCH 8/8] serial: 8250: ASPEED_VUART: select REGMAP instead of depending on it
+>>
+>> For patch 5/8 and 6/8, do you want me to merge them through the pdx86
+>> (platform-drivers-x86) tree, or do you plan to merge this whole series
+>> in one go through some other tree?
+> 
+> Hi Hans,
+> Please merge them thru the pdx86 tree.
+
+Ok, I've applied patch 5/8 + 6/8 to my review-hans branch:
+https://git.kernel.org/pub/scm/linux/kernel/git/pdx86/platform-drivers-x86.git/log/?h=review-hans
+
+I'll rebase that branch once 6.3-rc1 is out and then push the rebased
+patch to the fixes branch and include it in my next 6.3 fixes pull-req
+to Linus.
+
+Regards,
+
+Hans
+
+
+
+
+
+>>>
+>>> diffstat:
+>>>  drivers/char/ipmi/Kconfig         |    3 ++-
+>>>  drivers/clk/Kconfig               |    2 +-
+>>>  drivers/gpio/Kconfig              |    2 +-
+>>>  drivers/leds/Kconfig              |    2 +-
+>>>  drivers/platform/mellanox/Kconfig |    9 ++++-----
+>>>  drivers/platform/x86/Kconfig      |    3 ++-
+>>>  drivers/thermal/intel/Kconfig     |    3 ++-
+>>>  drivers/tty/serial/8250/Kconfig   |    3 ++-
+>>>  8 files changed, 15 insertions(+), 12 deletions(-)
+>>>
+>>> Cc: Andrew Jeffery <andrew@aj.id.au>
+>>> Cc: Corey Minyard <minyard@acm.org>
+>>> Cc: openipmi-developer@lists.sourceforge.net
+>>> Cc: Arnd Bergmann <arnd@arndb.de>
+>>> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>>> Cc: Riku Voipio <riku.voipio@linaro.org>
+>>> Cc: Stephen Boyd <sboyd@kernel.org>
+>>> Cc: Michael Turquette <mturquette@baylibre.com>
+>>> Cc: linux-clk@vger.kernel.org
+>>> Cc: Michael Walle <michael@walle.cc>
+>>> Cc: Linus Walleij <linus.walleij@linaro.org>
+>>> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
+>>> Cc: linux-gpio@vger.kernel.org
+>>> Cc: Dan Murphy <dmurphy@ti.com>
+>>> Cc: Pavel Machek <pavel@ucw.cz>
+>>> Cc: Jacek Anaszewski <jacek.anaszewski@gmail.com>
+>>> Cc: Lee Jones <lee@kernel.org>
+>>> Cc: linux-leds@vger.kernel.org
+>>> Cc: Darren Hart <dvhart@infradead.org>
+>>> Cc: Hans de Goede <hdegoede@redhat.com>
+>>> Cc: Michael Shych <michaelsh@nvidia.com>
+>>> Cc: Mark Gross <markgross@kernel.org>
+>>> Cc: Vadim Pasternak <vadimp@nvidia.com>
+>>> Cc: platform-driver-x86@vger.kernel.org
+>>> Cc: Yegnesh S Iyer <yegnesh.s.iyer@intel.com>
+>>> Cc: Bin Gao <bin.gao@intel.com>
+>>> Cc: Zhang Rui <rui.zhang@intel.com>
+>>> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+>>> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+>>> Cc: Amit Kucheria <amitk@kernel.org>
+>>> Cc: linux-pm@vger.kernel.org
+>>> Cc: Oskar Senft <osk@google.com>
+>>> Cc: linux-serial@vger.kernel.org
+>>>
+>>
+> 
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
