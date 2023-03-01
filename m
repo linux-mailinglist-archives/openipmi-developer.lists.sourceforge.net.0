@@ -2,135 +2,136 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8B08F6A6C90
-	for <lists+openipmi-developer@lfdr.de>; Wed,  1 Mar 2023 13:47:36 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id C26266A71AB
+	for <lists+openipmi-developer@lfdr.de>; Wed,  1 Mar 2023 17:59:16 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pXLrn-0001LN-7H;
-	Wed, 01 Mar 2023 12:47:31 +0000
+	id 1pXPnL-00075p-G2;
+	Wed, 01 Mar 2023 16:59:10 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <hdegoede@redhat.com>) id 1pXLrl-0001LH-VY
+ (envelope-from <tcminyard@gmail.com>) id 1pXPnH-00075i-KE
  for openipmi-developer@lists.sourceforge.net;
- Wed, 01 Mar 2023 12:47:30 +0000
+ Wed, 01 Mar 2023 16:59:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=PrHWi0O3bp5TW073HxIoo2GqwQh60ydUW1vLbyoS8FU=; b=WjNgk4pqUoKGmeLmN/tXxNxrlM
- jYl5HcOblWLne0CYDYjptLR392HyVC0Pl53syN5EvJuzbWRsKJ+E1kgCFMak1w0huOXJ8EdVPcwan
- DdrQErqAhi/gek/xLtsGZ101csIERDJ6mMH7Jn0pwnhHod7YRRwsEyy9LeQ87t/BHmgY=;
+ bh=dNgy7xSeBEtA8bD0+1Z2wxIjVbLj36ICDlABDMtsL+c=; b=fXRQPNnjzvzWeRaFCvWAxaQc9D
+ PEh8NnE4lAucJuGwEdGqCsKimg2tRR+HkJGW1xGfDkHSeqkc/XzNPEp2qCImFTTHpfkXkJqUqSCcy
+ ccu6B6GCVeRJCbre0qkpGDFrWlZUoj0uUo98KKf+fh9qaGCsFN3IUQO/vlBSHvlPH4LI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=PrHWi0O3bp5TW073HxIoo2GqwQh60ydUW1vLbyoS8FU=; b=ILh/6cw/zgO08K9S9rzgWpqCT5
- 4raNUcUfpWeYpt3BU47/UNj1RIYPFbKpF3lOGL4ehZcn39MpZG1/1QbWy+dOohAZ8S4/+ACdJML/a
- RfRESqnnb4Z+rb6Vy0aXwtatEknH5yx9ozajolynXa9e36Ia0SqB3wnZbSjoUZlYwZT4=;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+ bh=dNgy7xSeBEtA8bD0+1Z2wxIjVbLj36ICDlABDMtsL+c=; b=T8FkyERTahhJSWj1IpZF+fmMY7
+ 4fq4Ljhmd7I5FtEKNwvG8QdSYsQwt/Gd0SdmfnqRmBYJ/vhrkbkrhyiIQDn5Avsg1QIDWVgjxAlXj
+ fgmwsEURljmDIxMdTgWR0eLt1ivo739PW9CwHt6pyHqbCO4QwEpHmEKp5z+s9ZaDoKpg=;
+Received: from mail-qv1-f53.google.com ([209.85.219.53])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1pXLrg-00AfGu-I9 for openipmi-developer@lists.sourceforge.net;
- Wed, 01 Mar 2023 12:47:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1677674833;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=PrHWi0O3bp5TW073HxIoo2GqwQh60ydUW1vLbyoS8FU=;
- b=Qf3YcG57zAu7SpcntW0H/Ru8hbbGgU2H5gbnHEpaxgPGvm4PPe+eKCn568kVbKMLXm8FXF
- Z9ZbZtotE+iWDWD5IdTC3My+Ri96olxZGVhEhx7BZLcdsJ1p+W1Zyf6CYg68X8BRgag8B/
- Fk7M3aFfiNkBbA9pmo58edGmSGNSAuE=
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-339-MBxSnux9PeeN5kub5QoISw-1; Wed, 01 Mar 2023 07:47:10 -0500
-X-MC-Unique: MBxSnux9PeeN5kub5QoISw-1
-Received: by mail-ed1-f70.google.com with SMTP id
- y24-20020aa7ccd8000000b004be3955a42eso786166edt.22
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1pXPnD-00B1D7-TI for openipmi-developer@lists.sourceforge.net;
+ Wed, 01 Mar 2023 16:59:05 +0000
+Received: by mail-qv1-f53.google.com with SMTP id o3so9740739qvr.1
  for <openipmi-developer@lists.sourceforge.net>;
- Wed, 01 Mar 2023 04:47:10 -0800 (PST)
+ Wed, 01 Mar 2023 08:59:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmail.com; s=20210112; t=1677689938;
+ h=in-reply-to:content-transfer-encoding:content-disposition
+ :mime-version:references:reply-to:message-id:subject:cc:to:from:date
+ :sender:from:to:cc:subject:date:message-id:reply-to;
+ bh=dNgy7xSeBEtA8bD0+1Z2wxIjVbLj36ICDlABDMtsL+c=;
+ b=KYSbRlBL+WqxgD+XudKGHAISpNRurl2tzSj38nzNbdxfHMaA06UKq3zmd7rMrLo8w2
+ qDqGZz74yshm42iG3MZ+z8dbW4IEW9OtCN+8blhTEdDrrgtsfNdI9V4fTI9HJsOjpbJZ
+ D2bufZGRf/3gfLfhRFrgodTfRAimPTBqKL3RztCFCOR3xatidOjP0SIVFMEgvSAnR95P
+ RUINWzWrTaIxZ7SzmfWfRqQ7R1vlaA2CO3Ne0P0aEPApaXH3KedjcSHchqI2/K52+FEB
+ nElAIF43aJvLTcYW04HoeGx92T3EF0jkejkwy6mZpRO4usRd/jms/OvOg64dr63ubKjR
+ xUwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=content-transfer-encoding:in-reply-to:from:references:cc:to
- :content-language:subject:user-agent:mime-version:date:message-id
- :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
- bh=PrHWi0O3bp5TW073HxIoo2GqwQh60ydUW1vLbyoS8FU=;
- b=K9zzax4YJ/iRt0YoOOUzSCljyieXm5HFQTkNZNiyOivAImqxfv2M3JfrySwhlBJBKj
- UKwGWya5ictwVhiTxJUguGcQFqYGcmSRYPOZEt44sDo31x0ix4dvG4Wpx0je0Y22ssJD
- lTQJYUGVPyXKCdNlKqfNVWGcX/RsaHYhBchUF8yVBF3E9PsoiXbCE2JEu3AtAYaIzPVn
- ubMVz8hSAnvS03lLCvQCxqzh7Fd0bMpIbq7kaSorixkFI/CalFcSQhhONIoksd7vVE1A
- t5KO+wHmYcu89o9eYUrRsFGYYXBaUi7SQ1oaCbBM6pqSRfxInAnL5tvQ3RWb8OsAn2yt
- TtGQ==
-X-Gm-Message-State: AO0yUKXIUxm5/5TdmNUhZRPozEgvDa3awLzQVVyXhbkmttVD91I59Qk1
- KVlFFPN4+CPiqy5lrAG+fbJD2NDMiGrJStwWtNfvfcDouOhsgBipx21y+U5CUeZcvuMzZdLlZsX
- vMBRHMe0JROyiVNdG0XTUb88rZjRopwjj1E4TSM5l
-X-Received: by 2002:aa7:d6c4:0:b0:4af:59c0:744a with SMTP id
- x4-20020aa7d6c4000000b004af59c0744amr7757588edr.24.1677674829575; 
- Wed, 01 Mar 2023 04:47:09 -0800 (PST)
-X-Google-Smtp-Source: AK7set/gegt3wNPFIA5UaAFSkM0H/Cu2JETEa5VzADkRpzuOeLZLY8c4YHH4dVV9FidRJQJWbeU9sQ==
-X-Received: by 2002:aa7:d6c4:0:b0:4af:59c0:744a with SMTP id
- x4-20020aa7d6c4000000b004af59c0744amr7757547edr.24.1677674829268; 
- Wed, 01 Mar 2023 04:47:09 -0800 (PST)
-Received: from ?IPV6:2001:1c00:c32:7800:5bfa:a036:83f0:f9ec?
- (2001-1c00-0c32-7800-5bfa-a036-83f0-f9ec.cable.dynamic.v6.ziggo.nl.
- [2001:1c00:c32:7800:5bfa:a036:83f0:f9ec])
+ d=1e100.net; s=20210112; t=1677689938;
+ h=in-reply-to:content-transfer-encoding:content-disposition
+ :mime-version:references:reply-to:message-id:subject:cc:to:from:date
+ :sender:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=dNgy7xSeBEtA8bD0+1Z2wxIjVbLj36ICDlABDMtsL+c=;
+ b=zONKJ1oi/CW8Y3h6a+ZfLkx8sBTJ4WH8dKp3OE4SFFXncKobjHr4qDDD83kRxDSdgG
+ EUjtrTtlGaw4Rq98BXP/2wB69YN4oFO3fnthB6VrfVhfFuOIPAuKiveE3MfGRJLu0kpv
+ QBthLJ4wajVxTeR8CYCDzx24j5MD+Dxt2zZZqTHwaWfdKNAQfQkdUexlHbOsWRY4eJjl
+ QFbpCc4DDRCTmABxsmUApkRdZB+XZF0+/BJJopi+GQXQNHPnlqlK6Ilnk8GWHW324/IE
+ zYUpyjK7jjCayo617ab5NB7yIvY05Ily0f4FnVskCjpxNUjMfxioPyBpj/aRkh2oe8Yd
+ Pe3g==
+X-Gm-Message-State: AO0yUKXHCXjdL/fA3dPFdJNhXcqq3wlgXM8YZvB76+5ji+cvpc4Z+PDH
+ YEEhTASuJJfnsJ7rCZIDbQSI52iHmA==
+X-Google-Smtp-Source: AK7set9KJUTtAWe217UmmB6z3u8MVpknYpAL2Wu+7qgC6zwoGBO4zWCcU9nrzmeYcIK9/lrH3OK3ZA==
+X-Received: by 2002:a05:6214:1244:b0:56f:87f:d92c with SMTP id
+ r4-20020a056214124400b0056f087fd92cmr13619545qvv.0.1677689937817; 
+ Wed, 01 Mar 2023 08:58:57 -0800 (PST)
+Received: from serve.minyard.net ([47.184.176.248])
  by smtp.gmail.com with ESMTPSA id
- b18-20020a50b412000000b004bda465da32sm374934edh.1.2023.03.01.04.47.08
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 01 Mar 2023 04:47:08 -0800 (PST)
-Message-ID: <5bb49015-0a9c-5b9d-b22c-38011439c984@redhat.com>
-Date: Wed, 1 Mar 2023 13:47:07 +0100
+ n198-20020a3740cf000000b007425dade624sm6491773qka.41.2023.03.01.08.58.56
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 01 Mar 2023 08:58:57 -0800 (PST)
+Received: from minyard.net (unknown [IPv6:2001:470:b8f6:1b:70d:50f2:24de:3c1e])
+ by serve.minyard.net (Postfix) with ESMTPSA id 19EDC180044;
+ Wed,  1 Mar 2023 16:58:56 +0000 (UTC)
+Date: Wed, 1 Mar 2023 10:58:54 -0600
+From: Corey Minyard <minyard@acm.org>
+To: Christian Theune <ct@flyingcircus.io>
+Message-ID: <Y/+ETg3dpg+Ui48+@minyard.net>
+References: <4EA3F27B-7819-446F-9F22-C6B167348E88@flyingcircus.io>
+ <Y/4tpHxe0irCRxjK@minyard.net>
+ <D77B48B4-37B1-49FA-958C-D436407300B1@flyingcircus.io>
+ <Y/40CIt6lw+0vjv1@minyard.net>
+ <BBC4CC30-BCAC-400C-8804-8E8F6FD296C8@flyingcircus.io>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.7.1
-To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
-References: <20230226053953.4681-1-rdunlap@infradead.org>
- <7dd27ec5-0619-128d-8407-6711a05ef271@redhat.com>
- <6a95a337-2972-427f-635d-5ef4e91a82fa@infradead.org>
-From: Hans de Goede <hdegoede@redhat.com>
-In-Reply-To: <6a95a337-2972-427f-635d-5ef4e91a82fa@infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US, nl
-X-Spam-Score: -2.9 (--)
+Content-Disposition: inline
+In-Reply-To: <BBC4CC30-BCAC-400C-8804-8E8F6FD296C8@flyingcircus.io>
+X-Spam-Score: 0.4 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi, On 2/27/23 17:07, Randy Dunlap wrote: > > > On 2/27/23
- 01:31, Hans de Goede wrote: >> Hi Randy, >> >> On 2/26/23 06:39, Randy Dunlap
- wrote: >>> REGMAP is a hidden (not user visible) symbol. Users cann [...]
- Content analysis details:   (-2.9 points, 6.0 required)
+ Content preview:  On Tue, Feb 28, 2023 at 06:36:17PM +0100, Christian Theune
+ wrote: > Thanks, both machines report: > > # cat
+ /sys/module/ipmi_msghandler/parameters/panic_op
+ > string At this point, I have no idea. I'd have to start adding printks
+ into the code and cause crashes to see what is happing. 
+ Content analysis details:   (0.4 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [170.10.129.124 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [170.10.129.124 listed in wl.mailspike.net]
+ no trust [209.85.219.53 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [tcminyard[at]gmail.com]
+ 0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+ blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: flyingcircus.io]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.219.53 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -2.0 NICE_REPLY_A           Looks like a legit reply (A)
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1pXLrg-00AfGu-I9
-Subject: Re: [Openipmi-developer] [PATCH 0/8] drivers: select REGMAP instead
- of depending on it
+ valid
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+X-Headers-End: 1pXPnD-00B1D7-TI
+Subject: Re: [Openipmi-developer] PANIC / OEM strings missing,
+ not sure whether misconfiguration or a bug
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -143,134 +144,82 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Vadim Pasternak <vadimp@nvidia.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Amit Kucheria <amitk@kernel.org>,
- platform-driver-x86@vger.kernel.org, Pavel Machek <pavel@ucw.cz>,
- Oskar Senft <osk@google.com>, Bin Gao <bin.gao@intel.com>,
- linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
- Arnd Bergmann <arnd@arndb.de>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Lee Jones <lee@kernel.org>, linux-serial@vger.kernel.org,
- Darren Hart <dvhart@infradead.org>, Zhang Rui <rui.zhang@intel.com>,
- Michael Turquette <mturquette@baylibre.com>, Corey Minyard <minyard@acm.org>,
- linux-pm@vger.kernel.org, Mark Gross <markgross@kernel.org>,
- linux-gpio@vger.kernel.org, Dan Murphy <dmurphy@ti.com>,
- openipmi-developer@lists.sourceforge.net, Andrew Jeffery <andrew@aj.id.au>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Riku Voipio <riku.voipio@linaro.org>, Michael Shych <michaelsh@nvidia.com>,
- Stephen Boyd <sboyd@kernel.org>, Michael Walle <michael@walle.cc>,
- Yegnesh S Iyer <yegnesh.s.iyer@intel.com>,
- Jacek Anaszewski <jacek.anaszewski@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: minyard@acm.org
+Cc: openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi,
-
-On 2/27/23 17:07, Randy Dunlap wrote:
-> 
-> 
-> On 2/27/23 01:31, Hans de Goede wrote:
->> Hi Randy,
->>
->> On 2/26/23 06:39, Randy Dunlap wrote:
->>> REGMAP is a hidden (not user visible) symbol. Users cannot set it
->>> directly thru "make *config", so drivers should select it instead of
->>> depending on it if they need it.
->>>
->>> Consistently using "select" or "depends on" can also help reduce
->>> Kconfig circular dependency issues.
->>>
->>> REGMAP is selected 94 times and is depended on 11 times in
->>> current linux-next. Eliminate the uses of "depends on" by
->>> converting them to "select".
->>
->> Thank you for your work on this. Mixing of depends on vs select
->> is a real problem with many Kconfig symbols.
->>
->>>  [PATCH 1/8] ipmi: ASPEED_BT_IPMI_BMC: select REGMAP_MMIO instead of depending on it
->>>  [PATCH 2/8] clk: HI655X: select REGMAP instead of depending on it
->>>  [PATCH 3/8] gpio: GPIO_REGMAP: select REGMAP instead of depending on it
->>>  [PATCH 4/8] leds: TI_LMU_COMMON: select REGMAP instead of depending on it
->>>  [PATCH 5/8] platform: mellanox: select REGMAP instead of depending on it
->>>  [PATCH 6/8] platform: x86: MLX_PLATFORM: select REGMAP instead of depending on it
->>>  [PATCH 7/8] thermal: intel: BXT_PMIC: select REGMAP instead of depending on it
->>>  [PATCH 8/8] serial: 8250: ASPEED_VUART: select REGMAP instead of depending on it
->>
->> For patch 5/8 and 6/8, do you want me to merge them through the pdx86
->> (platform-drivers-x86) tree, or do you plan to merge this whole series
->> in one go through some other tree?
-> 
-> Hi Hans,
-> Please merge them thru the pdx86 tree.
-
-Ok, I've applied patch 5/8 + 6/8 to my review-hans branch:
-https://git.kernel.org/pub/scm/linux/kernel/git/pdx86/platform-drivers-x86.git/log/?h=review-hans
-
-I'll rebase that branch once 6.3-rc1 is out and then push the rebased
-patch to the fixes branch and include it in my next 6.3 fixes pull-req
-to Linus.
-
-Regards,
-
-Hans
-
-
-
-
-
->>>
->>> diffstat:
->>>  drivers/char/ipmi/Kconfig         |    3 ++-
->>>  drivers/clk/Kconfig               |    2 +-
->>>  drivers/gpio/Kconfig              |    2 +-
->>>  drivers/leds/Kconfig              |    2 +-
->>>  drivers/platform/mellanox/Kconfig |    9 ++++-----
->>>  drivers/platform/x86/Kconfig      |    3 ++-
->>>  drivers/thermal/intel/Kconfig     |    3 ++-
->>>  drivers/tty/serial/8250/Kconfig   |    3 ++-
->>>  8 files changed, 15 insertions(+), 12 deletions(-)
->>>
->>> Cc: Andrew Jeffery <andrew@aj.id.au>
->>> Cc: Corey Minyard <minyard@acm.org>
->>> Cc: openipmi-developer@lists.sourceforge.net
->>> Cc: Arnd Bergmann <arnd@arndb.de>
->>> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
->>> Cc: Riku Voipio <riku.voipio@linaro.org>
->>> Cc: Stephen Boyd <sboyd@kernel.org>
->>> Cc: Michael Turquette <mturquette@baylibre.com>
->>> Cc: linux-clk@vger.kernel.org
->>> Cc: Michael Walle <michael@walle.cc>
->>> Cc: Linus Walleij <linus.walleij@linaro.org>
->>> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
->>> Cc: linux-gpio@vger.kernel.org
->>> Cc: Dan Murphy <dmurphy@ti.com>
->>> Cc: Pavel Machek <pavel@ucw.cz>
->>> Cc: Jacek Anaszewski <jacek.anaszewski@gmail.com>
->>> Cc: Lee Jones <lee@kernel.org>
->>> Cc: linux-leds@vger.kernel.org
->>> Cc: Darren Hart <dvhart@infradead.org>
->>> Cc: Hans de Goede <hdegoede@redhat.com>
->>> Cc: Michael Shych <michaelsh@nvidia.com>
->>> Cc: Mark Gross <markgross@kernel.org>
->>> Cc: Vadim Pasternak <vadimp@nvidia.com>
->>> Cc: platform-driver-x86@vger.kernel.org
->>> Cc: Yegnesh S Iyer <yegnesh.s.iyer@intel.com>
->>> Cc: Bin Gao <bin.gao@intel.com>
->>> Cc: Zhang Rui <rui.zhang@intel.com>
->>> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
->>> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
->>> Cc: Amit Kucheria <amitk@kernel.org>
->>> Cc: linux-pm@vger.kernel.org
->>> Cc: Oskar Senft <osk@google.com>
->>> Cc: linux-serial@vger.kernel.org
->>>
->>
-> 
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gVHVlLCBGZWIgMjgsIDIwMjMgYXQgMDY6MzY6MTdQTSArMDEwMCwgQ2hyaXN0aWFuIFRoZXVu
+ZSB3cm90ZToKPiBUaGFua3MsIGJvdGggbWFjaGluZXMgcmVwb3J0Ogo+IAo+ICMgY2F0IC9zeXMv
+bW9kdWxlL2lwbWlfbXNnaGFuZGxlci9wYXJhbWV0ZXJzL3BhbmljX29wCj4gc3RyaW5nCgpBdCB0
+aGlzIHBvaW50LCBJIGhhdmUgbm8gaWRlYS4gIEknZCBoYXZlIHRvIHN0YXJ0IGFkZGluZyBwcmlu
+dGtzIGludG8KdGhlIGNvZGUgYW5kIGNhdXNlIGNyYXNoZXMgdG8gc2VlIHdoYXQgaXMgaGFwcGlu
+Zy4KCk1heWJlIHNvbWV0aGluZyBpcyBnZXR0aW5nIGluIHRoZSB3YXkgb2YgdGhlIHBhbmljIG5v
+dGlmaWVycyBhbmQgZG9pbmcKc29tZXRoaW5nIHRvIHByZXZlbnQgdGhlIElQTUkgZHJpdmVyIGZy
+b20gd29ya2luZy4KCi1jb3JleQoKPiAKPiAKPiA+IE9uIDI4LiBGZWIgMjAyMywgYXQgMTg6MDQs
+IENvcmV5IE1pbnlhcmQgPG1pbnlhcmRAYWNtLm9yZz4gd3JvdGU6Cj4gPiAKPiA+IE9oLCBJIGZv
+cmdvdC4gIFlvdSBjYW4gbG9vayBhdCBwYW5pY19vcCBpbiAvc3lzL21vZHVsZS9pcG1pX21zZ2hh
+bmRsZXIvcGFyYW1ldGVycy9wYW5pY19vcAo+ID4gCj4gPiAtY29yZXkKPiA+IAo+ID4gT24gVHVl
+LCBGZWIgMjgsIDIwMjMgYXQgMDU6NDg6MDdQTSArMDEwMCwgQ2hyaXN0aWFuIFRoZXVuZSB2aWEg
+T3BlbmlwbWktZGV2ZWxvcGVyIHdyb3RlOgo+ID4+IEhpLAo+ID4+IAo+ID4+PiBPbiAyOC4gRmVi
+IDIwMjMsIGF0IDE3OjM2LCBDb3JleSBNaW55YXJkIDxtaW55YXJkQGFjbS5vcmc+IHdyb3RlOgo+
+ID4+PiAKPiA+Pj4gT24gVHVlLCBGZWIgMjgsIDIwMjMgYXQgMDI6NTM6MTJQTSArMDEwMCwgQ2hy
+aXN0aWFuIFRoZXVuZSB2aWEgT3BlbmlwbWktZGV2ZWxvcGVyIHdyb3RlOgo+ID4+Pj4gSGksCj4g
+Pj4+PiAKPiA+Pj4+IEnigJl2ZSBiZWVuIHRyeWluZyB0byBkZWJ1ZyB0aGUgUEFOSUMgYW5kIE9F
+TSBzdHJpbmcgaGFuZGxpbmcgYW5kIGFtIHJ1bm5pbmcgb3V0IG9mIGlkZWFzIHdoZXRoZXIgdGhp
+cyBpcyBhIGJ1ZyBvciB3aGV0aGVyIHNvbWV0aGluZyBzbyBzdWJ0bGUgaGFzIGNoYW5nZWQgaW4g
+bXkgY29uZmlnIHRoYXQgSeKAmW0ganVzdCBub3Qgc2VlaW5nIGl0Lgo+ID4+Pj4gCj4gPj4+PiAo
+Tm90ZTogSeKAmW0gd2lsbGluZyB0byBwYXkgZm9yIGNvbnN1bHRpbmcuKQo+ID4+PiAKPiA+Pj4g
+UHJvYmFibHkgbm90IG5lY2Vzc2FyeS4KPiA+PiAKPiA+PiBUaGFua3MhIFRoZSBvZmZlciBhbHdh
+eXMgc3RhbmRzLiBJZiB3ZSBzaG91bGQgZXZlciBtZWV0IEnigJltIGFsc28gYWJsZSB0byBwYXkg
+aW4gYmV2ZXJhZ2VzLiA7KQo+ID4+IAo+ID4+Pj4gSSBoYXZlIG1hY2hpbmVzIHRoYXQgd2XigJl2
+ZSBtb3ZlZCBmcm9tIGFuIG9sZGVyIHNldHVwIChHZW50b28sIChtb3N0bHkpIHZhbmlsbGEga2Vy
+bmVsIDQuMTkuMTU3KSB0byBhIG5ld2VyIHNldHVwIChOaXhPUywgKG1vc3RseSkgdmFuaWxsYSBr
+ZXJuZWwgNS4xMC4xNTkpIGFuZCBJ4oCZbSBub3cgZXhwZXJpZW5jaW5nIGNyYXNoZXMgdGhhdCBz
+ZWVtIHRvIGJlIGtlcm5lbCBwYW5pY3MgYnV0IGRvIG5vdCBnZXQgdGhlIHVzdWFsIG1lc3NhZ2Vz
+IGluIHRoZSBJUE1JIFNFTC4KPiA+Pj4gCj4gPj4+IEkganVzdCB0ZXN0ZWQgb24gc3RvY2sgNS4x
+MC4xNTkgYW5kIGl0IHdvcmtlZCB3aXRob3V0IGlzc3VlLiAgRXZlcnl0aGluZwo+ID4+PiB5b3Ug
+aGF2ZSBiZWxvdyBsb29rcyBvay4KPiA+Pj4gCj4gPj4+IENhbiB5b3UgdGVzdCBieSBjYXVzaW5n
+IGEgY3Jhc2ggd2l0aDoKPiA+Pj4gCj4gPj4+IGVjaG8gYyA+L3Byb2Mvc3lzcnEtdHJpZ2dlcgo+
+ID4+PiAKPiA+Pj4gYW5kIHNlZSBpZiBpdCB3b3Jrcz8KPiA+PiAKPiA+PiBZZWFoLCBhbHJlYWR5
+IHRyaWVkIHRoYXQgYW5kIHVuZm9ydHVuYXRlbHkgdGhhdCBfZG9lc27igJl0XyB3b3JrLgo+ID4+
+IAo+ID4+PiBJdCBzb3VuZHMgbGlrZSB5b3UgYXJlIGhhdmluZyBzb21lIHR5cGUgb2YgY3Jhc2gg
+dGhhdCB5b3Ugd291bGQgbm9ybWFsbHkKPiA+Pj4gdXNlIHRoZSBJUE1JIGxvZ3MgdG8gZGVidWcu
+ICBIb3dldmVyLCB0aGV5IGFyZW4ndCBwZXJmZWN0LCB0aGUgc3lzdGVtCj4gPj4+IGhhcyB0byBz
+dGF5IHVwIGxvbmcgZW5vdWdoIHRvIGdldCB0aGVtIGludG8gdGhlIGV2ZW50IGxvZy4KPiA+PiAK
+PiA+PiBJIHRoaW5rIHRoZXkgYXJlIHN0YXlpbmcgdXAgbG9uZyBlbm91Z2ggYmVjYXVzZSBhIHBh
+bmljIHRyaWdnZXJzIHRoZSAyNTUgc2Vjb25kIGJ1bXAgaW4gdGhlIHdhdGNoZG9nIGFuZCBvbmx5
+IHRoZW4gcGFzcyBvbi4gSG93ZXZlciwgaeKAmXZlIGFsc28gbm90aWNlZCB0aGF0IHRoZSBrZXJu
+ZWwgX3Nob3VsZF8gYmUgcmVib290aW5nIGFmdGVyIGEgcGFuaWMgbXVjaCBmYXN0ZXIgKGFuZCBu
+b3QgcmVseSBvbiB0aGUgd2F0Y2hkb2cpIGFuZCB0aGF0IGRvZXNu4oCZdCBoYXBwZW4gZWl0aGVy
+LiAoU29ycnkgdGhpcyBqdXN0IHBvcHBlZCBmcm9tIHRoZSBiYWNrIG9mIG15IGhlYWQpLgo+ID4+
+IAo+ID4+PiBJbiB0aGlzIHNpdHVhdGlvbiwgZ2V0dGluZyBhIHNlcmlhbCBjb25zb2xlIChwcm9i
+YWJseSB0aHJvdWdoIElQTUkKPiA+Pj4gU2VyaWFsIG92ZXIgTEFOKSBhbmQgZ2V0dGluZyB0aGUg
+Y29uc29sZSBvdXRwdXQgb24gYSBjcmFzaCBpcyBwcm9iYWJseQo+ID4+PiB5b3VyIGJlc3Qgb3B0
+aW9uLiAgWW91IGNhbiB1c2UgaXBtaXRvb2wgZm9yIHRoaXMsIG9yIEkgaGF2ZSBhIGxpYnJhcnkK
+PiA+Pj4gdGhhdCBpcyBhYmxlIHRvIG1ha2UgY29ubmVjdGlvbnMgdG8gc2VyaWFsIHBvcnRzLCBp
+bmNsdWRpbmcgdGhyb3VnaCBJUE1JCj4gPj4+IFNvTC4KPiA+PiAKPiA+PiBZdXAuIEJlZW4gdGhl
+cmUsIHRvby4gOikKPiA+PiAKPiA+PiBVbmZvcnR1bmF0ZWx5IHdl4oCZcmUgY3VycmVudGx5IGNo
+YXNpbmcgc29tZXRoaW5nIHRoYXQgcG9wcyB1cCB2ZXJ5IHJhbmRvbWx5IG9uIHNvbWV3aGF0IG9k
+ZCBtYWNoaW5lcyBhbmQgSSBhbHNvIGhhdmUgdGhlIGZlZWxpbmcgdGhhdCBpdOKAmXMgc3lzdGVt
+YXRpY2FsbHkgYnJva2VuIHJpZ2h0IG5vdyAoYXMgdGhlIOKAnGVjaG8gY+KAnSBkb2VzbuKAmXQg
+d29yaykuCj4gPj4gCj4gPj4gVGhhbmtzIGEgbG90LAo+ID4+IENocmlzdGlhbgo+ID4+IAo+ID4+
+IC0tIAo+ID4+IENocmlzdGlhbiBUaGV1bmUgwrcgY3RAZmx5aW5nY2lyY3VzLmlvIMK3ICs0OSAz
+NDUgMjE5NDAxIDAKPiA+PiBGbHlpbmcgQ2lyY3VzIEludGVybmV0IE9wZXJhdGlvbnMgR21iSCDC
+tyBodHRwczovL2ZseWluZ2NpcmN1cy5pbwo+ID4+IExlaXB6aWdlciBTdHIuIDcwLzcxIMK3IDA2
+MTA4IEhhbGxlIChTYWFsZSkgwrcgRGV1dHNjaGxhbmQKPiA+PiBIUiBTdGVuZGFsIEhSQiAyMTE2
+OSDCtyBHZXNjaMOkZnRzZsO8aHJlcjogQ2hyaXN0aWFuIFRoZXVuZSwgQ2hyaXN0aWFuIFphZ3Jv
+ZG5pY2sKPiA+PiAKPiA+PiAKPiA+PiAKPiA+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwo+ID4+IE9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QK
+PiA+PiBPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cj4gPj4gaHR0cHM6
+Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVy
+Cj4gCj4gTGllYmUgR3LDvMOfZSwKPiBDaHJpc3RpYW4gVGhldW5lCj4gCj4gLS0gCj4gQ2hyaXN0
+aWFuIFRoZXVuZSDCtyBjdEBmbHlpbmdjaXJjdXMuaW8gwrcgKzQ5IDM0NSAyMTk0MDEgMAo+IEZs
+eWluZyBDaXJjdXMgSW50ZXJuZXQgT3BlcmF0aW9ucyBHbWJIIMK3IGh0dHBzOi8vZmx5aW5nY2ly
+Y3VzLmlvCj4gTGVpcHppZ2VyIFN0ci4gNzAvNzEgwrcgMDYxMDggSGFsbGUgKFNhYWxlKSDCtyBE
+ZXV0c2NobGFuZAo+IEhSIFN0ZW5kYWwgSFJCIDIxMTY5IMK3IEdlc2Now6RmdHNmw7xocmVyOiBD
+aHJpc3RpYW4gVGhldW5lLCBDaHJpc3RpYW4gWmFncm9kbmljawo+IAoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWls
+aW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczov
+L2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
