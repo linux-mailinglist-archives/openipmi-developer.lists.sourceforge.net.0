@@ -2,91 +2,54 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id EA8BB6B9D03
-	for <lists+openipmi-developer@lfdr.de>; Tue, 14 Mar 2023 18:29:26 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B5EC6B9D52
+	for <lists+openipmi-developer@lfdr.de>; Tue, 14 Mar 2023 18:47:03 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pc8Sf-0007rS-9a;
-	Tue, 14 Mar 2023 17:29:21 +0000
+	id 1pc8jh-0008L2-6I;
+	Tue, 14 Mar 2023 17:46:57 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tcminyard@gmail.com>) id 1pc8Sd-0007rM-UO
+ (envelope-from <ct@flyingcircus.io>) id 1pc8jf-0008Ku-HX
  for openipmi-developer@lists.sourceforge.net;
- Tue, 14 Mar 2023 17:29:20 +0000
+ Tue, 14 Mar 2023 17:46:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
- MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
+ d=sourceforge.net; s=x; h=To:References:Message-Id:Content-Transfer-Encoding:
+ Cc:Date:In-Reply-To:From:Subject:Mime-Version:Content-Type:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=06bQPl1HxS4x8zpcxkGkx4PQDAsR/CV2/MH0+8c6S9k=; b=f+drYyLKTOPnBWQ6Ohhm6byfJ+
- bSyqUk2wTJmSjNe8pYWCLV0BBMdq5JNS5hfi/JyMTIuMqm2oiliRiy9u7IIV97ocnBOsybNnfAHGf
- 7IOr1p4r+RQ0cN3p9KHWgqV+1GxH9qr/A/W3if3ih1NxLzVmY66SoKZTBcOFt96x3Hyc=;
+ bh=grRKxt3w/1ngB+taw5V3KkzVTMcyywf+sG99MjrXGqk=; b=C/KPjXfgUvYjP8zyAITbiDZWlh
+ 2sl6LspAiw4Vk4dbalBhVYaifuKJWDoWQ3MKlH+obUnImh9aA7r/ud+GQdM9KneTWI2q/d1ObTCyb
+ AgrxB6NlEZI0ObXryeu1XAb3nS4cAbnxdeyS3Oj5/BoQ4cTZ9lc91YUa4KuSkDtUxT7E=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
+ h=To:References:Message-Id:Content-Transfer-Encoding:Cc:Date:In-Reply-To:
+ From:Subject:Mime-Version:Content-Type:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=06bQPl1HxS4x8zpcxkGkx4PQDAsR/CV2/MH0+8c6S9k=; b=Iu9Kgpgly0oWx3jegcV6ZoNU/P
- UzbKU1vKUBTI6pFZf8405hslj2il8YhNfzVRE+rMa0tC4xZoCKXCLGWNVzRk7lRTKflXpRDwpKLjQ
- 4c37h8oYsJeSXl/LHd8nsWB7TX4PdTDAlKrSJ8BYLwMjJbghX/FjK4ElS8uzKK3KjO6w=;
-Received: from mail-oa1-f47.google.com ([209.85.160.47])
+ bh=grRKxt3w/1ngB+taw5V3KkzVTMcyywf+sG99MjrXGqk=; b=RXUCiAZAQjHt6+AjArfT9ajRX0
+ rzsbgz1gj3d/fc2wLdL6rwVQyLS/qL09dIkcEqAPsdKYHIQwsyTSmv0daq9uYimxUROOOHCB7gno0
+ AZunqQu2rKp8xlQ0dzUm3sis7f26rUCZMG/VuVp3+ZW4YqcQeQpsKkQZgluGsaaZW8XU=;
+Received: from mail.flyingcircus.io ([212.122.41.197])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1pc8Sa-008Z6i-RZ for openipmi-developer@lists.sourceforge.net;
- Tue, 14 Mar 2023 17:29:20 +0000
-Received: by mail-oa1-f47.google.com with SMTP id
- 586e51a60fabf-17683b570b8so18056901fac.13
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 14 Mar 2023 10:29:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20210112; t=1678814951;
- h=in-reply-to:content-transfer-encoding:content-disposition
- :mime-version:references:reply-to:message-id:subject:cc:to:from:date
- :sender:from:to:cc:subject:date:message-id:reply-to;
- bh=06bQPl1HxS4x8zpcxkGkx4PQDAsR/CV2/MH0+8c6S9k=;
- b=CG49HUXmoe23l3jnJf/DRJwP59kfyoXzACF377vpOTPDaU7jywOdfeS6nFy9yEX/1u
- 8yBnXO6s5UbkKwX+MJi2jZ243h8izS/FTRKlZp1nCkMC0C9KP26Y0UflszBLbM7TV1Rl
- JKnmH8en5R/+LYLPnkAt3JTfD1wkWJH3U4C53cL9Mn3iBlfSmbGQPjcjP8DtSL7zevaC
- QvqjtT8s84LLn7L03rQ07PWOiBhXdFB4zjE0kGHq8GGoHMS30xK0rEJF/l/GDOLRfiAy
- DM24xODs5unuMulVWxoRLE/9SWtoEFjbtWTpJIJBfKtFYBeEfiiRnfIjhXBB9EFuzuGE
- NKng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112; t=1678814951;
- h=in-reply-to:content-transfer-encoding:content-disposition
- :mime-version:references:reply-to:message-id:subject:cc:to:from:date
- :sender:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=06bQPl1HxS4x8zpcxkGkx4PQDAsR/CV2/MH0+8c6S9k=;
- b=Z4BTAlFOvYIgRJpBEkApYCOowYul6mJTS0xFepisa//3lpWBB+MFYjoXuL5+At5Pzk
- TiBSK+aREQYl31OsSjmpbsQhfynvC01Ks61mRhFd2Kxo1ZtdtIxuesx431Gdywb8iMGa
- kdzRuUGe6TmEWzdU7DHCt11Ucq/XNgvO06J8BMsreSq1xOaGkR0ZeZNXzp2+hx1/SdT0
- gZW5te70YbfUpdskLxh/g4vjakuoYZyO3CkYVpWagUdgar4UO+6n/rq8spFgmRi82wgm
- 7fw0/wFN/EvwBDgSpYsayApvgIuy7B4uYlWktBRSox0pQUtlAa7sgknGCoq7oKBddDSf
- 9GuQ==
-X-Gm-Message-State: AO0yUKXwKftKEKqD+8/40QpSYZB2KS/ohl3UTf0QNVo/4XEW5E5DrXnx
- tAzi/JvA37BhOu7M5++z6HvGgJoVZA==
-X-Google-Smtp-Source: AK7set/DnN+RiSP4JkRiu7rjoozSiH2RTDs0adfIGAphbCOFvqoSh+eFjsG9iHJZc4zk55A08eDt/Q==
-X-Received: by 2002:a05:6870:e754:b0:177:b9d3:c028 with SMTP id
- t20-20020a056870e75400b00177b9d3c028mr4599669oak.12.1678814949515; 
- Tue, 14 Mar 2023 10:29:09 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id
- n7-20020a0568301e8700b00693d998f713sm1366375otr.35.2023.03.14.10.29.08
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 14 Mar 2023 10:29:08 -0700 (PDT)
-Received: from minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:d290:38d8:4c6f:34f2])
- by serve.minyard.net (Postfix) with ESMTPSA id D3660180044;
- Tue, 14 Mar 2023 17:29:07 +0000 (UTC)
-Date: Tue, 14 Mar 2023 12:29:06 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Christian Theune <ct@flyingcircus.io>
-Message-ID: <ZBCu4muJlZKujlJy@minyard.net>
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1pc8jd-008ZoP-Vc for openipmi-developer@lists.sourceforge.net;
+ Tue, 14 Mar 2023 17:46:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flyingcircus.io;
+ s=mail; t=1678815997;
+ bh=grRKxt3w/1ngB+taw5V3KkzVTMcyywf+sG99MjrXGqk=;
+ h=Subject:From:In-Reply-To:Date:Cc:References:To;
+ b=LD9Tn5yeZz+QTX2aJk127uNje6HRVNYhp+B172okpWrPeeOQRJ0sxOzaX0vohxiP/
+ EVcEvL7U52QTjauCsxQPP3S0glsnc7BYYnwRd4UeTBZ78WV2HlwQdaQgFugXvPaON4
+ dxlHvu4EzB7C+6XfEJ5KcUX+o5d2179ULKt9lV4M=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.400.51.1.1\))
+In-Reply-To: <ZBCu4muJlZKujlJy@minyard.net>
+Date: Tue, 14 Mar 2023 18:42:00 +0100
+Message-Id: <1D233F53-A21E-4D1C-80DF-7F31E328C41C@flyingcircus.io>
 References: <ZA9CR6nLtHqav2Lc@minyard.net>
  <5814DED7-2C7F-4B40-9B97-AACD54DC5408@flyingcircus.io>
  <7B86181E-6DA6-4D91-9BEB-5102C161A32F@flyingcircus.io>
@@ -94,42 +57,33 @@ References: <ZA9CR6nLtHqav2Lc@minyard.net>
  <7A542D45-B87F-49B6-B092-4B8DCA5D6DB1@flyingcircus.io>
  <ZBCKkEtvPbVKBaYy@minyard.net>
  <73D4D6CA-E610-4B2E-B435-A889EBBEA600@flyingcircus.io>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="fa1ajuqZV7TbvQZB"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <73D4D6CA-E610-4B2E-B435-A889EBBEA600@flyingcircus.io>
-X-Spam-Score: 0.4 (/)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ <ZBCu4muJlZKujlJy@minyard.net>
+To: Corey Minyard <minyard@acm.org>
+X-Spam-Score: -0.2 (/)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Well, dang, I had already fixed this a year and a half ago.
- I wish I had a better memory. Anyway,
- the fix is commit db05ddf7f321634c5659a0cf7ea56594e22365f7
- ("ipmi:watchdog: Set panic count to proper value on a panic") in mainstream
- 5.16. I'm attaching that patch. 
- Content analysis details:   (0.4 points, 6.0 required)
- pts rule name              description
+ 
+ Content preview:  Hi, ouch, sorry to hear that. I’ll test it with that patch
+    and will ask for a backport to 5.10 after that. Is that something you’d
+    do or should I contact the maintainers? Christian 
+ 
+ Content analysis details:   (-0.2 points, 6.0 required)
+ 
+  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tcminyard[at]gmail.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.160.47 listed in wl.mailspike.net]
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1pc8Sa-008Z6i-RZ
+                             envelope-from domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+X-Headers-End: 1pc8jd-008ZoP-Vc
 Subject: Re: [Openipmi-developer] PANIC / OEM strings missing,
  not sure whether misconfiguration or a bug
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -144,460 +98,339 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
+From: Christian Theune via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Christian Theune <ct@flyingcircus.io>
 Cc: Christian Theune via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---fa1ajuqZV7TbvQZB
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-
-Well, dang, I had already fixed this a year and a half ago.  I wish I
-had a better memory.
-
-Anyway, the fix is commit db05ddf7f321634c5659a0cf7ea56594e22365f7
-("ipmi:watchdog: Set panic count to proper value on a panic") in
-mainstream 5.16.  I'm attaching that patch.
-
--corey
-
-On Tue, Mar 14, 2023 at 03:58:26PM +0100, Christian Theune via Openipmi-developer wrote:
-> Awesome!
-> 
-> > On 14. Mar 2023, at 15:54, Corey Minyard <minyard@acm.org> wrote:
-> > 
-> > On Tue, Mar 14, 2023 at 03:22:39PM +0100, Christian Theune via Openipmi-developer wrote:
-> >> Hi,
-> >> 
-> >> sorry, I didn’t expect you to make me a branch. I had already taken your diff over to 5.10 as it applied cleanly … sorry for the additional work and thanks anyways.
-> > 
-> > Ok, that's great.  It's something about the IPMI watchdog panic
-> > routines, and I can reproduce.  I should be able to fix this pretty
-> > quickly.  I'll send a patch when I get this fixed.
-> > 
-> > Thanks,
-> > 
-> > -corey
-> > 
-> >> 
-> >> Here’s the output:
-> >> 
-> >> [ 6521.905890] sysrq: Trigger a crash
-> >> [ 6521.909294] Kernel panic - not syncing: sysrq triggered crash
-> >> [ 6521.915026] CPU: 1 PID: 43785 Comm: bash Tainted: G          I       5.10.159 #1-NixOS
-> >> [ 6521.922925] Hardware name: Dell Inc. PowerEdge R510/00HDP0, BIOS 1.11.0 07/23/2012
-> >> [ 6521.930475] Call Trace:
-> >> [ 6521.932923]  dump_stack+0x6b/0x83
-> >> [ 6521.936230]  panic+0x101/0x2c8
-> >> [ 6521.939276]  ? printk+0x58/0x73
-> >> [ 6521.942408]  sysrq_handle_crash+0x16/0x20
-> >> [ 6521.946407]  __handle_sysrq.cold+0x43/0x11a
-> >> [ 6521.950580]  write_sysrq_trigger+0x24/0x40
-> >> [ 6521.954668]  proc_reg_write+0x51/0x90
-> >> [ 6521.958322]  vfs_write+0xc3/0x280
-> >> [ 6521.961627]  ksys_write+0x5f/0xe0
-> >> [ 6521.964935]  do_syscall_64+0x33/0x40
-> >> [ 6521.968502]  entry_SYSCALL_64_after_hwframe+0x61/0xc6
-> >> [ 6521.973540] RIP: 0033:0x7f2c6b91a133
-> >> [ 6521.977106] Code: 0c 00 f7 d8 64 89 02 48 c7 c0 ff ff ff ff eb b3 0f 1f 80 00 00 00 00 64 8b 04 25 18 00 00 00 85 c0 75 14 b8 01 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 55 c3 0f 1f 40 00 41 54 49 89 d4 55 48 89 f5
-> >> [ 6521.995836] RSP: 002b:00007ffc4cf11088 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
-> >> [ 6522.003387] RAX: ffffffffffffffda RBX: 0000000000000002 RCX: 00007f2c6b91a133
-> >> [ 6522.010505] RDX: 0000000000000002 RSI: 0000000001555c08 RDI: 0000000000000001
-> >> [ 6522.017623] RBP: 0000000001555c08 R08: 000000000000000a R09: 00007f2c6b9aaf40
-> >> [ 6522.024743] R10: 00000000016e4218 R11: 0000000000000246 R12: 0000000000000002
-> >> [ 6522.031864] R13: 00007f2c6b9e8520 R14: 00007f2c6b9e8720 R15: 0000000000000002
-> >> [ 6522.039085] Calling notifier panic_event+0x0/0x410 [ipmi_msghandler] (000000008eb8cb44)
-> >> [ 6522.047071] IPMI message handler: IPMI: panic event handler
-> >> [ 6522.052628] IPMI message handler: IPMI: handling panic event for intf 0: 00000000443777b3 0000000067d05ff8
-> >> …
-> >> and then it reboots after the 255 seconds from the watchdog timer are passed.
-> >> 
-> >> Christian
-> >> 
-> >>> On 13. Mar 2023, at 18:13, Corey Minyard <minyard@acm.org> wrote:
-> >>> 
-> >>> On Mon, Mar 13, 2023 at 05:42:39PM +0100, Christian Theune wrote:
-> >>>> Hrghs. I’m applying your patch to 5.10 as my distro build infrastructure has some patches that don’t apply to 6.2 and that I don’t know how to circumvent quickly enough… :)
-> >>> 
-> >>> Ok, there's a
-> >>> 
-> >>> https://github.com/cminyard/linux-ipmi.git:debug-panic-oem-events-5.10
-> >>> 
-> >>> branch available for you to pull.  It's on top of latest 5.10.
-> >>> 
-> >>> -corey
-> >>> 
-> >>>> 
-> >>>>> On 13. Mar 2023, at 16:59, Christian Theune <ct@flyingcircus.io> wrote:
-> >>>>> 
-> >>>>> I should be easily able to run 6.2, no worries.
-> >>>>> 
-> >>>>> 
-> >>>>>> On 13. Mar 2023, at 16:33, Corey Minyard <minyard@acm.org> wrote:
-> >>>>>> 
-> >>>>>> ﻿On Mon, Mar 13, 2023 at 02:07:01PM +0100, Christian Theune wrote:
-> >>>>>>> Hi,
-> >>>>>>> 
-> >>>>>>> yeah, the IPMI log is fine. This is a 10 minute interval job in our system that exports the log and clears it:
-> >>>>>>> 
-> >>>>>>> The job looks like this:
-> >>>>>>> 
-> >>>>>>> /nix/store/m7lb36dr93qj27r9vskmjihz8imywy86-ipmitool-1.8.18/bin/ipmitool sel elist
-> >>>>>>> /nix/store/m7lb36dr93qj27r9vskmjihz8imywy86-ipmitool-1.8.18/bin/ipmitool sel clear
-> >>>>>>> 
-> >>>>>>> So it’s not atomic but it runs after the boot and the elist should output it properly … at least it did in the past. ;)
-> >>>>>>> 
-> >>>>>>> As I said - I’m happy to run any patches you have. If you point me to a git branch somewhere I can switch that system easily.
-> >>>>>> 
-> >>>>>> Ok, I have a branch at
-> >>>>>> 
-> >>>>>> https://github.com/cminyard/linux-ipmi.git:debug-panic-oem-events
-> >>>>>> 
-> >>>>>> that has debug tracing.  It will print the function for all panic event
-> >>>>>> handlers, their return values, and adds traces in the IPMI panic event
-> >>>>>> handlers.
-> >>>>>> 
-> >>>>>> It's a single patch right on top of 6.2; I'm not sure how portable it is
-> >>>>>> to other kernel versions.  I can port if you like.
-> >>>>>> 
-> >>>>>> Thanks,
-> >>>>>> 
-> >>>>>> -corey
-> >>>>>> 
-> >>>>>>> 
-> >>>>>>> Cheers,
-> >>>>>>> Christian
-> >>>>>>> 
-> >>>>>>>>> On 13. Mar 2023, at 13:58, Corey Minyard <minyard@acm.org> wrote:
-> >>>>>>>> 
-> >>>>>>>> On Mon, Mar 13, 2023 at 10:27:51AM +0100, Christian Theune wrote:
-> >>>>>>>>> Hi,
-> >>>>>>>>> 
-> >>>>>>>>> alright, so here’s the output from the NixOS machine:
-> >>>>>>>>> 
-> >>>>>>>>> root@xxx ~ # echo c >/proc/sysrq-trigger
-> >>>>>>>>> client_loop: send disconnect: Broken pipe
-> >>>>>>>>> …
-> >>>>>>>>> 
-> >>>>>>>>> root@xxx ~ # journalctl -u ipmi-log.service
-> >>>>>>>>> -- Journal begins at Sun 2023-02-26 14:25:36 CET, ends at Mon 2023-03-13 10:25:27 CET. --
-> >>>>>>>>> Mar 13 10:12:38 xxx ipmi-log-start[520973]: Clearing SEL.  Please allow a few seconds to erase.
-> >>>>>>>>> ...
-> >>>>>>>>> -- Boot fdef496e784e4541abd9ae40df472a0b --
-> >>>>>>>>> Mar 13 10:25:07 xxx ipmi-log-start[1973]:    1 | 03/13/2023 | 09:12:49 | Event Logging Disabled SEL | Log area reset/cleared | Asserted
-> >>>>>>>>> Mar 13 10:25:07 xxx ipmi-log-start[1973]:    2 | 03/13/2023 | 09:21:06 | Watchdog2 OS Watchdog | Hard reset | Asserted
-> >>>>>>>>> Mar 13 10:25:07 xxx ipmi-log-start[1977]: Clearing SEL.  Please allow a few seconds to erase.
-> >>>>>>>> 
-> >>>>>>>> Hmm, the SEL got cleared.  That would clear out any of the logs that
-> >>>>>>>> were issued before that time.  I'm not sure when the above happened
-> >>>>>>>> verses the crash, though.  It looks like it occurred as part of the
-> >>>>>>>> reboot, but I'm not sure what I'm seeing.  Maybe you have a startup
-> >>>>>>>> process that clears the SEL?
-> >>>>>>>> 
-> >>>>>>>> Assuming that's not the issue, what you have looks ok.  I'd need to add
-> >>>>>>>> some logs to the kernel to see if the log operation ever happens.
-> >>>>>>>> 
-> >>>>>>>> -corey
-> >>>>>>>> 
-> >>>>>>>>> 
-> >>>>>>>>> The SOL log looks like this:
-> >>>>>>>>> 
-> >>>>>>>>> 
-> >>>>>>>>> [1107585.917689] sysrq: Trigger a crash
-> >>>>>>>>> [1107585.921272] Kernel panic - not syncing: sysrq triggered crash
-> >>>>>>>>> [1107585.927178] CPU: 1 PID: 521033 Comm: bash Tainted: G          I       5.10.159 #1-NixOS
-> >>>>>>>>> [1107585.935335] Hardware name: Dell Inc. PowerEdge R510/00HDP0, BIOS 1.11.0 07/23/2012
-> >>>>>>>>> [1107585.943058] Call Trace:
-> >>>>>>>>> [1107585.945680]  dump_stack+0x6b/0x83
-> >>>>>>>>> [1107585.949158]  panic+0x101/0x2c8
-> >>>>>>>>> [1107585.952379]  ? printk+0x58/0x73
-> >>>>>>>>> [1107585.955687]  sysrq_handle_crash+0x16/0x20
-> >>>>>>>>> [1107585.959859]  __handle_sysrq.cold+0x43/0x11a
-> >>>>>>>>> [1107585.964203]  write_sysrq_trigger+0x24/0x40
-> >>>>>>>>> [1107585.968463]  proc_reg_write+0x51/0x90
-> >>>>>>>>> [1107585.972290]  vfs_write+0xc3/0x280
-> >>>>>>>>> [1107585.975768]  ksys_write+0x5f/0xe0
-> >>>>>>>>> [1107585.979248]  do_syscall_64+0x33/0x40
-> >>>>>>>>> [1107585.982987]  entry_SYSCALL_64_after_hwframe+0x61/0xc6
-> >>>>>>>>> [1107585.988199] RIP: 0033:0x7f5873932133
-> >>>>>>>>> [1107585.991938] Code: 0c 00 f7 d8 64 89 02 48 c7 c0 ff ff ff ff eb b3 0f 1f 80 00 00 00 00 64 8b 04 25 18 00 00 00 85 c0 75 14 b8 01 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 55 c3 0f 1f 40 00 41 54 49 89 d4 55 48 89 f5
-> >>>>>>>>> [1107586.010842] RSP: 002b:00007ffcc13808c8 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
-> >>>>>>>>> [1107586.018566] RAX: ffffffffffffffda RBX: 0000000000000002 RCX: 00007f5873932133
-> >>>>>>>>> [1107586.025923] RDX: 0000000000000002 RSI: 00000000005c1c08 RDI: 0000000000000001
-> >>>>>>>>> [1107586.033213] RBP: 00000000005c1c08 R08: 000000000000000a R09: 00007f58739c2f40
-> >>>>>>>>> [1107586.040504] R10: 00000000005cc348 R11: 0000000000000246 R12: 0000000000000002
-> >>>>>>>>> [1107586.047794] R13: 00007f5873a00520 R14: 00007f5873a00720 R15: 0000000000000002
-> >>>>>>>>> 
-> >>>>>>>>> Nothing obvious to me here … if you have any further ideas what to test, let me know. I should be more responsive again now.
-> >>>>>>>>> 
-> >>>>>>>>> Thanks and kind regards,
-> >>>>>>>>> Christian
-> >>>>>>>>> 
-> >>>>>>>>>> On 5. Mar 2023, at 23:53, Corey Minyard <minyard@acm.org> wrote:
-> >>>>>>>>>> 
-> >>>>>>>>>> On Wed, Mar 01, 2023 at 06:00:07PM +0100, Christian Theune wrote:
-> >>>>>>>>>>> I’m going to actually attach a serial console to watch the “echo c” panic, maybe that gives _some_ indication.
-> >>>>>>>>>>> 
-> >>>>>>>>>>> Otherwise: I can quickly run patches on the kernel there to try out things. (And the funding offer still stands.)
-> >>>>>>>>>> 
-> >>>>>>>>>> Any news on this?  I'm curious what this could be.
-> >>>>>>>>>> 
-> >>>>>>>>>> -corey
-> >>>>>>>>>> 
-> >>>>>>>>>>> 
-> >>>>>>>>>>> Christian
-> >>>>>>>>>>> 
-> >>>>>>>>>>>> On 1. Mar 2023, at 17:58, Corey Minyard <minyard@acm.org> wrote:
-> >>>>>>>>>>>> 
-> >>>>>>>>>>>> On Tue, Feb 28, 2023 at 06:36:17PM +0100, Christian Theune wrote:
-> >>>>>>>>>>>>> Thanks, both machines report:
-> >>>>>>>>>>>>> 
-> >>>>>>>>>>>>> # cat /sys/module/ipmi_msghandler/parameters/panic_op
-> >>>>>>>>>>>>> string
-> >>>>>>>>>>>> 
-> >>>>>>>>>>>> At this point, I have no idea.  I'd have to start adding printks into
-> >>>>>>>>>>>> the code and cause crashes to see what is happing.
-> >>>>>>>>>>>> 
-> >>>>>>>>>>>> Maybe something is getting in the way of the panic notifiers and doing
-> >>>>>>>>>>>> something to prevent the IPMI driver from working.
-> >>>>>>>>>>>> 
-> >>>>>>>>>>>> -corey
-> >>>>>>>>>>>> 
-> >>>>>>>>>>>>> 
-> >>>>>>>>>>>>> 
-> >>>>>>>>>>>>>> On 28. Feb 2023, at 18:04, Corey Minyard <minyard@acm.org> wrote:
-> >>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>> Oh, I forgot.  You can look at panic_op in /sys/module/ipmi_msghandler/parameters/panic_op
-> >>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>> -corey
-> >>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>> On Tue, Feb 28, 2023 at 05:48:07PM +0100, Christian Theune via Openipmi-developer wrote:
-> >>>>>>>>>>>>>>> Hi,
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> On 28. Feb 2023, at 17:36, Corey Minyard <minyard@acm.org> wrote:
-> >>>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> On Tue, Feb 28, 2023 at 02:53:12PM +0100, Christian Theune via Openipmi-developer wrote:
-> >>>>>>>>>>>>>>>>> Hi,
-> >>>>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>>> I’ve been trying to debug the PANIC and OEM string handling and am running out of ideas whether this is a bug or whether something so subtle has changed in my config that I’m just not seeing it.
-> >>>>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>>> (Note: I’m willing to pay for consulting.)
-> >>>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> Probably not necessary.
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> Thanks! The offer always stands. If we should ever meet I’m also able to pay in beverages. ;)
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>>> I have machines that we’ve moved from an older setup (Gentoo, (mostly) vanilla kernel 4.19.157) to a newer setup (NixOS, (mostly) vanilla kernel 5.10.159) and I’m now experiencing crashes that seem to be kernel panics but do not get the usual messages in the IPMI SEL.
-> >>>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> I just tested on stock 5.10.159 and it worked without issue.  Everything
-> >>>>>>>>>>>>>>>> you have below looks ok.
-> >>>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> Can you test by causing a crash with:
-> >>>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> echo c >/proc/sysrq-trigger
-> >>>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> and see if it works?
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> Yeah, already tried that and unfortunately that _doesn’t_ work.
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> It sounds like you are having some type of crash that you would normally
-> >>>>>>>>>>>>>>>> use the IPMI logs to debug.  However, they aren't perfect, the system
-> >>>>>>>>>>>>>>>> has to stay up long enough to get them into the event log.
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> I think they are staying up long enough because a panic triggers the 255 second bump in the watchdog and only then pass on. However, i’ve also noticed that the kernel _should_ be rebooting after a panic much faster (and not rely on the watchdog) and that doesn’t happen either. (Sorry this just popped from the back of my head).
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>>> In this situation, getting a serial console (probably through IPMI
-> >>>>>>>>>>>>>>>> Serial over LAN) and getting the console output on a crash is probably
-> >>>>>>>>>>>>>>>> your best option.  You can use ipmitool for this, or I have a library
-> >>>>>>>>>>>>>>>> that is able to make connections to serial ports, including through IPMI
-> >>>>>>>>>>>>>>>> SoL.
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> Yup. Been there, too. :)
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> Unfortunately we’re currently chasing something that pops up very randomly on somewhat odd machines and I also have the feeling that it’s systematically broken right now (as the “echo c” doesn’t work).
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> Thanks a lot,
-> >>>>>>>>>>>>>>> Christian
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> -- 
-> >>>>>>>>>>>>>>> Christian Theune · ct@flyingcircus.io · +49 345 219401 0
-> >>>>>>>>>>>>>>> Flying Circus Internet Operations GmbH · https://flyingcircus.io
-> >>>>>>>>>>>>>>> Leipziger Str. 70/71 · 06108 Halle (Saale) · Deutschland
-> >>>>>>>>>>>>>>> HR Stendal HRB 21169 · Geschäftsführer: Christian Theune, Christian Zagrodnick
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> 
-> >>>>>>>>>>>>>>> _______________________________________________
-> >>>>>>>>>>>>>>> Openipmi-developer mailing list
-> >>>>>>>>>>>>>>> Openipmi-developer@lists.sourceforge.net
-> >>>>>>>>>>>>>>> https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-> >>>>>>>>>>>>> 
-> >>>>>>>>>>>>> Liebe Grüße,
-> >>>>>>>>>>>>> Christian Theune
-> >>>>>>>>>>>>> 
-> >>>>>>>>>>>>> -- 
-> >>>>>>>>>>>>> Christian Theune · ct@flyingcircus.io · +49 345 219401 0
-> >>>>>>>>>>>>> Flying Circus Internet Operations GmbH · https://flyingcircus.io
-> >>>>>>>>>>>>> Leipziger Str. 70/71 · 06108 Halle (Saale) · Deutschland
-> >>>>>>>>>>>>> HR Stendal HRB 21169 · Geschäftsführer: Christian Theune, Christian Zagrodnick
-> >>>>>>>>>>>>> 
-> >>>>>>>>>>> 
-> >>>>>>>>>>> Liebe Grüße,
-> >>>>>>>>>>> Christian Theune
-> >>>>>>>>>>> 
-> >>>>>>>>>>> -- 
-> >>>>>>>>>>> Christian Theune · ct@flyingcircus.io · +49 345 219401 0
-> >>>>>>>>>>> Flying Circus Internet Operations GmbH · https://flyingcircus.io
-> >>>>>>>>>>> Leipziger Str. 70/71 · 06108 Halle (Saale) · Deutschland
-> >>>>>>>>>>> HR Stendal HRB 21169 · Geschäftsführer: Christian Theune, Christian Zagrodnick
-> >>>>>>>>>>> 
-> >>>>>>>>> 
-> >>>>>>>>> Liebe Grüße,
-> >>>>>>>>> Christian Theune
-> >>>>>>>>> 
-> >>>>>>>>> -- 
-> >>>>>>>>> Christian Theune · ct@flyingcircus.io · +49 345 219401 0
-> >>>>>>>>> Flying Circus Internet Operations GmbH · https://flyingcircus.io
-> >>>>>>>>> Leipziger Str. 70/71 · 06108 Halle (Saale) · Deutschland
-> >>>>>>>>> HR Stendal HRB 21169 · Geschäftsführer: Christian Theune, Christian Zagrodnick
-> >>>>>>> 
-> >>>>>>> 
-> >>>>>>> Liebe Grüße,
-> >>>>>>> Christian Theune
-> >>>>>>> 
-> >>>>>>> -- 
-> >>>>>>> Christian Theune · ct@flyingcircus.io · +49 345 219401 0
-> >>>>>>> Flying Circus Internet Operations GmbH · https://flyingcircus.io
-> >>>>>>> Leipziger Str. 70/71 · 06108 Halle (Saale) · Deutschland
-> >>>>>>> HR Stendal HRB 21169 · Geschäftsführer: Christian Theune, Christian Zagrodnick
-> >>>>>>> 
-> >>>> 
-> >>>> Liebe Grüße,
-> >>>> Christian Theune
-> >>>> 
-> >>>> -- 
-> >>>> Christian Theune · ct@flyingcircus.io · +49 345 219401 0
-> >>>> Flying Circus Internet Operations GmbH · https://flyingcircus.io
-> >>>> Leipziger Str. 70/71 · 06108 Halle (Saale) · Deutschland
-> >>>> HR Stendal HRB 21169 · Geschäftsführer: Christian Theune, Christian Zagrodnick
-> >>>> 
-> >> 
-> >> Liebe Grüße,
-> >> Christian Theune
-> >> 
-> >> -- 
-> >> Christian Theune · ct@flyingcircus.io · +49 345 219401 0
-> >> Flying Circus Internet Operations GmbH · https://flyingcircus.io
-> >> Leipziger Str. 70/71 · 06108 Halle (Saale) · Deutschland
-> >> HR Stendal HRB 21169 · Geschäftsführer: Christian Theune, Christian Zagrodnick
-> >> 
-> >> 
-> >> 
-> >> _______________________________________________
-> >> Openipmi-developer mailing list
-> >> Openipmi-developer@lists.sourceforge.net
-> >> https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-> 
-> Liebe Grüße,
-> Christian Theune
-> 
-> -- 
-> Christian Theune · ct@flyingcircus.io · +49 345 219401 0
-> Flying Circus Internet Operations GmbH · https://flyingcircus.io
-> Leipziger Str. 70/71 · 06108 Halle (Saale) · Deutschland
-> HR Stendal HRB 21169 · Geschäftsführer: Christian Theune, Christian Zagrodnick
-> 
-> 
-> 
-> _______________________________________________
-> Openipmi-developer mailing list
-> Openipmi-developer@lists.sourceforge.net
-> https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---fa1ajuqZV7TbvQZB
-Content-Type: text/x-diff; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0001-ipmi-watchdog-Set-panic-count-to-proper-value-on-a-p.patch"
-
-From db05ddf7f321634c5659a0cf7ea56594e22365f7 Mon Sep 17 00:00:00 2001
-From: Corey Minyard <cminyard@mvista.com>
-Date: Mon, 20 Sep 2021 06:25:37 -0500
-Subject: [PATCH] ipmi:watchdog: Set panic count to proper value on a panic
-
-You will get two decrements when the messages on a panic are sent, not
-one, since commit 2033f6858970 ("ipmi: Free receive messages when in an
-oops") was added, but the watchdog code had a bug where it didn't set
-the value properly.
-
-Reported-by: Anton Lundin <glance@acc.umu.se>
-Cc: <Stable@vger.kernel.org> # v5.4+
-Fixes: 2033f6858970 ("ipmi: Free receive messages when in an oops")
-Signed-off-by: Corey Minyard <cminyard@mvista.com>
----
- drivers/char/ipmi/ipmi_watchdog.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
-index e4ff3b50de7f..f855a9665c28 100644
---- a/drivers/char/ipmi/ipmi_watchdog.c
-+++ b/drivers/char/ipmi/ipmi_watchdog.c
-@@ -497,7 +497,7 @@ static void panic_halt_ipmi_heartbeat(void)
- 	msg.cmd = IPMI_WDOG_RESET_TIMER;
- 	msg.data = NULL;
- 	msg.data_len = 0;
--	atomic_inc(&panic_done_count);
-+	atomic_add(2, &panic_done_count);
- 	rv = ipmi_request_supply_msgs(watchdog_user,
- 				      (struct ipmi_addr *) &addr,
- 				      0,
-@@ -507,7 +507,7 @@ static void panic_halt_ipmi_heartbeat(void)
- 				      &panic_halt_heartbeat_recv_msg,
- 				      1);
- 	if (rv)
--		atomic_dec(&panic_done_count);
-+		atomic_sub(2, &panic_done_count);
- }
- 
- static struct ipmi_smi_msg panic_halt_smi_msg = {
-@@ -531,12 +531,12 @@ static void panic_halt_ipmi_set_timeout(void)
- 	/* Wait for the messages to be free. */
- 	while (atomic_read(&panic_done_count) != 0)
- 		ipmi_poll_interface(watchdog_user);
--	atomic_inc(&panic_done_count);
-+	atomic_add(2, &panic_done_count);
- 	rv = __ipmi_set_timeout(&panic_halt_smi_msg,
- 				&panic_halt_recv_msg,
- 				&send_heartbeat_now);
- 	if (rv) {
--		atomic_dec(&panic_done_count);
-+		atomic_sub(2, &panic_done_count);
- 		pr_warn("Unable to extend the watchdog timeout\n");
- 	} else {
- 		if (send_heartbeat_now)
--- 
-2.34.1
-
-
---fa1ajuqZV7TbvQZB
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---fa1ajuqZV7TbvQZB
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---fa1ajuqZV7TbvQZB--
-
+SGksCgpvdWNoLCBzb3JyeSB0byBoZWFyIHRoYXQuIEnigJlsbCB0ZXN0IGl0IHdpdGggdGhhdCBw
+YXRjaCBhbmQgd2lsbCBhc2sgZm9yIGEgYmFja3BvcnQgdG8gNS4xMCBhZnRlciB0aGF0LiBJcyB0
+aGF0IHNvbWV0aGluZyB5b3XigJlkIGRvIG9yIHNob3VsZCBJIGNvbnRhY3QgdGhlIG1haW50YWlu
+ZXJzPwoKQ2hyaXN0aWFuCgo+IE9uIDE0LiBNYXIgMjAyMywgYXQgMTg6MjksIENvcmV5IE1pbnlh
+cmQgPG1pbnlhcmRAYWNtLm9yZz4gd3JvdGU6Cj4gCj4gV2VsbCwgZGFuZywgSSBoYWQgYWxyZWFk
+eSBmaXhlZCB0aGlzIGEgeWVhciBhbmQgYSBoYWxmIGFnby4gIEkgd2lzaCBJCj4gaGFkIGEgYmV0
+dGVyIG1lbW9yeS4KPiAKPiBBbnl3YXksIHRoZSBmaXggaXMgY29tbWl0IGRiMDVkZGY3ZjMyMTYz
+NGM1NjU5YTBjZjdlYTU2NTk0ZTIyMzY1ZjcKPiAoImlwbWk6d2F0Y2hkb2c6IFNldCBwYW5pYyBj
+b3VudCB0byBwcm9wZXIgdmFsdWUgb24gYSBwYW5pYyIpIGluCj4gbWFpbnN0cmVhbSA1LjE2LiAg
+SSdtIGF0dGFjaGluZyB0aGF0IHBhdGNoLgo+IAo+IC1jb3JleQo+IAo+IE9uIFR1ZSwgTWFyIDE0
+LCAyMDIzIGF0IDAzOjU4OjI2UE0gKzAxMDAsIENocmlzdGlhbiBUaGV1bmUgdmlhIE9wZW5pcG1p
+LWRldmVsb3BlciB3cm90ZToKPj4gQXdlc29tZSEKPj4gCj4+PiBPbiAxNC4gTWFyIDIwMjMsIGF0
+IDE1OjU0LCBDb3JleSBNaW55YXJkIDxtaW55YXJkQGFjbS5vcmc+IHdyb3RlOgo+Pj4gCj4+PiBP
+biBUdWUsIE1hciAxNCwgMjAyMyBhdCAwMzoyMjozOVBNICswMTAwLCBDaHJpc3RpYW4gVGhldW5l
+IHZpYSBPcGVuaXBtaS1kZXZlbG9wZXIgd3JvdGU6Cj4+Pj4gSGksCj4+Pj4gCj4+Pj4gc29ycnks
+IEkgZGlkbuKAmXQgZXhwZWN0IHlvdSB0byBtYWtlIG1lIGEgYnJhbmNoLiBJIGhhZCBhbHJlYWR5
+IHRha2VuIHlvdXIgZGlmZiBvdmVyIHRvIDUuMTAgYXMgaXQgYXBwbGllZCBjbGVhbmx5IOKApiBz
+b3JyeSBmb3IgdGhlIGFkZGl0aW9uYWwgd29yayBhbmQgdGhhbmtzIGFueXdheXMuCj4+PiAKPj4+
+IE9rLCB0aGF0J3MgZ3JlYXQuICBJdCdzIHNvbWV0aGluZyBhYm91dCB0aGUgSVBNSSB3YXRjaGRv
+ZyBwYW5pYwo+Pj4gcm91dGluZXMsIGFuZCBJIGNhbiByZXByb2R1Y2UuICBJIHNob3VsZCBiZSBh
+YmxlIHRvIGZpeCB0aGlzIHByZXR0eQo+Pj4gcXVpY2tseS4gIEknbGwgc2VuZCBhIHBhdGNoIHdo
+ZW4gSSBnZXQgdGhpcyBmaXhlZC4KPj4+IAo+Pj4gVGhhbmtzLAo+Pj4gCj4+PiAtY29yZXkKPj4+
+IAo+Pj4+IAo+Pj4+IEhlcmXigJlzIHRoZSBvdXRwdXQ6Cj4+Pj4gCj4+Pj4gWyA2NTIxLjkwNTg5
+MF0gc3lzcnE6IFRyaWdnZXIgYSBjcmFzaAo+Pj4+IFsgNjUyMS45MDkyOTRdIEtlcm5lbCBwYW5p
+YyAtIG5vdCBzeW5jaW5nOiBzeXNycSB0cmlnZ2VyZWQgY3Jhc2gKPj4+PiBbIDY1MjEuOTE1MDI2
+XSBDUFU6IDEgUElEOiA0Mzc4NSBDb21tOiBiYXNoIFRhaW50ZWQ6IEcgICAgICAgICAgSSAgICAg
+ICA1LjEwLjE1OSAjMS1OaXhPUwo+Pj4+IFsgNjUyMS45MjI5MjVdIEhhcmR3YXJlIG5hbWU6IERl
+bGwgSW5jLiBQb3dlckVkZ2UgUjUxMC8wMEhEUDAsIEJJT1MgMS4xMS4wIDA3LzIzLzIwMTIKPj4+
+PiBbIDY1MjEuOTMwNDc1XSBDYWxsIFRyYWNlOgo+Pj4+IFsgNjUyMS45MzI5MjNdICBkdW1wX3N0
+YWNrKzB4NmIvMHg4Mwo+Pj4+IFsgNjUyMS45MzYyMzBdICBwYW5pYysweDEwMS8weDJjOAo+Pj4+
+IFsgNjUyMS45MzkyNzZdICA/IHByaW50aysweDU4LzB4NzMKPj4+PiBbIDY1MjEuOTQyNDA4XSAg
+c3lzcnFfaGFuZGxlX2NyYXNoKzB4MTYvMHgyMAo+Pj4+IFsgNjUyMS45NDY0MDddICBfX2hhbmRs
+ZV9zeXNycS5jb2xkKzB4NDMvMHgxMWEKPj4+PiBbIDY1MjEuOTUwNTgwXSAgd3JpdGVfc3lzcnFf
+dHJpZ2dlcisweDI0LzB4NDAKPj4+PiBbIDY1MjEuOTU0NjY4XSAgcHJvY19yZWdfd3JpdGUrMHg1
+MS8weDkwCj4+Pj4gWyA2NTIxLjk1ODMyMl0gIHZmc193cml0ZSsweGMzLzB4MjgwCj4+Pj4gWyA2
+NTIxLjk2MTYyN10gIGtzeXNfd3JpdGUrMHg1Zi8weGUwCj4+Pj4gWyA2NTIxLjk2NDkzNV0gIGRv
+X3N5c2NhbGxfNjQrMHgzMy8weDQwCj4+Pj4gWyA2NTIxLjk2ODUwMl0gIGVudHJ5X1NZU0NBTExf
+NjRfYWZ0ZXJfaHdmcmFtZSsweDYxLzB4YzYKPj4+PiBbIDY1MjEuOTczNTQwXSBSSVA6IDAwMzM6
+MHg3ZjJjNmI5MWExMzMKPj4+PiBbIDY1MjEuOTc3MTA2XSBDb2RlOiAwYyAwMCBmNyBkOCA2NCA4
+OSAwMiA0OCBjNyBjMCBmZiBmZiBmZiBmZiBlYiBiMyAwZiAxZiA4MCAwMCAwMCAwMCAwMCA2NCA4
+YiAwNCAyNSAxOCAwMCAwMCAwMCA4NSBjMCA3NSAxNCBiOCAwMSAwMCAwMCAwMCAwZiAwNSA8NDg+
+IDNkIDAwIGYwIGZmIGZmIDc3IDU1IGMzIDBmIDFmIDQwIDAwIDQxIDU0IDQ5IDg5IGQ0IDU1IDQ4
+IDg5IGY1Cj4+Pj4gWyA2NTIxLjk5NTgzNl0gUlNQOiAwMDJiOjAwMDA3ZmZjNGNmMTEwODggRUZM
+QUdTOiAwMDAwMDI0NiBPUklHX1JBWDogMDAwMDAwMDAwMDAwMDAwMQo+Pj4+IFsgNjUyMi4wMDMz
+ODddIFJBWDogZmZmZmZmZmZmZmZmZmZkYSBSQlg6IDAwMDAwMDAwMDAwMDAwMDIgUkNYOiAwMDAw
+N2YyYzZiOTFhMTMzCj4+Pj4gWyA2NTIyLjAxMDUwNV0gUkRYOiAwMDAwMDAwMDAwMDAwMDAyIFJT
+STogMDAwMDAwMDAwMTU1NWMwOCBSREk6IDAwMDAwMDAwMDAwMDAwMDEKPj4+PiBbIDY1MjIuMDE3
+NjIzXSBSQlA6IDAwMDAwMDAwMDE1NTVjMDggUjA4OiAwMDAwMDAwMDAwMDAwMDBhIFIwOTogMDAw
+MDdmMmM2YjlhYWY0MAo+Pj4+IFsgNjUyMi4wMjQ3NDNdIFIxMDogMDAwMDAwMDAwMTZlNDIxOCBS
+MTE6IDAwMDAwMDAwMDAwMDAyNDYgUjEyOiAwMDAwMDAwMDAwMDAwMDAyCj4+Pj4gWyA2NTIyLjAz
+MTg2NF0gUjEzOiAwMDAwN2YyYzZiOWU4NTIwIFIxNDogMDAwMDdmMmM2YjllODcyMCBSMTU6IDAw
+MDAwMDAwMDAwMDAwMDIKPj4+PiBbIDY1MjIuMDM5MDg1XSBDYWxsaW5nIG5vdGlmaWVyIHBhbmlj
+X2V2ZW50KzB4MC8weDQxMCBbaXBtaV9tc2doYW5kbGVyXSAoMDAwMDAwMDA4ZWI4Y2I0NCkKPj4+
+PiBbIDY1MjIuMDQ3MDcxXSBJUE1JIG1lc3NhZ2UgaGFuZGxlcjogSVBNSTogcGFuaWMgZXZlbnQg
+aGFuZGxlcgo+Pj4+IFsgNjUyMi4wNTI2MjhdIElQTUkgbWVzc2FnZSBoYW5kbGVyOiBJUE1JOiBo
+YW5kbGluZyBwYW5pYyBldmVudCBmb3IgaW50ZiAwOiAwMDAwMDAwMDQ0Mzc3N2IzIDAwMDAwMDAw
+NjdkMDVmZjgKPj4+PiDigKYKPj4+PiBhbmQgdGhlbiBpdCByZWJvb3RzIGFmdGVyIHRoZSAyNTUg
+c2Vjb25kcyBmcm9tIHRoZSB3YXRjaGRvZyB0aW1lciBhcmUgcGFzc2VkLgo+Pj4+IAo+Pj4+IENo
+cmlzdGlhbgo+Pj4+IAo+Pj4+PiBPbiAxMy4gTWFyIDIwMjMsIGF0IDE4OjEzLCBDb3JleSBNaW55
+YXJkIDxtaW55YXJkQGFjbS5vcmc+IHdyb3RlOgo+Pj4+PiAKPj4+Pj4gT24gTW9uLCBNYXIgMTMs
+IDIwMjMgYXQgMDU6NDI6MzlQTSArMDEwMCwgQ2hyaXN0aWFuIFRoZXVuZSB3cm90ZToKPj4+Pj4+
+IEhyZ2hzLiBJ4oCZbSBhcHBseWluZyB5b3VyIHBhdGNoIHRvIDUuMTAgYXMgbXkgZGlzdHJvIGJ1
+aWxkIGluZnJhc3RydWN0dXJlIGhhcyBzb21lIHBhdGNoZXMgdGhhdCBkb27igJl0IGFwcGx5IHRv
+IDYuMiBhbmQgdGhhdCBJIGRvbuKAmXQga25vdyBob3cgdG8gY2lyY3VtdmVudCBxdWlja2x5IGVu
+b3VnaOKApiA6KQo+Pj4+PiAKPj4+Pj4gT2ssIHRoZXJlJ3MgYQo+Pj4+PiAKPj4+Pj4gaHR0cHM6
+Ly9naXRodWIuY29tL2NtaW55YXJkL2xpbnV4LWlwbWkuZ2l0OmRlYnVnLXBhbmljLW9lbS1ldmVu
+dHMtNS4xMAo+Pj4+PiAKPj4+Pj4gYnJhbmNoIGF2YWlsYWJsZSBmb3IgeW91IHRvIHB1bGwuICBJ
+dCdzIG9uIHRvcCBvZiBsYXRlc3QgNS4xMC4KPj4+Pj4gCj4+Pj4+IC1jb3JleQo+Pj4+PiAKPj4+
+Pj4+IAo+Pj4+Pj4+IE9uIDEzLiBNYXIgMjAyMywgYXQgMTY6NTksIENocmlzdGlhbiBUaGV1bmUg
+PGN0QGZseWluZ2NpcmN1cy5pbz4gd3JvdGU6Cj4+Pj4+Pj4gCj4+Pj4+Pj4gSSBzaG91bGQgYmUg
+ZWFzaWx5IGFibGUgdG8gcnVuIDYuMiwgbm8gd29ycmllcy4KPj4+Pj4+PiAKPj4+Pj4+PiAKPj4+
+Pj4+Pj4gT24gMTMuIE1hciAyMDIzLCBhdCAxNjozMywgQ29yZXkgTWlueWFyZCA8bWlueWFyZEBh
+Y20ub3JnPiB3cm90ZToKPj4+Pj4+Pj4gCj4+Pj4+Pj4+IO+7v09uIE1vbiwgTWFyIDEzLCAyMDIz
+IGF0IDAyOjA3OjAxUE0gKzAxMDAsIENocmlzdGlhbiBUaGV1bmUgd3JvdGU6Cj4+Pj4+Pj4+PiBI
+aSwKPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4geWVhaCwgdGhlIElQTUkgbG9nIGlzIGZpbmUuIFRoaXMg
+aXMgYSAxMCBtaW51dGUgaW50ZXJ2YWwgam9iIGluIG91ciBzeXN0ZW0gdGhhdCBleHBvcnRzIHRo
+ZSBsb2cgYW5kIGNsZWFycyBpdDoKPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gVGhlIGpvYiBsb29rcyBs
+aWtlIHRoaXM6Cj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+IC9uaXgvc3RvcmUvbTdsYjM2ZHI5M3FqMjdy
+OXZza21qaWh6OGlteXd5ODYtaXBtaXRvb2wtMS44LjE4L2Jpbi9pcG1pdG9vbCBzZWwgZWxpc3QK
+Pj4+Pj4+Pj4+IC9uaXgvc3RvcmUvbTdsYjM2ZHI5M3FqMjdyOXZza21qaWh6OGlteXd5ODYtaXBt
+aXRvb2wtMS44LjE4L2Jpbi9pcG1pdG9vbCBzZWwgY2xlYXIKPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4g
+U28gaXTigJlzIG5vdCBhdG9taWMgYnV0IGl0IHJ1bnMgYWZ0ZXIgdGhlIGJvb3QgYW5kIHRoZSBl
+bGlzdCBzaG91bGQgb3V0cHV0IGl0IHByb3Blcmx5IOKApiBhdCBsZWFzdCBpdCBkaWQgaW4gdGhl
+IHBhc3QuIDspCj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+IEFzIEkgc2FpZCAtIEnigJltIGhhcHB5IHRv
+IHJ1biBhbnkgcGF0Y2hlcyB5b3UgaGF2ZS4gSWYgeW91IHBvaW50IG1lIHRvIGEgZ2l0IGJyYW5j
+aCBzb21ld2hlcmUgSSBjYW4gc3dpdGNoIHRoYXQgc3lzdGVtIGVhc2lseS4KPj4+Pj4+Pj4gCj4+
+Pj4+Pj4+IE9rLCBJIGhhdmUgYSBicmFuY2ggYXQKPj4+Pj4+Pj4gCj4+Pj4+Pj4+IGh0dHBzOi8v
+Z2l0aHViLmNvbS9jbWlueWFyZC9saW51eC1pcG1pLmdpdDpkZWJ1Zy1wYW5pYy1vZW0tZXZlbnRz
+Cj4+Pj4+Pj4+IAo+Pj4+Pj4+PiB0aGF0IGhhcyBkZWJ1ZyB0cmFjaW5nLiAgSXQgd2lsbCBwcmlu
+dCB0aGUgZnVuY3Rpb24gZm9yIGFsbCBwYW5pYyBldmVudAo+Pj4+Pj4+PiBoYW5kbGVycywgdGhl
+aXIgcmV0dXJuIHZhbHVlcywgYW5kIGFkZHMgdHJhY2VzIGluIHRoZSBJUE1JIHBhbmljIGV2ZW50
+Cj4+Pj4+Pj4+IGhhbmRsZXJzLgo+Pj4+Pj4+PiAKPj4+Pj4+Pj4gSXQncyBhIHNpbmdsZSBwYXRj
+aCByaWdodCBvbiB0b3Agb2YgNi4yOyBJJ20gbm90IHN1cmUgaG93IHBvcnRhYmxlIGl0IGlzCj4+
+Pj4+Pj4+IHRvIG90aGVyIGtlcm5lbCB2ZXJzaW9ucy4gIEkgY2FuIHBvcnQgaWYgeW91IGxpa2Uu
+Cj4+Pj4+Pj4+IAo+Pj4+Pj4+PiBUaGFua3MsCj4+Pj4+Pj4+IAo+Pj4+Pj4+PiAtY29yZXkKPj4+
+Pj4+Pj4gCj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+IENoZWVycywKPj4+Pj4+Pj4+IENocmlzdGlhbgo+
+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+IE9uIDEzLiBNYXIgMjAyMywgYXQgMTM6NTgsIENvcmV5IE1p
+bnlhcmQgPG1pbnlhcmRAYWNtLm9yZz4gd3JvdGU6Cj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4gT24g
+TW9uLCBNYXIgMTMsIDIwMjMgYXQgMTA6Mjc6NTFBTSArMDEwMCwgQ2hyaXN0aWFuIFRoZXVuZSB3
+cm90ZToKPj4+Pj4+Pj4+Pj4gSGksCj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+PiBhbHJpZ2h0LCBz
+byBoZXJl4oCZcyB0aGUgb3V0cHV0IGZyb20gdGhlIE5peE9TIG1hY2hpbmU6Cj4+Pj4+Pj4+Pj4+
+IAo+Pj4+Pj4+Pj4+PiByb290QHh4eCB+ICMgZWNobyBjID4vcHJvYy9zeXNycS10cmlnZ2VyCj4+
+Pj4+Pj4+Pj4+IGNsaWVudF9sb29wOiBzZW5kIGRpc2Nvbm5lY3Q6IEJyb2tlbiBwaXBlCj4+Pj4+
+Pj4+Pj4+IOKApgo+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4gcm9vdEB4eHggfiAjIGpvdXJuYWxj
+dGwgLXUgaXBtaS1sb2cuc2VydmljZQo+Pj4+Pj4+Pj4+PiAtLSBKb3VybmFsIGJlZ2lucyBhdCBT
+dW4gMjAyMy0wMi0yNiAxNDoyNTozNiBDRVQsIGVuZHMgYXQgTW9uIDIwMjMtMDMtMTMgMTA6MjU6
+MjcgQ0VULiAtLQo+Pj4+Pj4+Pj4+PiBNYXIgMTMgMTA6MTI6MzggeHh4IGlwbWktbG9nLXN0YXJ0
+WzUyMDk3M106IENsZWFyaW5nIFNFTC4gIFBsZWFzZSBhbGxvdyBhIGZldyBzZWNvbmRzIHRvIGVy
+YXNlLgo+Pj4+Pj4+Pj4+PiAuLi4KPj4+Pj4+Pj4+Pj4gLS0gQm9vdCBmZGVmNDk2ZTc4NGU0NTQx
+YWJkOWFlNDBkZjQ3MmEwYiAtLQo+Pj4+Pj4+Pj4+PiBNYXIgMTMgMTA6MjU6MDcgeHh4IGlwbWkt
+bG9nLXN0YXJ0WzE5NzNdOiAgICAxIHwgMDMvMTMvMjAyMyB8IDA5OjEyOjQ5IHwgRXZlbnQgTG9n
+Z2luZyBEaXNhYmxlZCBTRUwgfCBMb2cgYXJlYSByZXNldC9jbGVhcmVkIHwgQXNzZXJ0ZWQKPj4+
+Pj4+Pj4+Pj4gTWFyIDEzIDEwOjI1OjA3IHh4eCBpcG1pLWxvZy1zdGFydFsxOTczXTogICAgMiB8
+IDAzLzEzLzIwMjMgfCAwOToyMTowNiB8IFdhdGNoZG9nMiBPUyBXYXRjaGRvZyB8IEhhcmQgcmVz
+ZXQgfCBBc3NlcnRlZAo+Pj4+Pj4+Pj4+PiBNYXIgMTMgMTA6MjU6MDcgeHh4IGlwbWktbG9nLXN0
+YXJ0WzE5NzddOiBDbGVhcmluZyBTRUwuICBQbGVhc2UgYWxsb3cgYSBmZXcgc2Vjb25kcyB0byBl
+cmFzZS4KPj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+PiBIbW0sIHRoZSBTRUwgZ290IGNsZWFyZWQuICBU
+aGF0IHdvdWxkIGNsZWFyIG91dCBhbnkgb2YgdGhlIGxvZ3MgdGhhdAo+Pj4+Pj4+Pj4+IHdlcmUg
+aXNzdWVkIGJlZm9yZSB0aGF0IHRpbWUuICBJJ20gbm90IHN1cmUgd2hlbiB0aGUgYWJvdmUgaGFw
+cGVuZWQKPj4+Pj4+Pj4+PiB2ZXJzZXMgdGhlIGNyYXNoLCB0aG91Z2guICBJdCBsb29rcyBsaWtl
+IGl0IG9jY3VycmVkIGFzIHBhcnQgb2YgdGhlCj4+Pj4+Pj4+Pj4gcmVib290LCBidXQgSSdtIG5v
+dCBzdXJlIHdoYXQgSSdtIHNlZWluZy4gIE1heWJlIHlvdSBoYXZlIGEgc3RhcnR1cAo+Pj4+Pj4+
+Pj4+IHByb2Nlc3MgdGhhdCBjbGVhcnMgdGhlIFNFTD8KPj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+PiBB
+c3N1bWluZyB0aGF0J3Mgbm90IHRoZSBpc3N1ZSwgd2hhdCB5b3UgaGF2ZSBsb29rcyBvay4gIEkn
+ZCBuZWVkIHRvIGFkZAo+Pj4+Pj4+Pj4+IHNvbWUgbG9ncyB0byB0aGUga2VybmVsIHRvIHNlZSBp
+ZiB0aGUgbG9nIG9wZXJhdGlvbiBldmVyIGhhcHBlbnMuCj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4g
+LWNvcmV5Cj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+PiBUaGUgU09MIGxvZyBs
+b29rcyBsaWtlIHRoaXM6Cj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4gWzEx
+MDc1ODUuOTE3Njg5XSBzeXNycTogVHJpZ2dlciBhIGNyYXNoCj4+Pj4+Pj4+Pj4+IFsxMTA3NTg1
+LjkyMTI3Ml0gS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IHN5c3JxIHRyaWdnZXJlZCBjcmFz
+aAo+Pj4+Pj4+Pj4+PiBbMTEwNzU4NS45MjcxNzhdIENQVTogMSBQSUQ6IDUyMTAzMyBDb21tOiBi
+YXNoIFRhaW50ZWQ6IEcgICAgICAgICAgSSAgICAgICA1LjEwLjE1OSAjMS1OaXhPUwo+Pj4+Pj4+
+Pj4+PiBbMTEwNzU4NS45MzUzMzVdIEhhcmR3YXJlIG5hbWU6IERlbGwgSW5jLiBQb3dlckVkZ2Ug
+UjUxMC8wMEhEUDAsIEJJT1MgMS4xMS4wIDA3LzIzLzIwMTIKPj4+Pj4+Pj4+Pj4gWzExMDc1ODUu
+OTQzMDU4XSBDYWxsIFRyYWNlOgo+Pj4+Pj4+Pj4+PiBbMTEwNzU4NS45NDU2ODBdICBkdW1wX3N0
+YWNrKzB4NmIvMHg4Mwo+Pj4+Pj4+Pj4+PiBbMTEwNzU4NS45NDkxNThdICBwYW5pYysweDEwMS8w
+eDJjOAo+Pj4+Pj4+Pj4+PiBbMTEwNzU4NS45NTIzNzldICA/IHByaW50aysweDU4LzB4NzMKPj4+
+Pj4+Pj4+Pj4gWzExMDc1ODUuOTU1Njg3XSAgc3lzcnFfaGFuZGxlX2NyYXNoKzB4MTYvMHgyMAo+
+Pj4+Pj4+Pj4+PiBbMTEwNzU4NS45NTk4NTldICBfX2hhbmRsZV9zeXNycS5jb2xkKzB4NDMvMHgx
+MWEKPj4+Pj4+Pj4+Pj4gWzExMDc1ODUuOTY0MjAzXSAgd3JpdGVfc3lzcnFfdHJpZ2dlcisweDI0
+LzB4NDAKPj4+Pj4+Pj4+Pj4gWzExMDc1ODUuOTY4NDYzXSAgcHJvY19yZWdfd3JpdGUrMHg1MS8w
+eDkwCj4+Pj4+Pj4+Pj4+IFsxMTA3NTg1Ljk3MjI5MF0gIHZmc193cml0ZSsweGMzLzB4MjgwCj4+
+Pj4+Pj4+Pj4+IFsxMTA3NTg1Ljk3NTc2OF0gIGtzeXNfd3JpdGUrMHg1Zi8weGUwCj4+Pj4+Pj4+
+Pj4+IFsxMTA3NTg1Ljk3OTI0OF0gIGRvX3N5c2NhbGxfNjQrMHgzMy8weDQwCj4+Pj4+Pj4+Pj4+
+IFsxMTA3NTg1Ljk4Mjk4N10gIGVudHJ5X1NZU0NBTExfNjRfYWZ0ZXJfaHdmcmFtZSsweDYxLzB4
+YzYKPj4+Pj4+Pj4+Pj4gWzExMDc1ODUuOTg4MTk5XSBSSVA6IDAwMzM6MHg3ZjU4NzM5MzIxMzMK
+Pj4+Pj4+Pj4+Pj4gWzExMDc1ODUuOTkxOTM4XSBDb2RlOiAwYyAwMCBmNyBkOCA2NCA4OSAwMiA0
+OCBjNyBjMCBmZiBmZiBmZiBmZiBlYiBiMyAwZiAxZiA4MCAwMCAwMCAwMCAwMCA2NCA4YiAwNCAy
+NSAxOCAwMCAwMCAwMCA4NSBjMCA3NSAxNCBiOCAwMSAwMCAwMCAwMCAwZiAwNSA8NDg+IDNkIDAw
+IGYwIGZmIGZmIDc3IDU1IGMzIDBmIDFmIDQwIDAwIDQxIDU0IDQ5IDg5IGQ0IDU1IDQ4IDg5IGY1
+Cj4+Pj4+Pj4+Pj4+IFsxMTA3NTg2LjAxMDg0Ml0gUlNQOiAwMDJiOjAwMDA3ZmZjYzEzODA4Yzgg
+RUZMQUdTOiAwMDAwMDI0NiBPUklHX1JBWDogMDAwMDAwMDAwMDAwMDAwMQo+Pj4+Pj4+Pj4+PiBb
+MTEwNzU4Ni4wMTg1NjZdIFJBWDogZmZmZmZmZmZmZmZmZmZkYSBSQlg6IDAwMDAwMDAwMDAwMDAw
+MDIgUkNYOiAwMDAwN2Y1ODczOTMyMTMzCj4+Pj4+Pj4+Pj4+IFsxMTA3NTg2LjAyNTkyM10gUkRY
+OiAwMDAwMDAwMDAwMDAwMDAyIFJTSTogMDAwMDAwMDAwMDVjMWMwOCBSREk6IDAwMDAwMDAwMDAw
+MDAwMDEKPj4+Pj4+Pj4+Pj4gWzExMDc1ODYuMDMzMjEzXSBSQlA6IDAwMDAwMDAwMDA1YzFjMDgg
+UjA4OiAwMDAwMDAwMDAwMDAwMDBhIFIwOTogMDAwMDdmNTg3MzljMmY0MAo+Pj4+Pj4+Pj4+PiBb
+MTEwNzU4Ni4wNDA1MDRdIFIxMDogMDAwMDAwMDAwMDVjYzM0OCBSMTE6IDAwMDAwMDAwMDAwMDAy
+NDYgUjEyOiAwMDAwMDAwMDAwMDAwMDAyCj4+Pj4+Pj4+Pj4+IFsxMTA3NTg2LjA0Nzc5NF0gUjEz
+OiAwMDAwN2Y1ODczYTAwNTIwIFIxNDogMDAwMDdmNTg3M2EwMDcyMCBSMTU6IDAwMDAwMDAwMDAw
+MDAwMDIKPj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+IE5vdGhpbmcgb2J2aW91cyB0byBtZSBoZXJl
+IOKApiBpZiB5b3UgaGF2ZSBhbnkgZnVydGhlciBpZGVhcyB3aGF0IHRvIHRlc3QsIGxldCBtZSBr
+bm93LiBJIHNob3VsZCBiZSBtb3JlIHJlc3BvbnNpdmUgYWdhaW4gbm93Lgo+Pj4+Pj4+Pj4+PiAK
+Pj4+Pj4+Pj4+Pj4gVGhhbmtzIGFuZCBraW5kIHJlZ2FyZHMsCj4+Pj4+Pj4+Pj4+IENocmlzdGlh
+bgo+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+IE9uIDUuIE1hciAyMDIzLCBhdCAyMzo1MywgQ29y
+ZXkgTWlueWFyZCA8bWlueWFyZEBhY20ub3JnPiB3cm90ZToKPj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+
+Pj4+Pj4gT24gV2VkLCBNYXIgMDEsIDIwMjMgYXQgMDY6MDA6MDdQTSArMDEwMCwgQ2hyaXN0aWFu
+IFRoZXVuZSB3cm90ZToKPj4+Pj4+Pj4+Pj4+PiBJ4oCZbSBnb2luZyB0byBhY3R1YWxseSBhdHRh
+Y2ggYSBzZXJpYWwgY29uc29sZSB0byB3YXRjaCB0aGUg4oCcZWNobyBj4oCdIHBhbmljLCBtYXli
+ZSB0aGF0IGdpdmVzIF9zb21lXyBpbmRpY2F0aW9uLgo+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+
+Pj4+IE90aGVyd2lzZTogSSBjYW4gcXVpY2tseSBydW4gcGF0Y2hlcyBvbiB0aGUga2VybmVsIHRo
+ZXJlIHRvIHRyeSBvdXQgdGhpbmdzLiAoQW5kIHRoZSBmdW5kaW5nIG9mZmVyIHN0aWxsIHN0YW5k
+cy4pCj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+IEFueSBuZXdzIG9uIHRoaXM/ICBJJ20gY3Vy
+aW91cyB3aGF0IHRoaXMgY291bGQgYmUuCj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+IC1jb3Jl
+eQo+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4gQ2hyaXN0aWFuCj4+
+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4+IE9uIDEuIE1hciAyMDIzLCBhdCAxNzo1OCwgQ29y
+ZXkgTWlueWFyZCA8bWlueWFyZEBhY20ub3JnPiB3cm90ZToKPj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+
+Pj4+Pj4+Pj4+IE9uIFR1ZSwgRmViIDI4LCAyMDIzIGF0IDA2OjM2OjE3UE0gKzAxMDAsIENocmlz
+dGlhbiBUaGV1bmUgd3JvdGU6Cj4+Pj4+Pj4+Pj4+Pj4+PiBUaGFua3MsIGJvdGggbWFjaGluZXMg
+cmVwb3J0Ogo+Pj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4+PiAjIGNhdCAvc3lzL21vZHVs
+ZS9pcG1pX21zZ2hhbmRsZXIvcGFyYW1ldGVycy9wYW5pY19vcAo+Pj4+Pj4+Pj4+Pj4+Pj4gc3Ry
+aW5nCj4+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+PiBBdCB0aGlzIHBvaW50LCBJIGhhdmUg
+bm8gaWRlYS4gIEknZCBoYXZlIHRvIHN0YXJ0IGFkZGluZyBwcmludGtzIGludG8KPj4+Pj4+Pj4+
+Pj4+Pj4gdGhlIGNvZGUgYW5kIGNhdXNlIGNyYXNoZXMgdG8gc2VlIHdoYXQgaXMgaGFwcGluZy4K
+Pj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4+IE1heWJlIHNvbWV0aGluZyBpcyBnZXR0aW5n
+IGluIHRoZSB3YXkgb2YgdGhlIHBhbmljIG5vdGlmaWVycyBhbmQgZG9pbmcKPj4+Pj4+Pj4+Pj4+
+Pj4gc29tZXRoaW5nIHRvIHByZXZlbnQgdGhlIElQTUkgZHJpdmVyIGZyb20gd29ya2luZy4KPj4+
+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4+IC1jb3JleQo+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+
+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4+Pj4gT24gMjguIEZlYiAy
+MDIzLCBhdCAxODowNCwgQ29yZXkgTWlueWFyZCA8bWlueWFyZEBhY20ub3JnPiB3cm90ZToKPj4+
+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+PiBPaCwgSSBmb3Jnb3QuICBZb3UgY2FuIGxv
+b2sgYXQgcGFuaWNfb3AgaW4gL3N5cy9tb2R1bGUvaXBtaV9tc2doYW5kbGVyL3BhcmFtZXRlcnMv
+cGFuaWNfb3AKPj4+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+PiAtY29yZXkKPj4+Pj4+
+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+PiBPbiBUdWUsIEZlYiAyOCwgMjAyMyBhdCAwNTo0
+ODowN1BNICswMTAwLCBDaHJpc3RpYW4gVGhldW5lIHZpYSBPcGVuaXBtaS1kZXZlbG9wZXIgd3Jv
+dGU6Cj4+Pj4+Pj4+Pj4+Pj4+Pj4+IEhpLAo+Pj4+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+
+Pj4+Pj4+IE9uIDI4LiBGZWIgMjAyMywgYXQgMTc6MzYsIENvcmV5IE1pbnlhcmQgPG1pbnlhcmRA
+YWNtLm9yZz4gd3JvdGU6Cj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+Pj4+IE9u
+IFR1ZSwgRmViIDI4LCAyMDIzIGF0IDAyOjUzOjEyUE0gKzAxMDAsIENocmlzdGlhbiBUaGV1bmUg
+dmlhIE9wZW5pcG1pLWRldmVsb3BlciB3cm90ZToKPj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiBIaSwKPj4+
+Pj4+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiBJ4oCZdmUgYmVlbiB0cnlpbmcg
+dG8gZGVidWcgdGhlIFBBTklDIGFuZCBPRU0gc3RyaW5nIGhhbmRsaW5nIGFuZCBhbSBydW5uaW5n
+IG91dCBvZiBpZGVhcyB3aGV0aGVyIHRoaXMgaXMgYSBidWcgb3Igd2hldGhlciBzb21ldGhpbmcg
+c28gc3VidGxlIGhhcyBjaGFuZ2VkIGluIG15IGNvbmZpZyB0aGF0IEnigJltIGp1c3Qgbm90IHNl
+ZWluZyBpdC4KPj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiAoTm90ZTog
+SeKAmW0gd2lsbGluZyB0byBwYXkgZm9yIGNvbnN1bHRpbmcuKQo+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4g
+Cj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiBQcm9iYWJseSBub3QgbmVjZXNzYXJ5Lgo+Pj4+Pj4+Pj4+Pj4+
+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+Pj4gVGhhbmtzISBUaGUgb2ZmZXIgYWx3YXlzIHN0YW5kcy4g
+SWYgd2Ugc2hvdWxkIGV2ZXIgbWVldCBJ4oCZbSBhbHNvIGFibGUgdG8gcGF5IGluIGJldmVyYWdl
+cy4gOykKPj4+Pj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4gSSBoYXZlIG1hY2hp
+bmVzIHRoYXQgd2XigJl2ZSBtb3ZlZCBmcm9tIGFuIG9sZGVyIHNldHVwIChHZW50b28sIChtb3N0
+bHkpIHZhbmlsbGEga2VybmVsIDQuMTkuMTU3KSB0byBhIG5ld2VyIHNldHVwIChOaXhPUywgKG1v
+c3RseSkgdmFuaWxsYSBrZXJuZWwgNS4xMC4xNTkpIGFuZCBJ4oCZbSBub3cgZXhwZXJpZW5jaW5n
+IGNyYXNoZXMgdGhhdCBzZWVtIHRvIGJlIGtlcm5lbCBwYW5pY3MgYnV0IGRvIG5vdCBnZXQgdGhl
+IHVzdWFsIG1lc3NhZ2VzIGluIHRoZSBJUE1JIFNFTC4KPj4+Pj4+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+
+Pj4+Pj4+Pj4+Pj4+Pj4gSSBqdXN0IHRlc3RlZCBvbiBzdG9jayA1LjEwLjE1OSBhbmQgaXQgd29y
+a2VkIHdpdGhvdXQgaXNzdWUuICBFdmVyeXRoaW5nCj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiB5b3UgaGF2
+ZSBiZWxvdyBsb29rcyBvay4KPj4+Pj4+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4g
+Q2FuIHlvdSB0ZXN0IGJ5IGNhdXNpbmcgYSBjcmFzaCB3aXRoOgo+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4g
+Cj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiBlY2hvIGMgPi9wcm9jL3N5c3JxLXRyaWdnZXIKPj4+Pj4+Pj4+
+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4gYW5kIHNlZSBpZiBpdCB3b3Jrcz8KPj4+Pj4+
+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4+Pj4+IFllYWgsIGFscmVhZHkgdHJpZWQgdGhhdCBh
+bmQgdW5mb3J0dW5hdGVseSB0aGF0IF9kb2VzbuKAmXRfIHdvcmsuCj4+Pj4+Pj4+Pj4+Pj4+Pj4+
+IAo+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4gSXQgc291bmRzIGxpa2UgeW91IGFyZSBoYXZpbmcgc29tZSB0
+eXBlIG9mIGNyYXNoIHRoYXQgeW91IHdvdWxkIG5vcm1hbGx5Cj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiB1
+c2UgdGhlIElQTUkgbG9ncyB0byBkZWJ1Zy4gIEhvd2V2ZXIsIHRoZXkgYXJlbid0IHBlcmZlY3Qs
+IHRoZSBzeXN0ZW0KPj4+Pj4+Pj4+Pj4+Pj4+Pj4+IGhhcyB0byBzdGF5IHVwIGxvbmcgZW5vdWdo
+IHRvIGdldCB0aGVtIGludG8gdGhlIGV2ZW50IGxvZy4KPj4+Pj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+
+Pj4+Pj4+Pj4+Pj4+IEkgdGhpbmsgdGhleSBhcmUgc3RheWluZyB1cCBsb25nIGVub3VnaCBiZWNh
+dXNlIGEgcGFuaWMgdHJpZ2dlcnMgdGhlIDI1NSBzZWNvbmQgYnVtcCBpbiB0aGUgd2F0Y2hkb2cg
+YW5kIG9ubHkgdGhlbiBwYXNzIG9uLiBIb3dldmVyLCBp4oCZdmUgYWxzbyBub3RpY2VkIHRoYXQg
+dGhlIGtlcm5lbCBfc2hvdWxkXyBiZSByZWJvb3RpbmcgYWZ0ZXIgYSBwYW5pYyBtdWNoIGZhc3Rl
+ciAoYW5kIG5vdCByZWx5IG9uIHRoZSB3YXRjaGRvZykgYW5kIHRoYXQgZG9lc27igJl0IGhhcHBl
+biBlaXRoZXIuIChTb3JyeSB0aGlzIGp1c3QgcG9wcGVkIGZyb20gdGhlIGJhY2sgb2YgbXkgaGVh
+ZCkuCj4+Pj4+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4gSW4gdGhpcyBzaXR1YXRp
+b24sIGdldHRpbmcgYSBzZXJpYWwgY29uc29sZSAocHJvYmFibHkgdGhyb3VnaCBJUE1JCj4+Pj4+
+Pj4+Pj4+Pj4+Pj4+PiBTZXJpYWwgb3ZlciBMQU4pIGFuZCBnZXR0aW5nIHRoZSBjb25zb2xlIG91
+dHB1dCBvbiBhIGNyYXNoIGlzIHByb2JhYmx5Cj4+Pj4+Pj4+Pj4+Pj4+Pj4+PiB5b3VyIGJlc3Qg
+b3B0aW9uLiAgWW91IGNhbiB1c2UgaXBtaXRvb2wgZm9yIHRoaXMsIG9yIEkgaGF2ZSBhIGxpYnJh
+cnkKPj4+Pj4+Pj4+Pj4+Pj4+Pj4+IHRoYXQgaXMgYWJsZSB0byBtYWtlIGNvbm5lY3Rpb25zIHRv
+IHNlcmlhbCBwb3J0cywgaW5jbHVkaW5nIHRocm91Z2ggSVBNSQo+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4g
+U29MLgo+Pj4+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+Pj4gWXVwLiBCZWVuIHRoZXJl
+LCB0b28uIDopCj4+Pj4+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+Pj4+PiBVbmZvcnR1bmF0
+ZWx5IHdl4oCZcmUgY3VycmVudGx5IGNoYXNpbmcgc29tZXRoaW5nIHRoYXQgcG9wcyB1cCB2ZXJ5
+IHJhbmRvbWx5IG9uIHNvbWV3aGF0IG9kZCBtYWNoaW5lcyBhbmQgSSBhbHNvIGhhdmUgdGhlIGZl
+ZWxpbmcgdGhhdCBpdOKAmXMgc3lzdGVtYXRpY2FsbHkgYnJva2VuIHJpZ2h0IG5vdyAoYXMgdGhl
+IOKAnGVjaG8gY+KAnSBkb2VzbuKAmXQgd29yaykuCj4+Pj4+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+
+Pj4+Pj4+Pj4+PiBUaGFua3MgYSBsb3QsCj4+Pj4+Pj4+Pj4+Pj4+Pj4+IENocmlzdGlhbgo+Pj4+
+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+Pj4gLS0gCj4+Pj4+Pj4+Pj4+Pj4+Pj4+IENo
+cmlzdGlhbiBUaGV1bmUgwrcgY3RAZmx5aW5nY2lyY3VzLmlvIMK3ICs0OSAzNDUgMjE5NDAxIDAK
+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4gRmx5aW5nIENpcmN1cyBJbnRlcm5ldCBPcGVyYXRpb25zIEdtYkgg
+wrcgaHR0cHM6Ly9mbHlpbmdjaXJjdXMuaW8KPj4+Pj4+Pj4+Pj4+Pj4+Pj4gTGVpcHppZ2VyIFN0
+ci4gNzAvNzEgwrcgMDYxMDggSGFsbGUgKFNhYWxlKSDCtyBEZXV0c2NobGFuZAo+Pj4+Pj4+Pj4+
+Pj4+Pj4+PiBIUiBTdGVuZGFsIEhSQiAyMTE2OSDCtyBHZXNjaMOkZnRzZsO8aHJlcjogQ2hyaXN0
+aWFuIFRoZXVuZSwgQ2hyaXN0aWFuIFphZ3JvZG5pY2sKPj4+Pj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+
+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+Pj4+Pj4+Pj4gX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+Pj4+Pj4+Pj4+Pj4+
+Pj4gT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdAo+Pj4+Pj4+Pj4+Pj4+Pj4+PiBPcGVu
+aXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cj4+Pj4+Pj4+Pj4+Pj4+Pj4+IGh0
+dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVs
+b3Blcgo+Pj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+Pj4+PiBMaWViZSBHcsO8w59lLAo+Pj4+
+Pj4+Pj4+Pj4+Pj4gQ2hyaXN0aWFuIFRoZXVuZQo+Pj4+Pj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+
+Pj4+PiAtLSAKPj4+Pj4+Pj4+Pj4+Pj4+IENocmlzdGlhbiBUaGV1bmUgwrcgY3RAZmx5aW5nY2ly
+Y3VzLmlvIMK3ICs0OSAzNDUgMjE5NDAxIDAKPj4+Pj4+Pj4+Pj4+Pj4+IEZseWluZyBDaXJjdXMg
+SW50ZXJuZXQgT3BlcmF0aW9ucyBHbWJIIMK3IGh0dHBzOi8vZmx5aW5nY2lyY3VzLmlvCj4+Pj4+
+Pj4+Pj4+Pj4+PiBMZWlwemlnZXIgU3RyLiA3MC83MSDCtyAwNjEwOCBIYWxsZSAoU2FhbGUpIMK3
+IERldXRzY2hsYW5kCj4+Pj4+Pj4+Pj4+Pj4+PiBIUiBTdGVuZGFsIEhSQiAyMTE2OSDCtyBHZXNj
+aMOkZnRzZsO8aHJlcjogQ2hyaXN0aWFuIFRoZXVuZSwgQ2hyaXN0aWFuIFphZ3JvZG5pY2sKPj4+
+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+Pj4+IExpZWJlIEdyw7zDn2Us
+Cj4+Pj4+Pj4+Pj4+Pj4gQ2hyaXN0aWFuIFRoZXVuZQo+Pj4+Pj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4+
+Pj4+IC0tIAo+Pj4+Pj4+Pj4+Pj4+IENocmlzdGlhbiBUaGV1bmUgwrcgY3RAZmx5aW5nY2lyY3Vz
+LmlvIMK3ICs0OSAzNDUgMjE5NDAxIDAKPj4+Pj4+Pj4+Pj4+PiBGbHlpbmcgQ2lyY3VzIEludGVy
+bmV0IE9wZXJhdGlvbnMgR21iSCDCtyBodHRwczovL2ZseWluZ2NpcmN1cy5pbwo+Pj4+Pj4+Pj4+
+Pj4+IExlaXB6aWdlciBTdHIuIDcwLzcxIMK3IDA2MTA4IEhhbGxlIChTYWFsZSkgwrcgRGV1dHNj
+aGxhbmQKPj4+Pj4+Pj4+Pj4+PiBIUiBTdGVuZGFsIEhSQiAyMTE2OSDCtyBHZXNjaMOkZnRzZsO8
+aHJlcjogQ2hyaXN0aWFuIFRoZXVuZSwgQ2hyaXN0aWFuIFphZ3JvZG5pY2sKPj4+Pj4+Pj4+Pj4+
+PiAKPj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+IExpZWJlIEdyw7zDn2UsCj4+Pj4+Pj4+Pj4+IENo
+cmlzdGlhbiBUaGV1bmUKPj4+Pj4+Pj4+Pj4gCj4+Pj4+Pj4+Pj4+IC0tIAo+Pj4+Pj4+Pj4+PiBD
+aHJpc3RpYW4gVGhldW5lIMK3IGN0QGZseWluZ2NpcmN1cy5pbyDCtyArNDkgMzQ1IDIxOTQwMSAw
+Cj4+Pj4+Pj4+Pj4+IEZseWluZyBDaXJjdXMgSW50ZXJuZXQgT3BlcmF0aW9ucyBHbWJIIMK3IGh0
+dHBzOi8vZmx5aW5nY2lyY3VzLmlvCj4+Pj4+Pj4+Pj4+IExlaXB6aWdlciBTdHIuIDcwLzcxIMK3
+IDA2MTA4IEhhbGxlIChTYWFsZSkgwrcgRGV1dHNjaGxhbmQKPj4+Pj4+Pj4+Pj4gSFIgU3RlbmRh
+bCBIUkIgMjExNjkgwrcgR2VzY2jDpGZ0c2bDvGhyZXI6IENocmlzdGlhbiBUaGV1bmUsIENocmlz
+dGlhbiBaYWdyb2RuaWNrCj4+Pj4+Pj4+PiAKPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gTGllYmUgR3LD
+vMOfZSwKPj4+Pj4+Pj4+IENocmlzdGlhbiBUaGV1bmUKPj4+Pj4+Pj4+IAo+Pj4+Pj4+Pj4gLS0g
+Cj4+Pj4+Pj4+PiBDaHJpc3RpYW4gVGhldW5lIMK3IGN0QGZseWluZ2NpcmN1cy5pbyDCtyArNDkg
+MzQ1IDIxOTQwMSAwCj4+Pj4+Pj4+PiBGbHlpbmcgQ2lyY3VzIEludGVybmV0IE9wZXJhdGlvbnMg
+R21iSCDCtyBodHRwczovL2ZseWluZ2NpcmN1cy5pbwo+Pj4+Pj4+Pj4gTGVpcHppZ2VyIFN0ci4g
+NzAvNzEgwrcgMDYxMDggSGFsbGUgKFNhYWxlKSDCtyBEZXV0c2NobGFuZAo+Pj4+Pj4+Pj4gSFIg
+U3RlbmRhbCBIUkIgMjExNjkgwrcgR2VzY2jDpGZ0c2bDvGhyZXI6IENocmlzdGlhbiBUaGV1bmUs
+IENocmlzdGlhbiBaYWdyb2RuaWNrCj4+Pj4+Pj4+PiAKPj4+Pj4+IAo+Pj4+Pj4gTGllYmUgR3LD
+vMOfZSwKPj4+Pj4+IENocmlzdGlhbiBUaGV1bmUKPj4+Pj4+IAo+Pj4+Pj4gLS0gCj4+Pj4+PiBD
+aHJpc3RpYW4gVGhldW5lIMK3IGN0QGZseWluZ2NpcmN1cy5pbyDCtyArNDkgMzQ1IDIxOTQwMSAw
+Cj4+Pj4+PiBGbHlpbmcgQ2lyY3VzIEludGVybmV0IE9wZXJhdGlvbnMgR21iSCDCtyBodHRwczov
+L2ZseWluZ2NpcmN1cy5pbwo+Pj4+Pj4gTGVpcHppZ2VyIFN0ci4gNzAvNzEgwrcgMDYxMDggSGFs
+bGUgKFNhYWxlKSDCtyBEZXV0c2NobGFuZAo+Pj4+Pj4gSFIgU3RlbmRhbCBIUkIgMjExNjkgwrcg
+R2VzY2jDpGZ0c2bDvGhyZXI6IENocmlzdGlhbiBUaGV1bmUsIENocmlzdGlhbiBaYWdyb2RuaWNr
+Cj4+Pj4+PiAKPj4+PiAKPj4+PiBMaWViZSBHcsO8w59lLAo+Pj4+IENocmlzdGlhbiBUaGV1bmUK
+Pj4+PiAKPj4+PiAtLSAKPj4+PiBDaHJpc3RpYW4gVGhldW5lIMK3IGN0QGZseWluZ2NpcmN1cy5p
+byDCtyArNDkgMzQ1IDIxOTQwMSAwCj4+Pj4gRmx5aW5nIENpcmN1cyBJbnRlcm5ldCBPcGVyYXRp
+b25zIEdtYkggwrcgaHR0cHM6Ly9mbHlpbmdjaXJjdXMuaW8KPj4+PiBMZWlwemlnZXIgU3RyLiA3
+MC83MSDCtyAwNjEwOCBIYWxsZSAoU2FhbGUpIMK3IERldXRzY2hsYW5kCj4+Pj4gSFIgU3RlbmRh
+bCBIUkIgMjExNjkgwrcgR2VzY2jDpGZ0c2bDvGhyZXI6IENocmlzdGlhbiBUaGV1bmUsIENocmlz
+dGlhbiBaYWdyb2RuaWNrCj4+Pj4gCj4+Pj4gCj4+Pj4gCj4+Pj4gX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+PiBPcGVuaXBtaS1kZXZlbG9wZXIgbWFp
+bGluZyBsaXN0Cj4+Pj4gT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldAo+
+Pj4+IGh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1p
+LWRldmVsb3Blcgo+PiAKPj4gTGllYmUgR3LDvMOfZSwKPj4gQ2hyaXN0aWFuIFRoZXVuZQo+PiAK
+Pj4gLS0gCj4+IENocmlzdGlhbiBUaGV1bmUgwrcgY3RAZmx5aW5nY2lyY3VzLmlvIMK3ICs0OSAz
+NDUgMjE5NDAxIDAKPj4gRmx5aW5nIENpcmN1cyBJbnRlcm5ldCBPcGVyYXRpb25zIEdtYkggwrcg
+aHR0cHM6Ly9mbHlpbmdjaXJjdXMuaW8KPj4gTGVpcHppZ2VyIFN0ci4gNzAvNzEgwrcgMDYxMDgg
+SGFsbGUgKFNhYWxlKSDCtyBEZXV0c2NobGFuZAo+PiBIUiBTdGVuZGFsIEhSQiAyMTE2OSDCtyBH
+ZXNjaMOkZnRzZsO8aHJlcjogQ2hyaXN0aWFuIFRoZXVuZSwgQ2hyaXN0aWFuIFphZ3JvZG5pY2sK
+Pj4gCj4+IAo+PiAKPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KPj4gT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdAo+PiBPcGVuaXBtaS1kZXZl
+bG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cj4+IGh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2Uu
+bmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo+IDwwMDAxLWlwbWktd2F0Y2hk
+b2ctU2V0LXBhbmljLWNvdW50LXRvLXByb3Blci12YWx1ZS1vbi1hLXAucGF0Y2g+CgpMaWViZSBH
+csO8w59lLApDaHJpc3RpYW4gVGhldW5lCgotLSAKQ2hyaXN0aWFuIFRoZXVuZSDCtyBjdEBmbHlp
+bmdjaXJjdXMuaW8gwrcgKzQ5IDM0NSAyMTk0MDEgMApGbHlpbmcgQ2lyY3VzIEludGVybmV0IE9w
+ZXJhdGlvbnMgR21iSCDCtyBodHRwczovL2ZseWluZ2NpcmN1cy5pbwpMZWlwemlnZXIgU3RyLiA3
+MC83MSDCtyAwNjEwOCBIYWxsZSAoU2FhbGUpIMK3IERldXRzY2hsYW5kCkhSIFN0ZW5kYWwgSFJC
+IDIxMTY5IMK3IEdlc2Now6RmdHNmw7xocmVyOiBDaHJpc3RpYW4gVGhldW5lLCBDaHJpc3RpYW4g
+WmFncm9kbmljawoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpPcGVuaXBtaS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBs
+aXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMv
+bGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVyCg==
