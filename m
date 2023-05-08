@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2BDC06FABFB
-	for <lists+openipmi-developer@lfdr.de>; Mon,  8 May 2023 13:19:30 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id F42226FAE13
+	for <lists+openipmi-developer@lfdr.de>; Mon,  8 May 2023 13:40:51 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pvyto-0003Y0-Ru;
-	Mon, 08 May 2023 11:19:24 +0000
+	id 1pvzEU-0003B1-3x;
+	Mon, 08 May 2023 11:40:46 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <gregkh@linuxfoundation.org>) id 1pvytm-0003Xr-R9
+ (envelope-from <gregkh@linuxfoundation.org>) id 1pvzET-0003Ao-34
  for openipmi-developer@lists.sourceforge.net;
- Mon, 08 May 2023 11:19:23 +0000
+ Mon, 08 May 2023 11:40:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
  :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=hRBRbuy+JrDi0lFSpQ0pcn3LQBYd9T9pdbvMoUjsObU=; b=HBOgPcUMF61hmy3rbD+63Ce2or
- sSsv67scWfiz0nZ1HompBcXg2yF2evTRp3TrwW6h3Wu1Xnqa+1uniq+jT3s4SZvKQAUlA9Z1tZRP/
- JNjvxLY/xtxtMCLwikB28TQo0QUWRIVkqkLDlre+C5zJboqiepnysWhHMw2V7waeHB90=;
+ bh=6EabBptRAHZSd1yGsfC2L85P7eqfT9K0gsBXa587fa0=; b=gquMJqwZLMhEgWcI8hkCsgrJSE
+ OXfOfRPIlJxeQX3fb31X47XSb6YODyafnJe4Sxx00MxgqRblzOyug95QHzwAR8dL6OzNF5ebwLs3k
+ bDI6zXbi1D6OrjzgcUEaJyrQwlv53ufFN1IRukevZCsBAdd4vboTEffhZDEGra7XvpMk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
@@ -31,35 +31,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=hRBRbuy+JrDi0lFSpQ0pcn3LQBYd9T9pdbvMoUjsObU=; b=Gw2hTeg8qirE6LbvQ0qXQ7V0ac
- CvFYstcCeovK2zgI2+G9p7hsIDwxkjgky8ssJq6kzdQu5yDlwY94A3ws+c9pmZxewNtjlNkZ6xrvO
- PkA0COXpqLVYU5CdZELCdOzi7EN9wb1fioBrz0SuLCro3t6vmzAVtU3x22ziWjaqWWqs=;
+ bh=6EabBptRAHZSd1yGsfC2L85P7eqfT9K0gsBXa587fa0=; b=XKPxE12ajFcqGcj4yLYVKhOfuB
+ 0aljISV7q2SAXgu5MQiG7Y2q1KX5AOrAtDv2h8mlBASx0pBeX8bJYiicW1HSEtHei5AYKjvyGVJPz
+ 9+M8h4Qa4l85oYcIH2XXhPCHtQD5UGGAZ3JD8HSb9a0hFfuCD/bGk267tW45vHicPr8c=;
 Received: from dfw.source.kernel.org ([139.178.84.217])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1pvyti-0003zf-UL for openipmi-developer@lists.sourceforge.net;
- Mon, 08 May 2023 11:19:22 +0000
+ id 1pvzEP-001ynu-Uk for openipmi-developer@lists.sourceforge.net;
+ Mon, 08 May 2023 11:40:45 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 8C14762C51;
- Mon,  8 May 2023 11:19:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98F7EC433EF;
- Mon,  8 May 2023 11:19:12 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 87C936357B;
+ Mon,  8 May 2023 11:40:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01208C433EF;
+ Mon,  8 May 2023 11:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1683544753;
- bh=1h26vtrqqvt1mMc7lYTDMTUtoxN7XkOe1MxYzEbqMa0=;
+ s=korg; t=1683546036;
+ bh=vfW6pT1Rr2ndNJlZba75W+pJ5FSenrKhaK+UucgNa2Y=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=yvQi+71Jzwfh1sMQrlvBwL+IPTE5f+IIv0CBKptSqjSFtcYf4O80Wv6gPUsCaitGO
- OwiiaYLeedN6gRMHFFfeuu/RaepW+eGYGUlqxH8+WNUF/uRBs1oxa14GXeZGFuuBrp
- 6bk75ZhYDWTOFJncAPmwj5stj356u6SmCJtt9ojo=
+ b=qsTsUne4cLppjpfqVn0HnfURXLatfzJJNbwST3BxGB/QprBKrhMYjyow4dnwGI77Y
+ tEVSlGio3psdniJI7tLvs7yjcDwDxG36+f01S3PxdalhzXk8oWSgkLKNKIAYIHpoFi
+ zrFcffZWm1rpm8KywwML/F7D2X1xHij0rPtY0phE=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
-Date: Mon,  8 May 2023 11:45:18 +0200
-Message-Id: <20230508094449.562456721@linuxfoundation.org>
+Date: Mon,  8 May 2023 11:47:17 +0200
+Message-Id: <20230508094821.435205068@linuxfoundation.org>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230508094432.603705160@linuxfoundation.org>
-References: <20230508094432.603705160@linuxfoundation.org>
+In-Reply-To: <20230508094811.912279944@linuxfoundation.org>
+References: <20230508094811.912279944@linuxfoundation.org>
 User-Agent: quilt/0.67
 MIME-Version: 1.0
 X-Spam-Score: -5.9 (-----)
@@ -89,8 +89,8 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1pvyti-0003zf-UL
-Subject: [Openipmi-developer] [PATCH 6.3 483/694] ipmi: ASPEED_BT_IPMI_BMC:
+X-Headers-End: 1pvzEP-001ynu-Uk
+Subject: [Openipmi-developer] [PATCH 5.15 236/371] ipmi: ASPEED_BT_IPMI_BMC:
  select REGMAP_MMIO instead of depending on it
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -143,10 +143,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig
-index b6c0d35fc1a5f..f4adc6feb3b22 100644
+index 249b31197eeae..8298a4dd0de68 100644
 --- a/drivers/char/ipmi/Kconfig
 +++ b/drivers/char/ipmi/Kconfig
-@@ -162,7 +162,8 @@ config IPMI_KCS_BMC_SERIO
+@@ -153,7 +153,8 @@ config IPMI_KCS_BMC_SERIO
  
  config ASPEED_BT_IPMI_BMC
  	depends on ARCH_ASPEED || COMPILE_TEST
