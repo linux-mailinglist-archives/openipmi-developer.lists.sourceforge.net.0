@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04F8C6FA875
-	for <lists+openipmi-developer@lfdr.de>; Mon,  8 May 2023 12:40:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2BDC06FABFB
+	for <lists+openipmi-developer@lfdr.de>; Mon,  8 May 2023 13:19:30 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pvyIW-0002nm-8i;
-	Mon, 08 May 2023 10:40:52 +0000
+	id 1pvyto-0003Y0-Ru;
+	Mon, 08 May 2023 11:19:24 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <gregkh@linuxfoundation.org>) id 1pvyIN-0002nb-7k
+ (envelope-from <gregkh@linuxfoundation.org>) id 1pvytm-0003Xr-R9
  for openipmi-developer@lists.sourceforge.net;
- Mon, 08 May 2023 10:40:43 +0000
+ Mon, 08 May 2023 11:19:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
  :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=hRBRbuy+JrDi0lFSpQ0pcn3LQBYd9T9pdbvMoUjsObU=; b=B/uGIHgC+JRZKNuvIa7O1eKXo/
- 701n03NmWk45gDr54Vnz/4Pg2oc/zQe9SqJ8bZo8YGS/yuyAw6Zwt+QGAJ1kvcmcnXxet8kH7fb0W
- OnoVB+XIWphg2nVkPDAayboqfi75A78PshV5EMDVhciZetfp4X9z/dU3bVGfq3lfatdk=;
+ bh=hRBRbuy+JrDi0lFSpQ0pcn3LQBYd9T9pdbvMoUjsObU=; b=HBOgPcUMF61hmy3rbD+63Ce2or
+ sSsv67scWfiz0nZ1HompBcXg2yF2evTRp3TrwW6h3Wu1Xnqa+1uniq+jT3s4SZvKQAUlA9Z1tZRP/
+ JNjvxLY/xtxtMCLwikB28TQo0QUWRIVkqkLDlre+C5zJboqiepnysWhHMw2V7waeHB90=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
@@ -31,35 +31,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=hRBRbuy+JrDi0lFSpQ0pcn3LQBYd9T9pdbvMoUjsObU=; b=fcb3ExzRky0vEIcG7dwUKfkLjB
- Q95oTOozdKZggzyAS7LRlmj/enFYrCiqaRvs5y6/ju/ZcWm7Tn4aC8xPqrLkT1iU+GqnYOCfYmUiE
- VPltFFYjW7QrmxTkj5ZWFrvoIuX/RwffEZZIN9EpvybdWSgoJLNlRp4gWm799k8Zi5CU=;
+ bh=hRBRbuy+JrDi0lFSpQ0pcn3LQBYd9T9pdbvMoUjsObU=; b=Gw2hTeg8qirE6LbvQ0qXQ7V0ac
+ CvFYstcCeovK2zgI2+G9p7hsIDwxkjgky8ssJq6kzdQu5yDlwY94A3ws+c9pmZxewNtjlNkZ6xrvO
+ PkA0COXpqLVYU5CdZELCdOzi7EN9wb1fioBrz0SuLCro3t6vmzAVtU3x22ziWjaqWWqs=;
 Received: from dfw.source.kernel.org ([139.178.84.217])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1pvyIM-0002dL-Eh for openipmi-developer@lists.sourceforge.net;
- Mon, 08 May 2023 10:40:43 +0000
+ id 1pvyti-0003zf-UL for openipmi-developer@lists.sourceforge.net;
+ Mon, 08 May 2023 11:19:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 12C036284A;
- Mon,  8 May 2023 10:40:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20CFDC433D2;
- Mon,  8 May 2023 10:40:35 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 8C14762C51;
+ Mon,  8 May 2023 11:19:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98F7EC433EF;
+ Mon,  8 May 2023 11:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1683542436;
+ s=korg; t=1683544753;
  bh=1h26vtrqqvt1mMc7lYTDMTUtoxN7XkOe1MxYzEbqMa0=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=JHuARMyZ8ey2NJwkwn0o0On7imM8ABTq6tOeZ+LkXiRme6xAHhD1AaMKYG/cFbPlf
- 27iFHMhseYkjFFSbeZq8Kn+iDY2nVe8Rl6fUOsKg/TnZquylUzke5uiKy1OFrQrVJt
- Jxy4BSZHkeubGHFxWPjnyMNZaqKqKOBJ7wYqWZrM=
+ b=yvQi+71Jzwfh1sMQrlvBwL+IPTE5f+IIv0CBKptSqjSFtcYf4O80Wv6gPUsCaitGO
+ OwiiaYLeedN6gRMHFFfeuu/RaepW+eGYGUlqxH8+WNUF/uRBs1oxa14GXeZGFuuBrp
+ 6bk75ZhYDWTOFJncAPmwj5stj356u6SmCJtt9ojo=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
-Date: Mon,  8 May 2023 11:44:21 +0200
-Message-Id: <20230508094442.180185406@linuxfoundation.org>
+Date: Mon,  8 May 2023 11:45:18 +0200
+Message-Id: <20230508094449.562456721@linuxfoundation.org>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230508094428.384831245@linuxfoundation.org>
-References: <20230508094428.384831245@linuxfoundation.org>
+In-Reply-To: <20230508094432.603705160@linuxfoundation.org>
+References: <20230508094432.603705160@linuxfoundation.org>
 User-Agent: quilt/0.67
 MIME-Version: 1.0
 X-Spam-Score: -5.9 (-----)
@@ -89,8 +89,8 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1pvyIM-0002dL-Eh
-Subject: [Openipmi-developer] [PATCH 6.2 435/663] ipmi: ASPEED_BT_IPMI_BMC:
+X-Headers-End: 1pvyti-0003zf-UL
+Subject: [Openipmi-developer] [PATCH 6.3 483/694] ipmi: ASPEED_BT_IPMI_BMC:
  select REGMAP_MMIO instead of depending on it
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
