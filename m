@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F42226FAE13
-	for <lists+openipmi-developer@lfdr.de>; Mon,  8 May 2023 13:40:51 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id F3E70703983
+	for <lists+openipmi-developer@lfdr.de>; Mon, 15 May 2023 19:43:20 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pvzEU-0003B1-3x;
-	Mon, 08 May 2023 11:40:46 +0000
+	id 1pycE3-00048D-QD;
+	Mon, 15 May 2023 17:43:11 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <gregkh@linuxfoundation.org>) id 1pvzET-0003Ao-34
+ (envelope-from <gregkh@linuxfoundation.org>) id 1pycE2-000487-2J
  for openipmi-developer@lists.sourceforge.net;
- Mon, 08 May 2023 11:40:45 +0000
+ Mon, 15 May 2023 17:43:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
  :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=6EabBptRAHZSd1yGsfC2L85P7eqfT9K0gsBXa587fa0=; b=gquMJqwZLMhEgWcI8hkCsgrJSE
- OXfOfRPIlJxeQX3fb31X47XSb6YODyafnJe4Sxx00MxgqRblzOyug95QHzwAR8dL6OzNF5ebwLs3k
- bDI6zXbi1D6OrjzgcUEaJyrQwlv53ufFN1IRukevZCsBAdd4vboTEffhZDEGra7XvpMk=;
+ bh=6vNZqz2ryBsRhCmNcEuwLBLCeuDoo1f5DuAlEkAdVyA=; b=XnBb0Ku/25EGydHFZU+Wvc+QBa
+ q8C4MMIm92Pu+uqr/Be7YR7gK3oeraZAcjb5kjQEYXjn8XCeP/sHSv0s2kBUHYRQ6gUCH17OC1CAE
+ kJRZkPpM83FdvRX33SlgSyPm4vVsm0i0vYX1lNMV0gU2vcRnIcJzq7nUCwBNR/ld5Mx4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
@@ -31,40 +31,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=6EabBptRAHZSd1yGsfC2L85P7eqfT9K0gsBXa587fa0=; b=XKPxE12ajFcqGcj4yLYVKhOfuB
- 0aljISV7q2SAXgu5MQiG7Y2q1KX5AOrAtDv2h8mlBASx0pBeX8bJYiicW1HSEtHei5AYKjvyGVJPz
- 9+M8h4Qa4l85oYcIH2XXhPCHtQD5UGGAZ3JD8HSb9a0hFfuCD/bGk267tW45vHicPr8c=;
+ bh=6vNZqz2ryBsRhCmNcEuwLBLCeuDoo1f5DuAlEkAdVyA=; b=F91vf2vVD1UVR3mC+GNOhd5sBS
+ JLoexHtqjvMGTrznK6DozXy0HSlrNf/PgkvTUT7dlMS4tfG7gNNI+/sXy8akp8snTPHwjGT6SfQL5
+ oXXN4JFhCei3Rjd6yvy3rVVcqN9RsabGy1IYP2Pi9rwXHZD/pM6HRksG3R4N2sTEZy8M=;
 Received: from dfw.source.kernel.org ([139.178.84.217])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1pvzEP-001ynu-Uk for openipmi-developer@lists.sourceforge.net;
- Mon, 08 May 2023 11:40:45 +0000
+ id 1pycE1-008e6a-Gu for openipmi-developer@lists.sourceforge.net;
+ Mon, 15 May 2023 17:43:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 87C936357B;
- Mon,  8 May 2023 11:40:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01208C433EF;
- Mon,  8 May 2023 11:40:35 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id E522962E7D;
+ Mon, 15 May 2023 17:43:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D75F0C433EF;
+ Mon, 15 May 2023 17:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1683546036;
- bh=vfW6pT1Rr2ndNJlZba75W+pJ5FSenrKhaK+UucgNa2Y=;
+ s=korg; t=1684172580;
+ bh=niW5dJMdUA6KXbnQ2D65IL3XQVNhfO9t3jMRjmvWlDQ=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=qsTsUne4cLppjpfqVn0HnfURXLatfzJJNbwST3BxGB/QprBKrhMYjyow4dnwGI77Y
- tEVSlGio3psdniJI7tLvs7yjcDwDxG36+f01S3PxdalhzXk8oWSgkLKNKIAYIHpoFi
- zrFcffZWm1rpm8KywwML/F7D2X1xHij0rPtY0phE=
+ b=QEYVa83AK+zNyc2N5Gs6KWhJ1PV4uASmWym4vNtEZx7UQsgD2fKlyA/ZLkYhrqgiZ
+ j3L2gr2TxXb7dxZ6BByiyZk3eAIjjhMUbnnxJrVG3ZE5aBxdF6pKN/ZkLXb3n3dUMY
+ FAj1Vr+D8Y9yYuJ3qLA4fDx+BFq/N1/V0ZNHCua4=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: stable@vger.kernel.org
-Date: Mon,  8 May 2023 11:47:17 +0200
-Message-Id: <20230508094821.435205068@linuxfoundation.org>
+Date: Mon, 15 May 2023 18:27:23 +0200
+Message-Id: <20230515161745.486438171@linuxfoundation.org>
 X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230508094811.912279944@linuxfoundation.org>
-References: <20230508094811.912279944@linuxfoundation.org>
+In-Reply-To: <20230515161736.775969473@linuxfoundation.org>
+References: <20230515161736.775969473@linuxfoundation.org>
 User-Agent: quilt/0.67
 MIME-Version: 1.0
-X-Spam-Score: -5.9 (-----)
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -74,23 +74,24 @@ X-Spam-Report: Spam detection software,
  visible)
  symbol. Users cannot set it directly thru "make *config", so drivers should
  select it instead of depending on it if they need it. 
- Content analysis details:   (-5.9 points, 6.0 required)
+ Content analysis details:   (-5.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
  high trust [139.178.84.217 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1pvzEP-001ynu-Uk
-Subject: [Openipmi-developer] [PATCH 5.15 236/371] ipmi: ASPEED_BT_IPMI_BMC:
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1pycE1-008e6a-Gu
+Subject: [Openipmi-developer] [PATCH 5.10 192/381] ipmi: ASPEED_BT_IPMI_BMC:
  select REGMAP_MMIO instead of depending on it
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -143,10 +144,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig
-index 249b31197eeae..8298a4dd0de68 100644
+index 07847d9a459af..f443186269e1c 100644
 --- a/drivers/char/ipmi/Kconfig
 +++ b/drivers/char/ipmi/Kconfig
-@@ -153,7 +153,8 @@ config IPMI_KCS_BMC_SERIO
+@@ -126,7 +126,8 @@ config NPCM7XX_KCS_IPMI_BMC
  
  config ASPEED_BT_IPMI_BMC
  	depends on ARCH_ASPEED || COMPILE_TEST
