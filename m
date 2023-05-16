@@ -2,137 +2,135 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E95D704D59
-	for <lists+openipmi-developer@lfdr.de>; Tue, 16 May 2023 14:05:50 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9D94C704DE3
+	for <lists+openipmi-developer@lfdr.de>; Tue, 16 May 2023 14:37:10 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pytR3-0000gs-RP;
-	Tue, 16 May 2023 12:05:46 +0000
+	id 1pytvL-0007bM-MH;
+	Tue, 16 May 2023 12:37:04 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <schnelle@linux.ibm.com>) id 1pytR2-0000gb-CJ
+ (envelope-from <schnelle@linux.ibm.com>) id 1pytvK-0007bG-Au
  for openipmi-developer@lists.sourceforge.net;
- Tue, 16 May 2023 12:05:45 +0000
+ Tue, 16 May 2023 12:37:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
+ :References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=qsZYI7LLt973B2TMAyu62LkBdakuTXAy5GQhWes8fnI=; b=DR1flroPJIfP2A14qhcLlJNoj4
- 8cqL2slA4E1GN/ygIkmCDcWGCYuApKAOXkD2iQdl/EoMLRHJgacYiiEhybZpGcThzJtpAWRokms3s
- mbRDmKdkm02FfBi8tMSu4yRmoYff+1jEC9+ARGalgFduTtH7aSpCLb2lT5sLTYbVWXbU=;
+ bh=w5b3ImIf3nnbcFTz7oY9tOlzKERrU5xMQAvYBJ7V30U=; b=WMOvntDi4hpftM0SB18zwvsSDT
+ CWWbHtLRCdl6wQEJcdmx6GfaFfjIPZS8eCmUfmTGj4VT/lBBvBqseYoThPCuCY4nla2uVpJyvE/Vz
+ U4Qpn+TR1P6/qo33S84r2ULXRgNdoWmu7wKtUw3WG+nV5uJXHZgM5taiaAHTluegmsu8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+ In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=qsZYI7LLt973B2TMAyu62LkBdakuTXAy5GQhWes8fnI=; b=bX8dod36NxR/Uv3mwExRPz0aDM
- AvkdVs//tZ7NT6FtfqOECnNBUKZLG1nfkuto9zJfOPO3pKCMjD1n6NHGbiw7aTGFZgIZqRM3gYXvj
- 6/DgsOn7OkOKYHOUIHoufa/FRgW7l10nyGb5h76i9E2c/FWKfuhAZw7kXhNpIJLso/5s=;
+ bh=w5b3ImIf3nnbcFTz7oY9tOlzKERrU5xMQAvYBJ7V30U=; b=nQ5WZMGqOjCf9GDuQjsqx1u9j6
+ NNuWF+RassbAT8ybKcC06UZIpXABhAds76Vf1H8Zhlb0tigv+KORgTEWcv3kNFnqLZONHz0G2o8OX
+ 4nqWHJVY3pBPE6HwuZRNf+OYOKqM3Cj+K38ySp81tjnCooyG17Wdh7aJVdCLeXxKD4y8=;
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1pytR1-0004Zz-BH for openipmi-developer@lists.sourceforge.net;
- Tue, 16 May 2023 12:05:45 +0000
-Received: from pps.filterd (m0353727.ppops.net [127.0.0.1])
+ id 1pytvE-0006H2-6U for openipmi-developer@lists.sourceforge.net;
+ Tue, 16 May 2023 12:37:02 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
  by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id
- 34GAbFjZ019110; Tue, 16 May 2023 11:00:48 GMT
+ 34GCZ3xX028839; Tue, 16 May 2023 12:36:36 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=from : to : cc : subject
- : date : message-id : in-reply-to : references : mime-version :
- content-transfer-encoding; s=pp1;
- bh=qsZYI7LLt973B2TMAyu62LkBdakuTXAy5GQhWes8fnI=;
- b=hu+d+PtGBXcWH0qcsny0ScctJ5MtLFBN2kfwEK+bJmzadKcU4Tji0Iw6WD42PeziItDl
- azTPlgF7iGJZsEU1va7j6Q2yB9rqQIjwTGVnHHmFxJ9mpflCrMwrkQdZRhX4H8hT7tfT
- ESPTsvPJzKqx26SVCLkGkVgw0yf+ujrWAJzCdBNoXaZ4qokXoe0AfJ2widARMvKTrVMI
- nqfRbAcvIah6NLJKa+0rVdb9NZpBJuwA4mdGpxJ0FhDfljRlfI2WJ/OA7Al4Cr/NK9Eb
- tb41xVRmkElmhKbEu0H6doYhA28/6b715Im7EPSgAQR8Jdc/IxQLoyUWtPkzdBcpPN9U iw== 
+ h=message-id : subject :
+ from : to : cc : date : in-reply-to : references : content-type :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=w5b3ImIf3nnbcFTz7oY9tOlzKERrU5xMQAvYBJ7V30U=;
+ b=Icja5l/SBdvgM29tsNdD3O2EnFVMt6EmCmmESudlbRcD3QARDv1geZ7kSO+FJ390xdQw
+ eJRRSTb6UjfHUbvnzoPSGTdz1Ut56958qyd78rXAdy+O1IuQTqZoQ9ijFkSJdbDvF8ij
+ +fF0zksPSg8fw8QqraSKAax0omuFuJw60xizUM1RU9X+r/YdalQK/cSe3Y9GvvtfxQtq
+ LjRLtVKc0aprvpy9X4nll2m5mtrvfz1greOgvATHoKY/QgfdFpyOoTf62RxtPh/7QUVM
+ j3R//Pgil2L0E/YsK293YbbdOto6GrmL7YfKUnaK/I5Xq3vcflKFM9DzIM8qTpErRBkI fQ== 
 Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qm7kahuus-1
+ by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qm9ak9dbr-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 16 May 2023 11:00:48 +0000
-Received: from m0353727.ppops.net (m0353727.ppops.net [127.0.0.1])
- by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34GAbSOK020783;
- Tue, 16 May 2023 11:00:47 GMT
+ Tue, 16 May 2023 12:36:35 +0000
+Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
+ by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34GCZJC8029892;
+ Tue, 16 May 2023 12:35:53 GMT
 Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com
  [169.51.49.99])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qm7kahut6-1
+ by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qm9ak9d16-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 16 May 2023 11:00:47 +0000
+ Tue, 16 May 2023 12:35:53 +0000
 Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
- by ppma04ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34G4Zslu017459;
- Tue, 16 May 2023 11:00:44 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
- by ppma04ams.nl.ibm.com (PPS) with ESMTPS id 3qj264sk8w-1
+ by ppma04ams.nl.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34G4Zsop017459;
+ Tue, 16 May 2023 12:35:47 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+ by ppma04ams.nl.ibm.com (PPS) with ESMTPS id 3qj264smq3-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 16 May 2023 11:00:44 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com
- [10.20.54.103])
- by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 34GB0gI829557342
+ Tue, 16 May 2023 12:35:47 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com
+ [10.20.54.105])
+ by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 34GCZjJ124642064
  (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 16 May 2023 11:00:42 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 2C64F2004D;
- Tue, 16 May 2023 11:00:42 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id A735C20043;
- Tue, 16 May 2023 11:00:41 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
- by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
- Tue, 16 May 2023 11:00:41 +0000 (GMT)
-To: Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Corey Minyard <minyard@acm.org>, Peter Huewe <peterhuewe@gmx.de>,
- Jarkko Sakkinen <jarkko@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
-Date: Tue, 16 May 2023 12:59:59 +0200
-Message-Id: <20230516110038.2413224-4-schnelle@linux.ibm.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230516110038.2413224-1-schnelle@linux.ibm.com>
+ Tue, 16 May 2023 12:35:45 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 24CB420040;
+ Tue, 16 May 2023 12:35:45 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id B96F220043;
+ Tue, 16 May 2023 12:35:44 +0000 (GMT)
+Received: from [9.152.212.232] (unknown [9.152.212.232])
+ by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+ Tue, 16 May 2023 12:35:44 +0000 (GMT)
+Message-ID: <85b69a87c1e6b5a682e2164c9abdc9e2f2cea0a4.camel@linux.ibm.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Date: Tue, 16 May 2023 14:35:44 +0200
+In-Reply-To: <2023051656-mammary-cobweb-7265@gregkh>
 References: <20230516110038.2413224-1-schnelle@linux.ibm.com>
+ <20230516110038.2413224-4-schnelle@linux.ibm.com>
+ <2023051656-mammary-cobweb-7265@gregkh>
+User-Agent: Evolution 3.48.1 (3.48.1-1.fc38) 
 MIME-Version: 1.0
 X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: bfRPvi3vgfDmbZsnTQOKh1vc5t0aetQg
-X-Proofpoint-ORIG-GUID: aCnwHZ5-Phogu8J7xZl6vX2P-ewcOnfb
+X-Proofpoint-GUID: B2S-2uTjJBK46yrksP0f_WG1gkEOt6GI
+X-Proofpoint-ORIG-GUID: xn7Tbo_9c4JcWlF-ZDe50MR9XhH82cSZ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.170.22
- definitions=2023-05-16_04,2023-05-16_01,2023-02-09_01
+ definitions=2023-05-16_06,2023-05-16_01,2023-02-09_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- phishscore=0 mlxlogscore=999 suspectscore=0 bulkscore=0 mlxscore=0
- adultscore=0 spamscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0
- clxscore=1011 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2304280000 definitions=main-2305160089
+ bulkscore=0 mlxlogscore=999
+ clxscore=1015 malwarescore=0 mlxscore=0 suspectscore=0 phishscore=0
+ spamscore=0 priorityscore=1501 adultscore=0 lowpriorityscore=0
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2304280000 definitions=main-2305160107
 X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  In a future patch HAS_IOPORT=n will result in inb()/outb()
- and friends not being declared. We thus need to add this dependency and ifdef
- sections of code using inb()/outb() as alternative access metho [...] 
+ Content preview:  On Tue, 2023-05-16 at 13:46 +0200, Greg Kroah-Hartman wrote:
+ > On Tue, May 16, 2023 at 12:59:59PM +0200, Niklas Schnelle wrote: > > In
+ a future patch HAS_IOPORT=n will result in inb()/outb() and frien [...] 
  Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
  [148.163.156.1 listed in wl.mailspike.net]
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1pytR1-0004Zz-BH
-Subject: [Openipmi-developer] [PATCH v4 03/41] char: impi,
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+X-Headers-End: 1pytvE-0006H2-6U
+Subject: Re: [Openipmi-developer] [PATCH v4 03/41] char: impi,
  tpm: depend on HAS_IOPORT
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -150,224 +148,57 @@ From: Niklas Schnelle via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
 Reply-To: Niklas Schnelle <schnelle@linux.ibm.com>
 Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ Corey Minyard <minyard@acm.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
  linux-pci@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
- Geert Uytterhoeven <geert@linux-m68k.org>, Corey Minyard <cminyard@mvista.com>,
- =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- Bjorn Helgaas <bhelgaas@google.com>, Alan Stern <stern@rowland.harvard.edu>,
- openipmi-developer@lists.sourceforge.net,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
+ linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
+ Jarkko Sakkinen <jarkko@kernel.org>, Alan Stern <stern@rowland.harvard.edu>,
+ Corey Minyard <cminyard@mvista.com>,
+ Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+ Bjorn Helgaas <bhelgaas@google.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Peter Huewe <peterhuewe@gmx.de>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ openipmi-developer@lists.sourceforge.net, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-integrity@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
-not being declared. We thus need to add this dependency and ifdef
-sections of code using inb()/outb() as alternative access methods.
+On Tue, 2023-05-16 at 13:46 +0200, Greg Kroah-Hartman wrote:
+> On Tue, May 16, 2023 at 12:59:59PM +0200, Niklas Schnelle wrote:
+> > In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
+> > not being declared. We thus need to add this dependency and ifdef
+> > sections of code using inb()/outb() as alternative access methods.
+> > 
+> > Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+> > Signed-off-by: Arnd Bergmann <arnd@kernel.org>
+> > Acked-by: Corey Minyard <cminyard@mvista.com> # IPMI
+> > Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+> > Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+> > ---
+> > Note: The HAS_IOPORT Kconfig option was added in v6.4-rc1 so
+> >       per-subsystem patches may be applied independently
+> > 
+> >  drivers/char/Kconfig             |  3 ++-
+> >  drivers/char/ipmi/Makefile       | 11 ++++-------
+> >  drivers/char/ipmi/ipmi_si_intf.c |  3 ++-
+> >  drivers/char/ipmi/ipmi_si_pci.c  |  3 +++
+> >  drivers/char/tpm/Kconfig         |  1 +
+> >  drivers/char/tpm/tpm_infineon.c  | 16 ++++++++++++----
+> >  drivers/char/tpm/tpm_tis_core.c  | 19 ++++++++-----------
+> >  7 files changed, 32 insertions(+), 24 deletions(-)
+> 
+> TPM and IPMI patches go through different git trees, so odds are you are
+> going to have to split this patch in 2.
+> 
+> thanks,
+> 
+> greg k-h
 
-Co-developed-by: Arnd Bergmann <arnd@kernel.org>
-Signed-off-by: Arnd Bergmann <arnd@kernel.org>
-Acked-by: Corey Minyard <cminyard@mvista.com> # IPMI
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
----
-Note: The HAS_IOPORT Kconfig option was added in v6.4-rc1 so
-      per-subsystem patches may be applied independently
+Ah right sorry about that. I'll split this into 3 patches between the
+drivers/char/{Kconfig, ipmi/, and tpm/} changes.
 
- drivers/char/Kconfig             |  3 ++-
- drivers/char/ipmi/Makefile       | 11 ++++-------
- drivers/char/ipmi/ipmi_si_intf.c |  3 ++-
- drivers/char/ipmi/ipmi_si_pci.c  |  3 +++
- drivers/char/tpm/Kconfig         |  1 +
- drivers/char/tpm/tpm_infineon.c  | 16 ++++++++++++----
- drivers/char/tpm/tpm_tis_core.c  | 19 ++++++++-----------
- 7 files changed, 32 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/char/Kconfig b/drivers/char/Kconfig
-index 801d6c83f896..625af75833fc 100644
---- a/drivers/char/Kconfig
-+++ b/drivers/char/Kconfig
-@@ -34,6 +34,7 @@ config TTY_PRINTK_LEVEL
- config PRINTER
- 	tristate "Parallel printer support"
- 	depends on PARPORT
-+	depends on HAS_IOPORT || PARPORT_NOT_PC
- 	help
- 	  If you intend to attach a printer to the parallel port of your Linux
- 	  box (as opposed to using a serial printer; if the connector at the
-@@ -340,7 +341,7 @@ config NVRAM
- 
- config DEVPORT
- 	bool "/dev/port character device"
--	depends on ISA || PCI
-+	depends on HAS_IOPORT
- 	default y
- 	help
- 	  Say Y here if you want to support the /dev/port device. The /dev/port
-diff --git a/drivers/char/ipmi/Makefile b/drivers/char/ipmi/Makefile
-index cb6138b8ded9..e0944547c9d0 100644
---- a/drivers/char/ipmi/Makefile
-+++ b/drivers/char/ipmi/Makefile
-@@ -5,13 +5,10 @@
- 
- ipmi_si-y := ipmi_si_intf.o ipmi_kcs_sm.o ipmi_smic_sm.o ipmi_bt_sm.o \
- 	ipmi_si_hotmod.o ipmi_si_hardcode.o ipmi_si_platform.o \
--	ipmi_si_port_io.o ipmi_si_mem_io.o
--ifdef CONFIG_PCI
--ipmi_si-y += ipmi_si_pci.o
--endif
--ifdef CONFIG_PARISC
--ipmi_si-y += ipmi_si_parisc.o
--endif
-+	ipmi_si_mem_io.o
-+ipmi_si-$(CONFIG_HAS_IOPORT) += ipmi_si_port_io.o
-+ipmi_si-$(CONFIG_PCI) += ipmi_si_pci.o
-+ipmi_si-$(CONFIG_PARISC) += ipmi_si_parisc.o
- 
- obj-$(CONFIG_IPMI_HANDLER) += ipmi_msghandler.o
- obj-$(CONFIG_IPMI_DEVICE_INTERFACE) += ipmi_devintf.o
-diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-index abddd7e43a9a..edbbdb804913 100644
---- a/drivers/char/ipmi/ipmi_si_intf.c
-+++ b/drivers/char/ipmi/ipmi_si_intf.c
-@@ -1882,7 +1882,8 @@ int ipmi_si_add_smi(struct si_sm_io *io)
- 	}
- 
- 	if (!io->io_setup) {
--		if (io->addr_space == IPMI_IO_ADDR_SPACE) {
-+		if (IS_ENABLED(CONFIG_HAS_IOPORT) &&
-+		    io->addr_space == IPMI_IO_ADDR_SPACE) {
- 			io->io_setup = ipmi_si_port_setup;
- 		} else if (io->addr_space == IPMI_MEM_ADDR_SPACE) {
- 			io->io_setup = ipmi_si_mem_setup;
-diff --git a/drivers/char/ipmi/ipmi_si_pci.c b/drivers/char/ipmi/ipmi_si_pci.c
-index 74fa2055868b..b83d55685b22 100644
---- a/drivers/char/ipmi/ipmi_si_pci.c
-+++ b/drivers/char/ipmi/ipmi_si_pci.c
-@@ -97,6 +97,9 @@ static int ipmi_pci_probe(struct pci_dev *pdev,
- 	}
- 
- 	if (pci_resource_flags(pdev, 0) & IORESOURCE_IO) {
-+		if (!IS_ENABLED(CONFIG_HAS_IOPORT))
-+			return -ENXIO;
-+
- 		io.addr_space = IPMI_IO_ADDR_SPACE;
- 		io.io_setup = ipmi_si_port_setup;
- 	} else {
-diff --git a/drivers/char/tpm/Kconfig b/drivers/char/tpm/Kconfig
-index 927088b2c3d3..418c9ed59ffd 100644
---- a/drivers/char/tpm/Kconfig
-+++ b/drivers/char/tpm/Kconfig
-@@ -149,6 +149,7 @@ config TCG_NSC
- config TCG_ATMEL
- 	tristate "Atmel TPM Interface"
- 	depends on PPC64 || HAS_IOPORT_MAP
-+	depends on HAS_IOPORT
- 	help
- 	  If you have a TPM security chip from Atmel say Yes and it 
- 	  will be accessible from within Linux.  To compile this driver 
-diff --git a/drivers/char/tpm/tpm_infineon.c b/drivers/char/tpm/tpm_infineon.c
-index 9c924a1440a9..99c6e565ec8d 100644
---- a/drivers/char/tpm/tpm_infineon.c
-+++ b/drivers/char/tpm/tpm_infineon.c
-@@ -26,7 +26,9 @@
- #define	TPM_MAX_TRIES		5000
- #define	TPM_INFINEON_DEV_VEN_VALUE	0x15D1
- 
-+#ifdef CONFIG_HAS_IOPORT
- #define TPM_INF_IO_PORT		0x0
-+#endif
- #define TPM_INF_IO_MEM		0x1
- 
- #define TPM_INF_ADDR		0x0
-@@ -51,34 +53,40 @@ static struct tpm_inf_dev tpm_dev;
- 
- static inline void tpm_data_out(unsigned char data, unsigned char offset)
- {
-+#ifdef CONFIG_HAS_IOPORT
- 	if (tpm_dev.iotype == TPM_INF_IO_PORT)
- 		outb(data, tpm_dev.data_regs + offset);
- 	else
-+#endif
- 		writeb(data, tpm_dev.mem_base + tpm_dev.data_regs + offset);
- }
- 
- static inline unsigned char tpm_data_in(unsigned char offset)
- {
-+#ifdef CONFIG_HAS_IOPORT
- 	if (tpm_dev.iotype == TPM_INF_IO_PORT)
- 		return inb(tpm_dev.data_regs + offset);
--	else
--		return readb(tpm_dev.mem_base + tpm_dev.data_regs + offset);
-+#endif
-+	return readb(tpm_dev.mem_base + tpm_dev.data_regs + offset);
- }
- 
- static inline void tpm_config_out(unsigned char data, unsigned char offset)
- {
-+#ifdef CONFIG_HAS_IOPORT
- 	if (tpm_dev.iotype == TPM_INF_IO_PORT)
- 		outb(data, tpm_dev.config_port + offset);
- 	else
-+#endif
- 		writeb(data, tpm_dev.mem_base + tpm_dev.index_off + offset);
- }
- 
- static inline unsigned char tpm_config_in(unsigned char offset)
- {
-+#ifdef CONFIG_HAS_IOPORT
- 	if (tpm_dev.iotype == TPM_INF_IO_PORT)
- 		return inb(tpm_dev.config_port + offset);
--	else
--		return readb(tpm_dev.mem_base + tpm_dev.index_off + offset);
-+#endif
-+	return readb(tpm_dev.mem_base + tpm_dev.index_off + offset);
- }
- 
- /* TPM header definitions */
-diff --git a/drivers/char/tpm/tpm_tis_core.c b/drivers/char/tpm/tpm_tis_core.c
-index 02945d53fcef..b5a5c3d44dec 100644
---- a/drivers/char/tpm/tpm_tis_core.c
-+++ b/drivers/char/tpm/tpm_tis_core.c
-@@ -954,11 +954,6 @@ static void tpm_tis_clkrun_enable(struct tpm_chip *chip, bool value)
- 		clkrun_val &= ~LPC_CLKRUN_EN;
- 		iowrite32(clkrun_val, data->ilb_base_addr + LPC_CNTRL_OFFSET);
- 
--		/*
--		 * Write any random value on port 0x80 which is on LPC, to make
--		 * sure LPC clock is running before sending any TPM command.
--		 */
--		outb(0xCC, 0x80);
- 	} else {
- 		data->clkrun_enabled--;
- 		if (data->clkrun_enabled)
-@@ -969,13 +964,15 @@ static void tpm_tis_clkrun_enable(struct tpm_chip *chip, bool value)
- 		/* Enable LPC CLKRUN# */
- 		clkrun_val |= LPC_CLKRUN_EN;
- 		iowrite32(clkrun_val, data->ilb_base_addr + LPC_CNTRL_OFFSET);
--
--		/*
--		 * Write any random value on port 0x80 which is on LPC, to make
--		 * sure LPC clock is running before sending any TPM command.
--		 */
--		outb(0xCC, 0x80);
- 	}
-+
-+#ifdef CONFIG_HAS_IOPORT
-+	/*
-+	 * Write any random value on port 0x80 which is on LPC, to make
-+	 * sure LPC clock is running before sending any TPM command.
-+	 */
-+	outb(0xCC, 0x80);
-+#endif
- }
- 
- static const struct tpm_class_ops tpm_tis = {
--- 
-2.39.2
-
+Thanks,
+Niklas
 
 
 _______________________________________________
