@@ -2,97 +2,84 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F3E70703983
-	for <lists+openipmi-developer@lfdr.de>; Mon, 15 May 2023 19:43:20 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4318E704C4B
+	for <lists+openipmi-developer@lfdr.de>; Tue, 16 May 2023 13:26:03 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1pycE3-00048D-QD;
-	Mon, 15 May 2023 17:43:11 +0000
+	id 1pysoV-0006gZ-VV;
+	Tue, 16 May 2023 11:25:56 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <gregkh@linuxfoundation.org>) id 1pycE2-000487-2J
+ (envelope-from <pmenzel@molgen.mpg.de>) id 1pysoT-0006gT-IT
  for openipmi-developer@lists.sourceforge.net;
- Mon, 15 May 2023 17:43:10 +0000
+ Tue, 16 May 2023 11:25:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=6vNZqz2ryBsRhCmNcEuwLBLCeuDoo1f5DuAlEkAdVyA=; b=XnBb0Ku/25EGydHFZU+Wvc+QBa
- q8C4MMIm92Pu+uqr/Be7YR7gK3oeraZAcjb5kjQEYXjn8XCeP/sHSv0s2kBUHYRQ6gUCH17OC1CAE
- kJRZkPpM83FdvRX33SlgSyPm4vVsm0i0vYX1lNMV0gU2vcRnIcJzq7nUCwBNR/ld5Mx4=;
+ bh=SRqFPSleOpn+FhKDmd6Rqbnqd5HLaKcreoKGJee1hs4=; b=d4YaXceln5TrOwEf0IOoZviVeu
+ tA+/gwpDJlJFbbz2ITu1drjA2uxqAt1ye/91/gqcF3cPHExkgHjiKP0TsPqAt73U33tim303OTzqx
+ yL+jvq48fe3lKSDOk6Mhogz+6jCO9FfYYRRSgT2uZO4+RoubQLdpmsskmAlhYkrXG0Fs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=6vNZqz2ryBsRhCmNcEuwLBLCeuDoo1f5DuAlEkAdVyA=; b=F91vf2vVD1UVR3mC+GNOhd5sBS
- JLoexHtqjvMGTrznK6DozXy0HSlrNf/PgkvTUT7dlMS4tfG7gNNI+/sXy8akp8snTPHwjGT6SfQL5
- oXXN4JFhCei3Rjd6yvy3rVVcqN9RsabGy1IYP2Pi9rwXHZD/pM6HRksG3R4N2sTEZy8M=;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+ bh=SRqFPSleOpn+FhKDmd6Rqbnqd5HLaKcreoKGJee1hs4=; b=KbgKAff1rQgNs2hPgPnU26ALlJ
+ H2b/wSiDFKNKygMYoh5BNnc12fH+7C65AhI7hFxc3E7E+S4qDp5bFq96KZn3ee965+6WcsQkmiqjD
+ TGfs9104G6X030c885vqxhMNGMWUJ2fn2ClQdWOmhV6nutw+1h57qNukNw5BQp3rZtV4=;
+Received: from mx3.molgen.mpg.de ([141.14.17.11])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1pycE1-008e6a-Gu for openipmi-developer@lists.sourceforge.net;
- Mon, 15 May 2023 17:43:10 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id E522962E7D;
- Mon, 15 May 2023 17:43:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D75F0C433EF;
- Mon, 15 May 2023 17:42:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
- s=korg; t=1684172580;
- bh=niW5dJMdUA6KXbnQ2D65IL3XQVNhfO9t3jMRjmvWlDQ=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=QEYVa83AK+zNyc2N5Gs6KWhJ1PV4uASmWym4vNtEZx7UQsgD2fKlyA/ZLkYhrqgiZ
- j3L2gr2TxXb7dxZ6BByiyZk3eAIjjhMUbnnxJrVG3ZE5aBxdF6pKN/ZkLXb3n3dUMY
- FAj1Vr+D8Y9yYuJ3qLA4fDx+BFq/N1/V0ZNHCua4=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Date: Mon, 15 May 2023 18:27:23 +0200
-Message-Id: <20230515161745.486438171@linuxfoundation.org>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20230515161736.775969473@linuxfoundation.org>
-References: <20230515161736.775969473@linuxfoundation.org>
-User-Agent: quilt/0.67
+ id 1pysoS-009TYd-CV for openipmi-developer@lists.sourceforge.net;
+ Tue, 16 May 2023 11:25:53 +0000
+Received: from [141.14.220.45] (g45.guest.molgen.mpg.de [141.14.220.45])
+ (using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits))
+ (No client certificate requested) (Authenticated sender: pmenzel)
+ by mx.molgen.mpg.de (Postfix) with ESMTPSA id A1A7F61DFA903;
+ Tue, 16 May 2023 13:06:20 +0200 (CEST)
+Message-ID: <60e9d000-0793-1421-3045-fdb74976373c@molgen.mpg.de>
+Date: Tue, 16 May 2023 13:06:20 +0200
 MIME-Version: 1.0
-X-Spam-Score: -5.2 (-----)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Content-Language: en-US
+To: Niklas Schnelle <schnelle@linux.ibm.com>
+References: <20230516110038.2413224-1-schnelle@linux.ibm.com>
+ <20230516110038.2413224-4-schnelle@linux.ibm.com>
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+In-Reply-To: <20230516110038.2413224-4-schnelle@linux.ibm.com>
+X-Spam-Score: -5.0 (-----)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: From: Randy Dunlap <rdunlap@infradead.org> [ Upstream commit
- 2a587b9ad052e7e92e508aea90c1e2ae433c1908 ] REGMAP is a hidden (not user
- visible)
- symbol. Users cannot set it directly thru "make *config", so drivers should
- select it instead of depending on it if they need it. 
- Content analysis details:   (-5.2 points, 6.0 required)
- pts rule name              description
+ 
+ Content preview:  Dear Niklas, Am 16.05.23 um 12:59 schrieb Niklas Schnelle:
+    […] 
+ 
+ Content analysis details:   (-5.0 points, 6.0 required)
+ 
+  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [139.178.84.217 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+                             medium trust
+                             [141.14.17.11 listed in list.dnswl.org]
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1pycE1-008e6a-Gu
-Subject: [Openipmi-developer] [PATCH 5.10 192/381] ipmi: ASPEED_BT_IPMI_BMC:
- select REGMAP_MMIO instead of depending on it
+ -2.7 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1pysoS-009TYd-CV
+Subject: Re: [Openipmi-developer] [PATCH v4 03/41] char: impi,
+ tpm: depend on HAS_IOPORT
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -105,66 +92,27 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Corey Minyard <cminyard@mvista.com>,
- Arnd Bergmann <arnd@arndb.de>, Corey Minyard <minyard@acm.org>,
- Andrew Jeffery <andrew@aj.id.au>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, patches@lists.linux.dev,
- openipmi-developer@lists.sourceforge.net
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Corey Minyard <cminyard@mvista.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, linux-pci@vger.kernel.org,
+ Peter Huewe <peterhuewe@gmx.de>, linux-arch@vger.kernel.org,
+ Corey Minyard <minyard@acm.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Alan Stern <stern@rowland.harvard.edu>,
+ =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, openipmi-developer@lists.sourceforge.net,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Arnd Bergmann <arnd@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ Jarkko Sakkinen <jarkko@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-integrity@vger.kernel.org
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: Randy Dunlap <rdunlap@infradead.org>
-
-[ Upstream commit 2a587b9ad052e7e92e508aea90c1e2ae433c1908 ]
-
-REGMAP is a hidden (not user visible) symbol. Users cannot set it
-directly thru "make *config", so drivers should select it instead of
-depending on it if they need it.
-
-Consistently using "select" or "depends on" can also help reduce
-Kconfig circular dependency issues.
-
-Therefore, change the use of "depends on REGMAP_MMIO" to
-"select REGMAP_MMIO", which will also set REGMAP.
-
-Fixes: eb994594bc22 ("ipmi: bt-bmc: Use a regmap for register access")
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-Cc: Andrew Jeffery <andrew@aj.id.au>
-Cc: Corey Minyard <minyard@acm.org>
-Cc: openipmi-developer@lists.sourceforge.net
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Message-Id: <20230226053953.4681-2-rdunlap@infradead.org>
-Signed-off-by: Corey Minyard <cminyard@mvista.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/char/ipmi/Kconfig | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig
-index 07847d9a459af..f443186269e1c 100644
---- a/drivers/char/ipmi/Kconfig
-+++ b/drivers/char/ipmi/Kconfig
-@@ -126,7 +126,8 @@ config NPCM7XX_KCS_IPMI_BMC
- 
- config ASPEED_BT_IPMI_BMC
- 	depends on ARCH_ASPEED || COMPILE_TEST
--	depends on REGMAP && REGMAP_MMIO && MFD_SYSCON
-+	depends on MFD_SYSCON
-+	select REGMAP_MMIO
- 	tristate "BT IPMI bmc driver"
- 	help
- 	  Provides a driver for the BT (Block Transfer) IPMI interface
--- 
-2.39.2
-
-
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+RGVhciBOaWtsYXMsCgoKQW0gMTYuMDUuMjMgdW0gMTI6NTkgc2NocmllYiBOaWtsYXMgU2NobmVs
+bGU6Cgpb4oCmXQoKVGhlcmUgaXMgYSBzbWFsbCB0eXBvIGluIHRoZSBjb21taXQgbWVzc2FnZSBz
+dW1tYXJ5L3RpdGxlOiBpbXBpIOKGkiBpcG1pLgoKCktpbmQgcmVnYXJkcwoKUGF1bAoKCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBtaS1kZXZl
+bG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5u
+ZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3BlbmlwbWkt
+ZGV2ZWxvcGVyCg==
