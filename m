@@ -2,134 +2,100 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8ABF170BBFD
-	for <lists+openipmi-developer@lfdr.de>; Mon, 22 May 2023 13:36:53 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 71571711898
+	for <lists+openipmi-developer@lfdr.de>; Thu, 25 May 2023 22:59:00 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1q13qI-0006Lz-M6;
-	Mon, 22 May 2023 11:36:47 +0000
+	id 1q2I2v-0006Bh-6y;
+	Thu, 25 May 2023 20:58:53 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <schnelle@linux.ibm.com>) id 1q13qG-0006Ls-BY
+ (envelope-from <ukl@pengutronix.de>) id 1q2I2r-0006Ba-I2
  for openipmi-developer@lists.sourceforge.net;
- Mon, 22 May 2023 11:36:44 +0000
+ Thu, 25 May 2023 20:58:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Q9uKm/ITOeSbSR3pwgYcO9bIF+6IaBzH2bkgdFhfvN8=; b=bNaeG/Gm4v+ne8Q0vIONV5gmgn
- CAuaCs0EV28E9a85siYGqKbijGGzDNTlji0c/xmyqiFZL5Q4w4QbCzmzx3vSTsIZxYTqMO64wETx1
- I7Vs+HhWVwXPl/BIC5wOubmZzX0qvPoKzq051eyPdxq/vCl89za6YD1DOGzF+IU0b3zE=;
+ bh=vZlVs/B35YMQlZgRqCbGeobXZg40ZS+EC6KU01lS+0I=; b=cF4qGnR/ik7AC5gdJZYaLCkfkr
+ MhImTNfJOv018b9TaW5dGn4JgTNWI6WdcRNLOM6x0QZz6TPvvXCQ07S9sA1aCfOeruFDx8/3zWC5L
+ PgqO7uPpOLGtIdwIQxPxbrvovnJ/5xWQ8r2PfZ3M/5izZK2uxhfEk8atkzrh/g7Hpv1w=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=Q9uKm/ITOeSbSR3pwgYcO9bIF+6IaBzH2bkgdFhfvN8=; b=JIiX3A+SbSxrBmdYLvIjFLoZgs
- Ng5tNTYuj+ptxgKagr9g4A1FXpfriLtVWCSx9iMFNuFk55c/BFCFO8DFATuLsMOx+rmO8LFUFYZG8
- 7pSGJ8DqlHPNpo7TDC01wcNnScPjwe+Zy+SXP4cCXc9PC5ddRMDyqUG6kXWiyU6QtXQ0=;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:
+ Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=vZlVs/B35YMQlZgRqCbGeobXZg40ZS+EC6KU01lS+0I=; b=K
+ oqunTUEp0dkN/dhtppkZCUwpYZTVSwlaUYbO919ANMwGAjh4YKNuKf0eOdKc1nDS54EOBySenQeYA
+ gCmKh7NA3zsZTvVufreJGaG6ONSMfI8tfN9mmg+O2icvaNUk8Mlu3jr4GOEi1/Y7mfyFHRAgWSIIX
+ Ti5+9Uz/5UnrHcAI=;
+Received: from metis.ext.pengutronix.de ([85.220.165.71])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1q13qA-00FhQ4-6r for openipmi-developer@lists.sourceforge.net;
- Mon, 22 May 2023 11:36:44 +0000
-Received: from pps.filterd (m0353724.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id
- 34M9rw7J028674; Mon, 22 May 2023 10:50:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=from : to : cc : subject
- : date : message-id : in-reply-to : references : mime-version :
- content-transfer-encoding; s=pp1;
- bh=Q9uKm/ITOeSbSR3pwgYcO9bIF+6IaBzH2bkgdFhfvN8=;
- b=DYQLxHh1FXKGq60rxJ0I3nnfWTJ1Ut18r9eXBqWy57i1AXQNOG6nwd5GcNRmdG0Wdkbd
- mcgZSGM0j7lcfpzgm1+pFwrjJA0dij1YQ0yrUfK9Exn9spggKEYCrrRDFGgvYDUgPRW6
- x9f9xi7EIrPxCevsUnPLgToTyCnti6X3QGUH9WYOzqLKI+tO+kRU0CdAHT6SExA0YPFO
- qKUuVrLbHQakAjojtL/MOt0vLMIerY7orpwtUDW8J38aQQYXtoUZgbOiR9Fsgpi3b+9i
- uFG1FrfhHTx+6pA8pfr/3Ked9F9JQXUhthf/8MnC3u7k1EvuMnUM8ZIa7BFidsDE5nf6 IA== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qqee6tdh9-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 22 May 2023 10:50:58 +0000
-Received: from m0353724.ppops.net (m0353724.ppops.net [127.0.0.1])
- by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 34MAbZGT013695;
- Mon, 22 May 2023 10:50:57 GMT
-Received: from ppma02fra.de.ibm.com (47.49.7a9f.ip4.static.sl-reverse.com
- [159.122.73.71])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3qqee6tdgq-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 22 May 2023 10:50:57 +0000
-Received: from pps.filterd (ppma02fra.de.ibm.com [127.0.0.1])
- by ppma02fra.de.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id 34M3tMXN008210;
- Mon, 22 May 2023 10:50:55 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
- by ppma02fra.de.ibm.com (PPS) with ESMTPS id 3qppcs8s0j-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 22 May 2023 10:50:55 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com
- [10.20.54.103])
- by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 34MAorUq30409294
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 22 May 2023 10:50:53 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 3F8CD2004B;
- Mon, 22 May 2023 10:50:53 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id D8C7E20040;
- Mon, 22 May 2023 10:50:52 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
- by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
- Mon, 22 May 2023 10:50:52 +0000 (GMT)
-To: Arnd Bergmann <arnd@arndb.de>, Corey Minyard <minyard@acm.org>
-Date: Mon, 22 May 2023 12:50:09 +0200
-Message-Id: <20230522105049.1467313-5-schnelle@linux.ibm.com>
+ id 1q2I2l-0001DC-RW for openipmi-developer@lists.sourceforge.net;
+ Thu, 25 May 2023 20:58:47 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1q2Hl2-0006KI-3B; Thu, 25 May 2023 22:40:24 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+ by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1q2Hl1-002nnT-3e; Thu, 25 May 2023 22:40:23 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+ (envelope-from <ukl@pengutronix.de>)
+ id 1q2Hl0-007xYF-Fo; Thu, 25 May 2023 22:40:22 +0200
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Corey Minyard <minyard@acm.org>
+Date: Thu, 25 May 2023 22:40:21 +0200
+Message-Id: <20230525204021.696858-1-u.kleine-koenig@pengutronix.de>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20230522105049.1467313-1-schnelle@linux.ibm.com>
-References: <20230522105049.1467313-1-schnelle@linux.ibm.com>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: PAu3-NLEeCNw1KavPwUxfMEYo_9R07Y2
-X-Proofpoint-ORIG-GUID: tYEBZCUv5Y4Xq7BIxZ1_QfPsRQM0g9qJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.254,Aquarius:18.0.957,Hydra:6.0.573,FMLib:17.11.170.22
- definitions=2023-05-22_06,2023-05-22_03,2023-02-09_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0
- phishscore=0 adultscore=0 bulkscore=0 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 mlxlogscore=823 clxscore=1015 impostorscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2304280000 definitions=main-2305220089
-X-Spam-Score: -0.1 (/)
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2504;
+ i=u.kleine-koenig@pengutronix.de; h=from:subject;
+ bh=itGebXgk6rULKM/y/IupVrqHznz/5YFfq96lXBEvtmo=;
+ b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBkb8eyUpWr9sb2ZYv2NS+gyNeDjfP6tUI5H7JjU
+ Jzwr+2aSumJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZG/HsgAKCRCPgPtYfRL+
+ Tq09B/4qx9dN8kM00V3JJEa/bn+uvEte8xbzTFv12yKUFvQe0CVfREgknnfuzYaRE4dVOxs+N+D
+ PyJBP548AHB2XcKbAxv9enwNRG7pSB3g3Yw59RfIsctfBgb/vnE44Hr/WKpV4qiBj3zRPLMPgQr
+ k71sbDHbDQPs7hUbKUhETJN9CEaFBvPIlGMRzzleptidyWI9uUKTJCxNsirPGTKTqRSq4ZK1f6r
+ 0D/pUYFaWA4wy9eR1CQCk0MJ9Wqn0uY5ywsRZqSdnGfIR0wdBiFXx895G/nTdT+pDYqia6+c/L8
+ PDJmOPM2JKdc/MYUobhp1XHpghMVeClune+iET0RRvGfXFt4
+X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp;
+ fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: openipmi-developer@lists.sourceforge.net
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  In a future patch HAS_IOPORT=n will result in inb()/outb()
- and friends not being declared. We thus need to add this dependency and ifdef
- sections of code using inb()/outb() as alternative access metho [...] 
- Content analysis details:   (-0.1 points, 6.0 required)
+ Content preview: After commit b8a1a4cd5a98 ("i2c: Provide a temporary
+ .probe_new() call-back type"),
+ all drivers being converted to .probe_new() and then 03c835f498b5
+ ("i2c: Switch .probe() to not take an id parameter [...] 
+ Content analysis details:   (-0.7 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [148.163.158.5 listed in wl.mailspike.net]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [85.220.165.71 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1q13qA-00FhQ4-6r
-Subject: [Openipmi-developer] [PATCH v5 04/44] char: ipmi: handle HAS_IOPORT
- dependencies
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1q2I2l-0001DC-RW
+Subject: [Openipmi-developer] [PATCH] ipmi: Switch i2c drivers back to use
+ .probe()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -142,94 +108,54 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Niklas Schnelle via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Niklas Schnelle <schnelle@linux.ibm.com>
-Cc: linux-arch@vger.kernel.org, Corey Minyard <cminyard@mvista.com>,
- Albert Ou <aou@eecs.berkeley.edu>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@kernel.org>,
- Alan Stern <stern@rowland.harvard.edu>,
- =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- Bjorn Helgaas <bhelgaas@google.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
- openipmi-developer@lists.sourceforge.net,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: openipmi-developer@lists.sourceforge.net, kernel@pengutronix.de
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-In a future patch HAS_IOPORT=n will result in inb()/outb() and friends
-not being declared. We thus need to add this dependency and ifdef
-sections of code using inb()/outb() as alternative access methods.
-
-Acked-by: Corey Minyard <cminyard@mvista.com>
-Co-developed-by: Arnd Bergmann <arnd@kernel.org>
-Signed-off-by: Arnd Bergmann <arnd@kernel.org>
-Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
----
- drivers/char/ipmi/Makefile       | 11 ++++-------
- drivers/char/ipmi/ipmi_si_intf.c |  3 ++-
- drivers/char/ipmi/ipmi_si_pci.c  |  3 +++
- 3 files changed, 9 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/char/ipmi/Makefile b/drivers/char/ipmi/Makefile
-index cb6138b8ded9..e0944547c9d0 100644
---- a/drivers/char/ipmi/Makefile
-+++ b/drivers/char/ipmi/Makefile
-@@ -5,13 +5,10 @@
- 
- ipmi_si-y := ipmi_si_intf.o ipmi_kcs_sm.o ipmi_smic_sm.o ipmi_bt_sm.o \
- 	ipmi_si_hotmod.o ipmi_si_hardcode.o ipmi_si_platform.o \
--	ipmi_si_port_io.o ipmi_si_mem_io.o
--ifdef CONFIG_PCI
--ipmi_si-y += ipmi_si_pci.o
--endif
--ifdef CONFIG_PARISC
--ipmi_si-y += ipmi_si_parisc.o
--endif
-+	ipmi_si_mem_io.o
-+ipmi_si-$(CONFIG_HAS_IOPORT) += ipmi_si_port_io.o
-+ipmi_si-$(CONFIG_PCI) += ipmi_si_pci.o
-+ipmi_si-$(CONFIG_PARISC) += ipmi_si_parisc.o
- 
- obj-$(CONFIG_IPMI_HANDLER) += ipmi_msghandler.o
- obj-$(CONFIG_IPMI_DEVICE_INTERFACE) += ipmi_devintf.o
-diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-index abddd7e43a9a..edbbdb804913 100644
---- a/drivers/char/ipmi/ipmi_si_intf.c
-+++ b/drivers/char/ipmi/ipmi_si_intf.c
-@@ -1882,7 +1882,8 @@ int ipmi_si_add_smi(struct si_sm_io *io)
- 	}
- 
- 	if (!io->io_setup) {
--		if (io->addr_space == IPMI_IO_ADDR_SPACE) {
-+		if (IS_ENABLED(CONFIG_HAS_IOPORT) &&
-+		    io->addr_space == IPMI_IO_ADDR_SPACE) {
- 			io->io_setup = ipmi_si_port_setup;
- 		} else if (io->addr_space == IPMI_MEM_ADDR_SPACE) {
- 			io->io_setup = ipmi_si_mem_setup;
-diff --git a/drivers/char/ipmi/ipmi_si_pci.c b/drivers/char/ipmi/ipmi_si_pci.c
-index 74fa2055868b..b83d55685b22 100644
---- a/drivers/char/ipmi/ipmi_si_pci.c
-+++ b/drivers/char/ipmi/ipmi_si_pci.c
-@@ -97,6 +97,9 @@ static int ipmi_pci_probe(struct pci_dev *pdev,
- 	}
- 
- 	if (pci_resource_flags(pdev, 0) & IORESOURCE_IO) {
-+		if (!IS_ENABLED(CONFIG_HAS_IOPORT))
-+			return -ENXIO;
-+
- 		io.addr_space = IPMI_IO_ADDR_SPACE;
- 		io.io_setup = ipmi_si_port_setup;
- 	} else {
--- 
-2.39.2
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+QWZ0ZXIgY29tbWl0IGI4YTFhNGNkNWE5OCAoImkyYzogUHJvdmlkZSBhIHRlbXBvcmFyeSAucHJv
+YmVfbmV3KCkKY2FsbC1iYWNrIHR5cGUiKSwgYWxsIGRyaXZlcnMgYmVpbmcgY29udmVydGVkIHRv
+IC5wcm9iZV9uZXcoKSBhbmQgdGhlbgowM2M4MzVmNDk4YjUgKCJpMmM6IFN3aXRjaCAucHJvYmUo
+KSB0byBub3QgdGFrZSBhbiBpZCBwYXJhbWV0ZXIiKSBjb252ZXJ0CmJhY2sgdG8gKHRoZSBuZXcp
+IC5wcm9iZSgpIHRvIGJlIGFibGUgdG8gZXZlbnR1YWxseSBkcm9wIC5wcm9iZV9uZXcoKSBmcm9t
+CnN0cnVjdCBpMmNfZHJpdmVyLgoKU2lnbmVkLW9mZi1ieTogVXdlIEtsZWluZS1Lw7ZuaWcgPHUu
+a2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25peC5kZT4KLS0tCiBkcml2ZXJzL2NoYXIvaXBtaS9pcG1i
+X2Rldl9pbnQuYyB8IDIgKy0KIGRyaXZlcnMvY2hhci9pcG1pL2lwbWlfaXBtYi5jICAgIHwgMiAr
+LQogZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMgICAgfCAyICstCiBkcml2ZXJzL2NoYXIv
+aXBtaS9zc2lmX2JtYy5jICAgICB8IDIgKy0KIDQgZmlsZXMgY2hhbmdlZCwgNCBpbnNlcnRpb25z
+KCspLCA0IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2hhci9pcG1pL2lwbWJf
+ZGV2X2ludC5jIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBtYl9kZXZfaW50LmMKaW5kZXggYTBlOWU4
+MGQ5MmVlLi40OTEwMDg0NWZjYjcgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvY2hhci9pcG1pL2lwbWJf
+ZGV2X2ludC5jCisrKyBiL2RyaXZlcnMvY2hhci9pcG1pL2lwbWJfZGV2X2ludC5jCkBAIC0zNjYs
+NyArMzY2LDcgQEAgc3RhdGljIHN0cnVjdCBpMmNfZHJpdmVyIGlwbWJfZHJpdmVyID0gewogCQku
+bmFtZSA9ICJpcG1iLWRldiIsCiAJCS5hY3BpX21hdGNoX3RhYmxlID0gQUNQSV9QVFIoYWNwaV9p
+cG1iX2lkKSwKIAl9LAotCS5wcm9iZV9uZXcgPSBpcG1iX3Byb2JlLAorCS5wcm9iZSA9IGlwbWJf
+cHJvYmUsCiAJLnJlbW92ZSA9IGlwbWJfcmVtb3ZlLAogCS5pZF90YWJsZSA9IGlwbWJfaWQsCiB9
+OwpkaWZmIC0tZ2l0IGEvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9pcG1iLmMgYi9kcml2ZXJzL2No
+YXIvaXBtaS9pcG1pX2lwbWIuYwppbmRleCAzZjFjOWYxNTczZTcuLjRlMzM1ODMyZmMyNiAxMDA2
+NDQKLS0tIGEvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9pcG1iLmMKKysrIGIvZHJpdmVycy9jaGFy
+L2lwbWkvaXBtaV9pcG1iLmMKQEAgLTU3Miw3ICs1NzIsNyBAQCBzdGF0aWMgc3RydWN0IGkyY19k
+cml2ZXIgaXBtaV9pcG1iX2RyaXZlciA9IHsKIAkJLm5hbWUgPSBERVZJQ0VfTkFNRSwKIAkJLm9m
+X21hdGNoX3RhYmxlID0gb2ZfaXBtaV9pcG1iX21hdGNoLAogCX0sCi0JLnByb2JlX25ldwk9IGlw
+bWlfaXBtYl9wcm9iZSwKKwkucHJvYmUJCT0gaXBtaV9pcG1iX3Byb2JlLAogCS5yZW1vdmUJCT0g
+aXBtaV9pcG1iX3JlbW92ZSwKIAkuaWRfdGFibGUJPSBpcG1pX2lwbWJfaWQsCiB9OwpkaWZmIC0t
+Z2l0IGEvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMgYi9kcml2ZXJzL2NoYXIvaXBtaS9p
+cG1pX3NzaWYuYwppbmRleCAzYjkyMWM3OGJhMDguLmM2YzliY2Y2YmY1NSAxMDA2NDQKLS0tIGEv
+ZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMKKysrIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBt
+aV9zc2lmLmMKQEAgLTIwNTQsNyArMjA1NCw3IEBAIHN0YXRpYyBzdHJ1Y3QgaTJjX2RyaXZlciBz
+c2lmX2kyY19kcml2ZXIgPSB7CiAJLmRyaXZlcgkJPSB7CiAJCS5uYW1lCQkJPSBERVZJQ0VfTkFN
+RQogCX0sCi0JLnByb2JlX25ldwk9IHNzaWZfcHJvYmUsCisJLnByb2JlCQk9IHNzaWZfcHJvYmUs
+CiAJLnJlbW92ZQkJPSBzc2lmX3JlbW92ZSwKIAkuYWxlcnQJCT0gc3NpZl9hbGVydCwKIAkuaWRf
+dGFibGUJPSBzc2lmX2lkLApkaWZmIC0tZ2l0IGEvZHJpdmVycy9jaGFyL2lwbWkvc3NpZl9ibWMu
+YyBiL2RyaXZlcnMvY2hhci9pcG1pL3NzaWZfYm1jLmMKaW5kZXggY2FlZTg0ODI2MWU5Li41NjM0
+NmZiMzI4NzIgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvY2hhci9pcG1pL3NzaWZfYm1jLmMKKysrIGIv
+ZHJpdmVycy9jaGFyL2lwbWkvc3NpZl9ibWMuYwpAQCAtODYwLDcgKzg2MCw3IEBAIHN0YXRpYyBz
+dHJ1Y3QgaTJjX2RyaXZlciBzc2lmX2JtY19kcml2ZXIgPSB7CiAJCS5uYW1lICAgICAgICAgICA9
+IERFVklDRV9OQU1FLAogCQkub2ZfbWF0Y2hfdGFibGUgPSBzc2lmX2JtY19tYXRjaCwKIAl9LAot
+CS5wcm9iZV9uZXcgICAgICA9IHNzaWZfYm1jX3Byb2JlLAorCS5wcm9iZSAgICAgICAgICA9IHNz
+aWZfYm1jX3Byb2JlLAogCS5yZW1vdmUgICAgICAgICA9IHNzaWZfYm1jX3JlbW92ZSwKIAkuaWRf
+dGFibGUgICAgICAgPSBzc2lmX2JtY19pZCwKIH07CgpiYXNlLWNvbW1pdDogYWM5YTc4NjgxYjky
+MTg3NzUxODc2M2JhMGU4OTIwMjI1NDM0OWQxYgotLSAKMi4zOS4yCgoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWls
+aW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczov
+L2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
