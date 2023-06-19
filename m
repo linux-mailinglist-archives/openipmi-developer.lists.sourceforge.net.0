@@ -2,129 +2,92 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 789CA72AB8C
-	for <lists+openipmi-developer@lfdr.de>; Sat, 10 Jun 2023 14:52:44 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9621D735C3A
+	for <lists+openipmi-developer@lfdr.de>; Mon, 19 Jun 2023 18:37:58 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1q7y59-0007VM-4L;
-	Sat, 10 Jun 2023 12:52:39 +0000
+	id 1qBHt1-0005AO-6S;
+	Mon, 19 Jun 2023 16:37:51 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tcminyard@gmail.com>) id 1q7y55-0007VG-W8
+ (envelope-from <jiasheng@iscas.ac.cn>) id 1qBBUX-0000cd-I7
  for openipmi-developer@lists.sourceforge.net;
- Sat, 10 Jun 2023 12:52:36 +0000
+ Mon, 19 Jun 2023 09:48:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ypunSIKUqzh75YIeQaRkHjhmNZ/hwFhCbdx6FqXAu9o=; b=ii9fUL8rl8Rm474ati0vp+w5Ok
- FuQJY3QyZlNYqb9T/MiCdvMCWHzE6DkTVXaTlEHnPhV3QaWWMygEMLFLORsTUffbSLT6LlpEjAJit
- cW+uZPo/1dRVqS9lZw6UhCSw9gfvBVyTLu+LPqmsBfrVw9b1MutapHq7TTub/CzrIZUU=;
+ bh=7QuoetbCBMFyzf/43ZLtTww0wPY4WdYPl7CoDsr8gsg=; b=O0OTte0Cgn1cP44dlHDIyC0CcT
+ BgR/7Pi8TeiucIhGph3DD3dulmILVzZao1PVEIXhMpK+qjKHcDq2xvksODSi9BrgWWV2md73FGP03
+ 8V2JnDFuUGlRwk5KXjAEjLH9M4qQQHOX8LZ5qWEtbAOR7PBxVeMYs4biXpB2MxXgjy2I=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=ypunSIKUqzh75YIeQaRkHjhmNZ/hwFhCbdx6FqXAu9o=; b=FL8RBHFlIyfhEzyY7dF1+bP/C3
- SftOP9aIIjrdmkRYKCfpymmMS4LOHBjfCSQOjWX0p1esuWDJ2zk10ZXw1ZTRVQkNBIBz9m+MtDgKz
- dgQlijo/nji7enTX/WW1b0DgsVnm1usEp61M9eFCFvuyyky5jZhsixRzjbsnRJxdjABM=;
-Received: from mail-oo1-f45.google.com ([209.85.161.45])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1q7y52-00020K-2O for openipmi-developer@lists.sourceforge.net;
- Sat, 10 Jun 2023 12:52:35 +0000
-Received: by mail-oo1-f45.google.com with SMTP id
- 006d021491bc7-55afa2472d9so1778497eaf.0
- for <openipmi-developer@lists.sourceforge.net>;
- Sat, 10 Jun 2023 05:52:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20221208; t=1686401546; x=1688993546;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:sender:from:to:cc:subject:date
- :message-id:reply-to;
- bh=ypunSIKUqzh75YIeQaRkHjhmNZ/hwFhCbdx6FqXAu9o=;
- b=g45/G3xC9sH2xNWZ6p7/51PCGM+7NosvtHN4VJoiDJxnTel/9M5KBWRJXTrbVFGxk8
- u5MXFHO/yBVREKnKTeZSFVBJnairzfK8l1912tF7jCrey4fPFI64Pjn5A4IXCo51t7un
- rlMZ3BK6wD3AMoJWg0v7rJaPx2kNXTrUOrvjya6R6McblHu89Sl/Hj1xbcOe6qhCHage
- 2c72hl7T8Zq8yX5rzilD+b0AupIowbIqRpCuUTckO2QE+qpWcYWRo4zpPxtk52Cc/TXM
- Wdvjj+/rVzXDwDEXINf80szdTpuCkkzXTjacnVTfc3RUieDfTEpJ+RG928/jsC3D3q25
- 2rAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20221208; t=1686401546; x=1688993546;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:sender:x-gm-message-state:from
- :to:cc:subject:date:message-id:reply-to;
- bh=ypunSIKUqzh75YIeQaRkHjhmNZ/hwFhCbdx6FqXAu9o=;
- b=diSBzYSQO1DLZITpyxrm/a67lc5GrP5Trh/FsV+ja5KT8VZrXFwdJ9n82ZbzFC/4vI
- jcInl2OQdN+0OLmqVwYaXU0NRmyffIg/Y8TPExI4P3REeW8WTVLin8nNsAnd4c9Pc5Px
- /406MPivCk817OR9FkSSu4IFPCO3c3t4y3ER3YBUzhTzr6MhrV/c/Zw4hZDO+12+2ZGx
- 6qeYuxcGEiDN8CXsSYy+gPtYw3/hdEp0bcMqX7IAN3d+AaVcBYwIS64U+gpJvqkwck5K
- 9fo3M6Q3VqNnuJYfOrXAwjnmffNuwB2HG4vyUc7SG6fXNisdBouqCoxwbiTFxRkjhEOW
- B5IA==
-X-Gm-Message-State: AC+VfDxbYJ5KSHsO+pYEQC+ynPkCPkNABd2AKE1aVL3nO1gG3kCr73lX
- UxftkCUH+0NBw99zgcIhIQ==
-X-Google-Smtp-Source: ACHHUZ5tZl6zQi3tZ3ZIyb80b0WEZFIQ3IM8ZhCNGZxrKoZC2y3OSR1/MtXGpq4cjDjk0GM+k+2xPQ==
-X-Received: by 2002:a4a:e7c1:0:b0:546:dd51:f74f with SMTP id
- y1-20020a4ae7c1000000b00546dd51f74fmr2296073oov.4.1686401546227; 
- Sat, 10 Jun 2023 05:52:26 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id
- v4-20020a4aa504000000b00552acb7c89dsm1652130ook.21.2023.06.10.05.52.25
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 10 Jun 2023 05:52:25 -0700 (PDT)
-Received: from mail.minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:8f19:4a52:beef:59ed])
- by serve.minyard.net (Postfix) with ESMTPSA id 76BDB1800BA;
- Sat, 10 Jun 2023 12:52:24 +0000 (UTC)
-Date: Sat, 10 Jun 2023 07:52:23 -0500
-From: Corey Minyard <minyard@acm.org>
-To: Andrew Jeffery <andrew@aj.id.au>
-Message-ID: <ZIRyB531ttuE1SUI@mail.minyard.net>
-References: <20230609140729.64799-1-krzysztof.kozlowski@linaro.org>
- <778e2930-1678-45bb-a01e-21bf321fb6d8@betaapp.fastmail.com>
+ h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=7QuoetbCBMFyzf/43ZLtTww0wPY4WdYPl7CoDsr8gsg=; b=Q
+ dnjSuAS+hEtDA4Ik4mzJ2meDo14eCkknw0OUbOAiyu0vLJpbDVFux3ep4x5SPS3HW5cr5HNrSFPrV
+ zC11Yum3rdKFRn3Pjxvo6YHEMsV1TXBH8i23y2mAHJQzZ0AE4pHE/PWwTizG4yosGvMt7nlJi0PMf
+ UytGSihM0/AHNsOk=;
+Received: from smtp80.cstnet.cn ([159.226.251.80] helo=cstnet.cn)
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps (TLS1.2:DHE-RSA-AES256-SHA:256)
+ (Exim 4.95) id 1qBBUW-008Wxq-0b
+ for openipmi-developer@lists.sourceforge.net;
+ Mon, 19 Jun 2023 09:48:09 +0000
+Received: from ed3e173716be.home.arpa (unknown [124.16.138.129])
+ by APP-01 (Coremail) with SMTP id qwCowAB3fQmjH5BkvNZfAQ--.20548S2;
+ Mon, 19 Jun 2023 17:28:03 +0800 (CST)
+From: Jiasheng Jiang <jiasheng@iscas.ac.cn>
+To: minyard@acm.org,
+	kamlakantp@marvell.com
+Date: Mon, 19 Jun 2023 17:28:02 +0800
+Message-Id: <20230619092802.35384-1-jiasheng@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <778e2930-1678-45bb-a01e-21bf321fb6d8@betaapp.fastmail.com>
-X-Spam-Score: 0.4 (/)
+X-CM-TRANSID: qwCowAB3fQmjH5BkvNZfAQ--.20548S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrur45XryDCFW5ur1rZFW7twb_yoWfurg_Cr
+ yvqw13Gryvyr409w12yayfZryay3s8XryDWF1jqr1fC3s5Wwn3ZF9Fvr9ava1kArW5KF1D
+ JrZFk34DAr1xGjkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+ 9fnUUIcSsGvfJTRUUUb2AFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+ 6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+ A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+ Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+ 0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+ jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+ 1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkIecxEwVAFwVW8uwCF
+ 04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r
+ 18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vI
+ r41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr
+ 1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvE
+ x4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUIhFcUUUUU=
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: pmld2xxhqjqxpvfd2hldfou0/
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Sat, Jun 10, 2023 at 08:49:27AM +0930,
- Andrew Jeffery wrote:
- > > > On Fri, 9 Jun 2023, at 23:37, Krzysztof Kozlowski wrote: > > Cleanup
- bindings dropping unneeded quotes. Once all these are fixed, [...] 
- Content analysis details:   (0.4 points, 6.0 required)
+ Content preview:  Add check for the return value of kstrdup() and return the
+ error if it fails in order to avoid NULL pointer dereference. Fixes:
+ c4436c9149c5
+ ("ipmi_ssif: avoid registering duplicate ssif interface") Signed-off-by:
+ Jiasheng Jiang <jiasheng@iscas.ac.cn> --- drivers/char/ipmi/ipmi_ssif.c |
+ 5 +++++ 1 file changed, 5 inserti [...] 
+ Content analysis details:   (-0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.161.45 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tcminyard[at]gmail.com]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.161.45 listed in wl.mailspike.net]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1q7y52-00020K-2O
-Subject: Re: [Openipmi-developer] [PATCH] dt-bindings: ipmi: aspeed,
- ast2400-kcs-bmc: drop unneeded quotes
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+X-Headers-End: 1qBBUW-008Wxq-0b
+X-Mailman-Approved-At: Mon, 19 Jun 2023 16:37:50 +0000
+Subject: [Openipmi-developer] [PATCH] ipmi:ssif: Add check for kstrdup
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -137,78 +100,40 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- openipmi-developer@lists.sourceforge.net, linux-arm-kernel@lists.infradead.org
+Cc: openipmi-developer@lists.sourceforge.net,
+ Jiasheng Jiang <jiasheng@iscas.ac.cn>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Sat, Jun 10, 2023 at 08:49:27AM +0930, Andrew Jeffery wrote:
-> 
-> 
-> On Fri, 9 Jun 2023, at 23:37, Krzysztof Kozlowski wrote:
-> > Cleanup bindings dropping unneeded quotes. Once all these are fixed,
-> > checking for this can be enabled in yamllint.
-> >
-> > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> Acked-by: Andrew Jeffery <andrew@aj.id.au>
+Add check for the return value of kstrdup() and return the error
+if it fails in order to avoid NULL pointer dereference.
 
-This is in my next tree.  Thank you.
+Fixes: c4436c9149c5 ("ipmi_ssif: avoid registering duplicate ssif interface")
+Signed-off-by: Jiasheng Jiang <jiasheng@iscas.ac.cn>
+---
+ drivers/char/ipmi/ipmi_ssif.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
--corey
+diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
+index 3b921c78ba08..3b87a2726e99 100644
+--- a/drivers/char/ipmi/ipmi_ssif.c
++++ b/drivers/char/ipmi/ipmi_ssif.c
+@@ -1600,6 +1600,11 @@ static int ssif_add_infos(struct i2c_client *client)
+ 	info->addr_src = SI_ACPI;
+ 	info->client = client;
+ 	info->adapter_name = kstrdup(client->adapter->name, GFP_KERNEL);
++	if (!info->adapter_name) {
++		kfree(info);
++		return -ENOMEM;
++	}
++
+ 	info->binfo.addr = client->addr;
+ 	list_add_tail(&info->link, &ssif_infos);
+ 	return 0;
+-- 
+2.25.1
 
-> 
-> > ---
-> >  .../devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml  | 8 ++++----
-> >  1 file changed, 4 insertions(+), 4 deletions(-)
-> >
-> > diff --git 
-> > a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml 
-> > b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
-> > index 4ff6fabfcb30..129e32c4c774 100644
-> > --- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
-> > +++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-kcs-bmc.yaml
-> > @@ -41,7 +41,7 @@ properties:
-> >        - description: STR register
-> > 
-> >    aspeed,lpc-io-reg:
-> > -    $ref: '/schemas/types.yaml#/definitions/uint32-array'
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> >      minItems: 1
-> >      maxItems: 2
-> >      description: |
-> > @@ -50,7 +50,7 @@ properties:
-> >        status address may be optionally provided.
-> > 
-> >    aspeed,lpc-interrupts:
-> > -    $ref: "/schemas/types.yaml#/definitions/uint32-array"
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> >      minItems: 2
-> >      maxItems: 2
-> >      description: |
-> > @@ -63,12 +63,12 @@ properties:
-> > 
-> >    kcs_chan:
-> >      deprecated: true
-> > -    $ref: '/schemas/types.yaml#/definitions/uint32'
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> >      description: The LPC channel number in the controller
-> > 
-> >    kcs_addr:
-> >      deprecated: true
-> > -    $ref: '/schemas/types.yaml#/definitions/uint32'
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> >      description: The host CPU IO map address
-> > 
-> >  required:
-> > -- 
-> > 2.34.1
 
 
 _______________________________________________
