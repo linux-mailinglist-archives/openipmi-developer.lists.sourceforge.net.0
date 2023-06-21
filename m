@@ -2,101 +2,171 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0DC727384D1
-	for <lists+openipmi-developer@lfdr.de>; Wed, 21 Jun 2023 15:20:56 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 19138738589
+	for <lists+openipmi-developer@lfdr.de>; Wed, 21 Jun 2023 15:44:12 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qBxlR-0001R9-Nf;
-	Wed, 21 Jun 2023 13:20:49 +0000
+	id 1qBy7x-0000bb-DQ;
+	Wed, 21 Jun 2023 13:44:05 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <jani.nikula@intel.com>) id 1qBxiJ-0001Nu-9V;
- Wed, 21 Jun 2023 13:17:35 +0000
+ (envelope-from <j.granados@samsung.com>) id 1qBy7v-0000bO-OS;
+ Wed, 21 Jun 2023 13:44:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Message-ID:Date:
- References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=6oZcvSHWqtgEUtsTf2+2MRV1QLa/jDxQtuRf2WPWods=; b=Z8NEB/qwSC7AFmJl3JBc022+Zw
- k/d9V1f1hPa0cOC4tCgqwihahZkdlYXP9SpSbhIy5e5dx89KxFCnVML0Y+431a1/3QjvQMAtD3y9h
- dLvKC/+NaPCUZeX9BYkPEIXNNYfBT3CWWtn9fZbKCd1mmSdFqXLKNgFGw7Nh27aS/Q74=;
+ d=sourceforge.net; s=x; h=References:In-Reply-To:Content-Type:MIME-Version:
+ Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=SetH/myydi6dk+ldkx72EVQztsegim0VSf5FSMMJW28=; b=WblWLZiNAWpKf9FPCqwi5bMnBT
+ /o68FUkhHUXrZDblDzHQswOXGhn9IQY2sYgUO1m3FDLFn5mhv8YusBhSVprXaCVE7buDIm7AU0j3x
+ 8VJEI1TAHaVhIgc+Xpq8BHP1g2J9Bpnlby1OF/G4YELH68VLLl/QLDO9C6sPyOKI5Q2w=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:
- Cc:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=References:In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:CC:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=6oZcvSHWqtgEUtsTf2+2MRV1QLa/jDxQtuRf2WPWods=; b=W9K4eM2RldCFu241uJNoDAmjEs
- HENYeYwqbp9/BASo+bmLWdkB+Y4+CnPtMh6xM5z6ylxu96Ova4opyyZQnK8lbjx60hlb1r+fpogz+
- PyIu3/fpsKrdFGTfyKslVPJk6vdT9//RK+ksGGTENDFdMEumlD+3MjfcWa9L9eNLncMI=;
-Received: from mga05.intel.com ([192.55.52.43])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=SetH/myydi6dk+ldkx72EVQztsegim0VSf5FSMMJW28=; b=haswjyJTMFtVPMTGayxuNW+x0O
+ xDTi6ukfWWXJUPY5AFb2kuiGpf3hOrYTDNmUZyoWKdP1xaSTx2Yun96kMnsy/GwxQseezV4B4sfWS
+ VVKiYjjIb5k5BNGGhKA3EUC6YlapuQG4rfj4EUrqXCZ9oy1ImOpHMIBa1wKC94mYvUts=;
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qBxiE-0002u5-Gm; Wed, 21 Jun 2023 13:17:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1687353450; x=1718889450;
- h=from:to:cc:subject:in-reply-to:references:date:
- message-id:mime-version;
- bh=9eMWiG7JI6/9oPvFtdl/3iOGYIkGUexXwjKhm4v9hgQ=;
- b=bCKCupaYl+EEOS5QZZqFy7/P+ML1IyBgPHBQi6X+UU8780XpNTpf4U6B
- gFrDdR8bKiHWep8CBCfe+n3QcNA4kM2mVaRIrbZBZZkzO5Pc41a93wxH/
- deR0l3dJH1ofc/Owpgw21aSPf9Oltci2/V99rUNO20vRvyv0ZsS5VB7Ts
- sKB8gqtYRiN3W+n++5YvMKBFRyWHoyBW5/rm47wwDkrLmFGQYaz2Uhi/e
- WBbKSEilvIyOf60jil0GTDrDM6Wa+s8i8SKVh3rSRX6UE6fHg3afFOtl+
- OPjnTHLAfOkzS0xosvF88juEap/GL0nYFRRaas3CCUFF95JN9fehY2Wu8 Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10747"; a="446546888"
-X-IronPort-AV: E=Sophos;i="6.00,260,1681196400"; d="scan'208";a="446546888"
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
- by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 21 Jun 2023 06:16:46 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10747"; a="664658294"
-X-IronPort-AV: E=Sophos;i="6.00,260,1681196400"; d="scan'208";a="664658294"
-Received: from unknown (HELO localhost) ([10.237.66.162])
- by orsmga003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 21 Jun 2023 06:15:49 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Joel Granados <j.granados@samsung.com>
-In-Reply-To: <20230621130614.s36w4u7dzmb5d5p3@localhost>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+ id 1qBy7t-00AgHp-1x; Wed, 21 Jun 2023 13:44:03 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+ by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id
+ 20230621134353euoutp02d57583f1260e1c228507969bf2dd64df~qsHaHGgl22310523105euoutp02y;
+ Wed, 21 Jun 2023 13:43:53 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com
+ 20230621134353euoutp02d57583f1260e1c228507969bf2dd64df~qsHaHGgl22310523105euoutp02y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+ s=mail20170921; t=1687355033;
+ bh=SetH/myydi6dk+ldkx72EVQztsegim0VSf5FSMMJW28=;
+ h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+ b=PTZBv1Kz5BEVObNa7leJ/yxGfQakTivesF5jb6tBj4a7mw0z2DwCV8KG/lz6Htp2A
+ zjthU/P8T1sIWZ42nVHC5ArvGqiQK48scKj0Re/P/DwFQFC0M/FPQnfLTFYC/Ucswv
+ L2oK3I/5AOGeZQ+wBCu+TIiCshDxA9TJNwfHFkfQ=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+ eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+ 20230621134353eucas1p1dcc5fd6f5a9f46b250ca7cb322bfcb62~qsHZwC8jc0795907959eucas1p1j;
+ Wed, 21 Jun 2023 13:43:53 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+ eusmges1new.samsung.com (EUCPMTA) with SMTP id 7F.CE.42423.89EF2946; Wed, 21
+ Jun 2023 14:43:52 +0100 (BST)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+ eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+ 20230621134351eucas1p2f16d6185751b35072bbf7492517dd17b~qsHYhPi3_0645106451eucas1p2x;
+ Wed, 21 Jun 2023 13:43:51 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+ eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+ 20230621134351eusmtrp12ede84df94c73be5d139021f7caaec4e~qsHYfbU5Z3178131781eusmtrp1O;
+ Wed, 21 Jun 2023 13:43:51 +0000 (GMT)
+X-AuditID: cbfec7f2-a51ff7000002a5b7-2b-6492fe98f38e
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+ eusmgms1.samsung.com (EUCPMTA) with SMTP id B0.8C.10549.79EF2946; Wed, 21
+ Jun 2023 14:43:51 +0100 (BST)
+Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
+ eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+ 20230621134351eusmtip295329994762b412f6d02a3f47b794c24~qsHX0_Bhu0221102211eusmtip2V;
+ Wed, 21 Jun 2023 13:43:51 +0000 (GMT)
+Received: from localhost (106.210.248.248) by CAMSVWEXC02.scsc.local
+ (2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
+ Wed, 21 Jun 2023 14:43:50 +0100
+Date: Wed, 21 Jun 2023 15:43:48 +0200
+From: Joel Granados <j.granados@samsung.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>
+Message-ID: <20230621134348.rcdzl7fi7yq2uj6h@localhost>
+MIME-Version: 1.0
+In-Reply-To: <878rcd2by5.fsf@intel.com>
+X-Originating-IP: [106.210.248.248]
+X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
+ CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WTa1ATZxSG59tddkM0do1Yv8HbCFItAi0dW45t6Vir7eroTMsPW53xEmVB
+ WxKUiEV7SyUUBNSAg5GgyCVGI1cxRC4DakAQUISKAl4KQrCKmqhAFFEocbF1pv+e77zve+Y9
+ Pz4RKdWI3EWbFdv4CIUszIMWU+aawcu+B4eTg9/v6v8YLKoAKL97g4KY0hEK+gdvMNBXXUvD
+ /aonCA7du8iA3ZCIQH/hNgGO3DYCyvNtBLwsjSVhxJxEwt3C2FHfZTUFleoiBLZdQxT0aIpJ
+ uGKdAC0Ddhryy2KIUa+agZ6aLgZ2d43QYI9eC006hwtEZxfQYKk9w0BC7zSILh5AcODkFEjT
+ nCIgTRtNQPKgBkHnVXfIajMTcKj9A7AdngaDhhMM1DU6KMgvyCZgV8lxAi70x9BgbjmCoCKT
+ AKPhGQODe8dBavzoFvuBNAJ2Pz1KgabeHx7r6xm4dvoWASlJj2h4FGdzgaazDS4Qe6QMwR3L
+ HgoSWktouLnfQEHZixIGLCkVCHLyVKOF+7rJhTKu48FListNz0XclWvNJHe9a4Dk0nN/4nSq
+ PTSXpmqmuIzq5dzzQW/OZGwnuITqXpLraQ7iKhwZFFequ8Vw5rNeXEZR5NcfrhZ/GsyHbd7O
+ R7z32XrxpiRNJbXlkm9UbPclFxVqmR2PXEWYnY+Hqp8R8UgskrLHES7ub3ZxClK2H+HcjpWC
+ 0IdwfayKfJ3I6e6jBOEYwvrhFOJfl6midkwpRvi8toZ2RijWC3cmJRJOplkffPnBzVer3Fhf
+ nNdmdXEGSPbPBTi2qBo5hUlsEFZnxTHxSCSSsAG4u1PpHEvYibgu1Uo5mWSjsLVRTzktJDsV
+ HxsWOdGVnYOtdbRQ1BO3VmaP8S+43nSdELh9PO6ysQIvxqlHTUjgSbi31sQIPA037E98dQpm
+ 9yN8ZvgRIzxyEDb8PjC26ROsbrGOJT7HF7LO084SmJ2A2x5OFGpOwMlmLSmMJTjuD6ngfgfn
+ /PWA0iBP3RuH6d44TPffYcLYB2eUP6H/N56HDZn3SYEDcX6+ncpAzAk0hY9UykN5pb+C/9FP
+ KZMrIxWhfhvD5UVo9KM2DNc+KUGHex/7WRAhQhY0ezTcVZjThNwpRbiC93CTTC9KDpZKgmU7
+ dvIR4esiIsN4pQVNFVEeUyTzAus2StlQ2Tb+B57fwke8VgmRq7uKSPuifGj9ouDxm1Yc3Fr/
+ bdRHcxVGPEs7XPp369anxPS3lwWuuOJXaBIb63fGdK7URoUWTpborp4zFthC3FxXnXSsCuyd
+ +ZXWS5l3Z69D913P6dA5x2UNIy+q2IL2RL3dpyUtkdznmeDVkl5itVYOWY5NbZ6foOduuvGJ
+ 6gxdzaR1M5bmoZyfrSHfz1vzrKMqvtKb3L5sZPIi8z35N9qkDQuzQ4LHOcb73G57y3vHb6cq
+ /AMe7mtdc6bo3AY/a4B6YJGvfndHufTdGdyWkJnixnBjmbygYOlFz8cDv95d0ihd7GaeKw4J
+ eq7vtK27akyan7ng/J61q+NM8udfWiVVZTuXn7DPGvKglJtk/t5khFL2D92Tjv8jBQAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WTe0xTVxzHc+69va3GujtEvSIzrLJsQyiWh/4YymbcsrvNxM0EzXCiHdwp
+ QVrWApkaHUKrUMRhEygrpgJaHPbBQ0DFwUxlIHNB5aniHBYUeaNQHGLbtXbLTPbPyed8z/f7
+ ze+c5PBwr1quDy9BksLKJOK9AnI+cd3Rcj9I41DHr86f9YGq60MkXOspxeBkhZEES/pauGk2
+ IHg2V4TD5ce9BCgvOQm4VF3DgcPNxRywq5u5MD3bywWVo4aAyQwlDsaawxj02y0kTFU6XEtT
+ CwkjV58iuGZ0+dr7u0jQDB0m4OTQ71yYKDuG4J56kAvOPwYxOHPtAQYzxtsYXDaPY2C/dBSH
+ qQeDHHDWncDhdMkMDo8rjyI4eUNBgL0nh4RGRTWCxkITCeMZcwQ8zKvFoWNgIXTaJkgw1ysx
+ V1TBBdPPL3B42GzlQrbVSUJdrutWE5mxcFM7w4HM0xUkdF9gwNLyCxdGdOcQ5Az7QmatDUFB
+ 1VIoyjuPwcAPVg4UaTIx0Pdmc6CzbJKEsx0VCNSzeeiDXxHT0fkZ80x5nGD+HLUTjFFndEnd
+ t3Bm7rkaMXetNpwZb2tFjM54gNGm55JMUfotgilu2sTY7rRhzPPZAKam/A7G5DQN459HxwjX
+ yaSpKazfHqk8Zb1guwhChKIIEIaERQhFoWt3vBcSLgiOWhfP7k1IY2XBUbuEexrmfsOTrwd9
+ p5lyonTU7q9C83g0FUYb+qcIN3tRekSnGyI9ui9dNd3F8fAi+kW3ilSh+S7PE0TXmBTIs6lF
+ 9HThDHK7COotuu/EMczNJBVI3xi9h7vZmwqiTbcHOO4ATrVF0IqxTtJ9sIjaQitKs7gqxOPx
+ qbV0f5/cU2rA6Jz6updhPvU63frjwMvxcCqNftQwhrn9OLWcPuvguXEe9TY90Ep6Bl1J9zSe
+ /ocP0lP2RygPLdK+UqR9pUj7X5FHDqBvO4b+L6+iy0pGcA+vp83mCaIYcc8hbzZVnrQ7SS4S
+ ysVJ8lTJbmGcNKkauf5MXfPs+YtIN/xEaEEYD1mQvytprTTcRD6ERCphBd78N6rV8V78ePG+
+ /axMulOWupeVW1C46xFP4D6L46SuDyhJ2SlaszpcFLYmYnV4xJpQwVL+J8lZYi9qtziFTWTZ
+ ZFb2bw7jzfNJx14rj+b39kWHUfmOwWfLtqZtKGyK2bbxHWnDzMXEzE11On/O05KqRCx0eeQB
+ ZXP9l2Oxm6vaskb2ZSyMexRZNmPSKg853/dTHrlq74oZ1dbtutUbW5zNDRgwtK/aMCeub7d2
+ bKwONvM+1G1eqf0mkPatXcCUSFZsbeHXLo61Zx+q2h83zbdEPezeVZ4xaFI1bHkQ/ldfiGVs
+ 27vOj5fs32LjHLm7zP/rLzhj7UFXZj/1zzhlL8hv/Oin7G8XKy/c//7UxX1nkjQamyC49Yq+
+ QFauN43qo1dszxO9GT/Sn39wSUJRaWxkSaC5O+as/fHWxEnbAi8/UbI5IumrxDv6hNwd00Jm
+ SEDI94hFAbhMLv4bHgGuKMgEAAA=
+X-CMS-MailID: 20230621134351eucas1p2f16d6185751b35072bbf7492517dd17b
+X-Msg-Generator: CA
+X-RootMTR: 20230621094824eucas1p2b6adfbd3f15ff3665674917f419b25d3
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20230621094824eucas1p2b6adfbd3f15ff3665674917f419b25d3
 References: <20230621091000.424843-1-j.granados@samsung.com>
  <CGME20230621094824eucas1p2b6adfbd3f15ff3665674917f419b25d3@eucas1p2.samsung.com>
- <20230621094817.433842-1-j.granados@samsung.com>
- <87o7l92hg8.fsf@intel.com> <20230621130614.s36w4u7dzmb5d5p3@localhost>
-Date: Wed, 21 Jun 2023 16:15:46 +0300
-Message-ID: <878rcd2by5.fsf@intel.com>
-MIME-Version: 1.0
-X-Spam-Score: -2.4 (--)
+ <20230621094817.433842-1-j.granados@samsung.com> <87o7l92hg8.fsf@intel.com>
+ <20230621130614.s36w4u7dzmb5d5p3@localhost> <878rcd2by5.fsf@intel.com>
+X-Spam-Score: -5.9 (-----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, 21 Jun 2023, Joel Granados <j.granados@samsung.com>
- wrote: > On Wed, Jun 21, 2023 at 02:16:55PM +0300, Jani Nikula wrote: >>
- On Wed, 21 Jun 2023, Joel Granados <j.granados@samsung.com> wrote: [...] 
- Content analysis details:   (-2.4 points, 6.0 required)
+ Content preview:  On Wed, Jun 21, 2023 at 04:15:46PM +0300, Jani Nikula wrote:
+ > On Wed, 21 Jun 2023, Joel Granados <j.granados@samsung.com> wrote: > >
+ On Wed, Jun 21, 2023 at 02:16:55PM +0300, Jani Nikula wrote: > >> [...] 
+ Content analysis details:   (-5.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [192.55.52.43 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [210.118.77.12 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [210.118.77.12 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1qBxiE-0002u5-Gm
-X-Mailman-Approved-At: Wed, 21 Jun 2023 13:20:48 +0000
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1qBy7t-00AgHp-1x
 Subject: Re: [Openipmi-developer] [PATCH 09/11] sysctl: Remove the end
  element in sysctl table arrays
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -225,122 +295,186 @@ Cc: Juri Lelli <juri.lelli@redhat.com>, Miaohe Lin <linmiaohe@huawei.com>,
  tipc-discussion@lists.sourceforge.net, Daniel Vetter <daniel@ffwll.ch>,
  Martin KaFai Lau <martin.lau@linux.dev>, Karsten Graul <kgraul@linux.ibm.com>,
  Joel Becker <jlbec@evilplan.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1903914140375033651=="
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, 21 Jun 2023, Joel Granados <j.granados@samsung.com> wrote:
-> On Wed, Jun 21, 2023 at 02:16:55PM +0300, Jani Nikula wrote:
->> On Wed, 21 Jun 2023, Joel Granados <j.granados@samsung.com> wrote:
->> > Remove the empty end element from all the arrays that are passed to the
->> > register sysctl calls. In some files this means reducing the explicit
->> > array size by one. Also make sure that we are using the size in
->> > ctl_table_header instead of evaluating the .procname element.
->> 
->> Where's the harm in removing the end elements driver by driver? This is
->> an unwieldy patch to handle.
->
-> I totally agree. Its a big one!!! but I'm concerned of breaking bisectibility:
-> * I could for example separate all the removes into separate commits and
->   then have a final commit that removes the check for the empty element.
->   But this will leave the tree in a state where the for loop will have
->   undefined behavior when it looks for the empty end element. It might
->   or might not work (probably not :) until the final commit where I fix
->   that.
->
-> * I could also change the logic that looks for the final element,
->   commit that first and then remove the empty element one commit per
->   driver after that. But then for all the arrays that still have an
->   empty element, there would again be undefined behavior as it would
->   think that the last element is valid (when it is really the sentinel).
->
-> Any ideas on how to get around these?
+--===============1903914140375033651==
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="nwcq3i6cyedok5cv"
+Content-Disposition: inline
 
-First add size to the register calls, and allow the last one to be
-sentinel but do not require the sentinel.
+--nwcq3i6cyedok5cv
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Start removing sentinels, adjusting the size passed in.
+On Wed, Jun 21, 2023 at 04:15:46PM +0300, Jani Nikula wrote:
+> On Wed, 21 Jun 2023, Joel Granados <j.granados@samsung.com> wrote:
+> > On Wed, Jun 21, 2023 at 02:16:55PM +0300, Jani Nikula wrote:
+> >> On Wed, 21 Jun 2023, Joel Granados <j.granados@samsung.com> wrote:
+> >> > Remove the empty end element from all the arrays that are passed to =
+the
+> >> > register sysctl calls. In some files this means reducing the explicit
+> >> > array size by one. Also make sure that we are using the size in
+> >> > ctl_table_header instead of evaluating the .procname element.
+> >>=20
+> >> Where's the harm in removing the end elements driver by driver? This is
+> >> an unwieldy patch to handle.
+> >
+> > I totally agree. Its a big one!!! but I'm concerned of breaking bisecti=
+bility:
+> > * I could for example separate all the removes into separate commits and
+> >   then have a final commit that removes the check for the empty element.
+> >   But this will leave the tree in a state where the for loop will have
+> >   undefined behavior when it looks for the empty end element. It might
+> >   or might not work (probably not :) until the final commit where I fix
+> >   that.
+> >
+> > * I could also change the logic that looks for the final element,
+> >   commit that first and then remove the empty element one commit per
+> >   driver after that. But then for all the arrays that still have an
+> >   empty element, there would again be undefined behavior as it would
+> >   think that the last element is valid (when it is really the sentinel).
+> >
+> > Any ideas on how to get around these?
+>=20
+> First add size to the register calls, and allow the last one to be
+> sentinel but do not require the sentinel.
+>=20
+> Start removing sentinels, adjusting the size passed in.
+This is a great idea! and I think I don't even have to adjust the size
+because if I change the logic to stop on the sentinel or the size; so when
+the sentinel is there, it will stop before the size. And when the
+sentinel is not there, it will stop on the correct size.
 
-Once enough sentinels have been removed, add warning if the final entry
-is a sentinel.
+There might be issues with indirection calls. And there might also be
+lots of places where I need to adjust a for loop (as dan has pointed
+out) but its worth a try for V2.
 
-Never really remove the check? (But surely you can rework the logic to
-not count the number of elements up front, only while iterating.)
+Best
+>=20
+> Once enough sentinels have been removed, add warning if the final entry
+> is a sentinel.
+>=20
+> Never really remove the check? (But surely you can rework the logic to
+> not count the number of elements up front, only while iterating.)
+>=20
+>=20
+> BR,
+> Jani.
+>=20
+> >>=20
+> >> > diff --git a/drivers/gpu/drm/i915/i915_perf.c b/drivers/gpu/drm/i915=
+/i915_perf.c
+> >> > index f43950219ffc..e4d7372afb10 100644
+> >> > --- a/drivers/gpu/drm/i915/i915_perf.c
+> >> > +++ b/drivers/gpu/drm/i915/i915_perf.c
+> >> > @@ -4884,24 +4884,23 @@ int i915_perf_remove_config_ioctl(struct drm=
+_device *dev, void *data,
+> >> > =20
+> >> >  static struct ctl_table oa_table[] =3D {
+> >> >  	{
+> >> > -	 .procname =3D "perf_stream_paranoid",
+> >> > -	 .data =3D &i915_perf_stream_paranoid,
+> >> > -	 .maxlen =3D sizeof(i915_perf_stream_paranoid),
+> >> > -	 .mode =3D 0644,
+> >> > -	 .proc_handler =3D proc_dointvec_minmax,
+> >> > -	 .extra1 =3D SYSCTL_ZERO,
+> >> > -	 .extra2 =3D SYSCTL_ONE,
+> >> > -	 },
+> >> > +		.procname =3D "perf_stream_paranoid",
+> >> > +		.data =3D &i915_perf_stream_paranoid,
+> >> > +		.maxlen =3D sizeof(i915_perf_stream_paranoid),
+> >> > +		.mode =3D 0644,
+> >> > +		.proc_handler =3D proc_dointvec_minmax,
+> >> > +		.extra1 =3D SYSCTL_ZERO,
+> >> > +		.extra2 =3D SYSCTL_ONE,
+> >> > +	},
+> >> >  	{
+> >> > -	 .procname =3D "oa_max_sample_rate",
+> >> > -	 .data =3D &i915_oa_max_sample_rate,
+> >> > -	 .maxlen =3D sizeof(i915_oa_max_sample_rate),
+> >> > -	 .mode =3D 0644,
+> >> > -	 .proc_handler =3D proc_dointvec_minmax,
+> >> > -	 .extra1 =3D SYSCTL_ZERO,
+> >> > -	 .extra2 =3D &oa_sample_rate_hard_limit,
+> >> > -	 },
+> >> > -	{}
+> >> > +		.procname =3D "oa_max_sample_rate",
+> >> > +		.data =3D &i915_oa_max_sample_rate,
+> >> > +		.maxlen =3D sizeof(i915_oa_max_sample_rate),
+> >> > +		.mode =3D 0644,
+> >> > +		.proc_handler =3D proc_dointvec_minmax,
+> >> > +		.extra1 =3D SYSCTL_ZERO,
+> >> > +		.extra2 =3D &oa_sample_rate_hard_limit,
+> >> > +	}
+> >> >  };
+> >>=20
+> >> The existing indentation is off, but fixing it doesn't really belong in
+> >> this patch.
+> >
+> > Agreed. But I actually was trying to fix something that checkpatch
+> > flagged. I'll change these back (which will cause this patch to be
+> > flagged).
+> >
+> > An alternative solution would be to fix the indentation as part of the
+> > preparation patches. Tell me what you think.
+> >
+> > Thx
+> >
+> >>=20
+> >> BR,
+> >> Jani.
+> >>=20
+> >>=20
+> >> --=20
+> >> Jani Nikula, Intel Open Source Graphics Center
+>=20
+> --=20
+> Jani Nikula, Intel Open Source Graphics Center
+
+--=20
+
+Joel Granados
+
+--nwcq3i6cyedok5cv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmSS/pIACgkQupfNUreW
+QU8FZgv+NJjIGObr29DU3w9gC84AcnW6dJTp9wHS00NxSXpo+c714JQ2xV0z8i/m
+wZbyBR21D/CkjJCTL0pwjCh1xi+PdMHmpB9mDlQSxEg6i+fJXBb7GvWvkOfNagP8
+Z2t/NzP/RPP+/BjBP3QOGNyQWgZ4Jl6lMvzlt0aJlHMx7/QD7PRgnNN3KYiFzB+I
+FTf5QLbTT85TSPPoGBQCzF6Ych5vKNmIzRZxD2o1zPJFftGIcYOfYOC7vX/1tuOa
+1l2+maHSi22uTAHFL3XKvcQBxuLeBCoAIgYOGeO0B+wApLgDVUdHb3PPMw74sOuD
+RtgKG6gEgO937g+zKo5xP6M5iLH8xYavJRYPNGH5FBfL7DDROXI6t9tjBpvpUbPS
+VQDducT3r8p7hbIhb+3MnRgJri1yF7SjRZF6iewJ9G3Rd7o8PlcLC3aTZLvilO9j
+4YYKID1bOqsI9tcLY5oeM6HROqdmLhzFQQlzZCCz4Y/1XVO7ZKpJHP97wqBETkbq
+DRVhBHDj
+=lxdq
+-----END PGP SIGNATURE-----
+
+--nwcq3i6cyedok5cv--
 
 
-BR,
-Jani.
+--===============1903914140375033651==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
->> 
->> > diff --git a/drivers/gpu/drm/i915/i915_perf.c b/drivers/gpu/drm/i915/i915_perf.c
->> > index f43950219ffc..e4d7372afb10 100644
->> > --- a/drivers/gpu/drm/i915/i915_perf.c
->> > +++ b/drivers/gpu/drm/i915/i915_perf.c
->> > @@ -4884,24 +4884,23 @@ int i915_perf_remove_config_ioctl(struct drm_device *dev, void *data,
->> >  
->> >  static struct ctl_table oa_table[] = {
->> >  	{
->> > -	 .procname = "perf_stream_paranoid",
->> > -	 .data = &i915_perf_stream_paranoid,
->> > -	 .maxlen = sizeof(i915_perf_stream_paranoid),
->> > -	 .mode = 0644,
->> > -	 .proc_handler = proc_dointvec_minmax,
->> > -	 .extra1 = SYSCTL_ZERO,
->> > -	 .extra2 = SYSCTL_ONE,
->> > -	 },
->> > +		.procname = "perf_stream_paranoid",
->> > +		.data = &i915_perf_stream_paranoid,
->> > +		.maxlen = sizeof(i915_perf_stream_paranoid),
->> > +		.mode = 0644,
->> > +		.proc_handler = proc_dointvec_minmax,
->> > +		.extra1 = SYSCTL_ZERO,
->> > +		.extra2 = SYSCTL_ONE,
->> > +	},
->> >  	{
->> > -	 .procname = "oa_max_sample_rate",
->> > -	 .data = &i915_oa_max_sample_rate,
->> > -	 .maxlen = sizeof(i915_oa_max_sample_rate),
->> > -	 .mode = 0644,
->> > -	 .proc_handler = proc_dointvec_minmax,
->> > -	 .extra1 = SYSCTL_ZERO,
->> > -	 .extra2 = &oa_sample_rate_hard_limit,
->> > -	 },
->> > -	{}
->> > +		.procname = "oa_max_sample_rate",
->> > +		.data = &i915_oa_max_sample_rate,
->> > +		.maxlen = sizeof(i915_oa_max_sample_rate),
->> > +		.mode = 0644,
->> > +		.proc_handler = proc_dointvec_minmax,
->> > +		.extra1 = SYSCTL_ZERO,
->> > +		.extra2 = &oa_sample_rate_hard_limit,
->> > +	}
->> >  };
->> 
->> The existing indentation is off, but fixing it doesn't really belong in
->> this patch.
->
-> Agreed. But I actually was trying to fix something that checkpatch
-> flagged. I'll change these back (which will cause this patch to be
-> flagged).
->
-> An alternative solution would be to fix the indentation as part of the
-> preparation patches. Tell me what you think.
->
-> Thx
->
->> 
->> BR,
->> Jani.
->> 
->> 
->> -- 
->> Jani Nikula, Intel Open Source Graphics Center
 
--- 
-Jani Nikula, Intel Open Source Graphics Center
-
+--===============1903914140375033651==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+
+--===============1903914140375033651==--
+
