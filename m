@@ -2,126 +2,127 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 515697426F8
-	for <lists+openipmi-developer@lfdr.de>; Thu, 29 Jun 2023 15:07:57 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id E7C9774320F
+	for <lists+openipmi-developer@lfdr.de>; Fri, 30 Jun 2023 03:01:42 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qErNH-0000MN-7I;
-	Thu, 29 Jun 2023 13:07:51 +0000
+	id 1qF2W0-0001On-4X;
+	Fri, 30 Jun 2023 01:01:36 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tcminyard@gmail.com>) id 1qErND-0000M9-SJ
+ (envelope-from <andrew@aj.id.au>) id 1qF2Vy-0001Og-Oz
  for openipmi-developer@lists.sourceforge.net;
- Thu, 29 Jun 2023 13:07:47 +0000
+ Fri, 30 Jun 2023 01:01:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Subject:Cc:To:From:Date:References:
+ In-Reply-To:Message-Id:Mime-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=wPSxkQ87Wj6qniPEz0gaxOYEsfrmKpTYI5B1z/x1Q/E=; b=eMkuL0tFO/BH8YwW3NArHNEQV2
- p65FFpMVX9sGDatUba2YhnGS+BExMwMQvsYR8ZKUYy6M05mZnTlYLgbp5BPPV+2OJmwEyUNtHSN1D
- /1/drPsFxNTs8HBDAS8hAeBtJvyC8wOsgjFQqb5PlxoLCYWlbuxrKDNiIg+CKIgLoLf0=;
+ bh=wAbEe/5fxRFHIGtjp6fsuq4DKoHUotvs5QCm3RZOtq0=; b=gR1xGnOUWrkfehK9ggM9fmFpCa
+ 7/ItNj9KQQbd9aEJG4UunWWhP5LyogcLwEj/PNUYlvsbmtfMwSFF3ZBHUPjtICW3wxiUiT+R+3ycV
+ LBJRjraoyIHO20MjzL11ex1CAqA2V5nhpL3I3bMZ1LZm82i+3CEwM+7Xdq2Er2piFtAM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Subject:Cc:To:From:Date:References:In-Reply-To:Message-Id:
+ Mime-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=wPSxkQ87Wj6qniPEz0gaxOYEsfrmKpTYI5B1z/x1Q/E=; b=NrpMu+2DCYvl7I1aOOq9oVEmHj
- I/3dh26whHFspcPIUlwBZW0DTKMgTZRKqPyPzkQNLkjg/Hcunubr5G0pnkjE8wtHJMowH7i1ottmD
- HAJ3K+XllyB4qf9Oes4MVHN1nuab704cVURqm5PwYzkA9j58LhCpY8zuaemwNadW9u/c=;
-Received: from mail-yw1-f172.google.com ([209.85.128.172])
+ bh=wAbEe/5fxRFHIGtjp6fsuq4DKoHUotvs5QCm3RZOtq0=; b=Iy4Me/mRrE2+pKA0tuqiOZOVHK
+ Gjr7F8IKZp/LHd8+WZKshZrezaNGFJ8YmGOVlG2/d3Mk1+r3M99gtSDjrmJg580dyWH2jLVKOPgI9
+ z153z53lvHAzSkIiohxuEG5erVj/IyW+zM+Zm7KUK68TzxyukSSoWQhkxZ8mFRn0lD8U=;
+Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1qErNA-00169a-EB for openipmi-developer@lists.sourceforge.net;
- Thu, 29 Jun 2023 13:07:46 +0000
-Received: by mail-yw1-f172.google.com with SMTP id
- 00721157ae682-5701810884aso6445357b3.0
- for <openipmi-developer@lists.sourceforge.net>;
- Thu, 29 Jun 2023 06:07:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20221208; t=1688044058; x=1690636058;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:sender:from:to:cc:subject:date
- :message-id:reply-to;
- bh=wPSxkQ87Wj6qniPEz0gaxOYEsfrmKpTYI5B1z/x1Q/E=;
- b=pRt8FyE0SHlF09fUC9ODK2Vr6aEhF/P0G//O4CcWe7G7LojqTyZWFjBO8X2Wb7AT6U
- j6+aPz0s/M2bojNmAvy8Ed66XhCejVbSZOuaCDdD0s3EoHDiJn4nxrvLDsfbJxVrASTj
- S5uDe0AfRfELn/YR4YTXSQl4CUqrOqxG+TI7TX1pDelAgUfaP81Di8JZPpY9+Ug6RTkG
- sK1uinoNp4bVLPBPzsxvSSAIxFA4gxMtWBUSuFbRz4OxgenaoL3PbjUvKyGwXN4XQn36
- ZhplCx2/KcBmUOSikviEw10MhIZnb9E1B6YMTWuK62lWwsx4ZyA3gEo6cNhLmzfhGhnT
- cqfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20221208; t=1688044058; x=1690636058;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:sender:x-gm-message-state:from
- :to:cc:subject:date:message-id:reply-to;
- bh=wPSxkQ87Wj6qniPEz0gaxOYEsfrmKpTYI5B1z/x1Q/E=;
- b=E2iCte1suo5q3RP6q+zlJbns5aA9iLR1ZF7oDGmqHnO0CG8Q3MI91bmYN7sMoT9eEm
- 6/yIByKoV6v9EP3IRJllWXDvLR0o+AZ8RjXo/BowAzQq+TuSn7IQJWhpDN/qyqz8BrK9
- JEFkJMtCbfu52kG0UJgSUFiEcC69uXvVqxmJHPgtYwT1XsX7Kh+xICu9vVJka/qH3eRp
- ewt/QicL+feAuu+RjrJ8IX1wZ3KcE43vm//S5K6/L7aJhHoQR+h7JM+pkUnFxImkQRhD
- mmRIBQf+hioGG7sBcjqdRDlG0R0EvNRlgqKPQqoaNaGPLjw2VXx2LJo/nIWqCpfwlU1R
- wtkw==
-X-Gm-Message-State: AC+VfDwog+G7jJqh8m0uhtV2W2O85bC2A0dO311+jlmPP/NaFIhzhhgB
- Ue6l/l6AUyb8w80KfK7oBQ==
-X-Google-Smtp-Source: ACHHUZ54T815K5oIlgXBu7Fku65efK/HxXSIeluhK4sRy7j7+hmNGzHsx7+ZAukAbz641fT7BgoaVw==
-X-Received: by 2002:a0d:ea52:0:b0:56d:34:893c with SMTP id
- t79-20020a0dea52000000b0056d0034893cmr28070174ywe.4.1688044058502; 
- Thu, 29 Jun 2023 06:07:38 -0700 (PDT)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id
- d186-20020a8168c3000000b00577139f85dfsm637868ywc.22.2023.06.29.06.07.36
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 29 Jun 2023 06:07:37 -0700 (PDT)
-Received: from mail.minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:91d3:5aa:3c41:6715])
- by serve.minyard.net (Postfix) with ESMTPSA id 06203180044;
- Thu, 29 Jun 2023 13:07:36 +0000 (UTC)
-Date: Thu, 29 Jun 2023 08:07:34 -0500
-From: Corey Minyard <minyard@acm.org>
-To: "GONG, Ruiqi" <gongruiqi@huaweicloud.com>
-Message-ID: <ZJ2CFthVKdr0U29K@mail.minyard.net>
-References: <20230629123328.2402075-1-gongruiqi@huaweicloud.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20230629123328.2402075-1-gongruiqi@huaweicloud.com>
-X-Spam-Score: 0.4 (/)
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1qF2Vu-001eKe-NL for openipmi-developer@lists.sourceforge.net;
+ Fri, 30 Jun 2023 01:01:35 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+ by mailout.west.internal (Postfix) with ESMTP id 7C8803200564;
+ Thu, 29 Jun 2023 21:01:24 -0400 (EDT)
+Received: from imap50 ([10.202.2.100])
+ by compute6.internal (MEProxy); Thu, 29 Jun 2023 21:01:24 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aj.id.au; h=cc
+ :cc:content-type:content-type:date:date:from:from:in-reply-to
+ :in-reply-to:message-id:mime-version:references:reply-to:sender
+ :subject:subject:to:to; s=fm1; t=1688086884; x=1688173284; bh=wA
+ bEe/5fxRFHIGtjp6fsuq4DKoHUotvs5QCm3RZOtq0=; b=RhoCDTMf298Ij8oP7n
+ Jr8ethIj9rc62aZpBYuvtvDrUyEsB61vUHrapqZVjZwXklsqcV4tOBaDlMizQ5Cc
+ zW4HbJPlyvmo+5NInQZ6eIymqmSwyRwEEGOieqeV/G6Kgo0FuFdFa+Qwt6ne3Qsx
+ vOucxgvOxzhSLU0I4b/1l7g7G2fZ4D8/yDEFRHLwFFvhBs9iMW6xCjstO+vjPwSP
+ +j51RI1bO2svpyj7m0rKOSs8f5XDmCCfsR7cR56eavwOVq8y9EPs322H7X+SUJQ3
+ L0xS1SGBfyB7dO3da3YbP+RXhfWt2ayuUp06H9mB531O+OTLBOiAXpPH1YuvUfyF
+ Irlg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:cc:content-type:content-type:date:date
+ :feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+ :message-id:mime-version:references:reply-to:sender:subject
+ :subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+ :x-sasl-enc; s=fm2; t=1688086884; x=1688173284; bh=wAbEe/5fxRFHI
+ Gtjp6fsuq4DKoHUotvs5QCm3RZOtq0=; b=kVDSEgHC1ht0TZmKGAo1buKWubCxe
+ ZrP4cam1PcEo4gYzKRMgeChr3CPa3LAdPCoSeSlQ5mHw3hmjGYOqVPzLZL4zs5Ut
+ xCZZ/CewPh3EcQ5YQk7+Oukm5iuk9LBFdXZBKvMur/W9hbTQ4/lphsVj++NLMNfm
+ i15qTLhr8PN+Q859AeH3Y4Dy9nIYNm9gjqDA7S1ws4Axki3/GimPcfodk4iVgq+8
+ aJFN0nCtgpB7XSfFdebWbc/SYHUote1rx/4x97A97wPD8hLPv+5sv/rq3fubKutJ
+ B2y1G4H/IIYxsfsUPgQA/wSqaW3FToOH8bMB4Mdn9XN55vsSSDj+qXgEA==
+X-ME-Sender: <xms:YymeZGuVLipz3sNK0XNc6KCa4LO8OEpze4T9YcoexODzFv2QaBJSpA>
+ <xme:YymeZLfcraAE1NcKIHrjqZ2FvMh2H403ut9EmKDuW3zIzd8T6sE53tpWnAFpNqWiw
+ gFlAGEKPyZzYOlJFQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedviedrtdehgdegfecutefuodetggdotefrodftvf
+ curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+ uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+ fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetnhgu
+ rhgvficulfgvfhhfvghrhidfuceorghnughrvgifsegrjhdrihgurdgruheqnecuggftrf
+ grthhtvghrnhepkedvkeejkefgjeduffetteegjeekteetudevtdfftdeluddthfehveef
+ teekieetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
+ eprghnughrvgifsegrjhdrihgurdgruh
+X-ME-Proxy: <xmx:YymeZBy8Z8DRxTWNk-oyuQqXNxFz-Hl8EcqqL82lUUFSDxlnfKbg8Q>
+ <xmx:YymeZBOs3xUk890_IiEZfhPqXxEtLNVsgwru8MOnNhMwv96bMJG62A>
+ <xmx:YymeZG8anZyjHVY6GYYv-ZbJ7g9Ls17DxuxJy1cJapNdXxlPRoO71w>
+ <xmx:ZCmeZMkGy4Qy5FOXysqcCONQHoYFvsUi1ENgOBvIHLEW0nrOWX2_Jg>
+Feedback-ID: idfb84289:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+ id B19CE1700089; Thu, 29 Jun 2023 21:01:23 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.9.0-alpha0-499-gf27bbf33e2-fm-20230619.001-gf27bbf33
+Mime-Version: 1.0
+Message-Id: <9691d898-22a9-4902-871d-73f5dafabf86@app.fastmail.com>
+In-Reply-To: <ZJwd0UDKYcK9AvSf@mail.minyard.net>
+References: <20230627152449.36093-1-dg573847474@gmail.com>
+ <ZJwd0UDKYcK9AvSf@mail.minyard.net>
+Date: Fri, 30 Jun 2023 10:31:02 +0930
+From: "Andrew Jeffery" <andrew@aj.id.au>
+To: "Corey Minyard" <minyard@acm.org>
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Thu, Jun 29, 2023 at 08:33:28PM +0800, GONG, Ruiqi wrote:
- > From: Yi Yang <yiyang13@huawei.com> > > Kmemleak reported the following
- leak info in try_smi_init(): > > unreferenced object 0xffff00018e [...] 
- Content analysis details:   (0.4 points, 6.0 required)
+ Content preview:  Hi Corey, Chengfeng, On Wed, 28 Jun 2023, at 21:17, Corey
+ Minyard wrote: > Indeed, this looks like an issue. > > Andrew, any opinions
+ on this? The attached patch will work, the other > option would be to disable
+ interrupt [...] 
+ Content analysis details:   (-0.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.128.172 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tcminyard[at]gmail.com]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [64.147.123.24 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.128.172 listed in wl.mailspike.net]
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1qErNA-00169a-EB
-Subject: Re: [Openipmi-developer] [PATCH] ipmi_si: fix a memleak in
- try_smi_init()
+ valid
+X-Headers-End: 1qF2Vu-001eKe-NL
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: fix potential deadlock on
+ &kcs_bmc->lock
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -134,77 +135,80 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: Yi Yang <yiyang13@huawei.com>, Xiu Jianfeng <xiujianfeng@huawei.com>,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Wang Weiyang <wangweiyang2@huawei.com>, gongruiqi1@huawei.com,
- openipmi-developer@lists.sourceforge.net
+Cc: Chengfeng Ye <dg573847474@gmail.com>,
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Thu, Jun 29, 2023 at 08:33:28PM +0800, GONG, Ruiqi wrote:
-> From: Yi Yang <yiyang13@huawei.com>
-> 
-> Kmemleak reported the following leak info in try_smi_init():
-> 
-> unreferenced object 0xffff00018ecf9400 (size 1024):
->   comm "modprobe", pid 2707763, jiffies 4300851415 (age 773.308s)
->   backtrace:
->     [<000000004ca5b312>] __kmalloc+0x4b8/0x7b0
->     [<00000000953b1072>] try_smi_init+0x148/0x5dc [ipmi_si]
->     [<000000006460d325>] 0xffff800081b10148
->     [<0000000039206ea5>] do_one_initcall+0x64/0x2a4
->     [<00000000601399ce>] do_init_module+0x50/0x300
->     [<000000003c12ba3c>] load_module+0x7a8/0x9e0
->     [<00000000c246fffe>] __se_sys_init_module+0x104/0x180
->     [<00000000eea99093>] __arm64_sys_init_module+0x24/0x30
->     [<0000000021b1ef87>] el0_svc_common.constprop.0+0x94/0x250
->     [<0000000070f4f8b7>] do_el0_svc+0x48/0xe0
->     [<000000005a05337f>] el0_svc+0x24/0x3c
->     [<000000005eb248d6>] el0_sync_handler+0x160/0x164
->     [<0000000030a59039>] el0_sync+0x160/0x180
-> 
-> The problem was that when an error occurred before handlers registration
-> and after allocating `new_smi->si_sm`, the variable wouldn't be freed in
-> the error handling afterwards since `shutdown_smi()` hadn't been
-> registered yet. Fix it by adding a `kfree()` in the error handling path
-> in `try_smi_init()`.
+Hi Corey, Chengfeng,
 
-Thanks, I have included this.  And thanks for handling the stable thing,
-too.
+On Wed, 28 Jun 2023, at 21:17, Corey Minyard wrote:
+> Indeed, this looks like an issue.
+>
+> Andrew, any opinions on this?  The attached patch will work, the other
+> option would be to disable interrupts when calling
+> kcs_bmc_handle_event() in the timer handler.  But then you have to worry
+> about RT.
 
--corey
+Right, I think we'd do best to not over-complicate things.
+spin_lock_irq{save,restore}() are the intuitive choice to me.
 
-> 
-> Cc: stable@vger.kernel.org # 4.19+
-> Fixes: 7960f18a5647 ("ipmi_si: Convert over to a shutdown handler")
-> Signed-off-by: Yi Yang <yiyang13@huawei.com>
-> Co-developed-by: GONG, Ruiqi <gongruiqi@huaweicloud.com>
-> Signed-off-by: GONG, Ruiqi <gongruiqi@huaweicloud.com>
-> ---
->  drivers/char/ipmi/ipmi_si_intf.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-> index abddd7e43a9a..5cd031f3fc97 100644
-> --- a/drivers/char/ipmi/ipmi_si_intf.c
-> +++ b/drivers/char/ipmi/ipmi_si_intf.c
-> @@ -2082,6 +2082,11 @@ static int try_smi_init(struct smi_info *new_smi)
->  		new_smi->io.io_cleanup = NULL;
->  	}
->  
-> +	if (rv && new_smi->si_sm) {
-> +		kfree(new_smi->si_sm);
-> +		new_smi->si_sm = NULL;
-> +	}
-> +
->  	return rv;
->  }
->  
-> -- 
-> 2.25.1
-> 
+I'll follow up with R-b/T-b tags once I've booted the patch
+and done some testing.
+
+Andrew
+
+>
+> -corey
+>
+> On Tue, Jun 27, 2023 at 03:24:49PM +0000, Chengfeng Ye wrote:
+>> As kcs_bmc_handle_event() is executed inside both a timer and a hardirq,
+>> it should disable irq before lock acquisition otherwise deadlock could
+>> happen if the timmer is preemtped by the irq.
+>> 
+>> Possible deadlock scenario:
+>> aspeed_kcs_check_obe() (timer)
+>>     -> kcs_bmc_handle_event()
+>>     -> spin_lock(&kcs_bmc->lock)
+>>         <irq interruption>
+>>         -> aspeed_kcs_irq()
+>>         -> kcs_bmc_handle_event()
+>>         -> spin_lock(&kcs_bmc->lock) (deadlock here)
+>> 
+>> This flaw was found using an experimental static analysis tool we are
+>> developing for irq-related deadlock.
+>> 
+>> The tentative patch fix the potential deadlock by spin_lock_irqsave()
+>> 
+>> Signed-off-by: Chengfeng Ye <dg573847474@gmail.com>
+>> ---
+>>  drivers/char/ipmi/kcs_bmc.c | 5 +++--
+>>  1 file changed, 3 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/drivers/char/ipmi/kcs_bmc.c b/drivers/char/ipmi/kcs_bmc.c
+>> index 03d02a848f3a..8b1161d5194a 100644
+>> --- a/drivers/char/ipmi/kcs_bmc.c
+>> +++ b/drivers/char/ipmi/kcs_bmc.c
+>> @@ -56,12 +56,13 @@ irqreturn_t kcs_bmc_handle_event(struct kcs_bmc_device *kcs_bmc)
+>>  {
+>>  	struct kcs_bmc_client *client;
+>>  	irqreturn_t rc = IRQ_NONE;
+>> +	unsigned long flags;
+>>  
+>> -	spin_lock(&kcs_bmc->lock);
+>> +	spin_lock_irqsave(&kcs_bmc->lock, flags);
+>>  	client = kcs_bmc->client;
+>>  	if (client)
+>>  		rc = client->ops->event(client);
+>> -	spin_unlock(&kcs_bmc->lock);
+>> +	spin_unlock_irqrestore(&kcs_bmc->lock, flags);
+>>  
+>>  	return rc;
+>>  }
+>> -- 
+>> 2.17.1
+>>
 
 
 _______________________________________________
