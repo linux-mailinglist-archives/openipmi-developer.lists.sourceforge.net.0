@@ -2,85 +2,93 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C28A37873EF
-	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Aug 2023 17:20:37 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1BAA4788917
+	for <lists+openipmi-developer@lfdr.de>; Fri, 25 Aug 2023 15:55:42 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qZC8M-0006Hq-81;
-	Thu, 24 Aug 2023 15:20:30 +0000
+	id 1qZXHj-0004XR-LF;
+	Fri, 25 Aug 2023 13:55:36 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <jonathan.cameron@huawei.com>) id 1qZC8L-0006Hk-8g
+ (envelope-from <alexandre.belloni@bootlin.com>) id 1qZGts-0007z6-Fu
  for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Aug 2023 15:20:29 +0000
+ Thu, 24 Aug 2023 20:25:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=wyaHo3dLCtwhmYC7VNmFTrd38tz6LS2vLvGOuYbbUno=; b=MU1Gv9STg13QhDtxfQl0NYTz2f
- DYdNAzox+Nfxt+x4zeTCKLa17KAUhRsVWSKb2gZvs+2lgQukhdeHSFoVRciBhe1ZwVQEduhKFvfby
- h3zCN9ywSgE/ha9vkzGKY2ZyQRuuBrfQjspo5anQCWuQtCc/Z7aws7nLeRiKjg5ZvAxs=;
+ bh=ujvMeJdRrlwdpn7qQgMLktbCGIyae1LBRG+zxTv3lqU=; b=TjVqkmjnHCdDeI205KCOD/liZp
+ G5imJSWGIgpVm7258/htDwq1ED0lW79YEuKGMtDmLu8ez5FzWF4dye9WPZFVgosNX7x6tRstIlee3
+ Owk/FsaL60bexj4r/UVKtLOxUyAzGr6xb5ZLT2yTsjHXn9L7yFVDSyIwr4AIq+QFAGzQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
- In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=wyaHo3dLCtwhmYC7VNmFTrd38tz6LS2vLvGOuYbbUno=; b=KKi4xoD/4yhtJWrJgrnlrcBDv1
- TmkcSHOnzkdDTt/zmzmFBsP7KJvaTt6WQvWEwHzXbPoek2JEPeM3AcagPlbdR+tNBgVF6jrg1xKDT
- tXjVMQibpcXSuJ2AbDYfX9uDdOOVfKoD7egyVF6if1ivCY85YKxwL98vem+PfRACx9mc=;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=ujvMeJdRrlwdpn7qQgMLktbCGIyae1LBRG+zxTv3lqU=; b=MppYoLFMAyJEgeLQk6Up4rDuvw
+ oYutBnixvHQtJ517ogzEAoWwcxMNkTgFJCRGUy/cMPRI23/+BnbI0da3LB+sReXSf+M3kzOfuJwsY
+ VjNmMdvKJYk++1Gd+T4c1XhQrgp1Ot0wX6qcx3PyLDJceP5MQTFS980t5Lj1g8NfGuw0=;
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qZC8G-0002Oo-Ri for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Aug 2023 15:20:29 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.201])
- by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4RWmQ50xfGz6J7kR;
- Thu, 24 Aug 2023 22:57:01 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Thu, 24 Aug
- 2023 16:01:11 +0100
-Date: Thu, 24 Aug 2023 16:01:10 +0100
+ id 1qZGtl-00EbYA-5i for openipmi-developer@lists.sourceforge.net;
+ Thu, 24 Aug 2023 20:25:53 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 12945240004;
+ Thu, 24 Aug 2023 20:24:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+ t=1692908737;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=ujvMeJdRrlwdpn7qQgMLktbCGIyae1LBRG+zxTv3lqU=;
+ b=Ula8hEOcS+/eKkw3qByvNwkENDIVN4W8dILOW2xA3QeZByi1NFKT4qjpR20ylYIrPR/LPn
+ 8ZC6T3xf65QonT74gL16iUsIdr1fuBn4EDOGgijSzoAPQ/Fb6/9wr81q4yL1eTihpwM+/d
+ fSRL6wO8TBroYggS+h1LB85zHjhOXdzIS2YlpkafjfL685M9ItlEfOxA61XsiZxswwH6HK
+ JA9dLTxrCBdPhkJrRkKdm2JLl6bAHCX8ASzdgEHn5qbguMdu7i7IG/LXWSCd6ZshcO7ZLA
+ yqmMZES++aBOm7AqwsgUyH2FPWNSXrx+/IFEY7P7uy1f38YVMbAG6o3ie5IJhQ==
+Date: Thu, 24 Aug 2023 22:24:02 +0200
 To: Rob Herring <robh@kernel.org>
-Message-ID: <20230824160110.00002272@Huawei.com>
-In-Reply-To: <20230823183749.2609013-1-robh@kernel.org>
+Message-ID: <20230824201756563976f6@mail.local>
 References: <20230823183749.2609013-1-robh@kernel.org>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
-X-Spam-Score: -2.3 (--)
+Content-Disposition: inline
+In-Reply-To: <20230823183749.2609013-1-robh@kernel.org>
+X-GND-Sasl: alexandre.belloni@bootlin.com
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed,
- 23 Aug 2023 13:28:47 -0500 Rob Herring <robh@kernel.org>
- wrote: > Cleanup bindings dropping the last remaining unneeded quotes. With
- this, > the check for this can be enabled in yamllint. > > Signed-off-by:
- Rob Herring <robh@kernel.org> For IIO 
- Content analysis details:   (-2.3 points, 6.0 required)
+ Content preview:  On 23/08/2023 13:28:47-0500, Rob Herring wrote: > Cleanup
+ bindings dropping the last remaining unneeded quotes. With this, > the check
+ for this can be enabled in yamllint. > > Signed-off-by: Rob Herri [...] 
+ Content analysis details:   (-0.9 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.193 listed in list.dnswl.org]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [185.176.79.56 listed in wl.mailspike.net]
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [185.176.79.56 listed in list.dnswl.org]
+ [217.70.183.193 listed in wl.mailspike.net]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1qZC8G-0002Oo-Ri
+X-Headers-End: 1qZGtl-00EbYA-5i
+X-Mailman-Approved-At: Fri, 25 Aug 2023 13:55:35 +0000
 Subject: Re: [Openipmi-developer] [PATCH] dt-bindings: Drop remaining
  unneeded quotes
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -95,35 +103,34 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Jonathan Cameron via Openipmi-developer
+From: Alexandre Belloni via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
-Reply-To: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-Cc: linux-hwmon@vger.kernel.org,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, Emil Renner
- Berthing <kernel@esmil.dk>, Geert Uytterhoeven <geert+renesas@glider.be>,
- linux-iio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Wim Van
- Sebroeck <wim@linux-watchdog.org>, linux-mips@vger.kernel.org,
+Reply-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-hwmon@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, linux-iio@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, linux-mips@vger.kernel.org,
  Thierry Reding <thierry.reding@gmail.com>, linux-mtd@lists.infradead.org,
  James Clark <james.clark@arm.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Miquel
- Raynal <miquel.raynal@bootlin.com>, linux-i3c@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>, linux-i3c@lists.infradead.org,
  Lars-Peter Clausen <lars@metafoo.de>, Bart Van Assche <bvanassche@acm.org>,
  linux-scsi@vger.kernel.org, Richard Weinberger <richard@nod.at>,
  Bartosz Golaszewski <brgl@bgdev.pl>,
  Anshuman Khandual <anshuman.khandual@arm.com>,
  Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Guenter Roeck <linux@roeck-us.net>,
- Mike Leach <mike.leach@linaro.org>, alsa-devel@alsa-project.org,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Jean Delvare <jdelvare@suse.com>, linux-watchdog@vger.kernel.org,
- Corey Minyard <minyard@acm.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- coresight@lists.linaro.org, Sudeep Holla <sudeep.holla@arm.com>,
- linux-gpio@vger.kernel.org, M ark Brown <broonie@kernel.org>,
- openipmi-developer@lists.sourceforge.net,
+ Guenter Roeck <linux@roeck-us.net>, Mike Leach <mike.leach@linaro.org>,
+ alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>,
+ linux-watchdog@vger.kernel.org, Corey Minyard <minyard@acm.org>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, coresight@lists.linaro.org,
+ Sudeep Holla <sudeep.holla@arm.com>, linux-gpio@vger.kernel.org,
+ M ark Brown <broonie@kernel.org>, openipmi-developer@lists.sourceforge.net,
  Mauro Carvalho Chehab <mchehab@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Andy
- Shevchenko <andy@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ linux-arm-kernel@lists.infradead.org, Andy Shevchenko <andy@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
  Mathieu Poirier <mathieu.poirier@linaro.org>, linux-mmc@vger.kernel.org,
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@linaro.org>,
  linux-media@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
@@ -132,16 +139,12 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, 23 Aug 2023 13:28:47 -0500
-Rob Herring <robh@kernel.org> wrote:
-
+On 23/08/2023 13:28:47-0500, Rob Herring wrote:
 > Cleanup bindings dropping the last remaining unneeded quotes. With this,
 > the check for this can be enabled in yamllint.
 > 
 > Signed-off-by: Rob Herring <robh@kernel.org>
-For IIO
-
-Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 
 > ---
 >  .../bindings/arm/arm,embedded-trace-extension.yaml   |  4 ++--
@@ -847,7 +850,19 @@ Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 >  
 >  title: Toshiba Visconti SoCs PIUWDT Watchdog timer
 >  
+> -- 
+> 2.40.1
+> 
+> 
+> -- 
+> linux-i3c mailing list
+> linux-i3c@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-i3c
 
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
 _______________________________________________
