@@ -2,122 +2,117 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 71898786596
-	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Aug 2023 04:57:15 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id B16087868C3
+	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Aug 2023 09:42:46 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qZ0Ww-0006UU-JD;
-	Thu, 24 Aug 2023 02:57:07 +0000
+	id 1qZ4zG-0000kq-5y;
+	Thu, 24 Aug 2023 07:42:39 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <groeck7@gmail.com>) id 1qZ0Wu-0006UO-Vh
+ (envelope-from <geert.uytterhoeven@gmail.com>) id 1qZ4zF-0000kk-9y
  for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Aug 2023 02:57:05 +0000
+ Thu, 24 Aug 2023 07:42:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
+ Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Q9Fv6zMHUmxIJtQTWw3otja3eb7daBbRUnAPWR3+Kws=; b=H3i32g84ghTzRh3MJdAx7Bd+eR
- o/XuheDnnAd+rfZou9WyHBnQlSk3uDiDrsLaCYdLPHyHhdG7ZRudeqlr15PvTWNMS6GMbunIYegwC
- /XtMwVTqX3K877waNu6aT6z4sB0QMdtYIPES6XwhF9XqIIDss4Pjir4z+dok+eUvBwIM=;
+ bh=dhv4Bg1fdD4fcuHP4DlJnIZ9JdHOfbSov1NYQWp3Ek8=; b=KYMICBY3AkUfedpeXKuMgTt8L5
+ ULZ+EXaaglQ4Ygs3rKGIYckEx3Wbwue7Wz6g1ONcqhoVXGa24jVE4ZQoyUuT1J0OuO9wLL+lzoInT
+ p5x6q4Vi+zHM8FwG0B37ym9MR5rWHrXqlx6A1xGtXIT+I5N7niR6NsA+CzbU/sjWwfv4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
+ :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Q9Fv6zMHUmxIJtQTWw3otja3eb7daBbRUnAPWR3+Kws=; b=lbXZqVQRvbi0Hm6BKe/c5/8ax1
- ySzYcKh6wO+QXO4HFxbzSqgrGOEQGhX28zZFHNBiuYS1puOF5D2hCu6g7MFP6aR0ddJbrRR0OQGXN
- nK2n5YA8VqGQ6dkhHzb/nv6XZeWWJsWCYL1BYfITpDp86zhm1pMKox4FZItabUrE1W1Q=;
-Received: from mail-qk1-f174.google.com ([209.85.222.174])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=dhv4Bg1fdD4fcuHP4DlJnIZ9JdHOfbSov1NYQWp3Ek8=; b=dnzFjRHI1KAXGLO5gii4ry+pcC
+ KhsX9hCXqxUD/OTuhS8Vl1Yoe2Gk75GJV0weQd0C9UOwKAbuOZdcAMbpkDD2UkKFymCt13Wpj2oDq
+ t9zy51UYrJt21DghFkj+ZfB8TZtx8JCB4tOUqBtpZVvIv9fKyS75+x5fF1D62OxEkJhM=;
+Received: from mail-vs1-f47.google.com ([209.85.217.47])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1qZ0Wu-0002yS-6N for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Aug 2023 02:57:05 +0000
-Received: by mail-qk1-f174.google.com with SMTP id
- af79cd13be357-76e09202322so89455185a.3
+ id 1qZ4zE-00DnjN-7d for openipmi-developer@lists.sourceforge.net;
+ Thu, 24 Aug 2023 07:42:38 +0000
+Received: by mail-vs1-f47.google.com with SMTP id
+ ada2fe7eead31-44d5696fad1so1374054137.1
  for <openipmi-developer@lists.sourceforge.net>;
- Wed, 23 Aug 2023 19:57:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20221208; t=1692845818; x=1693450618;
- h=in-reply-to:content-disposition:mime-version:references:message-id
- :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
- :reply-to; bh=Q9Fv6zMHUmxIJtQTWw3otja3eb7daBbRUnAPWR3+Kws=;
- b=EVi36tdUqJMlOvMF5BKp2qBduN+pjKuz6Us6qWN0euQMxX//FBn2tkevUvmQ0jT7dy
- QIYTSLIrOwJJrbwKo9ZkDfR2N+fo2G2cnY9a7T0gyOxaEX87NC1xNeL/UwLcOFtHALic
- ZLiva7jbc5XlX1Ewghy60+GynWZHY461VYZBL+rKjJr0gJc6PhtDfsvnnfDKMTF+nmSY
- b67dYc7Ry1QTt8dSvag7E3m3wxL+T/zxdYaloB7x8dxtgj588ko4UqYQcmY36CHVtxWt
- iYF3G4mM3FFe+F+/+nyQoaPThIAVJk/g4AuxUBKaCu+vIZtlOzjd8HrBF87f6fV68U4J
- kBtg==
+ Thu, 24 Aug 2023 00:42:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20221208; t=1692845818; x=1693450618;
- h=in-reply-to:content-disposition:mime-version:references:message-id
- :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+ d=1e100.net; s=20221208; t=1692862950; x=1693467750;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=Q9Fv6zMHUmxIJtQTWw3otja3eb7daBbRUnAPWR3+Kws=;
- b=YlmZnw7fsP4J+ZxGzTiT+dkzBYRqnCmtakho7qi9BBmftIiBqfdbU9GaGHpbLneguq
- S1sYSndlrEx34d3pVNU+a0VoVmK+8cVkpfstSLRFaSnTqL+qhXc59SpGydmlxblxr2hM
- Wc2LwB/SMar9ThJYF0p4UyLEptbUiBOYFIR6SqgZjJ4KPQEr3PWlG3IcCx94kjixQpyV
- pI6HeKye5/dqOD77kv9zWx/N49tbqAb6+hlIE60OMsx8V6WOaBT41QAr6pakisT2TxKI
- +72Dc6SQC70xqQrXjojpacDyxKkIxNgSyFcJqo48wAwxS97riLnVs8QFALj9vKE0pZjn
- EEOg==
-X-Gm-Message-State: AOJu0Yzq9M0UEJVX5ZARpbqZCT/B8cFjPFdc4UG3DqPgY7seMJJQj8bm
- DWSL4M9VuZTDp8d/svXJmZI=
-X-Google-Smtp-Source: AGHT+IGfrlLR+AVm4rNxdl7JpMbBTxVzD5wv8rDFBbxVFAKSvhzmEDzdpW59h59MCcReusMlyP0fPw==
-X-Received: by 2002:a05:620a:290e:b0:767:261d:1ef6 with SMTP id
- m14-20020a05620a290e00b00767261d1ef6mr19366337qkp.59.1692845818303; 
- Wed, 23 Aug 2023 19:56:58 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id
- z137-20020a63338f000000b0055386b1415dsm4743735pgz.51.2023.08.23.19.56.57
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 23 Aug 2023 19:56:57 -0700 (PDT)
-Date: Wed, 23 Aug 2023 19:56:56 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Rob Herring <robh@kernel.org>
-Message-ID: <0f6ee9b9-3792-4865-8183-c50d4f3896e1@roeck-us.net>
-References: <20230823183749.2609013-1-robh@kernel.org>
+ bh=dhv4Bg1fdD4fcuHP4DlJnIZ9JdHOfbSov1NYQWp3Ek8=;
+ b=EO9wHuAC1VDDPRCqFANJCO8TC6NGQsxHd04IKnXPbs8SsZp5lLP5oICIhwUnDgcnUj
+ e6DaI3PdccK4hxlXsxiqfkddfX7WLZiyLe7lBaehaOIrO2p9l+u8q0OAFBhxiSNsY+de
+ DSdUWvmCuFl9EDWi6yYZI5H7YuPmJht6k9eIKOcH7Icz/cdxxSNl4laA0ykZ/N/UpDFs
+ M5Q17xJ0cr1Oc8XY6BLkIlLvWCQUiGocpdP61a8gw+JtMzkcAqv6Ga+/Sov/4P90xlNP
+ m+jWbOzwqKtX22g4dU/hJla78Rw+ezqcPHMNTOg7CbUiCv2crV8hmK8kDT/v5w/F3PDY
+ KRZQ==
+X-Gm-Message-State: AOJu0YxqxrSgs764Tj0EkSsdQLqHIgphLpTy4XgkaxLd2+KQLZfu1A1I
+ k+tgJJMmEJqbWDvqR4DfmVzYv0bUQHFvEg==
+X-Google-Smtp-Source: AGHT+IH2DuUIF4vz8bh1AkvLeKPLXLFzybiY7AhCIzcPNXC6sevvyGBhf0EN9B4EusThfixMLcfC0g==
+X-Received: by 2002:a67:f79a:0:b0:44d:62a2:a397 with SMTP id
+ j26-20020a67f79a000000b0044d62a2a397mr4893337vso.28.1692862950023; 
+ Thu, 24 Aug 2023 00:42:30 -0700 (PDT)
+Received: from mail-vk1-f173.google.com (mail-vk1-f173.google.com.
+ [209.85.221.173]) by smtp.gmail.com with ESMTPSA id
+ z21-20020ab05bd5000000b0079570a440aesm2233137uae.9.2023.08.24.00.42.29
+ for <openipmi-developer@lists.sourceforge.net>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 24 Aug 2023 00:42:29 -0700 (PDT)
+Received: by mail-vk1-f173.google.com with SMTP id
+ 71dfb90a1353d-48f856b04b6so1054366e0c.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Thu, 24 Aug 2023 00:42:29 -0700 (PDT)
+X-Received: by 2002:a25:ae92:0:b0:d3b:e659:5331 with SMTP id
+ b18-20020a25ae92000000b00d3be6595331mr14472125ybj.58.1692862928507; Thu, 24
+ Aug 2023 00:42:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
+References: <20230823183749.2609013-1-robh@kernel.org>
 In-Reply-To: <20230823183749.2609013-1-robh@kernel.org>
-X-Spam-Score: 0.7 (/)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 24 Aug 2023 09:41:56 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWSrpjUK4Fa9cBiRqsnhh2GxyXK5fCt8B-RmaDgEy6OeA@mail.gmail.com>
+Message-ID: <CAMuHMdWSrpjUK4Fa9cBiRqsnhh2GxyXK5fCt8B-RmaDgEy6OeA@mail.gmail.com>
+To: Rob Herring <robh@kernel.org>
+X-Spam-Score: 0.5 (/)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Aug 23, 2023 at 01:28:47PM -0500, Rob Herring wrote:
- > Cleanup bindings dropping the last remaining unneeded quotes. With this,
- > the check for this can be enabled in yamllint. > > Signed-off- [...] 
- Content analysis details:   (0.7 points, 6.0 required)
- pts rule name              description
+ 
+ Content preview:  On Wed, Aug 23, 2023 at 8:38 PM Rob Herring <robh@kernel.org>
+    wrote: > Cleanup bindings dropping the last remaining unneeded quotes. With
+    this, > the check for this can be enabled in yamllint. > > S [...] 
+ 
+ Content analysis details:   (0.5 points, 6.0 required)
+ 
+  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.222.174 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+                              no trust
+                             [209.85.217.47 listed in list.dnswl.org]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.174 listed in wl.mailspike.net]
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [groeck7[at]gmail.com]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [groeck7[at]gmail.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Headers-End: 1qZ0Wu-0002yS-6N
+                             [209.85.217.47 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [geert.uytterhoeven[at]gmail.com]
+  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+                             EnvelopeFrom freemail headers are
+                             different
+X-Headers-End: 1qZ4zE-00DnjN-7d
 Subject: Re: [Openipmi-developer] [PATCH] dt-bindings: Drop remaining
  unneeded quotes
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -148,13 +143,14 @@ Cc: linux-hwmon@vger.kernel.org,
  Bartosz Golaszewski <brgl@bgdev.pl>,
  Anshuman Khandual <anshuman.khandual@arm.com>,
  Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, Mike Leach <mike.leach@linaro.org>,
- alsa-devel@alsa-project.org, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>,
- linux-watchdog@vger.kernel.org, Corey Minyard <minyard@acm.org>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, coresight@lists.linaro.org,
- Sudeep Holla <sudeep.holla@arm.com>, linux-gpio@vger.kernel.org,
- M ark Brown <broonie@kernel.org>, openipmi-developer@lists.sourceforge.net,
+ Ulf Hansson <ulf.hansson@linaro.org>, Guenter Roeck <linux@roeck-us.net>,
+ Mike Leach <mike.leach@linaro.org>, alsa-devel@alsa-project.org,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Jean Delvare <jdelvare@suse.com>, linux-watchdog@vger.kernel.org,
+ Corey Minyard <minyard@acm.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ coresight@lists.linaro.org, Sudeep Holla <sudeep.holla@arm.com>,
+ linux-gpio@vger.kernel.org, M ark Brown <broonie@kernel.org>,
+ openipmi-developer@lists.sourceforge.net,
  Mauro Carvalho Chehab <mchehab@kernel.org>,
  linux-arm-kernel@lists.infradead.org, Andy Shevchenko <andy@kernel.org>,
  Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
@@ -162,27 +158,23 @@ Cc: linux-hwmon@vger.kernel.org,
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@linaro.org>,
  linux-media@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
  linux-i2c@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Aug 23, 2023 at 01:28:47PM -0500, Rob Herring wrote:
-> Cleanup bindings dropping the last remaining unneeded quotes. With this,
-> the check for this can be enabled in yamllint.
-> 
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
->  .../devicetree/bindings/hwmon/iio-hwmon.yaml         |  4 ++--
->  .../bindings/watchdog/toshiba,visconti-wdt.yaml      |  4 ++--
-
-For hwmon and watchdog:
-
-Acked-by: Guenter Roeck <linux@roeck-us.net>
-
-Guenter
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gV2VkLCBBdWcgMjMsIDIwMjMgYXQgODozOOKAr1BNIFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5l
+bC5vcmc+IHdyb3RlOgo+IENsZWFudXAgYmluZGluZ3MgZHJvcHBpbmcgdGhlIGxhc3QgcmVtYWlu
+aW5nIHVubmVlZGVkIHF1b3Rlcy4gV2l0aCB0aGlzLAo+IHRoZSBjaGVjayBmb3IgdGhpcyBjYW4g
+YmUgZW5hYmxlZCBpbiB5YW1sbGludC4KPgo+IFNpZ25lZC1vZmYtYnk6IFJvYiBIZXJyaW5nIDxy
+b2JoQGtlcm5lbC5vcmc+Cgo+ICAuLi4vYmluZGluZ3Mvc29jL3JlbmVzYXMvcmVuZXNhcyxyemcy
+bC1zeXNjLnlhbWwgICAgIHwgIDQgKystLQoKQWNrZWQtYnk6IEdlZXJ0IFV5dHRlcmhvZXZlbiA8
+Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+CgpHcntvZXRqZSxlZXRpbmd9cywKCiAgICAgICAgICAg
+ICAgICAgICAgICAgIEdlZXJ0CgotLSAKR2VlcnQgVXl0dGVyaG9ldmVuIC0tIFRoZXJlJ3MgbG90
+cyBvZiBMaW51eCBiZXlvbmQgaWEzMiAtLSBnZWVydEBsaW51eC1tNjhrLm9yZwoKSW4gcGVyc29u
+YWwgY29udmVyc2F0aW9ucyB3aXRoIHRlY2huaWNhbCBwZW9wbGUsIEkgY2FsbCBteXNlbGYgYSBo
+YWNrZXIuIEJ1dAp3aGVuIEknbSB0YWxraW5nIHRvIGpvdXJuYWxpc3RzIEkganVzdCBzYXkgInBy
+b2dyYW1tZXIiIG9yIHNvbWV0aGluZyBsaWtlIHRoYXQuCiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgLS0gTGludXMgVG9ydmFsZHMKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpPcGVuaXBtaS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5p
+cG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vm
+b3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVyCg==
