@@ -2,124 +2,105 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A4C367B2519
-	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Sep 2023 20:19:15 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 101537B289A
+	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Sep 2023 00:59:01 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qlvbR-0001Sd-Ek;
-	Thu, 28 Sep 2023 18:19:09 +0000
+	id 1qlzyB-0004P1-EE;
+	Thu, 28 Sep 2023 22:58:56 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <steve.wahl@hpe.com>) id 1qlvbO-0001ST-5J
+ (envelope-from <lkp@intel.com>) id 1qlzyA-0004Ov-9M
  for openipmi-developer@lists.sourceforge.net;
- Thu, 28 Sep 2023 18:19:06 +0000
+ Thu, 28 Sep 2023 22:58:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:In-Reply-To:Content-Type:References:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mZrC/t7ae+Z2o86iz704abLpUMsth0bb5IgGpyWjrnM=; b=CGpGkV9ZagBzBxQd4zcOv03GW4
- gUxDYhnNcuJ5YpXlMJte+iv28zLbsZ24+Mdqeef+Y8ULxQdqu25Ntp1IuShYa2BaFx+6idnZdK699
- r0/BLLT4/UmP631N/vAkZTuXxbrHwWBOC1G4kDkSOBnCnewwEM/YDqiP5htKrHJ+sboU=;
+ bh=IZY7Y3G20w3U3mYM+XnyJTyHhnJpojVlPrqGoVgZm/g=; b=GV/C6n4Ug6S7Lq9NLtkuyrnwIE
+ lSmWxgupnDoO1b2SCekMVmgSP5oplNWyHpOXT0KE38JDZlr22x8s656TaeVnJVWbzJj3sUE5X9PWr
+ ht7Y4JuiEbwXM+d2EIjAURoJPFgsqvmVhnUf3mAjKEbpQ8FoDjVEzZs6zbZiGjKycYk4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:In-Reply-To:Content-Type:References:Message-ID:Subject:Cc:To
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
  :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=mZrC/t7ae+Z2o86iz704abLpUMsth0bb5IgGpyWjrnM=; b=Jvo43lWwh/MCSchyL0Nt8q9Y0S
- h485CMGAdQT4uFxsgOCE+noBpJRZj6yHex6ZD2wGBT0nsVkChRbc8f3boOQ6EQdUAiHR9apx/jvfY
- ftKtt2vLF0CpRkZCVqb3PpbIvaPVUgGM10Z2MN0ybHA5U3oypWvnUxd5hVfrw5CV0yKg=;
-Received: from mx0b-002e3701.pphosted.com ([148.163.143.35])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=IZY7Y3G20w3U3mYM+XnyJTyHhnJpojVlPrqGoVgZm/g=; b=YnLNsoAuyGbdmNwf/UaYLQS8AI
+ /W7oUngQTVrMrLjhlsaHU6hL/kcMOQS0XPQWm5tUT/PiwUPyobXCMCoTp3+jv6y9PJFH5u9LLKVPW
+ TRemTGPouFXQsCWz8QBwcEKqQWEVZTtnOAOHjFbsrLULvIJlxg8CF3q5ssQQovd+qeZs=;
+Received: from mgamail.intel.com ([192.55.52.151])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qlvbL-00AQ1o-GT for openipmi-developer@lists.sourceforge.net;
- Thu, 28 Sep 2023 18:19:06 +0000
-Received: from pps.filterd (m0134424.ppops.net [127.0.0.1])
- by mx0b-002e3701.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id
- 38SHhHiB002198; Thu, 28 Sep 2023 17:51:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hpe.com;
- h=date : from : to : cc :
- subject : message-id : references : content-type : in-reply-to :
- mime-version; s=pps0720; bh=mZrC/t7ae+Z2o86iz704abLpUMsth0bb5IgGpyWjrnM=;
- b=APaa5kKkE4mpyTjbaPlvnbYIWIT9A784n1fDZhZsP48Q4BO9uSG32bZsfAF52jrU1bOT
- 1h7DtIZq8CfCoiXJzZq8iCLGpdSe2PlQIjBXHSbzsrerYmN3AzKoVoUge3gno+oOKne0
- TZt5ZpPcmFxaL8khHe4Ax9IRzjtiszQvxqsciJsyNpAD6ZY84bLt17ZecVDpe5s/3MjB
- a3q5Nj2zzP41qNl43/8ndPzzA6qoqUz03rp+3yjfOcXzoZpJvReW4KIp/RtMFfifP+Ul
- Z6IbclgwAUZ5SJhoTsDmi8nxYS4v/OvpF1TAywHM0NXqhjlAEPK6WdmkxzbGRG8AthqO KA== 
-Received: from p1lg14881.it.hpe.com ([16.230.97.202])
- by mx0b-002e3701.pphosted.com (PPS) with ESMTPS id 3tde4ur2yg-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 28 Sep 2023 17:51:25 +0000
-Received: from p1lg14885.dc01.its.hpecorp.net (unknown [10.119.18.236])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by p1lg14881.it.hpe.com (Postfix) with ESMTPS id A9CF8805E26;
- Thu, 28 Sep 2023 17:51:23 +0000 (UTC)
-Received: from swahl-home.5wahls.com (unknown [16.231.227.36])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (Client did not present a certificate)
- by p1lg14885.dc01.its.hpecorp.net (Postfix) with ESMTPS id DAC6681566E;
- Thu, 28 Sep 2023 17:51:16 +0000 (UTC)
-Date: Thu, 28 Sep 2023 12:51:15 -0500
-From: Steve Wahl <steve.wahl@hpe.com>
-To: j.granados@samsung.com
-Message-ID: <ZRW9Eywl831h/YhW@swahl-home.5wahls.com>
-References: <20230928-jag-sysctl_remove_empty_elem_drivers-v1-0-e59120fca9f9@samsung.com>
- <=?utf-8?q?=3C20230928-jag-sysctl=5Fremove=5Fempty=5Felem=5Fdrive?=>
-Content-Disposition: inline
-In-Reply-To: <=?utf-8?q?=3C20230928-jag-sysctl=5Fremove=5Fempty=5Felem=5Fdrive?=>
-X-Proofpoint-GUID: ARXao25-avAoloITuhrfvukM5pXVcFhf
-X-Proofpoint-ORIG-GUID: ARXao25-avAoloITuhrfvukM5pXVcFhf
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+ id 1qlzy6-0005ob-RI for openipmi-developer@lists.sourceforge.net;
+ Thu, 28 Sep 2023 22:58:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1695941931; x=1727477931;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=UbGttFfuP6lw+hHb/xkwIGlEdNBxv5J2I9w5oq0PHfc=;
+ b=PZDvYsmTaH3o2BmAKLKer5M2u4R2c8VWYVkMxbKaJLaszS4z9fakpYOb
+ pl8WY9pV0QWCSC3g2Ov8cjFx1TkEIEqgA4TuDoWOFFXd76a5rYzqFH1U7
+ 0aYmttfXn/HXH5suG2IiqWffUTE/yZeUKqyyywzVR7pcKD9ZyjEwRqj4F
+ ejMr8sHvdvThRIHvlIMFdhPkqAgLhwokMUc3Jh4ttTTmWNcfJ1xcBQ+iK
+ iyKXqqR6M+lPzYhm1X/KBGc0t6KiC2Ql6f8i+3/c6sj+3h0/lsPdJEFyp
+ 7jpAxnBHqWT6abAAQ8oHowqGNRrciY6QVOftPOoS7+Rjbz2zLFrWBF+Wy g==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10847"; a="362443603"
+X-IronPort-AV: E=Sophos;i="6.03,185,1694761200"; d="scan'208";a="362443603"
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+ by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 28 Sep 2023 15:58:44 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10847"; a="923423965"
+X-IronPort-AV: E=Sophos;i="6.03,185,1694761200"; d="scan'208";a="923423965"
+Received: from lkp-server02.sh.intel.com (HELO c3b01524d57c) ([10.239.97.151])
+ by orsmga005.jf.intel.com with ESMTP; 28 Sep 2023 15:58:38 -0700
+Received: from kbuild by c3b01524d57c with local (Exim 4.96)
+ (envelope-from <lkp@intel.com>) id 1qlzxs-00026Y-0x;
+ Thu, 28 Sep 2023 22:58:36 +0000
+Date: Fri, 29 Sep 2023 06:58:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Konstantin Aladyshev <aladyshev22@gmail.com>
+Message-ID: <202309290613.qxRTI9f7-lkp@intel.com>
+References: <20230928123009.2913-4-aladyshev22@gmail.com>
 MIME-Version: 1.0
-X-HPE-SCL: -1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.267,Aquarius:18.0.980,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2023-09-28_16,2023-09-28_03,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 phishscore=0
- malwarescore=0 adultscore=0 spamscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 impostorscore=0 mlxlogscore=999
- mlxscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2309180000 definitions=main-2309280155
-X-Spam-Score: -0.9 (/)
+Content-Disposition: inline
+In-Reply-To: <20230928123009.2913-4-aladyshev22@gmail.com>
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Thu, Sep 28, 2023 at 03:21:36PM +0200, Joel Granados via
- B4 Relay wrote: > From: Joel Granados <j.granados@samsung.com> > > This commit
- comes at the tail end of a greater effort to remove the > emp [...] 
- Content analysis details:   (-0.9 points, 6.0 required)
+ Content preview:  Hi Konstantin, kernel test robot noticed the following build
+ warnings: [auto build test WARNING on cminyard-ipmi/for-next] [also build
+ test WARNING on linus/master v6.6-rc3 next-20230928] [If your patch is applied
+ to the wrong git tree, kindly drop us a note. And when su [...] 
+ Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [148.163.143.35 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H5      RBL: Excellent reputation (+5)
- [148.163.143.35 listed in wl.mailspike.net]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [192.55.52.151 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1qlvbL-00AQ1o-GT
-Subject: Re: [Openipmi-developer] [PATCH 11/15] sgi-xp: Remove the now
- superfluous sentinel element from ctl_table array
+X-Headers-End: 1qlzy6-0005ob-RI
+Subject: Re: [Openipmi-developer] [PATCH 3/3] mctp: Add MCTP-over-KCS
+ transport binding
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -132,91 +113,121 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Steve Wahl <steve.wahl@hpe.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Clemens Ladisch <clemens@ladisch.de>, linux-hyperv@vger.kernel.org,
- dri-devel@lists.freedesktop.org, Phillip Potter <phil@philpotter.co.uk>,
- Song Liu <song@kernel.org>, Eric Dumazet <edumazet@google.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Jiri Slaby <jirislaby@kernel.org>,
- Russ Weight <russell.h.weight@intel.com>, Wei Liu <wei.liu@kernel.org>,
- Stefano Stabellini <sstabellini@kernel.org>, Corey Minyard <minyard@acm.org>,
- Leon Romanovsky <leon@kernel.org>, linux-rdma@vger.kernel.org,
- David Airlie <airlied@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, willy@infradead.org,
- Jason Gunthorpe <jgg@ziepe.ca>, linux-serial@vger.kernel.org,
- Doug Gilbert <dgilbert@interlog.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Haiyang Zhang <haiyangz@microsoft.com>,
- Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
- linux-kernel@vger.kernel.org, "James E.J. Bottomley" <jejb@linux.ibm.com>,
- intel-gfx@lists.freedesktop.org, josh@joshtriplett.org,
- Jani Nikula <jani.nikula@linux.intel.com>, linux-raid@vger.kernel.org,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, xen-devel@lists.xenproject.org,
- openipmi-developer@lists.sourceforge.net, Juergen Gross <jgross@suse.com>,
- Tvrtko Ursulin <tvrtko.ursulin@linux.intel.com>, Theodore Ts'o <tytso@mit.edu>,
- linux-scsi@vger.kernel.org, "Martin K. Petersen" <martin.petersen@oracle.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- David Ahern <dsahern@kernel.org>, Robin Holt <robinmholt@gmail.com>,
- "David S. Miller" <davem@davemloft.net>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Luis Chamberlain <mcgrof@kernel.org>, Daniel Vetter <daniel@ffwll.ch>,
- netdev@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+Cc: tmaimon77@gmail.com, linux-aspeed@lists.ozlabs.org, tali.perry1@gmail.com,
+ edumazet@google.com, jk@codeconstruct.com.au, matt@codeconstruct.com.au,
+ benjaminfair@google.com, openbmc@lists.ozlabs.org, yuenn@google.com,
+ kuba@kernel.org, pabeni@redhat.com, minyard@acm.org, aladyshev22@gmail.com,
+ oe-kbuild-all@lists.linux.dev, openipmi-developer@lists.sourceforge.net,
+ linux-arm-kernel@lists.infradead.org, andrew@aj.id.au, venture@google.com,
+ linux-kernel@vger.kernel.org, avifishman70@gmail.com, netdev@vger.kernel.org,
+ davem@davemloft.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Thu, Sep 28, 2023 at 03:21:36PM +0200, Joel Granados via B4 Relay wrote:
-> From: Joel Granados <j.granados@samsung.com>
-> 
-> This commit comes at the tail end of a greater effort to remove the
-> empty elements at the end of the ctl_table arrays (sentinels) which
-> will reduce the overall build time size of the kernel and run time
-> memory bloat by ~64 bytes per sentinel (further information Link :
-> https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
-> 
-> Remove sentinel from xpc_sys_xpc_hb and xpc_sys_xpc
-> 
-> Signed-off-by: Joel Granados <j.granados@samsung.com>
-> ---
->  drivers/misc/sgi-xp/xpc_main.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/misc/sgi-xp/xpc_main.c b/drivers/misc/sgi-xp/xpc_main.c
-> index 6da509d692bb..c898092ff3ac 100644
-> --- a/drivers/misc/sgi-xp/xpc_main.c
-> +++ b/drivers/misc/sgi-xp/xpc_main.c
-> @@ -109,8 +109,7 @@ static struct ctl_table xpc_sys_xpc_hb[] = {
->  	 .mode = 0644,
->  	 .proc_handler = proc_dointvec_minmax,
->  	 .extra1 = &xpc_hb_check_min_interval,
-> -	 .extra2 = &xpc_hb_check_max_interval},
-> -	{}
-> +	 .extra2 = &xpc_hb_check_max_interval}
->  };
->  static struct ctl_table xpc_sys_xpc[] = {
->  	{
-> @@ -120,8 +119,7 @@ static struct ctl_table xpc_sys_xpc[] = {
->  	 .mode = 0644,
->  	 .proc_handler = proc_dointvec_minmax,
->  	 .extra1 = &xpc_disengage_min_timelimit,
-> -	 .extra2 = &xpc_disengage_max_timelimit},
-> -	{}
-> +	 .extra2 = &xpc_disengage_max_timelimit}
->  };
->  
->  static struct ctl_table_header *xpc_sysctl;
-> 
-> -- 
-> 2.30.2
-> 
+Hi Konstantin,
 
-I assume you'll match the rest of the changes with regards to the
-trailing comma.
+kernel test robot noticed the following build warnings:
 
-Reviewed-by: Steve Wahl <steve.wahl@hpe.com>
+[auto build test WARNING on cminyard-ipmi/for-next]
+[also build test WARNING on linus/master v6.6-rc3 next-20230928]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Konstantin-Aladyshev/ipmi-Move-KCS-headers-to-common-include-folder/20230928-203248
+base:   https://github.com/cminyard/linux-ipmi for-next
+patch link:    https://lore.kernel.org/r/20230928123009.2913-4-aladyshev22%40gmail.com
+patch subject: [PATCH 3/3] mctp: Add MCTP-over-KCS transport binding
+config: sparc-allyesconfig (https://download.01.org/0day-ci/archive/20230929/202309290613.qxRTI9f7-lkp@intel.com/config)
+compiler: sparc64-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20230929/202309290613.qxRTI9f7-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202309290613.qxRTI9f7-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from include/linux/device.h:15,
+                    from include/linux/dma-mapping.h:8,
+                    from include/linux/skbuff.h:28,
+                    from include/linux/if_arp.h:22,
+                    from drivers/net/mctp/mctp-kcs.c:16:
+   drivers/net/mctp/mctp-kcs.c: In function 'mctp_kcs_validate_data':
+>> drivers/net/mctp/mctp-kcs.c:121:25: warning: format '%x' expects argument of type 'unsigned int', but argument 5 has type 'long unsigned int' [-Wformat=]
+     121 |                         "%s: KCS binding header error! len = 0x%02x, but should be 0x%02x",
+         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:110:30: note: in definition of macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ^~~
+   include/linux/dev_printk.h:144:56: note: in expansion of macro 'dev_fmt'
+     144 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                        ^~~~~~~
+   drivers/net/mctp/mctp-kcs.c:120:17: note: in expansion of macro 'dev_err'
+     120 |                 dev_err(mkcs->client.dev->dev,
+         |                 ^~~~~~~
+   drivers/net/mctp/mctp-kcs.c:121:89: note: format string is defined here
+     121 |                         "%s: KCS binding header error! len = 0x%02x, but should be 0x%02x",
+         |                                                                                      ~~~^
+         |                                                                                         |
+         |                                                                                         unsigned int
+         |                                                                                      %02lx
+
+
+vim +121 drivers/net/mctp/mctp-kcs.c
+
+    95	
+    96	static int mctp_kcs_validate_data(struct mctp_kcs *mkcs,
+    97					  struct mctp_kcs_header *hdr, int len)
+    98	{
+    99		struct net_device *ndev = mkcs->netdev;
+   100		struct mctp_kcs_trailer *tlr;
+   101		u8 pec;
+   102	
+   103		if (hdr->netfn_lun != MCTP_KCS_NETFN_LUN) {
+   104			dev_err(mkcs->client.dev->dev,
+   105				"%s: KCS binding header error! netfn_lun = 0x%02x, but should be 0x%02x",
+   106				__func__, hdr->netfn_lun, MCTP_KCS_NETFN_LUN);
+   107			ndev->stats.rx_dropped++;
+   108			return -EINVAL;
+   109		}
+   110		if (hdr->defining_body != DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP) {
+   111			dev_err(mkcs->client.dev->dev,
+   112				"%s: KCS binding header error! defining_body = 0x%02x, but should be 0x%02x",
+   113				__func__, hdr->defining_body,
+   114				DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP);
+   115			ndev->stats.rx_dropped++;
+   116			return -EINVAL;
+   117		}
+   118		if (hdr->len != (len - sizeof(struct mctp_kcs_header) -
+   119				 sizeof(struct mctp_kcs_trailer))) {
+   120			dev_err(mkcs->client.dev->dev,
+ > 121				"%s: KCS binding header error! len = 0x%02x, but should be 0x%02x",
+   122				__func__, hdr->len,
+   123				(len - sizeof(struct mctp_kcs_header) -
+   124				 sizeof(struct mctp_kcs_trailer)));
+   125			ndev->stats.rx_length_errors++;
+   126			return -EINVAL;
+   127		}
+   128	
+   129		pec = generate_pec((u8 *)(hdr + 1), hdr->len);
+   130		tlr = (struct mctp_kcs_trailer *)((u8 *)(hdr + 1) + hdr->len);
+   131		if (pec != tlr->pec) {
+   132			dev_err(mkcs->client.dev->dev,
+   133				"%s: PEC error! Packet value=0x%02x, calculated value=0x%02x",
+   134				__func__, tlr->pec, pec);
+   135			ndev->stats.rx_crc_errors++;
+   136			return -EINVAL;
+   137		}
+   138		return 0;
+   139	}
+   140	
 
 -- 
-Steve Wahl, Hewlett Packard Enterprise
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 
 _______________________________________________
