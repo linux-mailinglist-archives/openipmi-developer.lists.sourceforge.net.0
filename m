@@ -2,90 +2,174 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A9AB67B3109
-	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Sep 2023 13:09:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0D53E7B3221
+	for <lists+openipmi-developer@lfdr.de>; Fri, 29 Sep 2023 14:14:18 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qmBMi-0004EG-Hb;
-	Fri, 29 Sep 2023 11:09:01 +0000
+	id 1qmCNm-0005Ak-Go;
+	Fri, 29 Sep 2023 12:14:11 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <jonathan.cameron@huawei.com>) id 1qmBMf-0004E7-Ek
+ (envelope-from <j.granados@samsung.com>) id 1qmCNl-0005Ae-6W
  for openipmi-developer@lists.sourceforge.net;
- Fri, 29 Sep 2023 11:08:58 +0000
+ Fri, 29 Sep 2023 12:14:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=References:In-Reply-To:Content-Type:MIME-Version:
+ Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=5X2A4RvvkbKbdsXQcbR3AChyC/iqKCiw6OVo1ufCOzM=; b=F8cgdsu4gxfJptUq9UrEl5WrWt
- l/bMAcacA7+Yi1Wfy60ArlYekZXHSKTz7QJwD81vNys7+SQac0jxreVsWBHfipEA4bG532OTQ2XbM
- 9HasxtUjtwOIdJc3uNNS2+tLN5rvzvZ5qTTb5BIJFJlOzXUn6l6qO3y197aQZJ3jB+qg=;
+ bh=8lyq3NbxKETKAT4kssG9Gl7+6++BIm6RujbjJHzxU10=; b=em9MS9dd3bkbSBCwHB9f1Pn3OV
+ VZV8aQr+UTKVYDQ6NKS2kjI3qj+yvBepVpZBtZ4t6ClmrVFwWMa5mE2eDEGYlnO7aTw+WiGzwSeVL
+ JWdiaBR9Xxc0ElkIs6TUQ770pxuig+K51HhCLY9Bqvcq6qxKEhVZdVGy+IKJYq0PGGxc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
- In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:Content-ID:
+ h=References:In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:CC:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=5X2A4RvvkbKbdsXQcbR3AChyC/iqKCiw6OVo1ufCOzM=; b=Nou5S2m9rT6ptiulMDpsYmfpyX
- dbWRqAqo1AQUirtjwd2t/w2z/V2Kx0RW8O4+xUvULUyhllZqyUVPwmD4T28q7TvrWbAJuTQv3OP+I
- l9NgSnAv3sN52dUWwdOo8+8LTZT+H9FzwGKdIIjFF7Kqlhuw26yJpfCOKDMO7pqNTb4c=;
-Received: from [185.176.79.56] (helo=frasgout.his.huawei.com)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ bh=8lyq3NbxKETKAT4kssG9Gl7+6++BIm6RujbjJHzxU10=; b=isFrLI6tMzJBSBr4+PHE2A4K7z
+ HpFAdgJ7zG3FaGSQanN5wVUDjj/FmuNsEneoVmtmjBJ920fGR86T19mvSJfhY8Daxr2ZTgcv5b89P
+ n7cg8AX64EFIjhiW2VfIfxAlieOsWFeDSdEhGpnCfDZp2306gA4X/EtlGKdizsrDbkQw=;
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qmBMb-00BPhc-RO for openipmi-developer@lists.sourceforge.net;
- Fri, 29 Sep 2023 11:08:57 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.201])
- by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Rxnb44sLPz6HJP5;
- Fri, 29 Sep 2023 19:06:08 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Fri, 29 Sep
- 2023 12:08:36 +0100
-Date: Fri, 29 Sep 2023 12:08:35 +0100
-To: Konstantin Aladyshev <aladyshev22@gmail.com>
-Message-ID: <20230929120835.0000108e@Huawei.com>
-In-Reply-To: <20230928123009.2913-4-aladyshev22@gmail.com>
-References: <20230928123009.2913-1-aladyshev22@gmail.com>
- <20230928123009.2913-4-aladyshev22@gmail.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+ id 1qmCNg-0003ty-73 for openipmi-developer@lists.sourceforge.net;
+ Fri, 29 Sep 2023 12:14:09 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+ by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id
+ 20230929121355euoutp029355d2b77491cadd67994111037d28a5~JXZZf4USK0777807778euoutp02o;
+ Fri, 29 Sep 2023 12:13:55 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com
+ 20230929121355euoutp029355d2b77491cadd67994111037d28a5~JXZZf4USK0777807778euoutp02o
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+ s=mail20170921; t=1695989635;
+ bh=8lyq3NbxKETKAT4kssG9Gl7+6++BIm6RujbjJHzxU10=;
+ h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+ b=M88XxnqjOeCFtmJ1iLUvg3cga7VIuTJv+1GqYmT6uofLJq3jgsotPtjN5QZA7t1oZ
+ fs7iWrQBoROVkp7B5E2c/zp8eMYLVW4UMFGtNGm5/jfkl9qXkXZMN/pTuYUUkxDHfR
+ HIDo2xQNUMaOXM4Qdv/qAl1z11RhR58+4jS2E998=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+ eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+ 20230929121354eucas1p25742ddebbe1cfa7ed6cca8c8327da2b9~JXZZQ0UAB2204222042eucas1p2F;
+ Fri, 29 Sep 2023 12:13:54 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+ eusmges1new.samsung.com (EUCPMTA) with SMTP id 96.E4.42423.28FB6156; Fri, 29
+ Sep 2023 13:13:54 +0100 (BST)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+ eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+ 20230929121353eucas1p222db2685fd99727840771a59abb770ce~JXZYHgAdt1405914059eucas1p2f;
+ Fri, 29 Sep 2023 12:13:53 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+ eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+ 20230929121353eusmtrp2af1af6bf573e1ce71e31c070f88b0d2f~JXZYGNQIA1483714837eusmtrp2R;
+ Fri, 29 Sep 2023 12:13:53 +0000 (GMT)
+X-AuditID: cbfec7f2-a51ff7000002a5b7-c6-6516bf82728c
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+ eusmgms1.samsung.com (EUCPMTA) with SMTP id CD.21.10549.18FB6156; Fri, 29
+ Sep 2023 13:13:53 +0100 (BST)
+Received: from CAMSVWEXC02.scsc.local (unknown [106.1.227.72]) by
+ eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+ 20230929121353eusmtip13974bd648951759583fb359b46754e5e~JXZXzSlko2058220582eusmtip1C;
+ Fri, 29 Sep 2023 12:13:53 +0000 (GMT)
+Received: from localhost (106.210.248.178) by CAMSVWEXC02.scsc.local
+ (2002:6a01:e348::6a01:e348) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
+ Fri, 29 Sep 2023 13:13:52 +0100
+Date: Fri, 29 Sep 2023 14:14:59 +0200
+From: Joel Granados <j.granados@samsung.com>
+To: Steve Wahl <steve.wahl@hpe.com>
+Message-ID: <20230929121459.t7dfskyybi6jovjn@localhost>
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
-X-Spam-Score: -1.0 (-)
+In-Reply-To: <ZRW9Eywl831h/YhW@swahl-home.5wahls.com>
+X-Originating-IP: [106.210.248.178]
+X-ClientProxiedBy: CAMSVWEXC01.scsc.local (2002:6a01:e347::6a01:e347) To
+ CAMSVWEXC02.scsc.local (2002:6a01:e348::6a01:e348)
+X-Brightmail-Tracker: H4sIAAAAAAAAA2VTa1BUZRjuO+dwzoKhh9XkG9QsyJzAQBitdxIaDR0PozQ0jkyXGWSV00rJ
+ JZYN0hxBQW4hF2GEVWRBYTc2F1hhlUXBcAMURzRALkLIhqSCiigCEksLB8uZ/j3vc3m/9/nx
+ iUhxD+MgCg6N5CNCJXscaRtKXz/R/P7B2sX86vLkVdDYXkjAVGY9A6cb+wiY1meQcKI5joKa
+ OB2CmpwzNLSOPqZBa4gn4G69iYFDp0ppuHWOg+PpZwlQtZQiuNPmAIUdegJycxoRnOj0gEd5
+ S+FigWWfMgyupYTADf0RK+jXVDKQ9aKIhOyMYRpaDCdoSMg3IBioS6Ugpf08DddOpTIwOWa2
+ AlWDmYCO9LsIktMSENQrF8P45KQVXLjTj+B50xCC7GJXyHuWTYJ6KI+EWsUtBopy1SQ0qKZo
+ 0Gh3QG3WLyRcasqyUOa9EP/TBAOXdV0ETI5bHh6rOEqsX8u1tG7hJl9kIu54zE2Kq/i5k+C6
+ i6oQd/G5kuKqFD0Mp9TJOYMhluHOqp25UxfuE9xU0gdc16AXpytJorlxdRrJpRdeQn7Lv7Tx
+ DOL3BH/PR7h9HGiz++TgQyJ8zD7aqLxCxKCMRcnIWoTZNVgzncMkIxuRmFUjfNtYSQjDM4TT
+ 9VNzylOE2y6dYV5GShLuk4KgQjjn1zSrf11NjQmUMFQinKpKn41Q7Aqc+fcjNINpdhVuHuom
+ Z/Ai1gkfuds2mybZ0gXYWJNHzwgLWR6bOmY2WYts2Q/xUJWRELAdvpLbP8uTbDQu6iy0YJEF
+ L8Eqs2iGtmbX4ou/mynhVCc8XtZEC3g/vlrRNVsOs4dfx+VZGWgmi9mNOD5znuBZiB80VMzV
+ XIqnq/Ln/EcRrjUPM8KgQbg4dpQQXOtwXGv/XGIDNo1OWglL5+OOh3bCnfNxpv4YKdC2OPGw
+ WHC/izV/DFHpyEnxSjPFK80U/zUT6FVYWT1C/492wcUFg6SAvbBW+5hSIqYE2fNyWYiUl7mH
+ 8lGuMkmITB4qdd0VFqJDll/XZG4YOY/yHjxxrUOECNWhdyxhU5nmBnKgQsNCecdFtn23xbzY
+ Nkjyw14+ImxHhHwPL6tDS0SUo72ti9eVXWJWKonkv+X5cD7ipUqIrB1iCDffnR5Kl5vBsbmb
+ JCEfna2TrjBWzQ8yRmnf7vW9GlAm763YF34g4VgXvtcem+Oz2fFG5dPAFP9zLVBa/Z6mt9ok
+ O65IUhV8suC7qEPXD+8L8tYmOo33te6PHtbbpZgrt/odvfdF0/q0nq+2F9ce1L1p9VYnXSD1
+ Wbd5udZvwQaDNHtjoo+fybj65Gvb+gLs/E3bjGHr893m3Xlj2YC2qmQqvnjQ23nU3dPJI3B8
+ 59Z+nyVXvZNW+qvVI3KFf7CU+etAu4P50yd1seGRW+w3GwKoxgHjZVtPl+ZlX+foMn7MX3ld
+ ah481l3mtl0/cUH8m/dned01IX8mTnec1n0et8b3m4W7y+WOlGy3xN2ZjJBJ/gHETZrc8AQA
+ AA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA2WTezBcVxzHe+5d9y4zJtulcoa0SZbMtNosK5YfQdK0f9yONG1H2mRobLbc
+ ISlWd5eGSac0VFDP0IlFCRVi1TOejSV0PEpDSWSjdBKDjFBq4rFeq8tOp5npf5/z/X2/33Pm
+ zDlckr9OWXMvhClZeZg0RECZcfr03eOHY9usWEfdvA30PCwiYCuzi4Yfe54QsN2QQULeQBwH
+ NHG1CDTXf6Lg/vICBZUt8QRMdU3QcKW4ioKRRgZy0+sIKB2uQvD4gTUUaRsIyLnegyDvkRPM
+ 5++D1huGvkIZ9CeHwmBDqglMqutpyFovISE7428KhlvyKEgoaEEw3ZHCgeSHTRT0F6fQsLGq
+ N4HSbj0B2vQpBElpCQi6Cq1At7FhAnceTyJY6ZtDkH1TCPlL2SSUzeWT0KYaoaEkp4yE7tIt
+ CtSVEmjLqiChvS/LIOmjIf67NRo6a0cJ2NAZNl69fY04LmaG73szG+uZiMmN+Z3D3L71iGDG
+ SpoR07pSyGGaVeM0U1gbwbS0xNJMXZk9U3xnhmC2El2Y0VlPprY8kWJ0ZWkkk17Ujj7c7yv0
+ kMsilOyBYJlC6SnwE4GTUOQGQidnN6HoiOs5dyexwMHLI5ANuRDJyh28zguDf9V9i8KX916a
+ mdymY1CaZRIy5WKeMy5PmCGTkBmXzytBuKEzljYO9uGapQcmRrbAmyNJlNG0iLAuZos2LuoR
+ rsnQoh0Xh3cIZ27O7zLFewsPzI2RO2zJs8WpUztNZlySV7UH39I27ZoseCye0CZwdtic54rn
+ mn8hjK1XCVww02hiHLyMe3Mmd00kLxJ/M7diCHMNbINL9dwd2ZQnxq1Deo7xqLZYV91HGfkr
+ /HxrGqUjC9ULTaoXmlT/NRlle6zVzxD/k9/EN2/Mkkb2xJWVC5xCRJcjSzZCERoUqhAJFdJQ
+ RURYkDBAFlqLDA+/oWutrgn98GxR2IEILupAdobkRLV6EFlzwmRhrMDS/MkffJZvHiiNimbl
+ Mok8IoRVdCCx4RozSOtXAmSGXxSmlIhcHMUiZxc3R7GbyxHBXvP3wq9K+bwgqZL9nGXDWfm/
+ OYJrah1DXPz5GRO1UL+c4Vitno87yifvvREt8beLRy+dS0tM9/b4LOOEpkJz2eO5j04iZGzt
+ lvq9X0VfPHWN9Sw9GdN/xrTouLZq/eNUn9ZAq+oo3pka9+2oPh+xH3tos/MuPiU5fF5SHL2n
+ 4q+v0UeXUg6MfzLl9Kem0V9b8K7nta3O7lZMDX868Pa2CA36qZvOXrTxiuwdsmx7f/9rlwVS
+ qaNl8+Lo6bWmu3m+pxtsj6rG6O+PXUHTg/l1X6pcfQtP2r0OfRIdpZtrP+Z+Nr4iIPeew3Lj
+ b4r5Do3/qlqTN3Sqt3tVGJejfMe984O2VnG5iejqevIJq4GDmoPBT5Nmhe4zjrYOAo4iWCqy
+ J+UK6T/T24AkjQQAAA==
+X-CMS-MailID: 20230929121353eucas1p222db2685fd99727840771a59abb770ce
+X-Msg-Generator: CA
+X-RootMTR: 20230928175234eucas1p2c62c48251c66c0016180977783dd2314
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20230928175234eucas1p2c62c48251c66c0016180977783dd2314
+References: <20230928-jag-sysctl_remove_empty_elem_drivers-v1-0-e59120fca9f9@samsung.com>
+ <20230928-jag-sysctl_remove_empty_elem_drive>
+ <CGME20230928175234eucas1p2c62c48251c66c0016180977783dd2314@eucas1p2.samsung.com>
+ <ZRW9Eywl831h/YhW@swahl-home.5wahls.com>
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Thu,
- 28 Sep 2023 15:30:09 +0300 Konstantin Aladyshev <aladyshev22@gmail.com>
- wrote: > This change adds a MCTP KCS transport binding, as defined by the
- DMTF > specificiation DSP0254 - "MCTP KCS Transport Binding". > A MCTP
- protocol
- network device is created for each KCS channel found [...] 
- Content analysis details:   (-1.0 points, 6.0 required)
+ Content preview:  On Thu, Sep 28, 2023 at 12:51:15PM -0500, Steve Wahl wrote:
+ > On Thu, Sep 28, 2023 at 03:21:36PM +0200, Joel Granados via B4 Relay wrote:
+ > > From: Joel Granados <j.granados@samsung.com> > > > > This [...] 
+ Content analysis details:   (-5.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [185.176.79.56 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H5      RBL: Excellent reputation (+5)
- [185.176.79.56 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [210.118.77.12 listed in wl.mailspike.net]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [210.118.77.12 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 1.3 RDNS_NONE Delivered to internal network by a host with no rDNS
-X-Headers-End: 1qmBMb-00BPhc-RO
-Subject: Re: [Openipmi-developer] [PATCH 3/3] mctp: Add MCTP-over-KCS
- transport binding
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1qmCNg-0003ty-73
+Subject: Re: [Openipmi-developer] [PATCH 11/15] sgi-xp: Remove the now
+ superfluous sentinel element from ctl_table array
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,618 +182,152 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Jonathan Cameron via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-Cc: tmaimon77@gmail.com, minyard@acm.org, yuenn@google.com, andrew@aj.id.au,
- venture@google.com, openbmc@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- tali.perry1@gmail.com, avifishman70@gmail.com, edumazet@google.com,
- netdev@vger.kernel.org, linux-aspeed@lists.ozlabs.org, kuba@kernel.org,
- jk@codeconstruct.com.au, matt@codeconstruct.com.au, pabeni@redhat.com,
- openipmi-developer@lists.sourceforge.net, davem@davemloft.net,
- linux-arm-kernel@lists.infradead.org, benjaminfair@google.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Clemens Ladisch <clemens@ladisch.de>, linux-hyperv@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, Phillip Potter <phil@philpotter.co.uk>,
+ Song Liu <song@kernel.org>, Eric Dumazet <edumazet@google.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Jiri Slaby <jirislaby@kernel.org>,
+ Russ Weight <russell.h.weight@intel.com>, Wei Liu <wei.liu@kernel.org>,
+ Stefano Stabellini <sstabellini@kernel.org>, Corey Minyard <minyard@acm.org>,
+ Leon Romanovsky <leon@kernel.org>, linux-rdma@vger.kernel.org,
+ David Airlie <airlied@gmail.com>, Dexuan Cui <decui@microsoft.com>,
+ willy@infradead.org, Jason Gunthorpe <jgg@ziepe.ca>,
+ linux-serial@vger.kernel.org, Doug Gilbert <dgilbert@interlog.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Kees Cook <keescook@chromium.org>,
+ Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
+ "James E.J. Bottomley" <jejb@linux.ibm.com>, intel-gfx@lists.freedesktop.org,
+ josh@joshtriplett.org, Jani Nikula <jani.nikula@linux.intel.com>,
+ linux-raid@vger.kernel.org, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ xen-devel@lists.xenproject.org, openipmi-developer@lists.sourceforge.net,
+ Juergen
+ Gross <jgross@suse.com>, Tvrtko Ursulin <tvrtko.ursulin@linux.intel.com>,
+ Theodore Ts'o <tytso@mit.edu>, linux-scsi@vger.kernel.org, "Martin
+ K. Petersen" <martin.petersen@oracle.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ David Ahern <dsahern@kernel.org>, Robin Holt <robinmholt@gmail.com>, "David S.
+ Miller" <davem@davemloft.net>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ Luis Chamberlain <mcgrof@kernel.org>, Daniel Vetter <daniel@ffwll.ch>,
+ netdev@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+Content-Type: multipart/mixed; boundary="===============8260884560969369821=="
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Thu, 28 Sep 2023 15:30:09 +0300
-Konstantin Aladyshev <aladyshev22@gmail.com> wrote:
+--===============8260884560969369821==
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="4w7nhf7oeskaesco"
+Content-Disposition: inline
 
-> This change adds a MCTP KCS transport binding, as defined by the DMTF
-> specificiation DSP0254 - "MCTP KCS Transport Binding".
-> A MCTP protocol network device is created for each KCS channel found in
-> the system.
-> The interrupt code for the KCS state machine is based on the current
-> IPMI KCS driver.
-> 
-> Signed-off-by: Konstantin Aladyshev <aladyshev22@gmail.com>
+--4w7nhf7oeskaesco
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Drive by review as I was curious and might as well comment whilst reading.
-Some comments seem to equally apply to other kcs drivers so maybe I'm
-missing something...
+On Thu, Sep 28, 2023 at 12:51:15PM -0500, Steve Wahl wrote:
+> On Thu, Sep 28, 2023 at 03:21:36PM +0200, Joel Granados via B4 Relay wrot=
+e:
+> > From: Joel Granados <j.granados@samsung.com>
+> >=20
+> > This commit comes at the tail end of a greater effort to remove the
+> > empty elements at the end of the ctl_table arrays (sentinels) which
+> > will reduce the overall build time size of the kernel and run time
+> > memory bloat by ~64 bytes per sentinel (further information Link :
+> > https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
+> >=20
+> > Remove sentinel from xpc_sys_xpc_hb and xpc_sys_xpc
+> >=20
+> > Signed-off-by: Joel Granados <j.granados@samsung.com>
+> > ---
+> >  drivers/misc/sgi-xp/xpc_main.c | 6 ++----
+> >  1 file changed, 2 insertions(+), 4 deletions(-)
+> >=20
+> > diff --git a/drivers/misc/sgi-xp/xpc_main.c b/drivers/misc/sgi-xp/xpc_m=
+ain.c
+> > index 6da509d692bb..c898092ff3ac 100644
+> > --- a/drivers/misc/sgi-xp/xpc_main.c
+> > +++ b/drivers/misc/sgi-xp/xpc_main.c
+> > @@ -109,8 +109,7 @@ static struct ctl_table xpc_sys_xpc_hb[] =3D {
+> >  	 .mode =3D 0644,
+> >  	 .proc_handler =3D proc_dointvec_minmax,
+> >  	 .extra1 =3D &xpc_hb_check_min_interval,
+> > -	 .extra2 =3D &xpc_hb_check_max_interval},
+> > -	{}
+> > +	 .extra2 =3D &xpc_hb_check_max_interval}
+> >  };
+> >  static struct ctl_table xpc_sys_xpc[] =3D {
+> >  	{
+> > @@ -120,8 +119,7 @@ static struct ctl_table xpc_sys_xpc[] =3D {
+> >  	 .mode =3D 0644,
+> >  	 .proc_handler =3D proc_dointvec_minmax,
+> >  	 .extra1 =3D &xpc_disengage_min_timelimit,
+> > -	 .extra2 =3D &xpc_disengage_max_timelimit},
+> > -	{}
+> > +	 .extra2 =3D &xpc_disengage_max_timelimit}
+> >  };
+> > =20
+> >  static struct ctl_table_header *xpc_sysctl;
+> >=20
+> > --=20
+> > 2.30.2
+> >=20
+>=20
+> I assume you'll match the rest of the changes with regards to the
+> trailing comma.
+If you are refering to Greg's comments. yes. I'll send a V2 with the
+trailing comma.
 
-Jonathan
+Best
 
+>=20
+> Reviewed-by: Steve Wahl <steve.wahl@hpe.com>
+>=20
+> --=20
+> Steve Wahl, Hewlett Packard Enterprise
 
-> ---
->  drivers/net/mctp/Kconfig    |   8 +
->  drivers/net/mctp/Makefile   |   1 +
->  drivers/net/mctp/mctp-kcs.c | 624 ++++++++++++++++++++++++++++++++++++
->  3 files changed, 633 insertions(+)
->  create mode 100644 drivers/net/mctp/mctp-kcs.c
-> 
-> diff --git a/drivers/net/mctp/Kconfig b/drivers/net/mctp/Kconfig
-> index dc71657d9184..a37f7ba947c0 100644
-> --- a/drivers/net/mctp/Kconfig
-> +++ b/drivers/net/mctp/Kconfig
-> @@ -33,6 +33,14 @@ config MCTP_TRANSPORT_I2C
->  	  from DMTF specification DSP0237. A MCTP protocol network device is
->  	  created for each I2C bus that has been assigned a mctp-i2c device.
->  
-> +config MCTP_TRANSPORT_KCS
-> +	tristate "MCTP KCS transport"
-> +	depends on IPMI_KCS_BMC
-> +	help
-> +	  Provides a driver to access MCTP devices over KCS transport, from
-> +	  DMTF specification DSP0254. A MCTP protocol network device is
-> +	  created for each KCS channel found in the system.
-> +
->  endmenu
->  
->  endif
-> diff --git a/drivers/net/mctp/Makefile b/drivers/net/mctp/Makefile
-> index 1ca3e6028f77..885339a40f22 100644
-> --- a/drivers/net/mctp/Makefile
-> +++ b/drivers/net/mctp/Makefile
-> @@ -1,2 +1,3 @@
->  obj-$(CONFIG_MCTP_SERIAL) += mctp-serial.o
->  obj-$(CONFIG_MCTP_TRANSPORT_I2C) += mctp-i2c.o
-> +obj-$(CONFIG_MCTP_TRANSPORT_KCS) += mctp-kcs.o
-> diff --git a/drivers/net/mctp/mctp-kcs.c b/drivers/net/mctp/mctp-kcs.c
-> new file mode 100644
-> index 000000000000..8d8b77ad709c
-> --- /dev/null
-> +++ b/drivers/net/mctp/mctp-kcs.c
-> @@ -0,0 +1,624 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Management Component Transport Protocol (MCTP) KCS transport binding.
-> + * This driver is an implementation of the DMTF specificiation
-> + * "DSP0254 - Management Component Transport Protocol (MCTP) KCS Transport
-> + * Binding", available at:
-> + *
-> + * https://www.dmtf.org/sites/default/files/standards/documents/DSP0254_1.0.0.pdf
-> + *
-> + * This driver provides DSP0254-type MCTP-over-KCS transport using a Linux
-> + * KCS client subsystem.
-> + *
-> + * Copyright (c) 2023 Konstantin Aladyshev <aladyshev22@gmail.com>
-> + */
-> +
-> +#include <linux/if_arp.h>
-> +#include <linux/ipmi_kcs.h>
-> +#include <linux/kcs_bmc_client.h>
-> +#include <linux/mctp.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-Check these.  There aren't any mutex's in here that I noticed...
+--=20
 
-> +#include <linux/netdevice.h>
-> +#include <net/mctp.h>
-> +#include <net/mctpdevice.h>
-> +#include <net/pkt_sched.h>
+Joel Granados
 
-> +// According to SMBUS spec, the polynomial is:
-> +// // C(x) = X^8 + X^2 + X^1 + 1, which is 0x107,
-> +// // just ignore bit8 in definition.
-I'm confused by this part. Is this calling out a specification issue, or
-something that the relevant specs make clear?  If the second, add a reference.
-If it's a specification issue that's fine, but are we sure it will get resolved
-hwo you've done it here?
-> +#define MCTP_KCS_PACKET_ERROR_CODE_POLY 0x07
-> +//
+--4w7nhf7oeskaesco
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmUWv8IACgkQupfNUreW
+QU9DQwv+Opqxeb0JXEqqCeoSyrjiYyUtb6SlSpGMHgzSUMrdGnvmrA3cDGKGUhGd
+TNgpEJ+tN5ZYPPvQD5O1pqTlaBxf4VZytJ8DonLDtW6cyREdb4WLvjb1yMxn6LJh
+bgJYc7vgcgaK53S2uIm8MJhT3OR33Ft2sAxtR8fuOW59OONGh3vDB+GwxspJ/zaM
+VR21A7Dpj802nQLhSbKzMo2zv2Za22ltVbKjZOhfo/gH3aDaxJ2OnaVXGlR4oLpw
+K7oDpV7SlZzWpia4hixX9z0PeNzNheViN4LmyY0jR11VXnCpOBOM4RUkwtDa5N21
+GwipoG/V/D2rGuyWtcKTKRbHkBl3klgfwyeeN17PPVqllgyafCeMPIflxb7Dnuxk
+24dDkirouJRzNnsF1F7VPr1YGd9MJNFJ+4OB2C/4eOk/b3ql0r9iZXyQUw3A1OH2
+hL977fnUzbzPk/dZYy3qVEFJwj+B1agVRH25sPKRqUNQLD7QnFtgu8xPfKrbuQ0N
+1jFybOz5
+=hyLo
+-----END PGP SIGNATURE-----
+
+--4w7nhf7oeskaesco--
 
 
-> +
-> +static void mctp_kcs_rx_work(struct work_struct *work)
-> +{
-> +	struct mctp_kcs *mkcs = container_of(work, struct mctp_kcs, rx_work);
-> +	struct mctp_skb_cb *cb;
-> +	struct sk_buff *skb;
-> +	unsigned long flags;
-> +	int rc;
-> +	int i;
-> +	struct mctp_kcs_header *kcs_header;
-> +	int data_len;
-> +	int data_in_idx;
-> +
-> +	spin_lock_irqsave(&mkcs->lock, flags);
-> +	for (i = 0; i < (mkcs->data_in_idx); i++)
-> +		dev_dbg(mkcs->client.dev->dev, "%s: data_in[%d]=0x%02x",
-> +			__func__, i, mkcs->data_in[i]);
-> +
-> +	data_len = mkcs->data_in_idx - sizeof(struct mctp_kcs_header) -
-> +		   sizeof(struct mctp_kcs_trailer);
-> +	if (mkcs->phase != KCS_PHASE_WRITE_DONE) {
-> +		dev_err(mkcs->client.dev->dev,
-> +			"%s: error! Wrong KCS stage at the end of data read (phase=%d)",
-> +			__func__, mkcs->phase);
-> +		mkcs->netdev->stats.rx_dropped++;
-> +		spin_unlock_irqrestore(&mkcs->lock, flags);
-> +		return;
-> +	}
-> +
-> +	mkcs->phase = KCS_PHASE_WAIT_READ;
-> +	data_in_idx = mkcs->data_in_idx;
-> +	mkcs->data_in_idx = 0;
-> +
-> +	skb = netdev_alloc_skb(mkcs->netdev, data_len);
-> +	if (!skb) {
-> +		mkcs->netdev->stats.rx_dropped++;
-> +		spin_unlock_irqrestore(&mkcs->lock, flags);
-
-I'd use a sequence of gotos and labels to deal with the different cleanup.
-
-> +		return;
-> +	}
-> +
-> +	kcs_header = (struct mctp_kcs_header *)mkcs->data_in;
-> +	rc = mctp_kcs_validate_data(mkcs, kcs_header, data_in_idx);
-> +	if (rc) {
-> +		dev_err(mkcs->client.dev->dev,
-> +			"%s: error! Binding validation failed", __func__);
-> +		dev_kfree_skb(skb);
-> +		spin_unlock_irqrestore(&mkcs->lock, flags);
-> +		return;
-> +	}
-> +
-> +	skb->protocol = htons(ETH_P_MCTP);
-> +	skb_put_data(skb, mkcs->data_in + sizeof(struct mctp_kcs_header),
-> +		     data_len);
-> +	spin_unlock_irqrestore(&mkcs->lock, flags);
-> +	skb_reset_network_header(skb);
-> +
-> +	cb = __mctp_cb(skb);
-> +	cb->halen = 0;
-> +
-> +	netif_rx(skb);
-> +	mkcs->netdev->stats.rx_packets++;
-> +	mkcs->netdev->stats.rx_bytes += data_len;
-> +}
-> +
-
-> +static void mctp_kcs_setup(struct net_device *ndev)
-> +{
-> +	ndev->type = ARPHRD_MCTP;
-> +
-> +	/* we limit at the fixed MTU, which is also the MCTP-standard
-> +	 * baseline MTU, so is also our minimum
-> +	 */
-> +	ndev->mtu = MCTP_KCS_MTU;
-> +	ndev->max_mtu = MCTP_KCS_MTU;
-> +	ndev->min_mtu = MCTP_KCS_MTU;
-> +
-> +	ndev->hard_header_len = 0;
-> +	ndev->addr_len = 0;
-> +	ndev->tx_queue_len = DEFAULT_TX_QUEUE_LEN;
-> +	ndev->flags = IFF_NOARP;
-> +	ndev->netdev_ops = &mctp_kcs_netdev_ops;
-> +	ndev->needs_free_netdev = true;
-> +}
-> +
-> +static void kcs_bmc_ipmi_force_abort(struct mctp_kcs *mkcs)
-> +{
-> +	dev_err(mkcs->client.dev->dev,
-> +		"Error! Force abort on KCS communication");
-> +	set_state(mkcs, ERROR_STATE);
-> +	kcs_bmc_read_data(mkcs->client.dev);
-> +	kcs_bmc_write_data(mkcs->client.dev, KCS_ZERO_DATA);
-> +	mkcs->phase = KCS_PHASE_ERROR;
-> +	mkcs->data_in_idx = 0;
-> +}
-> +
-> +static void kcs_bmc_ipmi_handle_data(struct mctp_kcs *mkcs)
-> +{
-> +	struct kcs_bmc_device *dev;
-> +	u8 data;
-> +
-> +	dev = mkcs->client.dev;
-As below, I'd put this on the line defining the local variable and rename it.
-
-> +
-> +	switch (mkcs->phase) {
-> +	case KCS_PHASE_WRITE_START:
-> +		dev_dbg(dev->dev, "%s: KCS_PHASE_WRITE_START", __func__);
-> +		mkcs->phase = KCS_PHASE_WRITE_DATA;
-> +		fallthrough;
-> +
-> +	case KCS_PHASE_WRITE_DATA:
-> +		dev_dbg(dev->dev, "%s: KCS_PHASE_WRITE_DATA", __func__);
-> +		if (mkcs->data_in_idx < KCS_MSG_BUFSIZ) {
-> +			set_state(mkcs, WRITE_STATE);
-> +			kcs_bmc_write_data(dev, KCS_ZERO_DATA);
-> +			mkcs->data_in[mkcs->data_in_idx++] =
-> +				kcs_bmc_read_data(dev);
-> +			dev_dbg(dev->dev,
-> +				"%s: KCS_PHASE_WRITE_DATA: data_in[%d]=0x%02x",
-> +				__func__, mkcs->data_in_idx - 1,
-> +				mkcs->data_in[mkcs->data_in_idx - 1]);
-> +		} else {
-> +			kcs_bmc_ipmi_force_abort(mkcs);
-> +			mkcs->error = KCS_LENGTH_ERROR;
-> +		}
-> +		break;
-> +
-> +	case KCS_PHASE_WRITE_END_CMD:
-> +		dev_dbg(dev->dev, "%s: KCS_PHASE_WRITE_END_CMD", __func__);
-> +		if (mkcs->data_in_idx < KCS_MSG_BUFSIZ) {
-> +			set_state(mkcs, READ_STATE);
-> +			mkcs->data_in[mkcs->data_in_idx++] =
-> +				kcs_bmc_read_data(dev);
-> +			dev_dbg(dev->dev,
-> +				"%s: KCS_PHASE_WRITE_END_CMD: data_in[%d]=0x%02x",
-> +				__func__, mkcs->data_in_idx - 1,
-> +				mkcs->data_in[mkcs->data_in_idx - 1]);
-> +			mkcs->phase = KCS_PHASE_WRITE_DONE;
-> +			schedule_work(&mkcs->rx_work);
-> +		} else {
-> +			kcs_bmc_ipmi_force_abort(mkcs);
-> +			mkcs->error = KCS_LENGTH_ERROR;
-> +		}
-> +		break;
-> +
-> +	case KCS_PHASE_READ:
-> +		dev_dbg(dev->dev,
-> +			"%s: KCS_PHASE_READ, data_out_idx=%d, data_out_len=%d",
-> +			__func__, mkcs->data_out_idx, mkcs->data_out_len);
-> +		if (mkcs->data_out_idx == mkcs->data_out_len)
-> +			set_state(mkcs, IDLE_STATE);
-> +
-> +		data = kcs_bmc_read_data(dev);
-> +		if (data != KCS_CMD_READ_BYTE) {
-> +			dev_dbg(dev->dev,
-> +				"%s: error! data is not equal to KCS_CMD_READ_BYTE",
-> +				__func__);
-> +			set_state(mkcs, ERROR_STATE);
-> +			kcs_bmc_write_data(dev, KCS_ZERO_DATA);
-> +			break;
-> +		}
-> +
-> +		if (mkcs->data_out_idx == mkcs->data_out_len) {
-> +			kcs_bmc_write_data(dev, KCS_ZERO_DATA);
-> +			mkcs->netdev->stats.tx_bytes += mkcs->data_out_len;
-> +			mkcs->netdev->stats.tx_packets++;
-> +			mkcs->phase = KCS_PHASE_IDLE;
-> +			if (netif_queue_stopped(mkcs->netdev))
-> +				netif_start_queue(mkcs->netdev);
-> +			break;
-> +		}
-> +
-> +		dev_dbg(dev->dev, "%s: KCS_PHASE_READ: data_out[%d]=0x%02x",
-> +			__func__, mkcs->data_out_idx,
-> +			mkcs->data_out[mkcs->data_out_idx]);
-> +		kcs_bmc_write_data(dev, mkcs->data_out[mkcs->data_out_idx++]);
-> +		break;
-> +
-> +	case KCS_PHASE_ABORT_ERROR1:
-> +		dev_dbg(dev->dev, "%s: KCS_PHASE_ABORT_ERROR1", __func__);
-> +		set_state(mkcs, READ_STATE);
-> +		kcs_bmc_read_data(dev);
-> +		kcs_bmc_write_data(dev, mkcs->error);
-> +		mkcs->phase = KCS_PHASE_ABORT_ERROR2;
-> +		break;
-> +
-> +	case KCS_PHASE_ABORT_ERROR2:
-> +		dev_dbg(dev->dev, "%s: KCS_PHASE_ABORT_ERROR2", __func__);
-> +		set_state(mkcs, IDLE_STATE);
-> +		kcs_bmc_read_data(dev);
-> +		kcs_bmc_write_data(dev, KCS_ZERO_DATA);
-> +		mkcs->phase = KCS_PHASE_IDLE;
-> +		break;
-> +
-> +	default:
-> +		dev_dbg(dev->dev, "%s: unknown KCS phase", __func__);
-> +		kcs_bmc_ipmi_force_abort(mkcs);
-> +		break;
-> +	}
-> +}
-> +
-> +static void kcs_bmc_ipmi_handle_cmd(struct mctp_kcs *mkcs)
-> +{
-> +	struct kcs_bmc_device *dev;
-> +	u8 cmd;
-> +
-> +	dev = mkcs->client.dev;
-Might as well save a few lines as it doesn't hurt readability.
-
-	struct kcs_bmc_device *dev = mkcs->client.dev;
-
-> +
-> +	set_state(mkcs, WRITE_STATE);
-> +	kcs_bmc_write_data(mkcs->client.dev, KCS_ZERO_DATA);
-> +
-> +	cmd = kcs_bmc_read_data(mkcs->client.dev);
-> +	switch (cmd) {
-Local variable doesn't add anything really and you should use your handy
-'dev'.  Maybe rename dev, as most readers will assume it's a struct device
-and get confused (briefly) at the dev->dev bits in here.
+--===============8260884560969369821==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 
-	switch (kcs_bmc_read_data(dev)) {
-
-> +	case KCS_CMD_WRITE_START:
-> +		dev_dbg(dev->dev, "%s: KCS_CMD_WRITE_START", __func__);
-> +		mkcs->phase = KCS_PHASE_WRITE_START;
-> +		mkcs->error = KCS_NO_ERROR;
-> +		mkcs->data_in_idx = 0;
-> +		break;
-> +
-> +	case KCS_CMD_WRITE_END:
-> +		dev_dbg(dev->dev, "%s: KCS_CMD_WRITE_END", __func__);
-> +		if (mkcs->phase != KCS_PHASE_WRITE_DATA) {
-> +			kcs_bmc_ipmi_force_abort(mkcs);
-> +			break;
-> +		}
-> +		mkcs->phase = KCS_PHASE_WRITE_END_CMD;
-> +		break;
-> +
-> +	case KCS_CMD_GET_STATUS_ABORT:
-> +		dev_dbg(dev->dev, "%s: KCS_CMD_GET_STATUS_ABORT", __func__);
-> +		if (mkcs->error == KCS_NO_ERROR)
-> +			mkcs->error = KCS_ABORTED_BY_COMMAND;
-> +
-> +		mkcs->phase = KCS_PHASE_ABORT_ERROR1;
-> +		mkcs->data_in_idx = 0;
-> +		break;
-> +
-> +	default:
-> +		dev_dbg(dev->dev, "%s: unknown KCS command", __func__);
-> +		kcs_bmc_ipmi_force_abort(mkcs);
-> +		mkcs->error = KCS_ILLEGAL_CONTROL_CODE;
-> +		break;
-> +	}
-> +}
-> +
-> +static inline struct mctp_kcs *client_to_mctp_kcs(struct kcs_bmc_client *client)
-> +{
-> +	return container_of(client, struct mctp_kcs, client);
-> +}
-> +
-> +static irqreturn_t kcs_bmc_mctp_event(struct kcs_bmc_client *client)
-> +{
-> +	struct mctp_kcs *mkcs;
-> +	u8 status;
-> +	int ret;
-> +
-> +	mkcs = client_to_mctp_kcs(client);
-> +	if (!mkcs) {
-> +		dev_err(client->dev->dev,
-> +			"%s: error! can't find mctp_kcs from KCS client",
-> +			__func__);
-> +		return IRQ_NONE;
-> +	}
-> +
-> +	spin_lock(&mkcs->lock);
-> +
-> +	status = kcs_bmc_read_status(client->dev);
-> +	if (status & KCS_STATUS_IBF) {
-> +		if (status & KCS_STATUS_CMD_DAT)
-> +			kcs_bmc_ipmi_handle_cmd(mkcs);
-> +		else
-> +			kcs_bmc_ipmi_handle_data(mkcs);
-> +
-> +		ret = IRQ_HANDLED;
-> +	} else {
-> +		ret = IRQ_NONE;
-> +	}
-> +
-> +	spin_unlock(&mkcs->lock);
-> +
-> +	return ret;
-> +}
-> +
-> +static const struct kcs_bmc_client_ops kcs_bmc_mctp_client_ops = {
-> +	.event = kcs_bmc_mctp_event,
-> +};
-> +
-> +static DEFINE_SPINLOCK(kcs_bmc_mctp_instances_lock);
-> +static LIST_HEAD(kcs_bmc_mctp_instances);
-As mentioned below, this seems to be only used to find some data again
-in remove. Lots of cleaner ways to do that than a list in the driver.
-I'd explore the alternatives.
-
-> +
-> +static int kcs_bmc_mctp_add_device(struct kcs_bmc_device *kcs_bmc)
-> +{
-> +	struct mctp_kcs *mkcs;
-> +	struct net_device *ndev;
-> +	char name[32];
-> +	int rc;
-> +
-> +	snprintf(name, sizeof(name), "mctpkcs%d", kcs_bmc->channel);
-> +
-> +	ndev = alloc_netdev(sizeof(*mkcs), name, NET_NAME_ENUM, mctp_kcs_setup);
-Interesting that there is an explicit devm_register_netdev() but not one for
-this simple allocation case (there is one for the ethernet specific version).
-Never mind, we have devm_add_action_or_reset() for that.  Just create a
-small wrapper for free_netdev() (which will look like devm_free_netdev()
-in net/devres.c but that's local to that file) and add
-
-	rc = devm_add_action_or_reset(&kcs_bmc->dev,
-				      wrapper_for_free_netdev(), ndev);
-	if (rc)
-		return rc;
- 
-> +	if (!ndev) {
-> +		dev_err(kcs_bmc->dev,
-> +			"alloc_netdev failed for KCS channel %d\n",
-> +			kcs_bmc->channel);
-No idea if the kcs subsystem handles deferred probing right, but in general
-anything called just in 'probe' routines can use dev_err_probe() to pretty
-print errors and also register any deferred cases with the logging stuff that
-lets you find out why they were deferred.
-
-> +		rc = -ENOMEM;
-> +		goto err;
-In general I find it easier to follow code that only uses a goto if there
-is shared cleanup to do.
-		return -ENOMEM; and for this path I don't need to read further.
-> +	}
-> +
-> +	mkcs = netdev_priv(ndev);
-> +	mkcs->netdev = ndev;
-> +	mkcs->client.dev = kcs_bmc;
-> +	mkcs->client.ops = &kcs_bmc_mctp_client_ops;
-> +	mkcs->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-> +	mkcs->data_out = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-
-You should not be mixing device manged cleanup and manual cleanup.  Rule of thumb
-is don't call any devm_ functions in a 'probe / add' type routine after you pass
-the first element that requires manual cleanup. Otherwise you get horrible
-race conditions or if not that, just code that is hard to check for them.
-
-> +	if (!mkcs->data_in || !mkcs->data_out) {
-Check these independently.  It costs a few extra lines but give more explicit
-messages and keeps ordering etc simpler.
-
-> +		dev_err(kcs_bmc->dev,
-> +			"failed to allocate data buffers for KCS channel %d\n",
-> +			kcs_bmc->channel);
-> +		rc = -ENOMEM;
-> +		goto free_netdev;
-> +	}
-> +
-> +	INIT_WORK(&mkcs->rx_work, mctp_kcs_rx_work);
-> +
-> +	rc = register_netdev(ndev);
-
-after change above, devm_register_netdev()
-
-> +	if (rc)
-> +		goto free_netdev;
-> +
-> +	spin_lock_irq(&kcs_bmc_mctp_instances_lock);
-> +	list_add(&mkcs->entry, &kcs_bmc_mctp_instances);
-
-Add a callback and devm_add_action_or_reset() to unwind this as well.
-
-> +	spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
-> +
-> +	dev_info(kcs_bmc->dev, "Add MCTP client for the KCS channel %d",
-> +		 kcs_bmc->channel);
-> +	return 0;
-> +
-> +free_netdev:
-> +	if (ndev)
-
-How do you get here with ndev not set?  If there is a path, that's probably
-a bug.
-
-> +		free_netdev(ndev);
-> +
-> +err:
-> +	return rc;
-> +}
-> +
-> +static int kcs_bmc_mctp_remove_device(struct kcs_bmc_device *kcs_bmc)
-> +{
-> +	struct mctp_kcs *mkcs = NULL, *pos;
-> +
-> +	dev_info(kcs_bmc->dev, "Remove MCTP client for the KCS channel %d",
-> +		 kcs_bmc->channel);
-> +	spin_lock_irq(&kcs_bmc_mctp_instances_lock);
-> +	list_for_each_entry(pos, &kcs_bmc_mctp_instances, entry) {
-> +		if (pos->client.dev == kcs_bmc) {
-> +			mkcs = pos;
-> +			list_del(&pos->entry);
-> +			break;
-I don't know the kcs stuff at all but these seems 'unusual'.
-Can't you stash  device_set_drvdata(kcs_bmc->dev) or does it
-just match the structure containing the client pointed to
-by kcs_bmc_device? If so use something like
-container_of(kcs_bmc->client, struct mctp_kcs, client);
-Ah. You already have a function for that.  Why not use that here?
-
-There isn't normally a reason for a driver to maintain an
-additional list like this.
-
-> +		}
-> +	}
-> +	spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
-> +
-> +	if (!mkcs)
-> +		return -ENODEV;
-> +
-> +	unregister_netdev(mkcs->netdev);
-> +	free_netdev(mkcs->netdev);
-
-This stuff should be opposite order of add above, or leave it to devm to clean up.
-
-> +	kcs_bmc_disable_device(mkcs->client.dev, &mkcs->client);
-
-This doesn't match with stuff in add - so I'd like a comment to explain
-why it is here.  Also needs a comment on the ordering.  Perhaps this
-is why you can't use devm for all the above, in which case I'd use it
-nowhere in this driver.
-I'm also confused on relationship between mks->client.dev and kcs_bmc
-(I'm fairly sure they are the same, so just use kcs_bmc here).
-
-
-
-> +	devm_kfree(kcs_bmc->dev, mkcs->data_in);
-> +	devm_kfree(kcs_bmc->dev, mkcs->data_out);
-
-Alarm bells occur whenever an explicit devm_kfree turns up in
-except in complex corner cases. Please look at how devm based
-resource management works. These should not be here.
-
-Also, remove_device should either do things in the opposite order
-to add_device, or it should have comments saying why not!
-
-
-> +	return 0;
-> +}
-> +
-> +static const struct kcs_bmc_driver_ops kcs_bmc_mctp_driver_ops = {
-> +	.add_device = kcs_bmc_mctp_add_device,
-> +	.remove_device = kcs_bmc_mctp_remove_device,
-> +};
-> +
-> +static struct kcs_bmc_driver kcs_bmc_mctp_driver = {
-> +	.ops = &kcs_bmc_mctp_driver_ops,
-> +};
-> +
-> +static int __init mctp_kcs_init(void)
-> +{
-> +	kcs_bmc_register_driver(&kcs_bmc_mctp_driver);
-> +	return 0;
-> +}
-> +
-> +static void __exit mctp_kcs_exit(void)
-> +{
-> +	kcs_bmc_unregister_driver(&kcs_bmc_mctp_driver);
-> +}
-
-Hmm. So kcs is a very small subsystem hence no one has done the usual
-module_kcs_driver() wrapper (see something like module_i2c_driver)
-for an example.  You can just use the underlying macro directly
-though to get rid of most of this boilerplate.
-
-
-module_driver(kcs_bmc_mctp_driver, kcs_bmc_register_driver,
-	      kcs_bmc_uregister_driver);
-
-> +
-> +module_init(mctp_kcs_init);
-> +module_exit(mctp_kcs_exit);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_AUTHOR("Konstantin Aladyshev <aladyshev22@gmail.com>");
-> +MODULE_DESCRIPTION("MCTP KCS transport");
-
-
+--===============8260884560969369821==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+
+--===============8260884560969369821==--
+
