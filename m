@@ -2,18 +2,18 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7860A7B4DD5
-	for <lists+openipmi-developer@lfdr.de>; Mon,  2 Oct 2023 10:53:31 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id E7A777B4DD0
+	for <lists+openipmi-developer@lfdr.de>; Mon,  2 Oct 2023 10:53:30 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qnEgB-00068T-Jl;
-	Mon, 02 Oct 2023 08:53:28 +0000
+	id 1qnEgA-0005s1-G4;
+	Mon, 02 Oct 2023 08:53:26 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <devnull+j.granados.samsung.com@kernel.org>)
- id 1qnEg7-00067u-W0 for openipmi-developer@lists.sourceforge.net;
+ id 1qnEg8-0005rb-S7 for openipmi-developer@lists.sourceforge.net;
  Mon, 02 Oct 2023 08:53:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
@@ -21,46 +21,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=DZIW8ZHBtPej975Lenqrmz/zF+koqqjwkHkNU9Z25Fw=; b=LxqjPmzfKw2ApzaO65Cri7M9Us
- cAfl4dJ09cdnlZoPihz9riIKNdzp9Ib6x8RrUebGQpVSFFqRXpK6UPtnqfZA60CT4uCr9cWxAljK5
- Uf9my1AdXlJJSqy4C5xc7Bnrd7n+OtX9dQntg087vZ3LFBLI/8mQXqes1pWJigsz9krk=;
+ bh=30qK6pKhju5NwD5B6UH65U+gtXr5QDT67nZk/wXrG5o=; b=lSvtrDDaHWi8lxaVKabnbup2VE
+ +A3UvLoELPngX5b+kzMG5/LxS67TsvysPHruP96aaUP9J4PQSJaw7djNQnp38D+4jbXMPahBqPTje
+ hpMqDkeS2Nsc/p9LzvTIUOJ8STjHWv80g/mJgWDavNYoVQhGe0Roqvdz3o/MgQLG+Hjs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=DZIW8ZHBtPej975Lenqrmz/zF+koqqjwkHkNU9Z25Fw=; b=dOzxxZdZ4Ow8ofsthYN+Jj6zI/
- wBg9tiTQ+4N5f53uIVgoaCmbGR0yi2BNrMkrsgJODgdD19nRP6xIKJLgOnB/KQhIVy24m/4bjgybl
- wrgNFDJXdWBWDRlCFEY5g8/Lk1MxRuzGr4pdEcKkB12NSVlPPdxMnutZXkYj5BwpFWmw=;
+ bh=30qK6pKhju5NwD5B6UH65U+gtXr5QDT67nZk/wXrG5o=; b=gLcr9KryBuqvBU0dyJGwMZv+RH
+ +656p9nf0cMt+Bv4dlesZn+/XGipRItXs8YP+Uq9k2/4ch5yU9liLyrzPd7stR9JC8pBiS67M2p8t
+ upXuBK92Yh5qaepB/CDEAooZQlICmJ+PFelm/eIDqBoGmVqK2TU2fUB2eMraaGLv36TE=;
 Received: from dfw.source.kernel.org ([139.178.84.217])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qnEg7-0001bJ-MR for openipmi-developer@lists.sourceforge.net;
+ id 1qnEg7-00FPCu-Jv for openipmi-developer@lists.sourceforge.net;
  Mon, 02 Oct 2023 08:53:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by dfw.source.kernel.org (Postfix) with ESMTP id 38C0260CBB;
+ by dfw.source.kernel.org (Postfix) with ESMTP id 8147560C94;
  Mon,  2 Oct 2023 08:53:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2DA0CC116C9;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 475C9C116D2;
  Mon,  2 Oct 2023 08:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
  s=k20201202; t=1696236795;
- bh=Z66CnIwS9V2Vqt1u5P+8e0+LhRmcv6hD7Hd8rNzQAts=;
+ bh=9jkWNrvkT+0LBek9ukFJf+FP4eXJDtJ7tqddCAk457s=;
  h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
- b=FfXQ3JOVk1tvf4snBGbIYUt7cC8t2/VKZpNPl4jEoAhstHH1gU38xQcPcL0xMKtDO
- FcJA+8XoYViss7jxu5hXH6/sywvcmYNyNhuXce15Yoll2wXw/QIPsqlT5EokBnGZ9+
- 7FFEV1Ca41aas3PCZKT26D8T9Wmcl0R/e3Ab84/+X5kKJgcdIe2GKk3NrqolXQkDz1
- z+zFTa9JCsSpc18W0aIH7G8yYeRNygleTrpvlohi0rYBtGH9PnAGE5qXhzXsNAOMr5
- IGQBWPcP/q4f8s/7dZVXUexQStJ2MV5DZxJ3qopwYcfFBKYzBzY4JLsZUfxyexqedC
- 4AOrRWFAq3SWw==
+ b=mHarItBj0kfOKDXhcHyRTyxtdqNbek3gy9DO+yrzNTUJjpLPxU5bKRqHCkdOW17Ie
+ xkjq0jUNKFsuFS2t19rNxjW1x3vXKYkakaCdWfIuYHrFXtHrvD/4bfnm6FDLdjwnlo
+ 5voc1dkLeKWe49cuL/zomKRMH9j951bKZs0iByI9rUHpEQ4xmK+7nJPykI4XyrFMGp
+ hBVWTvg03Gy3ikCGWQykcvc5t0tV5Mq6CMkTLxGhqPmcMmS4/zmnuv2Cu263JvWv+R
+ BfgcskbdW/nGJdhxW0T1YjF8PrpchaPtHg/O8IdSlvpoENpmGsP0W51gKChlgqBeIv
+ qAV34DsE/M6Vw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
  (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id 163D8E784A5;
+ by smtp.lore.kernel.org (Postfix) with ESMTP id 29385E784AF;
  Mon,  2 Oct 2023 08:53:15 +0000 (UTC)
 From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Mon, 02 Oct 2023 10:55:22 +0200
+Date: Mon, 02 Oct 2023 10:55:23 +0200
 MIME-Version: 1.0
-Message-Id: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-5-02dd0d46f71e@samsung.com>
+Message-Id: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-6-02dd0d46f71e@samsung.com>
 References: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
 In-Reply-To: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
 To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
@@ -92,18 +92,18 @@ To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org,
  Tvrtko Ursulin <tvrtko.ursulin@linux.intel.com>, 
  David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>
 X-Mailer: b4 0.13-dev-86aa5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1309;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3837;
  i=j.granados@samsung.com; h=from:subject:message-id;
- bh=oNupD2h3b6zB7gVtrnkT38EloH2PCHXEzMgi8iB28Z0=;
- b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGoV9bakHas2ZtL0/2ymaNUaT4ifb9b2axOuon
- 88g/ZRNm5WJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqFfQAKCRC6l81St5ZB
- T9hGC/9BxGOk4yKvzEwHz7zhjWcMLWEMYBXIdwPBdJabd4q2HJEJDibrwMhDsBvWrF4cxPPQzS+
- NlyI9mEcGM/vbiQoSRC7ZFAAdSZ3y5OFTZUOZq7D0FglyIaDIIcphFJ0iR89tM2b4/pLUyWAlUv
- 1/C649YV4KMxAx15oN3BIj6ZEEQ5GpZkROyKu6viWH7RcVvs37SL3gmNH54KSyvXNOf5JhXPO/g
- IwNAFEirUi7RoZdqvNbMuTDadvPA7F4bI1UAepsn3FNcxBMBWji4SxQSkFCjMHgLwvtlmJ1fm2d
- kC6apagB6wAeAVsPU4S8zoXak6uWuIvQSo8XLq4Qw02x0SHYJeij6Nrvb9zxicB3tROtWoVqeHH
- PoZYHaMM6RN4gSn5AJs8MZHfW/9wz+OBklxtmlWscGzvNFrbTffPKLwxfPOxCPRKTy0372aDB3d
- j2MXs6cmfFsm7eFF4lBFqmKhXNmrawahKg3MaYg8+88oh4G6w0L4jip6dRcf9CJug/Imw=
+ bh=NSvTJ17Kcfm8DYFJyM6YVk1PHDjvaSDbIrsd2Gse9YE=;
+ b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGoV9bbHfdufy6tsLcPXDVXR+WNMz7RSAH58f9
+ kFGXPJsJcmJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqFfQAKCRC6l81St5ZB
+ T2bgDACMcQXXhS/ofH4DCGI9Yfly1kT6RdmG9Sur8hjxuooeorZgEl/aCXeisvwUQFj4lOt8Hx0
+ +gdjKSn0uN4Y8DF0k6dnFSA+h9NhuFNA65F6Wain093IqXcKXimz7qvzMw2nopuTQ+X+N3zQ0vJ
+ absXFp0jssl+QlKi1hDVQz8mDWpkmDNx/bOPRh4QErCHilM/maVTlO5Fq7neDfmeOfloV1U+qLi
+ dmmOgFxn9jpx2A+HY0D568WeEcE52zMiP2tSiVYzTXfI69odUkdpXAR5mAiC8wJwCKdEkveF5fD
+ iBpWx5t50vj4aiid0chdBpPXmAcdBlYTLYFlwVqccnB7XAefYcefrfLqQyhwfzR7SjZj8yCcjn/
+ zKe2EBbcfrFa6tHzwtj6dbrIRnfMMIjpjwrb+QsvwLtgSt9qqv9W/qEZDyl3+79NQu2Squ9v1Bk
+ /EewjeRY0ixUgWq2yB2PeOCI975SunWYb3QfV1aFT07wvTzBKt9k6lYWP3VItXPoWT9RE=
 X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with
@@ -111,7 +111,7 @@ X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with
 X-Original-From: Joel Granados <j.granados@samsung.com>
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -128,17 +128,16 @@ X-Spam-Report: Spam detection software,
  high trust [139.178.84.217 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1qnEg7-0001bJ-MR
-Subject: [Openipmi-developer] [PATCH v2 05/15] scsi: Remove now superfluous
- sentinel element from ctl_table array
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1qnEg7-00FPCu-Jv
+Subject: [Openipmi-developer] [PATCH v2 06/15] parport: Remove the now
+ superfluous sentinel element from ctl_table array
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -170,38 +169,118 @@ will reduce the overall build time size of the kernel and run time
 memory bloat by ~64 bytes per sentinel (further information Link :
 https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
 
-Remove sentinel from scsi_table and sg_sysctls.
+Remove the unneeded ctl_tables that were used to register intermediate
+parport directories; only the path is needed at this point. From
+parport_device_sysctl_table we removed: devices_root_dir, port_dir,
+parport_dir and dev_dir. From parport_default_sysctl_table we removed:
+default_dir, parport_dir and dev_dir. Reduce the size by one of the
+ctl_table arrays that were not removed
+
+Assign different sizes to the vars array in parport_sysctl_table
+depending on CONFIG_PARPORT_1284; this is necessary now that the sysctl
+register function uses ARRAY_SIZE to calculate the elements within.
+Remove the sentinel element from parport_sysctl_template,
+parport_device_sysctl_table and parport_default_sysctl_table.
 
 Signed-off-by: Joel Granados <j.granados@samsung.com>
 ---
- drivers/scsi/scsi_sysctl.c | 1 -
- drivers/scsi/sg.c          | 1 -
- 2 files changed, 2 deletions(-)
+ drivers/parport/procfs.c | 28 +++++++++++-----------------
+ 1 file changed, 11 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/scsi/scsi_sysctl.c b/drivers/scsi/scsi_sysctl.c
-index 7f0914ea168f..093774d77534 100644
---- a/drivers/scsi/scsi_sysctl.c
-+++ b/drivers/scsi/scsi_sysctl.c
-@@ -18,7 +18,6 @@ static struct ctl_table scsi_table[] = {
- 	  .maxlen	= sizeof(scsi_logging_level),
- 	  .mode		= 0644,
- 	  .proc_handler	= proc_dointvec },
--	{ }
+diff --git a/drivers/parport/procfs.c b/drivers/parport/procfs.c
+index 4e5b972c3e26..532d5cbbd344 100644
+--- a/drivers/parport/procfs.c
++++ b/drivers/parport/procfs.c
+@@ -259,8 +259,12 @@ PARPORT_MAX_SPINTIME_VALUE;
+ struct parport_sysctl_table {
+ 	struct ctl_table_header *port_header;
+ 	struct ctl_table_header *devices_header;
+-	struct ctl_table vars[12];
+-	struct ctl_table device_dir[2];
++#ifdef CONFIG_PARPORT_1284
++	struct ctl_table vars[10];
++#else
++	struct ctl_table vars[5];
++#endif /* IEEE 1284 support */
++	struct ctl_table device_dir[1];
  };
  
- static struct ctl_table_header *scsi_table_header;
-diff --git a/drivers/scsi/sg.c b/drivers/scsi/sg.c
-index 0d8afffd1683..86210e4dd0d3 100644
---- a/drivers/scsi/sg.c
-+++ b/drivers/scsi/sg.c
-@@ -1650,7 +1650,6 @@ static struct ctl_table sg_sysctls[] = {
- 		.mode		= 0444,
- 		.proc_handler	= proc_dointvec,
+ static const struct parport_sysctl_table parport_sysctl_template = {
+@@ -341,7 +345,6 @@ static const struct parport_sysctl_table parport_sysctl_template = {
+ 			.proc_handler	= do_autoprobe
+ 		},
+ #endif /* IEEE 1284 support */
+-		{}
  	},
--	{}
+ 	{
+ 		{
+@@ -351,19 +354,14 @@ static const struct parport_sysctl_table parport_sysctl_template = {
+ 			.mode		= 0444,
+ 			.proc_handler	= do_active_device
+ 		},
+-		{}
+ 	},
  };
  
- static struct ctl_table_header *hdr;
+ struct parport_device_sysctl_table
+ {
+ 	struct ctl_table_header *sysctl_header;
+-	struct ctl_table vars[2];
+-	struct ctl_table device_dir[2];
+-	struct ctl_table devices_root_dir[2];
+-	struct ctl_table port_dir[2];
+-	struct ctl_table parport_dir[2];
+-	struct ctl_table dev_dir[2];
++	struct ctl_table vars[1];
++	struct ctl_table device_dir[1];
+ };
+ 
+ static const struct parport_device_sysctl_table
+@@ -379,7 +377,6 @@ parport_device_sysctl_template = {
+ 			.extra1		= (void*) &parport_min_timeslice_value,
+ 			.extra2		= (void*) &parport_max_timeslice_value
+ 		},
+-		{}
+ 	},
+ 	{
+ 		{
+@@ -388,17 +385,13 @@ parport_device_sysctl_template = {
+ 			.maxlen		= 0,
+ 			.mode		= 0555,
+ 		},
+-		{}
+ 	}
+ };
+ 
+ struct parport_default_sysctl_table
+ {
+ 	struct ctl_table_header *sysctl_header;
+-	struct ctl_table vars[3];
+-	struct ctl_table default_dir[2];
+-	struct ctl_table parport_dir[2];
+-	struct ctl_table dev_dir[2];
++	struct ctl_table vars[2];
+ };
+ 
+ static struct parport_default_sysctl_table
+@@ -423,7 +416,6 @@ parport_default_sysctl_table = {
+ 			.extra1		= (void*) &parport_min_spintime_value,
+ 			.extra2		= (void*) &parport_max_spintime_value
+ 		},
+-		{}
+ 	}
+ };
+ 
+@@ -443,7 +435,9 @@ int parport_proc_register(struct parport *port)
+ 	t->vars[0].data = &port->spintime;
+ 	for (i = 0; i < 5; i++) {
+ 		t->vars[i].extra1 = port;
++#ifdef CONFIG_PARPORT_1284
+ 		t->vars[5 + i].extra2 = &port->probe_info[i];
++#endif /* IEEE 1284 support */
+ 	}
+ 
+ 	port_name_len = strnlen(port->name, PARPORT_NAME_MAX_LEN);
 
 -- 
 2.30.2
