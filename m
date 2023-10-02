@@ -2,18 +2,18 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id DAC1A7B4DEE
-	for <lists+openipmi-developer@lfdr.de>; Mon,  2 Oct 2023 10:53:37 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id C510D7B4DEB
+	for <lists+openipmi-developer@lfdr.de>; Mon,  2 Oct 2023 10:53:36 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qnEgH-0006A3-GB;
-	Mon, 02 Oct 2023 08:53:34 +0000
+	id 1qnEgI-0005y1-Jk;
+	Mon, 02 Oct 2023 08:53:33 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <devnull+j.granados.samsung.com@kernel.org>)
- id 1qnEgD-00069R-W5 for openipmi-developer@lists.sourceforge.net;
+ id 1qnEgF-0005wn-Hf for openipmi-developer@lists.sourceforge.net;
  Mon, 02 Oct 2023 08:53:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
@@ -21,47 +21,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=+45SDNi2DcPyVnkJ89yeHdxTNIGdBecB8aG6OZ19cJ8=; b=BqXnlT2BSxyrO/po0usvK5tEgK
- v2cTo/FXNVVifUgBmaSUcHenxjE6/A2cfQ6pnFU6QbVF/ELbM7WWs8Zxg1prtoM4sAufoWz6TiFH2
- 9//v3B+FvvfYkyzWuldL5SF1+vPD7aXds+lm7ZUlS1N0KMSW8gbTLX1oBhGfLu6M/E4Q=;
+ bh=2VIhKIYEKeeRCPZhvHG/tkeXMmrwmC5ATfsOGb4vhFs=; b=JRDOgEkYL+dv3Szs0hjIqHtTmD
+ ZJTmmepYoOm5yjBsM+I5MpSIcWPvzcXNZFle53at9V2UvFDNFYFDcV/0IbeuXEcS/koYXL/CbEfZv
+ 4eEcOWqr79CgsL1r3OJ6FhmisAxrXEZRAPADp6c3Z1FsonRoNX44DWZWRij3aqvIJVsc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=+45SDNi2DcPyVnkJ89yeHdxTNIGdBecB8aG6OZ19cJ8=; b=RFyZoUEe88kQCxSxBzYEmHQz+d
- KQPi6xUjy0NngQzAyddshg6tDz/AxBSSPfmsD2Qt4XRWLje4gGRKFR5V07PvDxyfiqt5IyVEaNUaP
- v3AfPvekBOnpSszM5K78p4IBGNXs6ab0v/M/OM8YFgoyba0TmSRtbfYd1mS9cvwFDgSA=;
+ bh=2VIhKIYEKeeRCPZhvHG/tkeXMmrwmC5ATfsOGb4vhFs=; b=mbUaZz2AQHthbis+b85t2rjowT
+ GVzWmgdNT5mB+Q6Lr/5HvnfwML9mHcZxCjmdTk3/q7qsjgd8xv6Hk/7HMtCFlFGmxRaZD2Z9X4SPE
+ Mzp++ziZ8vnekepYOgdcu9FCP8mEqYiy8ouP/Qvf/xYF4LpMEAfUXNTX17CbmuZfliVw=;
 Received: from dfw.source.kernel.org ([139.178.84.217])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qnEgD-00FPDV-Pj for openipmi-developer@lists.sourceforge.net;
+ id 1qnEgD-0001cD-JV for openipmi-developer@lists.sourceforge.net;
  Mon, 02 Oct 2023 08:53:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by dfw.source.kernel.org (Postfix) with ESMTP id 40E8160DC5;
+ by dfw.source.kernel.org (Postfix) with ESMTP id 57E4F60CFB;
  Mon,  2 Oct 2023 08:53:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 233BCC32791;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 35C14C4E766;
  Mon,  2 Oct 2023 08:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
  s=k20201202; t=1696236796;
- bh=CWlJL9Lw1/ldMKMXIXxw/hUhoDe/0uo8LXE4rcCIDvg=;
+ bh=Uls7XPBqn6bEdL1vvvSumrQjEL8zidoGeMiRdIO1DJY=;
  h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
- b=dr780/9OgUcsdtC82ja0MVSV0MPcrkXtIHn1pfiy0bouUWxiebn11JLyTjawcIz1B
- ACtOMw8UJL7kZBt4+Lypa11r9YIbBL2pUR4tV7r3QIOnCIuJuaBBW/9q4JfKHjx1rO
- 6DzPgfGQxmcnE3sD8DWla26vXCXsl+oyLhwVGCFiYwBOrRxzVfX7ROfuVdzYIv7UN4
- DLxNvEoWgw3dN2cyVkNUBQeJlZ7BFF4dfqBAUktV8qF7Fxq4p/dDrq364NaHDDdMbT
- HPQK4lMcdLy+TTpsVeHkfkPs0w8oUjzfHoz+Rpqcu+CKTvTQz3xFFRsIiD83pD1xv0
- sGtUhoGU9ETOw==
+ b=Znf3uRMkmmRKi1FLLfPuqGTg8TxGkA5vUnml0sGBj/lNU6zqUvRBzjrq7wi6dn8Og
+ wCyjSubCD1peM1ABs9alnKNnpygl6FEODH191I9gcvsuadwWzNddgNJLQ/JgQBBv+f
+ 8csrmLrTP4RdqSuxbZr9GYMPwcXEuGmtg+LPqUoGh+DRcxC+Qy2q/ZuXv425c7elRW
+ hkQarTUdR4UlN5ftzxnKDuhuw+TtiQl8eB3UkN0Zv8gpgtXrHFXol+boWHu8rBPpUr
+ zx65s2Dja0H0a8xRbJUggKI4s2EqqSkQcPlKnKgxeHG0EWBhH9TalmbyI4rwQ0Ut/+
+ goBAiOgxVi5AA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
  (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id 0BF3CE784B4;
+ by smtp.lore.kernel.org (Postfix) with ESMTP id 203EEE784AF;
  Mon,  2 Oct 2023 08:53:16 +0000 (UTC)
 From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Mon, 02 Oct 2023 10:55:31 +0200
+Date: Mon, 02 Oct 2023 10:55:32 +0200
 MIME-Version: 1.0
 Message-Id: =?utf-8?q?=3C20231002-jag-sysctl=5Fremove=5Fempty=5Felem=5Fdrive?=
- =?utf-8?q?rs-v2-14-02dd0d46f71e=40samsung=2Ecom=3E?=
+ =?utf-8?q?rs-v2-15-02dd0d46f71e=40samsung=2Ecom=3E?=
 References: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
 In-Reply-To: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
 To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
@@ -93,18 +93,18 @@ To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org,
  Tvrtko Ursulin <tvrtko.ursulin@linux.intel.com>, 
  David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>
 X-Mailer: b4 0.13-dev-86aa5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=895; i=j.granados@samsung.com; 
+X-Developer-Signature: v=1; a=openpgp-sha256; l=944; i=j.granados@samsung.com; 
  h=from:subject:message-id;
- bh=aRo7NVdYCvLdNgGSBgQ6l0+E6oBOdQJH07rUCLQlR94=; 
- b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGoV/RVrZ++DlZt66bGmFv2tACCjFtyc9bKCyt
- Xh72+xBYa2JAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqFfwAKCRC6l81St5ZB
- T9wCC/9S9uDWtQoaUtTyJySq/BwgMLnAny2OrneSlhO0UKqMZFvbOgUuQGiJNs8VyC7IlWrxHVm
- 2gbT3WD/mQhI9WX/B0z4TarGuU+BJmzwoPPun5D3G6oUedf0JdyIZLs9TJwZyL4KbQHIhVQ8skt
- 9d2ELBqWveNmV8f+e8MKgjsdagi/9I77W0Dlj2eujgXgyIiPLQ/ZS+2g+heBSUicyN16ibHEu82
- LllVj4x/NiItYuyLOncHEA6dI2/PYrOmYAHIkg5yUqWOhwDEKS4RmcYq0Y0lzUl8APdk06uQkJb
- FFdVwsBnc3/rIeI8WobAqGTPjJ+p7k6APq5wq2IG+SuGmix2X7nozc7PdKVDApIkihzXIqIdVzt
- YXt3lgmdjZI5hmlPt6RyTPvW/lX88Ru+QtyDLF7HtMgyQnjyq5zqqu1URjGJnly2oy19F7wlilb
- AGIwY7o8qjN9C7sQC6yGWy2cGGyxw/g56tiwhVyVidw8uSz1wSXK/WM5kW7C0TiW0R8hQ=
+ bh=XQdPHHjf+SEqXH5I2ue4u4cYp825opd75wWUwOtUAHg=; 
+ b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGoWAu+BY9dasS5g5jzpwW+wb0CuXVsnRm7zPL
+ 9PCLIz16zuJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqFgAAKCRC6l81St5ZB
+ T4dBC/4sGw23E9mtpKFCRILNBVXTFFu7WRasCAH0c42eC8QRvWM22jnATwXrejlfZcSArtKRPCv
+ wfyjPWWRmMsX2Y9QgdzQR4eDIR4OQdGxaQ4/9XSwkGOLd7l9gxEAAEi8llY4tPInfqJ8yVVRHRL
+ kJdHEMgrOkdkoJVo/FH8l7kkyKTHVZqEqBuIpYMRQq0vs3giMG4Coo88yES1bFU47AyR49UdfVf
+ QtcI7yfGBkHj9WuAuCZdvwlb/C7Y33lOTv/rXp5qxbGJFG/XZqtnhH8eAWrdaVnpC/lfeExJC/N
+ Lm13PvtkIVR5sYCBtNXqApWpo7PjFw1K6HNYNoyRM+LXYRWZYjNM8T5OszX4OLnIjcam1EOtduK
+ Z+VeE5uN753bvNh48r2JUIj/GExe1vTcY7a9da8tDlmzB+FEWZo9JbdpakNtfcKKjgKksTFXm75
+ ulwZaMeS//8aNIMyrqyVcm4mjJ3q1QRxkcIptFtjcjFnbIGeIGcqc+bJIjQ8SiOblodg8=
 X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with
@@ -138,8 +138,8 @@ X-Spam-Report: Spam detection software,
  valid
  1.2 INVALID_MSGID          Message-Id is not valid, according to RFC 2822
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1qnEgD-00FPDV-Pj
-Subject: [Openipmi-developer] [PATCH v2 14/15] Drivers: hv: Remove now
+X-Headers-End: 1qnEgD-0001cD-JV
+Subject: [Openipmi-developer] [PATCH v2 15/15] intel drm: Remove now
  superfluous sentinel element from ctl_table array
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -172,25 +172,25 @@ will reduce the overall build time size of the kernel and run time
 memory bloat by ~64 bytes per sentinel (further information Link :
 https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
 
-Remove sentinel from hv_ctl_table
+Remove sentinel from oa_table
 
 Signed-off-by: Joel Granados <j.granados@samsung.com>
 ---
- drivers/hv/hv_common.c | 1 -
+ drivers/gpu/drm/i915/i915_perf.c | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-index ccad7bca3fd3..4372f5d146ab 100644
---- a/drivers/hv/hv_common.c
-+++ b/drivers/hv/hv_common.c
-@@ -148,7 +148,6 @@ static struct ctl_table hv_ctl_table[] = {
- 		.extra1		= SYSCTL_ZERO,
- 		.extra2		= SYSCTL_ONE
- 	},
+diff --git a/drivers/gpu/drm/i915/i915_perf.c b/drivers/gpu/drm/i915/i915_perf.c
+index 04bc1f4a1115..23e769aa214c 100644
+--- a/drivers/gpu/drm/i915/i915_perf.c
++++ b/drivers/gpu/drm/i915/i915_perf.c
+@@ -4896,7 +4896,6 @@ static struct ctl_table oa_table[] = {
+ 	 .extra1 = SYSCTL_ZERO,
+ 	 .extra2 = &oa_sample_rate_hard_limit,
+ 	 },
 -	{}
  };
  
- static int hv_die_panic_notify_crash(struct notifier_block *self,
+ static u32 num_perf_groups_per_gt(struct intel_gt *gt)
 
 -- 
 2.30.2
