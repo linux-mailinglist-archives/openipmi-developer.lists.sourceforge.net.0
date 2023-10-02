@@ -2,70 +2,67 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0B0997B4DD1
-	for <lists+openipmi-developer@lfdr.de>; Mon,  2 Oct 2023 10:53:31 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 825F27B4DF5
+	for <lists+openipmi-developer@lfdr.de>; Mon,  2 Oct 2023 10:53:40 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qnEg9-000686-86;
-	Mon, 02 Oct 2023 08:53:25 +0000
+	id 1qnEgM-0001y7-OS;
+	Mon, 02 Oct 2023 08:53:37 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <devnull+j.granados.samsung.com@kernel.org>)
- id 1qnEg7-00067o-0n for openipmi-developer@lists.sourceforge.net;
- Mon, 02 Oct 2023 08:53:23 +0000
+ id 1qnEgA-0001xL-D7 for openipmi-developer@lists.sourceforge.net;
+ Mon, 02 Oct 2023 08:53:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Reply-To:Cc:To:Content-Transfer-Encoding:
- Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
+ Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=5rtEw2wCl2YLBU66hjeKZtougrfdHpdx7oA1yziBDEY=; b=TNRGFUmOHQBvpth4abk1sVViOE
- AV302XstbLvweAPHKDWs1TUrjznwAknmTzTeuRY23mPW3UPqaZJE5TR5CNfa0ueqtCQQh5hIqQo9x
- 4QtVP6fWij1f8tV/Py5MSEXH5yyD728nKC8V90oIYdREZIbCJANVFiCHNT7UoKqXwXE8=;
+ bh=HVhho1AicHF0WE1BfssweT765ILgRV/xKM5U61iNQ2Y=; b=Q7wAYaREEyH3H8dRhwWPnrmZcl
+ 6cprcQe+f/XOuwveMpeimvLyp02s3SHGnPsffTWnEGmKcOFg0ZfIfvIcXkPimu0rIPaRGGAtgkLrg
+ 6aRZ25n7wPcEI7znZNORznY4BBqnr53YRG8vToRahG21Dj/5FfuZ4oD4SaeXGonxKxQ4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
- ;
- h=Reply-To:Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- Message-Id:Date:Subject:From:Sender:Content-ID:Content-Description:
- Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
- In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=5rtEw2wCl2YLBU66hjeKZtougrfdHpdx7oA1yziBDEY=; b=IPAqvwdAVV+GobF3qsm0Ke/9Xw
- a1QCQIXZFOGTteUvs9dRUZK2o4fdUqwKrMc8MI7O9Ps9znJ689gdKxlouzjt2DN/Di/QdcxsqAzp8
- wWY8Ca947hfte+pd9rxBZuXaw2Iz6TI/D7E3IiE1JFjWcrGfYW7eL4b8jfyzic3Bchck=;
-Received: from ams.source.kernel.org ([145.40.68.75])
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
+ Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=HVhho1AicHF0WE1BfssweT765ILgRV/xKM5U61iNQ2Y=; b=Pf9yogkgQ3M3hNh1izUs+7HLsZ
+ ofOcnW/8lFOQ56uCIydUgU4wRWq1JdLX5MFV0QSQAecREyOeYazuw2yNiclpU5P8zzJTHL/Srro2z
+ T7gvoU3M6VJJ2TLf+TVJ5V5kvOq+1KxX1vkeTSXGJf2bnMicXzlDWTy+/U1pb9z+93vI=;
+Received: from sin.source.kernel.org ([145.40.73.55])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qnEg6-00FPCl-C9 for openipmi-developer@lists.sourceforge.net;
- Mon, 02 Oct 2023 08:53:23 +0000
+ id 1qnEg7-0001b4-OF for openipmi-developer@lists.sourceforge.net;
+ Mon, 02 Oct 2023 08:53:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by ams.source.kernel.org (Postfix) with ESMTP id 91F4EB80DDC;
+ by sin.source.kernel.org (Postfix) with ESMTP id B6F7FCE0EAA;
  Mon,  2 Oct 2023 08:53:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D7198C433C8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E058EC433CA;
  Mon,  2 Oct 2023 08:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1696236794;
- bh=IZog35uNq8vGRsNKIfEniN68FE7olg9OC5FvS2SzfCc=;
- h=From:Subject:Date:To:Cc:Reply-To:From;
- b=hufwGK8eMTwpAZzY5tjjCcSrUlENx2R+GHGSL/MRXkOFuLxlRDrpxb7L8+UmzAAMY
- 3kyrLlmdif7UJUhx8unTHOW05aoTQTW9PQR/22MMlDEvRzoawpbBHEOwCPKVSGi9hX
- 0wD8UynDxT9GxWBuVaKGJb1hefuvPbZhQSQ6hYcimLZgnX/osYq003o8rF1prmfvhi
- LtYeFa0hAvwXxBPpAp66rx2duVRL7Q2j6tUSgp66GHPQLnypVAF+y5Z1tfYpYJ5k6j
- /t6wPv+O/vLovGDIQr1Jl99KdgEs2bk9jJSQfzwBDj1gwVb8p3QcZWt/rbklVbQMGh
- 6tqQLbbnXv/NQ==
+ s=k20201202; t=1696236795;
+ bh=t9nUnlsUSGSA6KXDG9eIUL8NkaKGhkaZ+k9zMU/msOg=;
+ h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+ b=aZC8ob0hBMVk/wW7CrMfHJAbHgX2r4sD/N1pYyMgeZPSD986C/6LQvjoHrLdt9uo/
+ AvWc8ItdH5zANDM/BWHExhTO0vMgN4wZUbYWLFbxL0fLqvO3sdGIen+rLKCRM7HalK
+ WdxkvK2kIchZghqnMFEV1uotHf/kI6qDyNQo5vyOcl9EPWFRLmXc30qj8QCOU00u/K
+ a5COzI0S1cShOdJCYZILXR2eqvaAir/yUVEohOvIFqlLF0kSv9ZkZ5rthTWWEaobE/
+ 2xOp01TTELGSZ87Lfr38Nudyjn+xoH5tZ2P7iKWsnwLFrEJLkYT90+yOhMifOOt3CP
+ 9rey/67aYTa8A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
  (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id B437FE784A5;
+ by smtp.lore.kernel.org (Postfix) with ESMTP id C92CBE784A4;
  Mon,  2 Oct 2023 08:53:14 +0000 (UTC)
 From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Mon, 02 Oct 2023 10:55:17 +0200
-Message-Id: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
+Date: Mon, 02 Oct 2023 10:55:18 +0200
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAHWFGmUC/43NSw6DIBSF4a0YxqVB7EM66j4aQwhe9DYihmtJj
- XHvpSadd/ifwflWRhARiN2KlUVISBjGHPJQMNubsQOObW4mhayEklf+NB2nhew86Ag+JNDgp3n
- RMIDXbcQEkbgT1UldpBFtbVm+miI4fO/Mo8ndI80hLruayu/6A+r/gFRyweGsSimcNcqpOxlPr
- 7E72uBZs23bB7xaV5/aAAAA
+Message-Id: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-1-02dd0d46f71e@samsung.com>
+References: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
+In-Reply-To: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
 To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
  josh@joshtriplett.org, Kees Cook <keescook@chromium.org>, 
  Phillip Potter <phil@philpotter.co.uk>, 
@@ -95,18 +92,18 @@ To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org,
  Tvrtko Ursulin <tvrtko.ursulin@linux.intel.com>, 
  David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>
 X-Mailer: b4 0.13-dev-86aa5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12365;
- i=j.granados@samsung.com; h=from:subject:message-id;
- bh=odYjDIhyzOtO5Q0U203ntyluw37NErA2/ZkJretAk7g=;
- b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGoV7hvNwCIGX3CH1hN+xorNhoD5xKwuTuTXzC
- Hr03QRHgz2JAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqFewAKCRC6l81St5ZB
- T9oDC/wKVdRDpAFA8LsfwGfmauawotop1selvIUUiWvIA6Ydbya0ucL7Chq71gwhtiD6XFgnEAm
- MYfELkOZ3OHpp+ERmRTsKo2NcA+1/OHMfAADX3brGP5OWKzGXVhkR9GYDAYD1XPo6ShiUZIT+Cu
- fIFO+s/Wg5tgnVjs4yE44jXRFPsbH3pwnqxFGbAbX26GI+GTPo+jjtUL0a+WcbJy9Mpxpu2+bDO
- TZHVixlLPOqq3YBxSBPOYQ+IYTra4MO9MYTdEdvQhfSGZgVBw+fdrG0/5caISy38c3S91WaLLFV
- pXyRzsol2P/FUrSXxdgKSkD6vBheUaywFVgt6cstLp4+/yStMgYYYcknx5Mlf4LOwuebaFLKAau
- pP1GDHZXYoR6xKI2UghYY1DX7mGloY0U16rrWh7f2hSAvTBsMHyzN1GS5nrtecfUmMpDNvqcDx6
- WIPfHqbSx6RcqFTDisa1KnzCA91No7YAHYQrpOwTMzCuakkbopEGnu34ba88MRprtuL3M=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=892; i=j.granados@samsung.com; 
+ h=from:subject:message-id;
+ bh=HP9sX3Yq6no3LIGS7gxj0QQAPjl1kSKLH9YGL6vsrCg=; 
+ b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGoV7aj+83oYeqb6g5LqMcPrlSYA/sw3XNVtGi
+ Tcihv7W1e6JAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqFewAKCRC6l81St5ZB
+ T11zC/4isu/2elcU5kFo1V5OSm37bxnkesh8BXCmqaU8pLDmABQPsaVAjhuaMiVbkWywdosML0J
+ eP1RbZREtG8tHA6hHvcQsiGPfV9VY7ZBY1izxZ80Omx6lGmNThQ7JKoH4eUk+fXenQGzJg0YCEg
+ uQ2ICUEUTlPKK4WMlEPkh3fpxrqROwTV+otJdR6avKiRPLM97uCNupakiOCqOcB/6BG7kOTc28W
+ OAeIilC+3jn3ceUirFEqPijJ1Yqs0aSvHBRf+OWKgMo9rakMo0He0gazX1Q9tfIeInipcs/syO3
+ HiRA8VyEZDMGLd2lcOxrko1eA04kSPUHzQSOTNTnId65w/EiSv9j0FKxPT4p5qwslYQOxp096rZ
+ AKmZAryXj/h7R9EAQxxgUpLxsuEpRs8NFX9A4t/zM/kyoNJGM92xl/pFHdARq3GMzxTYav4Gl30
+ ydelfjzMw2s6dE2Vc3Qy88S86774JSBNoouXG9eJuxHPAZlvzjhxjH+oXYvGmyGX71VrY=
 X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with
@@ -114,34 +111,33 @@ X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with
 X-Original-From: Joel Granados <j.granados@samsung.com>
 X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: From: Joel Granados <j.granados@samsung.com> What? These
- commits
- remove the sentinel element (last empty element) from the sysctl arrays of
- all the files under the "drivers/" directory that use a sysctl array for
- registration. The merging of the [...] 
+ Content preview: From: Joel Granados <j.granados@samsung.com> This commit
+ comes
+ at the tail end of a greater effort to remove the empty elements at the end
+ of the ctl_table arrays (sentinels) which will reduce the overall build time
+ size of the kernel and run ti [...] 
  Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [145.40.68.75 listed in list.dnswl.org]
+ medium trust [145.40.73.55 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1qnEg6-00FPCl-C9
-Subject: [Openipmi-developer] [PATCH v2 00/15] sysctl: Remove sentinel
- elements from drivers
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1qnEg7-0001b4-OF
+Subject: [Openipmi-developer] [PATCH v2 01/15] cdrom: Remove now superfluous
+ sentinel element from ctl_table array
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -167,271 +163,34 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
 From: Joel Granados <j.granados@samsung.com>
 
-What?
-These commits remove the sentinel element (last empty element) from the
-sysctl arrays of all the files under the "drivers/" directory that use a
-sysctl array for registration. The merging of the preparation patches
-(in https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
-to mainline allows us to just remove sentinel elements without changing
-behavior (more info here [1]).
+This commit comes at the tail end of a greater effort to remove the
+empty elements at the end of the ctl_table arrays (sentinels) which
+will reduce the overall build time size of the kernel and run time
+memory bloat by ~64 bytes per sentinel (further information Link :
+https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
 
-These commits are part of a bigger set (here
-https://github.com/Joelgranados/linux/tree/tag/sysctl_remove_empty_elem_V4)
-that remove the ctl_table sentinel. Make the review process easier by
-chunking the commits into manageable pieces. Each chunk can be reviewed
-separately without noise from parallel sets.
-
-Now that the architecture chunk has been mostly reviewed [6], we send
-the "drivers/" directory. Once this one is done, it will be follwed by
-"fs/*", "kernel/*", "net/*" and miscellaneous. The final set will remove
-the unneeded check for ->procname == NULL.
-
-Why?
-By removing the sysctl sentinel elements we avoid kernel bloat as
-ctl_table arrays get moved out of kernel/sysctl.c into their own
-respective subsystems. This move was started long ago to avoid merge
-conflicts; the sentinel removal bit came after Mathew Wilcox suggested
-it to avoid bloating the kernel by one element as arrays moved out. This
-patchset will reduce the overall build time size of the kernel and run
-time memory bloat by about ~64 bytes per declared ctl_table array. I
-have consolidated some links that shed light on the history of this
-effort [2].
-
-Testing:
-* Ran sysctl selftests (./tools/testing/selftests/sysctl/sysctl.sh)
-* Ran this through 0-day with no errors or warnings
-
-Size saving after removing all sentinels:
-  These are the bytes that we save after removing all the sentinels
-  (this plus all the other chunks). I included them to get an idea of
-  how much memory we are talking about.
-    * bloat-o-meter:
-        - The "yesall" configuration results save 9158 bytes
-          https://lore.kernel.org/all/20230621091000.424843-1-j.granados@samsung.com/
-        - The "tiny" config + CONFIG_SYSCTL save 1215 bytes
-          https://lore.kernel.org/all/20230809105006.1198165-1-j.granados@samsung.com/
-    * memory usage:
-        In memory savings are measured to be 7296 bytes. (here is how to
-        measure [3])
-
-Size saving after this patchset:
-    * bloat-o-meter
-        - The "yesall" config saves 2432 bytes [4]
-        - The "tiny" config saves 64 bytes [5]
-    * memory usage:
-        In this case there were no bytes saved because I do not have any
-        of the drivers in the patch. To measure it comment the printk in
-        `new_dir` and uncomment the if conditional in `new_links` [3].
-
----
-Changes in v2:
-- Left the dangling comma in the ctl_table arrays.
-- Link to v1: https://lore.kernel.org/r/20230928-jag-sysctl_remove_empty_elem_drivers-v1-0-e59120fca9f9@samsung.com
-
-Comments/feedback greatly appreciated
-
-Best
-
-Joel
-
-[1]
-We are able to remove a sentinel table without behavioral change by
-introducing a table_size argument in the same place where procname is
-checked for NULL. The idea is for it to keep stopping when it hits
-->procname == NULL, while the sentinel is still present. And when the
-sentinel is removed, it will stop on the table_size. You can go to 
-(https://lore.kernel.org/all/20230809105006.1198165-1-j.granados@samsung.com/)
-for more information.
-
-[2]
-Links Related to the ctl_table sentinel removal:
-* Good summary from Luis sent with the "pull request" for the
-  preparation patches.
-  https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/
-* Another very good summary from Luis.
-  https://lore.kernel.org/all/ZMFizKFkVxUFtSqa@bombadil.infradead.org/
-* This is a patch set that replaces register_sysctl_table with register_sysctl
-  https://lore.kernel.org/all/20230302204612.782387-1-mcgrof@kernel.org/
-* Patch set to deprecate register_sysctl_paths()
-  https://lore.kernel.org/all/20230302202826.776286-1-mcgrof@kernel.org/
-* Here there is an explicit expectation for the removal of the sentinel element.
-  https://lore.kernel.org/all/20230321130908.6972-1-frank.li@vivo.com
-* The "ARRAY_SIZE" approach was mentioned (proposed?) in this thread
-  https://lore.kernel.org/all/20220220060626.15885-1-tangmeng@uniontech.com
-
-[3]
-To measure the in memory savings apply this on top of this patchset.
-
-"
-diff --git a/fs/proc/proc_sysctl.c b/fs/proc/proc_sysctl.c
-index c88854df0b62..e0073a627bac 100644
---- a/fs/proc/proc_sysctl.c
-+++ b/fs/proc/proc_sysctl.c
-@@ -976,6 +976,8 @@ static struct ctl_dir *new_dir(struct ctl_table_set *set,
-        table[0].procname = new_name;
-        table[0].mode = S_IFDIR|S_IRUGO|S_IXUGO;
-        init_header(&new->header, set->dir.header.root, set, node, table, 1);
-+       // Counts additional sentinel used for each new dir.
-+       printk("%ld sysctl saved mem kzalloc \n", sizeof(struct ctl_table));
-
-        return new;
- }
-@@ -1199,6 +1201,9 @@ static struct ctl_table_header *new_links(struct ctl_dir *dir, struct ctl_table_
-                link_name += len;
-                link++;
-        }
-+       // Counts additional sentinel used for each new registration
-+       //if ((head->ctl_table + head->ctl_table_size)->procname)
-+               printk("%ld sysctl saved mem kzalloc \n", sizeof(struct ctl_table));
-        init_header(links, dir->header.root, dir->header.set, node, link_table,
-                    head->ctl_table_size);
-        links->nreg = nr_entries;
-"
-and then run the following bash script in the kernel:
-
-accum=0
-for n in $(dmesg | grep kzalloc | awk '{print $3}') ; do
-    echo $n
-    accum=$(calc "$accum + $n")
-done
-echo $accum
-
-[4]
-add/remove: 0/0 grow/shrink: 0/21 up/down: 0/-2432 (-2432)
-Function                                     old     new   delta
-xpc_sys_xpc_hb                               192     128     -64
-xpc_sys_xpc                                  128      64     -64
-vrf_table                                    128      64     -64
-ucma_ctl_table                               128      64     -64
-tty_table                                    192     128     -64
-sg_sysctls                                   128      64     -64
-scsi_table                                   128      64     -64
-random_table                                 448     384     -64
-raid_table                                   192     128     -64
-oa_table                                     192     128     -64
-mac_hid_files                                256     192     -64
-iwcm_ctl_table                               128      64     -64
-ipmi_table                                   128      64     -64
-hv_ctl_table                                 128      64     -64
-hpet_table                                   128      64     -64
-firmware_config_table                        192     128     -64
-cdrom_table                                  448     384     -64
-balloon_table                                128      64     -64
-parport_sysctl_template                      912     720    -192
-parport_default_sysctl_table                 584     136    -448
-parport_device_sysctl_template               776     136    -640
-Total: Before=429940038, After=429937606, chg -0.00%
-
-[5]
-add/remove: 0/0 grow/shrink: 0/1 up/down: 0/-64 (-64)
-Function                                     old     new   delta
-random_table                                 448     384     -64
-Total: Before=1885527, After=1885463, chg -0.00%
-
-[6] https://lore.kernel.org/all/20230913-jag-sysctl_remove_empty_elem_arch-v2-0-d1bd13a29bae@samsung.com/
+Remove sentinel element from cdrom_table
 
 Signed-off-by: Joel Granados <j.granados@samsung.com>
-
-To: Luis Chamberlain <mcgrof@kernel.org>
-To: willy@infradead.org
-To: josh@joshtriplett.org
-To: Kees Cook <keescook@chromium.org>
-To: Phillip Potter <phil@philpotter.co.uk>
-To: Clemens Ladisch <clemens@ladisch.de>
-To: Arnd Bergmann <arnd@arndb.de>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Juergen Gross <jgross@suse.com>
-To: Stefano Stabellini <sstabellini@kernel.org>
-To: Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-To: Jiri Slaby <jirislaby@kernel.org>
-To: "James E.J. Bottomley" <jejb@linux.ibm.com>
-To: "Martin K. Petersen" <martin.petersen@oracle.com>
-To: Doug Gilbert <dgilbert@interlog.com>
-To: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-To: Leon Romanovsky <leon@kernel.org>
-To: Corey Minyard <minyard@acm.org>
-To: Theodore Ts'o <tytso@mit.edu>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: David Ahern <dsahern@kernel.org>
-To: "David S. Miller" <davem@davemloft.net>
-To: Eric Dumazet <edumazet@google.com>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Robin Holt <robinmholt@gmail.com>
-To: Steve Wahl <steve.wahl@hpe.com>
-To: Russ Weight <russell.h.weight@intel.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-To: Song Liu <song@kernel.org>
-To: "K. Y. Srinivasan" <kys@microsoft.com>
-To: Haiyang Zhang <haiyangz@microsoft.com>
-To: Wei Liu <wei.liu@kernel.org>
-To: Dexuan Cui <decui@microsoft.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>
-To: Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
-To: Rodrigo Vivi <rodrigo.vivi@intel.com>
-To: Tvrtko Ursulin <tvrtko.ursulin@linux.intel.com>
-To: David Airlie <airlied@gmail.com>
-To: Daniel Vetter <daniel@ffwll.ch>
-Cc: linux-kernel@vger.kernel.org
-Cc: xen-devel@lists.xenproject.org
-Cc: linux-serial@vger.kernel.org
-Cc: linux-scsi@vger.kernel.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-rdma@vger.kernel.org
-Cc: openipmi-developer@lists.sourceforge.net
-Cc: netdev@vger.kernel.org
-Cc: linux-raid@vger.kernel.org
-Cc: linux-hyperv@vger.kernel.org
-Cc: intel-gfx@lists.freedesktop.org
-Cc: dri-devel@lists.freedesktop.org
-
 ---
+ drivers/cdrom/cdrom.c | 1 -
+ 1 file changed, 1 deletion(-)
 
----
-Joel Granados (15):
-      cdrom: Remove now superfluous sentinel element from ctl_table array
-      hpet: Remove now superfluous sentinel element from ctl_table array
-      xen: Remove now superfluous sentinel element from ctl_table array
-      tty: Remove now superfluous sentinel element from ctl_table array
-      scsi: Remove now superfluous sentinel element from ctl_table array
-      parport: Remove the now superfluous sentinel element from ctl_table array
-      macintosh: Remove the now superfluous sentinel element from ctl_table array
-      infiniband: Remove the now superfluous sentinel element from ctl_table array
-      char-misc: Remove the now superfluous sentinel element from ctl_table array
-      vrf: Remove the now superfluous sentinel element from ctl_table array
-      sgi-xp: Remove the now superfluous sentinel element from ctl_table array
-      fw loader: Remove the now superfluous sentinel element from ctl_table array
-      raid: Remove now superfluous sentinel element from ctl_table array
-      Drivers: hv: Remove now superfluous sentinel element from ctl_table array
-      intel drm: Remove now superfluous sentinel element from ctl_table array
+diff --git a/drivers/cdrom/cdrom.c b/drivers/cdrom/cdrom.c
+index cc2839805983..a5e07270e0d4 100644
+--- a/drivers/cdrom/cdrom.c
++++ b/drivers/cdrom/cdrom.c
+@@ -3655,7 +3655,6 @@ static struct ctl_table cdrom_table[] = {
+ 		.mode		= 0644,
+ 		.proc_handler	= cdrom_sysctl_handler
+ 	},
+-	{ }
+ };
+ static struct ctl_table_header *cdrom_sysctl_header;
+ 
 
- drivers/base/firmware_loader/fallback_table.c |  1 -
- drivers/cdrom/cdrom.c                         |  1 -
- drivers/char/hpet.c                           |  1 -
- drivers/char/ipmi/ipmi_poweroff.c             |  1 -
- drivers/char/random.c                         |  1 -
- drivers/gpu/drm/i915/i915_perf.c              |  1 -
- drivers/hv/hv_common.c                        |  1 -
- drivers/infiniband/core/iwcm.c                |  1 -
- drivers/infiniband/core/ucma.c                |  1 -
- drivers/macintosh/mac_hid.c                   |  1 -
- drivers/md/md.c                               |  1 -
- drivers/misc/sgi-xp/xpc_main.c                |  2 --
- drivers/net/vrf.c                             |  1 -
- drivers/parport/procfs.c                      | 28 +++++++++++----------------
- drivers/scsi/scsi_sysctl.c                    |  1 -
- drivers/scsi/sg.c                             |  1 -
- drivers/tty/tty_io.c                          |  1 -
- drivers/xen/balloon.c                         |  1 -
- 18 files changed, 11 insertions(+), 35 deletions(-)
----
-base-commit: 0e945134b680040b8613e962f586d91b6d40292d
-change-id: 20230927-jag-sysctl_remove_empty_elem_drivers-f034962a0d8c
-
-Best regards,
 -- 
-Joel Granados <j.granados@samsung.com>
+2.30.2
 
 
 
