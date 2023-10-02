@@ -2,65 +2,66 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 178A97B4DD8
-	for <lists+openipmi-developer@lfdr.de>; Mon,  2 Oct 2023 10:53:32 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 544427B4DE6
+	for <lists+openipmi-developer@lfdr.de>; Mon,  2 Oct 2023 10:53:36 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qnEgC-00068u-6k;
-	Mon, 02 Oct 2023 08:53:28 +0000
+	id 1qnEgG-0005tH-Sx;
+	Mon, 02 Oct 2023 08:53:32 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <devnull+j.granados.samsung.com@kernel.org>)
- id 1qnEg9-00068C-CH for openipmi-developer@lists.sourceforge.net;
- Mon, 02 Oct 2023 08:53:26 +0000
+ id 1qnEgE-0005sg-Ju for openipmi-developer@lists.sourceforge.net;
+ Mon, 02 Oct 2023 08:53:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=veHcliTUfOTjom9a3SWdG071uEEONwP8fCIcdwonCp0=; b=mK5/WkiXDcXuYxyXMctVGgscfE
- IzVmciWr/GZimXRQwgdtC+yZ0LSlNBgo83Zw9LaUl2dXXbyMpLfGJJ+K03o2xxkbhUf7ava1/qwLW
- bLPBYk7g5WdX3WjMZt27DQpKMdkr93hyIk2ucxPk7CZjlnXpnYjEj75rQtr/ZTQaaUQ0=;
+ bh=XASomKkgr/hxsgObPDEsNJjnHHn4A791C0k0MdNixSY=; b=cpuKGdB2L4S9l0941JEIRgN0CU
+ PUqScqum6bXchmiGjsqW0XlwwYDMXth8oh+xjNR9jocKA6uA1FRDaFEeZN8hc3QvGRtm6tGdIMPML
+ x71ZM1w+YQDU4D+CJlgUlNWYoKd6lKNOwwRs/4CmrDQqJ/Pz0EET6K9DVJNaNqg5ycYs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=veHcliTUfOTjom9a3SWdG071uEEONwP8fCIcdwonCp0=; b=Hf1XTTBXvEmYHdq34aojVs6WwD
- QHhwSOwOtW7jzZGXeM3OBEk0jPWcaH386Q9wS2Px5tPOCAGyRK2986Ag/JBO9FyLsKCl1u//msJbA
- EQlCpm8zIT0xMBvKzUCowBBl1YdUWRbp33CDZ4Lbrnnb12wHhi/aEiMyZvYskP+cAJN4=;
-Received: from sin.source.kernel.org ([145.40.73.55])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=XASomKkgr/hxsgObPDEsNJjnHHn4A791C0k0MdNixSY=; b=mAec3AIb4m6OHPiADFeH/WE/Tq
+ AhFtyESUzY6kWzcNxVHPKgh5e8YJXh2gC967Mbhr74ksOc6oQfWkeB6BQ0ZxxhbATmcGwgoEu2FpG
+ YEVO00f0cWo6Q6nCKiyUxbrqETIjQnxmK95iTo8pYiNSllj93PiLNlCFF14DyF/KBMVM=;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qnEg8-0001bS-U0 for openipmi-developer@lists.sourceforge.net;
- Mon, 02 Oct 2023 08:53:25 +0000
+ id 1qnEgC-00FPDM-VK for openipmi-developer@lists.sourceforge.net;
+ Mon, 02 Oct 2023 08:53:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by sin.source.kernel.org (Postfix) with ESMTP id 48118CE0EDE;
- Mon,  2 Oct 2023 08:53:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9E83FC4E67B;
+ by dfw.source.kernel.org (Postfix) with ESMTP id D86B260D39;
+ Mon,  2 Oct 2023 08:53:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BF60FC3277B;
  Mon,  2 Oct 2023 08:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
  s=k20201202; t=1696236795;
- bh=vDlxMU2ggFFcgL4XVv7yaCla84NzDst78pAlmrI/LAU=;
+ bh=UrT6qFU01UuJnw1on3XWxUGJuijnLYQO/DZrjXeRvo4=;
  h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
- b=pR95+O9r6nUzq07c9kPGKb7Ab0VcY5+68ndSSzB+hZmwZYikEf3FKE5QZgbbuqjOX
- gQkhguZwdsurCaU0axfIZ2F0cJCq86v09nWDCYqoJnOhNSunu1At9WlawEgkBrEmJ6
- y18G/0sKMdEFBxdOakpL3K6ARrEuVanraUCM76n/OBLvRpO3S0uhlUJVkFeuWm+fyr
- dbr8FI1IRqLxTOLySLXMasu08oJ1w1pZXHhh4+kaXfndJ8OZR17RetwZax4Z6ehYkJ
- mIoVTZonmVbDcGCi8ny+uoSKjBM1DIy75fzJacAsTb3IqeKffbenQJRDWZ7+Dfqjc4
- 7r/qhjuBtwo0A==
+ b=REb+bphyh9qkQZyNKwrmSauRwNcqJjzzCSht5YPIFFtd0hF5HQixpMoZA+Q/GcBtZ
+ T1ZY3FGofKg8shHAVt9pHSmeSjq1opArIWx7tRZ9OwlcGG5cwHEs2uZSdgRy0s35FI
+ tXCc0YagUUKuYH5EnZR6cxM3MUgcV9gxAhg1EMW4wE4MzkEDwDsVyDCPkCJpu7pRlf
+ iBySai/SM0BQW4BLrHockZbM5wn55KwPLIIyl3Kzim4hxiGLwfN5kMCJ/idNzy6PfW
+ OS+aK5t8IiinP5Y65qHPfSYwTdmz5xSaHp9ZQkanw+rs8S9+w1va+gO8Xb4Fp+TWV2
+ aXLqCkSz754nA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
  (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id 87B1FE7849A;
+ by smtp.lore.kernel.org (Postfix) with ESMTP id A6BFDE784A5;
  Mon,  2 Oct 2023 08:53:15 +0000 (UTC)
 From: Joel Granados via B4 Relay <devnull+j.granados.samsung.com@kernel.org>
-Date: Mon, 02 Oct 2023 10:55:26 +0200
+Date: Mon, 02 Oct 2023 10:55:27 +0200
 MIME-Version: 1.0
-Message-Id: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-9-02dd0d46f71e@samsung.com>
+Message-Id: =?utf-8?q?=3C20231002-jag-sysctl=5Fremove=5Fempty=5Felem=5Fdrive?=
+ =?utf-8?q?rs-v2-10-02dd0d46f71e=40samsung=2Ecom=3E?=
 References: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
 In-Reply-To: <20231002-jag-sysctl_remove_empty_elem_drivers-v2-0-02dd0d46f71e@samsung.com>
 To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org, 
@@ -92,26 +93,26 @@ To: Luis Chamberlain <mcgrof@kernel.org>, willy@infradead.org,
  Tvrtko Ursulin <tvrtko.ursulin@linux.intel.com>, 
  David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>
 X-Mailer: b4 0.13-dev-86aa5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1339;
- i=j.granados@samsung.com; h=from:subject:message-id;
- bh=Kv0ap7oOhCIEujO7K32kNHT+ZxUGAQsjjs8+/enag5M=;
- b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGoV+isCI8TDO6pwR+wgikdJs6dLv5S5QCOB04
- iOxWZrSGSiJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqFfgAKCRC6l81St5ZB
- T6oTC/9qOUC9BOwrcAbb8+8X5NEMfhYEKBwZOjn0qP7z2HP9F0B0s13QbRcV+nD/AboNml1SyV1
- 2bME5eSPBRhDk/FgUi2dHVoWST0piu5f+xZVAdCGk0dlm6zx066OrZgELiJpoohNDrDPt3Hw74l
- vDFg1cmFZeVWLG+9hQVfG+0ip5WPINFZL6HG5Qaf5vQovahB6Axer95+p066sCI/hydwE7wEmQW
- AaBpPNfAYpiEL3HtJ935jxFkTOmK8sqEwQTXsN1aJcHVhbXpAwOog7xO+DfU6DOBHTdb4MVBOxq
- BDdLiqegmjac+IlK2slz/WfvUKW0V+2LZN7aJ0/GqoMforwaGZwvUhwn34nmenlx7NcpDwgIKDx
- orVBtck2IN7tetdBhNLpoy3r7xDl7WRjm3f3xIxDXcUNqlOY9x1VyHKww5KiFk49KJ9UPmc8tKT
- 3ACEiDi7UvwEFAfJwF4Zc34OpSkdkpY3PQGUWRU0h2+aTGNKyDRzq42XfqrCcpxTHv5xA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=887; i=j.granados@samsung.com; 
+ h=from:subject:message-id;
+ bh=XxeHsAq6JKBX5gFQdKtkOwMDqj3k6LdRrwtSDoG13Qk=; 
+ b=owEB7QES/pANAwAKAbqXzVK3lkFPAcsmYgBlGoV+Y6Cm3LhCKnSHOjCZ2v2gHofq/C47K5T/3
+ Jb7xTkN9KiJAbMEAAEKAB0WIQSuRwlXJeYxJc7LJ5C6l81St5ZBTwUCZRqFfgAKCRC6l81St5ZB
+ T6gPC/48wscQhiW7NUFTOR5UQHPuSRPo/W1iU5eo0e4HVHau6IgCW3NQNU+ljioKG8j8vjwyl0B
+ eJLH8LvK98LFTDps1N4GMWDUW7M8ef27MYnRvU+2bZIsDiOmKFzjmY2cYDKTGsRvt1wKtYpbPO1
+ r+H+B6TU+Np3A7wF0s30M82uN7P/OYHbVwaaX5NjK7wblqTYSu44tf+GprefUEvn2sg6+fm54jr
+ hV5XFvzYAMsGRN6izfCFRaBkLZHcbmqYjOkI5EhCzxL/ZZwja2TyFKm2WQyFGgq3VYdrT7ZGDVv
+ WeylYoFcNGDPKgqsyDoHi0mVwyjdzClwycDhQ5DvciuWPkt+Ly0lkWJfex7a6fge05zTF+M/zej
+ Fn7WWsbDkDL/u/6r9slGqPZcUv1gZE+eaTbnIjoALtIhnaD44hrJ1DAuNJxKWOugdshBDx0uNAy
+ 8aLnlv5VzYQ8R+Yt/6mQDnXXVnrUe1DhXBYtQjMz54uSUSNfyV0lGXXDIxJar8WWFl34o=
 X-Developer-Key: i=j.granados@samsung.com; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for j.granados@samsung.com/default with
  auth_id=70
 X-Original-From: Joel Granados <j.granados@samsung.com>
-X-Spam-Score: -2.5 (--)
+X-Spam-Score: -4.0 (----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -121,22 +122,24 @@ X-Spam-Report: Spam detection software,
  at the tail end of a greater effort to remove the empty elements at the end
  of the ctl_table arrays (sentinels) which will reduce the overall build time
  size of the kernel and run ti [...] 
- Content analysis details:   (-2.5 points, 6.0 required)
+ Content analysis details:   (-4.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [145.40.73.55 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [139.178.84.217 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1qnEg8-0001bS-U0
-Subject: [Openipmi-developer] [PATCH v2 09/15] char-misc: Remove the now
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 1.2 INVALID_MSGID          Message-Id is not valid, according to RFC 2822
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1qnEgC-00FPDM-VK
+Subject: [Openipmi-developer] [PATCH v2 10/15] vrf: Remove the now
  superfluous sentinel element from ctl_table array
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -169,38 +172,25 @@ will reduce the overall build time size of the kernel and run time
 memory bloat by ~64 bytes per sentinel (further information Link :
 https://lore.kernel.org/all/ZO5Yx5JFogGi%2FcBo@bombadil.infradead.org/)
 
-Remove sentinel from impi_table and random_table
+Remove sentinel from vrf_table
 
 Signed-off-by: Joel Granados <j.granados@samsung.com>
 ---
- drivers/char/ipmi/ipmi_poweroff.c | 1 -
- drivers/char/random.c             | 1 -
- 2 files changed, 2 deletions(-)
+ drivers/net/vrf.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/char/ipmi/ipmi_poweroff.c b/drivers/char/ipmi/ipmi_poweroff.c
-index 870659d91db2..941d2dcc8c9d 100644
---- a/drivers/char/ipmi/ipmi_poweroff.c
-+++ b/drivers/char/ipmi/ipmi_poweroff.c
-@@ -656,7 +656,6 @@ static struct ctl_table ipmi_table[] = {
- 	  .maxlen	= sizeof(poweroff_powercycle),
- 	  .mode		= 0644,
- 	  .proc_handler	= proc_dointvec },
--	{ }
- };
- 
- static struct ctl_table_header *ipmi_table_header;
-diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 3cb37760dfec..4a9c79391dee 100644
---- a/drivers/char/random.c
-+++ b/drivers/char/random.c
-@@ -1683,7 +1683,6 @@ static struct ctl_table random_table[] = {
- 		.mode		= 0444,
- 		.proc_handler	= proc_do_uuid,
+diff --git a/drivers/net/vrf.c b/drivers/net/vrf.c
+index a3408e4e1491..db766941b78f 100644
+--- a/drivers/net/vrf.c
++++ b/drivers/net/vrf.c
+@@ -1963,7 +1963,6 @@ static const struct ctl_table vrf_table[] = {
+ 		/* set by the vrf_netns_init */
+ 		.extra1		= NULL,
  	},
--	{ }
+-	{ },
  };
  
- /*
+ static int vrf_netns_init_sysctl(struct net *net, struct netns_vrf *nn_vrf)
 
 -- 
 2.30.2
