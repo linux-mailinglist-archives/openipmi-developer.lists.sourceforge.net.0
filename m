@@ -2,90 +2,85 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7C73F7B69FE
-	for <lists+openipmi-developer@lfdr.de>; Tue,  3 Oct 2023 15:15:31 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id CE59C7B6A56
+	for <lists+openipmi-developer@lfdr.de>; Tue,  3 Oct 2023 15:21:57 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qnfFJ-00013x-2r;
-	Tue, 03 Oct 2023 13:15:27 +0000
+	id 1qnfLW-0005hV-2o;
+	Tue, 03 Oct 2023 13:21:54 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <aladyshev22@gmail.com>) id 1qnfFF-00013q-TX
+ (envelope-from <aladyshev22@gmail.com>) id 1qnfLU-0005hL-GD
  for openipmi-developer@lists.sourceforge.net;
- Tue, 03 Oct 2023 13:15:24 +0000
+ Tue, 03 Oct 2023 13:21:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
+ Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Rx1JE9TXflH6K56K/50Wu75DgrLYhSgiKYDehKPGdoA=; b=fg2IyZrNVgz+z84RQWCfL7yLSH
- kljGXRu9I2+5qZcUunMUMW82V5geu7kjZqfDxYvL8U0ICqHBngdUntuqQL0Q5Plil8S0INM8DDfC4
- 9ILvP8K8svWsqyeLwSGLfjL/nhQELO6xV3Ss0DrnoGNUrTBvz+EM3jIiBM3XsCTkdgVg=;
+ bh=Fi+RGHHOhtPVleGMysrvUidZQaNCF9b1qikITyD52OI=; b=NO9L+L0IpDI1De+G8B19SwU0rK
+ aS1UxAjB5cRL+0A5ZYP2rJ492DqyhCbOc8lz7y9hUPJJPnEiakQoO0JkmA0i/0D6NK3TbLRG0OhPV
+ kbExra4hoAPRw9wa4wP7xXGtMln1HzsqDVX698oSjzXI+zoRKfmfrqfi9XSSKL3Sl+7c=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
+ :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Rx1JE9TXflH6K56K/50Wu75DgrLYhSgiKYDehKPGdoA=; b=ZJ9tPTq5SZoP4Y/Pa/S8+ZeDBM
- EOoAtjlgN23fX38xIU8FocmO+DwQuXLsEzPR9cMaKmpcQbblJSBM4ZguyPJBYdma5qCaDeX+WYHSq
- U0in0ictjKpl/RSo7VSoYVt70xBY8VKL1jtYWHyMFOABkXiyH8hIeXXvIPk1++E3WmsY=;
-Received: from mail-lj1-f169.google.com ([209.85.208.169])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=Fi+RGHHOhtPVleGMysrvUidZQaNCF9b1qikITyD52OI=; b=djiReRWY9pIjLvWBzDCKSqKgDo
+ MZQ9kIKUo4qGe55kZpgc7gyp/WMaJGfpNSZcIxRfa0HKW/c8VXwq2A4O33H25hBLKSdLTPsKd9DNd
+ FVEDgd4Wa9K6UX9KkurOZ47Pmzh6H9Fjiw/a5h/OL3p2GWnmEvFOmSFYlHuacjKfeb1Q=;
+Received: from mail-ua1-f51.google.com ([209.85.222.51])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1qnfFB-0001D2-2C for openipmi-developer@lists.sourceforge.net;
- Tue, 03 Oct 2023 13:15:24 +0000
-Received: by mail-lj1-f169.google.com with SMTP id
- 38308e7fff4ca-2bb9a063f26so10825791fa.2
+ id 1qnfLR-00HRWE-Nm for openipmi-developer@lists.sourceforge.net;
+ Tue, 03 Oct 2023 13:21:51 +0000
+Received: by mail-ua1-f51.google.com with SMTP id
+ a1e0cc1a2514c-78f1210e27fso471247241.1
  for <openipmi-developer@lists.sourceforge.net>;
- Tue, 03 Oct 2023 06:15:21 -0700 (PDT)
+ Tue, 03 Oct 2023 06:21:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1696338914; x=1696943714; darn=lists.sourceforge.net;
- h=content-transfer-encoding:mime-version:references:in-reply-to
- :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+ d=gmail.com; s=20230601; t=1696339304; x=1696944104; darn=lists.sourceforge.net;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:from:to:cc:subject:date
  :message-id:reply-to;
- bh=Rx1JE9TXflH6K56K/50Wu75DgrLYhSgiKYDehKPGdoA=;
- b=SV4pdJfBj1gyE7YwjMeouvK26EXcaIIj328k2nAZzIaElZa6ke3+l6ZewUJ7cWXyfW
- Uiz1PGUfJSG0oiIbJvdvsJIJJ3WhYnmIj7sAQk++ATVHJofqpPNe3BPRxYHx52Kd5zVE
- Yx+JlSTuYy71e5/MPXDZ0pskrDDiT6dl17vuDkuqEPEJcjEKfj0W9VrGlNPwzHJUoeko
- cyf6p2qJSGVfPvIPwwmQc3ZQXYe5rNvarhnZqVYwWEAeFo1lSXl1+SJ0rkFpaHWmlIWM
- tSwgk2C2InGIjqC46hsOw6C9mjlS8vSBl+Vm4bovxNqbjup+XIvFDC7YuMD4R5Mt5Rpe
- KzUg==
+ bh=Fi+RGHHOhtPVleGMysrvUidZQaNCF9b1qikITyD52OI=;
+ b=U80ez7jPVovnprNTYSjMSMMTMgC8Z8QGYCxYmbdv+wUulSxzOzoHn1x5fbLvlztu5M
+ 6dFdsDq77kyed1H4SVSnfDliLQaTCRKOAx9AE2OTneF1582W93UOchHNGb2yYE6AtfXA
+ XZQUiCUBUaOVpZ9wHntIbXjO3V918dyPs3L6JLMQZKgEUmSMvSNwe84E7lmfDVuefFBW
+ twNCvXZFJQ40BlU8kM7P+qirxdSmhp6PpoJxaZ6O3SaFmQ4smOfVxLzc5y1x9K9TotlG
+ YzgdE9xozN+JmzLqgzJCqwJExHs/9xI4RrWAsg8J5D8jL0EBlPe0FJwwcjP8fCh2oYwZ
+ zHow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1696338914; x=1696943714;
- h=content-transfer-encoding:mime-version:references:in-reply-to
- :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+ d=1e100.net; s=20230601; t=1696339304; x=1696944104;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=Rx1JE9TXflH6K56K/50Wu75DgrLYhSgiKYDehKPGdoA=;
- b=h43eMwj67MstcihxzVp5+tKfUg8/kJnDQ8mWiE8hPmFEf20ahXdcz2YgbSip46swxJ
- D9CvrLgn6BWD9iScgzkSAE8U7njVoNiFJMRroUFYirMJZbs1YEBc4hI/SKTZ21EL4JDv
- s4g0lKCQo+LKu50TmWvAipp9fE7KkTqCxPUksw/uncx5wO62NddwPfz+scI3YXkXM8mH
- DAc5g1xWP8NKwCu8iUGt+Q8EneaDPkR6kpx6YD0t7KPgMX/TlrfR07QaYEXx3VqFNNPH
- /9s+BfjHjk+KaSLY6ZHpNnOcACcnqJi+ZUaL0uBH6POMSkUsWwDAWHOdt/vKBLsC772L
- EcwA==
-X-Gm-Message-State: AOJu0Yxe+K3W6/kUd4tjlCQHCQpF5gS8sXbXvgfM+L/lGg8Qsnx7v/zq
- aCpRNmB0rdaxOl/EYAtn94g=
-X-Google-Smtp-Source: AGHT+IHAFwxagzLoiqYvMeJF2ziZXznmJ22w1+sSiD4is5SG4tyAv28RXsr1JM447xRZMheL7E8N/w==
-X-Received: by 2002:a05:651c:88:b0:2b9:aa4d:3728 with SMTP id
- 8-20020a05651c008800b002b9aa4d3728mr11652856ljq.29.1696338914196; 
- Tue, 03 Oct 2023 06:15:14 -0700 (PDT)
-Received: from PC10319.67 ([82.97.198.254])
- by smtp.googlemail.com with ESMTPSA id
- t25-20020a2e7819000000b002b9de06f119sm228657ljc.67.2023.10.03.06.15.13
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 03 Oct 2023 06:15:13 -0700 (PDT)
-From: Konstantin Aladyshev <aladyshev22@gmail.com>
-To: 
-Date: Tue,  3 Oct 2023 16:15:05 +0300
-Message-Id: <20231003131505.337-4-aladyshev22@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20231003131505.337-1-aladyshev22@gmail.com>
-References: <20231003131505.337-1-aladyshev22@gmail.com>
+ bh=Fi+RGHHOhtPVleGMysrvUidZQaNCF9b1qikITyD52OI=;
+ b=WYI2BavgnlelaaTb/5ARcXWwygFSif6lwEHdJ03fUDqbRTmyPS/b7An/e/Lnc/ivyr
+ D5lf/+Y+Eq24M7eb0M4kfpDc8+Eu2VGkHcN1OjfE/bG+C3gch6ezRqAUGBSHvNGJC5qs
+ XgFd3hxQtBXCWrlLyDV7a7K1GGZUFhl8Eb0osZnmKkf8laSvZhBf3OW2tMTGGzgEYSxZ
+ ivUqzDs5Nc2BJucP5Lf1Ap4FQ1GB8+uWE2UFW8mzlYJjDfQGUPLSQYh2mQRc0a3G1zIB
+ YKNd1qqH/F7pnA5tsQgyXSIvzJQaeaXIlYtx32mcr/vc+TcnPwzWHBTLVD9nwSS+vfHR
+ uugA==
+X-Gm-Message-State: AOJu0YycSWffJ6ZZkKz2JIWAC1Td8UAJ1Soa740/XN3yRS+0wvRo4M1Z
+ 35FEBpyFhfMz+SMhSKYTTHQnTh7lfIz013ZJ2KU=
+X-Google-Smtp-Source: AGHT+IGtRYR/OptxXTgIRsdUOd0zstJf0gkrw5xb2PgwdX/i/CZMacGoxdqMQvEhxaQdXT9c/oMmcN9fdAlZtMzKH7U=
+X-Received: by 2002:a67:ec87:0:b0:452:6d8f:7454 with SMTP id
+ h7-20020a67ec87000000b004526d8f7454mr11742094vsp.15.1696339303806; Tue, 03
+ Oct 2023 06:21:43 -0700 (PDT)
 MIME-Version: 1.0
+References: <20231002143441.545-4-aladyshev22@gmail.com>
+ <202310030640.tYeSJjeI-lkp@intel.com>
+In-Reply-To: <202310030640.tYeSJjeI-lkp@intel.com>
+From: Konstantin Aladyshev <aladyshev22@gmail.com>
+Date: Tue, 3 Oct 2023 16:21:32 +0300
+Message-ID: <CACSj6VXZ5V7akgibJcZYxqUy3zFKWA_N_5ua7gzXoEHWRBkkkg@mail.gmail.com>
+To: kernel test robot <lkp@intel.com>
 X-Spam-Score: -0.6 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
@@ -93,22 +88,22 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  This change adds a MCTP KCS transport binding, as defined
- by the DMTF specificiation DSP0254 - "MCTP KCS Transport Binding". A MCTP
- protocol network device is created for each KCS channel found in the [...]
+ Content preview:  Oops, sorry about that. I've introduced this new warning when
+ I've refactored my code to use 'dev_err_probe'. I've sent the v3 series to
+ correct the issue, I hope now everything is clear. I haven't fi [...] 
  Content analysis details:   (-0.6 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.222.51 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [aladyshev22[at]gmail.com]
  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
  in digit [aladyshev22[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.208.169 listed in list.dnswl.org]
  -0.6 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.208.169 listed in wl.mailspike.net]
+ [209.85.222.51 listed in wl.mailspike.net]
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
@@ -116,8 +111,8 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1qnfFB-0001D2-2C
-Subject: [Openipmi-developer] [PATCH v3 3/3] mctp: Add MCTP-over-KCS
+X-Headers-End: 1qnfLR-00HRWE-Nm
+Subject: Re: [Openipmi-developer] [PATCH v2 3/3] mctp: Add MCTP-over-KCS
  transport binding
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -134,662 +129,174 @@ List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer
 Cc: tmaimon77@gmail.com, linux-aspeed@lists.ozlabs.org, tali.perry1@gmail.com,
  edumazet@google.com, jk@codeconstruct.com.au, matt@codeconstruct.com.au,
  benjaminfair@google.com, openbmc@lists.ozlabs.org, yuenn@google.com,
- kuba@kernel.org, pabeni@redhat.com, minyard@acm.org, aladyshev22@gmail.com,
- openipmi-developer@lists.sourceforge.net, linux-arm-kernel@lists.infradead.org,
- andrew@aj.id.au, venture@google.com, linux-kernel@vger.kernel.org,
- avifishman70@gmail.com, netdev@vger.kernel.org, davem@davemloft.net
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ kuba@kernel.org, pabeni@redhat.com, minyard@acm.org,
+ oe-kbuild-all@lists.linux.dev, openipmi-developer@lists.sourceforge.net,
+ linux-arm-kernel@lists.infradead.org, andrew@aj.id.au, venture@google.com,
+ linux-kernel@vger.kernel.org, avifishman70@gmail.com, netdev@vger.kernel.org,
+ davem@davemloft.net
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-This change adds a MCTP KCS transport binding, as defined by the DMTF
-specificiation DSP0254 - "MCTP KCS Transport Binding".
-A MCTP protocol network device is created for each KCS channel found in
-the system.
-The interrupt code for the KCS state machine is based on the current
-IPMI KCS driver.
-
-Signed-off-by: Konstantin Aladyshev <aladyshev22@gmail.com>
----
- drivers/net/mctp/Kconfig    |   8 +
- drivers/net/mctp/Makefile   |   1 +
- drivers/net/mctp/mctp-kcs.c | 594 ++++++++++++++++++++++++++++++++++++
- 3 files changed, 603 insertions(+)
- create mode 100644 drivers/net/mctp/mctp-kcs.c
-
-diff --git a/drivers/net/mctp/Kconfig b/drivers/net/mctp/Kconfig
-index dc71657d9184..a37f7ba947c0 100644
---- a/drivers/net/mctp/Kconfig
-+++ b/drivers/net/mctp/Kconfig
-@@ -33,6 +33,14 @@ config MCTP_TRANSPORT_I2C
- 	  from DMTF specification DSP0237. A MCTP protocol network device is
- 	  created for each I2C bus that has been assigned a mctp-i2c device.
- 
-+config MCTP_TRANSPORT_KCS
-+	tristate "MCTP KCS transport"
-+	depends on IPMI_KCS_BMC
-+	help
-+	  Provides a driver to access MCTP devices over KCS transport, from
-+	  DMTF specification DSP0254. A MCTP protocol network device is
-+	  created for each KCS channel found in the system.
-+
- endmenu
- 
- endif
-diff --git a/drivers/net/mctp/Makefile b/drivers/net/mctp/Makefile
-index 1ca3e6028f77..885339a40f22 100644
---- a/drivers/net/mctp/Makefile
-+++ b/drivers/net/mctp/Makefile
-@@ -1,2 +1,3 @@
- obj-$(CONFIG_MCTP_SERIAL) += mctp-serial.o
- obj-$(CONFIG_MCTP_TRANSPORT_I2C) += mctp-i2c.o
-+obj-$(CONFIG_MCTP_TRANSPORT_KCS) += mctp-kcs.o
-diff --git a/drivers/net/mctp/mctp-kcs.c b/drivers/net/mctp/mctp-kcs.c
-new file mode 100644
-index 000000000000..2f70fda54942
---- /dev/null
-+++ b/drivers/net/mctp/mctp-kcs.c
-@@ -0,0 +1,594 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Management Component Transport Protocol (MCTP) KCS transport binding.
-+ * This driver is an implementation of the DMTF specificiation
-+ * "DSP0254 - Management Component Transport Protocol (MCTP) KCS Transport
-+ * Binding", available at:
-+ *
-+ * https://www.dmtf.org/sites/default/files/standards/documents/DSP0254_1.0.0.pdf
-+ *
-+ * This driver provides DSP0254-type MCTP-over-KCS transport using a Linux
-+ * KCS client subsystem.
-+ *
-+ * Copyright (c) 2023 Konstantin Aladyshev <aladyshev22@gmail.com>
-+ */
-+
-+#include <linux/i2c.h>
-+#include <linux/if_arp.h>
-+#include <linux/ipmi_kcs.h>
-+#include <linux/kcs_bmc_client.h>
-+#include <linux/mctp.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/netdevice.h>
-+#include <net/mctp.h>
-+#include <net/mctpdevice.h>
-+#include <net/pkt_sched.h>
-+
-+#define MCTP_KCS_MTU 64
-+#define KCS_MSG_BUFSIZ 1000
-+
-+struct mctp_kcs {
-+	struct list_head entry;
-+
-+	/* protects rx & tx state machines */
-+	spinlock_t lock;
-+
-+	struct kcs_bmc_client client;
-+	struct net_device *netdev;
-+
-+	enum kcs_ipmi_phases phase;
-+	enum kcs_ipmi_errors error;
-+
-+	int data_in_idx;
-+	u8 *data_in;
-+
-+	int data_out_idx;
-+	int data_out_len;
-+	u8 *data_out;
-+
-+	struct work_struct rx_work;
-+};
-+
-+struct mctp_kcs_header {
-+	u8 netfn_lun;
-+	u8 defining_body;
-+	u8 len;
-+} __packed;
-+
-+struct mctp_kcs_trailer {
-+	u8 pec;
-+} __packed;
-+
-+#define MCTP_KCS_NETFN_LUN 0xb0
-+#define DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP 0x01
-+
-+static int mctp_kcs_validate_data(struct mctp_kcs *mkcs,
-+				  struct mctp_kcs_header *hdr, int len)
-+{
-+	struct net_device *ndev = mkcs->netdev;
-+	struct mctp_kcs_trailer *tlr;
-+	u8 pec;
-+
-+	if (hdr->netfn_lun != MCTP_KCS_NETFN_LUN) {
-+		dev_err(mkcs->client.dev->dev,
-+			"%s: KCS binding header error! netfn_lun = 0x%02x, but should be 0x%02x",
-+			__func__, hdr->netfn_lun, MCTP_KCS_NETFN_LUN);
-+		ndev->stats.rx_dropped++;
-+		return -EINVAL;
-+	}
-+	if (hdr->defining_body != DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP) {
-+		dev_err(mkcs->client.dev->dev,
-+			"%s: KCS binding header error! defining_body = 0x%02x, but should be 0x%02x",
-+			__func__, hdr->defining_body,
-+			DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP);
-+		ndev->stats.rx_dropped++;
-+		return -EINVAL;
-+	}
-+	if (hdr->len != (u8)(len - sizeof(struct mctp_kcs_header) -
-+			     sizeof(struct mctp_kcs_trailer))) {
-+		dev_err(mkcs->client.dev->dev,
-+			"%s: KCS binding header error! len = 0x%02x, but should be 0x%02x",
-+			__func__, hdr->len,
-+			(u8)(len - sizeof(struct mctp_kcs_header) -
-+			     sizeof(struct mctp_kcs_trailer)));
-+		ndev->stats.rx_length_errors++;
-+		return -EINVAL;
-+	}
-+
-+	pec = i2c_smbus_pec(0, (u8 *)(hdr + 1), hdr->len);
-+	tlr = (struct mctp_kcs_trailer *)((u8 *)(hdr + 1) + hdr->len);
-+	if (pec != tlr->pec) {
-+		dev_err(mkcs->client.dev->dev,
-+			"%s: PEC error! Packet value=0x%02x, calculated value=0x%02x",
-+			__func__, tlr->pec, pec);
-+		ndev->stats.rx_crc_errors++;
-+		return -EINVAL;
-+	}
-+	return 0;
-+}
-+
-+static void mctp_kcs_rx_work(struct work_struct *work)
-+{
-+	struct mctp_kcs *mkcs = container_of(work, struct mctp_kcs, rx_work);
-+	struct mctp_skb_cb *cb;
-+	struct sk_buff *skb;
-+	unsigned long flags;
-+	int rc;
-+	int i;
-+	struct mctp_kcs_header *kcs_header;
-+	int data_len;
-+	int data_in_idx;
-+
-+	spin_lock_irqsave(&mkcs->lock, flags);
-+	for (i = 0; i < (mkcs->data_in_idx); i++)
-+		dev_dbg(mkcs->client.dev->dev, "%s: data_in[%d]=0x%02x",
-+			__func__, i, mkcs->data_in[i]);
-+
-+	data_len = mkcs->data_in_idx - sizeof(struct mctp_kcs_header) -
-+		   sizeof(struct mctp_kcs_trailer);
-+	if (mkcs->phase != KCS_PHASE_WRITE_DONE) {
-+		dev_err(mkcs->client.dev->dev,
-+			"%s: error! Wrong KCS stage at the end of data read (phase=%d)",
-+			__func__, mkcs->phase);
-+		mkcs->netdev->stats.rx_dropped++;
-+		goto unlock_irq;
-+	}
-+
-+	mkcs->phase = KCS_PHASE_WAIT_READ;
-+	data_in_idx = mkcs->data_in_idx;
-+	mkcs->data_in_idx = 0;
-+
-+	skb = netdev_alloc_skb(mkcs->netdev, data_len);
-+	if (!skb) {
-+		mkcs->netdev->stats.rx_dropped++;
-+		goto unlock_irq;
-+	}
-+
-+	kcs_header = (struct mctp_kcs_header *)mkcs->data_in;
-+	rc = mctp_kcs_validate_data(mkcs, kcs_header, data_in_idx);
-+	if (rc) {
-+		dev_err(mkcs->client.dev->dev,
-+			"%s: error! Binding validation failed", __func__);
-+		dev_kfree_skb(skb);
-+		goto unlock_irq;
-+	}
-+
-+	skb->protocol = htons(ETH_P_MCTP);
-+	skb_put_data(skb, mkcs->data_in + sizeof(struct mctp_kcs_header),
-+		     data_len);
-+	skb_reset_network_header(skb);
-+
-+	cb = __mctp_cb(skb);
-+	cb->halen = 0;
-+
-+	netif_rx(skb);
-+	mkcs->netdev->stats.rx_packets++;
-+	mkcs->netdev->stats.rx_bytes += data_len;
-+
-+unlock_irq:
-+	spin_unlock_irqrestore(&mkcs->lock, flags);
-+}
-+
-+static netdev_tx_t mctp_kcs_start_xmit(struct sk_buff *skb,
-+				       struct net_device *ndev)
-+{
-+	struct mctp_kcs_header *kcs_header;
-+	unsigned long flags;
-+	int i;
-+	struct mctp_kcs *mkcs = netdev_priv(ndev);
-+
-+	if (skb->len > MCTP_KCS_MTU) {
-+		dev_err(&ndev->dev, "%s: error! skb len is bigger than MTU",
-+			__func__);
-+		ndev->stats.tx_dropped++;
-+		goto out;
-+	}
-+
-+	spin_lock_irqsave(&mkcs->lock, flags);
-+	if (mkcs->phase != KCS_PHASE_WAIT_READ) {
-+		dev_err(&ndev->dev,
-+			"%s: error! Wrong KCS stage at the start of data write (phase=%d)",
-+			__func__, mkcs->phase);
-+		dev_kfree_skb(skb);
-+		spin_unlock_irqrestore(&mkcs->lock, flags);
-+		return NETDEV_TX_BUSY;
-+	}
-+
-+	netif_stop_queue(ndev);
-+	mkcs->phase = KCS_PHASE_READ;
-+	kcs_header = (struct mctp_kcs_header *)mkcs->data_out;
-+	kcs_header->netfn_lun = MCTP_KCS_NETFN_LUN;
-+	kcs_header->defining_body = DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP;
-+	kcs_header->len = skb->len;
-+	skb_copy_bits(skb, 0, kcs_header + 1, skb->len);
-+	mkcs->data_out[sizeof(struct mctp_kcs_header) + skb->len] =
-+		i2c_smbus_pec(0, (u8 *)(kcs_header + 1), skb->len);
-+	mkcs->data_out_idx = 1;
-+	mkcs->data_out_len = skb->len + sizeof(struct mctp_kcs_header) +
-+			     sizeof(struct mctp_kcs_trailer);
-+
-+	for (i = 0; i < (mkcs->data_out_len); i++)
-+		dev_dbg(&ndev->dev, "%s: data_out[%d]=0x%02x", __func__, i,
-+			mkcs->data_out[i]);
-+
-+	// Write first data byte to initialize transmission
-+	kcs_bmc_write_data(mkcs->client.dev, mkcs->data_out[0]);
-+
-+	spin_unlock_irqrestore(&mkcs->lock, flags);
-+out:
-+	dev_kfree_skb(skb);
-+	return NETDEV_TX_OK;
-+}
-+
-+static inline void set_state(struct mctp_kcs *mkcs, u8 state)
-+{
-+	dev_dbg(mkcs->client.dev->dev, "%s: state=0x%02x", __func__, state);
-+	kcs_bmc_update_status(mkcs->client.dev, KCS_STATUS_STATE_MASK,
-+			      KCS_STATUS_STATE(state));
-+}
-+
-+static int mctp_kcs_ndo_open(struct net_device *ndev)
-+{
-+	struct mctp_kcs *mkcs;
-+
-+	mkcs = netdev_priv(ndev);
-+	dev_info(&ndev->dev, "Open MCTP over KCS channel %d",
-+		 mkcs->client.dev->channel);
-+	return kcs_bmc_enable_device(mkcs->client.dev, &mkcs->client);
-+}
-+
-+static int mctp_kcs_ndo_stop(struct net_device *ndev)
-+{
-+	struct mctp_kcs *mkcs;
-+
-+	mkcs = netdev_priv(ndev);
-+	dev_info(&ndev->dev, "Stop MCTP over KCS channel %d",
-+		 mkcs->client.dev->channel);
-+	mkcs->data_in_idx = 0;
-+	mkcs->data_out_idx = 0;
-+	mkcs->data_out_len = 0;
-+	mkcs->phase = KCS_PHASE_IDLE;
-+	set_state(mkcs, IDLE_STATE);
-+	kcs_bmc_disable_device(mkcs->client.dev, &mkcs->client);
-+	return 0;
-+}
-+
-+static const struct net_device_ops mctp_kcs_netdev_ops = {
-+	.ndo_start_xmit = mctp_kcs_start_xmit,
-+	.ndo_open = mctp_kcs_ndo_open,
-+	.ndo_stop = mctp_kcs_ndo_stop,
-+};
-+
-+static void mctp_kcs_setup(struct net_device *ndev)
-+{
-+	ndev->type = ARPHRD_MCTP;
-+
-+	/* we limit at the fixed MTU, which is also the MCTP-standard
-+	 * baseline MTU, so is also our minimum
-+	 */
-+	ndev->mtu = MCTP_KCS_MTU;
-+	ndev->max_mtu = MCTP_KCS_MTU;
-+	ndev->min_mtu = MCTP_KCS_MTU;
-+
-+	ndev->hard_header_len = 0;
-+	ndev->addr_len = 0;
-+	ndev->tx_queue_len = DEFAULT_TX_QUEUE_LEN;
-+	ndev->flags = IFF_NOARP;
-+	ndev->netdev_ops = &mctp_kcs_netdev_ops;
-+	ndev->needs_free_netdev = true;
-+}
-+
-+static void kcs_bmc_ipmi_force_abort(struct mctp_kcs *mkcs)
-+{
-+	dev_err(mkcs->client.dev->dev,
-+		"Error! Force abort on KCS communication");
-+	set_state(mkcs, ERROR_STATE);
-+	kcs_bmc_read_data(mkcs->client.dev);
-+	kcs_bmc_write_data(mkcs->client.dev, KCS_ZERO_DATA);
-+	mkcs->phase = KCS_PHASE_ERROR;
-+	mkcs->data_in_idx = 0;
-+}
-+
-+static void kcs_bmc_ipmi_handle_data(struct mctp_kcs *mkcs)
-+{
-+	u8 data;
-+	struct kcs_bmc_device *kcs_bmc = mkcs->client.dev;
-+
-+	switch (mkcs->phase) {
-+	case KCS_PHASE_WRITE_START:
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_WRITE_START", __func__);
-+		mkcs->phase = KCS_PHASE_WRITE_DATA;
-+		fallthrough;
-+
-+	case KCS_PHASE_WRITE_DATA:
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_WRITE_DATA", __func__);
-+		if (mkcs->data_in_idx < KCS_MSG_BUFSIZ) {
-+			set_state(mkcs, WRITE_STATE);
-+			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
-+			mkcs->data_in[mkcs->data_in_idx++] =
-+				kcs_bmc_read_data(kcs_bmc);
-+			dev_dbg(kcs_bmc->dev,
-+				"%s: KCS_PHASE_WRITE_DATA: data_in[%d]=0x%02x",
-+				__func__, mkcs->data_in_idx - 1,
-+				mkcs->data_in[mkcs->data_in_idx - 1]);
-+		} else {
-+			kcs_bmc_ipmi_force_abort(mkcs);
-+			mkcs->error = KCS_LENGTH_ERROR;
-+		}
-+		break;
-+
-+	case KCS_PHASE_WRITE_END_CMD:
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_WRITE_END_CMD", __func__);
-+		if (mkcs->data_in_idx < KCS_MSG_BUFSIZ) {
-+			set_state(mkcs, READ_STATE);
-+			mkcs->data_in[mkcs->data_in_idx++] =
-+				kcs_bmc_read_data(kcs_bmc);
-+			dev_dbg(kcs_bmc->dev,
-+				"%s: KCS_PHASE_WRITE_END_CMD: data_in[%d]=0x%02x",
-+				__func__, mkcs->data_in_idx - 1,
-+				mkcs->data_in[mkcs->data_in_idx - 1]);
-+			mkcs->phase = KCS_PHASE_WRITE_DONE;
-+			schedule_work(&mkcs->rx_work);
-+		} else {
-+			kcs_bmc_ipmi_force_abort(mkcs);
-+			mkcs->error = KCS_LENGTH_ERROR;
-+		}
-+		break;
-+
-+	case KCS_PHASE_READ:
-+		dev_dbg(kcs_bmc->dev,
-+			"%s: KCS_PHASE_READ, data_out_idx=%d, data_out_len=%d",
-+			__func__, mkcs->data_out_idx, mkcs->data_out_len);
-+		if (mkcs->data_out_idx == mkcs->data_out_len)
-+			set_state(mkcs, IDLE_STATE);
-+
-+		data = kcs_bmc_read_data(kcs_bmc);
-+		if (data != KCS_CMD_READ_BYTE) {
-+			dev_dbg(kcs_bmc->dev,
-+				"%s: error! data is not equal to KCS_CMD_READ_BYTE",
-+				__func__);
-+			set_state(mkcs, ERROR_STATE);
-+			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
-+			break;
-+		}
-+
-+		if (mkcs->data_out_idx == mkcs->data_out_len) {
-+			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
-+			mkcs->netdev->stats.tx_bytes += mkcs->data_out_len;
-+			mkcs->netdev->stats.tx_packets++;
-+			mkcs->phase = KCS_PHASE_IDLE;
-+			if (netif_queue_stopped(mkcs->netdev))
-+				netif_start_queue(mkcs->netdev);
-+			break;
-+		}
-+
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_READ: data_out[%d]=0x%02x",
-+			__func__, mkcs->data_out_idx,
-+			mkcs->data_out[mkcs->data_out_idx]);
-+		kcs_bmc_write_data(kcs_bmc,
-+				   mkcs->data_out[mkcs->data_out_idx++]);
-+		break;
-+
-+	case KCS_PHASE_ABORT_ERROR1:
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_ABORT_ERROR1", __func__);
-+		set_state(mkcs, READ_STATE);
-+		kcs_bmc_read_data(kcs_bmc);
-+		kcs_bmc_write_data(kcs_bmc, mkcs->error);
-+		mkcs->phase = KCS_PHASE_ABORT_ERROR2;
-+		break;
-+
-+	case KCS_PHASE_ABORT_ERROR2:
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_ABORT_ERROR2", __func__);
-+		set_state(mkcs, IDLE_STATE);
-+		kcs_bmc_read_data(kcs_bmc);
-+		kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
-+		mkcs->phase = KCS_PHASE_IDLE;
-+		break;
-+
-+	default:
-+		dev_dbg(kcs_bmc->dev, "%s: unknown KCS phase", __func__);
-+		kcs_bmc_ipmi_force_abort(mkcs);
-+		break;
-+	}
-+}
-+
-+static void kcs_bmc_ipmi_handle_cmd(struct mctp_kcs *mkcs)
-+{
-+	struct kcs_bmc_device *kcs_bmc = mkcs->client.dev;
-+
-+	set_state(mkcs, WRITE_STATE);
-+	kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
-+
-+	switch (kcs_bmc_read_data(kcs_bmc)) {
-+	case KCS_CMD_WRITE_START:
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_CMD_WRITE_START", __func__);
-+		mkcs->phase = KCS_PHASE_WRITE_START;
-+		mkcs->error = KCS_NO_ERROR;
-+		mkcs->data_in_idx = 0;
-+		break;
-+
-+	case KCS_CMD_WRITE_END:
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_CMD_WRITE_END", __func__);
-+		if (mkcs->phase != KCS_PHASE_WRITE_DATA) {
-+			kcs_bmc_ipmi_force_abort(mkcs);
-+			break;
-+		}
-+		mkcs->phase = KCS_PHASE_WRITE_END_CMD;
-+		break;
-+
-+	case KCS_CMD_GET_STATUS_ABORT:
-+		dev_dbg(kcs_bmc->dev, "%s: KCS_CMD_GET_STATUS_ABORT", __func__);
-+		if (mkcs->error == KCS_NO_ERROR)
-+			mkcs->error = KCS_ABORTED_BY_COMMAND;
-+
-+		mkcs->phase = KCS_PHASE_ABORT_ERROR1;
-+		mkcs->data_in_idx = 0;
-+		break;
-+
-+	default:
-+		dev_dbg(kcs_bmc->dev, "%s: unknown KCS command", __func__);
-+		kcs_bmc_ipmi_force_abort(mkcs);
-+		mkcs->error = KCS_ILLEGAL_CONTROL_CODE;
-+		break;
-+	}
-+}
-+
-+static inline struct mctp_kcs *client_to_mctp_kcs(struct kcs_bmc_client *client)
-+{
-+	return container_of(client, struct mctp_kcs, client);
-+}
-+
-+static irqreturn_t kcs_bmc_mctp_event(struct kcs_bmc_client *client)
-+{
-+	struct mctp_kcs *mkcs;
-+	u8 status;
-+	int ret;
-+
-+	mkcs = client_to_mctp_kcs(client);
-+	if (!mkcs) {
-+		dev_err(client->dev->dev,
-+			"%s: error! can't find mctp_kcs from KCS client",
-+			__func__);
-+		return IRQ_NONE;
-+	}
-+
-+	spin_lock(&mkcs->lock);
-+
-+	status = kcs_bmc_read_status(client->dev);
-+	if (status & KCS_STATUS_IBF) {
-+		if (status & KCS_STATUS_CMD_DAT)
-+			kcs_bmc_ipmi_handle_cmd(mkcs);
-+		else
-+			kcs_bmc_ipmi_handle_data(mkcs);
-+
-+		ret = IRQ_HANDLED;
-+	} else {
-+		ret = IRQ_NONE;
-+	}
-+
-+	spin_unlock(&mkcs->lock);
-+
-+	return ret;
-+}
-+
-+static const struct kcs_bmc_client_ops kcs_bmc_mctp_client_ops = {
-+	.event = kcs_bmc_mctp_event,
-+};
-+
-+static DEFINE_SPINLOCK(kcs_bmc_mctp_instances_lock);
-+static LIST_HEAD(kcs_bmc_mctp_instances);
-+
-+static int kcs_bmc_mctp_add_device(struct kcs_bmc_device *kcs_bmc)
-+{
-+	struct mctp_kcs *mkcs;
-+	struct net_device *ndev;
-+	char name[32];
-+	int rc;
-+
-+	snprintf(name, sizeof(name), "mctpkcs%d", kcs_bmc->channel);
-+
-+	ndev = alloc_netdev(sizeof(*mkcs), name, NET_NAME_ENUM, mctp_kcs_setup);
-+	if (!ndev) {
-+		dev_err_probe(kcs_bmc->dev, -ENOMEM,
-+			      "alloc_netdev failed for KCS channel %d\n",
-+			      kcs_bmc->channel);
-+		return -ENOMEM;
-+	}
-+
-+	mkcs = netdev_priv(ndev);
-+	mkcs->netdev = ndev;
-+	mkcs->client.dev = kcs_bmc;
-+	mkcs->client.ops = &kcs_bmc_mctp_client_ops;
-+	mkcs->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-+	if (!mkcs->data_in) {
-+		dev_err_probe(
-+			kcs_bmc->dev, -ENOMEM,
-+			"failed to allocate data_in buffer for KCS channel %d\n",
-+			kcs_bmc->channel);
-+		rc = -ENOMEM;
-+		goto free_netdev;
-+	}
-+	mkcs->data_out = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-+	if (!mkcs->data_out) {
-+		dev_err_probe(
-+			kcs_bmc->dev, -ENOMEM,
-+			"failed to allocate data_out buffer for KCS channel %d\n",
-+			kcs_bmc->channel);
-+		rc = -ENOMEM;
-+		goto free_netdev;
-+	}
-+
-+	INIT_WORK(&mkcs->rx_work, mctp_kcs_rx_work);
-+
-+	rc = register_netdev(ndev);
-+	if (rc)
-+		goto free_netdev;
-+
-+	spin_lock_irq(&kcs_bmc_mctp_instances_lock);
-+	list_add(&mkcs->entry, &kcs_bmc_mctp_instances);
-+	spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
-+
-+	dev_info(kcs_bmc->dev, "Add MCTP client for the KCS channel %d",
-+		 kcs_bmc->channel);
-+	return 0;
-+
-+free_netdev:
-+	free_netdev(ndev);
-+
-+	return rc;
-+}
-+
-+static int kcs_bmc_mctp_remove_device(struct kcs_bmc_device *kcs_bmc)
-+{
-+	struct mctp_kcs *mkcs = NULL, *pos;
-+
-+	dev_info(kcs_bmc->dev, "Remove MCTP client for the KCS channel %d",
-+		 kcs_bmc->channel);
-+	spin_lock_irq(&kcs_bmc_mctp_instances_lock);
-+	list_for_each_entry(pos, &kcs_bmc_mctp_instances, entry) {
-+		if (pos->client.dev == kcs_bmc) {
-+			mkcs = pos;
-+			list_del(&pos->entry);
-+			break;
-+		}
-+	}
-+	spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
-+
-+	if (!mkcs)
-+		return -ENODEV;
-+
-+	unregister_netdev(mkcs->netdev);
-+	free_netdev(mkcs->netdev);
-+	kcs_bmc_disable_device(kcs_bmc, &mkcs->client);
-+	devm_kfree(kcs_bmc->dev, mkcs->data_out);
-+	devm_kfree(kcs_bmc->dev, mkcs->data_in);
-+	return 0;
-+}
-+
-+static const struct kcs_bmc_driver_ops kcs_bmc_mctp_driver_ops = {
-+	.add_device = kcs_bmc_mctp_add_device,
-+	.remove_device = kcs_bmc_mctp_remove_device,
-+};
-+
-+static struct kcs_bmc_driver kcs_bmc_mctp_driver = {
-+	.ops = &kcs_bmc_mctp_driver_ops,
-+};
-+
-+static int __init mctp_kcs_init(void)
-+{
-+	kcs_bmc_register_driver(&kcs_bmc_mctp_driver);
-+	return 0;
-+}
-+
-+static void __exit mctp_kcs_exit(void)
-+{
-+	kcs_bmc_unregister_driver(&kcs_bmc_mctp_driver);
-+}
-+
-+module_init(mctp_kcs_init);
-+module_exit(mctp_kcs_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Konstantin Aladyshev <aladyshev22@gmail.com>");
-+MODULE_DESCRIPTION("MCTP KCS transport");
--- 
-2.25.1
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T29wcywgc29ycnkgYWJvdXQgdGhhdC4KSSd2ZSBpbnRyb2R1Y2VkIHRoaXMgbmV3IHdhcm5pbmcg
+d2hlbiBJJ3ZlIHJlZmFjdG9yZWQgbXkgY29kZSB0byB1c2UKJ2Rldl9lcnJfcHJvYmUnLgpJJ3Zl
+IHNlbnQgdGhlIHYzIHNlcmllcyB0byBjb3JyZWN0IHRoZSBpc3N1ZSwgSSBob3BlIG5vdyBldmVy
+eXRoaW5nIGlzIGNsZWFyLgpJIGhhdmVuJ3QgZmlndXJlZCBvdXQgaG93IHRvIHJ1biBjbGFuZyBp
+biBteSB5b2N0byBlbnZpcm9ubWVudCB3aGVyZSBJCmRldmVsb3AgY29kZSwgYnV0IHRoZQpgYGAK
+bWFrZSBXPTEgQz0xIGRyaXZlcnMvbmV0L21jdHAvbWN0cC1rY3MubwpgYGAKcnVucyB3aXRob3V0
+IGFueSBpc3N1ZXMgbm93LgoKQmVzdCByZWdhcmRzLApLb25zdGFudGluIEFsYWR5c2hldgoKT24g
+VHVlLCBPY3QgMywgMjAyMyBhdCAyOjA14oCvQU0ga2VybmVsIHRlc3Qgcm9ib3QgPGxrcEBpbnRl
+bC5jb20+IHdyb3RlOgo+Cj4gSGkgS29uc3RhbnRpbiwKPgo+IGtlcm5lbCB0ZXN0IHJvYm90IG5v
+dGljZWQgdGhlIGZvbGxvd2luZyBidWlsZCB3YXJuaW5nczoKPgo+IFthdXRvIGJ1aWxkIHRlc3Qg
+V0FSTklORyBvbiBjbWlueWFyZC1pcG1pL2Zvci1uZXh0XQo+IFthbHNvIGJ1aWxkIHRlc3QgV0FS
+TklORyBvbiBsaW51cy9tYXN0ZXIgdjYuNi1yYzQgbmV4dC0yMDIzMDkyOV0KPiBbSWYgeW91ciBw
+YXRjaCBpcyBhcHBsaWVkIHRvIHRoZSB3cm9uZyBnaXQgdHJlZSwga2luZGx5IGRyb3AgdXMgYSBu
+b3RlLgo+IEFuZCB3aGVuIHN1Ym1pdHRpbmcgcGF0Y2gsIHdlIHN1Z2dlc3QgdG8gdXNlICctLWJh
+c2UnIGFzIGRvY3VtZW50ZWQgaW4KPiBodHRwczovL2dpdC1zY20uY29tL2RvY3MvZ2l0LWZvcm1h
+dC1wYXRjaCNfYmFzZV90cmVlX2luZm9ybWF0aW9uXQo+Cj4gdXJsOiAgICBodHRwczovL2dpdGh1
+Yi5jb20vaW50ZWwtbGFiLWxrcC9saW51eC9jb21taXRzL0tvbnN0YW50aW4tQWxhZHlzaGV2L2lw
+bWktTW92ZS1LQ1MtaGVhZGVycy10by1jb21tb24taW5jbHVkZS1mb2xkZXIvMjAyMzEwMDItMjIz
+NjMyCj4gYmFzZTogICBodHRwczovL2dpdGh1Yi5jb20vY21pbnlhcmQvbGludXgtaXBtaSBmb3It
+bmV4dAo+IHBhdGNoIGxpbms6ICAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyMzEwMDIx
+NDM0NDEuNTQ1LTQtYWxhZHlzaGV2MjIlNDBnbWFpbC5jb20KPiBwYXRjaCBzdWJqZWN0OiBbUEFU
+Q0ggdjIgMy8zXSBtY3RwOiBBZGQgTUNUUC1vdmVyLUtDUyB0cmFuc3BvcnQgYmluZGluZwo+IGNv
+bmZpZzogc2gtYWxseWVzY29uZmlnIChodHRwczovL2Rvd25sb2FkLjAxLm9yZy8wZGF5LWNpL2Fy
+Y2hpdmUvMjAyMzEwMDMvMjAyMzEwMDMwNjQwLnRZZVNKamVJLWxrcEBpbnRlbC5jb20vY29uZmln
+KQo+IGNvbXBpbGVyOiBzaDQtbGludXgtZ2NjIChHQ0MpIDEzLjIuMAo+IHJlcHJvZHVjZSAodGhp
+cyBpcyBhIFc9MSBidWlsZCk6IChodHRwczovL2Rvd25sb2FkLjAxLm9yZy8wZGF5LWNpL2FyY2hp
+dmUvMjAyMzEwMDMvMjAyMzEwMDMwNjQwLnRZZVNKamVJLWxrcEBpbnRlbC5jb20vcmVwcm9kdWNl
+KQo+Cj4gSWYgeW91IGZpeCB0aGUgaXNzdWUgaW4gYSBzZXBhcmF0ZSBwYXRjaC9jb21taXQgKGku
+ZS4gbm90IGp1c3QgYSBuZXcgdmVyc2lvbiBvZgo+IHRoZSBzYW1lIHBhdGNoL2NvbW1pdCksIGtp
+bmRseSBhZGQgZm9sbG93aW5nIHRhZ3MKPiB8IFJlcG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2Jv
+dCA8bGtwQGludGVsLmNvbT4KPiB8IENsb3NlczogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvb2Ut
+a2J1aWxkLWFsbC8yMDIzMTAwMzA2NDAudFllU0pqZUktbGtwQGludGVsLmNvbS8KPgo+IEFsbCB3
+YXJuaW5ncyAobmV3IG9uZXMgcHJlZml4ZWQgYnkgPj4pOgo+Cj4gICAgZHJpdmVycy9uZXQvbWN0
+cC9tY3RwLWtjcy5jOiBJbiBmdW5jdGlvbiAna2NzX2JtY19tY3RwX2FkZF9kZXZpY2UnOgo+ID4+
+IGRyaXZlcnMvbmV0L21jdHAvbWN0cC1rY3MuYzo0OTQ6MzE6IHdhcm5pbmc6IHBhc3NpbmcgYXJn
+dW1lbnQgMiBvZiAnZGV2X2Vycl9wcm9iZScgbWFrZXMgaW50ZWdlciBmcm9tIHBvaW50ZXIgd2l0
+aG91dCBhIGNhc3QgWy1XaW50LWNvbnZlcnNpb25dCj4gICAgICA0OTQgfCAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAiYWxsb2NfbmV0ZGV2IGZhaWxlZCBmb3IgS0NTIGNoYW5uZWwgJWRc
+biIsCj4gICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBefn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4KPiAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHwKPiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIGNoYXIgKgo+ICAgIEluIGZpbGUgaW5jbHVkZWQgZnJvbSBpbmNsdWRlL2xpbnV4L2Rl
+dmljZS5oOjE1LAo+ICAgICAgICAgICAgICAgICAgICAgZnJvbSBpbmNsdWRlL2xpbnV4L2FjcGku
+aDoxNCwKPiAgICAgICAgICAgICAgICAgICAgIGZyb20gaW5jbHVkZS9saW51eC9pMmMuaDoxMywK
+PiAgICAgICAgICAgICAgICAgICAgIGZyb20gZHJpdmVycy9uZXQvbWN0cC9tY3RwLWtjcy5jOjE2
+Ogo+ICAgIGluY2x1ZGUvbGludXgvZGV2X3ByaW50ay5oOjI3Nzo2NDogbm90ZTogZXhwZWN0ZWQg
+J2ludCcgYnV0IGFyZ3VtZW50IGlzIG9mIHR5cGUgJ2NoYXIgKicKPiAgICAgIDI3NyB8IF9fcHJp
+bnRmKDMsIDQpIGludCBkZXZfZXJyX3Byb2JlKGNvbnN0IHN0cnVjdCBkZXZpY2UgKmRldiwgaW50
+IGVyciwgY29uc3QgY2hhciAqZm10LCAuLi4pOwo+ICAgICAgICAgIHwgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB+fn5+Xn5+Cj4gPj4g
+ZHJpdmVycy9uZXQvbWN0cC9tY3RwLWtjcy5jOjQ5NTozODogd2FybmluZzogcGFzc2luZyBhcmd1
+bWVudCAzIG9mICdkZXZfZXJyX3Byb2JlJyBtYWtlcyBwb2ludGVyIGZyb20gaW50ZWdlciB3aXRo
+b3V0IGEgY2FzdCBbLVdpbnQtY29udmVyc2lvbl0KPiAgICAgIDQ5NSB8ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIGtjc19ibWMtPmNoYW5uZWwpOwo+ICAgICAgICAgIHwgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgfn5+fn5+fl5+fn5+fn5+fgo+ICAgICAgICAgIHwgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwKPiAgICAgICAgICB8ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICB1MzIge2FrYSB1bnNpZ25lZCBpbnR9Cj4gICAgaW5j
+bHVkZS9saW51eC9kZXZfcHJpbnRrLmg6Mjc3OjgxOiBub3RlOiBleHBlY3RlZCAnY29uc3QgY2hh
+ciAqJyBidXQgYXJndW1lbnQgaXMgb2YgdHlwZSAndTMyJyB7YWthICd1bnNpZ25lZCBpbnQnfQo+
+ICAgICAgMjc3IHwgX19wcmludGYoMywgNCkgaW50IGRldl9lcnJfcHJvYmUoY29uc3Qgc3RydWN0
+IGRldmljZSAqZGV2LCBpbnQgZXJyLCBjb25zdCBjaGFyICpmbXQsIC4uLik7Cj4gICAgICAgICAg
+fCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIH5+fn5+fn5+fn5+fl5+fgo+ICAgIGRyaXZlcnMvbmV0L21jdHAvbWN0cC1r
+Y3MuYzo1MDc6MjU6IHdhcm5pbmc6IHBhc3NpbmcgYXJndW1lbnQgMiBvZiAnZGV2X2Vycl9wcm9i
+ZScgbWFrZXMgaW50ZWdlciBmcm9tIHBvaW50ZXIgd2l0aG91dCBhIGNhc3QgWy1XaW50LWNvbnZl
+cnNpb25dCj4gICAgICA1MDcgfCAgICAgICAgICAgICAgICAgICAgICAgICAiZmFpbGVkIHRvIGFs
+bG9jYXRlIGRhdGFfaW4gYnVmZmVyIGZvciBLQ1MgY2hhbm5lbCAlZFxuIiwKPiAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4gICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAg
+ICAgICB8Cj4gICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICBjaGFyICoKPiAgICBp
+bmNsdWRlL2xpbnV4L2Rldl9wcmludGsuaDoyNzc6NjQ6IG5vdGU6IGV4cGVjdGVkICdpbnQnIGJ1
+dCBhcmd1bWVudCBpcyBvZiB0eXBlICdjaGFyIConCj4gICAgICAyNzcgfCBfX3ByaW50ZigzLCA0
+KSBpbnQgZGV2X2Vycl9wcm9iZShjb25zdCBzdHJ1Y3QgZGV2aWNlICpkZXYsIGludCBlcnIsIGNv
+bnN0IGNoYXIgKmZtdCwgLi4uKTsKPiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfn5+fl5+fgo+ICAgIGRyaXZlcnMv
+bmV0L21jdHAvbWN0cC1rY3MuYzo1MDg6MzI6IHdhcm5pbmc6IHBhc3NpbmcgYXJndW1lbnQgMyBv
+ZiAnZGV2X2Vycl9wcm9iZScgbWFrZXMgcG9pbnRlciBmcm9tIGludGVnZXIgd2l0aG91dCBhIGNh
+c3QgWy1XaW50LWNvbnZlcnNpb25dCj4gICAgICA1MDggfCAgICAgICAgICAgICAgICAgICAgICAg
+ICBrY3NfYm1jLT5jaGFubmVsKTsKPiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
+IH5+fn5+fn5efn5+fn5+fn4KPiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB8Cj4gICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdTMyIHth
+a2EgdW5zaWduZWQgaW50fQo+ICAgIGluY2x1ZGUvbGludXgvZGV2X3ByaW50ay5oOjI3Nzo4MTog
+bm90ZTogZXhwZWN0ZWQgJ2NvbnN0IGNoYXIgKicgYnV0IGFyZ3VtZW50IGlzIG9mIHR5cGUgJ3Uz
+Micge2FrYSAndW5zaWduZWQgaW50J30KPiAgICAgIDI3NyB8IF9fcHJpbnRmKDMsIDQpIGludCBk
+ZXZfZXJyX3Byb2JlKGNvbnN0IHN0cnVjdCBkZXZpY2UgKmRldiwgaW50IGVyciwgY29uc3QgY2hh
+ciAqZm10LCAuLi4pOwo+ICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB+fn5+fn5+fn5+fn5efn4KPiAg
+ICBkcml2ZXJzL25ldC9tY3RwL21jdHAta2NzLmM6NTE2OjI1OiB3YXJuaW5nOiBwYXNzaW5nIGFy
+Z3VtZW50IDIgb2YgJ2Rldl9lcnJfcHJvYmUnIG1ha2VzIGludGVnZXIgZnJvbSBwb2ludGVyIHdp
+dGhvdXQgYSBjYXN0IFstV2ludC1jb252ZXJzaW9uXQo+ICAgICAgNTE2IHwgICAgICAgICAgICAg
+ICAgICAgICAgICAgImZhaWxlZCB0byBhbGxvY2F0ZSBkYXRhX291dCBidWZmZXIgZm9yIEtDUyBj
+aGFubmVsICVkXG4iLAo+ICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4gICAg
+ICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICB8Cj4gICAgICAgICAgfCAgICAgICAgICAg
+ICAgICAgICAgICAgICBjaGFyICoKPiAgICBpbmNsdWRlL2xpbnV4L2Rldl9wcmludGsuaDoyNzc6
+NjQ6IG5vdGU6IGV4cGVjdGVkICdpbnQnIGJ1dCBhcmd1bWVudCBpcyBvZiB0eXBlICdjaGFyICon
+Cj4gICAgICAyNzcgfCBfX3ByaW50ZigzLCA0KSBpbnQgZGV2X2Vycl9wcm9iZShjb25zdCBzdHJ1
+Y3QgZGV2aWNlICpkZXYsIGludCBlcnIsIGNvbnN0IGNoYXIgKmZtdCwgLi4uKTsKPiAgICAgICAg
+ICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfn5+fl5+fgo+ICAgIGRyaXZlcnMvbmV0L21jdHAvbWN0cC1rY3MuYzo1MTc6MzI6IHdh
+cm5pbmc6IHBhc3NpbmcgYXJndW1lbnQgMyBvZiAnZGV2X2Vycl9wcm9iZScgbWFrZXMgcG9pbnRl
+ciBmcm9tIGludGVnZXIgd2l0aG91dCBhIGNhc3QgWy1XaW50LWNvbnZlcnNpb25dCj4gICAgICA1
+MTcgfCAgICAgICAgICAgICAgICAgICAgICAgICBrY3NfYm1jLT5jaGFubmVsKTsKPiAgICAgICAg
+ICB8ICAgICAgICAgICAgICAgICAgICAgICAgIH5+fn5+fn5efn5+fn5+fn4KPiAgICAgICAgICB8
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8Cj4gICAgICAgICAgfCAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgdTMyIHtha2EgdW5zaWduZWQgaW50fQo+ICAgIGluY2x1ZGUv
+bGludXgvZGV2X3ByaW50ay5oOjI3Nzo4MTogbm90ZTogZXhwZWN0ZWQgJ2NvbnN0IGNoYXIgKicg
+YnV0IGFyZ3VtZW50IGlzIG9mIHR5cGUgJ3UzMicge2FrYSAndW5zaWduZWQgaW50J30KPiAgICAg
+IDI3NyB8IF9fcHJpbnRmKDMsIDQpIGludCBkZXZfZXJyX3Byb2JlKGNvbnN0IHN0cnVjdCBkZXZp
+Y2UgKmRldiwgaW50IGVyciwgY29uc3QgY2hhciAqZm10LCAuLi4pOwo+ICAgICAgICAgIHwgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICB+fn5+fn5+fn5+fn5efn4KPgo+Cj4gdmltICsvZGV2X2Vycl9wcm9iZSArNDk0IGRy
+aXZlcnMvbmV0L21jdHAvbWN0cC1rY3MuYwo+Cj4gICAgNDgxCj4gICAgNDgyICBzdGF0aWMgaW50
+IGtjc19ibWNfbWN0cF9hZGRfZGV2aWNlKHN0cnVjdCBrY3NfYm1jX2RldmljZSAqa2NzX2JtYykK
+PiAgICA0ODMgIHsKPiAgICA0ODQgICAgICAgICAgc3RydWN0IG1jdHBfa2NzICpta2NzOwo+ICAg
+IDQ4NSAgICAgICAgICBzdHJ1Y3QgbmV0X2RldmljZSAqbmRldjsKPiAgICA0ODYgICAgICAgICAg
+Y2hhciBuYW1lWzMyXTsKPiAgICA0ODcgICAgICAgICAgaW50IHJjOwo+ICAgIDQ4OAo+ICAgIDQ4
+OSAgICAgICAgICBzbnByaW50ZihuYW1lLCBzaXplb2YobmFtZSksICJtY3Rwa2NzJWQiLCBrY3Nf
+Ym1jLT5jaGFubmVsKTsKPiAgICA0OTAKPiAgICA0OTEgICAgICAgICAgbmRldiA9IGFsbG9jX25l
+dGRldihzaXplb2YoKm1rY3MpLCBuYW1lLCBORVRfTkFNRV9FTlVNLCBtY3RwX2tjc19zZXR1cCk7
+Cj4gICAgNDkyICAgICAgICAgIGlmICghbmRldikgewo+ICAgIDQ5MyAgICAgICAgICAgICAgICAg
+IGRldl9lcnJfcHJvYmUoa2NzX2JtYy0+ZGV2LAo+ICA+IDQ5NCAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgImFsbG9jX25ldGRldiBmYWlsZWQgZm9yIEtDUyBjaGFubmVsICVkXG4iLAo+
+ICA+IDQ5NSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAga2NzX2JtYy0+Y2hhbm5lbCk7
+Cj4gICAgNDk2ICAgICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9NRU07Cj4gICAgNDk3ICAgICAg
+ICAgIH0KPiAgICA0OTgKPiAgICA0OTkgICAgICAgICAgbWtjcyA9IG5ldGRldl9wcml2KG5kZXYp
+Owo+ICAgIDUwMCAgICAgICAgICBta2NzLT5uZXRkZXYgPSBuZGV2Owo+ICAgIDUwMSAgICAgICAg
+ICBta2NzLT5jbGllbnQuZGV2ID0ga2NzX2JtYzsKPiAgICA1MDIgICAgICAgICAgbWtjcy0+Y2xp
+ZW50Lm9wcyA9ICZrY3NfYm1jX21jdHBfY2xpZW50X29wczsKPiAgICA1MDMgICAgICAgICAgbWtj
+cy0+ZGF0YV9pbiA9IGRldm1fa21hbGxvYyhrY3NfYm1jLT5kZXYsIEtDU19NU0dfQlVGU0laLCBH
+RlBfS0VSTkVMKTsKPiAgICA1MDQgICAgICAgICAgaWYgKCFta2NzLT5kYXRhX2luKSB7Cj4gICAg
+NTA1ICAgICAgICAgICAgICAgICAgZGV2X2Vycl9wcm9iZSgKPiAgICA1MDYgICAgICAgICAgICAg
+ICAgICAgICAgICAgIGtjc19ibWMtPmRldiwKPiAgICA1MDcgICAgICAgICAgICAgICAgICAgICAg
+ICAgICJmYWlsZWQgdG8gYWxsb2NhdGUgZGF0YV9pbiBidWZmZXIgZm9yIEtDUyBjaGFubmVsICVk
+XG4iLAo+ICAgIDUwOCAgICAgICAgICAgICAgICAgICAgICAgICAga2NzX2JtYy0+Y2hhbm5lbCk7
+Cj4gICAgNTA5ICAgICAgICAgICAgICAgICAgcmMgPSAtRU5PTUVNOwo+ICAgIDUxMCAgICAgICAg
+ICAgICAgICAgIGdvdG8gZnJlZV9uZXRkZXY7Cj4gICAgNTExICAgICAgICAgIH0KPiAgICA1MTIg
+ICAgICAgICAgbWtjcy0+ZGF0YV9vdXQgPSBkZXZtX2ttYWxsb2Moa2NzX2JtYy0+ZGV2LCBLQ1Nf
+TVNHX0JVRlNJWiwgR0ZQX0tFUk5FTCk7Cj4gICAgNTEzICAgICAgICAgIGlmICghbWtjcy0+ZGF0
+YV9vdXQpIHsKPiAgICA1MTQgICAgICAgICAgICAgICAgICBkZXZfZXJyX3Byb2JlKAo+ICAgIDUx
+NSAgICAgICAgICAgICAgICAgICAgICAgICAga2NzX2JtYy0+ZGV2LAo+ICAgIDUxNiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgImZhaWxlZCB0byBhbGxvY2F0ZSBkYXRhX291dCBidWZmZXIgZm9y
+IEtDUyBjaGFubmVsICVkXG4iLAo+ICAgIDUxNyAgICAgICAgICAgICAgICAgICAgICAgICAga2Nz
+X2JtYy0+Y2hhbm5lbCk7Cj4gICAgNTE4ICAgICAgICAgICAgICAgICAgcmMgPSAtRU5PTUVNOwo+
+ICAgIDUxOSAgICAgICAgICAgICAgICAgIGdvdG8gZnJlZV9uZXRkZXY7Cj4gICAgNTIwICAgICAg
+ICAgIH0KPiAgICA1MjEKPiAgICA1MjIgICAgICAgICAgSU5JVF9XT1JLKCZta2NzLT5yeF93b3Jr
+LCBtY3RwX2tjc19yeF93b3JrKTsKPiAgICA1MjMKPiAgICA1MjQgICAgICAgICAgcmMgPSByZWdp
+c3Rlcl9uZXRkZXYobmRldik7Cj4gICAgNTI1ICAgICAgICAgIGlmIChyYykKPiAgICA1MjYgICAg
+ICAgICAgICAgICAgICBnb3RvIGZyZWVfbmV0ZGV2Owo+ICAgIDUyNwo+ICAgIDUyOCAgICAgICAg
+ICBzcGluX2xvY2tfaXJxKCZrY3NfYm1jX21jdHBfaW5zdGFuY2VzX2xvY2spOwo+ICAgIDUyOSAg
+ICAgICAgICBsaXN0X2FkZCgmbWtjcy0+ZW50cnksICZrY3NfYm1jX21jdHBfaW5zdGFuY2VzKTsK
+PiAgICA1MzAgICAgICAgICAgc3Bpbl91bmxvY2tfaXJxKCZrY3NfYm1jX21jdHBfaW5zdGFuY2Vz
+X2xvY2spOwo+ICAgIDUzMQo+ICAgIDUzMiAgICAgICAgICBkZXZfaW5mbyhrY3NfYm1jLT5kZXYs
+ICJBZGQgTUNUUCBjbGllbnQgZm9yIHRoZSBLQ1MgY2hhbm5lbCAlZCIsCj4gICAgNTMzICAgICAg
+ICAgICAgICAgICAgIGtjc19ibWMtPmNoYW5uZWwpOwo+ICAgIDUzNCAgICAgICAgICByZXR1cm4g
+MDsKPiAgICA1MzUKPiAgICA1MzYgIGZyZWVfbmV0ZGV2Ogo+ICAgIDUzNyAgICAgICAgICBmcmVl
+X25ldGRldihuZGV2KTsKPiAgICA1MzgKPiAgICA1MzkgICAgICAgICAgcmV0dXJuIHJjOwo+ICAg
+IDU0MCAgfQo+ICAgIDU0MQo+Cj4gLS0KPiAwLURBWSBDSSBLZXJuZWwgVGVzdCBTZXJ2aWNlCj4g
+aHR0cHM6Ly9naXRodWIuY29tL2ludGVsL2xrcC10ZXN0cy93aWtpCgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxp
+bmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8v
+bGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
