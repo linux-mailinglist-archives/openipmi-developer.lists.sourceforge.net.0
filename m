@@ -2,94 +2,72 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 264447B5D85
-	for <lists+openipmi-developer@lfdr.de>; Tue,  3 Oct 2023 01:05:19 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 86A227B6009
+	for <lists+openipmi-developer@lfdr.de>; Tue,  3 Oct 2023 06:48:49 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qnRyT-00081V-Lj;
-	Mon, 02 Oct 2023 23:05:14 +0000
+	id 1qnXKp-0007Oc-FJ;
+	Tue, 03 Oct 2023 04:48:38 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <lkp@intel.com>) id 1qnRyS-00081P-KO
+ (envelope-from <ct@flyingcircus.io>) id 1qnXKn-0007OV-G7
  for openipmi-developer@lists.sourceforge.net;
- Mon, 02 Oct 2023 23:05:13 +0000
+ Tue, 03 Oct 2023 04:48:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=To:References:Message-Id:Content-Transfer-Encoding:
+ Cc:Date:In-Reply-To:From:Subject:Mime-Version:Content-Type:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=4cSXb4QokhVhuYrsFzXSiOFCdwbtTVMZX8i3son5awQ=; b=QMXzgeY+v5ntena1HhCHhYqHi9
- uPJzA94FGMf7EMFvb/0RdFEgM33WNTh069rKm3PmcHhw6xL5ucbqp2w70+NoJrYiUJ+y/aNfdwmXl
- Cz2nFujGMIe+x2ef0hFinIt3jxJkpEXGxpVgqXZGsTvnN20t6HxjPCUsM05SElSN508w=;
+ bh=bQ+RMIcX//1BFhHTwVAhPytO+gf+aJmCuLN74bukp+Q=; b=VFeQRGgMo1J3eDSpmGgg7qsHi/
+ pOE9MAF6LjBwfWV+T9oCjFu0g+nG38Ow7yTXIQTMtEQSlkMB6jJYKk5HEYj0cY06Ti6MwXraA2IEI
+ vYe0beNhQ/qrN1f/2vRDtp7Dx2gxm3s2KkcOfXFZwDFT/t6Uy/Fxg8Iuw7z6jv7MMslk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=To:References:Message-Id:Content-Transfer-Encoding:Cc:Date:In-Reply-To:
+ From:Subject:Mime-Version:Content-Type:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=4cSXb4QokhVhuYrsFzXSiOFCdwbtTVMZX8i3son5awQ=; b=KozB/z3opR2GW5MoFh+SPdPYo+
- 2rX/ysMw3jMafM6bs4ajNoWRmv5SdTXXhVjBBKjWD4ehHs8jO0I6Ci8p1LeEG1hfWOwEv+55wW5Wm
- ufIOFKGNITahUyuJxqONq/9IjJmzn+gU1kebX2Dn1eqNvana4jtIML4U5mwQyzmTw070=;
-Received: from mgamail.intel.com ([134.134.136.24])
+ bh=bQ+RMIcX//1BFhHTwVAhPytO+gf+aJmCuLN74bukp+Q=; b=HTmdNgJxYOFrC1rNxg/ZX8NiJL
+ Feklb/6LcgTMX/RvG0ynjOc/2uZQrXgQVrAMK3lssfNdYw/gxDZCNs+ZIyITkW+WpHa7CD3RUmIYR
+ YD2c4b+Y4J2knn+j4lDdMNAU0f2AbbvKXwz4zijZqcMoSNjQGeWDCCzJdEmWwuOcZ2mA=;
+Received: from mail.flyingcircus.io ([212.122.41.197])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qnRyP-00GeKp-Oe for openipmi-developer@lists.sourceforge.net;
- Mon, 02 Oct 2023 23:05:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1696287909; x=1727823909;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:in-reply-to;
- bh=W+wHs3ShPE3V3vqCEk3iLvApEclOhjapQFsJWjm31Jg=;
- b=dKMQtwxN3gq+4KiQ7OGhgqJGIzbTIY7gLKWcHDxx15V/Q65YMgN8Qms6
- QqKDovZ7QdQ0i7nR3vPHpvhjWkgrCLdDnFptLCwLELEinaxsF4vKSc3k/
- 4Jy3XjeZWWevxRzEFo9LJuw9b2jnyiyaMfzeMw89IiI+8vu8dR8PT+tuh
- lHing0Rg0AAO7CJ1wr8jK0bc/0YR/sL+ew7VR8ng+gO2nZJXnXG3x5Tg0
- 95VyzSe8OmZKTHLcR3DYO3n1opR/njmQB4iLn3zrdBhRUrznOy1ghFheA
- CFei9FsjVy4GobgtlzMYaxLWK13ZPu9xqQ2sDGhIeG5nxWTxk86NkfugJ Q==;
-X-IronPort-AV: E=McAfee;i="6600,9927,10851"; a="385578741"
-X-IronPort-AV: E=Sophos;i="6.03,194,1694761200"; d="scan'208";a="385578741"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
- by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 02 Oct 2023 16:05:02 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6600,9927,10851"; a="821030060"
-X-IronPort-AV: E=Sophos;i="6.03,194,1694761200"; d="scan'208";a="821030060"
-Received: from lkp-server02.sh.intel.com (HELO c3b01524d57c) ([10.239.97.151])
- by fmsmga004.fm.intel.com with ESMTP; 02 Oct 2023 16:04:55 -0700
-Received: from kbuild by c3b01524d57c with local (Exim 4.96)
- (envelope-from <lkp@intel.com>) id 1qnRy9-0006Ud-2j;
- Mon, 02 Oct 2023 23:04:53 +0000
-Date: Tue, 3 Oct 2023 07:04:37 +0800
-From: kernel test robot <lkp@intel.com>
-To: Konstantin Aladyshev <aladyshev22@gmail.com>
-Message-ID: <202310030640.tYeSJjeI-lkp@intel.com>
-References: <20231002143441.545-4-aladyshev22@gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20231002143441.545-4-aladyshev22@gmail.com>
-X-Spam-Score: -2.5 (--)
+ id 1qnXKi-00GwzK-AS for openipmi-developer@lists.sourceforge.net;
+ Tue, 03 Oct 2023 04:48:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flyingcircus.io;
+ s=mail; t=1696308490;
+ bh=bQ+RMIcX//1BFhHTwVAhPytO+gf+aJmCuLN74bukp+Q=;
+ h=Subject:From:In-Reply-To:Date:Cc:References:To;
+ b=pEq0r0jvGHaMrxWIPPxJgWk8OnURdW5dqpBPNEs0+Vm1llxtyjPdzt3PYuW9CFiZC
+ 5Z91j4WgUsJC0+X3FMkx8pllIsFR0jT6FxDInZwUbLrjo9+Sc4eABYH+XC5eyv5JDj
+ 54WCZ7XIzRyoBPF7Dpgb/OgFJJAthJPBc9NIbdMA=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.700.6\))
+In-Reply-To: <ZRrc7Eet4EKbSro6@mail.minyard.net>
+Date: Tue, 3 Oct 2023 06:47:49 +0200
+Message-Id: <884F85AA-E8F8-4113-A89B-DF759D2FF921@flyingcircus.io>
+References: <67d8a49d-6c6e-4543-b76e-bdf977e2f357@email.android.com>
+ <E251E387-91D1-4417-AB11-38B7DE59584F@flyingcircus.io>
+ <ZRrc7Eet4EKbSro6@mail.minyard.net>
+To: minyard@acm.org
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Konstantin, kernel test robot noticed the following build
- warnings: [auto build test WARNING on cminyard-ipmi/for-next] [also build
- test WARNING on linus/master v6.6-rc4 next-20230929] [If your patch is applied
- to the wrong git tree, kindly drop us a note. And when su [...] 
- Content analysis details:   (-2.5 points, 6.0 required)
+ Content preview:  Hey, > On 2. Oct 2023, at 17:08,
+ Corey Minyard <minyard@acm.org>
+ wrote: > > On Mon, Oct 02, 2023 at 08:05:09AM +0200, Christian Theune wrote:
+ > > ...snip... > >>>> Can you not get kernel coredumps? >>> Unf [...] 
+ Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [134.134.136.24 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [134.134.136.24 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -99,11 +77,8 @@ X-Spam-Report: Spam detection software,
  envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1qnRyP-00GeKp-Oe
-Subject: Re: [Openipmi-developer] [PATCH v2 3/3] mctp: Add MCTP-over-KCS
- transport binding
+X-Headers-End: 1qnXKi-00GwzK-AS
+Subject: Re: [Openipmi-developer] SOL via syslog?
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -116,168 +91,79 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: tmaimon77@gmail.com, linux-aspeed@lists.ozlabs.org, tali.perry1@gmail.com,
- edumazet@google.com, jk@codeconstruct.com.au, matt@codeconstruct.com.au,
- benjaminfair@google.com, openbmc@lists.ozlabs.org, yuenn@google.com,
- kuba@kernel.org, pabeni@redhat.com, minyard@acm.org, aladyshev22@gmail.com,
- oe-kbuild-all@lists.linux.dev, openipmi-developer@lists.sourceforge.net,
- linux-arm-kernel@lists.infradead.org, andrew@aj.id.au, venture@google.com,
- linux-kernel@vger.kernel.org, avifishman70@gmail.com, netdev@vger.kernel.org,
- davem@davemloft.net
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+From: Christian Theune via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Christian Theune <ct@flyingcircus.io>
+Cc: openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi Konstantin,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on cminyard-ipmi/for-next]
-[also build test WARNING on linus/master v6.6-rc4 next-20230929]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Konstantin-Aladyshev/ipmi-Move-KCS-headers-to-common-include-folder/20231002-223632
-base:   https://github.com/cminyard/linux-ipmi for-next
-patch link:    https://lore.kernel.org/r/20231002143441.545-4-aladyshev22%40gmail.com
-patch subject: [PATCH v2 3/3] mctp: Add MCTP-over-KCS transport binding
-config: sh-allyesconfig (https://download.01.org/0day-ci/archive/20231003/202310030640.tYeSJjeI-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231003/202310030640.tYeSJjeI-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202310030640.tYeSJjeI-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/net/mctp/mctp-kcs.c: In function 'kcs_bmc_mctp_add_device':
->> drivers/net/mctp/mctp-kcs.c:494:31: warning: passing argument 2 of 'dev_err_probe' makes integer from pointer without a cast [-Wint-conversion]
-     494 |                               "alloc_netdev failed for KCS channel %d\n",
-         |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                               |
-         |                               char *
-   In file included from include/linux/device.h:15,
-                    from include/linux/acpi.h:14,
-                    from include/linux/i2c.h:13,
-                    from drivers/net/mctp/mctp-kcs.c:16:
-   include/linux/dev_printk.h:277:64: note: expected 'int' but argument is of type 'char *'
-     277 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
-         |                                                            ~~~~^~~
->> drivers/net/mctp/mctp-kcs.c:495:38: warning: passing argument 3 of 'dev_err_probe' makes pointer from integer without a cast [-Wint-conversion]
-     495 |                               kcs_bmc->channel);
-         |                               ~~~~~~~^~~~~~~~~
-         |                                      |
-         |                                      u32 {aka unsigned int}
-   include/linux/dev_printk.h:277:81: note: expected 'const char *' but argument is of type 'u32' {aka 'unsigned int'}
-     277 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
-         |                                                                     ~~~~~~~~~~~~^~~
-   drivers/net/mctp/mctp-kcs.c:507:25: warning: passing argument 2 of 'dev_err_probe' makes integer from pointer without a cast [-Wint-conversion]
-     507 |                         "failed to allocate data_in buffer for KCS channel %d\n",
-         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                         |
-         |                         char *
-   include/linux/dev_printk.h:277:64: note: expected 'int' but argument is of type 'char *'
-     277 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
-         |                                                            ~~~~^~~
-   drivers/net/mctp/mctp-kcs.c:508:32: warning: passing argument 3 of 'dev_err_probe' makes pointer from integer without a cast [-Wint-conversion]
-     508 |                         kcs_bmc->channel);
-         |                         ~~~~~~~^~~~~~~~~
-         |                                |
-         |                                u32 {aka unsigned int}
-   include/linux/dev_printk.h:277:81: note: expected 'const char *' but argument is of type 'u32' {aka 'unsigned int'}
-     277 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
-         |                                                                     ~~~~~~~~~~~~^~~
-   drivers/net/mctp/mctp-kcs.c:516:25: warning: passing argument 2 of 'dev_err_probe' makes integer from pointer without a cast [-Wint-conversion]
-     516 |                         "failed to allocate data_out buffer for KCS channel %d\n",
-         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                         |
-         |                         char *
-   include/linux/dev_printk.h:277:64: note: expected 'int' but argument is of type 'char *'
-     277 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
-         |                                                            ~~~~^~~
-   drivers/net/mctp/mctp-kcs.c:517:32: warning: passing argument 3 of 'dev_err_probe' makes pointer from integer without a cast [-Wint-conversion]
-     517 |                         kcs_bmc->channel);
-         |                         ~~~~~~~^~~~~~~~~
-         |                                |
-         |                                u32 {aka unsigned int}
-   include/linux/dev_printk.h:277:81: note: expected 'const char *' but argument is of type 'u32' {aka 'unsigned int'}
-     277 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
-         |                                                                     ~~~~~~~~~~~~^~~
-
-
-vim +/dev_err_probe +494 drivers/net/mctp/mctp-kcs.c
-
-   481	
-   482	static int kcs_bmc_mctp_add_device(struct kcs_bmc_device *kcs_bmc)
-   483	{
-   484		struct mctp_kcs *mkcs;
-   485		struct net_device *ndev;
-   486		char name[32];
-   487		int rc;
-   488	
-   489		snprintf(name, sizeof(name), "mctpkcs%d", kcs_bmc->channel);
-   490	
-   491		ndev = alloc_netdev(sizeof(*mkcs), name, NET_NAME_ENUM, mctp_kcs_setup);
-   492		if (!ndev) {
-   493			dev_err_probe(kcs_bmc->dev,
- > 494				      "alloc_netdev failed for KCS channel %d\n",
- > 495				      kcs_bmc->channel);
-   496			return -ENOMEM;
-   497		}
-   498	
-   499		mkcs = netdev_priv(ndev);
-   500		mkcs->netdev = ndev;
-   501		mkcs->client.dev = kcs_bmc;
-   502		mkcs->client.ops = &kcs_bmc_mctp_client_ops;
-   503		mkcs->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-   504		if (!mkcs->data_in) {
-   505			dev_err_probe(
-   506				kcs_bmc->dev,
-   507				"failed to allocate data_in buffer for KCS channel %d\n",
-   508				kcs_bmc->channel);
-   509			rc = -ENOMEM;
-   510			goto free_netdev;
-   511		}
-   512		mkcs->data_out = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-   513		if (!mkcs->data_out) {
-   514			dev_err_probe(
-   515				kcs_bmc->dev,
-   516				"failed to allocate data_out buffer for KCS channel %d\n",
-   517				kcs_bmc->channel);
-   518			rc = -ENOMEM;
-   519			goto free_netdev;
-   520		}
-   521	
-   522		INIT_WORK(&mkcs->rx_work, mctp_kcs_rx_work);
-   523	
-   524		rc = register_netdev(ndev);
-   525		if (rc)
-   526			goto free_netdev;
-   527	
-   528		spin_lock_irq(&kcs_bmc_mctp_instances_lock);
-   529		list_add(&mkcs->entry, &kcs_bmc_mctp_instances);
-   530		spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
-   531	
-   532		dev_info(kcs_bmc->dev, "Add MCTP client for the KCS channel %d",
-   533			 kcs_bmc->channel);
-   534		return 0;
-   535	
-   536	free_netdev:
-   537		free_netdev(ndev);
-   538	
-   539		return rc;
-   540	}
-   541	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+SGV5LAoKPiBPbiAyLiBPY3QgMjAyMywgYXQgMTc6MDgsIENvcmV5IE1pbnlhcmQgPG1pbnlhcmRA
+YWNtLm9yZz4gd3JvdGU6Cj4gCj4gT24gTW9uLCBPY3QgMDIsIDIwMjMgYXQgMDg6MDU6MDlBTSAr
+MDIwMCwgQ2hyaXN0aWFuIFRoZXVuZSB3cm90ZToKPiAKPiAuLi5zbmlwLi4uCj4gCj4+Pj4gQ2Fu
+IHlvdSBub3QgZ2V0IGtlcm5lbCBjb3JlZHVtcHM/Cj4+PiBVbmZvcnR1bmF0ZWx5IG5vIGFuZCBJ
+IHN0aWxsIGhhdmUgYWJzb2x1dGVseSBub3cgaWRlYSB3aHkgdGhlIHdhdGNoZG9nIHRyaWdnZXJz
+4oCmIEkgaGF2ZSBjdXJyZW50bHkgYXR0YWNoZWQgZG96ZW5zIG9mIHNlcnZlcnMgdGhhdCBhcmUg
+cGFydCBvZiBhIG15c3RlcmlvdXMgc2VyaWVzIG9mIGNyYXNoZXMgYnV0IHRoZXkgZGlkbuKAmXQg
+Y3Jhc2ggYWZ0ZXIgSSBhdHRhY2hlZCB0aGUgU09MIGNvbnRpbnVvdXNseS4gSnVzdCBteSBraW5k
+IG9mIGx1Y2sgSSBndWVzcyDigKYgOykKPj4+IAo+Pj4gSXQgbWlnaHQgYmUgYSBjbHVlLiAgQ2Fu
+IHlvdSBtYWtlIHN1cmUgZmxvdy1jb250cm9sIGlzIHR1cm5lZCBvZmYgb24gdGhlIFNPTCBjb25u
+ZWN0aW9uIGFuZCBjb25zb2xlPyAgSWYgeW91IGhhdmUgInIiIG9uIHRoZSBjb25zb2xlPSBjb21t
+YW5kIChsaWtlIGNvbnNvbGU9MTE1MjAwbjgxcikgLCBpZiB0aGUgQk1DIHN0b3BzIHRha2luZyBj
+aGFyYWN0ZXJzIHlvdSBjYW4gaGFuZyB0aGUga2VybmVsLgo+Pj4gCj4+PiBZb3UgbWlnaHQgd2Fu
+dCB0byBtYWtlIHN1cmUgZ2V0dHkgaGFzIFJUUyB0dXJuZWQgb2ZmLCB0b28uCj4+PiAKPj4+IFRo
+ZSB0cm91YmxlIGlzLCBvZiBjb3Vyc2UsIHRoYXQgeW91IGNhbiBsb3NlIGNoYXJhY3RlcnMgYmVj
+YXVzZSBvZiBhIHNsb3cgQk1DLiAgQnV0IGl0J3MgZ2VuZXJhbGx5IGEgYmFkIGlkZWEgdG8gcnVu
+IGEgY29uc29sZSB3aXRoIGZsb3cgY29udHJvbCBlbmFibGVkLgo+PiAKPj4gU29ycnksIHRoYXQg
+bWlnaHQgaGF2ZSBiZWVuIGEgbWlzdW5kZXJzdGFuZGluZzogSeKAmW0gbm90IGNhdGNoaW5nIHRo
+ZSBjcmFzaGVzIGN1cnJlbnRseSBiZWNhdXNlIGFsbCB0aGUgbWFjaGluZXMgdGhhdCB1c2VkIHRv
+IGNyYXNoIG5vdyBzZWVtIHRvIG5vdCB3YW50IHRvIGNyYXNoIGFueW1vcmUuIEkgZ3Vlc3Mgd2Xi
+gJlyZSBvbiBhIEhlaXNlbmJ1ZyBoZXJlLiBHZXR0aW5nIG91dHB1dCBmcm9tIHRoZSBTT0wgd29y
+a3MgYWJzb2x1dGVseSBmaW5lLCBzbyBJIGV4cGVjdCB0byBzZWUgYSBrZXJuZWwgY3Jhc2ggaW4g
+dGhlIFNPTCBvbmNlIGl0IGhhcHBlbnMuCj4+IAo+PiBJ4oCZbSBzb21ld2hhdCBzdXNwZWN0aW5n
+IHRoYXQgd2XigJlsbCBmaW5kIGFub3RoZXIgYnVnIHRoYXQgY2F1c2VzIHRob3NlIHNwZWNpZmlj
+IGNyYXNoZXMgbm90IGFwcGVhciBpbiB0aGUgU0VMLCB0aG91Z2gg4oCmIAo+PiAKPj4gQW5kIHRo
+ZW4gYWdhaW46IG1heWJlIGl04oCZcyBub3QgYSBIZWlzZW5idWcsIGJ1dCBtYXliZSB3aGF0ZXZl
+ciBjYXVzZWQgdGhlIGNyYXNoZXMgaGFzIGJlZW4gZml4ZWQgaW4gYmV0d2VlbiBhbmQgSeKAmWxs
+IG5ldmVyIGtub3cg4oCmIDspCj4+IAo+IAo+IEkgdW5kZXJzdG9vZC4gIEknbSBzYXlpbmcgdGhh
+dCBtYXliZSB0aGUgbWFjaGluZXMgYXJlbid0IGNyYXNoaW5nIGFueQo+IG1vcmUgKmJlY2F1c2Uq
+IHlvdSBhcmUgbW9uaXRvcmluZyB0aGVtIHdpdGggU09MLgoKT29vb29vb2guIEnigJltIGdsYWQg
+d2UgdG9vayB0aGlzIGRldG91ciAtIEkga25ldyBzb21ldGhpbmcgd2FzIG9mZiwgYnV0IEkgd2Fz
+IHRoZSBvbmUgbWlzdW5kZXJzdGFuZGluZy4gVGhhbmtzIGZvciB0YWtpbmcgdGhlIHRpbWUgdG8g
+ZXhwbGFpbiBpdCBhZ2FpbiEgSSB3YXMgYSBiaXQgc3R1Y2sgb24gdGhlIOKAnHdlbGwgaXTigJlz
+IGEgSGVpc2VuYnVnIHRoZW7igJ0gYnV0IGRpZG7igJl0IGdldCB0aGF0IGl0IHdhcyBsaXRlcmFs
+bHkgc2/igKYgCgo+IFBlcmhhcHMgYSBsb3Qgb2Yga2VybmVsIG91dHB1dCBjb21lcyBvdXQgYWxs
+IGF0IG9uY2UsIGl0IGdldHMgZmxvdwo+IGNvbnRyb2xsZWQgYnkgdGhlIEJNQywgdGhlIGtlcm5l
+bCBoYW5ncyB3YWl0aW5nIGZvciBwcmludGsgb3V0cHV0LCBhbmQKPiB0aGUgd2F0Y2hkb2cgdGhl
+biBnb2VzIG9mZi4gIE5ld2VyIGtlcm5lbHMgaGF2ZSBmaXhlcyB0byBhdm9pZCB0aGlzCj4gcHJv
+YmxlbSwgYnV0IG9sZGVyIG9uZXMgZG9uJ3QuCj4gCj4gVGhlcmUgd291bGQgYmUgbm8gT1MgY3Jh
+c2gsIG5vIFNFTCBvdXRwdXQsIG5vIGNvcmVkdW1wLCBqdXN0IGEgd2F0Y2hkb2cKPiByZWJvb3Qu
+CiAKVW5kZXJzdG9vZC4gV2hhdCB3b3VsZCBiZSBhIG5ld2VyIGtlcm5lbD8gV2XigJlyZSBydW5u
+aW5nIDUuMTAoLjE5MCspIGF0IHRoZSBtb21lbnQuCgpUaGUgaW50ZXJlc3RpbmcgcGFydCBoZXJl
+IGlzIHRoYXQgd2UgaGF2ZSBiZWVuIGxvZ2dpbmcgdG8gdGhlIHNlcmlhbCBjb25zb2xlIHdpdGhv
+dXQgYW55dGhpbmcgYXR0YWNoZWQgbm9ybWFsbHkKZm9yIGEgbG9uZyBsb25nIHRpbWUgKHRoaW5r
+OiAxMCB5ZWFycyBwbHVzKSBzbyB0aGVyZSBpcyBzdGlsbCBhIGJpdCBvZiBkb3VidCBhcyB0aGlz
+IHN0YXJ0ZWQgdG8gY3JlZXAgdXAgb25seSByZWNlbnRseS4KCj4gSWYgeW91IHR1cm4gb2ZmIHRo
+ZSBTT0wgbW9uaXRvcmluZyBhbmQgdGhlIHByb2JsZW0gY29tZXMgYmFjaywgdGhhdAo+IHdvdWxk
+IGJlIGEgcHJldHR5IGdvb2QgaW5kaWNhdGlvbiB0aGF0IHNvbWV0aGluZyBsaWtlIHRoYXQgaXMg
+aGFwcGVuaW5nLgo+IFVuZm9ydHVuYXRlbHksIGl0J3MgaGFyZCB0byBkZWJ1ZyBiZWNhdXNlIHlv
+dSBjYW4ndCBnZXQgaW5mbyBmcm9tIHlvdXIKPiBwcmltYXJ5IGRlYnVnZ2luZyBpbnRlcmZhY2Uu
+CgpZZWFoLiBUaGF04oCZcyBzb21ldGhpbmcgSeKAmWxsIGRpc2N1c3Mgd2l0aCBteSB0ZWFtLiBJ
+IG9yaWdpbmFsbHkgaW50ZW5kZWQgdG8gdHVybiBvZmYgdGhlIGNvbnRpbnVvdXMgU09MIG1vbml0
+b3JpbmcgYnV0IGFmdGVyIHRoaXMgZ29vc2UgY2hhc2UgSeKAmW0gc29tZXdoYXQgd2lsbGluZyB0
+byBtYWtlIGl0IGEgcmVndWxhciB0aGluZy4KCj4gT2YgY291cnNlLCB0aGUgYnVnIG1heSBoYXZl
+IGJlZW4gZml4ZWQgYnkgYSBrZXJuZWwgb3IgYXBwIHVwZ3JhZGUsIHRvby4KPiBMaWtlIHlvdSBz
+YXkgd2l0aCB0aGluZ3MgbGlrZSB0aGlzLCB5b3UgbWF5IG5ldmVyIGtub3cgOikuCgpLZXJuZWwg
+d291bGQgYmUgdGhlIG1vc3Qgb2J2aW91cyBjaG9pY2UgZm9yIHVzIGFzIHRoZSBhZmZlY3RlZCBo
+b3N0cyBhcmUgcmVhbGx5IG9ubHkgUWVtdS9LVk0gc2VydmVycyB0aGF0IGRpZG7igJl0IHNlZSBh
+bnkgcmVsZXZhbnQgdXBkYXRlcyBpbiB0aGUgdXNlcmxhbmQgaW4gdGhlIHBhc3QgbW9udGhzLgoK
+VGhhbmtzIGFnYWluLApDaHJpc3RpYW4KCi0tIApDaHJpc3RpYW4gVGhldW5lIMK3IGN0QGZseWlu
+Z2NpcmN1cy5pbyDCtyArNDkgMzQ1IDIxOTQwMSAwCkZseWluZyBDaXJjdXMgSW50ZXJuZXQgT3Bl
+cmF0aW9ucyBHbWJIIMK3IGh0dHBzOi8vZmx5aW5nY2lyY3VzLmlvCkxlaXB6aWdlciBTdHIuIDcw
+LzcxIMK3IDA2MTA4IEhhbGxlIChTYWFsZSkgwrcgRGV1dHNjaGxhbmQKSFIgU3RlbmRhbCBIUkIg
+MjExNjkgwrcgR2VzY2jDpGZ0c2bDvGhyZXI6IENocmlzdGlhbiBUaGV1bmUsIENocmlzdGlhbiBa
+YWdyb2RuaWNrCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxp
+c3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9s
+aXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
