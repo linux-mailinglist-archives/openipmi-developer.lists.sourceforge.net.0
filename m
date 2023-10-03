@@ -2,117 +2,90 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CE59C7B6A56
-	for <lists+openipmi-developer@lfdr.de>; Tue,  3 Oct 2023 15:21:57 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B7997B6E35
+	for <lists+openipmi-developer@lfdr.de>; Tue,  3 Oct 2023 18:18:08 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qnfLW-0005hV-2o;
-	Tue, 03 Oct 2023 13:21:54 +0000
+	id 1qni5z-0001vP-Hs;
+	Tue, 03 Oct 2023 16:18:02 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <aladyshev22@gmail.com>) id 1qnfLU-0005hL-GD
+ (envelope-from <jonathan.cameron@huawei.com>) id 1qni5v-0001uw-HO
  for openipmi-developer@lists.sourceforge.net;
- Tue, 03 Oct 2023 13:21:52 +0000
+ Tue, 03 Oct 2023 16:17:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
- Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
- Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
- :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Fi+RGHHOhtPVleGMysrvUidZQaNCF9b1qikITyD52OI=; b=NO9L+L0IpDI1De+G8B19SwU0rK
- aS1UxAjB5cRL+0A5ZYP2rJ492DqyhCbOc8lz7y9hUPJJPnEiakQoO0JkmA0i/0D6NK3TbLRG0OhPV
- kbExra4hoAPRw9wa4wP7xXGtMln1HzsqDVX698oSjzXI+zoRKfmfrqfi9XSSKL3Sl+7c=;
+ bh=EBR3tVBq+CYVF4tIUOsGAf06oY8cUn8Z9hdNkp3QofU=; b=iWD+zx1pcLEeN8hq8xUguwSWpY
+ dqSl+IxxcjeMS+rL8o4RJk+1qbEIfQqIaajrqJOZYDin7c+vKT1WIUGnGKN9pnIU/6UlizzGdjGrF
+ 6GQokRTOE3wZIuUD3hcbGLf60/rTzNJf9N14hO8TZfBKDAE/AMl8Au7QhqaqxhvnB8B8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
- :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
+ In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Fi+RGHHOhtPVleGMysrvUidZQaNCF9b1qikITyD52OI=; b=djiReRWY9pIjLvWBzDCKSqKgDo
- MZQ9kIKUo4qGe55kZpgc7gyp/WMaJGfpNSZcIxRfa0HKW/c8VXwq2A4O33H25hBLKSdLTPsKd9DNd
- FVEDgd4Wa9K6UX9KkurOZ47Pmzh6H9Fjiw/a5h/OL3p2GWnmEvFOmSFYlHuacjKfeb1Q=;
-Received: from mail-ua1-f51.google.com ([209.85.222.51])
+ bh=EBR3tVBq+CYVF4tIUOsGAf06oY8cUn8Z9hdNkp3QofU=; b=DW7+QJ5CXdb8BRjGg5zdmErKNL
+ 7hvUr5dAnrLBZm2adpDeDb+l0sqXEnAyFle/SyOzMrqwIWGxj7F59VfN4Lf9DvSlNWXwZRJ81H43j
+ ANe+pPGXaQzJ9CWvIEBmH+h5DtSiGmeIc5JC+Q3cAQyJSd1eSNWGcqLuo93POows3N8M=;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1qnfLR-00HRWE-Nm for openipmi-developer@lists.sourceforge.net;
- Tue, 03 Oct 2023 13:21:51 +0000
-Received: by mail-ua1-f51.google.com with SMTP id
- a1e0cc1a2514c-78f1210e27fso471247241.1
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 03 Oct 2023 06:21:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1696339304; x=1696944104; darn=lists.sourceforge.net;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:from:to:cc:subject:date
- :message-id:reply-to;
- bh=Fi+RGHHOhtPVleGMysrvUidZQaNCF9b1qikITyD52OI=;
- b=U80ez7jPVovnprNTYSjMSMMTMgC8Z8QGYCxYmbdv+wUulSxzOzoHn1x5fbLvlztu5M
- 6dFdsDq77kyed1H4SVSnfDliLQaTCRKOAx9AE2OTneF1582W93UOchHNGb2yYE6AtfXA
- XZQUiCUBUaOVpZ9wHntIbXjO3V918dyPs3L6JLMQZKgEUmSMvSNwe84E7lmfDVuefFBW
- twNCvXZFJQ40BlU8kM7P+qirxdSmhp6PpoJxaZ6O3SaFmQ4smOfVxLzc5y1x9K9TotlG
- YzgdE9xozN+JmzLqgzJCqwJExHs/9xI4RrWAsg8J5D8jL0EBlPe0FJwwcjP8fCh2oYwZ
- zHow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1696339304; x=1696944104;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=Fi+RGHHOhtPVleGMysrvUidZQaNCF9b1qikITyD52OI=;
- b=WYI2BavgnlelaaTb/5ARcXWwygFSif6lwEHdJ03fUDqbRTmyPS/b7An/e/Lnc/ivyr
- D5lf/+Y+Eq24M7eb0M4kfpDc8+Eu2VGkHcN1OjfE/bG+C3gch6ezRqAUGBSHvNGJC5qs
- XgFd3hxQtBXCWrlLyDV7a7K1GGZUFhl8Eb0osZnmKkf8laSvZhBf3OW2tMTGGzgEYSxZ
- ivUqzDs5Nc2BJucP5Lf1Ap4FQ1GB8+uWE2UFW8mzlYJjDfQGUPLSQYh2mQRc0a3G1zIB
- YKNd1qqH/F7pnA5tsQgyXSIvzJQaeaXIlYtx32mcr/vc+TcnPwzWHBTLVD9nwSS+vfHR
- uugA==
-X-Gm-Message-State: AOJu0YycSWffJ6ZZkKz2JIWAC1Td8UAJ1Soa740/XN3yRS+0wvRo4M1Z
- 35FEBpyFhfMz+SMhSKYTTHQnTh7lfIz013ZJ2KU=
-X-Google-Smtp-Source: AGHT+IGtRYR/OptxXTgIRsdUOd0zstJf0gkrw5xb2PgwdX/i/CZMacGoxdqMQvEhxaQdXT9c/oMmcN9fdAlZtMzKH7U=
-X-Received: by 2002:a67:ec87:0:b0:452:6d8f:7454 with SMTP id
- h7-20020a67ec87000000b004526d8f7454mr11742094vsp.15.1696339303806; Tue, 03
- Oct 2023 06:21:43 -0700 (PDT)
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1qni5q-0001AK-3v for openipmi-developer@lists.sourceforge.net;
+ Tue, 03 Oct 2023 16:17:58 +0000
+Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.226])
+ by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4S0NGw0PMnz6K5tf;
+ Wed,  4 Oct 2023 00:16:08 +0800 (CST)
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Tue, 3 Oct
+ 2023 17:17:43 +0100
+Date: Tue, 3 Oct 2023 17:17:42 +0100
+To: Konstantin Aladyshev <aladyshev22@gmail.com>
+Message-ID: <20231003171742.00004a14@Huawei.com>
+In-Reply-To: <CACSj6VUS+cjsvjzY=wggMXXO1DEH0=9aHi1ADp0F-O8AKL5cCg@mail.gmail.com>
+References: <20230928123009.2913-1-aladyshev22@gmail.com>
+ <20230928123009.2913-4-aladyshev22@gmail.com>
+ <20230929120835.0000108e@Huawei.com>
+ <CACSj6VUS+cjsvjzY=wggMXXO1DEH0=9aHi1ADp0F-O8AKL5cCg@mail.gmail.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20231002143441.545-4-aladyshev22@gmail.com>
- <202310030640.tYeSJjeI-lkp@intel.com>
-In-Reply-To: <202310030640.tYeSJjeI-lkp@intel.com>
-From: Konstantin Aladyshev <aladyshev22@gmail.com>
-Date: Tue, 3 Oct 2023 16:21:32 +0300
-Message-ID: <CACSj6VXZ5V7akgibJcZYxqUy3zFKWA_N_5ua7gzXoEHWRBkkkg@mail.gmail.com>
-To: kernel test robot <lkp@intel.com>
-X-Spam-Score: -0.6 (/)
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml100003.china.huawei.com (7.191.160.210) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Oops, sorry about that. I've introduced this new warning when
- I've refactored my code to use 'dev_err_probe'. I've sent the v3 series to
- correct the issue, I hope now everything is clear. I haven't fi [...] 
- Content analysis details:   (-0.6 points, 6.0 required)
+ Content preview:  On Mon,
+ 2 Oct 2023 17:41:42 +0300 Konstantin Aladyshev <aladyshev22@gmail.com>
+ wrote: > Thanks for the review! > I've corrected many things from your
+ comments
+ and have sent the V2 patch. > I'm not sure about the LIST thing and all the
+ devres management. I've > written the KCS handling [...] 
+ Content analysis details:   (-2.3 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.222.51 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [aladyshev22[at]gmail.com]
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [aladyshev22[at]gmail.com]
+ 0.0 RCVD_IN_MSPIKE_H5      RBL: Excellent reputation (+5)
+ [185.176.79.56 listed in wl.mailspike.net]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [185.176.79.56 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.6 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.51 listed in wl.mailspike.net]
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1qnfLR-00HRWE-Nm
-Subject: Re: [Openipmi-developer] [PATCH v2 3/3] mctp: Add MCTP-over-KCS
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1qni5q-0001AK-3v
+Subject: Re: [Openipmi-developer] [PATCH 3/3] mctp: Add MCTP-over-KCS
  transport binding
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -126,177 +99,372 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: tmaimon77@gmail.com, linux-aspeed@lists.ozlabs.org, tali.perry1@gmail.com,
- edumazet@google.com, jk@codeconstruct.com.au, matt@codeconstruct.com.au,
- benjaminfair@google.com, openbmc@lists.ozlabs.org, yuenn@google.com,
- kuba@kernel.org, pabeni@redhat.com, minyard@acm.org,
- oe-kbuild-all@lists.linux.dev, openipmi-developer@lists.sourceforge.net,
- linux-arm-kernel@lists.infradead.org, andrew@aj.id.au, venture@google.com,
- linux-kernel@vger.kernel.org, avifishman70@gmail.com, netdev@vger.kernel.org,
- davem@davemloft.net
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Jonathan Cameron via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+Cc: tmaimon77@gmail.com, minyard@acm.org, yuenn@google.com, andrew@aj.id.au,
+ venture@google.com, openbmc@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ tali.perry1@gmail.com, avifishman70@gmail.com, edumazet@google.com,
+ netdev@vger.kernel.org, linux-aspeed@lists.ozlabs.org, kuba@kernel.org,
+ jk@codeconstruct.com.au, matt@codeconstruct.com.au, pabeni@redhat.com,
+ openipmi-developer@lists.sourceforge.net, davem@davemloft.net,
+ linux-arm-kernel@lists.infradead.org, benjaminfair@google.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T29wcywgc29ycnkgYWJvdXQgdGhhdC4KSSd2ZSBpbnRyb2R1Y2VkIHRoaXMgbmV3IHdhcm5pbmcg
-d2hlbiBJJ3ZlIHJlZmFjdG9yZWQgbXkgY29kZSB0byB1c2UKJ2Rldl9lcnJfcHJvYmUnLgpJJ3Zl
-IHNlbnQgdGhlIHYzIHNlcmllcyB0byBjb3JyZWN0IHRoZSBpc3N1ZSwgSSBob3BlIG5vdyBldmVy
-eXRoaW5nIGlzIGNsZWFyLgpJIGhhdmVuJ3QgZmlndXJlZCBvdXQgaG93IHRvIHJ1biBjbGFuZyBp
-biBteSB5b2N0byBlbnZpcm9ubWVudCB3aGVyZSBJCmRldmVsb3AgY29kZSwgYnV0IHRoZQpgYGAK
-bWFrZSBXPTEgQz0xIGRyaXZlcnMvbmV0L21jdHAvbWN0cC1rY3MubwpgYGAKcnVucyB3aXRob3V0
-IGFueSBpc3N1ZXMgbm93LgoKQmVzdCByZWdhcmRzLApLb25zdGFudGluIEFsYWR5c2hldgoKT24g
-VHVlLCBPY3QgMywgMjAyMyBhdCAyOjA14oCvQU0ga2VybmVsIHRlc3Qgcm9ib3QgPGxrcEBpbnRl
-bC5jb20+IHdyb3RlOgo+Cj4gSGkgS29uc3RhbnRpbiwKPgo+IGtlcm5lbCB0ZXN0IHJvYm90IG5v
-dGljZWQgdGhlIGZvbGxvd2luZyBidWlsZCB3YXJuaW5nczoKPgo+IFthdXRvIGJ1aWxkIHRlc3Qg
-V0FSTklORyBvbiBjbWlueWFyZC1pcG1pL2Zvci1uZXh0XQo+IFthbHNvIGJ1aWxkIHRlc3QgV0FS
-TklORyBvbiBsaW51cy9tYXN0ZXIgdjYuNi1yYzQgbmV4dC0yMDIzMDkyOV0KPiBbSWYgeW91ciBw
-YXRjaCBpcyBhcHBsaWVkIHRvIHRoZSB3cm9uZyBnaXQgdHJlZSwga2luZGx5IGRyb3AgdXMgYSBu
-b3RlLgo+IEFuZCB3aGVuIHN1Ym1pdHRpbmcgcGF0Y2gsIHdlIHN1Z2dlc3QgdG8gdXNlICctLWJh
-c2UnIGFzIGRvY3VtZW50ZWQgaW4KPiBodHRwczovL2dpdC1zY20uY29tL2RvY3MvZ2l0LWZvcm1h
-dC1wYXRjaCNfYmFzZV90cmVlX2luZm9ybWF0aW9uXQo+Cj4gdXJsOiAgICBodHRwczovL2dpdGh1
-Yi5jb20vaW50ZWwtbGFiLWxrcC9saW51eC9jb21taXRzL0tvbnN0YW50aW4tQWxhZHlzaGV2L2lw
-bWktTW92ZS1LQ1MtaGVhZGVycy10by1jb21tb24taW5jbHVkZS1mb2xkZXIvMjAyMzEwMDItMjIz
-NjMyCj4gYmFzZTogICBodHRwczovL2dpdGh1Yi5jb20vY21pbnlhcmQvbGludXgtaXBtaSBmb3It
-bmV4dAo+IHBhdGNoIGxpbms6ICAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyMzEwMDIx
-NDM0NDEuNTQ1LTQtYWxhZHlzaGV2MjIlNDBnbWFpbC5jb20KPiBwYXRjaCBzdWJqZWN0OiBbUEFU
-Q0ggdjIgMy8zXSBtY3RwOiBBZGQgTUNUUC1vdmVyLUtDUyB0cmFuc3BvcnQgYmluZGluZwo+IGNv
-bmZpZzogc2gtYWxseWVzY29uZmlnIChodHRwczovL2Rvd25sb2FkLjAxLm9yZy8wZGF5LWNpL2Fy
-Y2hpdmUvMjAyMzEwMDMvMjAyMzEwMDMwNjQwLnRZZVNKamVJLWxrcEBpbnRlbC5jb20vY29uZmln
-KQo+IGNvbXBpbGVyOiBzaDQtbGludXgtZ2NjIChHQ0MpIDEzLjIuMAo+IHJlcHJvZHVjZSAodGhp
-cyBpcyBhIFc9MSBidWlsZCk6IChodHRwczovL2Rvd25sb2FkLjAxLm9yZy8wZGF5LWNpL2FyY2hp
-dmUvMjAyMzEwMDMvMjAyMzEwMDMwNjQwLnRZZVNKamVJLWxrcEBpbnRlbC5jb20vcmVwcm9kdWNl
-KQo+Cj4gSWYgeW91IGZpeCB0aGUgaXNzdWUgaW4gYSBzZXBhcmF0ZSBwYXRjaC9jb21taXQgKGku
-ZS4gbm90IGp1c3QgYSBuZXcgdmVyc2lvbiBvZgo+IHRoZSBzYW1lIHBhdGNoL2NvbW1pdCksIGtp
-bmRseSBhZGQgZm9sbG93aW5nIHRhZ3MKPiB8IFJlcG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2Jv
-dCA8bGtwQGludGVsLmNvbT4KPiB8IENsb3NlczogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvb2Ut
-a2J1aWxkLWFsbC8yMDIzMTAwMzA2NDAudFllU0pqZUktbGtwQGludGVsLmNvbS8KPgo+IEFsbCB3
-YXJuaW5ncyAobmV3IG9uZXMgcHJlZml4ZWQgYnkgPj4pOgo+Cj4gICAgZHJpdmVycy9uZXQvbWN0
-cC9tY3RwLWtjcy5jOiBJbiBmdW5jdGlvbiAna2NzX2JtY19tY3RwX2FkZF9kZXZpY2UnOgo+ID4+
-IGRyaXZlcnMvbmV0L21jdHAvbWN0cC1rY3MuYzo0OTQ6MzE6IHdhcm5pbmc6IHBhc3NpbmcgYXJn
-dW1lbnQgMiBvZiAnZGV2X2Vycl9wcm9iZScgbWFrZXMgaW50ZWdlciBmcm9tIHBvaW50ZXIgd2l0
-aG91dCBhIGNhc3QgWy1XaW50LWNvbnZlcnNpb25dCj4gICAgICA0OTQgfCAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAiYWxsb2NfbmV0ZGV2IGZhaWxlZCBmb3IgS0NTIGNoYW5uZWwgJWRc
-biIsCj4gICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBefn5+fn5+fn5+
-fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4KPiAgICAgICAgICB8ICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIHwKPiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIGNoYXIgKgo+ICAgIEluIGZpbGUgaW5jbHVkZWQgZnJvbSBpbmNsdWRlL2xpbnV4L2Rl
-dmljZS5oOjE1LAo+ICAgICAgICAgICAgICAgICAgICAgZnJvbSBpbmNsdWRlL2xpbnV4L2FjcGku
-aDoxNCwKPiAgICAgICAgICAgICAgICAgICAgIGZyb20gaW5jbHVkZS9saW51eC9pMmMuaDoxMywK
-PiAgICAgICAgICAgICAgICAgICAgIGZyb20gZHJpdmVycy9uZXQvbWN0cC9tY3RwLWtjcy5jOjE2
-Ogo+ICAgIGluY2x1ZGUvbGludXgvZGV2X3ByaW50ay5oOjI3Nzo2NDogbm90ZTogZXhwZWN0ZWQg
-J2ludCcgYnV0IGFyZ3VtZW50IGlzIG9mIHR5cGUgJ2NoYXIgKicKPiAgICAgIDI3NyB8IF9fcHJp
-bnRmKDMsIDQpIGludCBkZXZfZXJyX3Byb2JlKGNvbnN0IHN0cnVjdCBkZXZpY2UgKmRldiwgaW50
-IGVyciwgY29uc3QgY2hhciAqZm10LCAuLi4pOwo+ICAgICAgICAgIHwgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB+fn5+Xn5+Cj4gPj4g
-ZHJpdmVycy9uZXQvbWN0cC9tY3RwLWtjcy5jOjQ5NTozODogd2FybmluZzogcGFzc2luZyBhcmd1
-bWVudCAzIG9mICdkZXZfZXJyX3Byb2JlJyBtYWtlcyBwb2ludGVyIGZyb20gaW50ZWdlciB3aXRo
-b3V0IGEgY2FzdCBbLVdpbnQtY29udmVyc2lvbl0KPiAgICAgIDQ5NSB8ICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIGtjc19ibWMtPmNoYW5uZWwpOwo+ICAgICAgICAgIHwgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgfn5+fn5+fl5+fn5+fn5+fgo+ICAgICAgICAgIHwgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwKPiAgICAgICAgICB8ICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICB1MzIge2FrYSB1bnNpZ25lZCBpbnR9Cj4gICAgaW5j
-bHVkZS9saW51eC9kZXZfcHJpbnRrLmg6Mjc3OjgxOiBub3RlOiBleHBlY3RlZCAnY29uc3QgY2hh
-ciAqJyBidXQgYXJndW1lbnQgaXMgb2YgdHlwZSAndTMyJyB7YWthICd1bnNpZ25lZCBpbnQnfQo+
-ICAgICAgMjc3IHwgX19wcmludGYoMywgNCkgaW50IGRldl9lcnJfcHJvYmUoY29uc3Qgc3RydWN0
-IGRldmljZSAqZGV2LCBpbnQgZXJyLCBjb25zdCBjaGFyICpmbXQsIC4uLik7Cj4gICAgICAgICAg
-fCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIH5+fn5+fn5+fn5+fl5+fgo+ICAgIGRyaXZlcnMvbmV0L21jdHAvbWN0cC1r
-Y3MuYzo1MDc6MjU6IHdhcm5pbmc6IHBhc3NpbmcgYXJndW1lbnQgMiBvZiAnZGV2X2Vycl9wcm9i
-ZScgbWFrZXMgaW50ZWdlciBmcm9tIHBvaW50ZXIgd2l0aG91dCBhIGNhc3QgWy1XaW50LWNvbnZl
-cnNpb25dCj4gICAgICA1MDcgfCAgICAgICAgICAgICAgICAgICAgICAgICAiZmFpbGVkIHRvIGFs
-bG9jYXRlIGRhdGFfaW4gYnVmZmVyIGZvciBLQ1MgY2hhbm5lbCAlZFxuIiwKPiAgICAgICAgICB8
-ICAgICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
-fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4gICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAg
-ICAgICB8Cj4gICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICBjaGFyICoKPiAgICBp
-bmNsdWRlL2xpbnV4L2Rldl9wcmludGsuaDoyNzc6NjQ6IG5vdGU6IGV4cGVjdGVkICdpbnQnIGJ1
-dCBhcmd1bWVudCBpcyBvZiB0eXBlICdjaGFyIConCj4gICAgICAyNzcgfCBfX3ByaW50ZigzLCA0
-KSBpbnQgZGV2X2Vycl9wcm9iZShjb25zdCBzdHJ1Y3QgZGV2aWNlICpkZXYsIGludCBlcnIsIGNv
-bnN0IGNoYXIgKmZtdCwgLi4uKTsKPiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfn5+fl5+fgo+ICAgIGRyaXZlcnMv
-bmV0L21jdHAvbWN0cC1rY3MuYzo1MDg6MzI6IHdhcm5pbmc6IHBhc3NpbmcgYXJndW1lbnQgMyBv
-ZiAnZGV2X2Vycl9wcm9iZScgbWFrZXMgcG9pbnRlciBmcm9tIGludGVnZXIgd2l0aG91dCBhIGNh
-c3QgWy1XaW50LWNvbnZlcnNpb25dCj4gICAgICA1MDggfCAgICAgICAgICAgICAgICAgICAgICAg
-ICBrY3NfYm1jLT5jaGFubmVsKTsKPiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
-IH5+fn5+fn5efn5+fn5+fn4KPiAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICB8Cj4gICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdTMyIHth
-a2EgdW5zaWduZWQgaW50fQo+ICAgIGluY2x1ZGUvbGludXgvZGV2X3ByaW50ay5oOjI3Nzo4MTog
-bm90ZTogZXhwZWN0ZWQgJ2NvbnN0IGNoYXIgKicgYnV0IGFyZ3VtZW50IGlzIG9mIHR5cGUgJ3Uz
-Micge2FrYSAndW5zaWduZWQgaW50J30KPiAgICAgIDI3NyB8IF9fcHJpbnRmKDMsIDQpIGludCBk
-ZXZfZXJyX3Byb2JlKGNvbnN0IHN0cnVjdCBkZXZpY2UgKmRldiwgaW50IGVyciwgY29uc3QgY2hh
-ciAqZm10LCAuLi4pOwo+ICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB+fn5+fn5+fn5+fn5efn4KPiAg
-ICBkcml2ZXJzL25ldC9tY3RwL21jdHAta2NzLmM6NTE2OjI1OiB3YXJuaW5nOiBwYXNzaW5nIGFy
-Z3VtZW50IDIgb2YgJ2Rldl9lcnJfcHJvYmUnIG1ha2VzIGludGVnZXIgZnJvbSBwb2ludGVyIHdp
-dGhvdXQgYSBjYXN0IFstV2ludC1jb252ZXJzaW9uXQo+ICAgICAgNTE2IHwgICAgICAgICAgICAg
-ICAgICAgICAgICAgImZhaWxlZCB0byBhbGxvY2F0ZSBkYXRhX291dCBidWZmZXIgZm9yIEtDUyBj
-aGFubmVsICVkXG4iLAo+ICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+
-fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4gICAg
-ICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICB8Cj4gICAgICAgICAgfCAgICAgICAgICAg
-ICAgICAgICAgICAgICBjaGFyICoKPiAgICBpbmNsdWRlL2xpbnV4L2Rldl9wcmludGsuaDoyNzc6
-NjQ6IG5vdGU6IGV4cGVjdGVkICdpbnQnIGJ1dCBhcmd1bWVudCBpcyBvZiB0eXBlICdjaGFyICon
-Cj4gICAgICAyNzcgfCBfX3ByaW50ZigzLCA0KSBpbnQgZGV2X2Vycl9wcm9iZShjb25zdCBzdHJ1
-Y3QgZGV2aWNlICpkZXYsIGludCBlcnIsIGNvbnN0IGNoYXIgKmZtdCwgLi4uKTsKPiAgICAgICAg
-ICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgfn5+fl5+fgo+ICAgIGRyaXZlcnMvbmV0L21jdHAvbWN0cC1rY3MuYzo1MTc6MzI6IHdh
-cm5pbmc6IHBhc3NpbmcgYXJndW1lbnQgMyBvZiAnZGV2X2Vycl9wcm9iZScgbWFrZXMgcG9pbnRl
-ciBmcm9tIGludGVnZXIgd2l0aG91dCBhIGNhc3QgWy1XaW50LWNvbnZlcnNpb25dCj4gICAgICA1
-MTcgfCAgICAgICAgICAgICAgICAgICAgICAgICBrY3NfYm1jLT5jaGFubmVsKTsKPiAgICAgICAg
-ICB8ICAgICAgICAgICAgICAgICAgICAgICAgIH5+fn5+fn5efn5+fn5+fn4KPiAgICAgICAgICB8
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8Cj4gICAgICAgICAgfCAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgdTMyIHtha2EgdW5zaWduZWQgaW50fQo+ICAgIGluY2x1ZGUv
-bGludXgvZGV2X3ByaW50ay5oOjI3Nzo4MTogbm90ZTogZXhwZWN0ZWQgJ2NvbnN0IGNoYXIgKicg
-YnV0IGFyZ3VtZW50IGlzIG9mIHR5cGUgJ3UzMicge2FrYSAndW5zaWduZWQgaW50J30KPiAgICAg
-IDI3NyB8IF9fcHJpbnRmKDMsIDQpIGludCBkZXZfZXJyX3Byb2JlKGNvbnN0IHN0cnVjdCBkZXZp
-Y2UgKmRldiwgaW50IGVyciwgY29uc3QgY2hhciAqZm10LCAuLi4pOwo+ICAgICAgICAgIHwgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICB+fn5+fn5+fn5+fn5efn4KPgo+Cj4gdmltICsvZGV2X2Vycl9wcm9iZSArNDk0IGRy
-aXZlcnMvbmV0L21jdHAvbWN0cC1rY3MuYwo+Cj4gICAgNDgxCj4gICAgNDgyICBzdGF0aWMgaW50
-IGtjc19ibWNfbWN0cF9hZGRfZGV2aWNlKHN0cnVjdCBrY3NfYm1jX2RldmljZSAqa2NzX2JtYykK
-PiAgICA0ODMgIHsKPiAgICA0ODQgICAgICAgICAgc3RydWN0IG1jdHBfa2NzICpta2NzOwo+ICAg
-IDQ4NSAgICAgICAgICBzdHJ1Y3QgbmV0X2RldmljZSAqbmRldjsKPiAgICA0ODYgICAgICAgICAg
-Y2hhciBuYW1lWzMyXTsKPiAgICA0ODcgICAgICAgICAgaW50IHJjOwo+ICAgIDQ4OAo+ICAgIDQ4
-OSAgICAgICAgICBzbnByaW50ZihuYW1lLCBzaXplb2YobmFtZSksICJtY3Rwa2NzJWQiLCBrY3Nf
-Ym1jLT5jaGFubmVsKTsKPiAgICA0OTAKPiAgICA0OTEgICAgICAgICAgbmRldiA9IGFsbG9jX25l
-dGRldihzaXplb2YoKm1rY3MpLCBuYW1lLCBORVRfTkFNRV9FTlVNLCBtY3RwX2tjc19zZXR1cCk7
-Cj4gICAgNDkyICAgICAgICAgIGlmICghbmRldikgewo+ICAgIDQ5MyAgICAgICAgICAgICAgICAg
-IGRldl9lcnJfcHJvYmUoa2NzX2JtYy0+ZGV2LAo+ICA+IDQ5NCAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgImFsbG9jX25ldGRldiBmYWlsZWQgZm9yIEtDUyBjaGFubmVsICVkXG4iLAo+
-ICA+IDQ5NSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAga2NzX2JtYy0+Y2hhbm5lbCk7
-Cj4gICAgNDk2ICAgICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9NRU07Cj4gICAgNDk3ICAgICAg
-ICAgIH0KPiAgICA0OTgKPiAgICA0OTkgICAgICAgICAgbWtjcyA9IG5ldGRldl9wcml2KG5kZXYp
-Owo+ICAgIDUwMCAgICAgICAgICBta2NzLT5uZXRkZXYgPSBuZGV2Owo+ICAgIDUwMSAgICAgICAg
-ICBta2NzLT5jbGllbnQuZGV2ID0ga2NzX2JtYzsKPiAgICA1MDIgICAgICAgICAgbWtjcy0+Y2xp
-ZW50Lm9wcyA9ICZrY3NfYm1jX21jdHBfY2xpZW50X29wczsKPiAgICA1MDMgICAgICAgICAgbWtj
-cy0+ZGF0YV9pbiA9IGRldm1fa21hbGxvYyhrY3NfYm1jLT5kZXYsIEtDU19NU0dfQlVGU0laLCBH
-RlBfS0VSTkVMKTsKPiAgICA1MDQgICAgICAgICAgaWYgKCFta2NzLT5kYXRhX2luKSB7Cj4gICAg
-NTA1ICAgICAgICAgICAgICAgICAgZGV2X2Vycl9wcm9iZSgKPiAgICA1MDYgICAgICAgICAgICAg
-ICAgICAgICAgICAgIGtjc19ibWMtPmRldiwKPiAgICA1MDcgICAgICAgICAgICAgICAgICAgICAg
-ICAgICJmYWlsZWQgdG8gYWxsb2NhdGUgZGF0YV9pbiBidWZmZXIgZm9yIEtDUyBjaGFubmVsICVk
-XG4iLAo+ICAgIDUwOCAgICAgICAgICAgICAgICAgICAgICAgICAga2NzX2JtYy0+Y2hhbm5lbCk7
-Cj4gICAgNTA5ICAgICAgICAgICAgICAgICAgcmMgPSAtRU5PTUVNOwo+ICAgIDUxMCAgICAgICAg
-ICAgICAgICAgIGdvdG8gZnJlZV9uZXRkZXY7Cj4gICAgNTExICAgICAgICAgIH0KPiAgICA1MTIg
-ICAgICAgICAgbWtjcy0+ZGF0YV9vdXQgPSBkZXZtX2ttYWxsb2Moa2NzX2JtYy0+ZGV2LCBLQ1Nf
-TVNHX0JVRlNJWiwgR0ZQX0tFUk5FTCk7Cj4gICAgNTEzICAgICAgICAgIGlmICghbWtjcy0+ZGF0
-YV9vdXQpIHsKPiAgICA1MTQgICAgICAgICAgICAgICAgICBkZXZfZXJyX3Byb2JlKAo+ICAgIDUx
-NSAgICAgICAgICAgICAgICAgICAgICAgICAga2NzX2JtYy0+ZGV2LAo+ICAgIDUxNiAgICAgICAg
-ICAgICAgICAgICAgICAgICAgImZhaWxlZCB0byBhbGxvY2F0ZSBkYXRhX291dCBidWZmZXIgZm9y
-IEtDUyBjaGFubmVsICVkXG4iLAo+ICAgIDUxNyAgICAgICAgICAgICAgICAgICAgICAgICAga2Nz
-X2JtYy0+Y2hhbm5lbCk7Cj4gICAgNTE4ICAgICAgICAgICAgICAgICAgcmMgPSAtRU5PTUVNOwo+
-ICAgIDUxOSAgICAgICAgICAgICAgICAgIGdvdG8gZnJlZV9uZXRkZXY7Cj4gICAgNTIwICAgICAg
-ICAgIH0KPiAgICA1MjEKPiAgICA1MjIgICAgICAgICAgSU5JVF9XT1JLKCZta2NzLT5yeF93b3Jr
-LCBtY3RwX2tjc19yeF93b3JrKTsKPiAgICA1MjMKPiAgICA1MjQgICAgICAgICAgcmMgPSByZWdp
-c3Rlcl9uZXRkZXYobmRldik7Cj4gICAgNTI1ICAgICAgICAgIGlmIChyYykKPiAgICA1MjYgICAg
-ICAgICAgICAgICAgICBnb3RvIGZyZWVfbmV0ZGV2Owo+ICAgIDUyNwo+ICAgIDUyOCAgICAgICAg
-ICBzcGluX2xvY2tfaXJxKCZrY3NfYm1jX21jdHBfaW5zdGFuY2VzX2xvY2spOwo+ICAgIDUyOSAg
-ICAgICAgICBsaXN0X2FkZCgmbWtjcy0+ZW50cnksICZrY3NfYm1jX21jdHBfaW5zdGFuY2VzKTsK
-PiAgICA1MzAgICAgICAgICAgc3Bpbl91bmxvY2tfaXJxKCZrY3NfYm1jX21jdHBfaW5zdGFuY2Vz
-X2xvY2spOwo+ICAgIDUzMQo+ICAgIDUzMiAgICAgICAgICBkZXZfaW5mbyhrY3NfYm1jLT5kZXYs
-ICJBZGQgTUNUUCBjbGllbnQgZm9yIHRoZSBLQ1MgY2hhbm5lbCAlZCIsCj4gICAgNTMzICAgICAg
-ICAgICAgICAgICAgIGtjc19ibWMtPmNoYW5uZWwpOwo+ICAgIDUzNCAgICAgICAgICByZXR1cm4g
-MDsKPiAgICA1MzUKPiAgICA1MzYgIGZyZWVfbmV0ZGV2Ogo+ICAgIDUzNyAgICAgICAgICBmcmVl
-X25ldGRldihuZGV2KTsKPiAgICA1MzgKPiAgICA1MzkgICAgICAgICAgcmV0dXJuIHJjOwo+ICAg
-IDU0MCAgfQo+ICAgIDU0MQo+Cj4gLS0KPiAwLURBWSBDSSBLZXJuZWwgVGVzdCBTZXJ2aWNlCj4g
-aHR0cHM6Ly9naXRodWIuY29tL2ludGVsL2xrcC10ZXN0cy93aWtpCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxp
-bmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8v
-bGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+On Mon, 2 Oct 2023 17:41:42 +0300
+Konstantin Aladyshev <aladyshev22@gmail.com> wrote:
+
+> Thanks for the review!
+> I've corrected many things from your comments and have sent the V2 patch.
+> I'm not sure about the LIST thing and all the devres management. I've
+> written the KCS handling the same way it is done in the standard IPMI
+> KCS driver (https://github.com/torvalds/linux/blob/master/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c)
+> Not sure if we need to do any different here.
+> Please see detailed response below:
+> 
+> > > +#include <linux/module.h>
+> > > +#include <linux/mutex.h>  
+> > Check these.  There aren't any mutex's in here that I noticed...
+> >  
+> 
+> Currently there are no mutex's in the driver. Where do you think they
+> are needed?
+> For example there no mutex's in the 'mctp-serial.c' driver
+> (https://github.com/torvalds/linux/blob/master/drivers/net/mctp/mctp-serial.c)
+
+I don't think you need a mutex.  Hence don't include the header either! :)
+> 
+> > > +#include <linux/netdevice.h>
+
+...
+
+> > > +
+> > > +static DEFINE_SPINLOCK(kcs_bmc_mctp_instances_lock);
+> > > +static LIST_HEAD(kcs_bmc_mctp_instances);  
+> > As mentioned below, this seems to be only used to find some data again
+> > in remove. Lots of cleaner ways to do that than a list in the driver.
+> > I'd explore the alternatives.
+> >  
+> 
+> This was copied from the other KCS drivers. For example please see
+> 'kcs_bmc_cdev_ipmi.c':
+> https://github.com/torvalds/linux/blob/8a749fd1a8720d4619c91c8b6e7528c0a355c0aa/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c#L469
+
+Sure, I spotted it was copied but doesn't mean I like that code either :)
+
+
+> 
+> > > +
+> > > +static int kcs_bmc_mctp_add_device(struct kcs_bmc_device *kcs_bmc)
+> > > +{
+> > > +     struct mctp_kcs *mkcs;
+> > > +     struct net_device *ndev;
+> > > +     char name[32];
+> > > +     int rc;
+> > > +
+> > > +     snprintf(name, sizeof(name), "mctpkcs%d", kcs_bmc->channel);
+> > > +
+> > > +     ndev = alloc_netdev(sizeof(*mkcs), name, NET_NAME_ENUM, mctp_kcs_setup);  
+> > Interesting that there is an explicit devm_register_netdev() but not one for
+> > this simple allocation case (there is one for the ethernet specific version).
+> > Never mind, we have devm_add_action_or_reset() for that.  Just create a
+> > small wrapper for free_netdev() (which will look like devm_free_netdev()
+> > in net/devres.c but that's local to that file) and add
+> >
+> >         rc = devm_add_action_or_reset(&kcs_bmc->dev,
+> >                                       wrapper_for_free_netdev(), ndev);
+> >         if (rc)
+> >                 return rc;
+> >  
+> 
+> 
+> Did you mean something like this?
+> ```
+> static void devm_free_netdev(struct device *dev, void *this)
+> {
+> struct net_device_devres *res = this;
+> 
+> free_netdev(res->ndev);
+> }
+
+No. That would be unwind for a devm_alloc_netdev() which doesn't
+exist for the case where you want to override the manual version.
+
+Here would be
+static void kcs_bmc_mctp_free_netdev(void *priv)
+{
+	free_netdev(priv);
+}
+
+
+> 
+> 
+> ...
+> 
+> static int kcs_bmc_mctp_add_device(struct kcs_bmc_device *kcs_bmc)
+> {
+> 
+> // Instead of:
+> //ndev = alloc_netdev
+> //rc = register_netdev(ndev);
+> 
+> // Use
+> ...
+> if (!devm_register_netdev(kcs_bmc->dev, ndev)) {
+> dev_err_probe(kcs_bmc->dev,
+>         "alloc_netdev failed for KCS channel %d\n",
+>         kcs_bmc->channel);
+> return -ENOMEM;
+> }
+> 
+> rc = devm_add_action_or_reset(&kcs_bmc->dev,
+>                               devm_free_netdev(),
+>                               ndev);
+> if (rc)
+> return rc;
+> ...
+> }
+> ```
+> What calls do I need to perform in `kcs_bmc_mctp_remove_device` in this case?
+> Do I still have to perform `unregister_netdev` and `free_netdev` for example?
+
+Ideally none at all once everthing has moved over to device managed (devm) based
+handling.  The purpose of devm is to automatically call all the release functions
+in reverse order of the setup calls (gets more complex but in this case it will
+simply be reverse order).  That will occur on an error in probe() or after
+remove() callback is called. Happens without the remove() callback as well which
+is what we want here.
+> 
+> Anyway I don't see anything similar in the current mctp-i2c/mctp-serial drivers.
+
+True - lots of examples elsewhere though :)
+
+> 
+> 
+> > > +     if (!ndev) {
+> > > +             dev_err(kcs_bmc->dev,
+> > > +                     "alloc_netdev failed for KCS channel %d\n",
+> > > +                     kcs_bmc->channel);  
+> > No idea if the kcs subsystem handles deferred probing right, but in general
+> > anything called just in 'probe' routines can use dev_err_probe() to pretty
+> > print errors and also register any deferred cases with the logging stuff that
+> > lets you find out why they were deferred.
+> >  
+> 
+> Done
+> 
+> > > +             rc = -ENOMEM;
+> > > +             goto err;  
+> > In general I find it easier to follow code that only uses a goto if there
+> > is shared cleanup to do.
+> >                 return -ENOMEM; and for this path I don't need to read further.  
+> 
+> Done
+> 
+> > > +     }
+> > > +
+> > > +     mkcs = netdev_priv(ndev);
+> > > +     mkcs->netdev = ndev;
+> > > +     mkcs->client.dev = kcs_bmc;
+> > > +     mkcs->client.ops = &kcs_bmc_mctp_client_ops;
+> > > +     mkcs->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
+> > > +     mkcs->data_out = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);  
+> >
+> > You should not be mixing device manged cleanup and manual cleanup.  Rule of thumb
+> > is don't call any devm_ functions in a 'probe / add' type routine after you pass
+> > the first element that requires manual cleanup. Otherwise you get horrible
+> > race conditions or if not that, just code that is hard to check for them.
+> >  
+> 
+> Not sure how to fix
+
+Some simple rules of thumb.
+
+1. The first call in probe() that you make that does not have automated cleanup
+   (so non devm_ * or you haven't manually added a cleanup callback via
+    devm_add_action_or_reset()) ends devm usage in probe.
+2. In remove() and in error paths in probe() don't do anything at all to cleanup
+   stuff that was registered with devm_ calls as they will be automatically
+   cleaned up for you.
+
+In a simple driver it's often possible to move everything over to devm_ 
+calls so there is no manual cleanup to do at all. If that's the case
+don't provide a remove() callback.  However the subsystem may insist
+on one in which case either fix that (they should be optional) or
+provide an empty one.
+
+
+
+> > > +
+> > > +static int kcs_bmc_mctp_remove_device(struct kcs_bmc_device *kcs_bmc)
+> > > +{
+> > > +     struct mctp_kcs *mkcs = NULL, *pos;
+> > > +
+> > > +     dev_info(kcs_bmc->dev, "Remove MCTP client for the KCS channel %d",
+> > > +              kcs_bmc->channel);
+> > > +     spin_lock_irq(&kcs_bmc_mctp_instances_lock);
+> > > +     list_for_each_entry(pos, &kcs_bmc_mctp_instances, entry) {
+> > > +             if (pos->client.dev == kcs_bmc) {
+> > > +                     mkcs = pos;
+> > > +                     list_del(&pos->entry);
+> > > +                     break;  
+> > I don't know the kcs stuff at all but these seems 'unusual'.
+> > Can't you stash  device_set_drvdata(kcs_bmc->dev) or does it
+> > just match the structure containing the client pointed to
+> > by kcs_bmc_device? If so use something like
+> > container_of(kcs_bmc->client, struct mctp_kcs, client);
+> > Ah. You already have a function for that.  Why not use that here?
+> >
+> > There isn't normally a reason for a driver to maintain an
+> > additional list like this.
+> >  
+> 
+> Once again this logic was copied from the KCS IPMI driver:
+> https://github.com/torvalds/linux/blob/8a749fd1a8720d4619c91c8b6e7528c0a355c0aa/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c#L520
+
+Understood - should be able to do better than that though ;)
+
+> 
+> > > +             }
+> > > +     }
+> > > +     spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
+> > > +
+> > > +     if (!mkcs)
+> > > +             return -ENODEV;
+> > > +
+> > > +     unregister_netdev(mkcs->netdev);
+> > > +     free_netdev(mkcs->netdev);  
+> >
+> > This stuff should be opposite order of add above, or leave it to devm to clean up.  
+> 
+> Which things are exact things that are currently in the incorrect order?
+
+Allocations occur in probe just before register_netdev, so they should be
+before free_netdev() for example.
+
+> 
+> >  
+> > > +     kcs_bmc_disable_device(mkcs->client.dev, &mkcs->client);  
+> >
+> > This doesn't match with stuff in add - so I'd like a comment to explain
+> > why it is here.  Also needs a comment on the ordering.  Perhaps this
+> > is why you can't use devm for all the above, in which case I'd use it
+> > nowhere in this driver.
+> > I'm also confused on relationship between mks->client.dev and kcs_bmc
+> > (I'm fairly sure they are the same, so just use kcs_bmc here).
+> >  
+> 
+> I've changed the variable. Not sure about `kcs_bmc_disable_device`.
+> I've added it since it is also present in the IPMI KCS driver.
+> https://github.com/torvalds/linux/blob/8a749fd1a8720d4619c91c8b6e7528c0a355c0aa/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c#L533
+
+Understood. Would need some experimenting to figure
+out a path where it does something rather than it already
+being disabled.
+
+> 
+> >  
+> > > +     devm_kfree(kcs_bmc->dev, mkcs->data_in);
+> > > +     devm_kfree(kcs_bmc->dev, mkcs->data_out);  
+> >
+> > Alarm bells occur whenever an explicit devm_kfree turns up in
+> > except in complex corner cases. Please look at how devm based
+> > resource management works. These should not be here.
+> >
+> > Also, remove_device should either do things in the opposite order
+> > to add_device, or it should have comments saying why not!
+> >
+> >  
+> 
+> https://github.com/torvalds/linux/blob/8a749fd1a8720d4619c91c8b6e7528c0a355c0aa/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c#L534C2-L534C2
+
+Yeah. That's bad :(  Seems devm being relied on for error paths, but not
+remove() 
+
+
+> 
+> > > +     return 0;
+> > > +}
+> > > +
+> > > +static const struct kcs_bmc_driver_ops kcs_bmc_mctp_driver_ops = {
+> > > +     .add_device = kcs_bmc_mctp_add_device,
+> > > +     .remove_device = kcs_bmc_mctp_remove_device,
+> > > +};
+> > > +
+> > > +static struct kcs_bmc_driver kcs_bmc_mctp_driver = {
+> > > +     .ops = &kcs_bmc_mctp_driver_ops,
+> > > +};
+> > > +
+> > > +static int __init mctp_kcs_init(void)
+> > > +{
+> > > +     kcs_bmc_register_driver(&kcs_bmc_mctp_driver);
+> > > +     return 0;
+> > > +}
+> > > +
+> > > +static void __exit mctp_kcs_exit(void)
+> > > +{
+> > > +     kcs_bmc_unregister_driver(&kcs_bmc_mctp_driver);
+> > > +}  
+> >
+> > Hmm. So kcs is a very small subsystem hence no one has done the usual
+> > module_kcs_driver() wrapper (see something like module_i2c_driver)
+> > for an example.  You can just use the underlying macro directly
+> > though to get rid of most of this boilerplate.
+> >
+> >
+> > module_driver(kcs_bmc_mctp_driver, kcs_bmc_register_driver,
+> >               kcs_bmc_uregister_driver);
+> >  
+> 
+> Not possible. If I understand error message correctly it is from the
+> fact that 'kcs_bmc_register_driver' returns void:
+
+That's annoying..  Could fix it by making it return an int so it
+could report the failure it handles to the caller module instead
+of always returning success...  That smells like a bug to me though
+I haven't checked if the module_init() return value gets used
+for anything much.
+
+
+> ```
+> | drivers/net/mctp/mctp-kcs.c: In function 'kcs_bmc_mctp_driver_init':
+> | drivers/net/mctp/mctp-kcs.c:576:36: error: void value not ignored as
+> it ought to be
+> |   576 | module_driver(kcs_bmc_mctp_driver, kcs_bmc_register_driver,
+> kcs_bmc_unregister_driver);
+> | include/linux/device/driver.h:265:16: note: in definition of macro
+> 'module_driver'
+> |   265 |         return __register(&(__driver) , ##__VA_ARGS__); \
+> |       |                ^~~~~~~~~~
+> | include/linux/device/driver.h:266:1: error: control reaches end of
+> non-void function [-Werror=return-type]
+> |   266 | } \
+> |       | ^
+> | drivers/net/mctp/mctp-kcs.c:576:1: note: in expansion of macro 'module_driver'
+> |   576 | module_driver(kcs_bmc_mctp_driver, kcs_bmc_register_driver,
+> kcs_bmc_unregister_driver);
+> |       | ^~~~~~~~~~~~~
+> | cc1: some warnings being treated as errors
+> ```
+> 
+> > > +
+> > > +module_init(mctp_kcs_init);
+> > > +module_exit(mctp_kcs_exit);
+> > > +
+> > > +MODULE_LICENSE("GPL");
+> > > +MODULE_AUTHOR("Konstantin Aladyshev <aladyshev22@gmail.com>");
+> > > +MODULE_DESCRIPTION("MCTP KCS transport");  
+> >  
+> 
+> Best regards,
+> Konstantin Aladyshev
+> 
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
