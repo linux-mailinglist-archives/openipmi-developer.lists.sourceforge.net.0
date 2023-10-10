@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79D817BFB41
-	for <lists+openipmi-developer@lfdr.de>; Tue, 10 Oct 2023 14:23:43 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9B5617BFB42
+	for <lists+openipmi-developer@lfdr.de>; Tue, 10 Oct 2023 14:23:45 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qqBlz-0007IC-BB;
-	Tue, 10 Oct 2023 12:23:39 +0000
+	id 1qqBm3-0008Ag-Kc;
+	Tue, 10 Oct 2023 12:23:42 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <aladyshev22@gmail.com>) id 1qqBlx-0007I1-7o
+ (envelope-from <aladyshev22@gmail.com>) id 1qqBm1-0008Aa-H5
  for openipmi-developer@lists.sourceforge.net;
- Tue, 10 Oct 2023 12:23:37 +0000
+ Tue, 10 Oct 2023 12:23:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Yp1yNMJhm0Xmlti2S7KpcZZ4ydY0GaIDDg/yGsmahK4=; b=QhDlO7MKcmZBeO1pavCo/mk61h
- qBalO5xDa0QuowblETY1Yt8lW42ZHj7+4DlnhtOhL5iQdkPLdydzvt6r4DjNWO9qOGRXaKu34fjvh
- OIVdDhqcyLgHbv6N3h1tlMZcYc+k8dCrIe9XI28/maqOpYbZ+YI5IlhrxLoo76z7+kuw=;
+ bh=jD0baK3eKnOZZy7TDZ7McQqiNB/eWAMD87f8uiL0/IE=; b=gpaH60XGj/4Z2EmlKZcfZh8DLX
+ mH1KZmzpoiNQvJcHpZ+srIBz/+4dtQxci0w/cIhgF6RLLL7C0sTYWu83zJWsbRvLcemQL9s7JnfYN
+ 6iasn8KSCEF8oj0/ntI7k2tA3zoA7THMC0p9/i5OJ5FX5R6zAyGOpQn8g5PDCpnTrMj8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -31,57 +31,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Yp1yNMJhm0Xmlti2S7KpcZZ4ydY0GaIDDg/yGsmahK4=; b=fn1RjvuRb5ZQbuRLG2jcNfccPE
- SxIcYqi2uWZ1Vq13wbMjKu/O13jqpIjVfxGrAOi4Oi62LcvUoTclusNHinxqxGwpuvt8agbtkifah
- SL/2D3RMksIZpDLZGWAvDhJZB7dLjQoeMr6gzbu/LTDPm2wOlIIFmySPyrGsYNsMkTJ4=;
-Received: from mail-lj1-f176.google.com ([209.85.208.176])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ bh=jD0baK3eKnOZZy7TDZ7McQqiNB/eWAMD87f8uiL0/IE=; b=ck/VbVgF2sViaqEURW+TaGpfiT
+ CsuEjbctnAl6piKS3ySDhbEVm+bbInNHYboqX5KCBH0AXjesJ5MAC8b31RSZknd385dohxcyEsyo7
+ kJl7qqIipdrsMutdM6wKCwMxHJ1V62fQNRNf3uQy1Ch06pHIeAnPVfDfVnqfsL2RTiS0=;
+Received: from mail-lj1-f173.google.com ([209.85.208.173])
+ by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1qqBlv-0001Of-6b for openipmi-developer@lists.sourceforge.net;
- Tue, 10 Oct 2023 12:23:37 +0000
-Received: by mail-lj1-f176.google.com with SMTP id
- 38308e7fff4ca-2b95d5ee18dso68122531fa.1
+ id 1qqBlw-00AbOn-Gl for openipmi-developer@lists.sourceforge.net;
+ Tue, 10 Oct 2023 12:23:39 +0000
+Received: by mail-lj1-f173.google.com with SMTP id
+ 38308e7fff4ca-2c131ddfc95so70463091fa.0
  for <openipmi-developer@lists.sourceforge.net>;
- Tue, 10 Oct 2023 05:23:35 -0700 (PDT)
+ Tue, 10 Oct 2023 05:23:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1696940609; x=1697545409; darn=lists.sourceforge.net;
+ d=gmail.com; s=20230601; t=1696940610; x=1697545410; darn=lists.sourceforge.net;
  h=content-transfer-encoding:mime-version:references:in-reply-to
  :message-id:date:subject:cc:to:from:from:to:cc:subject:date
  :message-id:reply-to;
- bh=Yp1yNMJhm0Xmlti2S7KpcZZ4ydY0GaIDDg/yGsmahK4=;
- b=h4z29mdxy3o5WCKyoqmXsMg53vjIh0dKkipmUhk13zFxD51HSlW8S1J03okwG3PAuj
- zXaX/vJ1bTJxVqVXbqewNz44Rg7BXjuHTf1Zzb51CSRn0ChnhYrtIVYjK2hHbnhAxGbR
- nflaiTU8PXLrcQ04lLX/eoYOV15ASZethvDvlEyTlgpwP+1tZDUWJKKcxg8a7kWQZqhP
- s71gteBF0mAFYyThbkGcD6vGEM2dBUidktNs61HtPwSF977FTYVOa2XjqUidhVx4JUGG
- Jf1PvGL2k/eWe9tFf+FbMe6k+WdZXBnC8HFqqas8DCSWwE+XaHwipqjkCxwdrTjSMprP
- X9wQ==
+ bh=jD0baK3eKnOZZy7TDZ7McQqiNB/eWAMD87f8uiL0/IE=;
+ b=YIZKzEaqS5G0TeeU419HwBsY9JTXb9QY6SCif7hRsf6w+R8Ld7nVW14Htac7MPL+Iu
+ gTtx0cV3WJx1kZb3dMrf+CAqQ2dJ5siGvINswVghC/pa49BYMnCf/9KUmtcvhUc2SogX
+ 62Ot3d0vKLrAt3CRpE7X8nXe0UL2+zGgaeTydZhgY+L4rajHWdzHqdzJTeGhC0nktlUR
+ SiuT8x95RlwfSSLFm38gN1JuncnVVo+xoXPw5qezcz1AC/WFSCQRRtv61mcjUauWODJH
+ hPtJXE0hERFtFZH3f08agRfQwj6jAE1ZjrWhduEkNH/s4yLyd0qUmFAwSE+ZqoRaNzMz
+ 71HQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1696940609; x=1697545409;
+ d=1e100.net; s=20230601; t=1696940610; x=1697545410;
  h=content-transfer-encoding:mime-version:references:in-reply-to
  :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=Yp1yNMJhm0Xmlti2S7KpcZZ4ydY0GaIDDg/yGsmahK4=;
- b=pGoBg9J88XrLCI9jQV+Y3oRHu2ySv3TPcRSDv6ergi+cQIu8L4xRsFHCa4GGKVPLiV
- V8gO5pjVgfcdP8cODN+I4/i5KaA9OanP20MhQS6oC18VmfIeZPSNn+tt+VWGNvuMpK10
- 8itmDWZRnra8Z/iomRAHpJ036CFt/4DaZeNp2Li+2TsobU4SkeOfY/X8kS/K9XUxMpWW
- /gyM5oIfYK1gQsajbyhLmaWqyiWfWeb9dygd1pB81F5VqjnXJAeSkmMRUj9zmKB5l2n9
- gw6VdwL/jpAQgGaGthyW9oZbfGWnRAN5RtS+gz/C0NgJdOda1Np7aJbEwgZcNCQM4zkO
- /Sxg==
-X-Gm-Message-State: AOJu0YwFGp4oPJLeouIF1qap0LkVcO7aRu2AarZw48isPR6mzUO8GGBC
- d1nN6drFbiHJVAVAhmmyTWE=
-X-Google-Smtp-Source: AGHT+IE6Sf9WBnW7fB/PVNBWIP5TwKbcCvhx6WXGgnBaKiv0H1Z3E/dt1Hv3RyBRA5YTXQpg1DjOzQ==
-X-Received: by 2002:a2e:9b07:0:b0:2bd:a85:899e with SMTP id
- u7-20020a2e9b07000000b002bd0a85899emr16820416lji.3.1696940608544; 
- Tue, 10 Oct 2023 05:23:28 -0700 (PDT)
+ bh=jD0baK3eKnOZZy7TDZ7McQqiNB/eWAMD87f8uiL0/IE=;
+ b=gnA+ZQcuQmDV9QY0M7SuomYWPFxm6meHwpiyvtQvTC4wiV2xxrdgFLFVj8NY68jfLJ
+ WkopB+9u+2U+S3Ug5C4wAfJmIuPrYuDAG1nLFtl60vRTZfcLNpd+VTZJz73NLL9zfu0O
+ W5rR/fsZkreMM+swES2WT6oErTHfSDaVlqJ8C5jGNmz4yO9qvMj3Bxc09Gh4+yKIaYut
+ 1tP9kgFKHrl1yWCbUQoPh56qsjBJzxx2vnY+0q6dKLMCWTC2edtImO1Qc5v7HBHiK271
+ ctp2mQowixarnrR3x+mSiP3yKtgk7Neb+S+di/nLUyDx+IyhjQGjib0MxcQfQySY9kAh
+ VQBQ==
+X-Gm-Message-State: AOJu0Yw1dzjtU7x+1uzr8UfPy27Onw1HjKUxbnPSXsHyUy+zpbLSTHHK
+ qZNFtQEOoFx4mh/Z7gSjIH0=
+X-Google-Smtp-Source: AGHT+IGju9FUG0OHttJMvC4ezFn8eQVcrFplTtSE+0mlMCi5ydrxq6b1HtLtaQgMbTCkkbo/iwWgHA==
+X-Received: by 2002:a2e:9cc4:0:b0:2c2:97b9:4a95 with SMTP id
+ g4-20020a2e9cc4000000b002c297b94a95mr16010436ljj.15.1696940609563; 
+ Tue, 10 Oct 2023 05:23:29 -0700 (PDT)
 Received: from PC10319.67 ([82.97.198.254])
  by smtp.googlemail.com with ESMTPSA id
- g9-20020a2e9cc9000000b002b9e346a152sm2425638ljj.96.2023.10.10.05.23.27
+ g9-20020a2e9cc9000000b002b9e346a152sm2425638ljj.96.2023.10.10.05.23.28
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 10 Oct 2023 05:23:28 -0700 (PDT)
+ Tue, 10 Oct 2023 05:23:29 -0700 (PDT)
 From: Konstantin Aladyshev <aladyshev22@gmail.com>
 To: 
-Date: Tue, 10 Oct 2023 15:23:20 +0300
-Message-Id: <20231010122321.823-3-aladyshev22@gmail.com>
+Date: Tue, 10 Oct 2023 15:23:21 +0300
+Message-Id: <20231010122321.823-4-aladyshev22@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20231010122321.823-1-aladyshev22@gmail.com>
 References: <20231010122321.823-1-aladyshev22@gmail.com>
@@ -93,15 +93,15 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Some definitions from the current kcs_bmc_cdev_ipmi driver
- can be also utilized by the MTCP KCS binding driver. Move such definitions
- to the common header file. Signed-off-by: Konstantin Aladyshev ---
- drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
- | 71 + include/linux/ipmi_kcs.h | 80 +++++++++++++++++++++++++++ 2 files
- changed, 81 insertions(+ [...] 
+ Content preview:  This change adds a MCTP KCS transport binding, as defined
+ by the DMTF specification DSP0254 - "MCTP KCS Transport Binding". A MCTP
+ protocol
+ network device is created for each KCS channel found in the [...] 
  Content analysis details:   (0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.208.173 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [aladyshev22[at]gmail.com]
@@ -109,9 +109,7 @@ X-Spam-Report: Spam detection software,
  in digit [aladyshev22[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.208.176 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.208.176 listed in list.dnswl.org]
+ [209.85.208.173 listed in wl.mailspike.net]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
@@ -119,9 +117,9 @@ X-Spam-Report: Spam detection software,
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
-X-Headers-End: 1qqBlv-0001Of-6b
-Subject: [Openipmi-developer] [PATCH v5 2/3] ipmi: Create header with KCS
- interface defines
+X-Headers-End: 1qqBlw-00AbOn-Gl
+Subject: [Openipmi-developer] [PATCH v5 3/3] mctp: Add MCTP-over-KCS
+ transport binding
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -145,199 +143,654 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Some definitions from the current kcs_bmc_cdev_ipmi driver can be also
-utilized by the MTCP KCS binding driver. Move such definitions to the
-common header file.
+This change adds a MCTP KCS transport binding, as defined by the DMTF
+specification DSP0254 - "MCTP KCS Transport Binding".
+A MCTP protocol network device is created for each KCS channel found in
+the system.
+The interrupt code for the KCS state machine is based on the current
+IPMI KCS driver.
 
 Signed-off-by: Konstantin Aladyshev <aladyshev22@gmail.com>
 ---
- drivers/char/ipmi/kcs_bmc_cdev_ipmi.c | 71 +-----------------------
- include/linux/ipmi_kcs.h              | 80 +++++++++++++++++++++++++++
- 2 files changed, 81 insertions(+), 70 deletions(-)
- create mode 100644 include/linux/ipmi_kcs.h
+ drivers/net/mctp/Kconfig    |   8 +
+ drivers/net/mctp/Makefile   |   1 +
+ drivers/net/mctp/mctp-kcs.c | 600 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 609 insertions(+)
+ create mode 100644 drivers/net/mctp/mctp-kcs.c
 
-diff --git a/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c b/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
-index bf1001130a6c..f158f676114c 100644
---- a/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
-+++ b/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
-@@ -8,6 +8,7 @@
- #include <linux/errno.h>
- #include <linux/io.h>
- #include <linux/ipmi_bmc.h>
-+#include <linux/ipmi_kcs.h>
- #include <linux/kcs_bmc_client.h>
- #include <linux/list.h>
- #include <linux/miscdevice.h>
-@@ -19,53 +20,6 @@
- #include <linux/slab.h>
+diff --git a/drivers/net/mctp/Kconfig b/drivers/net/mctp/Kconfig
+index dc71657d9184..a37f7ba947c0 100644
+--- a/drivers/net/mctp/Kconfig
++++ b/drivers/net/mctp/Kconfig
+@@ -33,6 +33,14 @@ config MCTP_TRANSPORT_I2C
+ 	  from DMTF specification DSP0237. A MCTP protocol network device is
+ 	  created for each I2C bus that has been assigned a mctp-i2c device.
  
++config MCTP_TRANSPORT_KCS
++	tristate "MCTP KCS transport"
++	depends on IPMI_KCS_BMC
++	help
++	  Provides a driver to access MCTP devices over KCS transport, from
++	  DMTF specification DSP0254. A MCTP protocol network device is
++	  created for each KCS channel found in the system.
++
+ endmenu
  
--/* Different phases of the KCS BMC module.
-- *  KCS_PHASE_IDLE:
-- *            BMC should not be expecting nor sending any data.
-- *  KCS_PHASE_WRITE_START:
-- *            BMC is receiving a WRITE_START command from system software.
-- *  KCS_PHASE_WRITE_DATA:
-- *            BMC is receiving a data byte from system software.
-- *  KCS_PHASE_WRITE_END_CMD:
-- *            BMC is waiting a last data byte from system software.
-- *  KCS_PHASE_WRITE_DONE:
-- *            BMC has received the whole request from system software.
-- *  KCS_PHASE_WAIT_READ:
-- *            BMC is waiting the response from the upper IPMI service.
-- *  KCS_PHASE_READ:
-- *            BMC is transferring the response to system software.
-- *  KCS_PHASE_ABORT_ERROR1:
-- *            BMC is waiting error status request from system software.
-- *  KCS_PHASE_ABORT_ERROR2:
-- *            BMC is waiting for idle status afer error from system software.
-- *  KCS_PHASE_ERROR:
-- *            BMC has detected a protocol violation at the interface level.
-- */
--enum kcs_ipmi_phases {
--	KCS_PHASE_IDLE,
--
--	KCS_PHASE_WRITE_START,
--	KCS_PHASE_WRITE_DATA,
--	KCS_PHASE_WRITE_END_CMD,
--	KCS_PHASE_WRITE_DONE,
--
--	KCS_PHASE_WAIT_READ,
--	KCS_PHASE_READ,
--
--	KCS_PHASE_ABORT_ERROR1,
--	KCS_PHASE_ABORT_ERROR2,
--	KCS_PHASE_ERROR
--};
--
--/* IPMI 2.0 - Table 9-4, KCS Interface Status Codes */
--enum kcs_ipmi_errors {
--	KCS_NO_ERROR                = 0x00,
--	KCS_ABORTED_BY_COMMAND      = 0x01,
--	KCS_ILLEGAL_CONTROL_CODE    = 0x02,
--	KCS_LENGTH_ERROR            = 0x06,
--	KCS_UNSPECIFIED_ERROR       = 0xFF
--};
--
- struct kcs_bmc_ipmi {
- 	struct list_head entry;
- 
-@@ -95,29 +49,6 @@ struct kcs_bmc_ipmi {
- 
- #define KCS_MSG_BUFSIZ    1000
- 
--#define KCS_ZERO_DATA     0
--
--/* IPMI 2.0 - Table 9-1, KCS Interface Status Register Bits */
--#define KCS_STATUS_STATE(state) (state << 6)
--#define KCS_STATUS_STATE_MASK   GENMASK(7, 6)
--#define KCS_STATUS_CMD_DAT      BIT(3)
--#define KCS_STATUS_SMS_ATN      BIT(2)
--#define KCS_STATUS_IBF          BIT(1)
--#define KCS_STATUS_OBF          BIT(0)
--
--/* IPMI 2.0 - Table 9-2, KCS Interface State Bits */
--enum kcs_states {
--	IDLE_STATE  = 0,
--	READ_STATE  = 1,
--	WRITE_STATE = 2,
--	ERROR_STATE = 3,
--};
--
--/* IPMI 2.0 - Table 9-3, KCS Interface Control Codes */
--#define KCS_CMD_GET_STATUS_ABORT  0x60
--#define KCS_CMD_WRITE_START       0x61
--#define KCS_CMD_WRITE_END         0x62
--#define KCS_CMD_READ_BYTE         0x68
- 
- static inline void set_state(struct kcs_bmc_ipmi *priv, u8 state)
- {
-diff --git a/include/linux/ipmi_kcs.h b/include/linux/ipmi_kcs.h
+ endif
+diff --git a/drivers/net/mctp/Makefile b/drivers/net/mctp/Makefile
+index 1ca3e6028f77..885339a40f22 100644
+--- a/drivers/net/mctp/Makefile
++++ b/drivers/net/mctp/Makefile
+@@ -1,2 +1,3 @@
+ obj-$(CONFIG_MCTP_SERIAL) += mctp-serial.o
+ obj-$(CONFIG_MCTP_TRANSPORT_I2C) += mctp-i2c.o
++obj-$(CONFIG_MCTP_TRANSPORT_KCS) += mctp-kcs.o
+diff --git a/drivers/net/mctp/mctp-kcs.c b/drivers/net/mctp/mctp-kcs.c
 new file mode 100644
-index 000000000000..30c4b6e4d689
+index 000000000000..b0d903609c64
 --- /dev/null
-+++ b/include/linux/ipmi_kcs.h
-@@ -0,0 +1,80 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
++++ b/drivers/net/mctp/mctp-kcs.c
+@@ -0,0 +1,600 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Copyright (c) 2015-2018, Intel Corporation.
++ * Management Component Transport Protocol (MCTP) KCS transport binding.
++ * This driver is an implementation of the DMTF specification
++ * "DSP0254 - Management Component Transport Protocol (MCTP) KCS Transport
++ * Binding", available at:
++ *
++ * https://www.dmtf.org/sites/default/files/standards/documents/DSP0254_1.0.0.pdf
++ *
++ * This driver provides DSP0254-type MCTP-over-KCS transport using a Linux
++ * KCS client subsystem.
++ *
++ * Copyright (c) 2023 Konstantin Aladyshev <aladyshev22@gmail.com>
 + */
 +
-+#ifndef __IPMI_KCS_H__
-+#define __IPMI_KCS_H__
++#include <linux/i2c.h>
++#include <linux/if_arp.h>
++#include <linux/ipmi_kcs.h>
++#include <linux/kcs_bmc_client.h>
++#include <linux/mctp.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/netdevice.h>
++#include <net/mctp.h>
++#include <net/mctpdevice.h>
++#include <net/pkt_sched.h>
 +
-+/* Different phases of the KCS BMC module.
-+ *  KCS_PHASE_IDLE:
-+ *            BMC should not be expecting nor sending any data.
-+ *  KCS_PHASE_WRITE_START:
-+ *            BMC is receiving a WRITE_START command from system software.
-+ *  KCS_PHASE_WRITE_DATA:
-+ *            BMC is receiving a data byte from system software.
-+ *  KCS_PHASE_WRITE_END_CMD:
-+ *            BMC is waiting a last data byte from system software.
-+ *  KCS_PHASE_WRITE_DONE:
-+ *            BMC has received the whole request from system software.
-+ *  KCS_PHASE_WAIT_READ:
-+ *            BMC is waiting the response from the upper IPMI service.
-+ *  KCS_PHASE_READ:
-+ *            BMC is transferring the response to system software.
-+ *  KCS_PHASE_ABORT_ERROR1:
-+ *            BMC is waiting error status request from system software.
-+ *  KCS_PHASE_ABORT_ERROR2:
-+ *            BMC is waiting for idle status afer error from system software.
-+ *  KCS_PHASE_ERROR:
-+ *            BMC has detected a protocol violation at the interface level.
-+ */
-+enum kcs_ipmi_phases {
-+	KCS_PHASE_IDLE,
++#define MCTP_KCS_MTU 64
++#define KCS_MSG_BUFSIZ 1000
 +
-+	KCS_PHASE_WRITE_START,
-+	KCS_PHASE_WRITE_DATA,
-+	KCS_PHASE_WRITE_END_CMD,
-+	KCS_PHASE_WRITE_DONE,
++struct mctp_kcs {
++	struct list_head entry;
 +
-+	KCS_PHASE_WAIT_READ,
-+	KCS_PHASE_READ,
++	/* protects rx & tx state machines */
++	spinlock_t lock;
 +
-+	KCS_PHASE_ABORT_ERROR1,
-+	KCS_PHASE_ABORT_ERROR2,
-+	KCS_PHASE_ERROR
++	struct kcs_bmc_client client;
++	struct net_device *netdev;
++
++	enum kcs_ipmi_phases phase;
++	enum kcs_ipmi_errors error;
++
++	unsigned int data_in_idx;
++	u8 *data_in;
++
++	unsigned int data_out_idx;
++	unsigned int data_out_len;
++	u8 *data_out;
++
++	struct work_struct rx_work;
 +};
 +
-+/* IPMI 2.0 - Table 9-4, KCS Interface Status Codes */
-+enum kcs_ipmi_errors {
-+	KCS_NO_ERROR                = 0x00,
-+	KCS_ABORTED_BY_COMMAND      = 0x01,
-+	KCS_ILLEGAL_CONTROL_CODE    = 0x02,
-+	KCS_LENGTH_ERROR            = 0x06,
-+	KCS_UNSPECIFIED_ERROR       = 0xFF
++struct mctp_kcs_header {
++	u8 netfn_lun;
++	u8 defining_body;
++	u8 len;
++} __packed;
++
++struct mctp_kcs_trailer {
++	u8 pec;
++} __packed;
++
++#define MCTP_KCS_NETFN_LUN 0xb0
++#define DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP 0x01
++
++static int mctp_kcs_validate_data(struct mctp_kcs *mkcs, u8 *data,
++				  unsigned int len)
++{
++	struct mctp_kcs_header *hdr = (struct mctp_kcs_header *)data;
++	struct net_device *ndev = mkcs->netdev;
++	struct mctp_kcs_trailer *tlr;
++	u8 pec;
++
++	if (len < (sizeof(struct mctp_kcs_header) +
++		   sizeof(struct mctp_kcs_trailer))) {
++		dev_err(mkcs->client.dev->dev,
++			"%s: error! Received data size (%d) is less than binding structs size (%d)",
++			__func__, len,
++			sizeof(struct mctp_kcs_header) +
++				sizeof(struct mctp_kcs_trailer));
++		ndev->stats.rx_length_errors++;
++		return -EINVAL;
++	}
++	if (hdr->netfn_lun != MCTP_KCS_NETFN_LUN) {
++		dev_err(mkcs->client.dev->dev,
++			"%s: KCS binding header error! netfn_lun = 0x%02x, but should be 0x%02x",
++			__func__, hdr->netfn_lun, MCTP_KCS_NETFN_LUN);
++		ndev->stats.rx_dropped++;
++		return -EINVAL;
++	}
++	if (hdr->defining_body != DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP) {
++		dev_err(mkcs->client.dev->dev,
++			"%s: KCS binding header error! defining_body = 0x%02x, but should be 0x%02x",
++			__func__, hdr->defining_body,
++			DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP);
++		ndev->stats.rx_dropped++;
++		return -EINVAL;
++	}
++	if (hdr->len != (u8)(len - sizeof(struct mctp_kcs_header) -
++			     sizeof(struct mctp_kcs_trailer))) {
++		dev_err(mkcs->client.dev->dev,
++			"%s: KCS binding header error! len = 0x%02x, but should be 0x%02x",
++			__func__, hdr->len,
++			(u8)(len - sizeof(struct mctp_kcs_header) -
++			     sizeof(struct mctp_kcs_trailer)));
++		ndev->stats.rx_length_errors++;
++		return -EINVAL;
++	}
++
++	pec = i2c_smbus_pec(0, (u8 *)(hdr + 1), hdr->len);
++	tlr = (struct mctp_kcs_trailer *)((u8 *)(hdr + 1) + hdr->len);
++	if (pec != tlr->pec) {
++		dev_err(mkcs->client.dev->dev,
++			"%s: PEC error! Packet value=0x%02x, calculated value=0x%02x",
++			__func__, tlr->pec, pec);
++		ndev->stats.rx_crc_errors++;
++		return -EINVAL;
++	}
++	return 0;
++}
++
++static void mctp_kcs_rx_work(struct work_struct *work)
++{
++	struct mctp_kcs *mkcs = container_of(work, struct mctp_kcs, rx_work);
++	struct mctp_skb_cb *cb;
++	unsigned int data_len;
++	struct sk_buff *skb;
++	unsigned long flags;
++	unsigned int i;
++	int rc;
++
++	spin_lock_irqsave(&mkcs->lock, flags);
++	for (i = 0; i < (mkcs->data_in_idx); i++)
++		dev_dbg(mkcs->client.dev->dev, "%s: data_in[%d]=0x%02x",
++			__func__, i, mkcs->data_in[i]);
++
++	if (mkcs->phase != KCS_PHASE_WRITE_DONE) {
++		dev_err(mkcs->client.dev->dev,
++			"%s: error! Wrong KCS stage at the end of data read (phase=%d)",
++			__func__, mkcs->phase);
++		mkcs->netdev->stats.rx_dropped++;
++		goto unlock_irq;
++	}
++
++	rc = mctp_kcs_validate_data(mkcs, mkcs->data_in, mkcs->data_in_idx);
++	if (rc) {
++		dev_err(mkcs->client.dev->dev,
++			"%s: error! Binding validation failed", __func__);
++		goto unlock_irq;
++	}
++
++	data_len = mkcs->data_in_idx - sizeof(struct mctp_kcs_header) -
++		   sizeof(struct mctp_kcs_trailer);
++
++	skb = netdev_alloc_skb(mkcs->netdev, data_len);
++	if (!skb) {
++		mkcs->netdev->stats.rx_dropped++;
++		goto unlock_irq;
++	}
++
++	skb->protocol = htons(ETH_P_MCTP);
++	skb_put_data(skb, mkcs->data_in + sizeof(struct mctp_kcs_header),
++		     data_len);
++	skb_reset_network_header(skb);
++
++	cb = __mctp_cb(skb);
++	cb->halen = 0;
++
++	netif_rx(skb);
++	mkcs->netdev->stats.rx_packets++;
++	mkcs->netdev->stats.rx_bytes += data_len;
++
++unlock_irq:
++	mkcs->phase = KCS_PHASE_WAIT_READ;
++	mkcs->data_in_idx = 0;
++	spin_unlock_irqrestore(&mkcs->lock, flags);
++}
++
++static netdev_tx_t mctp_kcs_start_xmit(struct sk_buff *skb,
++				       struct net_device *ndev)
++{
++	struct mctp_kcs *mkcs = netdev_priv(ndev);
++	struct mctp_kcs_header *kcs_header;
++	unsigned long flags;
++	int i;
++
++	if (skb->len > MCTP_KCS_MTU) {
++		dev_err(&ndev->dev, "%s: error! skb len is bigger than MTU",
++			__func__);
++		ndev->stats.tx_dropped++;
++		goto out;
++	}
++
++	spin_lock_irqsave(&mkcs->lock, flags);
++	if (mkcs->phase != KCS_PHASE_WAIT_READ) {
++		dev_err(&ndev->dev,
++			"%s: error! Wrong KCS stage at the start of data write (phase=%d)",
++			__func__, mkcs->phase);
++		dev_kfree_skb(skb);
++		spin_unlock_irqrestore(&mkcs->lock, flags);
++		return NETDEV_TX_BUSY;
++	}
++
++	netif_stop_queue(ndev);
++	mkcs->phase = KCS_PHASE_READ;
++	kcs_header = (struct mctp_kcs_header *)mkcs->data_out;
++	kcs_header->netfn_lun = MCTP_KCS_NETFN_LUN;
++	kcs_header->defining_body = DEFINING_BODY_DMTF_PRE_OS_WORKING_GROUP;
++	kcs_header->len = skb->len;
++	skb_copy_bits(skb, 0, kcs_header + 1, skb->len);
++	mkcs->data_out[sizeof(struct mctp_kcs_header) + skb->len] =
++		i2c_smbus_pec(0, (u8 *)(kcs_header + 1), skb->len);
++	mkcs->data_out_idx = 1;
++	mkcs->data_out_len = skb->len + sizeof(struct mctp_kcs_header) +
++			     sizeof(struct mctp_kcs_trailer);
++
++	for (i = 0; i < (mkcs->data_out_len); i++)
++		dev_dbg(&ndev->dev, "%s: data_out[%d]=0x%02x", __func__, i,
++			mkcs->data_out[i]);
++
++	// Write first data byte to initialize transmission
++	kcs_bmc_write_data(mkcs->client.dev, mkcs->data_out[0]);
++
++	spin_unlock_irqrestore(&mkcs->lock, flags);
++out:
++	dev_kfree_skb(skb);
++	return NETDEV_TX_OK;
++}
++
++static void set_state(struct mctp_kcs *mkcs, u8 state)
++{
++	dev_dbg(mkcs->client.dev->dev, "%s: state=0x%02x", __func__, state);
++	kcs_bmc_update_status(mkcs->client.dev, KCS_STATUS_STATE_MASK,
++			      KCS_STATUS_STATE(state));
++}
++
++static int mctp_kcs_ndo_open(struct net_device *ndev)
++{
++	struct mctp_kcs *mkcs;
++
++	mkcs = netdev_priv(ndev);
++	dev_info(&ndev->dev, "Open MCTP over KCS channel %d",
++		 mkcs->client.dev->channel);
++	return kcs_bmc_enable_device(mkcs->client.dev, &mkcs->client);
++}
++
++static int mctp_kcs_ndo_stop(struct net_device *ndev)
++{
++	struct mctp_kcs *mkcs;
++
++	mkcs = netdev_priv(ndev);
++	dev_info(&ndev->dev, "Stop MCTP over KCS channel %d",
++		 mkcs->client.dev->channel);
++	mkcs->data_in_idx = 0;
++	mkcs->data_out_idx = 0;
++	mkcs->data_out_len = 0;
++	mkcs->phase = KCS_PHASE_IDLE;
++	set_state(mkcs, IDLE_STATE);
++	kcs_bmc_disable_device(mkcs->client.dev, &mkcs->client);
++	return 0;
++}
++
++static const struct net_device_ops mctp_kcs_netdev_ops = {
++	.ndo_start_xmit = mctp_kcs_start_xmit,
++	.ndo_open = mctp_kcs_ndo_open,
++	.ndo_stop = mctp_kcs_ndo_stop,
 +};
 +
-+#define KCS_ZERO_DATA     0
++static void mctp_kcs_setup(struct net_device *ndev)
++{
++	ndev->type = ARPHRD_MCTP;
 +
-+/* IPMI 2.0 - Table 9-1, KCS Interface Status Register Bits */
-+#define KCS_STATUS_STATE(state) (state << 6)
-+#define KCS_STATUS_STATE_MASK   GENMASK(7, 6)
-+#define KCS_STATUS_CMD_DAT      BIT(3)
-+#define KCS_STATUS_SMS_ATN      BIT(2)
-+#define KCS_STATUS_IBF          BIT(1)
-+#define KCS_STATUS_OBF          BIT(0)
++	/* we limit at the fixed MTU, which is also the MCTP-standard
++	 * baseline MTU, so is also our minimum
++	 */
++	ndev->mtu = MCTP_KCS_MTU;
++	ndev->max_mtu = MCTP_KCS_MTU;
++	ndev->min_mtu = MCTP_KCS_MTU;
 +
-+/* IPMI 2.0 - Table 9-2, KCS Interface State Bits */
-+enum kcs_states {
-+	IDLE_STATE  = 0,
-+	READ_STATE  = 1,
-+	WRITE_STATE = 2,
-+	ERROR_STATE = 3,
++	ndev->hard_header_len = 0;
++	ndev->addr_len = 0;
++	ndev->tx_queue_len = DEFAULT_TX_QUEUE_LEN;
++	ndev->flags = IFF_NOARP;
++	ndev->netdev_ops = &mctp_kcs_netdev_ops;
++	ndev->needs_free_netdev = true;
++}
++
++static void kcs_bmc_ipmi_force_abort(struct mctp_kcs *mkcs)
++{
++	dev_err(mkcs->client.dev->dev,
++		"Error! Force abort on KCS communication");
++	set_state(mkcs, ERROR_STATE);
++	kcs_bmc_read_data(mkcs->client.dev);
++	kcs_bmc_write_data(mkcs->client.dev, KCS_ZERO_DATA);
++	mkcs->phase = KCS_PHASE_ERROR;
++	mkcs->data_in_idx = 0;
++}
++
++static void kcs_bmc_ipmi_handle_data(struct mctp_kcs *mkcs)
++{
++	struct kcs_bmc_device *kcs_bmc = mkcs->client.dev;
++	u8 data;
++
++	switch (mkcs->phase) {
++	case KCS_PHASE_WRITE_START:
++		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_WRITE_START", __func__);
++		mkcs->phase = KCS_PHASE_WRITE_DATA;
++		fallthrough;
++
++	case KCS_PHASE_WRITE_DATA:
++		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_WRITE_DATA", __func__);
++		if (mkcs->data_in_idx < KCS_MSG_BUFSIZ) {
++			set_state(mkcs, WRITE_STATE);
++			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
++			mkcs->data_in[mkcs->data_in_idx++] =
++				kcs_bmc_read_data(kcs_bmc);
++			dev_dbg(kcs_bmc->dev,
++				"%s: KCS_PHASE_WRITE_DATA: data_in[%d]=0x%02x",
++				__func__, mkcs->data_in_idx - 1,
++				mkcs->data_in[mkcs->data_in_idx - 1]);
++		} else {
++			kcs_bmc_ipmi_force_abort(mkcs);
++			mkcs->error = KCS_LENGTH_ERROR;
++		}
++		break;
++
++	case KCS_PHASE_WRITE_END_CMD:
++		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_WRITE_END_CMD", __func__);
++		if (mkcs->data_in_idx < KCS_MSG_BUFSIZ) {
++			set_state(mkcs, READ_STATE);
++			mkcs->data_in[mkcs->data_in_idx++] =
++				kcs_bmc_read_data(kcs_bmc);
++			dev_dbg(kcs_bmc->dev,
++				"%s: KCS_PHASE_WRITE_END_CMD: data_in[%d]=0x%02x",
++				__func__, mkcs->data_in_idx - 1,
++				mkcs->data_in[mkcs->data_in_idx - 1]);
++			mkcs->phase = KCS_PHASE_WRITE_DONE;
++			schedule_work(&mkcs->rx_work);
++		} else {
++			kcs_bmc_ipmi_force_abort(mkcs);
++			mkcs->error = KCS_LENGTH_ERROR;
++		}
++		break;
++
++	case KCS_PHASE_READ:
++		dev_dbg(kcs_bmc->dev,
++			"%s: KCS_PHASE_READ, data_out_idx=%d, data_out_len=%d",
++			__func__, mkcs->data_out_idx, mkcs->data_out_len);
++		if (mkcs->data_out_idx == mkcs->data_out_len)
++			set_state(mkcs, IDLE_STATE);
++
++		data = kcs_bmc_read_data(kcs_bmc);
++		if (data != KCS_CMD_READ_BYTE) {
++			dev_dbg(kcs_bmc->dev,
++				"%s: error! data is not equal to KCS_CMD_READ_BYTE",
++				__func__);
++			set_state(mkcs, ERROR_STATE);
++			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
++			break;
++		}
++
++		if (mkcs->data_out_idx == mkcs->data_out_len) {
++			kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
++			mkcs->netdev->stats.tx_bytes += mkcs->data_out_len;
++			mkcs->netdev->stats.tx_packets++;
++			mkcs->phase = KCS_PHASE_IDLE;
++			if (netif_queue_stopped(mkcs->netdev))
++				netif_start_queue(mkcs->netdev);
++			break;
++		}
++
++		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_READ: data_out[%d]=0x%02x",
++			__func__, mkcs->data_out_idx,
++			mkcs->data_out[mkcs->data_out_idx]);
++		kcs_bmc_write_data(kcs_bmc,
++				   mkcs->data_out[mkcs->data_out_idx++]);
++		break;
++
++	case KCS_PHASE_ABORT_ERROR1:
++		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_ABORT_ERROR1", __func__);
++		set_state(mkcs, READ_STATE);
++		kcs_bmc_read_data(kcs_bmc);
++		kcs_bmc_write_data(kcs_bmc, mkcs->error);
++		mkcs->phase = KCS_PHASE_ABORT_ERROR2;
++		break;
++
++	case KCS_PHASE_ABORT_ERROR2:
++		dev_dbg(kcs_bmc->dev, "%s: KCS_PHASE_ABORT_ERROR2", __func__);
++		set_state(mkcs, IDLE_STATE);
++		kcs_bmc_read_data(kcs_bmc);
++		kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
++		mkcs->phase = KCS_PHASE_IDLE;
++		break;
++
++	default:
++		dev_dbg(kcs_bmc->dev, "%s: unknown KCS phase", __func__);
++		kcs_bmc_ipmi_force_abort(mkcs);
++		break;
++	}
++}
++
++static void kcs_bmc_ipmi_handle_cmd(struct mctp_kcs *mkcs)
++{
++	struct kcs_bmc_device *kcs_bmc = mkcs->client.dev;
++
++	set_state(mkcs, WRITE_STATE);
++	kcs_bmc_write_data(kcs_bmc, KCS_ZERO_DATA);
++
++	switch (kcs_bmc_read_data(kcs_bmc)) {
++	case KCS_CMD_WRITE_START:
++		dev_dbg(kcs_bmc->dev, "%s: KCS_CMD_WRITE_START", __func__);
++		mkcs->phase = KCS_PHASE_WRITE_START;
++		mkcs->error = KCS_NO_ERROR;
++		mkcs->data_in_idx = 0;
++		break;
++
++	case KCS_CMD_WRITE_END:
++		dev_dbg(kcs_bmc->dev, "%s: KCS_CMD_WRITE_END", __func__);
++		if (mkcs->phase != KCS_PHASE_WRITE_DATA) {
++			kcs_bmc_ipmi_force_abort(mkcs);
++			break;
++		}
++		mkcs->phase = KCS_PHASE_WRITE_END_CMD;
++		break;
++
++	case KCS_CMD_GET_STATUS_ABORT:
++		dev_dbg(kcs_bmc->dev, "%s: KCS_CMD_GET_STATUS_ABORT", __func__);
++		if (mkcs->error == KCS_NO_ERROR)
++			mkcs->error = KCS_ABORTED_BY_COMMAND;
++
++		mkcs->phase = KCS_PHASE_ABORT_ERROR1;
++		mkcs->data_in_idx = 0;
++		break;
++
++	default:
++		dev_dbg(kcs_bmc->dev, "%s: unknown KCS command", __func__);
++		kcs_bmc_ipmi_force_abort(mkcs);
++		mkcs->error = KCS_ILLEGAL_CONTROL_CODE;
++		break;
++	}
++}
++
++static struct mctp_kcs *client_to_mctp_kcs(struct kcs_bmc_client *client)
++{
++	return container_of(client, struct mctp_kcs, client);
++}
++
++static irqreturn_t kcs_bmc_mctp_event(struct kcs_bmc_client *client)
++{
++	struct mctp_kcs *mkcs;
++	u8 status;
++	int ret;
++
++	mkcs = client_to_mctp_kcs(client);
++	if (!mkcs) {
++		dev_err(client->dev->dev,
++			"%s: error! can't find mctp_kcs from KCS client",
++			__func__);
++		return IRQ_NONE;
++	}
++
++	spin_lock(&mkcs->lock);
++
++	status = kcs_bmc_read_status(client->dev);
++	if (status & KCS_STATUS_IBF) {
++		if (status & KCS_STATUS_CMD_DAT)
++			kcs_bmc_ipmi_handle_cmd(mkcs);
++		else
++			kcs_bmc_ipmi_handle_data(mkcs);
++
++		ret = IRQ_HANDLED;
++	} else {
++		ret = IRQ_NONE;
++	}
++
++	spin_unlock(&mkcs->lock);
++
++	return ret;
++}
++
++static const struct kcs_bmc_client_ops kcs_bmc_mctp_client_ops = {
++	.event = kcs_bmc_mctp_event,
 +};
 +
-+/* IPMI 2.0 - Table 9-3, KCS Interface Control Codes */
-+#define KCS_CMD_GET_STATUS_ABORT  0x60
-+#define KCS_CMD_WRITE_START       0x61
-+#define KCS_CMD_WRITE_END         0x62
-+#define KCS_CMD_READ_BYTE         0x68
++static DEFINE_SPINLOCK(kcs_bmc_mctp_instances_lock);
++static LIST_HEAD(kcs_bmc_mctp_instances);
 +
-+#endif /* __IPMI_KCS_H__ */
++static int kcs_bmc_mctp_add_device(struct kcs_bmc_device *kcs_bmc)
++{
++	struct net_device *ndev;
++	struct mctp_kcs *mkcs;
++	char name[32];
++	int rc;
++
++	snprintf(name, sizeof(name), "mctpkcs%d", kcs_bmc->channel);
++
++	ndev = alloc_netdev(sizeof(*mkcs), name, NET_NAME_ENUM, mctp_kcs_setup);
++	if (!ndev) {
++		dev_err_probe(kcs_bmc->dev, -ENOMEM,
++			      "alloc_netdev failed for KCS channel %d\n",
++			      kcs_bmc->channel);
++		return -ENOMEM;
++	}
++
++	mkcs = netdev_priv(ndev);
++	mkcs->netdev = ndev;
++	mkcs->client.dev = kcs_bmc;
++	mkcs->client.ops = &kcs_bmc_mctp_client_ops;
++	mkcs->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
++	if (!mkcs->data_in) {
++		dev_err_probe(
++			kcs_bmc->dev, -ENOMEM,
++			"failed to allocate data_in buffer for KCS channel %d\n",
++			kcs_bmc->channel);
++		rc = -ENOMEM;
++		goto free_netdev;
++	}
++	mkcs->data_out = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
++	if (!mkcs->data_out) {
++		dev_err_probe(
++			kcs_bmc->dev, -ENOMEM,
++			"failed to allocate data_out buffer for KCS channel %d\n",
++			kcs_bmc->channel);
++		rc = -ENOMEM;
++		goto free_netdev;
++	}
++
++	INIT_WORK(&mkcs->rx_work, mctp_kcs_rx_work);
++
++	rc = register_netdev(ndev);
++	if (rc)
++		goto free_netdev;
++
++	spin_lock_irq(&kcs_bmc_mctp_instances_lock);
++	list_add(&mkcs->entry, &kcs_bmc_mctp_instances);
++	spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
++
++	dev_info(kcs_bmc->dev, "Add MCTP client for the KCS channel %d",
++		 kcs_bmc->channel);
++	return 0;
++
++free_netdev:
++	free_netdev(ndev);
++
++	return rc;
++}
++
++static int kcs_bmc_mctp_remove_device(struct kcs_bmc_device *kcs_bmc)
++{
++	struct mctp_kcs *mkcs = NULL, *pos;
++
++	dev_info(kcs_bmc->dev, "Remove MCTP client for the KCS channel %d",
++		 kcs_bmc->channel);
++	spin_lock_irq(&kcs_bmc_mctp_instances_lock);
++	list_for_each_entry(pos, &kcs_bmc_mctp_instances, entry) {
++		if (pos->client.dev == kcs_bmc) {
++			mkcs = pos;
++			list_del(&pos->entry);
++			break;
++		}
++	}
++	spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
++
++	if (!mkcs)
++		return -ENODEV;
++
++	unregister_netdev(mkcs->netdev);
++	free_netdev(mkcs->netdev);
++	kcs_bmc_disable_device(kcs_bmc, &mkcs->client);
++	devm_kfree(kcs_bmc->dev, mkcs->data_out);
++	devm_kfree(kcs_bmc->dev, mkcs->data_in);
++	return 0;
++}
++
++static const struct kcs_bmc_driver_ops kcs_bmc_mctp_driver_ops = {
++	.add_device = kcs_bmc_mctp_add_device,
++	.remove_device = kcs_bmc_mctp_remove_device,
++};
++
++static struct kcs_bmc_driver kcs_bmc_mctp_driver = {
++	.ops = &kcs_bmc_mctp_driver_ops,
++};
++
++static int __init mctp_kcs_init(void)
++{
++	kcs_bmc_register_driver(&kcs_bmc_mctp_driver);
++	return 0;
++}
++
++static void __exit mctp_kcs_exit(void)
++{
++	kcs_bmc_unregister_driver(&kcs_bmc_mctp_driver);
++}
++
++module_init(mctp_kcs_init);
++module_exit(mctp_kcs_exit);
++
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Konstantin Aladyshev <aladyshev22@gmail.com>");
++MODULE_DESCRIPTION("MCTP KCS transport");
 -- 
 2.25.1
 
