@@ -2,88 +2,104 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 493687C52A5
-	for <lists+openipmi-developer@lfdr.de>; Wed, 11 Oct 2023 13:58:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E9D27D2084
+	for <lists+openipmi-developer@lfdr.de>; Sun, 22 Oct 2023 02:16:55 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qqXr5-0003fh-TS;
-	Wed, 11 Oct 2023 11:58:22 +0000
+	id 1quM9C-0004kw-DK;
+	Sun, 22 Oct 2023 00:16:49 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <jonathan.cameron@huawei.com>) id 1qqXr4-0003fb-JW
+ (envelope-from <lkp@intel.com>) id 1quM9B-0004kq-MW
  for openipmi-developer@lists.sourceforge.net;
- Wed, 11 Oct 2023 11:58:21 +0000
+ Sun, 22 Oct 2023 00:16:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=jllndf5pM30TngZPJnDR0v85CAlz0rlrRwMkAPoRBXU=; b=hSYQwkaFT4cOph+NoHLao9ol8d
- Kd6U5m0S/QbHTBJpCk9mYfsQa0luLVeXSfZ7omfwjD/vnXZvjxj9KkKgAgAJEiOIY9JuA5uOSaTxp
- rwUSvGBRRuzBAtZ/9Xdfk9Swtv0u4gN0qXr6VGIiXInKCwBKQl6fQT4kUNUZZacKom/U=;
+ bh=7c4J8e+6lxp+tdujVoICLIuHRCWIzArks/4tsgzVXpU=; b=T1HkGA25kyjK+bUMGZx1HWjdhL
+ 9I/xL0MBXld4n3PI28m6Ffkbm4U+XyT56wPJMd3noPTMk07qevaIYOgjzp9GmQk+iTPNgtUipTE6l
+ tLDCqyfKGfEt+9bEEIZzDgWCGwj8Zug6KZHxM8OC2w/CIDT6OJzQFlU528eDZopif8cc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
- In-Reply-To:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=jllndf5pM30TngZPJnDR0v85CAlz0rlrRwMkAPoRBXU=; b=DHgIv4lrnd3HOOj2uOjnp4ink7
- 7WB9sjcoxddgXtSjl3oCUb+IqsCNrF2dZdhbCeRYPbwLpgIg/GPTL7nCQ+7YBUWITqGuw+/RARvkl
- Aim3GMWwurDdUQG4GbC99pOf50AdN+wFKPuI1evxOaRTC7SfiEfu4nkuNPPQ2MPRoZZk=;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+ bh=7c4J8e+6lxp+tdujVoICLIuHRCWIzArks/4tsgzVXpU=; b=UGHXfEHO3u5vS6fB4XinAgLn6F
+ 9XanQOsQtAsKtDsPY7NiP19PrTF1m/J8qOegE0eH3d8VY75j6/Df3iH6ZZCYhIxHcqnNi6M4svBun
+ af0Wjx9MYXq+/y7qjKY/dTUNqaWpYVMPAgiLeV48c9iGnFs97zg+1JlrT3EcPmU+HDw4=;
+Received: from mgamail.intel.com ([192.55.52.120])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qqXr0-00BmGh-Fl for openipmi-developer@lists.sourceforge.net;
- Wed, 11 Oct 2023 11:58:21 +0000
-Received: from lhrpeml500005.china.huawei.com (unknown [172.18.147.201])
- by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4S5B7D4JYxz6K5xf;
- Wed, 11 Oct 2023 19:56:08 +0800 (CST)
-Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
- (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.31; Wed, 11 Oct
- 2023 12:58:08 +0100
-Date: Wed, 11 Oct 2023 12:58:07 +0100
+ id 1quM96-005YyE-UK for openipmi-developer@lists.sourceforge.net;
+ Sun, 22 Oct 2023 00:16:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1697933804; x=1729469804;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=1PiMnn0i3KT3YYOJNg9IYf4n+r48HTbs7kDucILde3I=;
+ b=Pf2GCWSNYEtyWPOfGae1BWH722dJK15qcbPwu5eGQxzr/TeP18cHmJLP
+ R+yUK3uZALmAcDwQ7EYvqcQpAe/5aMXSPrqK/cs0BGL0XjJvNqw43hJMn
+ HX7EPxMb5xfcVyQPBnz305YQFGxMOje03ZLlxlA2NLGOpbpJSEQ5Hm6Oc
+ QSzp703ZPdUKgOox7UAjSXbIKiTB9l/qxx8gH8oAnADMQlRDrOwxbAc1f
+ wTt/vkiE6vzeOMsvuN7nVyQV+kidLDd6rmn5fSyuVZcvC/582/79dxeZU
+ KXifONYhq1T5gLD/B8l3aC9yIVQjyjgvV8SwW12zhtWG9y//cbB237sHk w==;
+X-IronPort-AV: E=McAfee;i="6600,9927,10870"; a="385554730"
+X-IronPort-AV: E=Sophos;i="6.03,242,1694761200"; d="scan'208";a="385554730"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+ by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 21 Oct 2023 17:16:37 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6600,9927,10870"; a="761389573"
+X-IronPort-AV: E=Sophos;i="6.03,242,1694761200"; d="scan'208";a="761389573"
+Received: from lkp-server01.sh.intel.com (HELO 8917679a5d3e) ([10.239.97.150])
+ by fmsmga007.fm.intel.com with ESMTP; 21 Oct 2023 17:16:31 -0700
+Received: from kbuild by 8917679a5d3e with local (Exim 4.96)
+ (envelope-from <lkp@intel.com>) id 1quM8s-0005Py-24;
+ Sun, 22 Oct 2023 00:16:30 +0000
+Date: Sun, 22 Oct 2023 08:16:25 +0800
+From: kernel test robot <lkp@intel.com>
 To: Konstantin Aladyshev <aladyshev22@gmail.com>
-Message-ID: <20231011125807.00004db0@Huawei.com>
-In-Reply-To: <20231010122321.823-4-aladyshev22@gmail.com>
-References: <20231010122321.823-1-aladyshev22@gmail.com>
- <20231010122321.823-4-aladyshev22@gmail.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
+Message-ID: <202310220806.BmOW2atE-lkp@intel.com>
+References: <20231010122321.823-2-aladyshev22@gmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.202.227.76]
-X-ClientProxiedBy: lhrpeml500003.china.huawei.com (7.191.162.67) To
- lhrpeml500005.china.huawei.com (7.191.163.240)
-X-CFilter-Loop: Reflected
-X-Spam-Score: -2.3 (--)
+Content-Disposition: inline
+In-Reply-To: <20231010122321.823-2-aladyshev22@gmail.com>
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Tue,
- 10 Oct 2023 15:23:21 +0300 Konstantin Aladyshev <aladyshev22@gmail.com>
- wrote: > This change adds a MCTP KCS transport binding, as defined by the
- DMTF > specification DSP0254 - "MCTP KCS Transport Binding". > A MCTP protocol
- network device is created for each KCS channel found i [...] 
- Content analysis details:   (-2.3 points, 6.0 required)
+ Content preview:  Hi Konstantin, kernel test robot noticed the following build
+ errors: [auto build test ERROR on cminyard-ipmi/for-next] [also build test
+ ERROR on linus/master v6.6-rc6 next-20231020] [If your patch is applied to
+ the wrong git tree, kindly drop us a note. And when submit [...] 
+ Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_MSPIKE_H5      RBL: Excellent reputation (+5)
- [185.176.79.56 listed in wl.mailspike.net]
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [185.176.79.56 listed in list.dnswl.org]
+ medium trust [192.55.52.120 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1qqXr0-00BmGh-Fl
-Subject: Re: [Openipmi-developer] [PATCH v5 3/3] mctp: Add MCTP-over-KCS
- transport binding
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1quM96-005YyE-UK
+Subject: Re: [Openipmi-developer] [PATCH v5 1/3] ipmi: Move KCS headers to
+ common include folder
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -96,239 +112,71 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Jonathan Cameron via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-Cc: tmaimon77@gmail.com, minyard@acm.org, yuenn@google.com, andrew@aj.id.au,
- venture@google.com, openbmc@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- tali.perry1@gmail.com, avifishman70@gmail.com, edumazet@google.com,
- netdev@vger.kernel.org, linux-aspeed@lists.ozlabs.org, kuba@kernel.org,
- jk@codeconstruct.com.au, matt@codeconstruct.com.au, pabeni@redhat.com,
- openipmi-developer@lists.sourceforge.net, davem@davemloft.net,
- linux-arm-kernel@lists.infradead.org, benjaminfair@google.com
+Cc: tmaimon77@gmail.com, linux-aspeed@lists.ozlabs.org, tali.perry1@gmail.com,
+ edumazet@google.com, jk@codeconstruct.com.au, matt@codeconstruct.com.au,
+ benjaminfair@google.com, openbmc@lists.ozlabs.org, yuenn@google.com,
+ kuba@kernel.org, pabeni@redhat.com, minyard@acm.org, aladyshev22@gmail.com,
+ oe-kbuild-all@lists.linux.dev, openipmi-developer@lists.sourceforge.net,
+ linux-arm-kernel@lists.infradead.org, andrew@aj.id.au, venture@google.com,
+ linux-kernel@vger.kernel.org, avifishman70@gmail.com, netdev@vger.kernel.org,
+ davem@davemloft.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, 10 Oct 2023 15:23:21 +0300
-Konstantin Aladyshev <aladyshev22@gmail.com> wrote:
+Hi Konstantin,
 
-> This change adds a MCTP KCS transport binding, as defined by the DMTF
-> specification DSP0254 - "MCTP KCS Transport Binding".
-> A MCTP protocol network device is created for each KCS channel found in
-> the system.
-> The interrupt code for the KCS state machine is based on the current
-> IPMI KCS driver.
-> 
-> Signed-off-by: Konstantin Aladyshev <aladyshev22@gmail.com>
+kernel test robot noticed the following build errors:
 
-Hi Konstantin.
+[auto build test ERROR on cminyard-ipmi/for-next]
+[also build test ERROR on linus/master v6.6-rc6 next-20231020]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Many of the comments I have inline will be more about general KCS issues
-that need sorting out.  Whether this can move forwards before that
-(or whether to take any noticed of this) is a question for relevant
-maintainers.
+url:    https://github.com/intel-lab-lkp/linux/commits/Konstantin-Aladyshev/ipmi-Move-KCS-headers-to-common-include-folder/20231010-202425
+base:   https://github.com/cminyard/linux-ipmi for-next
+patch link:    https://lore.kernel.org/r/20231010122321.823-2-aladyshev22%40gmail.com
+patch subject: [PATCH v5 1/3] ipmi: Move KCS headers to common include folder
+config: mips-allmodconfig (https://download.01.org/0day-ci/archive/20231022/202310220806.BmOW2atE-lkp@intel.com/config)
+compiler: mips-linux-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20231022/202310220806.BmOW2atE-lkp@intel.com/reproduce)
 
-BTW it's fine to propose fixes /cleanup to a subsystem alongside a new driver
-if you do fancy taking on some of the issues with managed allocations etc called out.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202310220806.BmOW2atE-lkp@intel.com/
 
-Jonathan
+All errors (new ones prefixed by >>):
 
-
-> diff --git a/drivers/net/mctp/mctp-kcs.c b/drivers/net/mctp/mctp-kcs.c
-> new file mode 100644
-> index 000000000000..b0d903609c64
-> --- /dev/null
-> +++ b/drivers/net/mctp/mctp-kcs.c
-> @@ -0,0 +1,600 @@
-
-
-...
-
-> +
-> +static DEFINE_SPINLOCK(kcs_bmc_mctp_instances_lock);
-> +static LIST_HEAD(kcs_bmc_mctp_instances);
-> +
-> +static int kcs_bmc_mctp_add_device(struct kcs_bmc_device *kcs_bmc)
-> +{
-> +	struct net_device *ndev;
-> +	struct mctp_kcs *mkcs;
-> +	char name[32];
-> +	int rc;
-> +
-> +	snprintf(name, sizeof(name), "mctpkcs%d", kcs_bmc->channel);
-> +
-> +	ndev = alloc_netdev(sizeof(*mkcs), name, NET_NAME_ENUM, mctp_kcs_setup);
-> +	if (!ndev) {
-> +		dev_err_probe(kcs_bmc->dev, -ENOMEM,
-> +			      "alloc_netdev failed for KCS channel %d\n",
-> +			      kcs_bmc->channel);
-> +		return -ENOMEM;
-> +	}
-> +
-> +	mkcs = netdev_priv(ndev);
-> +	mkcs->netdev = ndev;
-> +	mkcs->client.dev = kcs_bmc;
-> +	mkcs->client.ops = &kcs_bmc_mctp_client_ops;
-> +	mkcs->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-> +	if (!mkcs->data_in) {
-> +		dev_err_probe(
-> +			kcs_bmc->dev, -ENOMEM,
-> +			"failed to allocate data_in buffer for KCS channel %d\n",
-> +			kcs_bmc->channel);
-> +		rc = -ENOMEM;
-> +		goto free_netdev;
-> +	}
-> +	mkcs->data_out = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
-> +	if (!mkcs->data_out) {
-> +		dev_err_probe(
-> +			kcs_bmc->dev, -ENOMEM,
-> +			"failed to allocate data_out buffer for KCS channel %d\n",
-> +			kcs_bmc->channel);
-> +		rc = -ENOMEM;
-> +		goto free_netdev;
-> +	}
-> +
-> +	INIT_WORK(&mkcs->rx_work, mctp_kcs_rx_work);
-> +
-> +	rc = register_netdev(ndev);
-> +	if (rc)
-> +		goto free_netdev;
-> +
-> +	spin_lock_irq(&kcs_bmc_mctp_instances_lock);
-> +	list_add(&mkcs->entry, &kcs_bmc_mctp_instances);
-> +	spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
-> +
-> +	dev_info(kcs_bmc->dev, "Add MCTP client for the KCS channel %d",
-> +		 kcs_bmc->channel);
-> +	return 0;
-> +
-> +free_netdev:
-> +	free_netdev(ndev);
-
-Mixing devm and non devm is something you should not do. 
-Very simple rule that must be kept to is that you stop using devm for
-any calls in an add_device / probe() function at the first line that needs
-manual cleanup.
-
-Use devm_add_action_or_reset() for this case as you can add a custom
-callback to the devm managed queue.
-
-The reason this all matters is that devm cleanup happens after error paths
-/ remove_device() callbacks and as such it makes a reviewer have to reason
-about whether there are any dependencies that are a result of the reordering.
-Tearing down in exact reverse order of setup is a lot easier to do!
+   In file included from include/linux/kcs_bmc_client.h:8,
+                    from drivers/char/ipmi/kcs_bmc_cdev_ipmi.c:11:
+>> include/linux/kcs_bmc.h:42:9: error: unknown type name 'spinlock_t'
+      42 |         spinlock_t lock;
+         |         ^~~~~~~~~~
 
 
-> +
-> +	return rc;
-> +}
-> +
-> +static int kcs_bmc_mctp_remove_device(struct kcs_bmc_device *kcs_bmc)
-> +{
-> +	struct mctp_kcs *mkcs = NULL, *pos;
-> +
-> +	dev_info(kcs_bmc->dev, "Remove MCTP client for the KCS channel %d",
-> +		 kcs_bmc->channel);
-> +	spin_lock_irq(&kcs_bmc_mctp_instances_lock);
-> +	list_for_each_entry(pos, &kcs_bmc_mctp_instances, entry) {
+vim +/spinlock_t +42 include/linux/kcs_bmc.h
 
-I've commented on this before, but this lookup should not be necessary.
-It should be possible to go directly from kcs_bmc entry as registered
-to the mctp_kcs structure.  Typical approach being to embed the structure
-or using some drvdata type field that add has filled in with appropriate
-pointer.
+faae6e391eda73 drivers/char/ipmi/kcs_bmc.h Andrew Jeffery 2021-06-08  31  
+d4e7ac68f771ad drivers/char/ipmi/kcs_bmc.h Andrew Jeffery 2021-06-08  32  struct kcs_bmc_device {
+d4e7ac68f771ad drivers/char/ipmi/kcs_bmc.h Andrew Jeffery 2021-06-08  33  	struct list_head entry;
+20d60f61c58e8c drivers/char/ipmi/kcs_bmc.h Haiyue Wang    2018-02-02  34  
+d4e7ac68f771ad drivers/char/ipmi/kcs_bmc.h Andrew Jeffery 2021-06-08  35  	struct device *dev;
+20d60f61c58e8c drivers/char/ipmi/kcs_bmc.h Haiyue Wang    2018-02-02  36  	u32 channel;
+20d60f61c58e8c drivers/char/ipmi/kcs_bmc.h Haiyue Wang    2018-02-02  37  
+20d60f61c58e8c drivers/char/ipmi/kcs_bmc.h Haiyue Wang    2018-02-02  38  	struct kcs_ioreg ioreg;
+20d60f61c58e8c drivers/char/ipmi/kcs_bmc.h Haiyue Wang    2018-02-02  39  
+d4e7ac68f771ad drivers/char/ipmi/kcs_bmc.h Andrew Jeffery 2021-06-08  40  	const struct kcs_bmc_device_ops *ops;
+20d60f61c58e8c drivers/char/ipmi/kcs_bmc.h Haiyue Wang    2018-02-02  41  
+d4e7ac68f771ad drivers/char/ipmi/kcs_bmc.h Andrew Jeffery 2021-06-08 @42  	spinlock_t lock;
+d4e7ac68f771ad drivers/char/ipmi/kcs_bmc.h Andrew Jeffery 2021-06-08  43  	struct kcs_bmc_client *client;
+20d60f61c58e8c drivers/char/ipmi/kcs_bmc.h Haiyue Wang    2018-02-02  44  };
+d4e7ac68f771ad drivers/char/ipmi/kcs_bmc.h Andrew Jeffery 2021-06-08  45  
 
-There is a need for the kcs subsystem to manage which devices it
-calls this on.  Currently this also serves the purpose of filtering
-for that.  If not going to do management at subsystem layer (some smaller
-subsystems don't) then use an enum to add a type to kcs_bmc
-and have each driver add a new one.  You can check that in driver
-or in core code. Doesn't matter which as check will be trivial.
-
-
-> +		if (pos->client.dev == kcs_bmc) {
-> +			mkcs = pos;
-> +			list_del(&pos->entry);
-> +			break;
-> +		}
-> +	}
-> +	spin_unlock_irq(&kcs_bmc_mctp_instances_lock);
-> +
-> +	if (!mkcs)
-> +		return -ENODEV;
-> +
-> +	unregister_netdev(mkcs->netdev);
-> +	free_netdev(mkcs->netdev);
-> +	kcs_bmc_disable_device(kcs_bmc, &mkcs->client);
-> +	devm_kfree(kcs_bmc->dev, mkcs->data_out);
-> +	devm_kfree(kcs_bmc->dev, mkcs->data_in);
-
-I don't like mixture of letting devm delete these on remove and
-it being done manually here.
-
-Note that if you just didn't have these two calls, they'd be deleted soon
-after this exit anyway.
-
-If devm is any use when combined with kcs, these will be freed shortly after
-this anyway. If it isn't of use with this subsystem then then they won't
-do the right thing in the add_device callback error cases.
-
-I'd test if it does anything at all via each path where we'd expect it to
-(driver unbind, device removal, error in add_device callback)
-
-In all those cases the devm unwinding callbacks should be called. 
-(add a bonus one for testing with devm_add_action_or_reset() and
-see if that one is called in each path).
-
-I'm very suspicious of this working as not setting the normal calls
-to make it happen.
-e.g. for I2c, it happens here:
-https://elixir.bootlin.com/linux/latest/source/drivers/i2c/i2c-core-base.c#L597
-for the error path with a call to devres_release_group()
-in other subsystems it's handled by the bus_type logic which ultimately
-calls device_unbind_cleanup() in probe() failure.  That calls
-devres_release_all() triggering the tear down paths.
-
-However I might be missing a route by which the cleanup happens.
-
-Anyhow, if that is fixed, these devm cleanup calls in remove_device()
-should not be here.  The whole point of devm is to simplify this - if
-you manually have to unwind it the advantages go away and you should
-manage things explicitly.
-
-
-
-> +	return 0;
-> +}
-> +
-> +static const struct kcs_bmc_driver_ops kcs_bmc_mctp_driver_ops = {
-> +	.add_device = kcs_bmc_mctp_add_device,
-> +	.remove_device = kcs_bmc_mctp_remove_device,
-> +};
-> +
-> +static struct kcs_bmc_driver kcs_bmc_mctp_driver = {
-> +	.ops = &kcs_bmc_mctp_driver_ops,
-> +};
-> +
-> +static int __init mctp_kcs_init(void)
-> +{
-> +	kcs_bmc_register_driver(&kcs_bmc_mctp_driver);
-> +	return 0;
-> +}
-> +
-> +static void __exit mctp_kcs_exit(void)
-> +{
-> +	kcs_bmc_unregister_driver(&kcs_bmc_mctp_driver);
-> +}
-> +
-> +module_init(mctp_kcs_init);
-> +module_exit(mctp_kcs_exit);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_AUTHOR("Konstantin Aladyshev <aladyshev22@gmail.com>");
-> +MODULE_DESCRIPTION("MCTP KCS transport");
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 
 _______________________________________________
