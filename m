@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 901017E0394
-	for <lists+openipmi-developer@lfdr.de>; Fri,  3 Nov 2023 14:14:03 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 74A737E0390
+	for <lists+openipmi-developer@lfdr.de>; Fri,  3 Nov 2023 14:14:02 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1qytzr-0001jJ-6C;
-	Fri, 03 Nov 2023 13:13:59 +0000
+	id 1qytzp-0001hq-LS;
+	Fri, 03 Nov 2023 13:13:57 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <andrew@codeconstruct.com.au>) id 1qynll-0005mP-Iu
+ (envelope-from <andrew@codeconstruct.com.au>) id 1qynlY-0007Om-CB
  for openipmi-developer@lists.sourceforge.net;
- Fri, 03 Nov 2023 06:35:01 +0000
+ Fri, 03 Nov 2023 06:34:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=2O/2ScZ3CygF88mlMVLZxyoGI2VWLFlNiAqo0wuDir4=; b=e8LfJWzgIqOVi2krZZzdtP1hPa
- WUEoMpECxfGxIsnoBwU86F0gZcSfYFN7QbaJ7DR3ffnqu2nCtGx/EesQb4zXOBGL0dgShgT4wwCNP
- WjpVkODuMzbAfbGj2oDnejELVLE+ONoJEu69hRe93vZzE8ehZ+fjCXFNy3dvvsZuqTaY=;
+ bh=GGoKlYnNvXC2BTeqK17rcaRkc8buHyC3L9pFQJ9S1nU=; b=fGmCgdVUG8rvFrehOKHvYoORXR
+ D1x0nzhwcIT2BQxFgsYeKmzObbeFLp8QYmVr+fH12+7uazmd1hWd2zbOrcTUNkgDcgYtJ1dX5coE5
+ 8qj+HBWD5KktXHXNyOnUugevSetjCAVvGOzOkklb8SccxY4pOAWVb3y4itGsrU50PChQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -31,66 +31,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=2O/2ScZ3CygF88mlMVLZxyoGI2VWLFlNiAqo0wuDir4=; b=Vij/1/xnoX2GPA/hZQNHWmjdUW
- Q9hDRU5TKDxbGJHJ5/4Cg/lyhWV2/rVFGkETTzRvKql3aRxps36beWvHAX3847jsOy4O7wUmhwdTf
- c9IuwHdRLrIwXmlymAqik5Nj9ahSvYDAewW2YPiQitkZJcXI66i94hBzbKC9Cvvfxx+8=;
+ bh=GGoKlYnNvXC2BTeqK17rcaRkc8buHyC3L9pFQJ9S1nU=; b=YILOFpSNSAkJyYJQZLBBjHuf8W
+ tCbyGdalPaDFzZevKZg36p0dmqbopx7d3gWZIdSXbtFpmzYteItUmMXbCg4Z2Q9DsFIbdXMlW1Gyu
+ +QqEqkqE9XHZsdBOGKeFhNEI16xdaY4jx4hChbVXu4FuaZyq7eb2Yd18ROva/vrHUTHg=;
 Received: from pi.codeconstruct.com.au ([203.29.241.158]
  helo=codeconstruct.com.au)
- by sfi-mx-1.v28.lw.sourceforge.com with esmtps
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1qynlg-001qW4-0f for openipmi-developer@lists.sourceforge.net;
- Fri, 03 Nov 2023 06:34:59 +0000
+ id 1qynlT-0005J1-EY for openipmi-developer@lists.sourceforge.net;
+ Fri, 03 Nov 2023 06:34:48 +0000
 Received: from localhost.localdomain
  (ppp14-2-79-67.adl-apt-pir-bras31.tpg.internode.on.net [14.2.79.67])
- by mail.codeconstruct.com.au (Postfix) with ESMTPSA id C388F20237;
- Fri,  3 Nov 2023 14:15:41 +0800 (AWST)
+ by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7D4A620239;
+ Fri,  3 Nov 2023 14:15:42 +0800 (AWST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=codeconstruct.com.au; s=2022a; t=1698992142;
- bh=2O/2ScZ3CygF88mlMVLZxyoGI2VWLFlNiAqo0wuDir4=;
+ d=codeconstruct.com.au; s=2022a; t=1698992143;
+ bh=GGoKlYnNvXC2BTeqK17rcaRkc8buHyC3L9pFQJ9S1nU=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References;
- b=AcFz9XeOEs1SJu6NZFof4sNJOFcXmYH7pSl9+PpGrtirABF4TXEE8e2cEI6KuyaUX
- l7n+TRiBmY0MmbMwg4ckH+EyzEavC8pTjH5XouUHEZtp4oXWzz/hrPpv+kNoJtNLvC
- sF2+WQYeymOHy+v3Z4ZXeADLh1Pp7gjx3N0EaKlXCFRtHQ/Ds6dmZtNoNCqSEXb6dD
- OmIY4hYYqe1MjHD99SHAaA24wMmfYwmDLyQWzsljnutWaomeYGZOWmWxK2xdkyf3wL
- 5hF2MI/2qYFDqYLJsfRmX7SXRob/NPPy2tt/VgRU5/CF6xpZoKnqg1usCfDk52o89g
- xF1JAfsXlGn1g==
+ b=ZJnq4a3YRZSxvojAQk9umAAuupbrSi5V7STrRJp5mmCmvT7wQCI+5IElH4GMD8D0r
+ SGmdB/ug4tocPNv9AUKUP/+36S8hRF1olkq6rdWBwp+uP6xrSIpl455UblT3YJzN3N
+ aNh/Oi9hE8V30J3hzE2mr8yO+BK3BWfeBWGcSaenjtsWbk2j8KIg0S79zqZc0EcPyR
+ wN+xuCv1Vu0gmALBqr5SzPS5QnUmDaqlrQm5H5hscGbqVfpNmqPZGsNyu/uYGch9b8
+ FRE+HN87DyNJHRC+vQHEwrXox1lI2y5jDN7aGhkTnqrbqTuX9kNDbDm8meS7unlUZP
+ IOxW5OkCHBOGw==
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
 To: minyard@acm.org,
 	openipmi-developer@lists.sourceforge.net
-Date: Fri,  3 Nov 2023 16:45:18 +1030
-Message-Id: <20231103061522.1268637-7-andrew@codeconstruct.com.au>
+Date: Fri,  3 Nov 2023 16:45:19 +1030
+Message-Id: <20231103061522.1268637-8-andrew@codeconstruct.com.au>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20231103061522.1268637-1-andrew@codeconstruct.com.au>
 References: <20231103061522.1268637-1-andrew@codeconstruct.com.au>
 MIME-Version: 1.0
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: Consolidate several necessary allocations into one to reduce
- the number of possible error paths. Signed-off-by: Andrew Jeffery
- <andrew@codeconstruct.com.au>
- --- drivers/char/ipmi/kcs_bmc_cdev_ipmi.c | 25 ++++++++ 1 file changed, 8
- insertions(+), 17 deletions(-) 
+ Content preview:  KCS client modules may be removed by actions unrelated to
+ KCS devices. As usual, removing a KCS client module requires unbinding all
+ client instances from the underlying devices to prevent further use [...]
  Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1qynlg-001qW4-0f
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1qynlT-0005J1-EY
 X-Mailman-Approved-At: Fri, 03 Nov 2023 13:13:55 +0000
-Subject: [Openipmi-developer] [PATCH 06/10] ipmi: kcs_bmc: Integrate buffers
- into driver struct
+Subject: [Openipmi-developer] [PATCH 07/10] ipmi: kcs_bmc: Disassociate
+ client from device lifetimes
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -109,88 +108,145 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Consolidate several necessary allocations into one to reduce the number
-of possible error paths.
+KCS client modules may be removed by actions unrelated to KCS devices.
+As usual, removing a KCS client module requires unbinding all client
+instances from the underlying devices to prevent further use of the code.
+
+Previously, KCS client resource lifetimes were tied to the underlying
+KCS device instance with the use of `devm_k[mz]alloc()` APIs. This
+requires the use of `devm_free()` as a consequence. It's necessary to
+scrutinise use of explicit `devm_free()`s because they generally
+indicate there's a concerning corner-case in play, but that's not really
+the case here. Switch to explicit kmalloc()/kfree() to align
+expectations with the intent of the code.
 
 Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 ---
- drivers/char/ipmi/kcs_bmc_cdev_ipmi.c | 25 ++++++++-----------------
- 1 file changed, 8 insertions(+), 17 deletions(-)
+ drivers/char/ipmi/kcs_bmc_cdev_ipmi.c | 28 ++++++++++++++++++---------
+ drivers/char/ipmi/kcs_bmc_serio.c     | 20 ++++++++++++-------
+ 2 files changed, 32 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c b/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
-index 712a80c27060..45ac930172ec 100644
+index 45ac930172ec..98f231f24c26 100644
 --- a/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
 +++ b/drivers/char/ipmi/kcs_bmc_cdev_ipmi.c
-@@ -66,6 +66,10 @@ enum kcs_ipmi_errors {
- 	KCS_UNSPECIFIED_ERROR       = 0xFF
- };
+@@ -470,7 +470,7 @@ static int kcs_bmc_ipmi_add_device(struct kcs_bmc_device *kcs_bmc)
+ 	struct kcs_bmc_ipmi *priv;
+ 	int rc;
  
-+#define DEVICE_NAME "ipmi-kcs"
-+#define KCS_MSG_BUFSIZ    1000
-+#define KCS_ZERO_DATA     0
-+
- struct kcs_bmc_ipmi {
- 	struct list_head entry;
+-	priv = devm_kzalloc(kcs_bmc->dev, sizeof(*priv), GFP_KERNEL);
++	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+ 	if (!priv)
+ 		return -ENOMEM;
  
-@@ -79,24 +83,18 @@ struct kcs_bmc_ipmi {
- 	wait_queue_head_t queue;
- 	bool data_in_avail;
- 	int  data_in_idx;
--	u8  *data_in;
-+	u8   data_in[KCS_MSG_BUFSIZ];
- 
- 	int  data_out_idx;
- 	int  data_out_len;
--	u8  *data_out;
-+	u8   data_out[KCS_MSG_BUFSIZ];
- 
- 	struct mutex mutex;
--	u8 *kbuffer;
-+	u8 kbuffer[KCS_MSG_BUFSIZ];
- 
- 	struct miscdevice miscdev;
- };
- 
--#define DEVICE_NAME "ipmi-kcs"
--
--#define KCS_MSG_BUFSIZ    1000
--
--#define KCS_ZERO_DATA     0
--
- /* IPMI 2.0 - Table 9-1, KCS Interface Status Register Bits */
- #define KCS_STATUS_STATE(state) (state << 6)
- #define KCS_STATUS_STATE_MASK   GENMASK(7, 6)
-@@ -478,19 +476,15 @@ static int kcs_bmc_ipmi_add_device(struct kcs_bmc_device *kcs_bmc)
- 
- 	spin_lock_init(&priv->lock);
- 	mutex_init(&priv->mutex);
--
- 	init_waitqueue_head(&priv->queue);
- 
- 	priv->client.dev = kcs_bmc;
+@@ -482,26 +482,35 @@ static int kcs_bmc_ipmi_add_device(struct kcs_bmc_device *kcs_bmc)
  	priv->client.ops = &kcs_bmc_ipmi_client_ops;
--	priv->data_in = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
--	priv->data_out = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
--	priv->kbuffer = devm_kmalloc(kcs_bmc->dev, KCS_MSG_BUFSIZ, GFP_KERNEL);
  
  	priv->miscdev.minor = MISC_DYNAMIC_MINOR;
- 	priv->miscdev.name = devm_kasprintf(kcs_bmc->dev, GFP_KERNEL, "%s%u", DEVICE_NAME,
- 					   kcs_bmc->channel);
--	if (!priv->data_in || !priv->data_out || !priv->kbuffer || !priv->miscdev.name)
-+	if (!priv->miscdev.name)
- 		return -EINVAL;
+-	priv->miscdev.name = devm_kasprintf(kcs_bmc->dev, GFP_KERNEL, "%s%u", DEVICE_NAME,
+-					   kcs_bmc->channel);
+-	if (!priv->miscdev.name)
+-		return -EINVAL;
++	priv->miscdev.name = kasprintf(GFP_KERNEL, "%s%u", DEVICE_NAME, kcs_bmc->channel);
++	if (!priv->miscdev.name) {
++		rc = -ENOMEM;
++		goto cleanup_priv;
++	}
  
  	priv->miscdev.fops = &kcs_bmc_ipmi_fops;
-@@ -529,9 +523,6 @@ static void kcs_bmc_ipmi_remove_device(struct kcs_bmc_device *kcs_bmc)
+ 
+ 	rc = misc_register(&priv->miscdev);
+ 	if (rc) {
+-		dev_err(kcs_bmc->dev, "Unable to register device: %d\n", rc);
+-		return rc;
++		pr_err("Unable to register device: %d\n", rc);
++		goto cleanup_miscdev_name;
+ 	}
+ 
+ 	spin_lock_irq(&kcs_bmc_ipmi_instances_lock);
+ 	list_add(&priv->entry, &kcs_bmc_ipmi_instances);
+ 	spin_unlock_irq(&kcs_bmc_ipmi_instances_lock);
+ 
+-	dev_info(kcs_bmc->dev, "Initialised IPMI client for channel %d", kcs_bmc->channel);
++	pr_info("Initialised IPMI client for channel %d\n", kcs_bmc->channel);
+ 
+ 	return 0;
++
++cleanup_miscdev_name:
++	kfree(priv->miscdev.name);
++
++cleanup_priv:
++	kfree(priv);
++
++	return rc;
+ }
+ 
+ static void kcs_bmc_ipmi_remove_device(struct kcs_bmc_device *kcs_bmc)
+@@ -523,7 +532,8 @@ static void kcs_bmc_ipmi_remove_device(struct kcs_bmc_device *kcs_bmc)
  
  	misc_deregister(&priv->miscdev);
  	kcs_bmc_disable_device(&priv->client);
--	devm_kfree(kcs_bmc->dev, priv->kbuffer);
--	devm_kfree(kcs_bmc->dev, priv->data_out);
--	devm_kfree(kcs_bmc->dev, priv->data_in);
- 	devm_kfree(kcs_bmc->dev, priv);
+-	devm_kfree(kcs_bmc->dev, priv);
++	kfree(priv->miscdev.name);
++	kfree(priv);
  }
  
+ static const struct kcs_bmc_driver_ops kcs_bmc_ipmi_driver_ops = {
+diff --git a/drivers/char/ipmi/kcs_bmc_serio.c b/drivers/char/ipmi/kcs_bmc_serio.c
+index 713e847bbc4e..0a68c76da955 100644
+--- a/drivers/char/ipmi/kcs_bmc_serio.c
++++ b/drivers/char/ipmi/kcs_bmc_serio.c
+@@ -71,15 +71,18 @@ static int kcs_bmc_serio_add_device(struct kcs_bmc_device *kcs_bmc)
+ {
+ 	struct kcs_bmc_serio *priv;
+ 	struct serio *port;
++	int rc;
+ 
+-	priv = devm_kzalloc(kcs_bmc->dev, sizeof(*priv), GFP_KERNEL);
++	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+ 	if (!priv)
+ 		return -ENOMEM;
+ 
+ 	/* Use kzalloc() as the allocation is cleaned up with kfree() via serio_unregister_port() */
+ 	port = kzalloc(sizeof(*port), GFP_KERNEL);
+-	if (!port)
+-		return -ENOMEM;
++	if (!port) {
++		rc = -ENOMEM;
++		goto cleanup_priv;
++	}
+ 
+ 	port->id.type = SERIO_8042;
+ 	port->open = kcs_bmc_serio_open;
+@@ -98,9 +101,14 @@ static int kcs_bmc_serio_add_device(struct kcs_bmc_device *kcs_bmc)
+ 
+ 	serio_register_port(port);
+ 
+-	dev_info(kcs_bmc->dev, "Initialised serio client for channel %d", kcs_bmc->channel);
++	pr_info("Initialised serio client for channel %d\n", kcs_bmc->channel);
+ 
+ 	return 0;
++
++cleanup_priv:
++	kfree(priv);
++
++	return rc;
+ }
+ 
+ static void kcs_bmc_serio_remove_device(struct kcs_bmc_device *kcs_bmc)
+@@ -122,11 +130,9 @@ static void kcs_bmc_serio_remove_device(struct kcs_bmc_device *kcs_bmc)
+ 
+ 	/* kfree()s priv->port via put_device() */
+ 	serio_unregister_port(priv->port);
+-
+ 	/* Ensure the IBF IRQ is disabled if we were the active client */
+ 	kcs_bmc_disable_device(&priv->client);
+-
+-	devm_kfree(priv->client.dev->dev, priv);
++	kfree(priv);
+ }
+ 
+ static const struct kcs_bmc_driver_ops kcs_bmc_serio_driver_ops = {
 -- 
 2.39.2
 
