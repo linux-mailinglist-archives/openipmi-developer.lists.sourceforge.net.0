@@ -2,17 +2,17 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 076E57E7105
+	by mail.lfdr.de (Postfix) with ESMTPS id 0306E7E7104
 	for <lists+openipmi-developer@lfdr.de>; Thu,  9 Nov 2023 19:00:52 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1r19Kd-0003EA-HW;
-	Thu, 09 Nov 2023 18:00:42 +0000
+	id 1r19Kc-0006Xj-Q8;
+	Thu, 09 Nov 2023 18:00:43 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <ct@flyingcircus.io>) id 1r19Kb-0003E3-Ti
+ (envelope-from <ct@flyingcircus.io>) id 1r19Ka-0006Xb-8C
  for openipmi-developer@lists.sourceforge.net;
  Thu, 09 Nov 2023 18:00:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -37,7 +37,7 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
 Received: from mail.flyingcircus.io ([212.122.41.197])
  by sfi-mx-1.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1r19KX-001IPv-8X for openipmi-developer@lists.sourceforge.net;
+ id 1r19KX-001IPy-8H for openipmi-developer@lists.sourceforge.net;
  Thu, 09 Nov 2023 18:00:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flyingcircus.io;
  s=mail; t=1699552825;
@@ -90,7 +90,7 @@ X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
                              author's domain
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1r19KX-001IPv-8X
+X-Headers-End: 1r19KX-001IPy-8H
 Subject: Re: [Openipmi-developer] SOL via syslog?
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
