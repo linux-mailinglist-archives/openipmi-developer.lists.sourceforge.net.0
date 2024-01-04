@@ -2,128 +2,80 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A138481878B
-	for <lists+openipmi-developer@lfdr.de>; Tue, 19 Dec 2023 13:34:40 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id E44F3824A3B
+	for <lists+openipmi-developer@lfdr.de>; Thu,  4 Jan 2024 22:24:01 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1rFZIt-00008X-Cc;
-	Tue, 19 Dec 2023 12:34:30 +0000
+	id 1rLVBx-0002wQ-2d;
+	Thu, 04 Jan 2024 21:23:53 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tcminyard@gmail.com>) id 1rFZIs-00008P-9a
+ (envelope-from <ct@flyingcircus.io>) id 1rLVBv-0002wJ-CI
  for openipmi-developer@lists.sourceforge.net;
- Tue, 19 Dec 2023 12:34:29 +0000
+ Thu, 04 Jan 2024 21:23:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=To:Cc:Date:Message-Id:Subject:Mime-Version:
+ Content-Transfer-Encoding:Content-Type:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gwHmTFeEehKOaOu6iVKukiI2Xe8hwl6/KhukRfcBoho=; b=hDosvK7TVz5aKjFXsqxEcJMkK3
- XozW9vfN3T8Tlj1r3IQ7Rv0mF4aSLWqg7Leuaz7Mmd/IL9nWfim4HupLFBZqsKueLSydorZcwlnP7
- O9OFbquNoU6rS2GagVR8HE9UTHNg7EM4+Gv51IA51+k2RUkviWW2iG0AFI6czfzExPDo=;
+ bh=nIqWpPveYYzAB8mwNROQA/nOCGMZzCK9+WdtKlF7W2Y=; b=OSVjJf605o8xg/gK5uhwnyl5ij
+ 9wexzXmbPEXvKs0NVKZXrUzV+xF7ufv1xfNRbOF5um0VWyVKnvg869Yq0HepJo/L2B0zZYTS6049R
+ o4K3cKTpxg9qKhXBIiVRiOVkR3maXCf68ApazgR/b2tCpW25r3/wck/qjJ0jKMsHM4yI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=gwHmTFeEehKOaOu6iVKukiI2Xe8hwl6/KhukRfcBoho=; b=GLZ//9HACb9/lDjIM+FurKFLRH
- ipaJFWqYdA02CsQALzOPcdRm0DAgeMreSLvObFw4aCj+g66UUG8T2j5Cm1w6q0sqYeO0XuzQJVphB
- 09ixcuARNC7RUSp5BYiMEqNoMLHU/OmR8VWjRCt9Vn4XJqgEASRLOuWjnh9gngkWtElg=;
-Received: from mail-oa1-f51.google.com ([209.85.160.51])
+ h=To:Cc:Date:Message-Id:Subject:Mime-Version:Content-Transfer-Encoding:
+ Content-Type:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=nIqWpPveYYzAB8mwNROQA/nOCGMZzCK9+WdtKlF7W2Y=; b=T
+ qFyl1+FisYDjMUOA21FoghC47icahDuiE+nSn5CO5Opv5ONFtq2shZIjtciSe4yWtH9muqFbCBEfr
+ 5z0u9mfq9jqrgQpcFeTVT9sFN5wSaUblBHkbZWKoDMw8oc4HcXHcw3hPzeyhaMfLSnjJ1okoSHjJH
+ OejXrYgwSJ4uIx/k=;
+Received: from mail.flyingcircus.io ([212.122.41.197])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1rFZIq-0000a4-NS for openipmi-developer@lists.sourceforge.net;
- Tue, 19 Dec 2023 12:34:29 +0000
-Received: by mail-oa1-f51.google.com with SMTP id
- 586e51a60fabf-1f055438492so3259075fac.3
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 19 Dec 2023 04:34:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1702989263; x=1703594063; darn=lists.sourceforge.net;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:sender:from:to:cc:subject:date
- :message-id:reply-to;
- bh=gwHmTFeEehKOaOu6iVKukiI2Xe8hwl6/KhukRfcBoho=;
- b=IuKctIQb7q4SDIL3tpQiSWqyaQc+81dzk3XfZqRw7i2l5fBxu8tjECCSxJ/7oFfDpX
- RP2wITtqIP9TyJqjvwIK+Kuuqp518eBlTuZUSI6L5r+B4TNcvyrmEsGgtWr2d/jhyme+
- g83K/ht0Ht13qIETOg9NnnbGvhpEPnhC7zLeswI6WyCLE/+uMcAhWkPrBV/n3TL9dmzZ
- WKTLqSOXoOOt5zoowU8giqLRCA6NdoVcQdtYqWlCS0Y0R/8DCBcCXN3BmiS5hEw0i2sU
- a1AKX2ti4g2psdM+6iQxanhCzucVrF2oENppeWmV7OmgKyu1/jkHCBI+VLYjjUggN8FN
- xP3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1702989263; x=1703594063;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:sender:x-gm-message-state:from
- :to:cc:subject:date:message-id:reply-to;
- bh=gwHmTFeEehKOaOu6iVKukiI2Xe8hwl6/KhukRfcBoho=;
- b=JIsPMbt/ZlvQl22Au6IC9vOEBWhUlkONkr1oj9TdWzAsCfnrFrsSa6QI/yr3poIQVL
- jbTvRLJc+CwSdRytQN/0dl433pAOZ8AglKJW+hRuf09yXzjojCAY20q4/Gc7WixLbBRQ
- bYrOCmrJFVnwRS2pvQqsyhJFo1UdS0QLfnQn/Bf+f5i0/ePnpXBsRMyEhoRLAl3pMIt+
- lnnT4pQ+kKRUCJr1VI3rJ1r/Q43cl0RUV5OmYvWW2D5DTaNS8BTkrz5a6OnlhAZiOiNx
- XaFCiWIAaZfC35WVGaAwGfQWlTTXeLUfFu19zHf5+Wf1fZeNAamLywyVijTq7KKf42gE
- szPw==
-X-Gm-Message-State: AOJu0YyNZBat+Fd6xqExUMwZswMLuynUaPYBigFwil0tKlCcWKisR0nX
- RPbcR8Ml/YnMYJboDaJYKxRVzpXpxg==
-X-Google-Smtp-Source: AGHT+IHVJBTzhlK2961aU1/aWwN2mixlQ7Nbh1X/XnRN9zpQEeKZ2hNCJt+RL5etGIFrj+gj/4oEiA==
-X-Received: by 2002:a05:6870:40ce:b0:1fb:75b:12ee with SMTP id
- l14-20020a05687040ce00b001fb075b12eemr21809762oal.64.1702989262425; 
- Tue, 19 Dec 2023 04:34:22 -0800 (PST)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id
- gb8-20020a056870670800b001fb4aaf261csm7004856oab.32.2023.12.19.04.34.21
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 19 Dec 2023 04:34:22 -0800 (PST)
-Received: from mail.minyard.net (unknown
- [IPv6:2001:470:b8f6:1b:b5d7:ee3a:2c5b:8083])
- by serve.minyard.net (Postfix) with ESMTPSA id 5A7C9180047;
- Tue, 19 Dec 2023 12:34:21 +0000 (UTC)
-Date: Tue, 19 Dec 2023 06:34:20 -0600
-From: Corey Minyard <minyard@acm.org>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Message-ID: <ZYGNzHt8yPMPTYfd@mail.minyard.net>
-References: <b1a7a75263400742e5fda6bd7ba426772dc8ef11.1702961986.git.christophe.jaillet@wanadoo.fr>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b1a7a75263400742e5fda6bd7ba426772dc8ef11.1702961986.git.christophe.jaillet@wanadoo.fr>
-X-Spam-Score: 0.4 (/)
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1rLVBt-0003Ig-MX for openipmi-developer@lists.sourceforge.net;
+ Thu, 04 Jan 2024 21:23:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flyingcircus.io;
+ s=mail; t=1704402385;
+ bh=nIqWpPveYYzAB8mwNROQA/nOCGMZzCK9+WdtKlF7W2Y=;
+ h=From:Subject:Date:Cc:To;
+ b=hIS/Cvhg/dNPWDbqSW7j1w7yIgK0aV4olbFbNmSvOyvEwlrlzkv7yrGArIPtwpj22
+ cU/1KeZvw+smwICuSVMXsYxx5tuLw4+M3q46d6CIl483T+gwmgvN4xI+2E8P/PkvYi
+ zLpG3zW4c+2HQEamwTA6jdRbvOyuVUxL3e5szuB0=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.300.61.1.2\))
+Message-Id: <6B6CC6CE-E142-4709-B442-86461A05DE03@flyingcircus.io>
+Date: Thu, 4 Jan 2024 22:06:04 +0100
+To: Christian Theune via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Tue, Dec 19, 2023 at 06:00:39AM +0100, Christophe JAILLET
- wrote: > ida_alloc() and ida_free() should be preferred to the deprecated
- > ida_simple_get() and ida_simple_remove(). > > This is less verb [...] 
- Content analysis details:   (0.4 points, 6.0 required)
+ Content preview:  Hi everyone, Hi Corey, (I hope everyone had a good holiday
+ season and made it healthy into 2024!) you might remember that I was chasing
+ mysterious watchdog reboots without any specific issues being shown on the
+ serial console or on the SEL. 
+ Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.160.51 listed in list.dnswl.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [tcminyard[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.160.51 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1rFZIq-0000a4-NS
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: Remove usage of the
- deprecated ida_simple_xx() API
+ valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Headers-End: 1rLVBt-0003Ig-MX
+Subject: [Openipmi-developer] IPMI SEL vs. watchdog timeouts
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -136,57 +88,40 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: openipmi-developer@lists.sourceforge.net, kernel-janitors@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+From: Christian Theune via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Christian Theune <ct@flyingcircus.io>
+Cc: Corey Minyard <minyard@acm.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Dec 19, 2023 at 06:00:39AM +0100, Christophe JAILLET wrote:
-> ida_alloc() and ida_free() should be preferred to the deprecated
-> ida_simple_get() and ida_simple_remove().
-> 
-> This is less verbose.
-
-Thanks, queued for next release.
-
--corey
-
-> 
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> ---
->  drivers/char/ipmi/ipmi_msghandler.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index d6f14279684d..b0eedc4595b3 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -3053,7 +3053,7 @@ static void cleanup_bmc_work(struct work_struct *work)
->  	int id = bmc->pdev.id; /* Unregister overwrites id */
->  
->  	platform_device_unregister(&bmc->pdev);
-> -	ida_simple_remove(&ipmi_bmc_ida, id);
-> +	ida_free(&ipmi_bmc_ida, id);
->  }
->  
->  static void
-> @@ -3169,7 +3169,7 @@ static int __ipmi_bmc_register(struct ipmi_smi *intf,
->  
->  		bmc->pdev.name = "ipmi_bmc";
->  
-> -		rv = ida_simple_get(&ipmi_bmc_ida, 0, 0, GFP_KERNEL);
-> +		rv = ida_alloc(&ipmi_bmc_ida, GFP_KERNEL);
->  		if (rv < 0) {
->  			kfree(bmc);
->  			goto out;
-> -- 
-> 2.34.1
-> 
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+SGkgZXZlcnlvbmUsCkhpIENvcmV5LAoKKEkgaG9wZSBldmVyeW9uZSBoYWQgYSBnb29kIGhvbGlk
+YXkgc2Vhc29uIGFuZCBtYWRlIGl0IGhlYWx0aHkgaW50byAyMDI0ISkKCnlvdSBtaWdodCByZW1l
+bWJlciB0aGF0IEkgd2FzIGNoYXNpbmcgbXlzdGVyaW91cyB3YXRjaGRvZyByZWJvb3RzIHdpdGhv
+dXQgYW55IHNwZWNpZmljIGlzc3VlcyBiZWluZyBzaG93biBvbiB0aGUgc2VyaWFsIGNvbnNvbGUg
+b3Igb24gdGhlIFNFTC4KCkluIERlY2VtYmVyIHdlIHN0dW1ibGVkIG92ZXIgYW4gaW5zaWdodCB0
+aGF0IGhhcyBnaXZlbiB1cyBhIHZhbHVhYmxlIGNsdWUuIFdlIGRpZCBoYXZlIGEgcmVkdWNlZCB0
+aW1lb3V0IGZvciB0aGUgd2F0Y2hkb2cgdG8gdHJpZ2dlciAoNjAgc2Vjb25kcywgc3lzdGVtZCB3
+YXMgc2lnbmFsbGluZyBldmVyeSAyMCBzZWNvbmRzKS4KCkkgKnRoaW5rKiB0aGlzIG1heSBoYXZl
+IGxlYWQgdG8gZWl0aGVyIGZhbHNlIHBvc2l0aXZlcyAqT1IqIGp1c3QgcGxhaW5seSBzaGFkb3dl
+ZCBsb2NrdXBzL3N0YWxscyB0aGF0IHRoZSBrZXJuZWwgbWlnaHQgaGF2ZSBpc3N1ZWQgYnV0IG5l
+ZWRlZCBtb3JlIHRpbWUgZm9yIHRoZSBkZXRlY3RvcnMgdG8gZmluZCBhbmQgcmVwb3J0IHRoZW0u
+CgpXZSBoYXZlIGluY3JlYXNlZCBvdXIgd2F0Y2hkb2cgdGltZW91dHMgdG8gNSBtaW51dGVzIG5v
+dyBhbmQgaGF2ZSBldmVuIGRlY2lkZWQgdG8gcmVtb3ZlIHdhdGNoZG9ncyBmcm9tIEtWTSBob3N0
+cyAoa2VlcGluZyB0aGVuIGVuYWJsZWQgb24gcm91dGVycywgYmFja3VwIHNlcnZlcnMgYW5kIENl
+cGggc2VydmVycyBhcyB0aG9zZSB3aWxsIG5vdCBjYXVzZSBzZXJ2aWNlIGludGVycnVwdGlvbnMg
+d2hlbiBhIHdhdGNoZG9nIGNvbWVzIGluKS4KCldl4oCZdmUgbm90IHNlZW4gYW4gYWN0dWFsIGxv
+Y2sgdXAgLyBzdGFsbCBzaW5jZSB0aGUgbGFzdCAzIHdlZWtzLCB5ZXQsIGJ1dCBJIHRoaW5rIHdl
+IGRpZCBzb2x2ZSBhIHNpZ25pZmljYW50IHBhcnQgb2YgdGhlIG15c3RlcnkgYW5kIG1heWJlIHJl
+cG9ydGluZyBpdCBoZXJlIGhlbHBzIHJlY29yZGluZyBpdCBmb3IgcG9zdGVyaXR5IGFuZCBtaWdo
+dCBoZWxwIHNvbWVvbmUgZWxzZSBpbiB0aGUgZnV0dXJlLgoKVGhhbmtzIGZvciB0aGUgaGVscCBz
+byBmYXIhCkNocmlzdGlhbgoKLS0gCkNocmlzdGlhbiBUaGV1bmUgwrcgY3RAZmx5aW5nY2lyY3Vz
+LmlvIMK3ICs0OSAzNDUgMjE5NDAxIDAKRmx5aW5nIENpcmN1cyBJbnRlcm5ldCBPcGVyYXRpb25z
+IEdtYkggwrcgaHR0cHM6Ly9mbHlpbmdjaXJjdXMuaW8KTGVpcHppZ2VyIFN0ci4gNzAvNzEgwrcg
+MDYxMDggSGFsbGUgKFNhYWxlKSDCtyBEZXV0c2NobGFuZApIUiBTdGVuZGFsIEhSQiAyMTE2OSDC
+tyBHZXNjaMOkZnRzZsO8aHJlcjogQ2hyaXN0aWFuIFRoZXVuZSwgQ2hyaXN0aWFuIFphZ3JvZG5p
+Y2sKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3Bl
+bmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291
+cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZv
+L29wZW5pcG1pLWRldmVsb3Blcgo=
