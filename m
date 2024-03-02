@@ -2,140 +2,171 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BBB0085E530
-	for <lists+openipmi-developer@lfdr.de>; Wed, 21 Feb 2024 19:08:31 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0644E86F1C4
+	for <lists+openipmi-developer@lfdr.de>; Sat,  2 Mar 2024 18:47:40 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1rcr18-0007c3-Ve;
-	Wed, 21 Feb 2024 18:08:27 +0000
+	id 1rgTSK-0004zC-G0;
+	Sat, 02 Mar 2024 17:47:29 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tcminyard@gmail.com>) id 1rcr18-0007br-0O
+ (envelope-from <hkallweit1@gmail.com>) id 1rgTSG-0004z2-8y
  for openipmi-developer@lists.sourceforge.net;
- Wed, 21 Feb 2024 18:08:26 +0000
+ Sat, 02 Mar 2024 17:47:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
- MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ References:Cc:To:From:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=yE3xYE9b0PADKF8ltORqAx3XVvlJ9P1Y3jeB29+/qOg=; b=brkk+lst63CLLMVsCQ1c8ambC7
- s/jlT/PtEsVb4ONqq4unpZ7PbOo1D1uJbetSO5RoIQw9fvAPPl34uqPl19FShkQbBiqiDkglO63To
- Xz3ePstugac12jBBs6aY/DfFXw+aApUMtIGDuSx52JZixiPm1bOOriQfq+arQWroO1oY=;
+ bh=r0SnFufdR/uCrtXrhKUyqsUk0tkBVmIf2gTSiThy/88=; b=Y+QVJ1PQnmhZLLlhq7gQuLvP9E
+ aMgTYeOKSusbkVD6tXX0e8xu+p+8DTXkwD6kGrG+i+tVzQfY66d0rL5juRnbmd1kVhs/vvbJoTK4e
+ qqeMRQau1DDQTqUs0P+rXjBz9eRYjBPIZ5tdmvfw3xUgJOU2xrMwPcdoCUatjIEGUT8k=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=yE3xYE9b0PADKF8ltORqAx3XVvlJ9P1Y3jeB29+/qOg=; b=YQTI1PjMERpQ60dAOFIqE+ZQdY
- QbvkjvmI+GEyNmNL4EwtvYMk5B0/inObBW04sngKeqo/UbGAmit4V7973F05jIFDECAmXj3UMkI13
- TG66YFicPychqwytVpjn8bO3t+WONKaqjKiujtStCuF9qE2S3u8y+dTnpVuKMCZmUh84=;
-Received: from mail-oo1-f44.google.com ([209.85.161.44])
+ bh=r0SnFufdR/uCrtXrhKUyqsUk0tkBVmIf2gTSiThy/88=; b=CBorVBssVF2QYhP6+HvVPdefNx
+ QUq3zVslf5OL0t3Pvu3Rcv3AGUVvr5PtYJJsW53IWWYh5UAMTmDiLTjnkFLDe7t8tO2s8HEWmG6Fc
+ 4mRboei4ttIgEEbSIpY6dmXADCzyxM4lqOCEcv+o6kTVIvF2KQJK8lvt2XVmRVFr+LiA=;
+Received: from mail-ej1-f53.google.com ([209.85.218.53])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1rcr16-0000Zp-DN for openipmi-developer@lists.sourceforge.net;
- Wed, 21 Feb 2024 18:08:26 +0000
-Received: by mail-oo1-f44.google.com with SMTP id
- 006d021491bc7-59f7d59d3f1so454236eaf.1
+ id 1rgTSA-0002qx-4P for openipmi-developer@lists.sourceforge.net;
+ Sat, 02 Mar 2024 17:47:24 +0000
+Received: by mail-ej1-f53.google.com with SMTP id
+ a640c23a62f3a-a26fa294e56so574733166b.0
  for <openipmi-developer@lists.sourceforge.net>;
- Wed, 21 Feb 2024 10:08:25 -0800 (PST)
+ Sat, 02 Mar 2024 09:47:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1708538900; x=1709143700; darn=lists.sourceforge.net;
- h=in-reply-to:content-transfer-encoding:content-disposition
- :mime-version:references:reply-to:message-id:subject:cc:to:from:date
- :sender:from:to:cc:subject:date:message-id:reply-to;
- bh=yE3xYE9b0PADKF8ltORqAx3XVvlJ9P1Y3jeB29+/qOg=;
- b=Rh9nh04fWco1nsksm0vCkSSYl8z/2Fugoz/KH3cY+5YRIKpL5ZtWuRNQw5FfrUqZEE
- b9FH9NTJjBlLARL/mTbymMUnTRfPv6PFF1TIoBozGflOaDap9HYw2dcibVxJyGeZlzZ6
- 0bh31iHSVWCkvCcVlFeY+dDnD7PdKxP6b/0G1MrPUx0v1Q3DGh0b0i+ALf/QGVvPP3RL
- b962Xp9HLVBDouxxGU/zIdGthDbeFA++aqV5jJkXvcDGah1MYxmsSVBR7CCpDfHBprry
- GsaIUHCq3nGhn33nDdNnPqBQNJra0QJanlo83vtB6RCG7ZxOrQ4+kx2Mx7H5V+XQlHy2
- fKkA==
+ d=gmail.com; s=20230601; t=1709401633; x=1710006433; darn=lists.sourceforge.net;
+ h=content-transfer-encoding:in-reply-to:autocrypt:references:cc:to
+ :from:content-language:subject:user-agent:mime-version:date
+ :message-id:from:to:cc:subject:date:message-id:reply-to;
+ bh=r0SnFufdR/uCrtXrhKUyqsUk0tkBVmIf2gTSiThy/88=;
+ b=jQ5qz06pAVXUkAMycYjZbAaOHqJ7MrcmKigWCpszm2NnaHJPKFNxanWLi7tAbRW3IL
+ 2R7nogaZ5u05TFeud4gIVMI2/xK9ZFaC4hNXiQEeUa3ShfFOL0c+CA71uXN8g/QCa3lS
+ 2FlsyRoniIQ3J1G1f2xa4ta5tVsFzionNGS7u2p6NRfAOp+hZu9h1Z9gVwcIFP0F6KWZ
+ JYkqbRyL978mCEfBbI0VJ80caTeGE0b7hOhrUw5UFmpDrw89+3MJfvwGloZr5K/Gq7SB
+ Hi2CCEp8U8NKHq3rcu7JwJ5pY1dXECEipUXV/B2HpGHd5sH20JLFGfL0TOwGVT3itAPF
+ S9Nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1708538900; x=1709143700;
- h=in-reply-to:content-transfer-encoding:content-disposition
- :mime-version:references:reply-to:message-id:subject:cc:to:from:date
- :sender:x-gm-message-state:from:to:cc:subject:date:message-id
+ d=1e100.net; s=20230601; t=1709401633; x=1710006433;
+ h=content-transfer-encoding:in-reply-to:autocrypt:references:cc:to
+ :from:content-language:subject:user-agent:mime-version:date
+ :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
  :reply-to;
- bh=yE3xYE9b0PADKF8ltORqAx3XVvlJ9P1Y3jeB29+/qOg=;
- b=QkjJGVLfZ0ots0UgpTVFlObZMDeEqReXgquHup/SWq8xWcvdWQpkY+9/5ExrWXNOLO
- 3EnRrCrl+oJlCvejblGgfANMBjbbeIB3ekidB5LRVPhw2kMCVbaf/DQ2JCz6BxHpVvMs
- pkDuqfL61BgHEuBWuXCEnjkytbjECCB9sRru3iv01A68RK1KE1jUcj7lPRz91qioaAdi
- FGFiaGN1D8G25Adj3jOMRABj4QDl0BQ8XOmZPPBXlPilsmvXegMiK0jVlzshLUlyeTES
- lgQP6s81qKXNfdukegpw8s7npvZyApFxQI1Qndquvx8yrJKbZMg3UVYETGI19cmV9HqO
- RyNQ==
-X-Forwarded-Encrypted: i=1;
- AJvYcCUllfjlC34jhs7PtWTRAP5KwJtgwdZhjEdkiFkz9Q0PdRkhy5GpEkqJRgzBqmTZTsyHcW+D+EYx0CtyEIT9IElYFLe1w88vOmTA9oU0QdmHuYFFz7I17imu
-X-Gm-Message-State: AOJu0YyXeXdsY0ERC/LBnJwqsSwsrYX/qabur/r7cicdsclRY6ysTvmS
- GVY1dwH3t1rAA1ZhEypSU45BaIrRNJtZEAmwCjkgEvfPISFncARgygmdo/k=
-X-Google-Smtp-Source: AGHT+IE7Jl89TMdslT9Xstr1epQWCcXolp3sqaBdeNYzQrNiseiNxKWZkq7GYlWCsP8bfbZaGYK6yg==
-X-Received: by 2002:a4a:d2ce:0:b0:5a0:2a9:574b with SMTP id
- j14-20020a4ad2ce000000b005a002a9574bmr5993289oos.9.1708538899972; 
- Wed, 21 Feb 2024 10:08:19 -0800 (PST)
-Received: from serve.minyard.net (serve.minyard.net. [2001:470:b8f6:1b::1])
- by smtp.gmail.com with ESMTPSA id
- g6-20020a9d6206000000b006e2df00aaa8sm1665305otj.70.2024.02.21.10.08.19
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 21 Feb 2024 10:08:19 -0800 (PST)
-Received: from mail.minyard.net (unknown [IPv6:2001:470:b8f6:1d::35])
- by serve.minyard.net (Postfix) with ESMTPSA id 412431800B8;
- Wed, 21 Feb 2024 18:08:18 +0000 (UTC)
-Date: Wed, 21 Feb 2024 12:08:16 -0600
-From: Corey Minyard <minyard@acm.org>
-To: Andrew Geissler <geissonator@gmail.com>
-Message-ID: <ZdY8EDfeePse3c1s@mail.minyard.net>
-References: <20240220123615.963916-1-geissonator@gmail.com>
- <a9169894-6972-49c0-a1d4-d80863f5b511@molgen.mpg.de>
- <ZdT+eThnYqb3iawF@mail.minyard.net>
- <9680ad7d7a48fc36a0572dc2286a1229a29341fe.camel@codeconstruct.com.au>
- <527F52AB-0070-43EA-BE82-945280CA2AEE@gmail.com>
+ bh=r0SnFufdR/uCrtXrhKUyqsUk0tkBVmIf2gTSiThy/88=;
+ b=Zh1k31NMm1TcAGFJKW5j/GhfvrTPMLlnDgrTOXd+sNeH9RFExXKVohbPY2FtIKqAr1
+ HjiWk/nxFill1H2jFhUhJ1kfESUD/pxmES7TN+QUb3NZEgd7BF/volfsdsuR84yUSpuk
+ bNWDrh1fty84H2LuQ0C0qCHe8ahpZf7K4HjUxpfYuCW8RkW5pTSBa+KTQKp4JyyQIrjP
+ +lVZihqjgRg1jJ9k8IAwtEiOcsrmFs1zrZNvBJPDz0AgBJVZ+LCjcbIDxZoLo/jmmaXu
+ ul5aJ6lKrEm1bCGaXlDdG/7aM+SPWIWWAXeyy5V7LGcQTvcOoDXF/W5CbHObKpAAG6IR
+ F1tQ==
+X-Gm-Message-State: AOJu0Yz0Nax2p8Erlr5q8V0O0YL084gXnGuVOFXE8QCHYn/vsuY3KfAd
+ yqXObchkubYcnmVeTZ4B88SBlcg85eaThas8XgiDHbe8sRPJBUAXrrs9Omtw
+X-Google-Smtp-Source: AGHT+IF4G78vULoU0ATWLSnhcqbQom/BzKH+O134jBr11iDkI98UwoxPdNFgc3RhEiV3T/6KWdCHyw==
+X-Received: by 2002:a17:906:4555:b0:a44:985f:e2ef with SMTP id
+ s21-20020a170906455500b00a44985fe2efmr2955064ejq.77.1709401632470; 
+ Sat, 02 Mar 2024 09:47:12 -0800 (PST)
+Received: from ?IPV6:2a01:c23:bcce:a400:2519:2036:7f0:6005?
+ (dynamic-2a01-0c23-bcce-a400-2519-2036-07f0-6005.c23.pool.telefonica.de.
+ [2a01:c23:bcce:a400:2519:2036:7f0:6005])
+ by smtp.googlemail.com with ESMTPSA id
+ d25-20020a1709067f1900b00a440e2ada28sm2893253ejr.201.2024.03.02.09.47.11
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Sat, 02 Mar 2024 09:47:12 -0800 (PST)
+Message-ID: <c2128de2-9ab9-4f47-9783-99e959e11920@gmail.com>
+Date: Sat, 2 Mar 2024 18:47:12 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <527F52AB-0070-43EA-BE82-945280CA2AEE@gmail.com>
-X-Spam-Score: 0.4 (/)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+From: Heiner Kallweit <hkallweit1@gmail.com>
+To: Corey Minyard <minyard@acm.org>, Wolfram Sang <wsa@kernel.org>
+References: <18568237-0b57-4b74-86ec-a6c358a4e058@gmail.com>
+Autocrypt: addr=hkallweit1@gmail.com; keydata=
+ xsFNBF/0ZFUBEAC0eZyktSE7ZNO1SFXL6cQ4i4g6Ah3mOUIXSB4pCY5kQ6OLKHh0FlOD5/5/
+ sY7IoIouzOjyFdFPnz4Bl3927ClT567hUJJ+SNaFEiJ9vadI6vZm2gcY4ExdIevYHWe1msJF
+ MVE4yNwdS+UsPeCF/6CQQTzHc+n7DomE7fjJD5J1hOJjqz2XWe71fTvYXzxCFLwXXbBiqDC9
+ dNqOe5odPsa4TsWZ09T33g5n2nzTJs4Zw8fCy8rLqix/raVsqr8fw5qM66MVtdmEljFaJ9N8
+ /W56qGCp+H8Igk/F7CjlbWXiOlKHA25mPTmbVp7VlFsvsmMokr/imQr+0nXtmvYVaKEUwY2g
+ 86IU6RAOuA8E0J5bD/BeyZdMyVEtX1kT404UJZekFytJZrDZetwxM/cAH+1fMx4z751WJmxQ
+ J7mIXSPuDfeJhRDt9sGM6aRVfXbZt+wBogxyXepmnlv9K4A13z9DVLdKLrYUiu9/5QEl6fgI
+ kPaXlAZmJsQfoKbmPqCHVRYj1lpQtDM/2/BO6gHASflWUHzwmBVZbS/XRs64uJO8CB3+V3fa
+ cIivllReueGCMsHh6/8wgPAyopXOWOxbLsZ291fmZqIR0L5Y6b2HvdFN1Xhc+YrQ8TKK+Z4R
+ mJRDh0wNQ8Gm89g92/YkHji4jIWlp2fwzCcx5+lZCQ1XdqAiHQARAQABzSZIZWluZXIgS2Fs
+ bHdlaXQgPGhrYWxsd2VpdDFAZ21haWwuY29tPsLBjgQTAQgAOBYhBGxfqY/yOyXjyjJehXLe
+ ig9U8DoMBQJf9GRVAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEHLeig9U8DoMSycQ
+ AJbfg8HZEK0ljV4M8nvdaiNixWAufrcZ+SD8zhbxl8GispK4F3Yo+20Y3UoZ7FcIidJWUUJL
+ axAOkpI/70YNhlqAPMsuudlAieeYZKjIv1WV5ucNZ3VJ7dC+dlVqQdAr1iD869FZXvy91KhJ
+ wYulyCf+s4T9YgmLC6jLMBZghKIf1uhSd0NzjyCqYWbk2ZxByZHgunEShOhHPHswu3Am0ftt
+ ePaYIHgZs+Vzwfjs8I7EuW/5/f5G9w1vibXxtGY/GXwgGGHRDjFM7RSprGOv4F5eMGh+NFUJ
+ TU9N96PQYMwXVxnQfRXl8O6ffSVmFx4H9rovxWPKobLmqQL0WKLLVvA/aOHCcMKgfyKRcLah
+ 57vGC50Ga8oT2K1g0AhKGkyJo7lGXkMu5yEs0m9O+btqAB261/E3DRxfI1P/tvDZpLJKtq35
+ dXsj6sjvhgX7VxXhY1wE54uqLLHY3UZQlmH3QF5t80MS7/KhxB1pO1Cpcmkt9hgyzH8+5org
+ +9wWxGUtJWNP7CppY+qvv3SZtKJMKsxqk5coBGwNkMms56z4qfJm2PUtJQGjA65XWdzQACib
+ 2iaDQoBqGZfXRdPT0tC1H5kUJuOX4ll1hI/HBMEFCcO8++Bl2wcrUsAxLzGvhINVJX2DAQaF
+ aNetToazkCnzubKfBOyiTqFJ0b63c5dqziAgzsFNBF/0ZFUBEADF8UEZmKDl1w/UxvjeyAeX
+ kghYkY3bkK6gcIYXdLRfJw12GbvMioSguvVzASVHG8h7NbNjk1yur6AONfbUpXKSNZ0skV8V
+ fG+ppbaY+zQofsSMoj5gP0amwbwvPzVqZCYJai81VobefTX2MZM2Mg/ThBVtGyzV3NeCpnBa
+ 8AX3s9rrX2XUoCibYotbbxx9afZYUFyflOc7kEpc9uJXIdaxS2Z6MnYLHsyVjiU6tzKCiVOU
+ KJevqvzPXJmy0xaOVf7mhFSNQyJTrZpLa+tvB1DQRS08CqYtIMxRrVtC0t0LFeQGly6bOngr
+ ircurWJiJKbSXVstLHgWYiq3/GmCSx/82ObeLO3PftklpRj8d+kFbrvrqBgjWtMH4WtK5uN5
+ 1WJ71hWJfNchKRlaJ3GWy8KolCAoGsQMovn/ZEXxrGs1ndafu47yXOpuDAozoHTBGvuSXSZo
+ ythk/0EAuz5IkwkhYBT1MGIAvNSn9ivE5aRnBazugy0rTRkVggHvt3/7flFHlGVGpBHxFUwb
+ /a4UjJBPtIwa4tWR8B1Ma36S8Jk456k2n1id7M0LQ+eqstmp6Y+UB+pt9NX6t0Slw1NCdYTW
+ gJezWTVKF7pmTdXszXGxlc9kTrVUz04PqPjnYbv5UWuDd2eyzGjrrFOsJEi8OK2d2j4FfF++
+ AzOMdW09JVqejQARAQABwsF2BBgBCAAgFiEEbF+pj/I7JePKMl6Fct6KD1TwOgwFAl/0ZFUC
+ GwwACgkQct6KD1TwOgxUfg//eAoYc0Vm4NrxymfcY30UjHVD0LgSvU8kUmXxil3qhFPS7KA+
+ y7tgcKLHOkZkXMX5MLFcS9+SmrAjSBBV8omKoHNo+kfFx/dUAtz0lot8wNGmWb+NcHeKM1eb
+ nwUMOEa1uDdfZeKef/U/2uHBceY7Gc6zPZPWgXghEyQMTH2UhLgeam8yglyO+A6RXCh+s6ak
+ Wje7Vo1wGK4eYxp6pwMPJXLMsI0ii/2k3YPEJPv+yJf90MbYyQSbkTwZhrsokjQEaIfjrIk3
+ rQRjTve/J62WIO28IbY/mENuGgWehRlTAbhC4BLTZ5uYS0YMQCR7v9UGMWdNWXFyrOB6PjSu
+ Trn9MsPoUc8qI72mVpxEXQDLlrd2ijEWm7Nrf52YMD7hL6rXXuis7R6zY8WnnBhW0uCfhajx
+ q+KuARXC0sDLztcjaS3ayXonpoCPZep2Bd5xqE4Ln8/COCslP7E92W1uf1EcdXXIrx1acg21
+ H/0Z53okMykVs3a8tECPHIxnre2UxKdTbCEkjkR4V6JyplTS47oWMw3zyI7zkaadfzVFBxk2
+ lo/Tny+FX1Azea3Ce7oOnRUEZtWSsUidtIjmL8YUQFZYm+JUIgfRmSpMFq8JP4VH43GXpB/S
+ OCrl+/xujzvoUBFV/cHKjEQYBxo+MaiQa1U54ykM2W4DnHb1UiEf5xDkFd4=
+In-Reply-To: <18568237-0b57-4b74-86ec-a6c358a4e058@gmail.com>
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: Spam detection software,
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- 
- Content preview:  On Wed, Feb 21, 2024 at 10:57:38AM -0600, Andrew Geissler
-   wrote: > > > > On Feb 20, 2024, at 4:36 PM, Andrew Jeffery <andrew@codeconstruct.com.au>
-    wrote: > > > > On Tue, 2024-02-20 at 13:33 -0600, C [...] 
- 
- Content analysis details:   (0.4 points, 6.0 required)
- 
-  pts rule name              description
+ Content preview:  On 27.01.2024 16:15, Heiner Kallweit wrote: > Class-based
+ I2C probing requires detect() and address_list to be > set in the I2C client
+ driver, see checks in i2c_detect(). > It's misleading to declare [...] 
+ Content analysis details:   (0.0 points, 6.0 required)
+ pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
-                              no trust
-                             [209.85.161.44 listed in list.dnswl.org]
-  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
-                             mail domains are different
-  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
-  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
-                             provider
-                             [tcminyard[at]gmail.com]
+ no trust [209.85.218.53 listed in list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [hkallweit1[at]gmail.com]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
-                             [209.85.161.44 listed in wl.mailspike.net]
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
-                             valid
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [hkallweit1[at]gmail.com]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.218.53 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
- -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
-                             EnvelopeFrom freemail headers are
-                             different
-  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1rcr16-0000Zp-DN
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: kcs: Update OBF poll timeout
- to reduce latency
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1rgTSA-0002qx-4P
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: ipmb: Remove I2C_CLASS_HWMON
+ from drivers w/o detect and address_list
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -148,82 +179,41 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: minyard@acm.org
-Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
- linux-aspeed <linux-aspeed@lists.ozlabs.org>, openbmc@lists.ozlabs.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- openipmi-developer@lists.sourceforge.net,
- Linux ARM <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: openipmi-developer@lists.sourceforge.net,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T24gV2VkLCBGZWIgMjEsIDIwMjQgYXQgMTA6NTc6MzhBTSAtMDYwMCwgQW5kcmV3IEdlaXNzbGVy
-IHdyb3RlOgo+IAo+IAo+ID4gT24gRmViIDIwLCAyMDI0LCBhdCA0OjM24oCvUE0sIEFuZHJldyBK
-ZWZmZXJ5IDxhbmRyZXdAY29kZWNvbnN0cnVjdC5jb20uYXU+IHdyb3RlOgo+ID4gCj4gPiBPbiBU
-dWUsIDIwMjQtMDItMjAgYXQgMTM6MzMgLTA2MDAsIENvcmV5IE1pbnlhcmQgd3JvdGU6Cj4gPj4g
-T24gVHVlLCBGZWIgMjAsIDIwMjQgYXQgMDQ6NTE6MjFQTSArMDEwMCwgUGF1bCBNZW56ZWwgd3Jv
-dGU6Cj4gPj4+IERlYXIgQW5kcmV3LAo+ID4+IAo+ID4+IEl0J3MgYmVjYXVzZSBpbmNyZWFzaW5n
-IHRoYXQgbnVtYmVyIGNhdXNlcyBpdCB0byBwb2xsIGxvbmdlciBmb3IgdGhlCj4gPj4gZXZlbnQs
-IHRoZSBob3N0IHRha2VzIGxvbmdlciB0aGFuIDEwMHVzIHRvIGdlbmVyYXRlIHRoZSBldmVudCwg
-YW5kIGlmCj4gPj4gdGhlIGV2ZW50IGlzIG1pc3NlZCB0aGUgdGltZSB3aGVuIGl0IGlzIGNoZWNr
-ZWQgYWdhaW4gaXMgdmVyeSBsb25nLgo+ID4+IAo+ID4+IFBvbGxpbmcgZm9yIDEwMHVzIGlzIGFs
-cmVhZHkgcHJldHR5IGV4dHJlbWUuIDIwMHVzIGlzIHJlYWxseSB0b28gbG9uZy4KPiA+PiAKPiA+
-PiBUaGUgcmVhbCBwcm9ibGVtIGlzIHRoYXQgdGhlcmUgaXMgbm8gaW50ZXJydXB0IGZvciB0aGlz
-LiAgSSdkIGFsc28gZ3Vlc3MKPiA+PiB0aGVyZSBpcyBubyBpbnRlcnJ1cHQgb24gdGhlIGhvc3Qg
-c2lkZSwgYmVjYXVzZSB0aGF0IHdvdWxkIHNvbHZlIHRoaXMKPiA+PiBwcm9ibGVtLCB0b28sIGFz
-IGl0IHdvdWxkIGNlcnRhaW5seSBnZXQgYXJvdW5kIHRvIGhhbmRsaW5nIHRoZSBpbnRlcnVwdAo+
-ID4+IGluIDEwMHVzLiAgSSdtIGFzc3VtaW5nIHRoZSBob3N0IGRyaXZlciBpcyBub3QgdGhlIExp
-bnV4IGRyaXZlciwgYXMgaXQKPiA+PiBzaG91bGQgYWxzbyBoYW5kbGUgdGhpcyBpbiBhIHRpbWVs
-eSBtYW5uZXIsIGV2ZW4gd2hlbiBwb2xsaW5nLgo+ID4gCj4gPiBJIGV4cGVjdCB0aGUgaXNzdWVz
-IEFuZHJldyBHIGlzIG9ic2VydmluZyBhcmUgd2l0aCB0aGUgUG93ZXIxMCBib290Cj4gPiBmaXJt
-d2FyZS4gVGhlIGJvb3QgZmlybXdhcmUgb25seSBwb2xscy4gVGhlIHJ1bnRpbWUgZmlybXdhcmUg
-ZW5hYmxlcwo+ID4gaW50ZXJydXB0cy4KPiAKPiBZZXAsIHRoaXMgaXMgd2l0aCB0aGUgbG93IGxl
-dmVsIGhvc3QgYm9vdCBmaXJtd2FyZS4KPiBBbHNvLCBmdXJ0aGVyIHRlc3Rpbmcgb3ZlciBuaWdo
-dCBzaG93ZWQgdGhhdCAyMDB1cyB3YXNu4oCZdCBlbm91Z2ggZm9yCj4gb3VyIGxhcmdlciBFdmVy
-ZXN0IFAxMCBtYWNoaW5lcywgSSBuZWVkZWQgdG8gZ28gdG8gMzAwdXMuIEFzIHdlCj4gd2VyZSBz
-dHJ1Z2dsaW5nIHRvIGFsbG93IDIwMHVzLCBJIGFzc3VtZSAzMDB1cyBpcyBnb2luZyB0byBiZSBh
-IG5vLWdvLgoKSXQgc2VlbXMgb2RkIHRvIG1lIHRoYXQgZmlybXdhcmUgcG9sbGluZyB3b3VsZCBi
-ZSBhbiBpc3N1ZS4gIFVzdWFsbHksCndpdGggZmlybXdhcmUsIHlvdSBoYXZlIGl0IGp1c3Qgc3Bp
-bm5pbmcgd2FpdGluZyBmb3Igc29tZXRoaW5nLiAgQXQKbGVhc3QgaW4gdGhlIGZpcm13YXJlIEkg
-d29ya2VkIHdpdGguCgpJJ20gbm90IGZhbWlsaWFyIHdpdGggdGhpcyBmaXJtd2FyZSwgdGhvdWdo
-LCBtYXliZSBpdCBoYXMgdGltZXJzIGFuZApzdWNoIGFuZCBwYXJhbGxlbCBleGVjdXRpb24uICBD
-YW4gdGhpcyBiZSBmaXhlZCBvbiB0aGUgZmlybXdhcmUgc2lkZT8KCj4gCj4gPj4gCj4gPiAKPiA+
-PiAKPiA+PiBUaGUgcmlnaHQgd2F5IHRvIGZpeCB0aGlzIGlzIHByb2JhYmx5IHRvIGRvIHRoZSBz
-YW1lIHRoaW5nIHRoZSBob3N0IHNpZGUKPiA+PiBMaW51eCBkcml2ZXIgZG9lcy4gIEl0IGhhcyBh
-IGtlcm5lbCB0aHJlYWQgdGhhdCBpcyBraWNrZWQgb2ZmIHRvIGRvCj4gPj4gdGhpcy4gIFVuZm9y
-dHVuYXRlbHksIHRoYXQncyBtb3JlIGNvbXBsaWNhdGVkIHRvIGltcGxlbWVudCwgYnV0IGl0Cj4g
-Pj4gYXZvaWRzIHBvbGxpbmcgaW4gdGhpcyBsb2NhdGlvbiAod2hpY2ggY2F1c2VzIGxhdGVuY3kg
-aXNzdWVzIG9uIHRoZSBCTUMKPiA+PiBzaWRlKSBhbmQgbGV0cyB5b3UgcG9sbCBsb25nZXIgd2l0
-aG91dCBjYXVzaW5nIGlzc3Vlcy4KPiA+IAo+ID4gSW4gQW5kcmV3IEcncyBjYXNlIGhlJ3MgdGFs
-a2luZyBNQ1RQIG92ZXIgS0NTIHVzaW5nIGEgdmVuZG9yLWRlZmluZWQKPiA+IHRyYW5zcG9ydCBi
-aW5kaW5nICh0aGF0IGFsc28gbGV2ZXJhZ2VzIExQQyBGV0ggY3ljbGVzIGZvciBidWxrIGRhdGEK
-PiA+IHRyYW5zZmVycylbMV0uIEkgdGhpbmsgaXQgY291bGQgaGF2ZSB0YWtlbiBtb3JlIGluc3Bp
-cmF0aW9uIGZyb20gdGhlCj4gPiBJUE1JIEtDUyBwcm90b2NvbDogSXQgbWlnaHQgYmUgd29ydGgg
-YW4gZXhwZXJpbWVudCB0byB3cml0ZSB0aGUgZHVtbXkKPiA+IGNvbW1hbmQgdmFsdWUgdG8gSURS
-IGZyb20gdGhlIGhvc3Qgc2lkZSBhZnRlciBlYWNoIE9EUiByZWFkIHRvIHNpZ25hbAo+ID4gdGhl
-IGhvc3QncyBjbGVhcmluZyBvZiBPQkYgKG5vIGludGVycnVwdCBmb3IgdGhlIEJNQykgd2l0aCBh
-biBJQkYKPiA+ICh3aGljaCBkb2VzIGludGVycnVwdCB0aGUgQk1DKS4gQW5kIGRvaW5nIHRoZSBv
-YnZlcnNlIGZvciB0aGUgQk1DLiBTb21lCj4gPiBicmllZiB0aG91Z2h0IHN1Z2dlc3RzIHRoYXQg
-aWYgdGhlIGR1bW15IHZhbHVlIGlzIHJlYWQgdGhlcmUncyBubyBuZWVkCj4gPiB0byBzZW5kIGEg
-ZHVtbXkgdmFsdWUgaW4gcmVwbHkgKGFzIGl0J3MgYW4gaW5kaWNhdG9yIHRvIHJlYWQgdGhlIHN0
-YXR1cwo+ID4gcmVnaXN0ZXIpLiBXaXRoIHRoYXQgdGhlIG5lZWQgZm9yIHRoZSBzcGluIGhlcmUg
-KG9yIG9uIHRoZSBob3N0IHNpZGUpCj4gPiBpcyByZWR1Y2VkIGF0IHRoZSBjb3N0IG9mIHNvbWUg
-Y29uc3RhbnQgcHJvdG9jb2wgb3ZlcmhlYWQuCj4gPiAKPiAKPiBUaGFua3MgZm9yIHRoZSBxdWlj
-ayByZXZpZXdzIGFuZCBpZGVhcy4KPiBJ4oCZbGwgc2VlIGlmIEkgY2FuIGZpbmQgc29tZW9uZSBv
-biB0aGUgdGVhbSB0byBoZWxwIG91dCB3aXRoIEFuZHJldyBK4oCZcwo+IHRob3VnaHRzIGFuZCBp
-ZiB0aGF0IGRvZXNu4oCZdCB3b3JrLCBsb29rIGludG8gdGhlIGtlcm5lbCB0aHJlYWQgaWRlYS4K
-CkkgZG9uJ3QgcmVhbGx5IHVuZGVyc3RhbmQgQW5kcmV3IEoncyBpZGVhcyB2ZXJ5IHdlbGwsIGJ1
-dCBob3BlZnVsbHkgdGhleQpoZWxwLiAgVGhlIGtlcm5lbCB0aHJlYWQgaWRlYSBpcyBmYWlybHkg
-Y29tcGxpY2F0ZWQgdG8gaW1wbGVtZW50LCBhbmQKdGhlcmUgaGFzIGJlZW4gYW4gaW1wZXR1cyBp
-biB0aGUga2VybmVsIHRvIG5vdCBjcmVhdGUgbmV3IGtlcm5lbAp0aHJlYWRzLiAgQnV0IHRoZXJl
-IGp1c3QgaGFzIHRvIGJlIGEgZ29vZCByZWFzb24sIGFuZCB0aGlzIHByb2JhYmx5IGlzCm9uZS4g
-IFdlIHdvcmtlZCBvbiBpdCBhIGxvdCBpbiB0aGUgSVBNSSBob3N0IGRyaXZlciB0byB0dW5lIGl0
-IGFuZCBnb3QKaXQgdG8gYSBwb2ludCB3aGVyZSBpdCBwcm92aWRlZCBkZWNlbnQgcGVyZm9ybWFu
-Y2Ugd2l0aG91dCBjYXVzaW5nIHBvd2VyCm1hbmFnZW1lbnQgaXNzdWVzLiAgV2hlbiBJIGZpcnN0
-IHJlYWQgdGhlIHRpdGxlIEkgd2FzIHdvcnJpZWQgaXQgd2FzCnRhbGtpbmcgYWJvdXQgdGhpcyBj
-b2RlOyBJJ20gbG90aGUgdG8gdG91Y2ggaXQgZm9yIGZlYXIgb2YgYnJlYWtpbmcKdGhpbmdzLgoK
-LWNvcmV5CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-T3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMu
-c291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3Rp
-bmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+On 27.01.2024 16:15, Heiner Kallweit wrote:
+> Class-based I2C probing requires detect() and address_list to be
+> set in the I2C client driver, see checks in i2c_detect().
+> It's misleading to declare I2C_CLASS_HWMON support if this
+> precondition isn't met.
+> 
+Any feedback here? Should this better go through the I2C tree?
+
+> Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
+> ---
+>  drivers/char/ipmi/ipmi_ipmb.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_ipmb.c b/drivers/char/ipmi/ipmi_ipmb.c
+> index 4e335832f..9e5c6d682 100644
+> --- a/drivers/char/ipmi/ipmi_ipmb.c
+> +++ b/drivers/char/ipmi/ipmi_ipmb.c
+> @@ -567,7 +567,6 @@ static const struct i2c_device_id ipmi_ipmb_id[] = {
+>  MODULE_DEVICE_TABLE(i2c, ipmi_ipmb_id);
+>  
+>  static struct i2c_driver ipmi_ipmb_driver = {
+> -	.class		= I2C_CLASS_HWMON,
+>  	.driver = {
+>  		.name = DEVICE_NAME,
+>  		.of_match_table = of_ipmi_ipmb_match,
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
