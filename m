@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 46BC48724D1
-	for <lists+openipmi-developer@lfdr.de>; Tue,  5 Mar 2024 17:49:51 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A5038724D3
+	for <lists+openipmi-developer@lfdr.de>; Tue,  5 Mar 2024 17:50:11 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1rhXz4-0005Pm-Nf;
-	Tue, 05 Mar 2024 16:49:43 +0000
+	id 1rhXzR-0000Hi-II;
+	Tue, 05 Mar 2024 16:50:06 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <ukl@pengutronix.de>) id 1rhXz2-0005Pd-Se
+ (envelope-from <ukl@pengutronix.de>) id 1rhXzP-0000Ha-Sx
  for openipmi-developer@lists.sourceforge.net;
- Tue, 05 Mar 2024 16:49:41 +0000
+ Tue, 05 Mar 2024 16:50:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
  :References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=R2NVBdn9g1lf7LE58J9SX5rmp+iIMd3XW++p4Pj29mM=; b=PmieetZbsJYP99eI/X26p7UFiz
- /Yfp+O/gi52Ff0rGjUP0h8VG6WrH/iuPt6ErufObQRbY4S8YaLekvDpeq0guiQZaTNal3zQzCLB1J
- yrxCIkodNL1BORDHlVX9TDo1mrpttCWiu/METItALiJfroBRumbt6eSzCzCv78GsrA4Q=;
+ bh=Ob320IVFZ1ikxTM9ux94tzwmnKmGYgUdNYEcsCV2gyU=; b=V4jZi1Tv953TvrldU5qzKkJv8i
+ 26Ik25FRHvpjW+7E9ZnjgHbXLNX7Xt5/MSvdDrdm727HkP4O0ApxKAyeVzwJxAptXUz+BzgBsSyZ/
+ lMslEzHbXaj5yx+TLg+1vSDEV4bS+Kpy8yTGsghP2NxeOmHtLRC9rPYcIp5XPJCPlJLo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
@@ -31,46 +31,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=R2NVBdn9g1lf7LE58J9SX5rmp+iIMd3XW++p4Pj29mM=; b=lHD1/P9pELjZeQPu+3HS1/pUJT
- uf9L7VSUWAuGprqkSr4ZQQ5OLwvra+ZSLoEfB5HUz0VYI9SVF+kYpYi2SP8Dz7LiMLHCRdGLZ3SfB
- CVFv+gUMXFxF4oW1Q6GUEJEtbtFXskTSFpu8qEVDryga2pf9thHjaXiJoCGLWjh/kxRg=;
+ bh=Ob320IVFZ1ikxTM9ux94tzwmnKmGYgUdNYEcsCV2gyU=; b=H4AocpQeARCnPSJbW8EN1EF1aM
+ B//85+v/cW52TktecAPmZrU3VN556gct2/v6fEFazB769TEg2JDQkIy6EQw0X3eXXD25HbjN1uM53
+ Fc9BCOV6Oe4S8qIVslks4lnetLVHemA8+Hh6iZCvaIDnd+n6Vy0JgWGlL31dlIXGbab8=;
 Received: from metis.whiteo.stw.pengutronix.de ([185.203.201.7])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1rhXyw-00052Q-3U for openipmi-developer@lists.sourceforge.net;
- Tue, 05 Mar 2024 16:49:41 +0000
+ id 1rhXzJ-00054c-Up for openipmi-developer@lists.sourceforge.net;
+ Tue, 05 Mar 2024 16:50:04 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
  by metis.whiteo.stw.pengutronix.de with esmtps
  (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
  (envelope-from <ukl@pengutronix.de>)
- id 1rhXdc-0003TG-PY; Tue, 05 Mar 2024 17:27:32 +0100
+ id 1rhXdc-0003TN-6y; Tue, 05 Mar 2024 17:27:32 +0100
 Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
  by drehscheibe.grey.stw.pengutronix.de with esmtps (TLS1.3) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
  (envelope-from <ukl@pengutronix.de>)
- id 1rhXdb-004aQC-L8; Tue, 05 Mar 2024 17:27:31 +0100
+ id 1rhXdb-004aQF-QE; Tue, 05 Mar 2024 17:27:31 +0100
 Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
- (envelope-from <ukl@pengutronix.de>) id 1rhXdb-000BLb-1o;
+ (envelope-from <ukl@pengutronix.de>) id 1rhXdb-000BLf-2M;
  Tue, 05 Mar 2024 17:27:31 +0100
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Corey Minyard <minyard@acm.org>,
-	Michael Ellerman <mpe@ellerman.id.au>
-Date: Tue,  5 Mar 2024 17:26:59 +0100
-Message-ID: <22375be2dd616d8ccc2959586a08e49a5ad9e47b.1709655755.git.u.kleine-koenig@pengutronix.de>
+To: Corey Minyard <minyard@acm.org>
+Date: Tue,  5 Mar 2024 17:27:00 +0100
+Message-ID: <789cd7876780241430dd5604bc4322453fe4e581.1709655755.git.u.kleine-koenig@pengutronix.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1709655755.git.u.kleine-koenig@pengutronix.de>
 References: <cover.1709655755.git.u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1784;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1695;
  i=u.kleine-koenig@pengutronix.de; h=from:subject:message-id;
- bh=c+JLhSDxkhY7w+LNSmgp+zHARDE2cqnx9VEPDNYMgQ4=;
- b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBl50fUAnYGsrZ2HJWCgt9xxz9Xjr2GCv8q5rfPC
- ZxtNRO+SeKJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZedH1AAKCRCPgPtYfRL+
- Tl6/CACp8/Fir0X126Y/o6U8/KCvw0LNLwO8QbNSR4Hl7f47vzPBLyqYoJ/hL7GDEuzt+Td8WDY
- CpG7WOamLVP44W8G1FxDZaAXkoxyjcCD04HJAkPbn2czr83r/OScSgSdnkkpA+Ymwt4dzc9nnN4
- DKbwu9h7sKrfCoG7jgCEjayRG2oOIYL/XA6L2Bwi5O6YWYAqHF5A40Oq0qelcJzqOEI54jvW7zj
- li92X29CVA15C14UEoBOJ212c2VokyfkvIR56sesSnf+lNP4yLTdhcHZdVTSCOOywdEJQgu13L0
- ZEEOqzF++Vg08B3f5jgG9veGSHocezL2VIlLGApIevIw6YOG
+ bh=doYdhTXzvURQUMq+/55HI8wRrXRIIdD9gYXdjJWEGcI=;
+ b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBl50fV30vujbJ09mbhanHRImF78/UgI9V1mrBs/
+ hNZlzsB9KyJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZedH1QAKCRCPgPtYfRL+
+ TvhRB/sFT4OUj1vJrq/2TiWx/G0Vh1GpZmo6Q4G0Zzg9luIKTsLWtnp0Uyqme+2gTUZ1BdXbXbL
+ GkeuhAECXs0T9xj1Hkj4VkI0aL/LdCZLgxq0eNdoEX30Ob4hLrXX8wvbKeGaq1BR3Xd0zKaq7Qm
+ m0lAypkqkm23Mspk4BaWgqkOOCKcuuQC+HICuddsoC0ZanViK74D9OUPFyky2JITeUy90qBk8D8
+ WEnon02RlLtYQwn82hRxzHi9F/DqQUQAikS7dD+gV5qgH40Aadr3h9nRYlsSv3n6DYuPUV2nYyh
+ p4gqudy2ZPpX7HKXiF6+Ys39/PDt9wcXN5Ck/tSEZ7cGW0FS
 X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp;
  fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
@@ -96,8 +95,8 @@ X-Spam-Report: Spam detection software,
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1rhXyw-00052Q-3U
-Subject: [Openipmi-developer] [PATCH 2/6] ipmi: ipmi_powernv: Convert to
+X-Headers-End: 1rhXzJ-00054c-Up
+Subject: [Openipmi-developer] [PATCH 3/6] ipmi: ipmi_si_platform: Convert to
  platform remove callback returning void
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -111,11 +110,7 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- Nicholas Piggin <npiggin@gmail.com>, kernel@pengutronix.de,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- openipmi-developer@lists.sourceforge.net, linuxppc-dev@lists.ozlabs.org
+Cc: openipmi-developer@lists.sourceforge.net, kernel@pengutronix.de
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
@@ -133,24 +128,23 @@ b3ZlX25ldygpIHdpbGwgYmUgcmVuYW1lZCB0byAucmVtb3ZlKCkuCgpUcml2aWFsbHkgY29udmVy
 dCB0aGlzIGRyaXZlciBmcm9tIGFsd2F5cyByZXR1cm5pbmcgemVybyBpbiB0aGUgcmVtb3ZlCmNh
 bGxiYWNrIHRvIHRoZSB2b2lkIHJldHVybmluZyB2YXJpYW50LgoKU2lnbmVkLW9mZi1ieTogVXdl
 IEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25peC5kZT4KLS0tCiBkcml2
-ZXJzL2NoYXIvaXBtaS9pcG1pX3Bvd2VybnYuYyB8IDYgKystLS0tCiAxIGZpbGUgY2hhbmdlZCwg
-MiBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2hh
-ci9pcG1pL2lwbWlfcG93ZXJudi5jIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9wb3dlcm52LmMK
-aW5kZXggZGEyMmE4Y2JlNjhlLi5jNTlhODZlYjU4YzcgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvY2hh
-ci9pcG1pL2lwbWlfcG93ZXJudi5jCisrKyBiL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfcG93ZXJu
-di5jCkBAIC0yODEsMTUgKzI4MSwxMyBAQCBzdGF0aWMgaW50IGlwbWlfcG93ZXJudl9wcm9iZShz
-dHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQogCXJldHVybiByYzsKIH0KIAotc3RhdGljIGlu
-dCBpcG1pX3Bvd2VybnZfcmVtb3ZlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCitzdGF0
-aWMgdm9pZCBpcG1pX3Bvd2VybnZfcmVtb3ZlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYp
-CiB7CiAJc3RydWN0IGlwbWlfc21pX3Bvd2VybnYgKnNtaSA9IGRldl9nZXRfZHJ2ZGF0YSgmcGRl
-di0+ZGV2KTsKIAogCWlwbWlfdW5yZWdpc3Rlcl9zbWkoc21pLT5pbnRmKTsKIAlmcmVlX2lycShz
-bWktPmlycSwgc21pKTsKIAlpcnFfZGlzcG9zZV9tYXBwaW5nKHNtaS0+aXJxKTsKLQotCXJldHVy
-biAwOwogfQogCiBzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCBpcG1pX3Bvd2VybnZf
-bWF0Y2hbXSA9IHsKQEAgLTMwNCw3ICszMDIsNyBAQCBzdGF0aWMgc3RydWN0IHBsYXRmb3JtX2Ry
-aXZlciBwb3dlcm52X2lwbWlfZHJpdmVyID0gewogCQkub2ZfbWF0Y2hfdGFibGUJPSBpcG1pX3Bv
-d2VybnZfbWF0Y2gsCiAJfSwKIAkucHJvYmUJPSBpcG1pX3Bvd2VybnZfcHJvYmUsCi0JLnJlbW92
-ZQk9IGlwbWlfcG93ZXJudl9yZW1vdmUsCisJLnJlbW92ZV9uZXcgPSBpcG1pX3Bvd2VybnZfcmVt
-b3ZlLAogfTsKIAogCi0tIAoyLjQzLjAKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBt
-aS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9y
-Z2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+ZXJzL2NoYXIvaXBtaS9pcG1pX3NpX3BsYXRmb3JtLmMgfCA2ICsrLS0tLQogMSBmaWxlIGNoYW5n
+ZWQsIDIgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9kcml2ZXJz
+L2NoYXIvaXBtaS9pcG1pX3NpX3BsYXRmb3JtLmMgYi9kcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3Np
+X3BsYXRmb3JtLmMKaW5kZXggY2QyZWRkOGY4YTAzLi45NmJhODU2NDgxMjAgMTAwNjQ0Ci0tLSBh
+L2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfc2lfcGxhdGZvcm0uYworKysgYi9kcml2ZXJzL2NoYXIv
+aXBtaS9pcG1pX3NpX3BsYXRmb3JtLmMKQEAgLTQwNSwxMSArNDA1LDkgQEAgc3RhdGljIGludCBp
+cG1pX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCiAJcmV0dXJuIHBsYXRmb3Jt
+X2lwbWlfcHJvYmUocGRldik7CiB9CiAKLXN0YXRpYyBpbnQgaXBtaV9yZW1vdmUoc3RydWN0IHBs
+YXRmb3JtX2RldmljZSAqcGRldikKK3N0YXRpYyB2b2lkIGlwbWlfcmVtb3ZlKHN0cnVjdCBwbGF0
+Zm9ybV9kZXZpY2UgKnBkZXYpCiB7CiAJaXBtaV9zaV9yZW1vdmVfYnlfZGV2KCZwZGV2LT5kZXYp
+OwotCi0JcmV0dXJuIDA7CiB9CiAKIHN0YXRpYyBpbnQgcGRldl9tYXRjaF9uYW1lKHN0cnVjdCBk
+ZXZpY2UgKmRldiwgY29uc3Qgdm9pZCAqZGF0YSkKQEAgLTQ0Nyw3ICs0NDUsNyBAQCBzdHJ1Y3Qg
+cGxhdGZvcm1fZHJpdmVyIGlwbWlfcGxhdGZvcm1fZHJpdmVyID0gewogCQkuYWNwaV9tYXRjaF90
+YWJsZSA9IEFDUElfUFRSKGFjcGlfaXBtaV9tYXRjaCksCiAJfSwKIAkucHJvYmUJCT0gaXBtaV9w
+cm9iZSwKLQkucmVtb3ZlCQk9IGlwbWlfcmVtb3ZlLAorCS5yZW1vdmVfbmV3CT0gaXBtaV9yZW1v
+dmUsCiAJLmlkX3RhYmxlICAgICAgID0gc2lfcGxhdF9pZHMKIH07CiAKLS0gCjIuNDMuMAoKCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpPcGVuaXBtaS1k
+ZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3Jn
+ZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vmb3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3Blbmlw
+bWktZGV2ZWxvcGVyCg==
