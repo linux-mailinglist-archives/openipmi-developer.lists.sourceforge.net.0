@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2F785890963
-	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Mar 2024 20:39:57 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2E0A489097E
+	for <lists+openipmi-developer@lfdr.de>; Thu, 28 Mar 2024 20:41:56 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1rpvbJ-0003d4-Sq;
-	Thu, 28 Mar 2024 19:39:50 +0000
+	id 1rpvdC-0005tL-I6;
+	Thu, 28 Mar 2024 19:41:46 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <allen.lkml@gmail.com>) id 1rpvbI-0003cx-Ps
+ (envelope-from <allen.lkml@gmail.com>) id 1rpvdA-0005tE-RN
  for openipmi-developer@lists.sourceforge.net;
- Thu, 28 Mar 2024 19:39:48 +0000
+ Thu, 28 Mar 2024 19:41:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
  In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
  :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=622VK9NVBI6NV/BHlHroiE+gl2GqatwpJmnEQrqKhSw=; b=G2vaVapkEPkP/RR/WkPXer2sD3
- c5ANlHga8yKQeHQQq72NsBkApmNTgnGfh+mXpVQWp67sVjoIcYeh04xdjZI7K0uaSHPJRMMVmNCDp
- KwevELJPWY8M4cV5n90MT4WgsAGZ8bli5v2BZkUNmn1oyqy/dYpY/Q01VecH1a5VfFg4=;
+ bh=WIYRUJlYf8k4Ww5l6bxXyNzs1Z7gSD0K+4rAhlyLzPk=; b=JsfC8lyy3pnaRZ40fvcgxfcQoY
+ ON5Wkv1VJcBEgMcwEKBJntUW044+ZGHXAPat6VPpyc4+pnZWUGZTMSnLMqPKznXfPE/gKYfGcgT1c
+ rxxRYA/hZlF4W7D3hrmAkDqTRoMnSUYbESVr/jpxeuo4m4jR24mF4tlNi1LevfnXGOy8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
@@ -31,90 +31,92 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=622VK9NVBI6NV/BHlHroiE+gl2GqatwpJmnEQrqKhSw=; b=bOf7El7NlzkAuDkOy8otwWfNOu
- fcPrpZa3iS2QPUJqKwM4B4/yHZMql10zFIz9EkbBUa3awLFszLpjBVwE4L3PS9HlLiYJ8S5DnGS5x
- 21i+jGVEtPZ8kflfjiaSrv1SdrY2o+VAyj2qaCOwWUWce8vwLGyIPQD3z8MKYeRIEa3s=;
-Received: from mail-vk1-f169.google.com ([209.85.221.169])
+ bh=WIYRUJlYf8k4Ww5l6bxXyNzs1Z7gSD0K+4rAhlyLzPk=; b=bFnCxszHkYKnLuob9/tKTGIMky
+ 7KLKDeKE9hp7j99H8EPee4Zsci72MlT9NjQ4+Zmk6a/aE1AYnALj26XbFO3Y5zIFlzw4lDpTXWI26
+ DLeZ2I7QnvUDgAoRJpOXB1sDNdsDy1ZM0t3fkDBtp00S/xfsRGKXnJktLfoIxLVZywNg=;
+Received: from mail-vk1-f176.google.com ([209.85.221.176])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1rpvbH-0004nw-K6 for openipmi-developer@lists.sourceforge.net;
- Thu, 28 Mar 2024 19:39:48 +0000
-Received: by mail-vk1-f169.google.com with SMTP id
- 71dfb90a1353d-4d8a2ff9d68so477030e0c.0
+ id 1rpvdA-0004wu-DM for openipmi-developer@lists.sourceforge.net;
+ Thu, 28 Mar 2024 19:41:45 +0000
+Received: by mail-vk1-f176.google.com with SMTP id
+ 71dfb90a1353d-4d47000f875so504706e0c.2
  for <openipmi-developer@lists.sourceforge.net>;
- Thu, 28 Mar 2024 12:39:47 -0700 (PDT)
+ Thu, 28 Mar 2024 12:41:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1711654782; x=1712259582; darn=lists.sourceforge.net;
+ d=gmail.com; s=20230601; t=1711654894; x=1712259694; darn=lists.sourceforge.net;
  h=cc:to:subject:message-id:date:from:in-reply-to:references
  :mime-version:from:to:cc:subject:date:message-id:reply-to;
- bh=622VK9NVBI6NV/BHlHroiE+gl2GqatwpJmnEQrqKhSw=;
- b=mUi5Sf+fKGIXqUOF741qn0va2rrFLepihCddebejhW5WDcxriSlYtiVBMjanPp+zC1
- 3MelPs5z+T56uP8QIDiCRYqdMu4uW+Tbe90yW2dzaUw95i/CddcPJtgDNO05xeJJF3bZ
- OEfa/G/5ZJNXv+CwIFxg2ts4uHRVzy69/RlbOwZFOOqX62HWvvuMHwJ8silFQOn6rQ8s
- NbPmcuOMVbvwyV4BERXoKWBe86h+/KRH3xZ1bV2CPJprUMVIQTWK+IGY6y7R154DdZ0U
- 5SyQPOsW5Aid9YDqkaUlkGGsiIhx4n0UhfKzPl/2D/jiwS6b+aztehsUEWftcXJEq6yJ
- woMg==
+ bh=WIYRUJlYf8k4Ww5l6bxXyNzs1Z7gSD0K+4rAhlyLzPk=;
+ b=YQVFa6iGDsF/UODAGxO7G000AKiws4RThIhKpHqb1Ba7EY6/RiiIpeBXPngEpYuJtD
+ 7TKRE0uCaQvpD1ZeDdyHWrH2wP26PTxeS9MjAmgh3EIbFTs+ELz7O0JbT7rKWwUknhCA
+ c1nTh52czXtlznrQCde0jWZgK1KMIVfDRgSxStQxMRPEUALDZiu+L4Pc7sWzv+PpGc27
+ gUL6M1pEeBkFDgOBzZLPeWWkeybDPTkNdLPafU4YoHAcij7sC+ZFM7oEZ9ORYPgBA7Mb
+ 0a4w/nLZMbdVusdg3SEPlxr2RGFqVm14E5p0dIhknkam5JVh8W/OH2VXzB7v17RlfxMc
+ c5CQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1711654782; x=1712259582;
+ d=1e100.net; s=20230601; t=1711654894; x=1712259694;
  h=cc:to:subject:message-id:date:from:in-reply-to:references
  :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
  :reply-to;
- bh=622VK9NVBI6NV/BHlHroiE+gl2GqatwpJmnEQrqKhSw=;
- b=q1dwcqtIltYlcczAq3EncbL9iEJUUpgdxF29jtoaKrdh/3vZN4+yQB2Nq2poHXOPMS
- xtwJ0HqJSdgc9ejabcGMATEYBrBG3O/1On6dt54tMVoUob5tk7McHJXjMSkhZtxatzhP
- Sp1XAo/boHtMNeGqIzO5WZFOxrFw0AWH3dTp7QHGvkQOzMoPx9BdDzFUYtitGcyeX0/r
- m1gUfcaR+rCUlx5iUVkN1mcwzloWYLcoxVpz7PrwdtwzdLf78UF0cw6RWBQsyGnCmqyI
- fWUepuBrwBtxffZDCy2c3zKhqo3V6NksW3BObq4+Y2NvTObVPcZFHsbjLhliZVDkb0YW
- 0Gdw==
+ bh=WIYRUJlYf8k4Ww5l6bxXyNzs1Z7gSD0K+4rAhlyLzPk=;
+ b=FgaNrQ6nIjyO+KntdPLTJA5DGCf50GCv6UHg7zMFP8FUgDlcep7+SJyTAbaFTdtoYC
+ VqCNubx+div5zE5bK/PWpntqVsoPyhwhi9PmP3lKYTMchQfKSwLQ2QpYkadlxF1lLIWt
+ VMfLMtT46/k8RpAiznQAz+5MjkgA8iR3JD8Mt7YX3R+KzLvkLCbbf9Va0o5H/WGyDlXh
+ SpGy/8B2AzzT50OyjCPkp7mhoWN4dmxgbCKKG33lryut9DirQ0K67ejcrwps2B4EMhUN
+ 1RITr4ylu7djlO6V5dBB6RsHM9VoNKtMxCyEcukmGjP28n5RIbOz9wOdwT8f9FFYIq4G
+ zsqg==
 X-Forwarded-Encrypted: i=1;
- AJvYcCUYW52XBH5ou2KyacrjX2UEuc0SgFLkIbIjx7/iySpmPshEg9byhFo6rFRyMEIP5wq37lrAiQq/X07PLRnYsIspusMN2vI8zE8y22wd8W/9TOd/fN3A34mq
-X-Gm-Message-State: AOJu0YyCapkF1Cs00kfRmlVHhcdvCqDu8KjLRcrIQiHNU2gABL9yyGJn
- HL+M1iVcmQ9uFoyUAyWdvhqjcJvqMvjh0IEBppbxBRsUe/M1G6reFYgN7EFdgzlSbXH+UMr6B4C
- H2PL/LzWjXon7SDIHOSnU+CvVea0=
-X-Google-Smtp-Source: AGHT+IEY59Ji/OARBUAoYgwqWp5p4Pop3R94bZWuKlJaRj9K8xYwJ5pD7jLBPmXxcg5SXNElqhUUtT98mEK7bvSO2Kc=
-X-Received: by 2002:a1f:c801:0:b0:4d4:1cca:1a72 with SMTP id
- y1-20020a1fc801000000b004d41cca1a72mr369742vkf.6.1711654781874; Thu, 28 Mar
- 2024 12:39:41 -0700 (PDT)
+ AJvYcCXF0fNejULOt26sox/CfGxssCx66/h2xEG3Itvg3Cqf1FrAcLzRojp5AJzbVS67zqMTTiym+/fVwsU8d6Nlb9b8h/VRpW/ylLgzTLSlKp03hx8A1ObCylea
+X-Gm-Message-State: AOJu0Yyb+ke7GbHLp3fJB+r9KNMeZN7L4ELsgCYUAzJnpOfNeSp75Xzl
+ iAEw30/bfh9VUSq78xWJB0uhfn9Ogee7y6/sOGHc4Y4pupn0LEhMwRKaEPGtkhIwcVSswhKeH2I
+ bEZN4OBJVEUFLkpisVz9I6ftH78E=
+X-Google-Smtp-Source: AGHT+IF7RrkP6jmtYq8PnUCxuTgzt2Qt4CTC9MlCAHIq165hbFM88DzkJJ/z4aTnoTdb1soUmIZQWdyI4gYKg4Ogr2U=
+X-Received: by 2002:a1f:ebc2:0:b0:4d3:43f8:8541 with SMTP id
+ j185-20020a1febc2000000b004d343f88541mr348710vkh.1.1711654893631; Thu, 28 Mar
+ 2024 12:41:33 -0700 (PDT)
 MIME-Version: 1.0
 References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-3-apais@linux.microsoft.com> <ZgUGXTKPVhrA1tam@matsya>
- <2e9257af-c123-406b-a189-eaebeecc1d71@app.fastmail.com>
- <ZgW3j1qkLA-QU4iM@matsya>
-In-Reply-To: <ZgW3j1qkLA-QU4iM@matsya>
+ <20240327160314.9982-7-apais@linux.microsoft.com>
+ <ZgRePyo2zC4A1Fp4@mail.minyard.net>
+ <CAOMdWS+1AFxEqmACiBYzPHc+q0Ut6hp15tdV50JHvfVeUNCGQw@mail.gmail.com>
+ <ZgXDmx1HvujsMYAR@mail.minyard.net>
+In-Reply-To: <ZgXDmx1HvujsMYAR@mail.minyard.net>
 From: Allen <allen.lkml@gmail.com>
-Date: Thu, 28 Mar 2024 12:39:30 -0700
-Message-ID: <CAOMdWSKY9D75FM3bswUfXn2o7bGtrei3G5kLt6JdcdOPDXaG8g@mail.gmail.com>
-To: Vinod Koul <vkoul@kernel.org>
+Date: Thu, 28 Mar 2024 12:41:22 -0700
+Message-ID: <CAOMdWS+nB5EENp_Vb=k1j77nrch5JgbZP2XYPJ2ieTja14zB0w@mail.gmail.com>
+To: minyard@acm.org
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: > > >> The only generic interface to execute asynchronously
- in the BH context is > > >> tasklet; however, it's marked deprecated and
- has some design flaws. To > > >> replace tasklets, BH workqueue sup [...] 
+ Content preview: > > > I believe that work queues items are execute
+ single-threaded
+ for a work > > > queue, so this should be good. I need to test this, though.
+ It may be > > > that an IPMI device can have its own wor [...] 
  Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.221.169 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [allen.lkml[at]gmail.com]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.221.169 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
-X-Headers-End: 1rpvbH-0004nw-K6
-Subject: Re: [Openipmi-developer] [PATCH 2/9] dma: Convert from tasklet to
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.221.176 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.221.176 listed in wl.mailspike.net]
+X-Headers-End: 1rpvdA-0004wu-DM
+Subject: Re: [Openipmi-developer] [PATCH 6/9] ipmi: Convert from tasklet to
  BH workqueue
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -128,105 +130,70 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: imx@lists.linux.dev, Ulf Hansson <ulf.hansson@linaro.org>,
- Oliver Neukum <oneukum@suse.com>, duncan.sands@free.fr,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- "linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
- aubin.constans@microchip.com, Linus Walleij <linus.walleij@linaro.org>,
- Frank Li <Frank.Li@nxp.com>, linux-hyperv@vger.kernel.org,
- linux-mips@vger.kernel.org, Paul Cercueil <paul@crapouillou.net>,
- linux-tegra@vger.kernel.org, Netdev <netdev@vger.kernel.org>,
+Cc: imx@lists.linux.dev, ulf.hansson@linaro.org, oneukum@suse.com,
+ duncan.sands@free.fr, hayashi.kunihiko@socionext.com,
+ linux-mmc@vger.kernel.org, aubin.constans@microchip.com,
+ linus.walleij@linaro.org, Frank.Li@nxp.com, linux-hyperv@vger.kernel.org,
+ linux-usb@vger.kernel.org, HaraldWelte@viatech.com, paul@crapouillou.net,
+ linux-tegra@vger.kernel.org, netdev@vger.kernel.org,
  maintainers@bluecherrydvr.com, peter.ujfalusi@gmail.com,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- linux-riscv@lists.infradead.org, "K. Y. Srinivasan" <kys@microsoft.com>,
- Robert Jarzmik <robert.jarzmik@free.fr>, haijie1@huawei.com,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- Wei Liu <wei.liu@kernel.org>, Linux-OMAP <linux-omap@vger.kernel.org>,
- oakad@yahoo.com, Florian Fainelli <florian.fainelli@broadcom.com>,
- linux-rdma@vger.kernel.org, Viresh Kumar <vireshk@kernel.org>,
- Jassi Brar <jassisinghbrar@gmail.com>, Dexuan Cui <decui@microsoft.com>,
- HaraldWelte@viatech.com, Jernej Skrabec <jernej.skrabec@gmail.com>,
- "jh80.chung" <jh80.chung@samsung.com>, zw@zh-kernel.org,
- Chen-Yu Tsai <wens@csie.org>, Alan Stern <stern@rowland.harvard.edu>,
- linux-arm-msm@vger.kernel.org, Orson Zhai <orsonzhai@gmail.com>,
- pierre@ossman.eu, linux-usb@vger.kernel.org, Eugeniy.Paltsev@synopsys.com,
- Patrice Chotard <patrice.chotard@foss.st.com>, asahi@lists.linux.dev,
- brucechang@via.com.tw, Kees Cook <keescook@chromium.org>,
- Arnd Bergmann <arnd@arndb.de>, Sven Peter <sven@svenpeter.dev>,
- Ray Jui <rjui@broadcom.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Sean Wang <sean.wang@mediatek.com>, linux-actions@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, Haojian Zhuang <haojian.zhuang@gmail.com>,
- =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
- dmaengine@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- openipmi-developer@lists.sourceforge.net,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
+ manivannan.sadhasivam@linaro.org, linux-riscv@lists.infradead.org,
+ kys@microsoft.com, robert.jarzmik@free.fr, haijie1@huawei.com,
+ linux-renesas-soc@vger.kernel.org, wei.liu@kernel.org,
+ linux-omap@vger.kernel.org, florian.fainelli@broadcom.com,
+ linux-rdma@vger.kernel.org, vireshk@kernel.org, jassisinghbrar@gmail.com,
+ decui@microsoft.com, wangzhou1@hisilicon.com, jernej.skrabec@gmail.com,
+ jh80.chung@samsung.com, zw@zh-kernel.org, wens@csie.org,
+ stern@rowland.harvard.edu, linux-arm-msm@vger.kernel.org, orsonzhai@gmail.com,
+ pierre@ossman.eu, linux-mips@vger.kernel.org, Eugeniy.Paltsev@synopsys.com,
+ patrice.chotard@foss.st.com, asahi@lists.linux.dev, brucechang@via.com.tw,
+ keescook@chromium.org, oakad@yahoo.com, sven@svenpeter.dev, rjui@broadcom.com,
+ s.hauer@pengutronix.de, sean.wang@mediatek.com,
+ linux-actions@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ haojian.zhuang@gmail.com, mirq-linux@rere.qmqm.pl, dmaengine@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ baolin.wang@linux.alibaba.com, matthias.bgg@gmail.com,
+ openipmi-developer@lists.sourceforge.net, mchehab@kernel.org,
  Allen Pais <apais@linux.microsoft.com>, linux-arm-kernel@lists.infradead.org,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Scott Branden <sbranden@broadcom.com>, logang@deltatee.com,
- Bjorn Andersson <andersson@kernel.org>, Hector Martin <marcan@marcan.st>,
- Haiyang Zhang <haiyangz@microsoft.com>, linux-kernel@vger.kernel.org,
- Leo Li <leoyang.li@nxp.com>, Konrad Dybcio <konrad.dybcio@linaro.org>,
- linux-sunxi@lists.linux.dev, Zhou Wang <wangzhou1@hisilicon.com>,
- linux-s390@vger.kernel.org, Masami Hiramatsu <mhiramat@kernel.org>,
- Chunyan Zhang <zhang.lyra@gmail.com>, Tejun Heo <tj@kernel.org>,
- Manuel Lauss <manuel.lauss@gmail.com>, linux-media@vger.kernel.org,
- Shawn Guo <shawnguo@kernel.org>,
- =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
- Daniel Mack <daniel@zonque.org>
+ angelogioacchino.delregno@collabora.com, sbranden@broadcom.com,
+ logang@deltatee.com, andersson@kernel.org, marcan@marcan.st,
+ haiyangz@microsoft.com, linux-kernel@vger.kernel.org, leoyang.li@nxp.com,
+ konrad.dybcio@linaro.org, linux-sunxi@lists.linux.dev, vkoul@kernel.org,
+ linux-s390@vger.kernel.org, mhiramat@kernel.org, zhang.lyra@gmail.com,
+ tj@kernel.org, manuel.lauss@gmail.com, linux-media@vger.kernel.org,
+ shawnguo@kernel.org, afaerber@suse.de, daniel@zonque.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-> > >> The only generic interface to execute asynchronously in the BH context is
-> > >> tasklet; however, it's marked deprecated and has some design flaws. To
-> > >> replace tasklets, BH workqueue support was recently added. A BH workqueue
-> > >> behaves similarly to regular workqueues except that the queued work items
-> > >> are executed in the BH context.
-> > >
-> > > Thanks for conversion, am happy with BH alternative as it helps in
-> > > dmaengine where we need shortest possible time between tasklet and
-> > > interrupt handling to maximize dma performance
+> > > I believe that work queues items are execute single-threaded for a work
+> > > queue, so this should be good.  I need to test this, though.  It may be
+> > > that an IPMI device can have its own work queue; it may not be important
+> > > to run it in bh context.
 > >
-> > I still feel that we want something different for dmaengine,
-> > at least in the long run. As we have discussed in the past,
-> > the tasklet context in these drivers is what the callbacks
-> > from the dma client device is run in, and a lot of these probably
-> > want something other than tasklet context, e.g. just call
-> > complete() on a client-provided completion structure.
+> >   Fair point. Could you please let me know once you have had a chance to test
+> > these changes. Meanwhile, I will work on RFC wherein IPMI will have its own
+> > workqueue.
 > >
-> > Instead of open-coding the use of the system_bh_wq in each
-> > dmaengine, how about we start with a custom WQ_BH
-> > specifically for the dmaengine subsystem and wrap them
-> > inside of another interface.
-> >
-> > Since almost every driver associates the tasklet with the
-> > dma_chan, we could go one step further and add the
-> > work_queue structure directly into struct dma_chan,
-> > with the wrapper operating on the dma_chan rather than
-> > the work_queue.
+> >  Thanks for taking time out to review.
 >
-> I think that is very great idea. having this wrapped in dma_chan would
-> be very good way as well
+> After looking and thinking about it a bit, a BH context is still
+> probably the best for this.
 >
-> Am not sure if Allen is up for it :-)
-
- Thanks Arnd, I know we did speak about this at LPC. I did start
-working on using completion. I dropped it as I thought it would
-be easier to move to workqueues.
-
-Vinod, I would like to give this a shot and put out a RFC, I would
-really appreciate review and feedback.
-
-Thanks,
-Allen
-
+> I have tested this patch under load and various scenarios and it seems
+> to work ok.  So:
 >
-> --
-> ~Vinod
+> Tested-by: Corey Minyard <cminyard@mvista.com>
+> Acked-by: Corey Minyard <cminyard@mvista.com>
 >
+> Or I can take this into my tree.
+>
+> -corey
+
+ Thank you very much. I think it should be okay for you to carry it into
+your tree.
+
+- Allen
 
 
 _______________________________________________
