@@ -2,97 +2,99 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C870D898551
-	for <lists+openipmi-developer@lfdr.de>; Thu,  4 Apr 2024 12:45:37 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id B7AA6898552
+	for <lists+openipmi-developer@lfdr.de>; Thu,  4 Apr 2024 12:45:44 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1rsKb3-0001Iy-FK;
-	Thu, 04 Apr 2024 10:45:29 +0000
+	id 1rsKbB-00054u-Lk;
+	Thu, 04 Apr 2024 10:45:38 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <schnelle@linux.ibm.com>) id 1rsKb1-0001Ip-EK
+ (envelope-from <schnelle@linux.ibm.com>) id 1rsKbA-00054n-LQ
  for openipmi-developer@lists.sourceforge.net;
- Thu, 04 Apr 2024 10:45:27 +0000
+ Thu, 04 Apr 2024 10:45:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=q+sqSTsDlBfp7Iyh5uWNZH97tMcJDE9eD7jxd8HKrIE=; b=Ml+g/LxmJRQ9IPFyYv90yzvsPq
- tHLvwENtaVpyrrNM5TM1pWsi3WA6RIMI06TS75gTF9BmmH0WICs6fBMEJH/aMLWwQEoSEIYW4X8S0
- /+g78ogJAWBvtWbYPKfFvZV/IW3pUkFRBbckfHiWZyK/Vw/+t6+sRqsYtyZ0cDNUQwqo=;
+ bh=LkfPc/oHc9a1m6lwETkqmZijhb73ksbwc0VnxLcBNGo=; b=g216iNSxHYov8iRjNvxS6jNcqN
+ 6cGncqnAOxi4e4wvcfwDdKvsVFpcQBe+SvH0G+Y4uvvhTO8ozaPH+CfLqPnWcewPhJcAdth/3423c
+ /GwRnRE8DidlBNa4GWnMM1jgZHOE8z3v25CqtSvvOXc3aNxjEzG4iGIqZoLNmFowERCs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=q+sqSTsDlBfp7Iyh5uWNZH97tMcJDE9eD7jxd8HKrIE=; b=e
- 5ioT6x6P90fZLjtODVU80iZld7C/i+VbR055Ch2Ed/CJCsrw4Ko3rRNQj5P/2qrZEPDC1k8IvyUWF
- jpwhVhAS0LLZTVY4Y+2z66taf0FcZSWALHGzBOuzLHLGg4y/Pl2i0820tt8naTV2XRkqqQ3YTMM9N
- zDU7AoPjUploBMFI=;
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=LkfPc/oHc9a1m6lwETkqmZijhb73ksbwc0VnxLcBNGo=; b=UfH0PZpTeKf5MP4JXdPfScWBpg
+ klxxynNEhVSI0AzxBMCUhF6DAyYVCkpbvnkOiDV0aSPU9OfwARz20QS+uN8i5q5ZuNZ3w/PqTJRnY
+ hEA4N1Nk3RrjWeWOu6m3eYFGtPVM0yAUQxveQYG6UZ1fN+TZ0p75pbMAvZ+0JvEJ/LGo=;
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1rsKaz-0003sm-EI for openipmi-developer@lists.sourceforge.net;
- Thu, 04 Apr 2024 10:45:27 +0000
+ id 1rsKb7-0003tc-Aw for openipmi-developer@lists.sourceforge.net;
+ Thu, 04 Apr 2024 10:45:36 +0000
 Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
  by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id
- 434AgEV7018925; Thu, 4 Apr 2024 10:45:14 GMT
+ 434AgOtp019554; Thu, 4 Apr 2024 10:45:14 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
  h=from : to : cc : subject
- : date : message-id : content-transfer-encoding : mime-version; s=pp1;
- bh=q+sqSTsDlBfp7Iyh5uWNZH97tMcJDE9eD7jxd8HKrIE=;
- b=lL+P8F+9ESZh/BlZFSq4+kY49sqDNzfaxlJM7xg5n7btHUbCoiOlSyqWkYXqIl/rF89V
- wiipkuZ/ig1jpI5tR91O/63ZFliRVybrMZb9QKyTXQ1JS+K3ZWYp8yqyhIC3UnRJcN5z
- RZS0e7AaZW+79k0eAaNCDC2Z4hwBCXq3V6yj/cc7w9dEG3U+MBZbsIlS0cRKQbPM0JWV
- r0q/JC6yc58PQ0p4nTam0SdBFXXZlCYheh2kBu37NhjfizbbIqtEH3OD/4kMc1CpV+qk
- nYXnHQgj6jw3X/zkP4S48dgjBr252E/EDJD7F34O2MFGUHkqPpiK7aqV8jMaMfn7I2Fr XQ== 
-Received: from ppma23.wdc07v.mail.ibm.com
- (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3x9tpbg059-1
+ : date : message-id : in-reply-to : references : mime-version :
+ content-transfer-encoding; s=pp1;
+ bh=LkfPc/oHc9a1m6lwETkqmZijhb73ksbwc0VnxLcBNGo=;
+ b=Dj8prOr3a6oMWhhRXRqikqHcnU4AayMmCYTjHNc9/DX8sAMgZ5se32zu8iI2+eI0j9zb
+ vLPlW7XtvGfdnK6MqxwJCDHske54ztFv1ZfIq2lpKUURcofAkWUezFRAhO+9E+Idqp7N
+ DtO2LTMRGdZbZB5J5XkB8diVSxkGLH7s5NE4Sg4ClBhPi7kPgEioBiKwNax7uT5cRlJJ
+ 7H2dVxPhgVqjGo5Cw2NkI2IZHR41Ejb1I5u0PlLinBpV03+N9OiS0jew/u8cu8pJZb6g
+ GZzzer+e6OWcpjnZOcD5nwwWAhDhu68Uz2IWz0VM6w7Z/5VUbbQnnLBv8IIc9pcct3rU 4Q== 
+Received: from ppma21.wdc07v.mail.ibm.com
+ (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+ by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3x9tpbg05b-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
  Thu, 04 Apr 2024 10:45:14 +0000
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
- by ppma23.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id
- 434AAUWc009103; Thu, 4 Apr 2024 10:45:12 GMT
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+ by ppma21.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id
+ 434A7nol008686; Thu, 4 Apr 2024 10:45:13 GMT
 Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
- by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3x9epxum83-1
+ by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3x9epw3mcp-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 04 Apr 2024 10:45:12 +0000
+ Thu, 04 Apr 2024 10:45:13 +0000
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com
  [10.20.54.104])
  by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 434Aj7Sd50921898
+ 434Aj71W48234850
  (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
  Thu, 4 Apr 2024 10:45:09 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 308162004D;
+ by IMSVA (Postfix) with ESMTP id 6DC4E2004F;
  Thu,  4 Apr 2024 10:45:07 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 0220E2004F;
+ by IMSVA (Postfix) with ESMTP id 3F8D720067;
  Thu,  4 Apr 2024 10:45:07 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
  by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
- Thu,  4 Apr 2024 10:45:06 +0000 (GMT)
+ Thu,  4 Apr 2024 10:45:07 +0000 (GMT)
 To: Corey Minyard <minyard@acm.org>
-Date: Thu,  4 Apr 2024 12:45:05 +0200
-Message-Id: <20240404104506.3352637-1-schnelle@linux.ibm.com>
+Date: Thu,  4 Apr 2024 12:45:06 +0200
+Message-Id: <20240404104506.3352637-2-schnelle@linux.ibm.com>
 X-Mailer: git-send-email 2.40.1
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: XzpofZFzyJ9yLadgYnIAYyNINa_Y1r7R
-X-Proofpoint-ORIG-GUID: XzpofZFzyJ9yLadgYnIAYyNINa_Y1r7R
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+In-Reply-To: <20240404104506.3352637-1-schnelle@linux.ibm.com>
+References: <20240404104506.3352637-1-schnelle@linux.ibm.com>
 MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 7OGl53mhQCeXU-sUGKHn8LCeLVgPTAY1
+X-Proofpoint-ORIG-GUID: 7OGl53mhQCeXU-sUGKHn8LCeLVgPTAY1
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
  definitions=2024-04-04_07,2024-04-04_01,2023-05-22_02
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  mlxlogscore=999 mlxscore=0
- suspectscore=0 clxscore=1011 priorityscore=1501 bulkscore=0
+ suspectscore=0 clxscore=1015 priorityscore=1501 bulkscore=0
  lowpriorityscore=0 phishscore=0 malwarescore=0 impostorscore=0 spamscore=0
  adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.12.0-2404010000 definitions=main-2404040073
@@ -103,9 +105,13 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Corey, This is a follow up in my ongoing effort of making
- inb()/outb() and similar I/O port accessors compile-time optional. Previously
- I sent this as a treewide series titled "treewide: Remove I/O port acce [...]
+ Content preview: In a future patch HAS_IOPORT=n will disable inb()/outb() and
+ friends at compile time. We thus need to add this dependency and ifdef
+ sections
+ of code using inb()/outb() as alternative access methods. Acked-by: Corey
+ Minyard <cminyard@mvista.com> Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+ Signed-off-by: Arnd Bergmann <arnd@kernel.org> Signed-off-by: Niklas Schnelle
+ <schnelle@linux.ibm.com> -- [...] 
  Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -119,8 +125,8 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1rsKaz-0003sm-EI
-Subject: [Openipmi-developer] [PATCH 0/1] char: ipmi: Handle HAS_IOPORT
+X-Headers-End: 1rsKb7-0003tc-Aw
+Subject: [Openipmi-developer] [PATCH 1/1] char: ipmi: handle HAS_IOPORT
  dependencies
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -144,38 +150,74 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi Corey,
+In a future patch HAS_IOPORT=n will disable inb()/outb() and friends at
+compile time. We thus need to add this dependency and ifdef sections of
+code using inb()/outb() as alternative access methods.
 
-This is a follow up in my ongoing effort of making inb()/outb() and
-similar I/O port accessors compile-time optional. Previously I sent this
-as a treewide series titled "treewide: Remove I/O port accessors for
-HAS_IOPORT=n" with the latest being its 5th version[0]. With a significant
-subset of patches merged I've changed over to per-subsystem series. These
-series are stand alone and should be merged via the relevant tree such
-that with all subsystems complete we can follow this up with the final
-patch that will make the I/O port accessors compile-time optional.
-
-The current state of the full series with changes to the remaining
-subsystems and the aforementioned final patch can be found for your
-convenience on my git.kernel.org tree in the has_ioport_v6 branch[1] with
-signed tags. As for compile-time vs runtime see Linus' reply to my first
-attempt[2].
-
-Thanks,
-Niklas
-
-[0] https://lore.kernel.org/all/20230522105049.1467313-1-schnelle@linux.ibm.com/
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/niks/linux.git/log/?h=has_ioport_v6
-[2] https://lore.kernel.org/lkml/CAHk-=wg80je=K7madF4e7WrRNp37e3qh6y10Svhdc7O8SZ_-8g@mail.gmail.com/
-
-Niklas Schnelle (1):
-  char: ipmi: handle HAS_IOPORT dependencies
+Acked-by: Corey Minyard <cminyard@mvista.com>
+Co-developed-by: Arnd Bergmann <arnd@kernel.org>
+Signed-off-by: Arnd Bergmann <arnd@kernel.org>
+Signed-off-by: Niklas Schnelle <schnelle@linux.ibm.com>
+---
+Note: This patch does not depend any not-yet-mainline HAS_IOPORT changes
+and may be merged via subsystem specific trees at your earliest
+convenience.
 
  drivers/char/ipmi/Makefile       | 11 ++++-------
  drivers/char/ipmi/ipmi_si_intf.c |  3 ++-
  drivers/char/ipmi/ipmi_si_pci.c  |  3 +++
  3 files changed, 9 insertions(+), 8 deletions(-)
 
+diff --git a/drivers/char/ipmi/Makefile b/drivers/char/ipmi/Makefile
+index cb6138b8ded9..e0944547c9d0 100644
+--- a/drivers/char/ipmi/Makefile
++++ b/drivers/char/ipmi/Makefile
+@@ -5,13 +5,10 @@
+ 
+ ipmi_si-y := ipmi_si_intf.o ipmi_kcs_sm.o ipmi_smic_sm.o ipmi_bt_sm.o \
+ 	ipmi_si_hotmod.o ipmi_si_hardcode.o ipmi_si_platform.o \
+-	ipmi_si_port_io.o ipmi_si_mem_io.o
+-ifdef CONFIG_PCI
+-ipmi_si-y += ipmi_si_pci.o
+-endif
+-ifdef CONFIG_PARISC
+-ipmi_si-y += ipmi_si_parisc.o
+-endif
++	ipmi_si_mem_io.o
++ipmi_si-$(CONFIG_HAS_IOPORT) += ipmi_si_port_io.o
++ipmi_si-$(CONFIG_PCI) += ipmi_si_pci.o
++ipmi_si-$(CONFIG_PARISC) += ipmi_si_parisc.o
+ 
+ obj-$(CONFIG_IPMI_HANDLER) += ipmi_msghandler.o
+ obj-$(CONFIG_IPMI_DEVICE_INTERFACE) += ipmi_devintf.o
+diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
+index 5cd031f3fc97..eea23a3b966e 100644
+--- a/drivers/char/ipmi/ipmi_si_intf.c
++++ b/drivers/char/ipmi/ipmi_si_intf.c
+@@ -1882,7 +1882,8 @@ int ipmi_si_add_smi(struct si_sm_io *io)
+ 	}
+ 
+ 	if (!io->io_setup) {
+-		if (io->addr_space == IPMI_IO_ADDR_SPACE) {
++		if (IS_ENABLED(CONFIG_HAS_IOPORT) &&
++		    io->addr_space == IPMI_IO_ADDR_SPACE) {
+ 			io->io_setup = ipmi_si_port_setup;
+ 		} else if (io->addr_space == IPMI_MEM_ADDR_SPACE) {
+ 			io->io_setup = ipmi_si_mem_setup;
+diff --git a/drivers/char/ipmi/ipmi_si_pci.c b/drivers/char/ipmi/ipmi_si_pci.c
+index 74fa2055868b..b83d55685b22 100644
+--- a/drivers/char/ipmi/ipmi_si_pci.c
++++ b/drivers/char/ipmi/ipmi_si_pci.c
+@@ -97,6 +97,9 @@ static int ipmi_pci_probe(struct pci_dev *pdev,
+ 	}
+ 
+ 	if (pci_resource_flags(pdev, 0) & IORESOURCE_IO) {
++		if (!IS_ENABLED(CONFIG_HAS_IOPORT))
++			return -ENXIO;
++
+ 		io.addr_space = IPMI_IO_ADDR_SPACE;
+ 		io.io_setup = ipmi_si_port_setup;
+ 	} else {
 -- 
 2.40.1
 
