@@ -2,139 +2,93 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0C85789BEF7
-	for <lists+openipmi-developer@lfdr.de>; Mon,  8 Apr 2024 14:29:11 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0378B89DB02
+	for <lists+openipmi-developer@lfdr.de>; Tue,  9 Apr 2024 15:48:55 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1rto7S-00015s-5w;
-	Mon, 08 Apr 2024 12:29:02 +0000
+	id 1ruBqA-0007EQ-34;
+	Tue, 09 Apr 2024 13:48:46 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <freude@linux.ibm.com>) id 1rtlql-00052c-FQ
+ (envelope-from <gregkh@linuxfoundation.org>) id 1ruBq9-0007EJ-96
  for openipmi-developer@lists.sourceforge.net;
- Mon, 08 Apr 2024 10:03:39 +0000
+ Tue, 09 Apr 2024 13:48:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :Message-ID:References:In-Reply-To:Reply-To:Subject:Cc:To:From:Date:Sender:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=WGRw+wpQ+8BkQKcdJ/jvqWzRkTuOQNEebcPy5PQD4Kw=; b=GdSxJ8QBCUtJgC82SYFMityM1U
- 8wsMHLXdfkeohU1vxV7uuSNwFSedav2KigJP6hc8z753bkrYUoKN2s+XIq+jOyZIrpj98YWZNo0Gy
- 165kIOOhZpLp/tYKNlLDfKFXY+IjXjxSbJoqOst7zGg8wQCgvxjCiEsqjpR25BYjlgVs=;
+ bh=zoqvo0SkVe7FZCEdtc0ikknFKhEE8JSeCzy+LHsrsMM=; b=Z0QltmRryYbw2u+hl9eSPTgtFf
+ iqafbFPiGadJ8JOPGyvZjlcG6XqpYKdVvQniG3uSJlBhid85xR1YZPecyKEu8UlpoVG/XXQ3esoIe
+ lKkOqr/PFu4g34Qt7CkytvcE/2HheSu2A7cFx0y04Id3m/5m9B8UKqUX4NL2RPsNecp4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:Message-ID:References
- :In-Reply-To:Reply-To:Subject:Cc:To:From:Date:Sender:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=WGRw+wpQ+8BkQKcdJ/jvqWzRkTuOQNEebcPy5PQD4Kw=; b=bWkkb6A+qP7J6k6DyRoaNn5FG/
- Yko0D7YY2Em0tLWgDkgDHJI0MTnZevYmi7ZmMJfwTlVqx8QssFKi/24MN993W+5TQ+dmD8EsP8PiX
- B0O+Zmb3H9BrxzCDC45EfX9pzRq1u7UIH+Bd0LexxyhpbBqiqAkbPRLFRW6nMYraXmqk=;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+ bh=zoqvo0SkVe7FZCEdtc0ikknFKhEE8JSeCzy+LHsrsMM=; b=OE6geeJ/E/20q/0fE9YbSdrwLP
+ sTABXzjwZWkhhL1ZMZ2fAOOUMQNGKyW1mPMLLXuk6YtFT9PEdAn7ODmWMcxfYJul2T/iNcTNru9mC
+ J/kv1gsM70mhNa2nnLo5WPzu119NJ/+Glzy2bU3BuU57kkkvHjgl9C6kFSVDBiTXQayM=;
+Received: from sin.source.kernel.org ([145.40.73.55])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1rtlqk-0000Wb-T7 for openipmi-developer@lists.sourceforge.net;
- Mon, 08 Apr 2024 10:03:39 +0000
-Received: from pps.filterd (m0353727.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.17.1.19/8.17.1.19) with ESMTP id
- 4389vTLC024196; Mon, 8 Apr 2024 10:03:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=date : from : to : cc :
- subject : reply-to : in-reply-to : references : message-id : content-type
- : content-transfer-encoding : mime-version; s=pp1;
- bh=WGRw+wpQ+8BkQKcdJ/jvqWzRkTuOQNEebcPy5PQD4Kw=;
- b=V1m9DY18uGHMz8vh9IxAKCdhy2XzRwg7vXDe5eU16f5nEfVNyFSH2bkwzlSGAU2+MppO
- 4KiihhZ6Fk01FJPzdXSR1BLEuGht8lFKOYZkgyQ+XDX6d86NzlDgaIq0J9qJC+jfnfB7
- aEeGTfrHV1qJLbUVw7VwF0wJD3GQGVNebGmuEEwqhBLJ9iqNw/OPA1h1UuFrYBwI63SP
- L8QiPE5Ov/+xNvSEFsQF6+fJ779nZgk/JgjuEZ8d5Yw4SPP9YYyN9phnIKPRv8VXU/FC
- LdWtpshSMMqQ0phdyUamMRN3ZDDlZNvPvkSzaRMK+nFo6z+Im4121GSQHwYWxTP0de2t 7g== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xceda00e7-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 08 Apr 2024 10:03:21 +0000
-Received: from m0353727.ppops.net (m0353727.ppops.net [127.0.0.1])
- by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 438A3KAu002830;
- Mon, 8 Apr 2024 10:03:20 GMT
-Received: from ppma22.wdc07v.mail.ibm.com
- (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3xceda00e4-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 08 Apr 2024 10:03:20 +0000
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
- by ppma22.wdc07v.mail.ibm.com (8.17.1.19/8.17.1.19) with ESMTP id
- 4387uZ0H019096; Mon, 8 Apr 2024 10:03:18 GMT
-Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
- by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 3xbh3yym76-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 08 Apr 2024 10:03:18 +0000
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com
- [10.39.53.229])
- by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 438A3FKl53084522
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 8 Apr 2024 10:03:18 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id D2E1D58058;
- Mon,  8 Apr 2024 10:03:15 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id F35F85806B;
- Mon,  8 Apr 2024 10:03:10 +0000 (GMT)
-Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
- by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
- Mon,  8 Apr 2024 10:03:10 +0000 (GMT)
-Date: Mon, 08 Apr 2024 12:03:10 +0200
-To: Allen Pais <apais@linux.microsoft.com>
-Mail-Reply-To: freude@linux.ibm.com
-In-Reply-To: <20240327160314.9982-8-apais@linux.microsoft.com>
-References: <20240327160314.9982-1-apais@linux.microsoft.com>
- <20240327160314.9982-8-apais@linux.microsoft.com>
-Message-ID: <702594ec5852c482f96cfcf84a02cab2@linux.ibm.com>
-X-Sender: freude@linux.ibm.com
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: vcJ1PwKFq1RysBO3jh1OFUS_rcqMuAYv
-X-Proofpoint-ORIG-GUID: X3ilzQ7TzOIWEyFQfqPrw-z8aSdSkVVd
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+ id 1ruBq8-00006h-Ad for openipmi-developer@lists.sourceforge.net;
+ Tue, 09 Apr 2024 13:48:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+ by sin.source.kernel.org (Postfix) with ESMTP id 61DE0CE1368;
+ Tue,  9 Apr 2024 13:48:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8499DC433C7;
+ Tue,  9 Apr 2024 13:48:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+ s=korg; t=1712670511;
+ bh=lY/4wKOh/DIkoH73lXxAFPUPx0Fw/2iox1dE6fYg0V4=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=jk/4sfVzp/FqUu/E9Kv984LFB+BDnS4hpA6X7Xur98C4l2OpU0LQqrhXzdPxhLC5g
+ maOM8QLXXPrlFxo+/o9nCh64QqB7E3dqEk4OBCFZ6kUJK0CQyaBup3A2HduHoP68sP
+ nI956a18HBaBun5llmCJ9uH74oCtXxtH8ceqT1oI=
+Date: Tue, 9 Apr 2024 15:48:28 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Message-ID: <2024040921-propose-scorer-a319@gregkh>
+References: <20240403080702.3509288-1-arnd@kernel.org>
+ <20240403080702.3509288-34-arnd@kernel.org>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.272,Aquarius:18.0.1011,Hydra:6.0.619,FMLib:17.11.176.26
- definitions=2024-04-08_08,2024-04-05_02,2023-05-22_02
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 mlxlogscore=918
- lowpriorityscore=0 bulkscore=0 spamscore=0 adultscore=0 priorityscore=1501
- malwarescore=0 phishscore=0 impostorscore=0 clxscore=1011 suspectscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2404010000
- definitions=main-2404080077
-X-Spam-Score: -0.1 (/)
+Content-Disposition: inline
+In-Reply-To: <20240403080702.3509288-34-arnd@kernel.org>
+X-Spam-Score: -4.2 (----)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 2024-03-27 17:03, Allen Pais wrote: > The only generic
- interface to execute asynchronously in the BH context > is > tasklet; however,
- it's marked deprecated and has some design flaws. To > replace [...] 
- Content analysis details:   (-0.1 points, 6.0 required)
+ Content preview:  On Wed, Apr 03, 2024 at 10:06:51AM +0200,
+ Arnd Bergmann wrote:
+ > From: Arnd Bergmann <arnd@arndb.de> > > When building with CONFIG_OF and/or
+ CONFIG_ACPI disabled but W=1 extra > warnings enabled, a lo [...] 
+ Content analysis details:   (-4.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [145.40.73.55 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [148.163.156.1 listed in wl.mailspike.net]
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1rtlqk-0000Wb-T7
-X-Mailman-Approved-At: Mon, 08 Apr 2024 12:29:00 +0000
-Subject: Re: [Openipmi-developer] [PATCH 7/9] s390: Convert from tasklet to
- BH workqueue
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -1.7 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1ruBq8-00006h-Ad
+Subject: Re: [Openipmi-developer] [PATCH 33/34] drivers: remove incorrect
+ of_match_ptr/ACPI_PTR annotations
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -147,78 +101,71 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Harald Freudenberger via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: freude@linux.ibm.com
-Cc: imx@lists.linux.dev, ulf.hansson@linaro.org, oneukum@suse.com,
- duncan.sands@free.fr, hayashi.kunihiko@socionext.com,
- linux-mmc@vger.kernel.org, aubin.constans@microchip.com,
- linus.walleij@linaro.org, Frank.Li@nxp.com, linux-hyperv@vger.kernel.org,
- linux-usb@vger.kernel.org, HaraldWelte@viatech.com, paul@crapouillou.net,
- linux-tegra@vger.kernel.org, netdev@vger.kernel.org,
- maintainers@bluecherrydvr.com, peter.ujfalusi@gmail.com,
- manivannan.sadhasivam@linaro.org, linux-riscv@lists.infradead.org,
- kys@microsoft.com, robert.jarzmik@free.fr, haijie1@huawei.com,
- linux-renesas-soc@vger.kernel.org, wei.liu@kernel.org,
- linux-omap@vger.kernel.org, florian.fainelli@broadcom.com,
- linux-rdma@vger.kernel.org, vireshk@kernel.org, jassisinghbrar@gmail.com,
- decui@microsoft.com, wangzhou1@hisilicon.com, jernej.skrabec@gmail.com,
- jh80.chung@samsung.com, zw@zh-kernel.org, wens@csie.org,
- stern@rowland.harvard.edu, linux-arm-msm@vger.kernel.org, orsonzhai@gmail.com,
- pierre@ossman.eu, linux-mips@vger.kernel.org, Eugeniy.Paltsev@synopsys.com,
- patrice.chotard@foss.st.com, asahi@lists.linux.dev, brucechang@via.com.tw,
- Holger Dengler <dengler@linux.ibm.com>, keescook@chromium.org, oakad@yahoo.com,
- sven@svenpeter.dev, rjui@broadcom.com, s.hauer@pengutronix.de,
- sean.wang@mediatek.com, linux-actions@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, haojian.zhuang@gmail.com,
- mirq-linux@rere.qmqm.pl, dmaengine@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- baolin.wang@linux.alibaba.com, matthias.bgg@gmail.com,
- openipmi-developer@lists.sourceforge.net, mchehab@kernel.org,
- linux-arm-kernel@lists.infradead.org, angelogioacchino.delregno@collabora.com,
- sbranden@broadcom.com, logang@deltatee.com, andersson@kernel.org,
- marcan@marcan.st, haiyangz@microsoft.com, linux-kernel@vger.kernel.org,
- leoyang.li@nxp.com, konrad.dybcio@linaro.org, linux-sunxi@lists.linux.dev,
- vkoul@kernel.org, linux-s390@vger.kernel.org, mhiramat@kernel.org,
- zhang.lyra@gmail.com, tj@kernel.org, manuel.lauss@gmail.com,
- linux-media@vger.kernel.org, shawnguo@kernel.org, afaerber@suse.de,
- daniel@zonque.org
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Randy Dunlap <rdunlap@infradead.org>, Tony Lindgren <tony@atomide.com>,
+ Tom Rix <trix@redhat.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Eric Dumazet <edumazet@google.com>,
+ Iyappan Subramanian <iyappan@os.amperecomputing.com>,
+ linux-i2c@vger.kernel.org, Shan-Chun Hung <schung@nuvoton.com>,
+ Russell King <linux@armlinux.org.uk>, Peter Huewe <peterhuewe@gmx.de>,
+ Jiri Slaby <jirislaby@kernel.org>, linux-rtc@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Corey Minyard <minyard@acm.org>,
+ linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
+ Jarkko Sakkinen <jarkko@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+ linux-serial@vger.kernel.org,
+ Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yisen Zhuang <yisen.zhuang@huawei.com>, linux-fpga@vger.kernel.org,
+ Wu Hao <hao.wu@intel.com>, linux-input@vger.kernel.org,
+ Jacky Huang <ychuang3@nuvoton.com>,
+ Keyur Chudgar <keyur@os.amperecomputing.com>,
+ Michael Hennerich <michael.hennerich@analog.com>,
+ "James E.J. Bottomley" <jejb@linux.ibm.com>, Jiri Kosina <jikos@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Moritz Fischer <mdf@kernel.org>,
+ openipmi-developer@lists.sourceforge.net, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Salil Mehta <salil.mehta@huawei.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Xiang Chen <chenxiang66@hisilicon.com>, netdev@vger.kernel.org,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-kernel@vger.kernel.org,
+ Peter Rosin <peda@axentia.se>, Vinod Koul <vkoul@kernel.org>,
+ Benjamin Tissoires <benjamin.tissoires@redhat.com>,
+ Arnd Bergmann <arnd@arndb.de>, Xu Yilun <yilun.xu@intel.com>,
+ dmaengine@vger.kernel.org, linux-integrity@vger.kernel.org,
+ "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 2024-03-27 17:03, Allen Pais wrote:
-> The only generic interface to execute asynchronously in the BH context 
-> is
-> tasklet; however, it's marked deprecated and has some design flaws. To
-> replace tasklets, BH workqueue support was recently added. A BH 
-> workqueue
-> behaves similarly to regular workqueues except that the queued work 
-> items
-> are executed in the BH context.
+On Wed, Apr 03, 2024 at 10:06:51AM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> This patch converts drivers/infiniband/* from tasklet to BH workqueue.
+> When building with CONFIG_OF and/or CONFIG_ACPI disabled but W=1 extra
+> warnings enabled, a lot of driver cause a warning about an unused
+> ID table:
 > 
-> Based on the work done by Tejun Heo <tj@kernel.org>
-> Branch: https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git 
-> for-6.10
+> drivers/char/tpm/tpm_ftpm_tee.c:356:34: error: unused variable 'of_ftpm_tee_ids' [-Werror,-Wunused-const-variable]
+> drivers/dma/img-mdc-dma.c:863:34: error: unused variable 'mdc_dma_of_match' [-Werror,-Wunused-const-variable]
+> drivers/fpga/versal-fpga.c:62:34: error: unused variable 'versal_fpga_of_match' [-Werror,-Wunused-const-variable]
+> drivers/i2c/muxes/i2c-mux-ltc4306.c:200:34: error: unused variable 'ltc4306_of_match' [-Werror,-Wunused-const-variable]
+> drivers/i2c/muxes/i2c-mux-reg.c:242:34: error: unused variable 'i2c_mux_reg_of_match' [-Werror,-Wunused-const-variable]
+> drivers/memory/pl353-smc.c:62:34: error: unused variable 'pl353_smc_supported_children' [-Werror,-Wunused-const-variable]
+> drivers/regulator/pbias-regulator.c:136:34: error: unused variable 'pbias_of_match' [-Werror,-Wunused-const-variable]
+> drivers/regulator/twl-regulator.c:552:34: error: unused variable 'twl_of_match' [-Werror,-Wunused-const-variable]
+> drivers/regulator/twl6030-regulator.c:645:34: error: unused variable 'twl_of_match' [-Werror,-Wunused-const-variable]
+> drivers/scsi/hisi_sas/hisi_sas_v2_hw.c:3635:36: error: unused variable 'sas_v2_acpi_match' [-Werror,-Wunused-const-variable]
+> drivers/staging/pi433/pi433_if.c:1359:34: error: unused variable 'pi433_dt_ids' [-Werror,-Wunused-const-variable]
+> drivers/tty/serial/amba-pl011.c:2945:34: error: unused variable 'sbsa_uart_of_match' [-Werror,-Wunused-const-variable]
 > 
-> Note: Not tested. Please test/review.
+> The fix is always to just remove the of_match_ptr() and ACPI_PTR() wrappers
+> that remove the reference, rather than adding another #ifdef just for build
+> testing for a configuration that doesn't matter in practice.
 > 
-> Signed-off-by: Allen Pais <allen.lkml@gmail.com>
-> ---
-> ...
->  drivers/s390/crypto/ap_bus.c           | 24 +++++++-------
->  drivers/s390/crypto/ap_bus.h           |  2 +-
->  drivers/s390/crypto/zcrypt_msgtype50.c |  2 +-
->  drivers/s390/crypto/zcrypt_msgtype6.c  |  4 +--
-> ...
+> I considered splitting up the large patch into per subsystem patches, but since
+> it's really just the same thing everywhere it feels better to do it all at once.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Applied and tested the s390 AP bus and zcrypt part of the patch.
-Works fine, a sniff test did not show any problems.
-Thanks for your work.
-
-Reviewed-by: Harald Freudenberger <freude@linux.ibm.com>
+Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 
 _______________________________________________
