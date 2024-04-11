@@ -2,98 +2,141 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 307EE8A0976
-	for <lists+openipmi-developer@lfdr.de>; Thu, 11 Apr 2024 09:15:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9AE3A8A1846
+	for <lists+openipmi-developer@lfdr.de>; Thu, 11 Apr 2024 17:11:41 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ruoen-00044s-4V;
-	Thu, 11 Apr 2024 07:15:37 +0000
+	id 1ruw5Q-0003zF-0v;
+	Thu, 11 Apr 2024 15:11:36 +0000
 Received: from [172.30.20.202] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <ukl@pengutronix.de>) id 1ruoei-00044l-HJ
+ (envelope-from <tcminyard@gmail.com>) id 1ruw5O-0003z8-TL
  for openipmi-developer@lists.sourceforge.net;
- Thu, 11 Apr 2024 07:15:32 +0000
+ Thu, 11 Apr 2024 15:11:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=JnSh5llQFukFrwsWEXgkPXpy2+JWHVrpRmUhVAVuutY=; b=OcW6SKAs2iovRj6FSW9q/52H7X
- BF1FSbUaUmUjCsYXcDq9pDZ/qEJiHy0hv1krbiM0ZvInDYfnhKY6D5VcqppS7cTWPhyxskvmt5208
- qupEsTcqixcIm1D5MP/GEj5viYEUxxkDicHqn2wExCvshlBxbt1onDCRpcnpy86dJncQ=;
+ bh=5+zFEYcFGgbVYjM4vgY3BN6Q53qllrvkhMJ4PRExZuo=; b=YADjBXrRzqCgcjbVv1ngQIPjL+
+ NHKwHq9WUkAzMl2Kvm5fEqUG2Xj5efQSJoDpnTBZrrV7/J6kYIEeFRkaYbiLtC4B/HWANivlrG4nP
+ kBjtBpv/weam4TnNB2qXaXSQJumyYJWMylebUBHgbvg6mDwt018UPJS0bU4Z7z4C/0cw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=JnSh5llQFukFrwsWEXgkPXpy2+JWHVrpRmUhVAVuutY=; b=I929YSW/advuhI1OUWJdPbKjZk
- uxqqu4MHyZxl7r7eH2kTPD9k3m80ZYP9IPdS/qUo+lY1+lOFjAwNGzD1auDiEGiTCeqDxNXse3GNl
- 0Wtnt83A0vZrXAvQd1RLoQnAOhPb74uRuXHD/oUhFY65yZb399yYIOorwF/LdWsYTmsc=;
-Received: from metis.whiteo.stw.pengutronix.de ([185.203.201.7])
+ bh=5+zFEYcFGgbVYjM4vgY3BN6Q53qllrvkhMJ4PRExZuo=; b=BVuwYnotw3y1662brCjxt7JP4X
+ OnGTQxsPJtlq5UGk3T5+m3/nY8KDD+5BxJPUmRbACaz4fAXhIN6CncznAOi82c5qeGoARijLeGL/o
+ K985vgptGx/o3YYEEN44tgXiCuiYzftoFWhkIjY/sOttYUNIq27TMNMfLImAytO5+Alw=;
+Received: from mail-oo1-f46.google.com ([209.85.161.46])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1ruoeh-00074y-BX for openipmi-developer@lists.sourceforge.net;
- Thu, 11 Apr 2024 07:15:32 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
- by metis.whiteo.stw.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1ruoeG-0003hE-DG; Thu, 11 Apr 2024 09:15:04 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
- by drehscheibe.grey.stw.pengutronix.de with esmtps (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94.2)
- (envelope-from <ukl@pengutronix.de>)
- id 1ruoeF-00Bdrr-Mg; Thu, 11 Apr 2024 09:15:03 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.96)
- (envelope-from <ukl@pengutronix.de>) id 1ruoeF-000PVS-1v;
- Thu, 11 Apr 2024 09:15:03 +0200
-Date: Thu, 11 Apr 2024 09:15:03 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Corey Minyard <minyard@acm.org>, Michael Ellerman <mpe@ellerman.id.au>, 
- Joel Stanley <joel@jms.id.au>, Avi Fishman <avifishman70@gmail.com>, 
- Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>
-Message-ID: <3uhfeeahn2u23mxyumyxcyx4kmcxzczipkan7eqh4aslsmhxyz@zgsmwj2jvb2v>
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1ruw5O-00053y-4O for openipmi-developer@lists.sourceforge.net;
+ Thu, 11 Apr 2024 15:11:35 +0000
+Received: by mail-oo1-f46.google.com with SMTP id
+ 006d021491bc7-5aa22ebd048so4071859eaf.1
+ for <openipmi-developer@lists.sourceforge.net>;
+ Thu, 11 Apr 2024 08:11:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmail.com; s=20230601; t=1712848283; x=1713453083; darn=lists.sourceforge.net;
+ h=in-reply-to:content-transfer-encoding:content-disposition
+ :mime-version:references:reply-to:message-id:subject:cc:to:from:date
+ :sender:from:to:cc:subject:date:message-id:reply-to;
+ bh=5+zFEYcFGgbVYjM4vgY3BN6Q53qllrvkhMJ4PRExZuo=;
+ b=QeDRmISDe5QckIaGqzyYUuaStJaqNSgUuiv3io3BQQ6fq88wbhBUjtqVlUiK6uGcSp
+ 2w8VJ18eVjl8tMWhB0tKKoNgWGs98zsWyjej4zOY4TNMPBiwZIWNNOp8zpeJ/GX+CyEN
+ YL0q8K/pZb8jnMryunST7Rl1yylrsPMnlyHoIV6qo5IQa3EPN/L8SOlVOHjBH03OiypH
+ QXVH73YBBXucjnHLoq7Sc8tW2xsEHk700sxFAvccqmgdn7N3GP/Uyr4iS7K/BUmx+Xnx
+ pt7/PQ89l96aGz44Zx2wVL0mlXDoZcxB6/whzMCyAjfpYsFfpVF9bw+IxQNvr42L5RR+
+ HCqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1712848284; x=1713453084;
+ h=in-reply-to:content-transfer-encoding:content-disposition
+ :mime-version:references:reply-to:message-id:subject:cc:to:from:date
+ :sender:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=5+zFEYcFGgbVYjM4vgY3BN6Q53qllrvkhMJ4PRExZuo=;
+ b=u/zyZpIf4XSmhPrCNZ2OYdAcoOh9jVjYRLLasT+UlPLxQeIjHBEST4jxo3Sfzay/JT
+ xiRO+BY+rJH2J26BJZTWPJk1JijheauXSOmfzdlVF41Dv8HDuu0o2dH0ZnMn/kvrrB0/
+ U1XQEBBWCDgR438+8Iibv7PJSgqSEoKZr7+ug9lWaIOjiAOkPvSIWl47+yPGbQ+a5hFq
+ Ldha9JI3M7pZT3KNSuxHdlX3sqOEr452J/kW7BdojZzwEqa7CzWaD8I9a+GQTorZMAFP
+ 7etCgudOrtOFPQAHhrLr3dFMjHHJhSL/BC9tODYQ2kOv+gokcqM4rlpZdFq6Q5hsCLTn
+ 5ZaA==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCUziC7C88Izy0JmhTdJbuWNQgcRdQCDAIzY0iFa1LXhW3P9AuLMIJIBQiYWO6WRywjj6NN8VbTGOSKf5mQWodMK1UFn1kzFzYGYjHxB1nY+bwUPFbNN1FNu
+X-Gm-Message-State: AOJu0Ywp+uuOgUPhFcsl2dWNazihG99xeibD34YGGziNoNyu0Mwb0k48
+ Y5wze6y7+TyrJ66Vhz5CIx06RHTPCOB4bQPApk1AZPEdBC2JJtw=
+X-Google-Smtp-Source: AGHT+IFB6Cokk57WMCZhgqg113k9hoFMhs9i+078DRUKacemNlRQbXO4GTcI3zUnKw7d8YHw3vLDpA==
+X-Received: by 2002:a05:6820:1391:b0:5aa:3b8a:b491 with SMTP id
+ i17-20020a056820139100b005aa3b8ab491mr6964498oow.4.1712848283554; 
+ Thu, 11 Apr 2024 08:11:23 -0700 (PDT)
+Received: from serve.minyard.net ([47.184.173.124])
+ by smtp.gmail.com with ESMTPSA id
+ ev8-20020a056820310800b005a9c8091580sm353207oob.22.2024.04.11.08.11.22
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 11 Apr 2024 08:11:22 -0700 (PDT)
+Received: from mail.minyard.net (unknown
+ [IPv6:2001:470:b8f6:1b:e322:3bf8:f626:ba3a])
+ by serve.minyard.net (Postfix) with ESMTPSA id 22476180011;
+ Thu, 11 Apr 2024 15:11:22 +0000 (UTC)
+Date: Thu, 11 Apr 2024 10:11:21 -0500
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Message-ID: <Zhf9mQx/KgXOzPTs@mail.minyard.net>
 References: <cover.1709655755.git.u.kleine-koenig@pengutronix.de>
+ <3uhfeeahn2u23mxyumyxcyx4kmcxzczipkan7eqh4aslsmhxyz@zgsmwj2jvb2v>
 MIME-Version: 1.0
-In-Reply-To: <cover.1709655755.git.u.kleine-koenig@pengutronix.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: openipmi-developer@lists.sourceforge.net
-X-Spam-Score: 0.0 (/)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
+Content-Disposition: inline
+In-Reply-To: <3uhfeeahn2u23mxyumyxcyx4kmcxzczipkan7eqh4aslsmhxyz@zgsmwj2jvb2v>
+X-Spam-Score: 0.2 (/)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  
- Content preview:  Hello, On Tue, Mar 05, 2024 at 05:26:57PM +0100, Uwe Kleine-K�nig
-    wrote: > this series converts all drivers below drivers/char/ipmi to struct
-    > platform_driver::remove_new(). See commit 5c5a7680e67b ("platfo [...] 
+ Content preview:  On Thu, Apr 11, 2024 at 09:15:03AM +0200, Uwe Kleine-König
+    wrote: > Hello, > > On Tue, Mar 05, 2024 at 05:26:57PM +0100, Uwe Kleine-König
+    wrote: > > this series converts all drivers below drivers/ch [...] 
  
- Content analysis details:   (0.0 points, 6.0 required)
+ Content analysis details:   (0.2 points, 6.0 required)
  
   pts rule name              description
  ---- ---------------------- --------------------------------------------------
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [tcminyard[at]gmail.com]
+  0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
+                             DNSWL was blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [209.85.161.46 listed in list.dnswl.org]
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
   0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
                              blocked.  See
                              http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
                               for more information.
                              [URIs: pengutronix.de]
-  0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
-                             DNSWL was blocked.  See
-                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
-                              for more information.
-                             [185.203.201.7 listed in list.dnswl.org]
-  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
-X-Headers-End: 1ruoeh-00074y-BX
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+                             [209.85.161.46 listed in wl.mailspike.net]
+  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+  0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+                             EnvelopeFrom freemail headers are
+                             different
+X-Headers-End: 1ruw5O-00053y-4O
 Subject: Re: [Openipmi-developer] [PATCH 0/6] ipmi: Convert to platform
  remove callback returning void
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -108,93 +151,46 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
+From: Corey Minyard via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: minyard@acm.org
 Cc: Benjamin Fair <benjaminfair@google.com>, linux-aspeed@lists.ozlabs.org,
- Patrick Venture <venture@google.com>, openbmc@lists.ozlabs.org,
+ Avi Fishman <avifishman70@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ openbmc@lists.ozlabs.org, Nicholas Piggin <npiggin@gmail.com>,
  Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Tali Perry <tali.perry1@gmail.com>,
  "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Nancy Yuen <yuenn@google.com>,
- Nicholas Piggin <npiggin@gmail.com>, kernel@pengutronix.de,
+ kernel@pengutronix.de, Patrick Venture <venture@google.com>,
  "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
  openipmi-developer@lists.sourceforge.net, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============2259188372336636533=="
+ linux-arm-kernel@lists.infradead.org, Tomer Maimon <tmaimon77@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============2259188372336636533==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lcngjfs7wpvalyyt"
-Content-Disposition: inline
-
-
---lcngjfs7wpvalyyt
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-On Tue, Mar 05, 2024 at 05:26:57PM +0100, Uwe Kleine-K=F6nig wrote:
-> this series converts all drivers below drivers/char/ipmi to struct
-> platform_driver::remove_new(). See commit 5c5a7680e67b ("platform: Provid=
-e a
-> remove callback that returns no value") for an extended explanation and t=
-he
-> eventual goal.
->=20
-> All conversations are trivial, because their .remove() callbacks
-> returned zero unconditionally.
->=20
-> There are no interdependencies between these patches, so they could be
-> picked up individually. But I'd hope that they get picked up all
-> together by Corey.
-
-Apart from a (positive) review reply I didn't get any feedback to this
-series. My quest to change the prototype of struct
-platform_driver::remove depends on these patches, so it would be great
-if they made it in during the next merge window.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---lcngjfs7wpvalyyt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmYXjfYACgkQj4D7WH0S
-/k5niAgApNMQneCEXf2z/4f0oMw7n29zB1VBA8XqNBe8gywAwtS/EIYj+LTG2anz
-YAwL1f4zIxTxn3XvSroSLY1oQXVdCEXgVOUaBzmBdDqhcp71M1+RiQ1ihROhFN/7
-LoWdNpmjMSZKGe53xy2t0uFeIOQ0GhS5POyZ+YMN/MCbTXwqO2BhEJFKOVf13oDT
-gtDaoLPom1R/TIqsVXzjj9qq9r68Lgt21ELjpu4dAr9ZElsiezenS67LKWMgbqTq
-o5oupsG/zwlOSYmOeXKWo/CuIVBwXMbQwKIzuRZc32zDJhVD5U4F0h0F/tAgMsTB
-z2FsEhWmTytqEVPVdMij2fk7MuaICw==
-=MgkB
------END PGP SIGNATURE-----
-
---lcngjfs7wpvalyyt--
-
-
---===============2259188372336636533==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============2259188372336636533==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============2259188372336636533==--
-
+T24gVGh1LCBBcHIgMTEsIDIwMjQgYXQgMDk6MTU6MDNBTSArMDIwMCwgVXdlIEtsZWluZS1Lw7Zu
+aWcgd3JvdGU6Cj4gSGVsbG8sCj4gCj4gT24gVHVlLCBNYXIgMDUsIDIwMjQgYXQgMDU6MjY6NTdQ
+TSArMDEwMCwgVXdlIEtsZWluZS1Lw7ZuaWcgd3JvdGU6Cj4gPiB0aGlzIHNlcmllcyBjb252ZXJ0
+cyBhbGwgZHJpdmVycyBiZWxvdyBkcml2ZXJzL2NoYXIvaXBtaSB0byBzdHJ1Y3QKPiA+IHBsYXRm
+b3JtX2RyaXZlcjo6cmVtb3ZlX25ldygpLiBTZWUgY29tbWl0IDVjNWE3NjgwZTY3YiAoInBsYXRm
+b3JtOiBQcm92aWRlIGEKPiA+IHJlbW92ZSBjYWxsYmFjayB0aGF0IHJldHVybnMgbm8gdmFsdWUi
+KSBmb3IgYW4gZXh0ZW5kZWQgZXhwbGFuYXRpb24gYW5kIHRoZQo+ID4gZXZlbnR1YWwgZ29hbC4K
+PiA+IAo+ID4gQWxsIGNvbnZlcnNhdGlvbnMgYXJlIHRyaXZpYWwsIGJlY2F1c2UgdGhlaXIgLnJl
+bW92ZSgpIGNhbGxiYWNrcwo+ID4gcmV0dXJuZWQgemVybyB1bmNvbmRpdGlvbmFsbHkuCj4gPiAK
+PiA+IFRoZXJlIGFyZSBubyBpbnRlcmRlcGVuZGVuY2llcyBiZXR3ZWVuIHRoZXNlIHBhdGNoZXMs
+IHNvIHRoZXkgY291bGQgYmUKPiA+IHBpY2tlZCB1cCBpbmRpdmlkdWFsbHkuIEJ1dCBJJ2QgaG9w
+ZSB0aGF0IHRoZXkgZ2V0IHBpY2tlZCB1cCBhbGwKPiA+IHRvZ2V0aGVyIGJ5IENvcmV5LgoKWWVh
+aCwgSSB3YXMga2luZCBvZiB3YWl0aW5nIGZvciBtb3JlIHJldmlld3MsIGJ1dCB0aGlzIGlzIHBy
+ZXR0eQpzdHJhaWdodGZvcndhcmQuICBJJ3ZlIHB1bGxlZCB0aGlzIGludG8gbXkgdHJlZS4KCi1j
+b3JleQoKPiAKPiBBcGFydCBmcm9tIGEgKHBvc2l0aXZlKSByZXZpZXcgcmVwbHkgSSBkaWRuJ3Qg
+Z2V0IGFueSBmZWVkYmFjayB0byB0aGlzCj4gc2VyaWVzLiBNeSBxdWVzdCB0byBjaGFuZ2UgdGhl
+IHByb3RvdHlwZSBvZiBzdHJ1Y3QKPiBwbGF0Zm9ybV9kcml2ZXI6OnJlbW92ZSBkZXBlbmRzIG9u
+IHRoZXNlIHBhdGNoZXMsIHNvIGl0IHdvdWxkIGJlIGdyZWF0Cj4gaWYgdGhleSBtYWRlIGl0IGlu
+IGR1cmluZyB0aGUgbmV4dCBtZXJnZSB3aW5kb3cuCj4gCj4gQmVzdCByZWdhcmRzCj4gVXdlCj4g
+Cj4gLS0gCj4gUGVuZ3V0cm9uaXggZS5LLiAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgVXdl
+IEtsZWluZS1Lw7ZuaWcgICAgICAgICAgICB8Cj4gSW5kdXN0cmlhbCBMaW51eCBTb2x1dGlvbnMg
+ICAgICAgICAgICAgICAgIHwgaHR0cHM6Ly93d3cucGVuZ3V0cm9uaXguZGUvIHwKCgoKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVs
+b3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5l
+dApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1k
+ZXZlbG9wZXIK
