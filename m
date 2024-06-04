@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id ED35A8FB108
-	for <lists+openipmi-developer@lfdr.de>; Tue,  4 Jun 2024 13:24:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9E11C8FB106
+	for <lists+openipmi-developer@lfdr.de>; Tue,  4 Jun 2024 13:24:57 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1sESHZ-0004xX-EZ;
-	Tue, 04 Jun 2024 11:24:49 +0000
+	id 1sESHZ-0004xm-PH;
+	Tue, 04 Jun 2024 11:24:50 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <wsa+renesas@sang-engineering.com>)
- id 1sEPRT-0008TD-Lx for openipmi-developer@lists.sourceforge.net;
- Tue, 04 Jun 2024 08:22:52 +0000
+ (envelope-from <sakari.ailus@linux.intel.com>) id 1sEPSm-0000jt-JU
+ for openipmi-developer@lists.sourceforge.net;
+ Tue, 04 Jun 2024 08:24:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=rm1oRY/z52jLvW3Kz8JXXATPeBMQwAX7lAr8kin9CZQ=; b=CvKmZyZQFvjnWP5CYdC+A67uou
- 5ih9fesu+OodZrPwo9Kd4jo8YWQ2TgrUxpuiPoFiQK1cE7TSehDns51l9x+Nxz+HHF8N0lnQ/pz0X
- obMPpLSNfLazVp3U56Q8doXpdKCFyU7F+XoGZfqRzdn6BmGuF3naDw6HWbHfBUKzdnrs=;
+ bh=sW+UYHJDRKVM314Fwiy2CiGhGwSnqCpayatlpcAvqPw=; b=m/pE5e7Jekb5ynUmZRxBUVDT1R
+ +25gsCKFxGkPd1FF9rwz8+7JYF3h56cwy00xLNTP3RampzIi/a+ihVxrXgKPXkBlnyzUofO/kSc1e
+ /757+8bFGs0RhIzemsnWX18s/d6MAFjty4gQMy1cUHXuDcrGfqCtgkydVSiXfPnSlVl8=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -31,217 +31,91 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=rm1oRY/z52jLvW3Kz8JXXATPeBMQwAX7lAr8kin9CZQ=; b=RYOFdpoWTpuj/Znos/T4q16Lo2
- lEDModR+L0MKDclvi2BEyvY7Tb9roCw8ekUZM/7p5/96834Jlh/7J9l0UjW74GjzZTmGI6lWaQVhG
- vmLamobDXUYKlY5TMYuWxDlqLTsMrry6+U6qRE3MOsvjqbiU5TIxRCbnI68m4Bd+LwFI=;
-Received: from www.zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+ bh=sW+UYHJDRKVM314Fwiy2CiGhGwSnqCpayatlpcAvqPw=; b=aL4NNSigSNY8AsYiSTpTsnQDWV
+ p93QVeOdSHeVE4JaS+BWel+Gi0t1rRnbQRJ7W3Z8yqxx3hhqUx9dcb+MB2geOWwQDv9Dm22Fec+Fa
+ eFMTylAYGhoNJHKD4xDLalk+PskNmGhikUwpQzCc3B3HSM+9fUBP6tWxttY6i0NgQUe8=;
+Received: from mgamail.intel.com ([198.175.65.12])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1sEPRT-0006fX-09 for openipmi-developer@lists.sourceforge.net;
- Tue, 04 Jun 2024 08:22:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- sang-engineering.com; h=date:from:to:cc:subject:message-id
- :references:mime-version:content-type:in-reply-to; s=k1; bh=rm1o
- RY/z52jLvW3Kz8JXXATPeBMQwAX7lAr8kin9CZQ=; b=gBmATtqj3T5cofztD9gO
- wfxytqAcRK1KHLixwigA6Oc7e/xns1PQZ3E06WSpR7IPkRNHgXTBg+YGm+t+vujP
- aptXEyeXeauNzTMI5dH6xfGfOxK/vG6KOu30wj3qf8CWwQibRC9KvLs3BDzGqe5/
- /Y9Hcyo7BT698jA85PFi33gOQLW1z3ouybN5JpyXkzLmpoNWl2Pe2AFo0d7BKAzs
- dHpSxsaEpXcYMcTPZ7L53aiHyYSMavcNdUbaEbGStnqNBQw91wlHN+nudbxeRY5J
- m+7vari59g10r4KJuHuUlrRNrIdhY/Rbv8s6T5bIUAYnlvyfPzbCA91PnYNwB2VY
- /Q==
-Received: (qmail 2211018 invoked from network); 4 Jun 2024 09:55:57 +0200
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted,
- authenticated); 4 Jun 2024 09:55:57 +0200
-X-UD-Smtp-Session: l3s3148p1@IZitxwsaKtsgAwDPXzLGAH1eNELjOc3g
-Date: Tue, 4 Jun 2024 09:55:57 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+ id 1sEPSm-0006pl-Sj for openipmi-developer@lists.sourceforge.net;
+ Tue, 04 Jun 2024 08:24:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1717489452; x=1749025452;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=+++E6PT7Ikl/BMgbDWFQCaPzsOD33MgC2YSDizKZxfM=;
+ b=S8CKH6t7xQwzuV7yNpc/r+H9KOSAFcTO74jbonsUO40KxDHSQC0Ll0MB
+ YKGGFkiX/2kLp9gyRzOp/1ErlFN56fRVcfqdf4hJAZkaN5DomWxe8gnhz
+ ey9VaJbKbYF/bBJ1szhoZbIc6EMf/EwUEzQgwpMzLbj2fhQVW8LbJiBLc
+ Vrh21WRWkpfg6bP81IbBSVB5UryCAbI0nOSzpaM+dS+f3/1IEM8bRWYtM
+ SIS3HavvLB0TkOHIgv4GkCtzoQ8zp/noD4aX7F1LDAkSOudY/41cmhqY0
+ yGzd6vDhCJc3oT+cC3LF/XKrX8K7/hcY3pqFGgIHYcolZJnc4TVSmx+Ao w==;
+X-CSE-ConnectionGUID: dzDzkW8ATOm8d7jRl/6U2A==
+X-CSE-MsgGUID: EblaZiwBTseOnLSf/S70dw==
+X-IronPort-AV: E=McAfee;i="6600,9927,11092"; a="25418662"
+X-IronPort-AV: E=Sophos;i="6.08,213,1712646000"; d="scan'208";a="25418662"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+ by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 04 Jun 2024 01:24:02 -0700
+X-CSE-ConnectionGUID: QnqcRERvTtiWVVqObAcxXA==
+X-CSE-MsgGUID: PnRo7jT/R82Chm81jYLsGg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.08,213,1712646000"; d="scan'208";a="37030218"
+Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com)
+ ([10.237.72.44])
+ by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 04 Jun 2024 01:23:51 -0700
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+ by kekkonen.fi.intel.com (Postfix) with SMTP id E1B7911FA4A;
+ Tue,  4 Jun 2024 11:23:48 +0300 (EEST)
+Date: Tue, 4 Jun 2024 08:23:48 +0000
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Message-ID: <ugowfb44wmiwr4l5hiu5r4n5ldqkvbq6fgbr2ueecfrqmyz7wf@vgpxlx5xdaey>
-Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Corey Minyard <minyard@acm.org>, 
- Allen Pais <apais@linux.microsoft.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Perry Yuan <perry.yuan@amd.com>, Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
- Herbert Xu <herbert@gondor.apana.org.au>, Nuno Sa <nuno.sa@analog.com>,
- Guenter Roeck <linux@roeck-us.net>, 
- Randy Dunlap <rdunlap@infradead.org>, Andi Shyti <andi.shyti@kernel.org>, 
- Heiner Kallweit <hkallweit1@gmail.com>, Lee Jones <lee@kernel.org>,
- Samuel Holland <samuel@sholland.org>, 
- Elad Nachman <enachman@marvell.com>, Arseniy Krasnov <AVKrasnov@sberdevices.ru>,
- Johannes Berg <johannes.berg@intel.com>,
- Gregory Greenman <gregory.greenman@intel.com>, 
- Benjamin Berg <benjamin.berg@intel.com>, Bjorn Helgaas <bhelgaas@google.com>, 
- Robert Richter <rrichter@amd.com>, Vinod Koul <vkoul@kernel.org>, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>,
- Linus Walleij <linus.walleij@linaro.org>, 
- Hans de Goede <hdegoede@redhat.com>,
- Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
- Nikita Kravets <teackot@gmail.com>, Jiri Slaby <jirislaby@kernel.org>, 
- Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
- Stanley Chang <stanley_chang@realtek.com>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Abdel Alkuor <abdelalkuor@geotab.com>, 
- Kent Overstreet <kent.overstreet@linux.dev>, Eric Biggers <ebiggers@google.com>,
- Kees Cook <keescook@chromium.org>, Ingo Molnar <mingo@kernel.org>, 
- "Steven Rostedt (Google)" <rostedt@goodmis.org>,
- Daniel Bristot de Oliveira <bristot@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, Hugh Dickins <hughd@google.com>, 
- Abel Wu <wuyun.abel@bytedance.com>, John Johansen <john.johansen@canonical.com>,
- Mimi Zohar <zohar@linux.ibm.com>, Stefan Berger <stefanb@linux.ibm.com>, 
- Roberto Sassu <roberto.sassu@huawei.com>,
- Eric Snowberg <eric.snowberg@oracle.com>, 
- Takashi Iwai <tiwai@suse.de>, Takashi Sakamoto <o-takashi@sakamocchi.jp>, 
- Jiapeng Chong <jiapeng.chong@linux.alibaba.com>,
- Mark Brown <broonie@kernel.org>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- keyrings@vger.kernel.org, linux-crypto@vger.kernel.org,
- linux-acpi@vger.kernel.org, 
- linux-ide@vger.kernel.org, openipmi-developer@lists.sourceforge.net, 
- linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-tegra@vger.kernel.org, 
- linux-pm@vger.kernel.org, qat-linux@intel.com, dri-devel@lists.freedesktop.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- nouveau@lists.freedesktop.org, 
- linux-hwmon@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-leds@vger.kernel.org, 
- linux-sunxi@lists.linux.dev, linux-omap@vger.kernel.org,
- linux-mmc@vger.kernel.org, 
- linux-mtd@lists.infradead.org, netdev@vger.kernel.org,
- linux-wireless@vger.kernel.org, 
- linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, 
- linux-staging@lists.linux.dev, linux-usb@vger.kernel.org,
- linux-fbdev@vger.kernel.org, 
- linux-bcachefs@vger.kernel.org, linux-hardening@vger.kernel.org,
- cgroups@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, linux-mm@kvack.org,
- apparmor@lists.ubuntu.com, 
- linux-security-module@vger.kernel.org, linux-integrity@vger.kernel.org,
- alsa-devel@alsa-project.org, 
- linux-sound@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, 
- Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, 
- David Howells <dhowells@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Sergey Shtylyov <s.shtylyov@omp.ru>, 
- Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>, 
- Daniel Scally <djrscally@gmail.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
- Heiko Stuebner <heiko@sntech.de>, 
- Peter De Schrijver <pdeschrijver@nvidia.com>,
- Prashant Gaikwad <pgaikwad@nvidia.com>, 
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Huang Rui <ray.huang@amd.com>, "Gautham R. Shenoy" <gautham.shenoy@amd.com>, 
- Mario Limonciello <mario.limonciello@amd.com>,
- Viresh Kumar <viresh.kumar@linaro.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Daniel Vetter <daniel@ffwll.ch>, Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Karol Herbst <kherbst@redhat.com>,
- Lyude Paul <lyude@redhat.com>, 
- Danilo Krummrich <dakr@redhat.com>, Jean Delvare <jdelvare@suse.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Pavel Machek <pavel@ucw.cz>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, Tony Lindgren <tony@atomide.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Hu Ziji <huziji@marvell.com>, 
- Ulf Hansson <ulf.hansson@linaro.org>, Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Potnuri Bharat Teja <bharat@chelsio.com>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Miri Korenblit <miriam.rachel.korenblit@intel.com>,
- Kalle Valo <kvalo@kernel.org>, 
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
- Oliver O'Halloran <oohall@gmail.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- JC Kuo <jckuo@nvidia.com>, Andrew Lunn <andrew@lunn.ch>, 
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- Sebastian Reichel <sre@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Helge Deller <deller@gmx.de>,
- Brian Foster <bfoster@redhat.com>, 
- Zhihao Cheng <chengzhihao1@huawei.com>, Tejun Heo <tj@kernel.org>,
- Zefan Li <lizefan.x@bytedance.com>, 
- Johannes Weiner <hannes@cmpxchg.org>, Peter Zijlstra <peterz@infradead.org>, 
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>, 
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, 
- Daniel Bristot de Oliveira <bristot@redhat.com>,
- Valentin Schneider <vschneid@redhat.com>, 
- Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Jason Baron <jbaron@akamai.com>, Jim Cromie <jim.cromie@gmail.com>, 
- Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
- "Serge E. Hallyn" <serge@hallyn.com>,
- Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
- Clemens Ladisch <clemens@ladisch.de>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, 
- Liam Girdwood <lgirdwood@gmail.com>,
- Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <Zl7PFGprypdZi6ql@kekkonen.localdomain>
 References: <20240603211538.289765-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
 In-Reply-To: <20240603211538.289765-1-andriy.shevchenko@linux.intel.com>
-X-Spam-Score: -5.2 (-----)
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Sun, Jun 02, 2024 at 06:57:12PM +0300, Andy Shevchenko
- wrote: > Make two APIs look similar. Hence convert match_string() to be >
- a 2-argument macro. In order to avoid unneeded churn, convert > all [...] 
- Content analysis details:   (-5.2 points, 6.0 required)
+ Content preview:  Hi Andy, On Sun, Jun 02, 2024 at 06:57:12PM +0300,
+ Andy Shevchenko
+ wrote: > diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c > index
+ 503773707e01..9cb350de30f0
+ 100644 > --- a/drivers/acpi/scan.c > +++ b/ [...] 
+ Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+ blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URIs: intel.com]
  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
  The query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [194.117.254.33 listed in sa-accredit.habeas.com]
+ [198.175.65.12 listed in sa-accredit.habeas.com]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [194.117.254.33 listed in bl.score.senderscore.com]
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [194.117.254.33 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [194.117.254.33 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ [198.175.65.12 listed in bl.score.senderscore.com]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1sEPRT-0006fX-09
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1sEPSm-0006pl-Sj
 X-Mailman-Approved-At: Tue, 04 Jun 2024 11:24:46 +0000
 Subject: Re: [Openipmi-developer] [PATCH v1 1/1] treewide: Align
  match_string() with sysfs_match_string()
@@ -329,7 +203,7 @@ Cc: Juri Lelli <juri.lelli@redhat.com>, Andrew Lunn <andrew@lunn.ch>,
  Chen-Yu Tsai <wens@csie.org>, Abdel Alkuor <abdelalkuor@geotab.com>,
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
  "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
- Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+ Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
  Paolo Abeni <pabeni@redhat.com>, "Serge E. Hallyn" <serge@hallyn.com>,
  Lyude Paul <lyude@redhat.com>, Kees Cook <keescook@chromium.org>,
  Ray Jui <rjui@broadcom.com>, intel-gfx@lists.freedesktop.org,
@@ -345,7 +219,6 @@ Cc: Juri Lelli <juri.lelli@redhat.com>, Andrew Lunn <andrew@lunn.ch>,
  Daniel Scally <djrscally@gmail.com>, JC Kuo <jckuo@nvidia.com>,
  Thierry Reding <thierry.reding@gmail.com>,
  Masami Hiramatsu <mhiramat@kernel.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
  "David S. Miller" <davem@davemloft.net>,
  Mario Limonciello <mario.limonciello@amd.com>,
  Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
@@ -381,71 +254,43 @@ Cc: Juri Lelli <juri.lelli@redhat.com>, Andrew Lunn <andrew@lunn.ch>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  linuxppc-dev@lists.ozlabs.org, Helge Deller <deller@gmx.de>,
  Stefan Berger <stefanb@linux.ibm.com>
-Content-Type: multipart/mixed; boundary="===============5011306788228181851=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
---===============5011306788228181851==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lgxkpk75pktaafag"
-Content-Disposition: inline
-
-
---lgxkpk75pktaafag
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Andy,
 
 On Sun, Jun 02, 2024 at 06:57:12PM +0300, Andy Shevchenko wrote:
-> Make two APIs look similar. Hence convert match_string() to be
-> a 2-argument macro. In order to avoid unneeded churn, convert
-> all users as well. There is no functional change intended.
->=20
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index 503773707e01..9cb350de30f0 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -798,7 +798,7 @@ static bool acpi_info_matches_ids(struct acpi_device_info *info,
+>  	if (!(info->valid & ACPI_VALID_HID))
+>  		return false;
+>  
+> -	index = match_string(ids, -1, info->hardware_id.string);
+> +	index = __match_string(ids, -1, info->hardware_id.string);
+>  	if (index >= 0)
+>  		return true;
+>  
+> @@ -809,7 +809,7 @@ static bool acpi_info_matches_ids(struct acpi_device_info *info,
+>  		return false;
+>  
+>  	for (i = 0; i < cid_list->count; i++) {
+> -		index = match_string(ids, -1, cid_list->ids[i].string);
+> +		index = __match_string(ids, -1, cid_list->ids[i].string);
+>  		if (index >= 0)
+>  			return true;
+>  	}
 
-Acked-by: Wolfram Sang <wsa+renesas@sang-engineering.com> # for I2C
+Reviewed-by: Sakari Ailus <sakari.ailus@linux.intel.com> # drivers/acpi
 
+-- 
+Sakari Ailus
 
---lgxkpk75pktaafag
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmZeyI0ACgkQFA3kzBSg
-Kbb9VQ/+K5JbYNFgNRSOLCQVcW8FHPcmcqxfMUbxVkQj8p+MQCHFSw4V+TPD+woh
-oimLDPQJy89KSE6WjRZ0DidphnWkOL7XzfPOXx7T8qSquPIQL5lN9cuJnVsd/GKC
-9/Qom8iK8m5zQlu/NhsYi2BWcN/ci81DUMTH3NqEn0KzZz6bQ0a7KgadEolySlDx
-ZkBF4SdolMHRYDJmbKS1C0Y6XhQ9ex2E57ej05C57UmL39vtldAnmG1odExJBm/b
-KxlLGXLgKtzwXstpeJGp/Mr++WjebZMqatkUXxKzHBwNepPTTRo5RVZZC8eAdN3i
-cfGrYCwwGYO4XLvQ5Kdaw0I/CnmzTgJcpMwIm32XH+cOvL7/NKejjmGwtdmJ+KJw
-SPtc5nvKmjC+EJH10wWm8lnVUxiME93IXNqZ26MrGCNiSiDVwZrkfeASwMEPlW7v
-WcEjlIILXPIZzqxIaHC30aPPqL+wkAcMU0MWrgt5UxzDtImo+6OjfJjlrX4v55Sd
-EYTOFIiv77B+oKO1sQ1NV+RPjFQL2kbefJ2QIXPjvyXGhheqN3eaoP/LitjmrkIw
-WPu5KtyLZp4a9QjMn1atuz7OgJQIRW3GlKyua4J3KJMsbzOuMRw/3zBwKdQbhPP4
-MVv3GuxDvcMyWI9CRtdfnjF9ATAdmA6jzv8mKgazzPeufq+TEHk=
-=VbKY
------END PGP SIGNATURE-----
-
---lgxkpk75pktaafag--
-
-
---===============5011306788228181851==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-
---===============5011306788228181851==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
-
---===============5011306788228181851==--
-
