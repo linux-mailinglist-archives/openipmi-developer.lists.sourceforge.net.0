@@ -2,101 +2,101 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5B615959A3F
+	by mail.lfdr.de (Postfix) with ESMTPS id 7436A959A40
 	for <lists+openipmi-developer@lfdr.de>; Wed, 21 Aug 2024 13:38:24 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1sgjfP-0008NR-V7;
+	id 1sgjfQ-0008Nf-8w;
 	Wed, 21 Aug 2024 11:38:19 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <liuyuntao12@huawei.com>) id 1sg0rB-0004WW-Ga
+ (envelope-from <liuyuntao12@huawei.com>) id 1sg1Pp-0003Dq-Na
  for openipmi-developer@lists.sourceforge.net;
- Mon, 19 Aug 2024 11:47:30 +0000
+ Mon, 19 Aug 2024 12:23:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
- :References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:CC:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=r5EPkIN5Y8Sw5QPvPL47DJUylhHfCAr5sG0h0nsvk2w=; b=NkvEjvovX4V8r6VT69f1OldUeG
- ZN4mCQeNuvTbuKJSbkOFHaRquIjR7U4ECSqjEz6j5vwd4oAxhzMBIMgNDL0OoS5gzFC8BTM0XCc/m
- SvJu673iraLhYhV9PXKeCfHrYNRem92CSo0N/RFK/N1tx4xZJR4qwTHlky/wm/fVJydI=;
+ bh=A2AgnXtC21f0HwsYWnx9aiieygnwThjykDAd3S5ry4I=; b=BRsQIVzcmJVByBW+HFHMp47WCk
+ gCvvjz+Lz1Ul1RDYfV1WC+v2QiZD503zibVQ7GJfMbsiHzx23u6cc2utp1qqxR09U7WeIVqYIhRmT
+ DdB/2W8HARLOkPrseyg2zQ9ONyy/MPEVusimwawCr+6ewcrZHtEALoSPSRgSN52Eu6T0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=r5EPkIN5Y8Sw5QPvPL47DJUylhHfCAr5sG0h0nsvk2w=; b=O9+NUGPkTWvmhZY3FW7mLqDPcs
- s7AlN5tDEVdvtK1qPRvxv3sd1xOot20WmZ76IyWM1oRrFRC+K6nKF9/Wgpb6QFYA3m8Bo0/zVrZo+
- 7EHvWqd4yrxY51ONuKkPqaZ1epvHqbIyUxcpC99N+6n29gN2LRaRJmtdKhFxJnjug5Mc=;
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+ bh=A2AgnXtC21f0HwsYWnx9aiieygnwThjykDAd3S5ry4I=; b=H+IXAbTnyS5CslYn+b8mNPS5ze
+ ugTbrA8rfXyrleADk4k69JI+eFVHMlt8bCuVBdR8810MNDV7Zb3JO2zwlN8KKhBYaDlxh+glmR7kz
+ kAX0hcGQ2C+P5s36lts4XEKPnOWKprpt7mN0pmjkqV+vyNVmCtYsxcA1nosdZ9OXi33A=;
+Received: from szxga06-in.huawei.com ([45.249.212.32])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1sg0rB-0000JC-6E for openipmi-developer@lists.sourceforge.net;
- Mon, 19 Aug 2024 11:47:30 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
- by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4WnW0n6XCnz2Cmxf;
- Mon, 19 Aug 2024 19:42:17 +0800 (CST)
+ id 1sg1Po-0001z5-NS for openipmi-developer@lists.sourceforge.net;
+ Mon, 19 Aug 2024 12:23:18 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+ by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4WnWsf0Zhzz1xvVw;
+ Mon, 19 Aug 2024 20:21:10 +0800 (CST)
 Received: from kwepemg500010.china.huawei.com (unknown [7.202.181.71])
- by mail.maildlp.com (Postfix) with ESMTPS id 61F561A016C;
- Mon, 19 Aug 2024 19:47:16 +0800 (CST)
-Received: from huawei.com (10.67.174.76) by kwepemg500010.china.huawei.com
- (7.202.181.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 19 Aug
- 2024 19:47:15 +0800
-To: <openipmi-developer@lists.sourceforge.net>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <dmaengine@vger.kernel.org>, <linux-edac@vger.kernel.org>,
- <linux-i2c@vger.kernel.org>, <linux-usb@vger.kernel.org>
-Date: Mon, 19 Aug 2024 11:38:55 +0000
-Message-ID: <20240819113855.787149-10-liuyuntao12@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20240819113855.787149-1-liuyuntao12@huawei.com>
-References: <20240819113855.787149-1-liuyuntao12@huawei.com>
+ by mail.maildlp.com (Postfix) with ESMTPS id B32BC14011F;
+ Mon, 19 Aug 2024 20:23:03 +0800 (CST)
+Received: from [10.67.109.211] (10.67.109.211) by
+ kwepemg500010.china.huawei.com (7.202.181.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 19 Aug 2024 20:23:02 +0800
+Message-ID: <c1bc5137-9654-4434-a329-9381e14dffaf@huawei.com>
+Date: Mon, 19 Aug 2024 20:23:01 +0800
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.76]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, <openipmi-developer@lists.sourceforge.net>, 
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <dmaengine@vger.kernel.org>, "linux-edac@vger.kernel.org"
+ <linux-edac@vger.kernel.org>, <linux-i2c@vger.kernel.org>,
+ <linux-usb@vger.kernel.org>
+References: <20240819113855.787149-1-liuyuntao12@huawei.com>
+ <dabde7bf-dcff-47c6-a68d-f5018ab00282@app.fastmail.com>
+In-Reply-To: <dabde7bf-dcff-47c6-a68d-f5018ab00282@app.fastmail.com>
+X-Originating-IP: [10.67.109.211]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
  kwepemg500010.china.huawei.com (7.202.181.71)
-X-Spam-Score: -0.0 (/)
+X-Spam-Score: -5.0 (-----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Add MODULE_DEVICE_TABLE(),
- so modules could be properly autoloaded
- based on the alias from platform_device_id table. Signed-off-by: Yuntao Liu
- <liuyuntao12@huawei.com> --- drivers/char/ipmi/ipmi_ssif.c | 1 + 1 file
- changed, 1 insertion(+) 
- Content analysis details:   (-0.0 points, 6.0 required)
+ Content preview:  yes sir^^. Regards! Yuntao On 2024/8/19 20:09, Arnd Bergmann
+ wrote: > On Mon, Aug 19, 2024, at 13:38,
+ Yuntao Liu wrote: >> Add MODULE_DEVICE_TABLE(), 
+ so modules could be properly autoloaded >> based on the alias from platform_d
+ [...] Content analysis details:   (-5.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [45.249.212.190 listed in bl.score.senderscore.com]
- 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
- DNSWL was blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [45.249.212.190 listed in list.dnswl.org]
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [45.249.212.190 listed in sa-trusted.bondedsender.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ [45.249.212.32 listed in sa-trusted.bondedsender.org]
+ 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [45.249.212.32 listed in bl.score.senderscore.com]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [45.249.212.32 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1sg0rB-0000JC-6E
+X-Headers-End: 1sg1Po-0001z5-NS
 X-Mailman-Approved-At: Wed, 21 Aug 2024 11:38:10 +0000
-Subject: [Openipmi-developer] [PATCH -next 9/9] ipmi: ipmi_ssif: fix module
+Subject: Re: [Openipmi-developer] [PATCH -next 0/9] drivers: fix some module
  autoloading
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -110,46 +110,71 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Yuntao Liu via Openipmi-developer
+From: "liuyuntao \(F\) via Openipmi-developer"
  <openipmi-developer@lists.sourceforge.net>
-Reply-To: Yuntao Liu <liuyuntao12@huawei.com>
-Cc: alexandre.belloni@bootlin.com, liuyuntao12@huawei.com,
- claudiu.beznea@tuxon.dev, robert.jarzmik@free.fr,
- andriy.shevchenko@linux.intel.com, minyard@acm.org,
- ludovic.desroches@microchip.com, stern@rowland.harvard.edu,
- u.kleine-koenig@pengutronix.de, codrin.ciubotariu@microchip.com,
- duje.mihanovic@skole.hr, rric@kernel.org, andi.shyti@kernel.org, arnd@arndb.de,
- haojian.zhuang@gmail.com, tony.luck@intel.com, bp@alien8.de,
- mchehab@kernel.org, morbidrsa@gmail.com, gregkh@linuxfoundation.org,
- nicolas.ferre@microchip.com, vkoul@kernel.org, broonie@kernel.org,
- james.morse@arm.com, daniel@zonque.org
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: "liuyuntao \(F\)" <liuyuntao12@huawei.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Robert Jarzmik <robert.jarzmik@free.fr>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ "Ludovic.Desroches" <ludovic.desroches@microchip.com>,
+ Alan Stern <stern@rowland.harvard.edu>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+ codrin.ciubotariu@microchip.com,
+ =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>,
+ Robert Richter <rric@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Corey Minyard <minyard@acm.org>, Haojian Zhuang <haojian.zhuang@gmail.com>,
+ Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, morbidrsa@gmail.com,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Vinod Koul <vkoul@kernel.org>,
+ Mark Brown <broonie@kernel.org>, James Morse <james.morse@arm.com>,
+ Daniel Mack <daniel@zonque.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Add MODULE_DEVICE_TABLE(), so modules could be properly autoloaded
-based on the alias from platform_device_id table.
+yes sir^^.
 
-Signed-off-by: Yuntao Liu <liuyuntao12@huawei.com>
----
- drivers/char/ipmi/ipmi_ssif.c | 1 +
- 1 file changed, 1 insertion(+)
+Regards!
+Yuntao
 
-diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-index 96ad571d041a..e8e7b832c060 100644
---- a/drivers/char/ipmi/ipmi_ssif.c
-+++ b/drivers/char/ipmi/ipmi_ssif.c
-@@ -2085,6 +2085,7 @@ static const struct platform_device_id ssif_plat_ids[] = {
-     { "dmi-ipmi-ssif", 0 },
-     { }
- };
-+MODULE_DEVICE_TABLE(platform, ssif_plat_ids);
- 
- static struct platform_driver ipmi_driver = {
- 	.driver = {
--- 
-2.34.1
-
+On 2024/8/19 20:09, Arnd Bergmann wrote:
+> On Mon, Aug 19, 2024, at 13:38, Yuntao Liu wrote:
+>> Add MODULE_DEVICE_TABLE(), so modules could be properly autoloaded
+>> based on the alias from platform_device_id table.
+>>
+>> Yuntao Liu (9):
+>>    usb: ehci-mv: fix module autoloading
+>>    soc: pxa: ssp: fix module autoloading
+>>    misc: atmel-ssc: fix module autoloading
+>>    i2c: at91: fix module autoloading
+>>    mpc85xx_edac: fix module autoloading
+>>    dmaengine: pxa: fix module autoloading
+>>    dmaengine: mmp_pdma: fix module autoloading
+>>    dmaengine: at_hdmac: fix module autoloading
+>>    ipmi: ipmi_ssif: fix module autoloading
+> 
+> I looked at all the patches and found that most of them do not
+> use the table any more, or will stop using it in the near future.
+> 
+> I think your work to validate the correctness of the entries
+> is useful, but it may be more helpful to focus on removing
+> all the unused tables, including those that have a
+> MODULE_DEVICE_TABLE() tag.
+> 
+> If you are planning to do more such cleanups, maybe you can
+> go through them one subsystem at a time and look for drivers
+> that have both of_device_id and i2c_device_id/platform_device_id/
+> spi_device_id tables. If nothing in the kernel creates a device
+> with the legacy string, you can then send a patch that removes
+> the old device ID list and at the same time makes the DT support
+> unconditional in case there is an #ifdef CONFIG_OF check.
+> 
+> If the probe() function accesses platform_data, this would also
+> be unused, allowing an even nicer cleanup of removing the
+> platofrm_data path in favor of OF properties.
+> 
+>        Arnd
 
 
 _______________________________________________
