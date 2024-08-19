@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8C1D1956A15
-	for <lists+openipmi-developer@lfdr.de>; Mon, 19 Aug 2024 13:58:02 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id EC8CA956A1C
+	for <lists+openipmi-developer@lfdr.de>; Mon, 19 Aug 2024 13:58:34 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1sg11J-0003a9-Ep;
-	Mon, 19 Aug 2024 11:57:57 +0000
+	id 1sg11q-0002U5-7r;
+	Mon, 19 Aug 2024 11:58:30 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <arnd@arndb.de>) id 1sg11I-0003Zw-3X
+ (envelope-from <arnd@arndb.de>) id 1sg11o-0002Tn-EH
  for openipmi-developer@lists.sourceforge.net;
- Mon, 19 Aug 2024 11:57:56 +0000
+ Mon, 19 Aug 2024 11:58:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Subject:
  References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:Sender:
  Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
  :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=h4wzlPsfJQiRwt3ClGapHTB9X8sJmK/ibZX4Or4H7kA=; b=gDeXMKg7kUmN003kCEAhiatmbJ
- 59EicnckkrCtA9ISx42JXdYyWFha80slVuV7n7c+CasHwCbwsfc/crrokxL5bF5eHxE+jBIYOapDF
- JCf9jJ+roJ6uP3KFmakIlzYDhWvFiiIyHvOP5BIuBBDzj705ACi/r7WyQlSDq5At91Es=;
+ bh=1q//rQDyx9VX653DFqklT+rFuI5QqQwJi4cGGdU+mLU=; b=mA1TC1K652v8DRqhUnXI2P8Iy7
+ HRMEKbqHfKiO6+wl5Z4NJrInq0VJn1KFKRO8i+6kVa7hK0tWR94V4ZGx0aTbox3mmFfU7hjT0Y3pX
+ KdJMr/Tc3gEC33PUYYYrn4v5VSWwW1iElx/W7a+5mKAMRPVujP2DR8vm2ey+ur3AyUGk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:Content-Type:Subject:References:In-Reply-To:
@@ -31,54 +31,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=h4wzlPsfJQiRwt3ClGapHTB9X8sJmK/ibZX4Or4H7kA=; b=eczsQ+otR5Bcp8T0e/e2zIE8/I
- +h8hdZU2IWq8Cmx5BMxkmwyV8Lina2dlud1BKIeJHtTWsF8RErG088pNwsyXO/SYbaTBAeryCfFxt
- Whv57zzmY8+AcRAZtfC/6K5K+NLxa2ywaHkBhNoGYuMsxYpRk/4aN9cgAVWDoq/T88x8=;
+ bh=1q//rQDyx9VX653DFqklT+rFuI5QqQwJi4cGGdU+mLU=; b=IuYA+XNKAdglWKtlaE6jf3erdo
+ hCkh+2x1fZ230+1dcXMCmso5vx5rwUDuUCHgxBC1KOgDLvfg8u5JKTvr45WykogBqAHcujD6z6stk
+ z9Pfz1yjEH62dF1pVg859OPMJKlv9ejQZ4APoZUO4DAb49ooTQNCba818NlAhGxv/Pqw=;
 Received: from fout5-smtp.messagingengine.com ([103.168.172.148])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1sg11H-0000rS-DM for openipmi-developer@lists.sourceforge.net;
- Mon, 19 Aug 2024 11:57:56 +0000
+ id 1sg11n-0000sy-MO for openipmi-developer@lists.sourceforge.net;
+ Mon, 19 Aug 2024 11:58:28 +0000
 Received: from phl-compute-04.internal (phl-compute-04.nyi.internal
  [10.202.2.44])
- by mailfout.nyi.internal (Postfix) with ESMTP id C46B1138FD76;
- Mon, 19 Aug 2024 07:57:49 -0400 (EDT)
+ by mailfout.nyi.internal (Postfix) with ESMTP id 1F6F8138FFF0;
+ Mon, 19 Aug 2024 07:58:22 -0400 (EDT)
 Received: from phl-imap-11 ([10.202.2.101])
- by phl-compute-04.internal (MEProxy); Mon, 19 Aug 2024 07:57:49 -0400
+ by phl-compute-04.internal (MEProxy); Mon, 19 Aug 2024 07:58:22 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
  :cc:content-transfer-encoding:content-type:content-type:date
  :date:from:from:in-reply-to:in-reply-to:message-id:mime-version
- :references:reply-to:subject:subject:to:to; s=fm3; t=1724068669;
- x=1724155069; bh=h4wzlPsfJQiRwt3ClGapHTB9X8sJmK/ibZX4Or4H7kA=; b=
- iAKp/OxuR/WBF3sTlSd60iHsBjLLKhIFOFSyVUEV6F/Zd1HXCp4hRH3CLLK/AoTt
- xDhpIBRUDAyrWSTOkNaoa0JIQ3pGslFe/0dBvAh/4ygmvnKnNrPAXuAKRSM/MS+i
- dX1gJcds65xhjUDJFs+PM4RdxaWuQYIoPSO+7hfo+kjitNkIonYJx8X2+HZRpv8a
- 3m3Gq/W7knLo6G1lVGwFFQGyaZ3QjfzQ1PQukatDHDR2jHRtY9NvQiGSA0LucOeG
- 4y0wv2g44X+KTJ394UCvQB/K79BXy9aL9Xs206zqf7dKPsAWUptutNPx0doP0pc5
- Ycnr/sMotQEv2lkRL12BkA==
+ :references:reply-to:subject:subject:to:to; s=fm3; t=1724068702;
+ x=1724155102; bh=1q//rQDyx9VX653DFqklT+rFuI5QqQwJi4cGGdU+mLU=; b=
+ fG+BnmgKh2r2F6/TJvNU8oUCDU2voklpgpdl2IGU7DDXViLSqIkoHeHimdGk04Bl
+ ClBnoYKtzbSkKGPdiNf0g9KCf/hUzG46+JzYubftlQ7XN6vMENZfxUsKWiJ54kzP
+ kbxiGn+RuYHwEmEvu5Z7YEtP0j5swfgXqar74/5Hc+NT9qNRYIAFXKWRAlCKR2UV
+ egJ8IBcjSngkSqRa7bLX92gFkQyQqJmWS15yFFKS1z8ITFSZIpWakr5cR6QKCGJf
+ p+K9kOilP52YSR1FXGynUIsb6YYGx6SiA80W4m4HQU82hzZaPcuSZsejTEdjbhkz
+ 7fgF2Fjue9XectUND/9iVA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:cc:content-transfer-encoding
  :content-type:content-type:date:date:feedback-id:feedback-id
  :from:from:in-reply-to:in-reply-to:message-id:mime-version
  :references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
- :x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1724068669; x=
- 1724155069; bh=h4wzlPsfJQiRwt3ClGapHTB9X8sJmK/ibZX4Or4H7kA=; b=r
- cL8NVYOgjDHTqB1UiVRyl8BFVwa/jLdJvE0Keui998kkvQngvDRZWr2iBzoZWIRl
- 4xMSif+DTf4Ekc69tHOQbIDQY+31sSO1Hu8nXmbWOi/SKY7IJa8P7Bj+JiIBCbOU
- Gjz/Az+taJTfCid7X/Qp1q59tm598/kakx0xhoBaUv0I4GmCmrs2aGTtf05Rib6A
- Pr4lpxQA5+qkLW6cCue5+XqXE/QCOYOB5keSJYsIpIRJ5jKaDKl7RnVaVdj4dAvm
- MiBuLoeqKnziCNNjmgNEQ+6aLkT+LPastI1Ao0mT2Smn6fzR2uANKC+4wEb6Ri4L
- kb2+Y4td6gdvkCCCJi0Gw==
-X-ME-Sender: <xms:PTPDZlETO2xwMA9OPitNmD4B1D9hCIbSjyNw8eyJyPJKM2EpkdfPhw>
- <xme:PTPDZqUbJH2dXXogHID-n3vYpFEhiv9Vp28T3sNiEUNcOin3clexDHLSI4DAYAzqu
- _O4WfBJVvMxorpEhkg>
+ :x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1724068702; x=
+ 1724155102; bh=1q//rQDyx9VX653DFqklT+rFuI5QqQwJi4cGGdU+mLU=; b=Q
+ k3p+HfWDP7eMOP0dCowh1s/eJfGGUJf7xKhidjR5W8Dhn+NvW9MpGQYKqDeNRy9q
+ ZjY6IIn7Or/d88ZSmjzSflWj97gYMz5qukje9Sc1gd1PLnN2Dr8L1q+7sVSF6+2d
+ YCekXdKakkNUvxFWQbj9U+B0SCcYSZ3+IPwHCbQCg8uunJ91JOhLNYSOrn49imao
+ lZRnzhvemh+gbxsPRjzovwmJNLxLpKTeLZ6RJwIpdIU71MwVz/AxvgiNuofX2FGq
+ cKKMyXy8FtGt+uvV95z9A8ufteIsMghlauibxGKXXsbSCeCYHr1AVnFfTJvN0+vP
+ pKeJsLxstv/GDF615j8Bg==
+X-ME-Sender: <xms:XTPDZnx-aMkctB6VDOuHCgNxPMWsNdKNg88lEqS-W6MRrSqBNeegEg>
+ <xme:XTPDZvReZw1zxoKn6p_9vGcMiFFjP7WNRk3kNJ1POKEHAlMy_sldj4jcCFlt7q2eZ
+ g9ajkOsdMQgoPYUNUw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddruddugedggeeiucetufdoteggodetrfdotf
  fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
  rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
  htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
  necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
  guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
- gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+ gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpe
  hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfedu
  pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmihhnhigrrhgusegrtghmrdhorh
  hgpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpdhrtghpthhtohepjhgrmhgvshdr
@@ -88,27 +88,27 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddruddugedggeeiucetufdoteggod
  grihhlrdgtohhmpdhrtghpthhtohepmhhorhgsihgurhhsrgesghhmrghilhdrtghomhdp
  rhgtphhtthhopehlihhuhihunhhtrghouddvsehhuhgrfigvihdrtghomhdprhgtphhtth
  hopehtohhnhidrlhhutghksehinhhtvghlrdgtohhm
-X-ME-Proxy: <xmx:PTPDZnJbskLLT633CZqWiWzTgD5-_sTSRDEwamyFbWWi-vraJx-yWA>
- <xmx:PTPDZrHHFBIQO4cRe9p2mxsAHtkFXqn_SZA2UWmnymm6as0Gu278rg>
- <xmx:PTPDZrXQsS8DoqzPYbD2_IDiLcDuQ1DBc75Mf7J-9tm7F6vdTmkxxQ>
- <xmx:PTPDZmMX--2dtB5QGgl5Edzu-KroeCUlJaezHtJykz7zdXtyaAL__g>
- <xmx:PTPDZlj2BX2ZPqgYgGZamuzLIlVr4h_o0Z3yCJGpJtHggArS71p0_Y1S>
+X-ME-Proxy: <xmx:XjPDZhX-oqwAzr6WjjivovL1XLDiHvpbVVTu_sZVWxHpzB0z6964iQ>
+ <xmx:XjPDZhh57Ke7HHK7M6VgeziyeE5iD-PJ4OBLAB7eGXDqBA4UqstCcQ>
+ <xmx:XjPDZpDj3qI1FqH9zKE5v2fmWdZXNVqOHp7j25-4nFcgHqdN4H7KeQ>
+ <xmx:XjPDZqLgAMN94FAKPhoEw8kR8Dv2by2RW3Rvxj-PNx3M3uPXVrrtbg>
+ <xmx:XjPDZmMdiCbxn5ftHHXlGcMZVVeunv_wToMZyj6H_dMsdNDbkYTS3ovh>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.nyi.internal (Postfix, from userid 501)
- id 93E5E16005E; Mon, 19 Aug 2024 07:57:49 -0400 (EDT)
+ id DEE1416005E; Mon, 19 Aug 2024 07:58:21 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Mon, 19 Aug 2024 13:57:19 +0200
+Date: Mon, 19 Aug 2024 13:58:01 +0200
 From: "Arnd Bergmann" <arnd@arndb.de>
 To: "Yuntao Liu" <liuyuntao12@huawei.com>,
  openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
  "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
  linux-i2c@vger.kernel.org, linux-usb@vger.kernel.org
-Message-Id: <d4024f47-96c4-40f2-8bfb-09f3539b2ed4@app.fastmail.com>
-In-Reply-To: <20240819113855.787149-6-liuyuntao12@huawei.com>
+Message-Id: <358410e9-1f0d-4a8a-bf74-084a8ea62440@app.fastmail.com>
+In-Reply-To: <20240819113855.787149-7-liuyuntao12@huawei.com>
 References: <20240819113855.787149-1-liuyuntao12@huawei.com>
- <20240819113855.787149-6-liuyuntao12@huawei.com>
+ <20240819113855.787149-7-liuyuntao12@huawei.com>
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
@@ -127,10 +127,8 @@ X-Spam-Report: Spam detection software,
  blocked.  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
  for more information. [URIs: arndb.de]
- 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
- DNSWL was blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [103.168.172.148 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
+ [103.168.172.148 listed in wl.mailspike.net]
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
@@ -143,8 +141,6 @@ X-Spam-Report: Spam detection software,
  [103.168.172.148 listed in bl.score.senderscore.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [103.168.172.148 listed in wl.mailspike.net]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
@@ -152,11 +148,15 @@ X-Spam-Report: Spam detection software,
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
+ DNSWL was blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [103.168.172.148 listed in list.dnswl.org]
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1sg11H-0000rS-DM
-Subject: Re: [Openipmi-developer] [PATCH -next 5/9] mpc85xx_edac: fix module
- autoloading
+X-Headers-End: 1sg11n-0000sy-MO
+Subject: Re: [Openipmi-developer] [PATCH -next 6/9] dmaengine: pxa: fix
+ module autoloading
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -194,19 +194,15 @@ On Mon, Aug 19, 2024, at 13:38, Yuntao Liu wrote:
 > based on the alias from platform_device_id table.
 >
 > Signed-off-by: Yuntao Liu <liuyuntao12@huawei.com>
+> ---
+>  drivers/dma/pxa_dma.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+The legacy probe will soon be gone for pxa, so I would skip this
+one, like the other pxa patches.
 
->  	},
->  	{}
->  };
-> +MODULE_DEVICE_TABLE(platform, mpc85xx_pci_err_match);
-> 
-
-I see that this device is created in arch/powerpc/sysdev/fsl_pci.c,
-so your change makes sense here.
-
-     Arnd
+      Arnd
 
 
 _______________________________________________
