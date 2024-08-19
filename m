@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 446C6959A3A
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A44B959A36
 	for <lists+openipmi-developer@lfdr.de>; Wed, 21 Aug 2024 13:38:24 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1sgjfO-0008MP-Or;
-	Wed, 21 Aug 2024 11:38:18 +0000
+	id 1sgjfN-0008Lp-Qy;
+	Wed, 21 Aug 2024 11:38:17 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <liuyuntao12@huawei.com>) id 1sg0r4-0003I0-VB
+ (envelope-from <liuyuntao12@huawei.com>) id 1sg0qy-0004TC-MC
  for openipmi-developer@lists.sourceforge.net;
- Mon, 19 Aug 2024 11:47:22 +0000
+ Mon, 19 Aug 2024 11:47:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
  :References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=XMs11nSmCyeg8hfOZcsDXYvHfiKs9RXeVlkDPbv32mc=; b=krN0kkCxb2Hf9eDIa6+I+/XLIH
- dfWDq8nw+dsHNZ0u+5n5y+0zTE0QR6zmNRJ6FRp/ZCntgasei4JWAUVfAs1Qrr72LNV/UMYiKqBqy
- +bQMADci6WMR6dMrkb8bY6HhcX0onJuRx9wajYll76NVIUbJaJ92VuOLCj0DwrMZLNYU=;
+ bh=5TRZmSp4q3dDLqR6xhsFHbfhGbhBeaueCWeIzBlHLXk=; b=LsK/nvVqs7L27H241Dymj3P8RL
+ /gBy3klxblZVbM8ChphVaNC+CNdZK9ifrJUvlQdymHY4nytTSrdIXI+86q7UFLyjUCCfhqQMGj94c
+ lDQUp7IqRtP5OD2yMqxuqp05zqYlLOtfZwBfpYhcB4Cvz/dvu0vPUhcmg6rF0BfLuqjQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:
@@ -31,30 +31,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=XMs11nSmCyeg8hfOZcsDXYvHfiKs9RXeVlkDPbv32mc=; b=CeA39f3q39IxEZp4qrJntc323w
- WVKrK7S91Rvw9GikkACWV6Zr3N8ASwUPkSxU7QshfALQnC0HJUGAgLrTdFExn6kyWnTA03AJo7l4W
- c9wbPYXuSeM3fZRL7qPHvOP0WzqPk5lLONz1TrVeqHMbiYYw5A636wgByDWj9M9CshWY=;
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+ bh=5TRZmSp4q3dDLqR6xhsFHbfhGbhBeaueCWeIzBlHLXk=; b=F/5IWV3rVWlBrh7jmVGgBxuhfn
+ acpBbyoFK93PCJ0jWc9t3cl4XQViamh6DdtACCmz+eLZKiEgrMpHpMS7snuQGRoOl9oubUmxfq1cV
+ z/4xLDIi87mkY0kotKU8KU/xtlf0gNfWKW80BDy7nsaS8VQigfq/Tz4gvBKOuniA/g1Q=;
+Received: from szxga04-in.huawei.com ([45.249.212.190])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1sg0r3-0000IP-Vm for openipmi-developer@lists.sourceforge.net;
- Mon, 19 Aug 2024 11:47:22 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4WnW4c2XLGzpSt9;
- Mon, 19 Aug 2024 19:45:36 +0800 (CST)
+ id 1sg0qy-0000II-D6 for openipmi-developer@lists.sourceforge.net;
+ Mon, 19 Aug 2024 11:47:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+ by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4WnW0c1MBdz2Cn2S;
+ Mon, 19 Aug 2024 19:42:08 +0800 (CST)
 Received: from kwepemg500010.china.huawei.com (unknown [7.202.181.71])
- by mail.maildlp.com (Postfix) with ESMTPS id B71A31400CD;
- Mon, 19 Aug 2024 19:47:04 +0800 (CST)
+ by mail.maildlp.com (Postfix) with ESMTPS id A0AE918001B;
+ Mon, 19 Aug 2024 19:47:06 +0800 (CST)
 Received: from huawei.com (10.67.174.76) by kwepemg500010.china.huawei.com
  (7.202.181.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 19 Aug
- 2024 19:47:03 +0800
+ 2024 19:47:05 +0800
 To: <openipmi-developer@lists.sourceforge.net>,
  <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
  <dmaengine@vger.kernel.org>, <linux-edac@vger.kernel.org>,
  <linux-i2c@vger.kernel.org>, <linux-usb@vger.kernel.org>
-Date: Mon, 19 Aug 2024 11:38:48 +0000
-Message-ID: <20240819113855.787149-3-liuyuntao12@huawei.com>
+Date: Mon, 19 Aug 2024 11:38:49 +0000
+Message-ID: <20240819113855.787149-4-liuyuntao12@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20240819113855.787149-1-liuyuntao12@huawei.com>
 References: <20240819113855.787149-1-liuyuntao12@huawei.com>
@@ -64,7 +64,7 @@ X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
  kwepemg500010.china.huawei.com (7.202.181.71)
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -72,34 +72,31 @@ X-Spam-Report: Spam detection software,
  Content preview:  Add MODULE_DEVICE_TABLE(),
  so modules could be properly autoloaded
  based on the alias from platform_device_id table. Signed-off-by: Yuntao Liu
- <liuyuntao12@huawei.com> --- drivers/soc/pxa/ssp.c | 1 + 1 file changed,
+ <liuyuntao12@huawei.com> --- drivers/misc/atmel-ssc.c | 1 + 1 file changed,
  1 insertion(+) 
  Content analysis details:   (-0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
- DNSWL was blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [45.249.212.188 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [45.249.212.188 listed in wl.mailspike.net]
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [45.249.212.188 listed in sa-accredit.habeas.com]
+ [45.249.212.190 listed in sa-trusted.bondedsender.org]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [45.249.212.188 listed in bl.score.senderscore.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ [45.249.212.190 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
+ DNSWL was blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [45.249.212.190 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1sg0r3-0000IP-Vm
+X-Headers-End: 1sg0qy-0000II-D6
 X-Mailman-Approved-At: Wed, 21 Aug 2024 11:38:09 +0000
-Subject: [Openipmi-developer] [PATCH -next 2/9] soc: pxa: ssp: fix module
+Subject: [Openipmi-developer] [PATCH -next 3/9] misc: atmel-ssc: fix module
  autoloading
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -135,21 +132,21 @@ based on the alias from platform_device_id table.
 
 Signed-off-by: Yuntao Liu <liuyuntao12@huawei.com>
 ---
- drivers/soc/pxa/ssp.c | 1 +
+ drivers/misc/atmel-ssc.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/soc/pxa/ssp.c b/drivers/soc/pxa/ssp.c
-index 854d32e04558..6ac3f376d030 100644
---- a/drivers/soc/pxa/ssp.c
-+++ b/drivers/soc/pxa/ssp.c
-@@ -194,6 +194,7 @@ static const struct platform_device_id ssp_id_table[] = {
- 	{ "pxa910-ssp",		PXA910_SSP },
- 	{ },
+diff --git a/drivers/misc/atmel-ssc.c b/drivers/misc/atmel-ssc.c
+index 6eac0f335915..e7a87183bfbb 100644
+--- a/drivers/misc/atmel-ssc.c
++++ b/drivers/misc/atmel-ssc.c
+@@ -110,6 +110,7 @@ static const struct platform_device_id atmel_ssc_devtypes[] = {
+ 		/* sentinel */
+ 	}
  };
-+MODULE_DEVICE_TABLE(platform, ssp_id_table);
++MODULE_DEVICE_TABLE(platform, atmel_ssc_devtypes);
  
- static struct platform_driver pxa_ssp_driver = {
- 	.probe		= pxa_ssp_probe,
+ #ifdef CONFIG_OF
+ static const struct of_device_id atmel_ssc_dt_ids[] = {
 -- 
 2.34.1
 
