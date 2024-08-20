@@ -2,146 +2,158 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0B5AC956A80
-	for <lists+openipmi-developer@lfdr.de>; Mon, 19 Aug 2024 14:10:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5144B9583E4
+	for <lists+openipmi-developer@lfdr.de>; Tue, 20 Aug 2024 12:15:40 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1sg1DP-0003xT-Jj;
-	Mon, 19 Aug 2024 12:10:27 +0000
+	id 1sgLtk-0008F2-A4;
+	Tue, 20 Aug 2024 10:15:32 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <arnd@arndb.de>) id 1sg1DJ-0003xH-Ib
+ (envelope-from <iivanov@suse.de>) id 1sgLtf-0008Es-6j
  for openipmi-developer@lists.sourceforge.net;
- Mon, 19 Aug 2024 12:10:21 +0000
+ Tue, 20 Aug 2024 10:15:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Subject:
- References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:Sender:
- Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
- :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=w4XxV8t7d4FBrTlqfBcRiEblpXOgHlRWhYqqGC4/luU=; b=CAtpy496thol25hcq9jF/iKfQy
- qUiVw/j9W743hMUUsTQoQZ+5+Ya9ft9qtW2m+lQ4ZMZNUYxj7PylXMO5qf2+Sb7rbpLN3Mlpc+ZPW
- Z37AZnLsEjBTvL36HY75v51aZfanP01Y8rtkNfLVnSCyykzDhttwj5vXr/AIEKxlFleg=;
+ bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=; b=PBZpRqZakIcyjzzqTKkXPP3mQ7
+ rKAVXG7PI/xGx7EQC6yBuHrMgeAb9u1sYNO36hK2IqRy1YWo8NUCgjDjHsN0+/gDsUjfZKSi/gNyb
+ TsncFsFBnhp5lQ7UOdSMbkvPKVbY05e3Jq9mWiyIIEjCXIt57Dsb4/pNHxySn9DkEmLM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:Subject:References:In-Reply-To:
- Message-Id:Cc:To:From:Date:MIME-Version:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=w4XxV8t7d4FBrTlqfBcRiEblpXOgHlRWhYqqGC4/luU=; b=f+DQw3xt+HmrgjNE56OQrHNLDc
- lyxb1TSZUwvcNhzWMKlPrL3NOv7e9TuEPdIRMC2tWSEyDqUSf2tQfhF4S/ub43MwEoa1L2UwEacQy
- rBZt0KSr7maKc6xD99V19i1JeImxEveKadPdJP7CgKWms57xUpB2zbw993dEQMgbjCsA=;
-Received: from fout5-smtp.messagingengine.com ([103.168.172.148])
+ bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=; b=W2HmMgUcDMST9sdDYNnwiwIj4D
+ RAqCC3GhSzDJVnFDjS+NuaDxCkK33KKPrc9Xtf0fuO1rXrgORjWkRbdj0R2Sd+J5eCAB7nzTkoIMF
+ Uhy/kEwWrSTVYwSGqqzvVwlZx8WyZxfmynnQydj1APwncDLYt5BBJFYO4AIpITmp2FbM=;
+Received: from smtp-out2.suse.de ([195.135.223.131])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1sg1DI-0001Tu-PV for openipmi-developer@lists.sourceforge.net;
- Mon, 19 Aug 2024 12:10:21 +0000
-Received: from phl-compute-04.internal (phl-compute-04.nyi.internal
- [10.202.2.44])
- by mailfout.nyi.internal (Postfix) with ESMTP id 34FDE138FFAD;
- Mon, 19 Aug 2024 08:10:10 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
- by phl-compute-04.internal (MEProxy); Mon, 19 Aug 2024 08:10:10 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
- :cc:content-transfer-encoding:content-type:content-type:date
- :date:from:from:in-reply-to:in-reply-to:message-id:mime-version
- :references:reply-to:subject:subject:to:to; s=fm3; t=1724069410;
- x=1724155810; bh=w4XxV8t7d4FBrTlqfBcRiEblpXOgHlRWhYqqGC4/luU=; b=
- lDiDNa5F/o9fcqf0G4hzpgGyH9KHBFgBzxWmc3LhYcEP9NkmvSR37b1D2Z0pYpwF
- F0osr5zzhScCQCkIPNZBww3Tsk6sq1YwIm57bATTawnERylWjk33hIedQ2c21yBW
- a1a9eB+EyUdgs34Q6NiIEu4ytg742QLXywYPWf+Xskfus7xIUsgOhez+Iscslh7v
- h8vHxKWaP7nXLuIZ8CKbmTWQ2ujJULeyHKbZie3utA3+61wA35NyNzA7TnVuEPOo
- pOjaQR6HF78lqBmrFiCdOugMKkPk7VBM/+43inH2D9Y5oQEDqmb1QOMpg3ekYjoa
- T/iz4OWThMwUU1oRGl3sAQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-transfer-encoding
- :content-type:content-type:date:date:feedback-id:feedback-id
- :from:from:in-reply-to:in-reply-to:message-id:mime-version
- :references:reply-to:subject:subject:to:to:x-me-proxy:x-me-proxy
- :x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1724069410; x=
- 1724155810; bh=w4XxV8t7d4FBrTlqfBcRiEblpXOgHlRWhYqqGC4/luU=; b=n
- 8zFVONynTFpiO6L7zJJqjx1ZGG6PLfOuRvZ8GbG7OxaEj81DrMicWtHJuvtv+G7T
- Fk3yp4tx6H/sI1OZDsEltyp4A9QdwJRaCfDEQc0vkVZCKmsRzF4Ll4rLcvXQodAa
- 0IBLdhwoANZ1hJxb5UEIBWgD81A1SiVCam/zbK+ZgtrpEQsE7fjRg/S5XKXpQhuI
- j/F64rTi3Eok6HjnCn/qVCHSJVTlP2rvov/ZyVXrN6o0YIfHbAbn+JbjbWjxCrEk
- YZMRS9Ng9AQEyy4uFO8Xw1ii0iJCJq6lnP90SB7S6uctHLaTJo+pIjntbYGSqS/V
- VPhgTcUNPQ9Mfio1+2khw==
-X-ME-Sender: <xms:ITbDZoyLPO9eJqFgc3Y8g_ilXhH2-2rSSNSxrU4yg9iEsoIOab8fLQ>
- <xme:ITbDZsROLZemX0CwTOLEqXBXtq17VbRtZqrd7LRa-zRanSbIQHF9cXxMqkuygxrf4
- b-snvuH-HLw9v9z5SU>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeftddruddugedggeekucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
- rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
- htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
- necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
- guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
- gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
- hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfedt
- pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmihhnhigrrhgusegrtghmrdhorh
- hgpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpdhrtghpthhtohepjhgrmhgvshdr
- mhhorhhsvgesrghrmhdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllh
- honhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprhhosggvrhhtrdhjrghriihm
- ihhksehfrhgvvgdrfhhrpdhrtghpthhtohephhgrohhjihgrnhdriihhuhgrnhhgsehgmh
- grihhlrdgtohhmpdhrtghpthhtohepmhhorhgsihgurhhsrgesghhmrghilhdrtghomhdp
- rhgtphhtthhopehlihhuhihunhhtrghouddvsehhuhgrfigvihdrtghomhdprhgtphhtth
- hopehtohhnhidrlhhutghksehinhhtvghlrdgtohhm
-X-ME-Proxy: <xmx:ITbDZqX5Hp9dIignNuuezrALmI7Z3798s0Sp-aEg0FJ8FndpyFtzJw>
- <xmx:ITbDZmj1eRNKm8AKnOWhzhvXbxWiDMpOK8fpKOip8HW3XoLyHKbMEw>
- <xmx:ITbDZqCxjIVWrZZBbEx2BuPhqg6sFTl8Y2CI7KNHj_2USD6olE70Fg>
- <xmx:ITbDZnL940TwM96itHbUXhsH97zxAtJaJ8t3blm7ZpzJpwohX2DdSw>
- <xmx:IjbDZs6tNV__PXm-XBUnUhSqXn4zSSBOI2f-ROyoA51sXjwvZSZwFOjW>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
- id 969BC16005E; Mon, 19 Aug 2024 08:10:09 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1sgLtb-0004YA-Pu for openipmi-developer@lists.sourceforge.net;
+ Tue, 20 Aug 2024 10:15:24 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org
+ [IPv6:2a07:de40:b281:104:10:150:64:97])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+ (No client certificate requested)
+ by smtp-out2.suse.de (Postfix) with ESMTPS id 102191FFCB;
+ Tue, 20 Aug 2024 10:15:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+ t=1724148912; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=;
+ b=T6uX1e1QXt/ujB9hYSC7osZUi0a5Q7Mj57iImKBfzq/Stav8sDQRWNGdx34CJzltPBM5zR
+ emjQRwp8UrL0taswO64KvKNycb2OvydMeNuoXXB0aHW/Y4bFyVyTgL9zXsFMe2RO6y6kL+
+ wi2kfe3ehsDDiA/h598nvl3jsrD2Vuo=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+ s=susede2_ed25519; t=1724148912;
+ h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=;
+ b=qtctbdnXQpxFAPXYh2H1xmKHIIbt7zQO6AZDTd+QUly2Fg1oXqd/mSJh6g+0v5LKQ7+QOr
+ ceOP6bwGo/L8eRDQ==
+Authentication-Results: smtp-out2.suse.de;
+ dkim=pass header.d=suse.de header.s=susede2_rsa header.b=njhYoTUj;
+ dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=9bRvnyPf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+ t=1724148911; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=;
+ b=njhYoTUjIMMRYCaCxp2wULPnYBZGz8kvhWz16IzJZuYtzWpSY7zZYIvlrPK3NG6l+muG5c
+ +hzz7ZICYnAHRdCYrJDSb8IAVzLj2BDGaoBEnYMmN6tQYhbUneglbvN+q7LmVYlLrrVuD4
+ gZKP0BINuneR6l3WvKtNvXM0Jep1nMs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+ s=susede2_ed25519; t=1724148911;
+ h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=;
+ b=9bRvnyPf1chMGZ7oTe9RdooRHOd6UUPcse6Mn3PpzX+cEiCPD6yYwqbDpFJsYQqVbjb8a6
+ r8BOvXIPACwJcUDQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+ (No client certificate requested)
+ by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E788D13A17;
+ Tue, 20 Aug 2024 10:15:10 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+ by imap1.dmz-prg2.suse.org with ESMTPSA id XIbsNa5sxGbtUQAAD6G6ig
+ (envelope-from <iivanov@suse.de>); Tue, 20 Aug 2024 10:15:10 +0000
+Date: Tue, 20 Aug 2024 13:20:05 +0300
+From: "Ivan T. Ivanov" <iivanov@suse.de>
+To: corey@minyard.net
+Message-ID: <20240820102005.4l2j73jpt7lmwloh@localhost.localdomain>
+References: <20240816065458.117986-1-iivanov@suse.de>
+ <Zr+Up+94gmPEHwcJ@mail.minyard.net>
+ <84eb700ee647cc40e9e99b086a8648e3@suse.de>
 MIME-Version: 1.0
-Date: Mon, 19 Aug 2024 14:09:49 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Yuntao Liu" <liuyuntao12@huawei.com>,
- openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
- "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
- linux-i2c@vger.kernel.org, linux-usb@vger.kernel.org
-Message-Id: <dabde7bf-dcff-47c6-a68d-f5018ab00282@app.fastmail.com>
-In-Reply-To: <20240819113855.787149-1-liuyuntao12@huawei.com>
-References: <20240819113855.787149-1-liuyuntao12@huawei.com>
-X-Spam-Score: -0.2 (/)
+Content-Disposition: inline
+In-Reply-To: <84eb700ee647cc40e9e99b086a8648e3@suse.de>
+X-Rspamd-Queue-Id: 102191FFCB
+X-Spam-Level: 
+X-Spamd-Result: default: False [-4.51 / 50.00]; BAYES_HAM(-3.00)[99.99%];
+ NEURAL_HAM_LONG(-1.00)[-1.000];
+ R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+ NEURAL_HAM_SHORT(-0.20)[-1.000]; MIME_GOOD(-0.10)[text/plain];
+ MX_GOOD(-0.01)[];
+ DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+ FUZZY_BLOCKED(0.00)[rspamd.com];
+ RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from]; 
+ TO_MATCH_ENVRCPT_ALL(0.00)[]; MIME_TRACE(0.00)[0:+];
+ ARC_NA(0.00)[]; FROM_HAS_DN(0.00)[];
+ DKIM_TRACE(0.00)[suse.de:+];
+ SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+ TO_DN_NONE(0.00)[]; RCVD_COUNT_TWO(0.00)[2];
+ FROM_EQ_ENVFROM(0.00)[]; RCVD_TLS_ALL(0.00)[];
+ RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+ MISSING_XM_UA(0.00)[]; RCVD_VIA_SMTP_AUTH(0.00)[];
+ RCPT_COUNT_THREE(0.00)[4];
+ DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,
+ imap1.dmz-prg2.suse.org:rdns, localhost.localdomain:mid]
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Score: -4.51
+X-Spam-Flag: NO
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, Aug 19, 2024, at 13:38,
- Yuntao Liu wrote: > Add MODULE_DEVICE_TABLE(), 
- so modules could be properly autoloaded > based on the alias from
- platform_device_id table. > > Yuntao Liu (9): > usb: eh [...] 
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content preview:  On 08-18 12:27, Ivan T. Ivanov wrote: > > > > > 3) It appears
+ the response to the GET_DEVICE_ID command, though a > > response is returned, 
+ is not valid. The right way to handle this would > > be to d [...] 
+ Content analysis details:   (-5.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
  blocked.  See
  http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: messagingengine.com]
- 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
- DNSWL was blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [103.168.172.148 listed in list.dnswl.org]
- 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
+ for more information. [URIs: suse.de]
+ 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
+ The query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [103.168.172.148 listed in sa-accredit.habeas.com]
+ [195.135.223.131 listed in sa-accredit.habeas.com]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [103.168.172.148 listed in bl.score.senderscore.com]
+ [195.135.223.131 listed in bl.score.senderscore.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
@@ -149,13 +161,12 @@ X-Spam-Report: Spam detection software,
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [103.168.172.148 listed in wl.mailspike.net]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [195.135.223.131 listed in list.dnswl.org]
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1sg1DI-0001Tu-PV
-Subject: Re: [Openipmi-developer] [PATCH -next 0/9] drivers: fix some module
- autoloading
+X-Headers-End: 1sgLtb-0004YA-Pu
+Subject: Re: [Openipmi-developer] [PATCH] ipmi:ssif: Exit early when there
+ is a SMBus error
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -168,62 +179,31 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Robert Jarzmik <robert.jarzmik@free.fr>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- "Ludovic.Desroches" <ludovic.desroches@microchip.com>,
- Alan Stern <stern@rowland.harvard.edu>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- codrin.ciubotariu@microchip.com,
- =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje.mihanovic@skole.hr>,
- Robert Richter <rric@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Corey Minyard <minyard@acm.org>, Haojian Zhuang <haojian.zhuang@gmail.com>,
- Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, morbidrsa@gmail.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Vinod Koul <vkoul@kernel.org>,
- Mark Brown <broonie@kernel.org>, James Morse <james.morse@arm.com>,
- Daniel Mack <daniel@zonque.org>
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ minyard@acm.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, Aug 19, 2024, at 13:38, Yuntao Liu wrote:
-> Add MODULE_DEVICE_TABLE(), so modules could be properly autoloaded
-> based on the alias from platform_device_id table.
->
-> Yuntao Liu (9):
->   usb: ehci-mv: fix module autoloading
->   soc: pxa: ssp: fix module autoloading
->   misc: atmel-ssc: fix module autoloading
->   i2c: at91: fix module autoloading
->   mpc85xx_edac: fix module autoloading
->   dmaengine: pxa: fix module autoloading
->   dmaengine: mmp_pdma: fix module autoloading
->   dmaengine: at_hdmac: fix module autoloading
->   ipmi: ipmi_ssif: fix module autoloading
+On 08-18 12:27, Ivan T. Ivanov wrote:
+> 
+> > 
+> > 3) It appears the response to the GET_DEVICE_ID command, though a
+> > response is returned, is not valid.  The right way to handle this would
+> > be to do more validation in the ssif_detect() function.  It doesn't do
+> > any validation of the response data, and that's really what needs to be
+> > done.
+> > 
+> 
+> do_cmd() in ssif_detect() already do validation. Perhaps,
+> ssif_probe() should just not return ENODEV in case of error.
+> 
 
-I looked at all the patches and found that most of them do not
-use the table any more, or will stop using it in the near future.
+Oh, I wanted to say ssif_detect, not ssif_probe. 
 
-I think your work to validate the correctness of the entries
-is useful, but it may be more helpful to focus on removing
-all the unused tables, including those that have a
-MODULE_DEVICE_TABLE() tag.
+Regards,
+Ivan
 
-If you are planning to do more such cleanups, maybe you can
-go through them one subsystem at a time and look for drivers
-that have both of_device_id and i2c_device_id/platform_device_id/
-spi_device_id tables. If nothing in the kernel creates a device
-with the legacy string, you can then send a patch that removes
-the old device ID list and at the same time makes the DT support
-unconditional in case there is an #ifdef CONFIG_OF check.
-
-If the probe() function accesses platform_data, this would also
-be unused, allowing an even nicer cleanup of removing the
-platofrm_data path in favor of OF properties.
-
-      Arnd
 
 
 _______________________________________________
