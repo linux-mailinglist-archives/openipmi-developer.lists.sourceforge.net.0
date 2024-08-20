@@ -2,169 +2,130 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5144B9583E4
-	for <lists+openipmi-developer@lfdr.de>; Tue, 20 Aug 2024 12:15:40 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5156B958B5E
+	for <lists+openipmi-developer@lfdr.de>; Tue, 20 Aug 2024 17:32:21 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1sgLtk-0008F2-A4;
-	Tue, 20 Aug 2024 10:15:32 +0000
+	id 1sgQqF-0005go-67;
+	Tue, 20 Aug 2024 15:32:14 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <iivanov@suse.de>) id 1sgLtf-0008Es-6j
+ (envelope-from <corey@minyard.net>) id 1sgQqC-0005gh-TT
  for openipmi-developer@lists.sourceforge.net;
- Tue, 20 Aug 2024 10:15:27 +0000
+ Tue, 20 Aug 2024 15:32:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
+ Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=; b=PBZpRqZakIcyjzzqTKkXPP3mQ7
- rKAVXG7PI/xGx7EQC6yBuHrMgeAb9u1sYNO36hK2IqRy1YWo8NUCgjDjHsN0+/gDsUjfZKSi/gNyb
- TsncFsFBnhp5lQ7UOdSMbkvPKVbY05e3Jq9mWiyIIEjCXIt57Dsb4/pNHxySn9DkEmLM=;
+ bh=MlyfJep8bXqi70eRVjMGb/QXN5I6JkTieSqA2LKChBk=; b=G5mUDK0bi1DIKl3J/2/T0bCUTL
+ HyJeAV9dDA+y6SY6qDgiwSwKpqSo2G0O3uFlXo0xKCQvCGaDqe5wJDB/5o1C0UMYxSZOT9/thBd0f
+ IlIIpTHOoKJAHOHMp9NGZ0kIaXIXdo09NPwSXGs9bDByjRSBAv95QcmsT5HMPcGrWxAQ=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
+ :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=; b=W2HmMgUcDMST9sdDYNnwiwIj4D
- RAqCC3GhSzDJVnFDjS+NuaDxCkK33KKPrc9Xtf0fuO1rXrgORjWkRbdj0R2Sd+J5eCAB7nzTkoIMF
- Uhy/kEwWrSTVYwSGqqzvVwlZx8WyZxfmynnQydj1APwncDLYt5BBJFYO4AIpITmp2FbM=;
-Received: from smtp-out2.suse.de ([195.135.223.131])
+ bh=MlyfJep8bXqi70eRVjMGb/QXN5I6JkTieSqA2LKChBk=; b=DlTxxnUr5FrGBhmOBi+8rve+Oo
+ rHjoNeEWZxuOZtYr5Ygr+QID8+E/T8HVKaIgdjOobG+4KlokNSVYYtBPEi+mDWvbh2CJ9/9xV6XOf
+ NyA5LPJ0JjnKnbQxZti1xj6ojgj21pJu+HfpLGUWo8M3mg/Q24Eq0P9cFhai0UPKuUwk=;
+Received: from mail-lf1-f45.google.com ([209.85.167.45])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1sgLtb-0004YA-Pu for openipmi-developer@lists.sourceforge.net;
- Tue, 20 Aug 2024 10:15:24 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org
- [IPv6:2a07:de40:b281:104:10:150:64:97])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-out2.suse.de (Postfix) with ESMTPS id 102191FFCB;
- Tue, 20 Aug 2024 10:15:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1724148912; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=;
- b=T6uX1e1QXt/ujB9hYSC7osZUi0a5Q7Mj57iImKBfzq/Stav8sDQRWNGdx34CJzltPBM5zR
- emjQRwp8UrL0taswO64KvKNycb2OvydMeNuoXXB0aHW/Y4bFyVyTgL9zXsFMe2RO6y6kL+
- wi2kfe3ehsDDiA/h598nvl3jsrD2Vuo=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1724148912;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=;
- b=qtctbdnXQpxFAPXYh2H1xmKHIIbt7zQO6AZDTd+QUly2Fg1oXqd/mSJh6g+0v5LKQ7+QOr
- ceOP6bwGo/L8eRDQ==
-Authentication-Results: smtp-out2.suse.de;
- dkim=pass header.d=suse.de header.s=susede2_rsa header.b=njhYoTUj;
- dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=9bRvnyPf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1724148911; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=;
- b=njhYoTUjIMMRYCaCxp2wULPnYBZGz8kvhWz16IzJZuYtzWpSY7zZYIvlrPK3NG6l+muG5c
- +hzz7ZICYnAHRdCYrJDSb8IAVzLj2BDGaoBEnYMmN6tQYhbUneglbvN+q7LmVYlLrrVuD4
- gZKP0BINuneR6l3WvKtNvXM0Jep1nMs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1724148911;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=+lfdqfFj/R1LaWHAGnf3jFlwh1vTl96qIjSZz7PlMLY=;
- b=9bRvnyPf1chMGZ7oTe9RdooRHOd6UUPcse6Mn3PpzX+cEiCPD6yYwqbDpFJsYQqVbjb8a6
- r8BOvXIPACwJcUDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested)
- by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E788D13A17;
- Tue, 20 Aug 2024 10:15:10 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
- by imap1.dmz-prg2.suse.org with ESMTPSA id XIbsNa5sxGbtUQAAD6G6ig
- (envelope-from <iivanov@suse.de>); Tue, 20 Aug 2024 10:15:10 +0000
-Date: Tue, 20 Aug 2024 13:20:05 +0300
-From: "Ivan T. Ivanov" <iivanov@suse.de>
-To: corey@minyard.net
-Message-ID: <20240820102005.4l2j73jpt7lmwloh@localhost.localdomain>
+ id 1sgQqB-0005J2-GI for openipmi-developer@lists.sourceforge.net;
+ Tue, 20 Aug 2024 15:32:12 +0000
+Received: by mail-lf1-f45.google.com with SMTP id
+ 2adb3069b0e04-52f01afa11cso7179077e87.0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Tue, 20 Aug 2024 08:32:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1724167925; x=1724772725;
+ darn=lists.sourceforge.net; 
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=MlyfJep8bXqi70eRVjMGb/QXN5I6JkTieSqA2LKChBk=;
+ b=ArxK/6Yj/y2Jg68ukAuISOi3WI2SsRhJoSI8jSRMaAp6HcfDcgi7UrMmpSwHNe6aHI
+ yu4pr7486c8yZapBQJgb4+ZnuuBjAXpuD+i4JpJwMOF0uYJUCIgCDyeICAXrjyltEyOM
+ FvazHvT7B0bbTg97jQtPn3UxOCGMHyknJT1WPQeZAlGdOoBXIkZlwzo+J44KeWKsO7Tx
+ u3mVn5WdRDiY1fXoNalT8XxrRBbgghfbqryZ8lDP/qMvBdQ37QyuH9WksGd9l1ld/tXb
+ cPT3BkEGoApflXRxDUCgUPTSJG8rMghs/TPql5KOtMjGredPG2w0QsB8D41ePGmiFI1C
+ TKCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1724167925; x=1724772725;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=MlyfJep8bXqi70eRVjMGb/QXN5I6JkTieSqA2LKChBk=;
+ b=mqfyPUhAQM6WaKz78L8g11nRiG26fLJWuQ2jP9qhBEJWjCOn0AHcW+Qr1YLeUl8dtH
+ R2kh7wvE9mFFxuU28vsDGyBWqUO5vkYfT9ZXXywLjCvc/4yI0uxxozIpYiBASOUtV6SJ
+ hb0TfPthzgveFsx6LWpEHz+A14x3/U/O+0Rp/fYkN5t5zAU2xtBirOSIZA4qsts90KoI
+ FLQVFqZYNggj9ZnZVNJKF9X/jPa5rVf1u/vBnL0p6Dk5x2ECqH3sIut9ghA0Y5JuC17Y
+ j4qDb/rkBVnN8Kxhhn0vM46BGlTJnAxqxdQMHuVfBs8C71cea/eN4BbidwGFUVS9zjhn
+ R8tA==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCVKbffI4gB9nMBbcnottpcKsonGStpXaTk1VNxxgvE3AU34yijNmM4fdHi+9iulbK91HwCUw9zJCOCxnp/RMLVfhiDZbi+jkqk2as0HT6yFUe5rZQEPgA6a
+X-Gm-Message-State: AOJu0YyjBQZZyL/JK/lhVdDmfjrhXwqLExeNuCSyCBnP4XRgmVRhGVFr
+ 5aa0YmB/hFx8b7be8btZs3kuJQ2ZrzRceGuHD5phNxIh1lTnqCm6gWhU7s8tubf3/YKl3x8zmiF
+ 0Z0SHk4a4aeoyQoWZ2+zzrZbwIQUIr2Ml4NUw3Lh/0Rl2C9cU1Zg=
+X-Google-Smtp-Source: AGHT+IF/cRUYBlGy/+csRyVZc1LkNT2K43ekUV0jTVvwQYEMgOK0RYgE5xpnKqeJiERELBJeMoQ6otcKFqAWQXMqc+8=
+X-Received: by 2002:a05:6512:2243:b0:52e:7656:a0f4 with SMTP id
+ 2adb3069b0e04-5331c6dc3b3mr9669498e87.41.1724167924215; Tue, 20 Aug 2024
+ 08:32:04 -0700 (PDT)
+MIME-Version: 1.0
 References: <20240816065458.117986-1-iivanov@suse.de>
  <Zr+Up+94gmPEHwcJ@mail.minyard.net>
  <84eb700ee647cc40e9e99b086a8648e3@suse.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <84eb700ee647cc40e9e99b086a8648e3@suse.de>
-X-Rspamd-Queue-Id: 102191FFCB
-X-Spam-Level: 
-X-Spamd-Result: default: False [-4.51 / 50.00]; BAYES_HAM(-3.00)[99.99%];
- NEURAL_HAM_LONG(-1.00)[-1.000];
- R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
- NEURAL_HAM_SHORT(-0.20)[-1.000]; MIME_GOOD(-0.10)[text/plain];
- MX_GOOD(-0.01)[];
- DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
- FUZZY_BLOCKED(0.00)[rspamd.com];
- RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from]; 
- TO_MATCH_ENVRCPT_ALL(0.00)[]; MIME_TRACE(0.00)[0:+];
- ARC_NA(0.00)[]; FROM_HAS_DN(0.00)[];
- DKIM_TRACE(0.00)[suse.de:+];
- SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
- TO_DN_NONE(0.00)[]; RCVD_COUNT_TWO(0.00)[2];
- FROM_EQ_ENVFROM(0.00)[]; RCVD_TLS_ALL(0.00)[];
- RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
- MISSING_XM_UA(0.00)[]; RCVD_VIA_SMTP_AUTH(0.00)[];
- RCPT_COUNT_THREE(0.00)[4];
- DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,
- imap1.dmz-prg2.suse.org:rdns, localhost.localdomain:mid]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Score: -4.51
-X-Spam-Flag: NO
-X-Spam-Score: -5.2 (-----)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ <20240820102005.4l2j73jpt7lmwloh@localhost.localdomain>
+In-Reply-To: <20240820102005.4l2j73jpt7lmwloh@localhost.localdomain>
+From: Corey Minyard <corey@minyard.net>
+Date: Tue, 20 Aug 2024 10:31:53 -0500
+Message-ID: <CAB9gMfqj2KJ8=dxhKvJewYB8cE04F2y6pqCtHbXnKVJCjTBygQ@mail.gmail.com>
+To: "Ivan T. Ivanov" <iivanov@suse.de>
+X-Spam-Score: -0.0 (/)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 08-18 12:27, Ivan T. Ivanov wrote: > > > > > 3) It appears
- the response to the GET_DEVICE_ID command, though a > > response is returned, 
- is not valid. The right way to handle this would > > be to d [...] 
- Content analysis details:   (-5.2 points, 6.0 required)
- pts rule name              description
+ 
+ Content preview:  On Tue, Aug 20, 2024 at 5:15 AM Ivan T. Ivanov <iivanov@suse.de>
+    wrote: > > On 08-18 12:27, Ivan T. Ivanov wrote: > > > > > > > > 3) It appears
+    the response to the GET_DEVICE_ID command, though a > [...] 
+ 
+ Content analysis details:   (-0.0 points, 6.0 required)
+ 
+  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
- blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: suse.de]
- 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
- The query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [195.135.223.131 listed in sa-accredit.habeas.com]
- 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [195.135.223.131 listed in bl.score.senderscore.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [195.135.223.131 listed in list.dnswl.org]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
+                             The query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [209.85.167.45 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to
+                             DNSWL was blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [209.85.167.45 listed in list.dnswl.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.167.45 listed in bl.score.senderscore.com]
+  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+                             [209.85.167.45 listed in wl.mailspike.net]
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1sgLtb-0004YA-Pu
+X-Headers-End: 1sgQqB-0005J2-GI
 Subject: Re: [Openipmi-developer] [PATCH] ipmi:ssif: Exit early when there
  is a SMBus error
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -181,32 +142,25 @@ List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
  minyard@acm.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 08-18 12:27, Ivan T. Ivanov wrote:
-> 
-> > 
-> > 3) It appears the response to the GET_DEVICE_ID command, though a
-> > response is returned, is not valid.  The right way to handle this would
-> > be to do more validation in the ssif_detect() function.  It doesn't do
-> > any validation of the response data, and that's really what needs to be
-> > done.
-> > 
-> 
-> do_cmd() in ssif_detect() already do validation. Perhaps,
-> ssif_probe() should just not return ENODEV in case of error.
-> 
-
-Oh, I wanted to say ssif_detect, not ssif_probe. 
-
-Regards,
-Ivan
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gVHVlLCBBdWcgMjAsIDIwMjQgYXQgNToxNeKAr0FNIEl2YW4gVC4gSXZhbm92IDxpaXZhbm92
+QHN1c2UuZGU+IHdyb3RlOgo+Cj4gT24gMDgtMTggMTI6MjcsIEl2YW4gVC4gSXZhbm92IHdyb3Rl
+Ogo+ID4KPiA+ID4KPiA+ID4gMykgSXQgYXBwZWFycyB0aGUgcmVzcG9uc2UgdG8gdGhlIEdFVF9E
+RVZJQ0VfSUQgY29tbWFuZCwgdGhvdWdoIGEKPiA+ID4gcmVzcG9uc2UgaXMgcmV0dXJuZWQsIGlz
+IG5vdCB2YWxpZC4gIFRoZSByaWdodCB3YXkgdG8gaGFuZGxlIHRoaXMgd291bGQKPiA+ID4gYmUg
+dG8gZG8gbW9yZSB2YWxpZGF0aW9uIGluIHRoZSBzc2lmX2RldGVjdCgpIGZ1bmN0aW9uLiAgSXQg
+ZG9lc24ndCBkbwo+ID4gPiBhbnkgdmFsaWRhdGlvbiBvZiB0aGUgcmVzcG9uc2UgZGF0YSwgYW5k
+IHRoYXQncyByZWFsbHkgd2hhdCBuZWVkcyB0byBiZQo+ID4gPiBkb25lLgo+ID4gPgo+ID4KPiA+
+IGRvX2NtZCgpIGluIHNzaWZfZGV0ZWN0KCkgYWxyZWFkeSBkbyB2YWxpZGF0aW9uLiBQZXJoYXBz
+LAo+ID4gc3NpZl9wcm9iZSgpIHNob3VsZCBqdXN0IG5vdCByZXR1cm4gRU5PREVWIGluIGNhc2Ug
+b2YgZXJyb3IuCj4gPgo+Cj4gT2gsIEkgd2FudGVkIHRvIHNheSBzc2lmX2RldGVjdCwgbm90IHNz
+aWZfcHJvYmUuCgpZZWFoLCB0aGF0J3MgcHJvYmFibHkgdGhlIHJpZ2h0IHNvbHV0aW9uLiAgSSds
+bCBsb29rIGF0IHRoaXMgYSBiaXQuCkJ1dCBJIHNlZSB0aGUgcHJvYmxlbS4gIERvIHlvdSB3YW50
+IHRvIGRvIGEgcGF0Y2gsIG9yIGRvIHlvdSB3YW50IG1lCnRvPwoKLWNvcmV5CgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVy
+IG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0
+dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVs
+b3Blcgo=
