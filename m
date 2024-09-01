@@ -2,84 +2,119 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BE63C967BEF
-	for <lists+openipmi-developer@lfdr.de>; Sun,  1 Sep 2024 21:36:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 445A3967BF2
+	for <lists+openipmi-developer@lfdr.de>; Sun,  1 Sep 2024 21:36:47 +0200 (CEST)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1skqMr-0005MT-71;
-	Sun, 01 Sep 2024 19:36:09 +0000
+	id 1skqNL-0005QG-LT;
+	Sun, 01 Sep 2024 19:36:39 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <foo00@h08.hostsharing.net>) id 1skg95-0006aQ-43
+ (envelope-from <corey@minyard.net>) id 1skqNJ-0005Pz-Mk
  for openipmi-developer@lists.sourceforge.net;
- Sun, 01 Sep 2024 08:41:15 +0000
+ Sun, 01 Sep 2024 19:36:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=QoBLEbnZd0TwDOZpzEzd2AQSJLfpxpovbDI+70oeplo=; b=ijoPPZg530mQgqhWfGpXI8S6JL
- RAzcd8kwi9weK+WRZdSxjwrc/EWdRDmL5U6uXi9whKvf0Q59zo5cFj2N26Gmpibd+g5c3ein0IufL
- XfvSr6q2OU7YwFsonYTVLZ5IhD9t2mehRrG0ufKMA5wtixvaC7QHkCSkDQ4l96zWWYlo=;
+ bh=XiOFp46qhP2eeXetIvuZsxlfaW7Lra2Ek61RDRs0VMM=; b=Ak7RcypL4IITHAy/Bpd5sEDf6F
+ vvdIJHcIK08uVg4EBi93rUXt5l3pT/nMuqqmgRYJKSDFnLspK/064Lnxq5JlMginTTvU+67AeTVbT
+ Xl8K9u1KqmCVzXES1kqJAzgvyQiEexAswoJjqkTEShwlWt1OaL9R5gMvstm6PytO085A=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=QoBLEbnZd0TwDOZpzEzd2AQSJLfpxpovbDI+70oeplo=; b=RNx1kS00epqXS49FR+NsbxgO9H
- uOK85gTU7lFK+ELhtpdU6q69WefS4VEXwJX/1EzT7t9ZnyXpNMXLPhJULjXMimgkylYFh+4jTT8Oi
- 87EPpTU+lpSRSWajsAMT8O1Xjxk2T5hGhllQK+/Xw3mFZpl6AtiP0zMlsRHbeyKKsfO4=;
-Received: from bmailout3.hostsharing.net ([176.9.242.62])
+ bh=XiOFp46qhP2eeXetIvuZsxlfaW7Lra2Ek61RDRs0VMM=; b=dbk2TvAdDrvK4EYjgRyuQyYBHl
+ a3/BNZx8/Ozoxcj2lAXnS9mo3qLaRcbYgNJIOqBld1hbADKN+Y0yYNB5x3mZM9W4zs5Kqhy2xpvTz
+ pU7wgUYuHa+/MeT/Dvue5ZAnmmhbr7Z/nLlaVh+bW2V/QBpQRWhkrcU7lAvxxIU5+fWk=;
+Received: from mail-oa1-f52.google.com ([209.85.160.52])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1skg93-00053v-AH for openipmi-developer@lists.sourceforge.net;
- Sun, 01 Sep 2024 08:41:15 +0000
-Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256
- client-signature RSA-PSS (4096 bits) client-digest SHA256)
- (Client CN "*.hostsharing.net", Issuer "RapidSSL TLS RSA CA G1" (verified OK))
- by bmailout3.hostsharing.net (Postfix) with ESMTPS id 61E51100D9438;
- Sun,  1 Sep 2024 10:25:51 +0200 (CEST)
-Received: by h08.hostsharing.net (Postfix, from userid 100393)
- id 1E16D11B173; Sun,  1 Sep 2024 10:25:51 +0200 (CEST)
-Date: Sun, 1 Sep 2024 10:25:51 +0200
-From: Lukas Wunner <lukas@wunner.de>
-To: Tony Hutter <hutter2@llnl.gov>
-Message-ID: <ZtQlD7PPE4TUhZf4@wunner.de>
-References: <40c7776f-b168-4cbe-a352-122e56fe7b31@llnl.gov>
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1skqNI-0006aY-Po for openipmi-developer@lists.sourceforge.net;
+ Sun, 01 Sep 2024 19:36:37 +0000
+Received: by mail-oa1-f52.google.com with SMTP id
+ 586e51a60fabf-277cfd3f07aso585774fac.3
+ for <openipmi-developer@lists.sourceforge.net>;
+ Sun, 01 Sep 2024 12:36:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1725219391; x=1725824191;
+ darn=lists.sourceforge.net; 
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=XiOFp46qhP2eeXetIvuZsxlfaW7Lra2Ek61RDRs0VMM=;
+ b=eNhmx9xM6dZYyJcV6Yd70RLPzbfuCzTz0k2+Bh3a5XxRweXzsm6jVbIcems0o1yHh+
+ T5nNjY+8eQTVDYVn8qMtkfJ3SglVuhtDfeb15UuLt6nq03QaRVsO1pC4e9wqA/F2zuZz
+ s5CKuXYYkArn1KlAc0/vyAxY6zO5K8faWEm+te7iFW84TvBHmvIpXqVgk9/f0zV7Fdo5
+ ciG4R5kCiMEyuaeWgU47zANqf51ojzq98/VJUJnOtNcAr0L0H+45dbvLD3DBvENjluki
+ Uh68GCjHCDP0qFza2bTEzHbbYyfNfqM191V7j0p1odcITtqi+rqgX4RwRQbaPa57f4s9
+ jGqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1725219391; x=1725824191;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=XiOFp46qhP2eeXetIvuZsxlfaW7Lra2Ek61RDRs0VMM=;
+ b=d09uhB99tDDj5xm+UmnzizJXiy4+eF7G0/+pexJS6UkZAGg8o5GWBtsVDXsbwa2nbw
+ o0Zvd/V494Ffyql/yCunuqnNDFPQit/OJ+8mO48qjpWjmLTgNxH70/z6/b+LDx3PpNh8
+ fPrN+kAUejw05AhzilyscuGwu82YLnC0hnodEJbd3HEbKHwKKT+lkvcTjRPzfaktpYy3
+ cjiILeRSwfD6uCb1kBWBYVPwG/uSRhBgFQ7EA3swMvIVa6ti2dVHrVa85OmlvfPzkMkc
+ hZb0YEfq+2bI7lrjOuVD/vMpR4yYmeELcMFV4R9Nrcg7HEpIC69FcvH/BDkhfu/HwfvF
+ 8q5g==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCWYjXDjuVoxFtEQyEvGAcSr7dulQ3wQ1gjkwS341wxviuYDBJ27D+glawWw2fmp3qd9Wx3GCbVp/AcNvfOck3dFvh4=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YzNi6jfwk0vtO9pXYuhau3tqB3poQ9MW1G0xeoivM7Re/9RoF3t
+ x2F4W/MgIUJ/fac/iJqhaJ+3UJkx+7fRF8rsrDpip8O2yNJrn3nbiGYROGuHdkE=
+X-Google-Smtp-Source: AGHT+IG5bNU+8xFP1f27d3WC/VyPLz6YYCq5+TlVAUmorRNBQNYcIL6WeKBq4LEQuKFASWo/wAm4kg==
+X-Received: by 2002:a05:6870:9a1e:b0:24f:e5f2:1cf0 with SMTP id
+ 586e51a60fabf-277900c6c6dmr14746876fac.14.1725219390944; 
+ Sun, 01 Sep 2024 12:36:30 -0700 (PDT)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:a4c5:2f87:1c10:5fa2])
+ by smtp.gmail.com with ESMTPSA id
+ 586e51a60fabf-277cb790846sm1259385fac.47.2024.09.01.12.36.30
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 01 Sep 2024 12:36:30 -0700 (PDT)
+Date: Sun, 1 Sep 2024 14:36:28 -0500
+From: Corey Minyard <corey@minyard.net>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Message-ID: <ZtTCPPZSzVZMZiqf@mail.minyard.net>
+References: <20240901090211.3797-2-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <40c7776f-b168-4cbe-a352-122e56fe7b31@llnl.gov>
-X-Spam-Score: -0.5 (/)
+In-Reply-To: <20240901090211.3797-2-wsa+renesas@sang-engineering.com>
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Tue, Aug 27, 2024 at 02:03:48PM -0700, Tony Hutter wrote:
- > Add driver to control the NVMe slot LEDs on the Cray ClusterStor E1000.
- > The driver provides hotplug attention status callbacks for the [...] 
- Content analysis details:   (-0.5 points, 6.0 required)
+ Content preview:  On Sun, Sep 01, 2024 at 11:02:11AM +0200, Wolfram Sang wrote:
+ > "i2c-adapter" class entries are deprecated since 2009. Switch to the >
+ proper location. Thanks, in my queue. -corey 
+ Content analysis details:   (-0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [176.9.242.62 listed in list.dnswl.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.160.52 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.160.52 listed in wl.mailspike.net]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  -0.0 T_SCC_BODY_TEXT_LINE   No description available.
-X-Headers-End: 1skg93-00053v-AH
-X-Mailman-Approved-At: Sun, 01 Sep 2024 19:36:08 +0000
-Subject: Re: [Openipmi-developer] [PATCH] PCI: Introduce Cray ClusterStor
- E1000 NVMe slot LED driver
+X-Headers-End: 1skqNI-0006aY-Po
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: docs: don't advertise
+ deprecated sysfs entries
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,65 +127,48 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: bhelgaas@google.com, linux-pci@vger.kernel.org,
+Reply-To: corey@minyard.net
+Cc: Corey Minyard <minyard@acm.org>, Jonathan Corbet <corbet@lwn.net>,
+ linux-doc@vger.kernel.org, linux-i2c@vger.kernel.org,
  openipmi-developer@lists.sourceforge.net,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, minyard@acm.org
+ Heiner Kallweit <hkallweit1@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Aug 27, 2024 at 02:03:48PM -0700, Tony Hutter wrote:
-> Add driver to control the NVMe slot LEDs on the Cray ClusterStor E1000.
-> The driver provides hotplug attention status callbacks for the 24 NVMe
-> slots on the E1000.  This allows users to access the E1000's locate and
-> fault LEDs via the normal /sys/bus/pci/slots/<slot>/attention sysfs
-> entries.  This driver uses IPMI to communicate with the E1000 controller to
-> toggle the LEDs.
+On Sun, Sep 01, 2024 at 11:02:11AM +0200, Wolfram Sang wrote:
+> "i2c-adapter" class entries are deprecated since 2009. Switch to the
+> proper location.
 
-The PCISIG has converged on the NPEM interface (PCIe r6.2 sec 6.28 and
-7.9.19) to control LEDs on storage enclosures.  We're in the process of
-upstreaming that:
+Thanks, in my queue.
 
-https://lore.kernel.org/all/20240814122900.13525-1-mariusz.tkaczyk@linux.intel.com/
+-corey
 
-Of course proprietary interfaces such as the Cray one are still
-upstreamable as long as you're willing to maintain them.
-
-The NPEM implementation linked above models each LED as a led_classdev.
-I'd suggest following that instead of using the legacy "attention"
-interface in sysfs.  Overloading the {set,get}_attention_status()
-callbacks like you're doing here is not acceptable upstream IMO.
-
-You need to be careful about the lifetime of the pci_dev below which
-you're adding led_classdevs (or of which you're modifying the
-{set,get}_attention_status() callbacks) because pci_devs can be removed
-via sysfs at any time.
-
-Basically what you need to do is find the pci_dev in craye1k_new_smi()
-and acquire a reference on it with pci_dev_get().  Install a bus notifier
-so that you get notified when the pci_dev is removed.  In the notifier,
-you need to remove the ledclass_devs and release the reference on the
-pci_dev with pci_dev_put().  See here for an example how to add a
-notifier for pci_bus_type:
-
-https://github.com/l1k/linux/commit/d2d5296785c7
-
-The statistics should live in debugfs instead of regular sysfs.
-
-The command line options should likewise live in debugfs.
-New command line options are generally ill received because the
-expectation is that everything is configured correctly automatically
-without the user having to fiddle with command line options.
-
-Please add documentation for the user space ABI you're introducing to
-Documentation/ABI/testing/sysfs-bus-pci.
-
-The MODULE_SOFTDEP("pre: pciehp") doesn't really make any sense
-because pciehp is always builtin or disabled, but never modular.
-
-Thanks,
-
-Lukas
+> 
+> Reported-by: Heiner Kallweit <hkallweit1@gmail.com>
+> Closes: https://lore.kernel.org/r/80c4a898-5867-4162-ac85-bdf7c7c68746@gmail.com
+> Fixes: 259307074bfc ("ipmi: Add SMBus interface driver (SSIF)")
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> ---
+>  Documentation/driver-api/ipmi.rst | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/driver-api/ipmi.rst b/Documentation/driver-api/ipmi.rst
+> index e224e47b6b09..dfa021eacd63 100644
+> --- a/Documentation/driver-api/ipmi.rst
+> +++ b/Documentation/driver-api/ipmi.rst
+> @@ -540,7 +540,7 @@ at module load time (for a module) with::
+>  	alerts_broken
+>  
+>  The addresses are normal I2C addresses.  The adapter is the string
+> -name of the adapter, as shown in /sys/class/i2c-adapter/i2c-<n>/name.
+> +name of the adapter, as shown in /sys/bus/i2c/devices/i2c-<n>/name.
+>  It is *NOT* i2c-<n> itself.  Also, the comparison is done ignoring
+>  spaces, so if the name is "This is an I2C chip" you can say
+>  adapter_name=ThisisanI2cchip.  This is because it's hard to pass in
+> -- 
+> 2.43.0
+> 
 
 
 _______________________________________________
