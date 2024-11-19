@@ -2,121 +2,135 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BACBD9BF233
-	for <lists+openipmi-developer@lfdr.de>; Wed,  6 Nov 2024 16:50:38 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 22B079D1D8F
+	for <lists+openipmi-developer@lfdr.de>; Tue, 19 Nov 2024 02:48:21 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1t8iId-0003rq-93;
-	Wed, 06 Nov 2024 15:50:27 +0000
+	id 1tDDLg-00057J-7g;
+	Tue, 19 Nov 2024 01:48:12 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1t8iIb-0003rk-Oe
+ (envelope-from <potin.lai.pt@gmail.com>) id 1tDDLf-00057B-40
  for openipmi-developer@lists.sourceforge.net;
- Wed, 06 Nov 2024 15:50:25 +0000
+ Tue, 19 Nov 2024 01:48:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
+ Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=E3CfkUvmHBfftI7nEjPqKAga3mFEVe00QCXyDqUTKB0=; b=FmMUjGLoBiMctGheQH6htLtdLA
- O/RV51kYwJ36aZcGMX9MR4KuILzLDMDXwz7L3NSz3ws84Zo4zbe75TzT7TK6CUV+pCSShTFzs3Cl2
- RkcWMulQryNP/fMC3wKEFqHVMrwElCl75wkBtXt0oLth/cFPHcGB+N5FLn8M7byJKorE=;
+ bh=c0Jo/KKBcPffbGmgIdsyD8pOkohSJSpZck1cIdtrRTs=; b=hBbtlug3pL4FC/U7mOF3oJ/FFS
+ TxxddeI/34KbFEjwLF0P1zylCw79h1r1bAqAgaSwB4mqZ2omLaffHFPG+SxZ/avq7Dpx6WIMM1Do6
+ JkUiZVTeDdzjFSvbnDkbwMhvyRV/ojypKm81/P4Q71PfjUQVfv3f1WmRBPkVLmFgFTcE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
+ :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=E3CfkUvmHBfftI7nEjPqKAga3mFEVe00QCXyDqUTKB0=; b=ehD1FHmXueYP4hfujmJfIGVXog
- drje1VFcK/mu+uNFChsvTUeh0zHbZWZ8+OKdOLYO7CnY1Dh+UttQeO9Miumz8FgRB5zLOXFhZukHm
- g8F7uAjSiN0aHqZH2a62mRLodtYseW7LBGMM5h1uKR7eB9cymVQaDiiDWcxbc5YvexXw=;
-Received: from mail-io1-f50.google.com ([209.85.166.50])
+ bh=c0Jo/KKBcPffbGmgIdsyD8pOkohSJSpZck1cIdtrRTs=; b=mvmlH7Oreo8Gw8vTP1nDrna9EF
+ RzABW1jMlJy1pQcZ8xec8kaLM/HQN4TEJmQPQ2q1imD4/vN1yRlkwZF0safgNWT2xrKvbdcHi02Xk
+ 3rvnr58gjvR6R+E2R1JLCGfLbJFqG8wN6UV/KvZvwNYZPg2DOghHzFWFZWOQooMcopN8=;
+Received: from mail-ej1-f52.google.com ([209.85.218.52])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1t8iIb-0000VA-35 for openipmi-developer@lists.sourceforge.net;
- Wed, 06 Nov 2024 15:50:25 +0000
-Received: by mail-io1-f50.google.com with SMTP id
- ca18e2360f4ac-83a9cd37a11so263132339f.3
+ id 1tDDLe-0007yE-HI for openipmi-developer@lists.sourceforge.net;
+ Tue, 19 Nov 2024 01:48:11 +0000
+Received: by mail-ej1-f52.google.com with SMTP id
+ a640c23a62f3a-a9f1c590ecdso664038166b.1
  for <openipmi-developer@lists.sourceforge.net>;
- Wed, 06 Nov 2024 07:50:22 -0800 (PST)
+ Mon, 18 Nov 2024 17:48:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1730908212; x=1731513012;
- darn=lists.sourceforge.net; 
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ d=gmail.com; s=20230601; t=1731980879; x=1732585679; darn=lists.sourceforge.net;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:from:to:cc:subject:date
  :message-id:reply-to;
- bh=E3CfkUvmHBfftI7nEjPqKAga3mFEVe00QCXyDqUTKB0=;
- b=GVfJQWwI529nvljVy2NP+SrIGANEA/mAWfLzmDJ3iDf0si9T82biP3Rrpj984a2K3m
- z48aPoxhDN2NYjdMFEDrNq16Z1kksOt9+K231eZNTBADr8kKHqorSoQimHGVM1MRbwsv
- 9n4x/bsQNSFaX3bv7LyvayOAUvfXFxWphluASM3iOZ9n2nzk6vgFphN0EFomFuNml7yN
- 6YYim1gVwJ+DYYVAHKZ0L4v9FOLHLICzLhPIHlApFv0mYDyjjCa5aLb/k90WZSHI23Ob
- VBWOgS0iDsYrv3cMu9ogT25eHg0SuXtmt/KMXSAn547pYQAjAM/8X0JeOtDFkluRnFPU
- XVuQ==
+ bh=c0Jo/KKBcPffbGmgIdsyD8pOkohSJSpZck1cIdtrRTs=;
+ b=g9Bcpl64WPAW6JSf8wNjVsCnnULkywJRLj9o4dH0QX+Egfv6PtPJ5JUXgNGGU1uVQe
+ aDs97kqQhCn4OA7EayW1zhom34ue5s8DxPOUi7CJ72ZZUYdfQdLG5aZgAPboMICq9JKW
+ 3ljld89ggr+98ehnT8KEdPL+ZvcZgfVGGh9AP8JfhtvtzrfybnCQLA/of851NTFk1o20
+ 81NdaiJ/2Jdl8DX1JGAQku346iQtBOaDXEqXaL8NBF+W1MGFd+dxio5q4Fzf8Z/il3B6
+ 4Np/xIDMDdrFG3MjFWa27pwaRzJXgHtmhgDyqawpGOLbyhhUhA7jkVnRNZUGjx1mw6qi
+ Sacw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1730908212; x=1731513012;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+ d=1e100.net; s=20230601; t=1731980879; x=1732585679;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=E3CfkUvmHBfftI7nEjPqKAga3mFEVe00QCXyDqUTKB0=;
- b=grrk3oU2d/gDECb5UhIGiK7Bi3OMbMrzYYs/vhtaWYFVdd9/MI079fXDjUcFMXk2D5
- +5GGgReYOXHQBB+yTBbGtHlk6fbKhCD2YnSgsra09mVCWgz54PU/1witE+DC5o4gX1w5
- 85pLjKZ4LFZ/MchMViesI+kr9+gz0h0AYnvBtv2ExCeJoauCwAlOvU7jhrlBUejnqfbO
- 6EybsdPiZixGQq4Ks7lJfcsWSL/azdTJXbiVBFU1O16rN6GztP6wHAkGWc9C5KsSnV3f
- 7JeCUxnc14LUc5I8T+DIhyAUVE3Va0EGruJEtLdCsaw7Dssl/p0RMDNaygDvxQqlS9ey
- /bfQ==
+ bh=c0Jo/KKBcPffbGmgIdsyD8pOkohSJSpZck1cIdtrRTs=;
+ b=V/naRqG54ze+wii3McPx1dRSnXtGyRN0Zx0JtBsU1kxGWufY83EtP3RpcEDXATsZWE
+ QqyP+DzothNjHfwipOEgsb+79v27DK5nSBOokKFHzzFTy5vgxlWFVy6Qm8zZVu39gx01
+ RHIOwV4FYq2HK5FSNDkt1M0wNzEieg7STdXQRq7Q18uFTTXE/8lRvi9k2gLTaXM7Z5Jb
+ jtGPEZEJMa0J2GbuE8gExK5kU4tlMgsJ7x831wGHRfGjQPHAXkKAFIHpy9rBswozolBn
+ nWZwgezIFhtLBzw0QGV4KHozOYYmdvUdkzH7HOsEoRZ1JMwvG8+aCLMHpMq//+ZTbDWg
+ q5PQ==
 X-Forwarded-Encrypted: i=1;
- AJvYcCVyTyRVoDC8MQ+JgGLjyA5lictRjIM5CuvUNOEaOgom30Hxo7H4DCGY2HmGm1ATBS47QXLPQ9xZLdrhSRvq5+ofuiY=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0YzW/tv93ZwGEE+7SH8hCa/MyiNYOUS8WLYQe4BhnxTCrpPI0FjM
- d0YwyzYjn772BVJrgNvZ+X0uCqkUwilyWZ/rc4Va6u8OJ2KlCH4Z2Zto9z4pP4y5dPORxAo0ty9
- H7jo=
-X-Google-Smtp-Source: AGHT+IHJyz2ZD0Tulkl1wbaFPR6j+E+IbS6Z1fX733mFNactan83QAKY3E30AHJnO4HLitxjcG4Z5Q==
-X-Received: by 2002:a05:6808:178d:b0:3e5:df4b:bf4f with SMTP id
- 5614622812f47-3e63845b56bmr39868716b6e.24.1730898017172; 
- Wed, 06 Nov 2024 05:00:17 -0800 (PST)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:f7a1:2561:134f:bca6])
- by smtp.gmail.com with ESMTPSA id
- 5614622812f47-3e75b5b9201sm2429660b6e.13.2024.11.06.05.00.14
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 06 Nov 2024 05:00:15 -0800 (PST)
-Date: Wed, 6 Nov 2024 07:00:08 -0600
-From: Corey Minyard <corey@minyard.net>
-To: liujing <liujing@cmss.chinamobile.com>
-Message-ID: <ZytoWGTQ4fn9KpV2@mail.minyard.net>
-References: <20241106111458.2157-1-liujing@cmss.chinamobile.com>
+ AJvYcCUNua3caY7kj0/24LQgy7ee/96y/MhDR0V/QTJnOdZH2ho2C2aE65uNu0p6DyDIVVzigWeT59qKYGYBifsmE1/4t8U=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YxfIgFRe8IFEbAU1C5QJiGz0esYfbWFt5Y+MnDWNU2LlaGMGD59
+ lF5zMEQGAe3AYX1VsHZccoRi5B9fg5TK8NCJ2dky/KP8p5JpxHN2i0SyHbAddIZgMI5Oot/uv61
+ vYIn2HZSuqemMBtx4j45Lq7I7Oso=
+X-Google-Smtp-Source: AGHT+IE8gBfJzkyFGKkxy2q1jEDdV9oHCgOI5STCd2ZM9i3LxvLIsbyX+gXcPK25+06SDNGcaNi725XTI8R8fxIJd28=
+X-Received: by 2002:a17:906:daca:b0:a9e:c947:d5e5 with SMTP id
+ a640c23a62f3a-aa48347618amr1308741266b.28.1731980878781; Mon, 18 Nov 2024
+ 17:47:58 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241106111458.2157-1-liujing@cmss.chinamobile.com>
-X-Spam-Score: 0.0 (/)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+References: <20241022-ssif-alert-gpios-v2-0-c7dd6dd17a7e@gmail.com>
+ <20241022-ssif-alert-gpios-v2-2-c7dd6dd17a7e@gmail.com>
+ <434333fb-5703-449e-83f2-46e85f34fd23@os.amperecomputing.com>
+In-Reply-To: <434333fb-5703-449e-83f2-46e85f34fd23@os.amperecomputing.com>
+From: Potin Lai <potin.lai.pt@gmail.com>
+Date: Tue, 19 Nov 2024 09:47:47 +0800
+Message-ID: <CAGfYmwXotiDHCJJod0Q-SjC9GyuCFFhO+qj9SXCQFud5JgFHSA@mail.gmail.com>
+To: Quan Nguyen <quan@os.amperecomputing.com>
+X-Spam-Score: -0.2 (/)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Nov 06, 2024 at 07:14:58PM +0800, liujing wrote: >
- Because the types of io.regsize and io.regspacing in the ipmipci_probe
- function
- are unsigned int, > they should be output in the %u format. I reformatted
- the above text to fit into 80 characters, but this is right, I've applied
- it. Content analysis details:   (0.0 points, 6.0 required)
- pts rule name              description
+ 
+ Content preview:  On Thu, Oct 24, 2024 at 12:29 PM Quan Nguyen wrote: > >
+   > > On 22/10/2024 08:20, Potin Lai wrote: > > From: Cosmo Chou > > > > Implement
+    GPIO-based alert mechanism in the SSIF BMC driver to noti [...] 
+ 
+ Content analysis details:   (-0.2 points, 6.0 required)
+ 
+  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.50 listed in wl.mailspike.net]
+  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
+                             The query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                          [209.85.218.52 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [209.85.218.52 listed in bl.score.senderscore.com]
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [potin.lai.pt[at]gmail.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+                             [209.85.218.52 listed in wl.mailspike.net]
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.166.50 listed in list.dnswl.org]
-X-Headers-End: 1t8iIb-0000VA-35
-Subject: Re: [Openipmi-developer] [PATCH] char:ipmi: Fix the wrong format
- specifier
+                              no trust
+                             [209.85.218.52 listed in list.dnswl.org]
+  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1tDDLe-0007yE-HI
+Subject: Re: [Openipmi-developer] [PATCH v2 2/2] ipmi: ssif_bmc: add
+ GPIO-based alert mechanism
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -129,46 +143,37 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- minyard@acm.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Corey Minyard <minyard@acm.org>, devicetree@vger.kernel.org,
+ Cosmo Chou <chou.cosmo@gmail.com>, Potin Lai <potin.lai@quantatw.com>,
+ linux-kernel@vger.kernel.org, Patrick Williams <patrick@stwcx.xyz>,
+ Cosmo Chou <cosmo.chou@quantatw.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Nov 06, 2024 at 07:14:58PM +0800, liujing wrote:
-> Because the types of io.regsize and io.regspacing in the ipmipci_probe function are unsigned int,
-> they should be output in the %u format.
-
-I reformatted the above text to fit into 80 characters, but this is
-right, I've applied it.
-
--corey
-
-> 
-> Signed-off-by: liujing <liujing@cmss.chinamobile.com>
-> 
-> diff --git a/drivers/char/ipmi/ipmi_si_pci.c b/drivers/char/ipmi/ipmi_si_pci.c
-> index b83d55685b22..8c0ea637aba0 100644
-> --- a/drivers/char/ipmi/ipmi_si_pci.c
-> +++ b/drivers/char/ipmi/ipmi_si_pci.c
-> @@ -118,7 +118,7 @@ static int ipmi_pci_probe(struct pci_dev *pdev,
->  	if (io.irq)
->  		io.irq_setup = ipmi_std_irq_setup;
->  
-> -	dev_info(&pdev->dev, "%pR regsize %d spacing %d irq %d\n",
-> +	dev_info(&pdev->dev, "%pR regsize %u spacing %u irq %d\n",
->  		 &pdev->resource[0], io.regsize, io.regspacing, io.irq);
->  
->  	return ipmi_si_add_smi(&io);
-> -- 
-> 2.27.0
-> 
-> 
-> 
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gVGh1LCBPY3QgMjQsIDIwMjQgYXQgMTI6MjnigK9QTSBRdWFuIE5ndXllbgo8cXVhbkBvcy5h
+bXBlcmVjb21wdXRpbmcuY29tPiB3cm90ZToKPgo+Cj4KPiBPbiAyMi8xMC8yMDI0IDA4OjIwLCBQ
+b3RpbiBMYWkgd3JvdGU6Cj4gPiBGcm9tOiBDb3NtbyBDaG91IDxjaG91LmNvc21vQGdtYWlsLmNv
+bT4KPiA+Cj4gPiBJbXBsZW1lbnQgR1BJTy1iYXNlZCBhbGVydCBtZWNoYW5pc20gaW4gdGhlIFNT
+SUYgQk1DIGRyaXZlciB0byBub3RpZnkKPiA+IHRoZSBob3N0IHdoZW4gYSByZXNwb25zZSBpcyBy
+ZWFkeS4KPiA+Cj4gPiBUaGlzIGltcHJvdmVzIGhvc3QtQk1DIGNvbW11bmljYXRpb24gZWZmaWNp
+ZW5jeSBieSBwcm92aWRpbmcgaW1tZWRpYXRlCj4gPiBub3RpZmljYXRpb24sIHBvdGVudGlhbGx5
+IHJlZHVjaW5nIGhvc3QgcG9sbGluZyBvdmVyaGVhZC4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBD
+b3NtbyBDaG91IDxjaG91LmNvc21vQGdtYWlsLmNvbT4KPiA+IC0tLQo+ID4gICBkcml2ZXJzL2No
+YXIvaXBtaS9zc2lmX2JtYy5jIHwgMTUgKysrKysrKysrKysrKysrCj4gPiAgIDEgZmlsZSBjaGFu
+Z2VkLCAxNSBpbnNlcnRpb25zKCspCj4gPgo+Cj4gVGhhbmtzIGZvciBhZGRpbmcgZmVhdHVyZSB0
+byB0aGlzIGRyaXZlciwgdGhlIGNvZGUgbG9va3MgZ29vZCB0byBtZS4KPgo+IFJldmlld2VkLWJ5
+OiBRdWFuIE5ndXllbiA8cXVhbkBvcy5hbXBlcmVjb21wdXRpbmcuY29tPgo+Cj4gSSdtIGp1c3Qg
+aGF2ZSBhIGJpdCBvZiBjdXJpb3VzIG9uIGhvdyB0aGUgaXBtaV9zc2lmIGluIGhvc3Qgc2lkZSB0
+byB3b3JrCj4gd2l0aCB0aGlzIG1lY2hhbmlzbT8gV2lsbCB0aGVyZSBiZSBwYXRjaGVzIGZvciBp
+cG1pX3NzaWYgdG8gdXNlIHRoaXMKPiBmZWF0dXJlIGZvbGxvd2VkPwo+Cj4gVGhhbmtzIGFuZCBC
+ZXN0IHJlZ2FyZHMsCj4gLSBRdWFuCgpIaSBRdWFuLAoKU29ycnkgZm9yIHRoZSBsYXRlIHJlcGx5
+LgpUaGlzIGltcGxlbWVudGF0aW9uIGlzIG9ubHkgdGVzdGVkIHdpdGggb3VyIEJJT1MgdGVhbSwg
+YW5kIHRoZXkgYXJlCm5vdCB1c2luZyBsaW51eCBkcml2ZXIgZm9yIHNzaWYgZmVhdHVyZS4KQXQg
+bW9tZW50LCB3ZSBkb24ndCBoYXZlIHBsYW4gdG8gYWRkIGNoYW5nZXMgaW4gaXBtaV9zc2lmLgoK
+VGhhbmtzLApQb3RpbgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVy
+QGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0
+cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
