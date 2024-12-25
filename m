@@ -2,70 +2,70 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1D5599FC7BD
+	by mail.lfdr.de (Postfix) with ESMTPS id 144309FC7BC
 	for <lists+openipmi-developer@lfdr.de>; Thu, 26 Dec 2024 03:52:18 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tQdyn-0007sC-0H;
-	Thu, 26 Dec 2024 02:52:05 +0000
+	id 1tQdyn-0007sK-A0;
+	Thu, 26 Dec 2024 02:52:06 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <v.shevtsov@mt-integration.ru>) id 1tQBZI-0007jT-Kl
+ (envelope-from <v.shevtsov@mt-integration.ru>) id 1tQBng-00080F-Be
  for openipmi-developer@lists.sourceforge.net;
- Tue, 24 Dec 2024 20:31:52 +0000
+ Tue, 24 Dec 2024 20:46:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
  :Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=yK76whYuwtXqJgnBxtEyRF00ZrjiRxQYzdabkBn7t/U=; b=gvcgmr6JGCW4l+mnUQrQ49alnt
- gUQ8WJG9oWqXgV34Raky9Njz9cfu7v7ogQK5lJTqhbKoR7ntgP2pv8QdoiO2sC+wuM2HDT/vkyG79
- zhOHuuEhN5In5GYMX4p8gbuo8pW++9Ux7fYotR70A+GTUt7wfO07PvKPuobnqf3DmSfE=;
+ bh=0rLZbOqdJWBC891SyedZtieU0UMwTpfS+bRb0iPtY3Q=; b=FycFNPcAy07WEDs4uP65D564SX
+ yMtklCZdn7TVhdpm7rK4TjveivDwyua+J4XjESQArzzh20oaLIqQcPiag3cNfcSlFaPV/2pfo0dYz
+ I2fpRPh9CfKVUpW3UgyK8keT0IkkAwhe8tsyb47YN8ci8kObH5L9JJ3Lyg3VziNWEE9g=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
  Subject:CC:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
  :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
  References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=yK76whYuwtXqJgnBxtEyRF00ZrjiRxQYzdabkBn7t/U=; b=L
- 7fyC5Yd0RHXla36Ke1pLO4B7WQ/U9pK/VeCCltxYNIXQbG10xU1d8kSMG1EfDPBYncLytGd3YbKZg
- 5TM9vorcCINgfU7iG1qDpN/ZXPo5Jp9vUbvQSL5AftEOhvE8WzByUINVLMxVEheiUrhLFeCDu+s9D
- QqUQ6Fl2yR0EA5qM=;
+ List-Owner:List-Archive; bh=0rLZbOqdJWBC891SyedZtieU0UMwTpfS+bRb0iPtY3Q=; b=h
+ A65lhyUfkoOC4zDZ6g73V9KrcGGGT9OR0t4FU/pFokqioymm5FQOsKBu555xcA5/lxx5xA+VfuSHg
+ +NAM5gUo7DfE/CyVyzE400PzEyKjhp4La5YyNkwGuMv2MDZ+MiCdv4YMNUWZeOLjgXbOEZk7Wk7R2
+ Whr9BQN1kBI+akl0=;
 Received: from ksmg01.maxima.ru ([81.200.124.38])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tQBZF-00063H-9d for openipmi-developer@lists.sourceforge.net;
- Tue, 24 Dec 2024 20:31:52 +0000
+ id 1tQBnf-0006xj-6t for openipmi-developer@lists.sourceforge.net;
+ Tue, 24 Dec 2024 20:46:44 +0000
 Received: from ksmg01.maxima.ru (localhost [127.0.0.1])
- by ksmg01.maxima.ru (Postfix) with ESMTP id EA25BC0018;
- Tue, 24 Dec 2024 23:14:47 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ksmg01.maxima.ru EA25BC0018
+ by ksmg01.maxima.ru (Postfix) with ESMTP id 58961C0018;
+ Tue, 24 Dec 2024 23:46:31 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ksmg01.maxima.ru 58961C0018
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maxima.ru; s=sl;
- t=1735071287; bh=yK76whYuwtXqJgnBxtEyRF00ZrjiRxQYzdabkBn7t/U=;
+ t=1735073191; bh=0rLZbOqdJWBC891SyedZtieU0UMwTpfS+bRb0iPtY3Q=;
  h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
- b=P6vNnKtbEiDWQZpk1nLKsdPADB59a4Lamq4hAnzrxfPoy3KIc9Sr+5Y7HXUmBq4fz
- QK3W/RYlxAidOklBkY/tnFpAA04YjVKvF1kS3SitMksrPZX9aJMuiPxeLRvsXHhZaF
- lUhYxlpw45jDaiHb3L5MiswocJTSRtjpfI0vmdNjHQx+frUzQn9YacNmblRBHz2hkf
- JjkFp91GgC1Yt7ZQI2ekUcqpbAPLcrOcfFhYdJLJjLuTuH1g/Za4pDYBvD777lvWYz
- nxU3Jcd5HfkaBHlkdDHzWGpDf1dIbif3XOnnDPYR6xie4z3e0ajVDsCKpmKH6f5+FW
- creGZdNUhVEVQ==
-Received: from ksmg01.maxima.ru (autodiscover.maxima.ru [81.200.124.61])
+ b=usuRhxE0u2BZcz5nTAlORN8rCF4ASBfnbMU78sEPf37ULi7K3jR3h27/ddgVwgUYy
+ rhG4/Lkgo7Ui3seXqUKknLdsSamjkSTSIvyEuqw4BndW9DkbJOmHyQxlz/5SxM6cj3
+ A/p7o8o1yVfrkn+wPZv603AfXg/eO8ePTevWvC2dAW5LLZX2fxCAFowCq6Sb7TEP8H
+ fcAvzQ6dxVQ4+xQuBKV67ZIQt0uts+KR+QTPA9LUBqv+72yg0FQ5+e4CgKd9SOuySr
+ 3O6ybumhcZTRscezKHZ8V6IMaBCVJcJKUFP6I3gi0uNsyNdnhsWF4oj+fvRDuFbmXs
+ wTDs2U9YIco2A==
+Received: from ksmg01.maxima.ru (mail.maxima.ru [81.200.124.61])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (Client CN "*.maxima.ru",
  Issuer "GlobalSign GCC R3 DV TLS CA 2020" (verified OK))
  by ksmg01.maxima.ru (Postfix) with ESMTPS;
- Tue, 24 Dec 2024 23:14:47 +0300 (MSK)
+ Tue, 24 Dec 2024 23:46:31 +0300 (MSK)
 Received: from localhost.maximatelecom.ru (217.116.54.35) by
  mmail-p-exch01.mt.ru (81.200.124.61) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.1544.4; Tue, 24 Dec 2024 23:14:47 +0300
+ 15.2.1544.4; Tue, 24 Dec 2024 23:46:30 +0300
 From: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
 To: Corey Minyard <minyard@acm.org>
-Date: Wed, 25 Dec 2024 01:14:01 +0000
-Message-ID: <20241225011402.1097-1-v.shevtsov@maxima.ru>
+Date: Wed, 25 Dec 2024 01:45:30 +0000
+Message-ID: <20241225014532.20091-1-v.shevtsov@maxima.ru>
 X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
 X-Originating-IP: [217.116.54.35]
@@ -73,7 +73,7 @@ X-ClientProxiedBy: mt-exch-01.mt.ru (91.220.120.210) To mmail-p-exch01.mt.ru
  (81.200.124.61)
 X-KSMG-Rule-ID: 7
 X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 190042 [Dec 24 2024]
+X-KSMG-AntiSpam-Lua-Profiles: 190045 [Dec 24 2024]
 X-KSMG-AntiSpam-Version: 6.1.1.7
 X-KSMG-AntiSpam-Envelope-From: v.shevtsov@mt-integration.ru
 X-KSMG-AntiSpam-Rate: 0
@@ -84,9 +84,9 @@ X-KSMG-AntiSpam-Auth: dmarc=none header.from=maxima.ru;
 X-KSMG-AntiSpam-Info: LuaCore: 49 0.3.49
  28b3b64a43732373258a371bd1554adb2caa23cb, {rep_avail},
  {Tracking_smtp_not_equal_from}, {Tracking_from_domain_doesnt_match_to},
- ksmg01.maxima.ru:7.1.1; d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;
- 127.0.0.199:7.1.2; maxima.ru:7.1.1; mt-integration.ru:7.1.1;
- 81.200.124.61:7.1.2, {Tracking_smtp_domain_mismatch},
+ mt-integration.ru:7.1.1; 81.200.124.61:7.1.2; ksmg01.maxima.ru:7.1.1;
+ maxima.ru:7.1.1; d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;
+ 127.0.0.199:7.1.2, {Tracking_smtp_domain_mismatch},
  {Tracking_smtp_domain_2level_mismatch}, FromAlignment: n, ApMailHostAddress:
  81.200.124.61
 X-MS-Exchange-Organization-SCL: -1
@@ -94,7 +94,7 @@ X-KSMG-AntiSpam-Interceptor-Info: scan successful
 X-KSMG-AntiPhishing: Clean
 X-KSMG-LinksScanning: Clean
 X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960,
- bases: 2024/12/24 17:11:00 #26911868
+ bases: 2024/12/24 19:43:00 #26912424
 X-KSMG-AntiVirus-Status: Clean, skipped
 X-Spam-Score: 2.5 (++)
 X-Spam-Report: Spam detection software,
@@ -109,6 +109,7 @@ X-Spam-Report: Spam detection software,
  Content analysis details:   (2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 2.4 DATE_IN_FUTURE_03_06   Date: is 3 to 6 hours after Received: date
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
@@ -119,7 +120,6 @@ X-Spam-Report: Spam detection software,
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
  [81.200.124.38 listed in sa-trusted.bondedsender.org]
- 2.4 DATE_IN_FUTURE_03_06   Date: is 3 to 6 hours after Received: date
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
  mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -129,10 +129,10 @@ X-Spam-Report: Spam detection software,
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1tQBZF-00063H-9d
+X-Headers-End: 1tQBnf-0006xj-6t
 X-Mailman-Approved-At: Thu, 26 Dec 2024 02:52:04 +0000
-Subject: [Openipmi-developer] [PATCH] ipmi: make ipmi_destroy_user() return
- void
+Subject: [Openipmi-developer] [PATCH v2] ipmi: make ipmi_destroy_user()
+ return void
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -161,11 +161,14 @@ Found by Linux Verification Center (linuxtesting.org) with Svace.
 
 Signed-off-by: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
 ---
+v2: Add changes in drivers/char/ipmi/ipmi_poweroff.c missed by chance
+
  drivers/char/ipmi/ipmi_devintf.c    | 5 +----
  drivers/char/ipmi/ipmi_msghandler.c | 4 +---
+ drivers/char/ipmi/ipmi_poweroff.c   | 6 +-----
  drivers/char/ipmi/ipmi_watchdog.c   | 5 +----
  include/linux/ipmi.h                | 2 +-
- 4 files changed, 4 insertions(+), 12 deletions(-)
+ 5 files changed, 5 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/char/ipmi/ipmi_devintf.c b/drivers/char/ipmi/ipmi_devintf.c
 index 332082e02ea5..e6ba35b71f10 100644
@@ -204,6 +207,30 @@ index e12b531f5c2f..1e5313748f8b 100644
  }
  EXPORT_SYMBOL(ipmi_destroy_user);
  
+diff --git a/drivers/char/ipmi/ipmi_poweroff.c b/drivers/char/ipmi/ipmi_poweroff.c
+index 941d2dcc8c9d..05f17e3e6207 100644
+--- a/drivers/char/ipmi/ipmi_poweroff.c
++++ b/drivers/char/ipmi/ipmi_poweroff.c
+@@ -699,8 +699,6 @@ static int __init ipmi_poweroff_init(void)
+ #ifdef MODULE
+ static void __exit ipmi_poweroff_cleanup(void)
+ {
+-	int rv;
+-
+ #ifdef CONFIG_PROC_FS
+ 	unregister_sysctl_table(ipmi_table_header);
+ #endif
+@@ -708,9 +706,7 @@ static void __exit ipmi_poweroff_cleanup(void)
+ 	ipmi_smi_watcher_unregister(&smi_watcher);
+ 
+ 	if (ready) {
+-		rv = ipmi_destroy_user(ipmi_user);
+-		if (rv)
+-			pr_err("could not cleanup the IPMI user: 0x%x\n", rv);
++		ipmi_destroy_user(ipmi_user);
+ 		pm_power_off = old_poweroff_func;
+ 	}
+ }
 diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
 index 335eea80054e..f1875b2bebbc 100644
 --- a/drivers/char/ipmi/ipmi_watchdog.c
