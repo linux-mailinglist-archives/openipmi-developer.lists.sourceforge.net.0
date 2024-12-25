@@ -2,132 +2,137 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5A3EF9D3244
-	for <lists+openipmi-developer@lfdr.de>; Wed, 20 Nov 2024 03:40:28 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1D5599FC7BD
+	for <lists+openipmi-developer@lfdr.de>; Thu, 26 Dec 2024 03:52:18 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tDadb-0000T6-DJ;
-	Wed, 20 Nov 2024 02:40:14 +0000
+	id 1tQdyn-0007sC-0H;
+	Thu, 26 Dec 2024 02:52:05 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1tDada-0000T0-A7
+ (envelope-from <v.shevtsov@mt-integration.ru>) id 1tQBZI-0007jT-Kl
  for openipmi-developer@lists.sourceforge.net;
- Wed, 20 Nov 2024 02:40:13 +0000
+ Tue, 24 Dec 2024 20:31:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
+ :Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=n3z610eh0qCJd2kaOZ7Lkn+Ilb4Xt4NLJTNRQhvjlOc=; b=VVSM4hOkZELC4vuKGpxCKbzSst
- FS/bg6Mqa9LINgVcRA4zEsrU9Kn12v4MvfU7jNt8DD6RE/Bluf4Kwe21mzqfFoMnV6g2XdUiuVv+3
- klFzt2N9oNcJizWtBv++17tp8xJYpXkkng5pfNMfm4nMD4RxWRG7UEtNBScZDuQGZp2k=;
+ bh=yK76whYuwtXqJgnBxtEyRF00ZrjiRxQYzdabkBn7t/U=; b=gvcgmr6JGCW4l+mnUQrQ49alnt
+ gUQ8WJG9oWqXgV34Raky9Njz9cfu7v7ogQK5lJTqhbKoR7ntgP2pv8QdoiO2sC+wuM2HDT/vkyG79
+ zhOHuuEhN5In5GYMX4p8gbuo8pW++9Ux7fYotR70A+GTUt7wfO07PvKPuobnqf3DmSfE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=n3z610eh0qCJd2kaOZ7Lkn+Ilb4Xt4NLJTNRQhvjlOc=; b=FdI2P2Zu+ocgm/xGSLbolj8qY4
- nvczoGeEdYj5UYbmHqyt7Q7SJWfutrrbYXn/W+011A4FBDD22SVkKPzYozJXjOGQZRcM5rMeowecw
- H0Zj6WAkv+RaB3RLbJUxZGnmHbUqxO52aAT6dKKyNBlIjXAf6irb1twb175s3HDTR3H8=;
-Received: from mail-il1-f180.google.com ([209.85.166.180])
+ h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+ Subject:CC:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=yK76whYuwtXqJgnBxtEyRF00ZrjiRxQYzdabkBn7t/U=; b=L
+ 7fyC5Yd0RHXla36Ke1pLO4B7WQ/U9pK/VeCCltxYNIXQbG10xU1d8kSMG1EfDPBYncLytGd3YbKZg
+ 5TM9vorcCINgfU7iG1qDpN/ZXPo5Jp9vUbvQSL5AftEOhvE8WzByUINVLMxVEheiUrhLFeCDu+s9D
+ QqUQ6Fl2yR0EA5qM=;
+Received: from ksmg01.maxima.ru ([81.200.124.38])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1tDadX-000407-Vy for openipmi-developer@lists.sourceforge.net;
- Wed, 20 Nov 2024 02:40:13 +0000
-Received: by mail-il1-f180.google.com with SMTP id
- e9e14a558f8ab-3a7546ac6e6so13165475ab.2
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 19 Nov 2024 18:40:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1732070406; x=1732675206;
- darn=lists.sourceforge.net; 
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:from:to:cc:subject:date
- :message-id:reply-to;
- bh=n3z610eh0qCJd2kaOZ7Lkn+Ilb4Xt4NLJTNRQhvjlOc=;
- b=OWQv1reytFgd+H4cvt0y68ZA4AvZIpuN36hI5WH/lBVuMdrRf+nrmV+Ig3XrFj9EoM
- AeIuh+gwsdOTVyOcEH/cIZ2dXQ6HrR4JldWHxG32Q0jtzpa/cViYpLfDRpXeM8RjOpgn
- W1ArjXz9NumfwE2RilMX4IsrTuDPro8enT71nUDn4HM3TLqDZnXrSPTRXQTrnokOat4m
- bucXh4eZgQWJUdvxdQj3jj2IjXMgsMa4SZGKrnq1zgFAJKs9QAiqypOBltFJS5/ONbIv
- IeWBX1CjilS/Fdy3GpTqjelPvlo6LZ1XAMn9ku2KYp4HcXY2BvCmcIhNCSz5F+rKqBW1
- QKgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1732070406; x=1732675206;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=n3z610eh0qCJd2kaOZ7Lkn+Ilb4Xt4NLJTNRQhvjlOc=;
- b=DLyiCqK0nX0CsXvsC4mqpvn+rCnRfkCLwnOyh7XYM5K6xSB9AnJixcfyXrpl2In5NR
- 6+LFxIC+9Z4fS4XvLEoDDt7PX2O00gev4sneKBzvRfyedaYkplx6kxqO4C2yIIrglS/u
- TsZ+CsejaXqNRbw3aVt6e3HAhsrMb6OAcmjByqCg2xC5wXrD7Z2AdAH99RwlFkLq6GOm
- M0G5M1+UQ5/VprrOl2Cwd4B025z+lK4SO8cMZSZObrxagG+4HF4l+iZj/+Mz7T/RaE4b
- wlJk9f/q4rsBUZolMnQD8QsLaHZ5lDKywnMLT3AB0hZmJa4/lv5+GL74bA9yhqu8lky/
- wqLg==
-X-Forwarded-Encrypted: i=1;
- AJvYcCWHXva0oI4UZTPQONv3rLqx8Gfi2Y7AyjAMJ+fnAV5IC9donrZLytFme3nPoLZpVu58d1vcmowlfVOEUd3YSCzrozU=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yw2vnhIuOT5eP+880t6JWzWQNd03s3pZN4wLOmXSSWlfcSj25N3
- AIWXpVFv8Kh6fEFieUpw36Mm0pBZ7CMegwtqgAR0Ypas5+c+TXdV1241YOzUsfMh4sJF7HfdAP2
- Q2SBA5g==
-X-Google-Smtp-Source: AGHT+IFfSumVh91w5x9msiZmygRxDbJS7v7w+BJEhWhfq2eMN5sfNcaNQ01peKn0p30SVbyVU7B39g==
-X-Received: by 2002:a05:6871:613:b0:296:e4bb:80f5 with SMTP id
- 586e51a60fabf-296e4bc1d99mr314446fac.36.1732069922013; 
- Tue, 19 Nov 2024 18:32:02 -0800 (PST)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:ec53:8290:86a1:aa7c])
- by smtp.gmail.com with ESMTPSA id
- 586e51a60fabf-29651945ee6sm3977928fac.29.2024.11.19.18.31.59
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 19 Nov 2024 18:32:00 -0800 (PST)
-Date: Tue, 19 Nov 2024 20:31:56 -0600
-From: Corey Minyard <corey@minyard.net>
-To: Quan Nguyen <quan@os.amperecomputing.com>
-Message-ID: <Zz1KHCLwpOdsCagr@mail.minyard.net>
-References: <20241022-ssif-alert-gpios-v2-0-c7dd6dd17a7e@gmail.com>
- <20241022-ssif-alert-gpios-v2-2-c7dd6dd17a7e@gmail.com>
- <434333fb-5703-449e-83f2-46e85f34fd23@os.amperecomputing.com>
- <CAB9gMfphfY0H721G9qV8_3sm1d_RTnKkWbEOeqC-0ox9p4cfCQ@mail.gmail.com>
- <b2441bab-304b-4983-8780-43671e8add4b@os.amperecomputing.com>
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1tQBZF-00063H-9d for openipmi-developer@lists.sourceforge.net;
+ Tue, 24 Dec 2024 20:31:52 +0000
+Received: from ksmg01.maxima.ru (localhost [127.0.0.1])
+ by ksmg01.maxima.ru (Postfix) with ESMTP id EA25BC0018;
+ Tue, 24 Dec 2024 23:14:47 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ksmg01.maxima.ru EA25BC0018
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maxima.ru; s=sl;
+ t=1735071287; bh=yK76whYuwtXqJgnBxtEyRF00ZrjiRxQYzdabkBn7t/U=;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
+ b=P6vNnKtbEiDWQZpk1nLKsdPADB59a4Lamq4hAnzrxfPoy3KIc9Sr+5Y7HXUmBq4fz
+ QK3W/RYlxAidOklBkY/tnFpAA04YjVKvF1kS3SitMksrPZX9aJMuiPxeLRvsXHhZaF
+ lUhYxlpw45jDaiHb3L5MiswocJTSRtjpfI0vmdNjHQx+frUzQn9YacNmblRBHz2hkf
+ JjkFp91GgC1Yt7ZQI2ekUcqpbAPLcrOcfFhYdJLJjLuTuH1g/Za4pDYBvD777lvWYz
+ nxU3Jcd5HfkaBHlkdDHzWGpDf1dIbif3XOnnDPYR6xie4z3e0ajVDsCKpmKH6f5+FW
+ creGZdNUhVEVQ==
+Received: from ksmg01.maxima.ru (autodiscover.maxima.ru [81.200.124.61])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (Client CN "*.maxima.ru",
+ Issuer "GlobalSign GCC R3 DV TLS CA 2020" (verified OK))
+ by ksmg01.maxima.ru (Postfix) with ESMTPS;
+ Tue, 24 Dec 2024 23:14:47 +0300 (MSK)
+Received: from localhost.maximatelecom.ru (217.116.54.35) by
+ mmail-p-exch01.mt.ru (81.200.124.61) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.1544.4; Tue, 24 Dec 2024 23:14:47 +0300
+From: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
+To: Corey Minyard <minyard@acm.org>
+Date: Wed, 25 Dec 2024 01:14:01 +0000
+Message-ID: <20241225011402.1097-1-v.shevtsov@maxima.ru>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b2441bab-304b-4983-8780-43671e8add4b@os.amperecomputing.com>
-X-Spam-Score: 0.0 (/)
+X-Originating-IP: [217.116.54.35]
+X-ClientProxiedBy: mt-exch-01.mt.ru (91.220.120.210) To mmail-p-exch01.mt.ru
+ (81.200.124.61)
+X-KSMG-Rule-ID: 7
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 190042 [Dec 24 2024]
+X-KSMG-AntiSpam-Version: 6.1.1.7
+X-KSMG-AntiSpam-Envelope-From: v.shevtsov@mt-integration.ru
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dmarc=none header.from=maxima.ru;
+ spf=none smtp.mailfrom=mt-integration.ru; dkim=none
+X-KSMG-AntiSpam-Info: LuaCore: 49 0.3.49
+ 28b3b64a43732373258a371bd1554adb2caa23cb, {rep_avail},
+ {Tracking_smtp_not_equal_from}, {Tracking_from_domain_doesnt_match_to},
+ ksmg01.maxima.ru:7.1.1; d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;
+ 127.0.0.199:7.1.2; maxima.ru:7.1.1; mt-integration.ru:7.1.1;
+ 81.200.124.61:7.1.2, {Tracking_smtp_domain_mismatch},
+ {Tracking_smtp_domain_2level_mismatch}, FromAlignment: n, ApMailHostAddress:
+ 81.200.124.61
+X-MS-Exchange-Organization-SCL: -1
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean
+X-KSMG-LinksScanning: Clean
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960,
+ bases: 2024/12/24 17:11:00 #26911868
+X-KSMG-AntiVirus-Status: Clean, skipped
+X-Spam-Score: 2.5 (++)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Nov 20, 2024 at 08:58:47AM +0700, Quan Nguyen wrote:
- > On 19/11/2024 18:30, Corey Minyard wrote: > > I just saw this. What makes
- you think alerts are not supported in ipmi_ssif? > > Yes, Corey [...] 
- Content analysis details:   (0.0 points, 6.0 required)
+ Content preview:  Return value of ipmi_destroy_user() has no meaning, because
+ it's always zero and callers can do nothing with it. And in most cases it's
+ not checked. So make this function return void. This also will e [...] 
+ Content analysis details:   (2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [209.85.166.180 listed in sa-trusted.bondedsender.org]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.166.180 listed in bl.score.senderscore.com]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.166.180 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ [81.200.124.38 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [81.200.124.38 listed in sa-trusted.bondedsender.org]
+ 2.4 DATE_IN_FUTURE_03_06   Date: is 3 to 6 hours after Received: date
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.180 listed in wl.mailspike.net]
-X-Headers-End: 1tDadX-000407-Vy
-Subject: Re: [Openipmi-developer] [PATCH v2 2/2] ipmi: ssif_bmc: add
- GPIO-based alert mechanism
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1tQBZF-00063H-9d
+X-Mailman-Approved-At: Thu, 26 Dec 2024 02:52:04 +0000
+Subject: [Openipmi-developer] [PATCH] ipmi: make ipmi_destroy_user() return
+ void
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -140,51 +145,104 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Corey Minyard <minyard@acm.org>, devicetree@vger.kernel.org,
- Cosmo Chou <chou.cosmo@gmail.com>, Potin Lai <potin.lai@quantatw.com>,
- linux-kernel@vger.kernel.org, Potin Lai <potin.lai.pt@gmail.com>,
- Patrick Williams <patrick@stwcx.xyz>, Cosmo Chou <cosmo.chou@quantatw.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- openipmi-developer@lists.sourceforge.net
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ Vitaliy Shevtsov <v.shevtsov@maxima.ru>, lvc-project@linuxtesting.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Nov 20, 2024 at 08:58:47AM +0700, Quan Nguyen wrote:
-> On 19/11/2024 18:30, Corey Minyard wrote:
-> > I just saw this.  What makes you think alerts are not supported in ipmi_ssif?
-> 
-> Yes, Corey, I see alerts are supported in ipmi_ssif.
-> 
-> My apology about the unclear question, I was just curious about whether this
-> gpio-based alerts mechanism is confirmed through test with current ipmi_ssif
-> without any extra patches.
+Return value of ipmi_destroy_user() has no meaning, because it's always
+zero and callers can do nothing with it. And in most cases it's not
+checked. So make this function return void. This also will eliminate static
+code analyzer warnings such as unreachable code/redundant comparison when
+the return value is checked against non-zero value.
 
-Ah.  The way this would work would be that the GPIO is run to an
-interrupt on the host processor.  Generally all the alerting devices on
-the SMBus will "or" into that interrupt somehow.
+Found by Linux Verification Center (linuxtesting.org) with Svace.
 
-When the interrupt comes in, the host will issue a request to the SMBus
-alert address and each device that has an alert pending will respond
-with their address.  Because of the wire or of the SMBus, the lowest
-address will win.
+Signed-off-by: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
+---
+ drivers/char/ipmi/ipmi_devintf.c    | 5 +----
+ drivers/char/ipmi/ipmi_msghandler.c | 4 +---
+ drivers/char/ipmi/ipmi_watchdog.c   | 5 +----
+ include/linux/ipmi.h                | 2 +-
+ 4 files changed, 4 insertions(+), 12 deletions(-)
 
-On Linux, the driver for that particular device will be told that an
-alert came in if it has registered for that alert.
+diff --git a/drivers/char/ipmi/ipmi_devintf.c b/drivers/char/ipmi/ipmi_devintf.c
+index 332082e02ea5..e6ba35b71f10 100644
+--- a/drivers/char/ipmi/ipmi_devintf.c
++++ b/drivers/char/ipmi/ipmi_devintf.c
+@@ -122,12 +122,9 @@ static int ipmi_open(struct inode *inode, struct file *file)
+ static int ipmi_release(struct inode *inode, struct file *file)
+ {
+ 	struct ipmi_file_private *priv = file->private_data;
+-	int                      rv;
+ 	struct ipmi_recv_msg *msg, *next;
+ 
+-	rv = ipmi_destroy_user(priv->user);
+-	if (rv)
+-		return rv;
++	ipmi_destroy_user(priv->user);
+ 
+ 	list_for_each_entry_safe(msg, next, &priv->recv_msgs, link)
+ 		ipmi_free_recv_msg(msg);
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index e12b531f5c2f..1e5313748f8b 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -1398,13 +1398,11 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
+ 	module_put(owner);
+ }
+ 
+-int ipmi_destroy_user(struct ipmi_user *user)
++void ipmi_destroy_user(struct ipmi_user *user)
+ {
+ 	_ipmi_destroy_user(user);
+ 
+ 	kref_put(&user->refcount, free_user);
+-
+-	return 0;
+ }
+ EXPORT_SYMBOL(ipmi_destroy_user);
+ 
+diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
+index 335eea80054e..f1875b2bebbc 100644
+--- a/drivers/char/ipmi/ipmi_watchdog.c
++++ b/drivers/char/ipmi/ipmi_watchdog.c
+@@ -1064,7 +1064,6 @@ static void ipmi_register_watchdog(int ipmi_intf)
+ 
+ static void ipmi_unregister_watchdog(int ipmi_intf)
+ {
+-	int rv;
+ 	struct ipmi_user *loc_user = watchdog_user;
+ 
+ 	if (!loc_user)
+@@ -1089,9 +1088,7 @@ static void ipmi_unregister_watchdog(int ipmi_intf)
+ 	mutex_lock(&ipmi_watchdog_mutex);
+ 
+ 	/* Disconnect from IPMI. */
+-	rv = ipmi_destroy_user(loc_user);
+-	if (rv)
+-		pr_warn("error unlinking from IPMI: %d\n",  rv);
++	ipmi_destroy_user(loc_user);
+ 
+ 	/* If it comes back, restart it properly. */
+ 	ipmi_start_timer_on_heartbeat = 1;
+diff --git a/include/linux/ipmi.h b/include/linux/ipmi.h
+index a1c9c0d48ebf..2f74dd90c271 100644
+--- a/include/linux/ipmi.h
++++ b/include/linux/ipmi.h
+@@ -126,7 +126,7 @@ int ipmi_create_user(unsigned int          if_num,
+  * the users before you destroy the callback structures, it should be
+  * safe, too.
+  */
+-int ipmi_destroy_user(struct ipmi_user *user);
++void ipmi_destroy_user(struct ipmi_user *user);
+ 
+ /* Get the IPMI version of the BMC we are talking to. */
+ int ipmi_get_version(struct ipmi_user *user,
+-- 
+2.47.1
 
-The GPIO is just an interrupt, so that should just work.  That's not the
-hard part.  There has to be some device tree work on the host side to
-map the interrupt to an SMBus alert for a specific bus.  (I think you
-can do this with ACPI, too, but I'm not sure.)  And the device, of
-course, must respond properly to the alert request.
-
-So the GPIO is not something that's unusual.  If it generates an
-interrupt (and all the other stuff is in place on the host side) it will
-work.
-
--corey
 
 
 _______________________________________________
