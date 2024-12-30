@@ -2,137 +2,107 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 144309FC7BC
-	for <lists+openipmi-developer@lfdr.de>; Thu, 26 Dec 2024 03:52:18 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 54EE19FE686
+	for <lists+openipmi-developer@lfdr.de>; Mon, 30 Dec 2024 14:32:11 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tQdyn-0007sK-A0;
-	Thu, 26 Dec 2024 02:52:06 +0000
+	id 1tSFsH-0000ZW-Mz;
+	Mon, 30 Dec 2024 13:32:01 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <v.shevtsov@mt-integration.ru>) id 1tQBng-00080F-Be
+ (envelope-from <zhoubinbin@loongson.cn>) id 1tSCLC-0005XL-5f
  for openipmi-developer@lists.sourceforge.net;
- Tue, 24 Dec 2024 20:46:44 +0000
+ Mon, 30 Dec 2024 09:45:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
- :Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-ID:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=0rLZbOqdJWBC891SyedZtieU0UMwTpfS+bRb0iPtY3Q=; b=FycFNPcAy07WEDs4uP65D564SX
- yMtklCZdn7TVhdpm7rK4TjveivDwyua+J4XjESQArzzh20oaLIqQcPiag3cNfcSlFaPV/2pfo0dYz
- I2fpRPh9CfKVUpW3UgyK8keT0IkkAwhe8tsyb47YN8ci8kObH5L9JJ3Lyg3VziNWEE9g=;
+ bh=BLWfaMHCm0GUpuCmni9B/akr4CT7K9ZmnBPGolhPNxI=; b=RDP7tA/087iyvVOcyfOoCg400w
+ fr6vqVX9U9gsXbp4++arjxwVJuWe2bg/HEFLyA/wZjHfBkFnaVpYitLwo+OR2CKQ86ZepfqJKQvIX
+ Ctug2MrFKqvjTMLDaKbjKMTYQMsGjsj+/u4WiI/3QeiWUlg1UaO9SezwS3ZkDRMg4H9o=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
- Subject:CC:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
- :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
  References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=0rLZbOqdJWBC891SyedZtieU0UMwTpfS+bRb0iPtY3Q=; b=h
- A65lhyUfkoOC4zDZ6g73V9KrcGGGT9OR0t4FU/pFokqioymm5FQOsKBu555xcA5/lxx5xA+VfuSHg
- +NAM5gUo7DfE/CyVyzE400PzEyKjhp4La5YyNkwGuMv2MDZ+MiCdv4YMNUWZeOLjgXbOEZk7Wk7R2
- Whr9BQN1kBI+akl0=;
-Received: from ksmg01.maxima.ru ([81.200.124.38])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tQBnf-0006xj-6t for openipmi-developer@lists.sourceforge.net;
- Tue, 24 Dec 2024 20:46:44 +0000
-Received: from ksmg01.maxima.ru (localhost [127.0.0.1])
- by ksmg01.maxima.ru (Postfix) with ESMTP id 58961C0018;
- Tue, 24 Dec 2024 23:46:31 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ksmg01.maxima.ru 58961C0018
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maxima.ru; s=sl;
- t=1735073191; bh=0rLZbOqdJWBC891SyedZtieU0UMwTpfS+bRb0iPtY3Q=;
- h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
- b=usuRhxE0u2BZcz5nTAlORN8rCF4ASBfnbMU78sEPf37ULi7K3jR3h27/ddgVwgUYy
- rhG4/Lkgo7Ui3seXqUKknLdsSamjkSTSIvyEuqw4BndW9DkbJOmHyQxlz/5SxM6cj3
- A/p7o8o1yVfrkn+wPZv603AfXg/eO8ePTevWvC2dAW5LLZX2fxCAFowCq6Sb7TEP8H
- fcAvzQ6dxVQ4+xQuBKV67ZIQt0uts+KR+QTPA9LUBqv+72yg0FQ5+e4CgKd9SOuySr
- 3O6ybumhcZTRscezKHZ8V6IMaBCVJcJKUFP6I3gi0uNsyNdnhsWF4oj+fvRDuFbmXs
- wTDs2U9YIco2A==
-Received: from ksmg01.maxima.ru (mail.maxima.ru [81.200.124.61])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client CN "*.maxima.ru",
- Issuer "GlobalSign GCC R3 DV TLS CA 2020" (verified OK))
- by ksmg01.maxima.ru (Postfix) with ESMTPS;
- Tue, 24 Dec 2024 23:46:31 +0300 (MSK)
-Received: from localhost.maximatelecom.ru (217.116.54.35) by
- mmail-p-exch01.mt.ru (81.200.124.61) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.1544.4; Tue, 24 Dec 2024 23:46:30 +0300
-From: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
-To: Corey Minyard <minyard@acm.org>
-Date: Wed, 25 Dec 2024 01:45:30 +0000
-Message-ID: <20241225014532.20091-1-v.shevtsov@maxima.ru>
-X-Mailer: git-send-email 2.47.1
+ List-Owner:List-Archive; bh=BLWfaMHCm0GUpuCmni9B/akr4CT7K9ZmnBPGolhPNxI=; b=Q
+ Wj01fp4qH/4W0BR3QdTyzKnrm7Gi4BOsAKM5t0FvztG+KlQP7B1eVKHNu7Al/rDU/4/LT8zB9en+s
+ 2zulnf9djJ9P4HjFUx+MNF/O9B8jWfajTlvihTv0Azs2PB3R5jUGt6arxBHfZ7r321lHJaNt45DzE
+ fcUoDFTb7kcForVg=;
+Received: from mail.loongson.cn ([114.242.206.163])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.95)
+ id 1tSCL8-0008G7-81 for openipmi-developer@lists.sourceforge.net;
+ Mon, 30 Dec 2024 09:45:37 +0000
+Received: from loongson.cn (unknown [223.64.68.63])
+ by gateway (Coremail) with SMTP id _____8Ax6+FraHJnGs9bAA--.49156S3;
+ Mon, 30 Dec 2024 17:31:23 +0800 (CST)
+Received: from localhost.localdomain (unknown [223.64.68.63])
+ by front1 (Coremail) with SMTP id qMiowMCxncVkaHJnp74NAA--.4295S2;
+ Mon, 30 Dec 2024 17:31:17 +0800 (CST)
+From: Binbin Zhou <zhoubinbin@loongson.cn>
+To: Binbin Zhou <zhoubb.aaron@gmail.com>, Huacai Chen <chenhuacai@loongson.cn>,
+ Lee Jones <lee@kernel.org>, Corey Minyard <minyard@acm.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Date: Mon, 30 Dec 2024 17:31:07 +0800
+Message-ID: <cover.1735550269.git.zhoubinbin@loongson.cn>
+X-Mailer: git-send-email 2.43.5
 MIME-Version: 1.0
-X-Originating-IP: [217.116.54.35]
-X-ClientProxiedBy: mt-exch-01.mt.ru (91.220.120.210) To mmail-p-exch01.mt.ru
- (81.200.124.61)
-X-KSMG-Rule-ID: 7
-X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 190045 [Dec 24 2024]
-X-KSMG-AntiSpam-Version: 6.1.1.7
-X-KSMG-AntiSpam-Envelope-From: v.shevtsov@mt-integration.ru
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Auth: dmarc=none header.from=maxima.ru;
- spf=none smtp.mailfrom=mt-integration.ru; dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 49 0.3.49
- 28b3b64a43732373258a371bd1554adb2caa23cb, {rep_avail},
- {Tracking_smtp_not_equal_from}, {Tracking_from_domain_doesnt_match_to},
- mt-integration.ru:7.1.1; 81.200.124.61:7.1.2; ksmg01.maxima.ru:7.1.1;
- maxima.ru:7.1.1; d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;
- 127.0.0.199:7.1.2, {Tracking_smtp_domain_mismatch},
- {Tracking_smtp_domain_2level_mismatch}, FromAlignment: n, ApMailHostAddress:
- 81.200.124.61
-X-MS-Exchange-Organization-SCL: -1
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean
-X-KSMG-LinksScanning: Clean
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960,
- bases: 2024/12/24 19:43:00 #26912424
-X-KSMG-AntiVirus-Status: Clean, skipped
-X-Spam-Score: 2.5 (++)
+X-CM-TRANSID: qMiowMCxncVkaHJnp74NAA--.4295S2
+X-CM-SenderInfo: p2kr3uplqex0o6or00hjvr0hdfq/
+X-Coremail-Antispam: 1Uk129KBj93XoW7WryxJw4rGw17GrykZw1UArc_yoW8Zr45pa
+ 1YkF95Cr4DJF47KrWfX3W8urW3uasYqa48Kr17tw15WrWYya40y345tFy5Z3s7AF13Jryx
+ trn8Cw17WFyDAagCm3ZEXasCq-sJn29KB7ZKAUJUUUU3529EdanIXcx71UUUUU7KY7ZEXa
+ sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+ 0xBIdaVrnRJUUUBIb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+ IYs7xG6rWj6s0DM7CIcVAFz4kK6r1a6r1DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+ e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+ 0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
+ xVW8Jr0_Cr1UM2kKe7AKxVWUAVWUtwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07
+ AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWU
+ tVWrXwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7V
+ AKI48JMxkF7I0En4kS14v26r126r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY
+ 6r1j6r4UMxCIbckI1I0E14v26r126r1DMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7
+ xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xII
+ jxv20xvE14v26ryj6F1UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw2
+ 0EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x02
+ 67AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU14v3UUUUUU==
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Return value of ipmi_destroy_user() has no meaning, because
- it's always zero and callers can do nothing with it. And in most cases it's
- not checked. So make this function return void. This also will e [...] 
- Content analysis details:   (2.5 points, 6.0 required)
+ Content preview:  Hi all: This patch set introduces the Loongson-2K0500 BMC.
+ It is a PCIe device present on servers similar to the Loongson-3C6000. And
+ it is a multifunctional device (MFD), such as display as a sub-function of
+ it. Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 2.4 DATE_IN_FUTURE_03_06   Date: is 3 to 6 hours after Received: date
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [81.200.124.38 listed in bl.score.senderscore.com]
- 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
+ [114.242.206.163 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
+ The query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [81.200.124.38 listed in sa-trusted.bondedsender.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ [114.242.206.163 listed in sa-trusted.bondedsender.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1tQBnf-0006xj-6t
-X-Mailman-Approved-At: Thu, 26 Dec 2024 02:52:04 +0000
-Subject: [Openipmi-developer] [PATCH v2] ipmi: make ipmi_destroy_user()
- return void
+X-Headers-End: 1tSCL8-0008G7-81
+X-Mailman-Approved-At: Mon, 30 Dec 2024 13:32:00 +0000
+Subject: [Openipmi-developer] [PATCH v1 0/4] LoongArch: Add Loongson-2K0500
+ BMC support
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -145,130 +115,67 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- Vitaliy Shevtsov <v.shevtsov@maxima.ru>, lvc-project@linuxtesting.org
+Cc: Binbin Zhou <zhoubinbin@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ loongarch@lists.linux.dev, Xuerui Wang <kernel@xen0n.name>,
+ openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Return value of ipmi_destroy_user() has no meaning, because it's always
-zero and callers can do nothing with it. And in most cases it's not
-checked. So make this function return void. This also will eliminate static
-code analyzer warnings such as unreachable code/redundant comparison when
-the return value is checked against non-zero value.
+Hi all:
 
-Found by Linux Verification Center (linuxtesting.org) with Svace.
+This patch set introduces the Loongson-2K0500 BMC.
 
-Signed-off-by: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
----
-v2: Add changes in drivers/char/ipmi/ipmi_poweroff.c missed by chance
+It is a PCIe device present on servers similar to the Loongson-3C6000.
+And it is a multifunctional device (MFD), such as display as a sub-function
+of it.
 
- drivers/char/ipmi/ipmi_devintf.c    | 5 +----
- drivers/char/ipmi/ipmi_msghandler.c | 4 +---
- drivers/char/ipmi/ipmi_poweroff.c   | 6 +-----
- drivers/char/ipmi/ipmi_watchdog.c   | 5 +----
- include/linux/ipmi.h                | 2 +-
- 5 files changed, 5 insertions(+), 17 deletions(-)
+For IPMI, according to the existing design, we use software simulation to
+implement the KCS interface registers: Stauts/Command/Data_Out/Data_In.
 
-diff --git a/drivers/char/ipmi/ipmi_devintf.c b/drivers/char/ipmi/ipmi_devintf.c
-index 332082e02ea5..e6ba35b71f10 100644
---- a/drivers/char/ipmi/ipmi_devintf.c
-+++ b/drivers/char/ipmi/ipmi_devintf.c
-@@ -122,12 +122,9 @@ static int ipmi_open(struct inode *inode, struct file *file)
- static int ipmi_release(struct inode *inode, struct file *file)
- {
- 	struct ipmi_file_private *priv = file->private_data;
--	int                      rv;
- 	struct ipmi_recv_msg *msg, *next;
- 
--	rv = ipmi_destroy_user(priv->user);
--	if (rv)
--		return rv;
-+	ipmi_destroy_user(priv->user);
- 
- 	list_for_each_entry_safe(msg, next, &priv->recv_msgs, link)
- 		ipmi_free_recv_msg(msg);
-diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index e12b531f5c2f..1e5313748f8b 100644
---- a/drivers/char/ipmi/ipmi_msghandler.c
-+++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -1398,13 +1398,11 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
- 	module_put(owner);
- }
- 
--int ipmi_destroy_user(struct ipmi_user *user)
-+void ipmi_destroy_user(struct ipmi_user *user)
- {
- 	_ipmi_destroy_user(user);
- 
- 	kref_put(&user->refcount, free_user);
--
--	return 0;
- }
- EXPORT_SYMBOL(ipmi_destroy_user);
- 
-diff --git a/drivers/char/ipmi/ipmi_poweroff.c b/drivers/char/ipmi/ipmi_poweroff.c
-index 941d2dcc8c9d..05f17e3e6207 100644
---- a/drivers/char/ipmi/ipmi_poweroff.c
-+++ b/drivers/char/ipmi/ipmi_poweroff.c
-@@ -699,8 +699,6 @@ static int __init ipmi_poweroff_init(void)
- #ifdef MODULE
- static void __exit ipmi_poweroff_cleanup(void)
- {
--	int rv;
--
- #ifdef CONFIG_PROC_FS
- 	unregister_sysctl_table(ipmi_table_header);
- #endif
-@@ -708,9 +706,7 @@ static void __exit ipmi_poweroff_cleanup(void)
- 	ipmi_smi_watcher_unregister(&smi_watcher);
- 
- 	if (ready) {
--		rv = ipmi_destroy_user(ipmi_user);
--		if (rv)
--			pr_err("could not cleanup the IPMI user: 0x%x\n", rv);
-+		ipmi_destroy_user(ipmi_user);
- 		pm_power_off = old_poweroff_func;
- 	}
- }
-diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
-index 335eea80054e..f1875b2bebbc 100644
---- a/drivers/char/ipmi/ipmi_watchdog.c
-+++ b/drivers/char/ipmi/ipmi_watchdog.c
-@@ -1064,7 +1064,6 @@ static void ipmi_register_watchdog(int ipmi_intf)
- 
- static void ipmi_unregister_watchdog(int ipmi_intf)
- {
--	int rv;
- 	struct ipmi_user *loc_user = watchdog_user;
- 
- 	if (!loc_user)
-@@ -1089,9 +1088,7 @@ static void ipmi_unregister_watchdog(int ipmi_intf)
- 	mutex_lock(&ipmi_watchdog_mutex);
- 
- 	/* Disconnect from IPMI. */
--	rv = ipmi_destroy_user(loc_user);
--	if (rv)
--		pr_warn("error unlinking from IPMI: %d\n",  rv);
-+	ipmi_destroy_user(loc_user);
- 
- 	/* If it comes back, restart it properly. */
- 	ipmi_start_timer_on_heartbeat = 1;
-diff --git a/include/linux/ipmi.h b/include/linux/ipmi.h
-index a1c9c0d48ebf..2f74dd90c271 100644
---- a/include/linux/ipmi.h
-+++ b/include/linux/ipmi.h
-@@ -126,7 +126,7 @@ int ipmi_create_user(unsigned int          if_num,
-  * the users before you destroy the callback structures, it should be
-  * safe, too.
-  */
--int ipmi_destroy_user(struct ipmi_user *user);
-+void ipmi_destroy_user(struct ipmi_user *user);
- 
- /* Get the IPMI version of the BMC we are talking to. */
- int ipmi_get_version(struct ipmi_user *user,
+Also since both host side and BMC side read and write kcs status, we use
+fifo pointer to ensure data consistency.
+
+For the display, based on simpledrm, the resolution is read from a fixed
+position in the BMC since the hardware does not support auto-detection
+of the resolution. Of course, we will try to support multiple
+resolutions later, through a vbios-like approach.
+
+Especially, for the BMC reset function, since the display will be
+disconnected when BMC reset, we made a special treatment of re-push.
+
+Based on this, I will present it in four patches:
+patch-1: BMC device PCI resource allocation.
+patch-2: IPMI implementation
+patch-3: display, based on simpledrm
+patch-4: BMC reboot support
+
+Thanks.
+
+Binbin Zhou (4):
+  mfd: ls2kbmc: Introduce Loongson-2K BMC MFD Core driver
+  ipmi: Add Loongson-2K BMC support
+  drm/ls2kbmc: Add support for Loongson-2K BMC display
+  drm/ls2kbmc: Add Loongson-2K BMC reset function support
+
+ drivers/char/ipmi/Makefile       |   1 +
+ drivers/char/ipmi/ipmi_si.h      |   8 +
+ drivers/char/ipmi/ipmi_si_intf.c |   3 +
+ drivers/char/ipmi/ipmi_si_ls2k.c | 250 +++++++++
+ drivers/gpu/drm/tiny/Kconfig     |  18 +
+ drivers/gpu/drm/tiny/Makefile    |   1 +
+ drivers/gpu/drm/tiny/ls2kbmc.c   | 918 +++++++++++++++++++++++++++++++
+ drivers/mfd/Kconfig              |  15 +
+ drivers/mfd/Makefile             |   2 +
+ drivers/mfd/ls2kbmc-mfd.c        | 145 +++++
+ 10 files changed, 1361 insertions(+)
+ create mode 100644 drivers/char/ipmi/ipmi_si_ls2k.c
+ create mode 100644 drivers/gpu/drm/tiny/ls2kbmc.c
+ create mode 100644 drivers/mfd/ls2kbmc-mfd.c
+
 -- 
-2.47.1
+2.43.5
 
 
 
