@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF875A0032D
-	for <lists+openipmi-developer@lfdr.de>; Fri,  3 Jan 2025 04:34:48 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id A16A5A0033A
+	for <lists+openipmi-developer@lfdr.de>; Fri,  3 Jan 2025 04:47:31 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tTYSL-0000U0-Ds;
-	Fri, 03 Jan 2025 03:34:37 +0000
+	id 1tTYeg-0002UY-68;
+	Fri, 03 Jan 2025 03:47:21 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1tTYSJ-0000Tq-9L
+ (envelope-from <corey@minyard.net>) id 1tTYee-0002UR-Rh
  for openipmi-developer@lists.sourceforge.net;
- Fri, 03 Jan 2025 03:34:35 +0000
+ Fri, 03 Jan 2025 03:47:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ojyDsvzcYX6bZ9hy4t2yQkdLV82UeQ9UgOyBYBPPp1A=; b=hrKqwxzQFZLrHyGn3UXh3r77wI
- HiwXSpDD7l5UgwX+xXpsswueXMONAAwuW0VryqMu3YMShgvhi0gOYQ9/9jOOAhfCVMRN7JLzP8JY8
- 3FDwC+OyON249DHMl5yqazlP83pGgCBYTs2Rntry3Y0XYzqnmXPUYX/r1+SnhR9Am+jo=;
+ bh=5rnDHCeVOhcASBhii6Cfw8DGHqfc5aMSozqh3rmlpCE=; b=cl/7XSCsqzR87oppkFhOgVVBRx
+ bCP266M/SVfg0w2kjpXhPjYaWk8PXuIfZNBabL0iz56Jg9xOFSOLd+cI/PRY/+qdMMgvvZDSKBnZm
+ wJIbyWgkz3KDL9g/I553meXOLWdNjh7T1HqaFb3YBjkJQaU3c81tSmhFI89wm8mm5rto=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
@@ -31,69 +31,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=ojyDsvzcYX6bZ9hy4t2yQkdLV82UeQ9UgOyBYBPPp1A=; b=TVrHBNHHJvb6HbeJopYWmbpnlp
- GQIpZazDIggALP0dLJigqXYcGtCLf/Q6ymqxFvqQM07v8rF6EmTRnhjXxvBoRNYYqFh3xJTk193jh
- PjKFbldOrUXA2F26obyztJeU0RH5camdDibpEkcGM0u2U/fjKvSEvbS6s8lUGLnH82xY=;
-Received: from mail-il1-f177.google.com ([209.85.166.177])
+ bh=5rnDHCeVOhcASBhii6Cfw8DGHqfc5aMSozqh3rmlpCE=; b=IVrAObcr1l+DxtO4+vveO5JD3g
+ 5uwEmbYLDH+DH3sXXoud0HFwYXqobUtU5fCsEAnl1VEzWyi4ZMccd965kpFGrZqd9qXvlGF4xpnKI
+ Qn/GbkhXlWec2qSXJcoo1WSo15OKQWXuWQrnYXJZezNLpTcYH6vHvbRQfooJYYKH+cZU=;
+Received: from mail-pl1-f181.google.com ([209.85.214.181])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1tTYSI-0001o0-9N for openipmi-developer@lists.sourceforge.net;
- Fri, 03 Jan 2025 03:34:35 +0000
-Received: by mail-il1-f177.google.com with SMTP id
- e9e14a558f8ab-3a9cb8460f7so89741865ab.2
+ id 1tTYed-00033v-LK for openipmi-developer@lists.sourceforge.net;
+ Fri, 03 Jan 2025 03:47:20 +0000
+Received: by mail-pl1-f181.google.com with SMTP id
+ d9443c01a7336-21675fd60feso216847075ad.2
  for <openipmi-developer@lists.sourceforge.net>;
- Thu, 02 Jan 2025 19:34:34 -0800 (PST)
+ Thu, 02 Jan 2025 19:47:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1735875263; x=1736480063;
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1735876029; x=1736480829;
  darn=lists.sourceforge.net; 
  h=in-reply-to:content-disposition:mime-version:references:reply-to
  :message-id:subject:cc:to:from:date:from:to:cc:subject:date
  :message-id:reply-to;
- bh=ojyDsvzcYX6bZ9hy4t2yQkdLV82UeQ9UgOyBYBPPp1A=;
- b=y0Xzwa6kfQCT0FajV+lZB/1844b22yxMcEVG8FLk0mnnYLp95O3IhK2cp0wbg8TKf5
- 0yiyhbw5YptyPBw6hudUH3MJNRrOjhzFWE3apZYHzDNtG+sD3N4GiFOYtKUVyZxBq2L1
- UIGuWOhu2/VOh8/fyhs/3E2SvguHObgT/aGvocj/JyPeV2ywb+6IXiMnvR6/zV4aId7u
- 3ba1XZvWLeo5WoQKV8n6wXQQTDPTE4os71emf9zkrNJg12wYDIyewTRW1x+qEbei7WEz
- YkvTnPLeeemv1eJo/pYqEOjzpaW6HPgwRDEoTt972mxwbBUOR+ev6/eAX+Y5I1byPpeW
- 3Piw==
+ bh=5rnDHCeVOhcASBhii6Cfw8DGHqfc5aMSozqh3rmlpCE=;
+ b=BLTps9K2rkspEBf4fE3+FPt/GHyBjzC7Qy9pSTu1q1Mh+R17roKx2WBtGKGpNE/eq+
+ PgQHHmvLz15bPEPBqyK//atLB9PKf55uNxTlvnBHJUROKiiY+Ui9/ONUQLEe5PZetpN3
+ bwtlDKfem7d6ToacQTsj3lzljcQOhp2IPsqEYQqFXKKmXXABe3x98i0Suh51ZAa+kgVj
+ VdM8SEEuwUFBj7jYTKkbNkyKNRriIdaq9sShIzwvcLVeqlHv57rSo5qg8FnAgvr9Zj4h
+ 9ZU2IVugQxrvYkdDSHMBKCY9Duf3bnIhoD86RDh/9vzHkh3RUrE7KbhqBYXIixtaCjOv
+ 7imQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1735875263; x=1736480063;
+ d=1e100.net; s=20230601; t=1735876029; x=1736480829;
  h=in-reply-to:content-disposition:mime-version:references:reply-to
  :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=ojyDsvzcYX6bZ9hy4t2yQkdLV82UeQ9UgOyBYBPPp1A=;
- b=ab/SyzQ1upOHjI0hvKCR4szf7XaTUu+BmwUZu3hPjlepPrIA5sRntkfyHah9c/sqcX
- VoslFiDEf0gQ4NI14YDFiR5hYhnYffFnse6zW2dN+2THo+ongbwVf+6T2NozjWhAi+oi
- Xz/UCNLojOk3ioHSun0Vu1HkbFx2wc8+bJCzsDAWJdqqr/XJGAelxTlTEZN3ZAKpXpya
- gwFQo/sGT1zFgzDBVBiyDqDT8QdmEiPi011k6CVMUQGvno4QD24b2qY1kLT6oTGTtq0p
- upFow2WB0gaUNA6pis2L/4yQlO31v+ZHVz5e/ltsrA/gBziBfKm/ecQnz7UeLmh0a5sz
- Vjxg==
+ bh=5rnDHCeVOhcASBhii6Cfw8DGHqfc5aMSozqh3rmlpCE=;
+ b=MYsVGsZaXnx3icM4Hitnf2FQTFGJiO83rzXJvkwGWp50xI1LME47w/vJkXb4MR8SP3
+ cO53KV3SczLvC1gwFwnxnzVMGtKzsdX6emDM8XIUF8BACVwD4BLqXjAjb7M1L32qFKz1
+ vjDrlk5wlJb0bM3MSSPHWWSyIuHk3YIMFcojKYSi2PepjpeZPukC2zRPNk5iFum0XOKh
+ 5EXWkfIdmgdVfi+6X75GlqHxiLglndwuq+T+U8bzqrXURVQ9c7NB/QZDl5z+CGuBBa0G
+ sERI6HTTjKFbILVRbQyDkVYkfwgJOpLz2aHUTqHy4rIUYIHc+IO/utiYETd0XGiiSYVI
+ 3Wug==
 X-Forwarded-Encrypted: i=1;
- AJvYcCWTX7ftAHANYxFQx7MHT/TzE8mQDRJuCvj6gtV14nlSkHnmOLDhB0H36uiQ9aFXquz6ZOn64lmz1J2Y5hlp+Xy0FTk=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0YzxUVafYJoQ6OtfC+xnFTJ4Fva2njUA4OdQ0RKg85YomKSnNe8R
- gCsADmoNBf5XXCWzyV9Jy8EZ4fKnNKnS4VMIxr2TZFZdN3cCNEtwkAC9jDSVmVjPG3FklcZziBI
- JMY4=
-X-Gm-Gg: ASbGncs9Tz9pagLaJ7aWfnhkv/9tmfzOw6dgBI0fRwQ6/v1PMMVgY9FtVMfjnq4SB2b
- vKK+D4YVDzK4vF0bstZf7XjZSD/JbFlolnal1VLiavjaXHddwWJAQprG2j5UHq+clx2JpT3sdVU
- hzhPjLzU9jF27jzjTLZnI2SHw7U732Ah8navEG//iLIEesSRmOX0WlQaxhrQXka6rLb5Eke85yV
- Xi/t7a3F1bLvIMaClB7C16OQQCBPEfEZHGmJ/16crkJ9m8uQXKllS/62ZMj
-X-Google-Smtp-Source: AGHT+IEslTTiif85XWGg8q4fNEh33Y6f4ykrORDcDRtaao/HSQsmL91nYJNrhpwMcqyeh0FHcF+sHg==
-X-Received: by 2002:a05:6830:6f43:b0:71d:88f0:b13 with SMTP id
- 46e09a7af769-720ff6850dcmr26206959a34.1.1735873989618; 
- Thu, 02 Jan 2025 19:13:09 -0800 (PST)
+ AJvYcCUj6qMV1ZcqZAhyt3gfhjFEJPMYJhSoKhAH01ZaaHLJCN2khjvDDgiPMHO3K6nDIl0UVoGAXLMe1IaznfThZjXBgWo=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YwEZPG4bXcUzH/tEiMNwDFlxTu/0KyxZF/OuDldIVUrxvqkZeix
+ 2+HMWVG330+umpQq49FOGh7Pz4XYrjL6WsumHWL+AxSc2hVKLXmt6jlh0OGvlY9sN6PHocFNGXq
+ hnvk=
+X-Gm-Gg: ASbGnctOIlm0x7rYwEySaXarC25VSLHg/dbwE0eSl3N/X0L1dmFmpdIAYua8qVGHg/H
+ W7Cgq5woyMAKhbY9kbmtoB7y1hz3qBJnPX0mkGFCyTEQFtPLoTCbQgnIkFVgpro/6hACAONeWVx
+ z8Z2Uol/Djj9NyBR2hUXE3XjctNlAMgdL3o0dfHiLx5j8PLXgCamowZl25CwSMJmYY2eMB3UWwm
+ Ye56JRFoMWnpWoy6Or45hOsTXT5NqxxBF0uEMmxOdJSr+wCBKfyDDmy52UN
+X-Google-Smtp-Source: AGHT+IEyXSjph+/pYcsKC+/1wwAYZ4l/FEii+50iKcIiE37HIWxy0McfM5MaXdZlXTOORMrzB6TBkA==
+X-Received: by 2002:a05:6870:f615:b0:29e:671b:6019 with SMTP id
+ 586e51a60fabf-2a7fb4c9d10mr27130592fac.31.1735874415134; 
+ Thu, 02 Jan 2025 19:20:15 -0800 (PST)
 Received: from mail.minyard.net ([2001:470:b8f6:1b:81ab:b2d6:d879:cada])
  by smtp.gmail.com with ESMTPSA id
- 46e09a7af769-71fc97a4085sm8072576a34.22.2025.01.02.19.13.06
+ 586e51a60fabf-2a7d7453f76sm9533454fac.9.2025.01.02.19.20.12
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 02 Jan 2025 19:13:08 -0800 (PST)
-Date: Thu, 2 Jan 2025 21:13:03 -0600
+ Thu, 02 Jan 2025 19:20:13 -0800 (PST)
+Date: Thu, 2 Jan 2025 21:20:08 -0600
 From: Corey Minyard <corey@minyard.net>
-To: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
-Message-ID: <Z3dVv-SYIljxw_OX@mail.minyard.net>
-References: <20241225014532.20091-1-v.shevtsov@maxima.ru>
+To: Cosmo Chou <chou.cosmo@gmail.com>
+Message-ID: <Z3dXaMlZ1zTt5HHd@mail.minyard.net>
+References: <20250101165431.2113407-1-chou.cosmo@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241225014532.20091-1-v.shevtsov@maxima.ru>
+In-Reply-To: <20250101165431.2113407-1-chou.cosmo@gmail.com>
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
@@ -101,34 +101,35 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Dec 25, 2024 at 01:45:30AM +0000, Vitaliy Shevtsov
- wrote: > Return value of ipmi_destroy_user() has no meaning, because it's
- always > zero and callers can do nothing with it. And in most cases [...]
+ Content preview:  On Thu, Jan 02, 2025 at 12:54:31AM +0800, Cosmo Chou wrote:
+ > Move smbus_cmd assignment to the end of process_smbus_cmd() to ensure >
+ the new command is not lost when complete_response() is triggered. 
  Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
- The query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [209.85.166.177 listed in sa-accredit.habeas.com]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.166.177 listed in bl.score.senderscore.com]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.177 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.166.177 listed in list.dnswl.org]
+ [209.85.214.181 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
+ The query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [209.85.214.181 listed in sa-accredit.habeas.com]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1tTYSI-0001o0-9N
-Subject: Re: [Openipmi-developer] [PATCH v2] ipmi: make ipmi_destroy_user()
- return void
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.214.181 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.214.181 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1tTYed-00033v-LK
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: ssif_bmc: Move smbus_cmd
+ assignment after cleanup
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -142,136 +143,52 @@ List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
 Reply-To: corey@minyard.net
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- Corey Minyard <minyard@acm.org>, lvc-project@linuxtesting.org
+Cc: minyard@acm.org, potin.lai@quantatw.com, linux-kernel@vger.kernel.org,
+ cosmo.chou@quantatw.com, quan@os.amperecomputing.com,
+ openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Dec 25, 2024 at 01:45:30AM +0000, Vitaliy Shevtsov wrote:
-> Return value of ipmi_destroy_user() has no meaning, because it's always
-> zero and callers can do nothing with it. And in most cases it's not
-> checked. So make this function return void. This also will eliminate static
-> code analyzer warnings such as unreachable code/redundant comparison when
-> the return value is checked against non-zero value.
+On Thu, Jan 02, 2025 at 12:54:31AM +0800, Cosmo Chou wrote:
+> Move smbus_cmd assignment to the end of process_smbus_cmd() to ensure
+> the new command is not lost when complete_response() is triggered.
 
-This is applied to my next tree, thank you.
+Ok, I see, patch is applied.  Thank you.
+
+Quan, I assume this is ok.  Please double-check it for me.
 
 -corey
 
 > 
-> Found by Linux Verification Center (linuxtesting.org) with Svace.
-> 
-> Signed-off-by: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
+> Fixes: dd2bc5cc9e25 ("ipmi: ssif_bmc: Add SSIF BMC driver")
+> Signed-off-by: Cosmo Chou <chou.cosmo@gmail.com>
 > ---
-> v2: Add changes in drivers/char/ipmi/ipmi_poweroff.c missed by chance
+>  drivers/char/ipmi/ssif_bmc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
->  drivers/char/ipmi/ipmi_devintf.c    | 5 +----
->  drivers/char/ipmi/ipmi_msghandler.c | 4 +---
->  drivers/char/ipmi/ipmi_poweroff.c   | 6 +-----
->  drivers/char/ipmi/ipmi_watchdog.c   | 5 +----
->  include/linux/ipmi.h                | 2 +-
->  5 files changed, 5 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_devintf.c b/drivers/char/ipmi/ipmi_devintf.c
-> index 332082e02ea5..e6ba35b71f10 100644
-> --- a/drivers/char/ipmi/ipmi_devintf.c
-> +++ b/drivers/char/ipmi/ipmi_devintf.c
-> @@ -122,12 +122,9 @@ static int ipmi_open(struct inode *inode, struct file *file)
->  static int ipmi_release(struct inode *inode, struct file *file)
+> diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
+> index a14fafc583d4..7a4f52987a7d 100644
+> --- a/drivers/char/ipmi/ssif_bmc.c
+> +++ b/drivers/char/ipmi/ssif_bmc.c
+> @@ -579,7 +579,6 @@ static void process_request_part(struct ssif_bmc_ctx *ssif_bmc)
+>  static void process_smbus_cmd(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
 >  {
->  	struct ipmi_file_private *priv = file->private_data;
-> -	int                      rv;
->  	struct ipmi_recv_msg *msg, *next;
+>  	/* SMBUS command can vary (single or multi-part) */
+> -	ssif_bmc->part_buf.smbus_cmd = *val;
+>  	ssif_bmc->msg_idx = 1;
+>  	memset(&ssif_bmc->part_buf.payload[0], 0, MAX_PAYLOAD_PER_TRANSACTION);
 >  
-> -	rv = ipmi_destroy_user(priv->user);
-> -	if (rv)
-> -		return rv;
-> +	ipmi_destroy_user(priv->user);
->  
->  	list_for_each_entry_safe(msg, next, &priv->recv_msgs, link)
->  		ipmi_free_recv_msg(msg);
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index e12b531f5c2f..1e5313748f8b 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -1398,13 +1398,11 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
->  	module_put(owner);
->  }
->  
-> -int ipmi_destroy_user(struct ipmi_user *user)
-> +void ipmi_destroy_user(struct ipmi_user *user)
->  {
->  	_ipmi_destroy_user(user);
->  
->  	kref_put(&user->refcount, free_user);
-> -
-> -	return 0;
->  }
->  EXPORT_SYMBOL(ipmi_destroy_user);
->  
-> diff --git a/drivers/char/ipmi/ipmi_poweroff.c b/drivers/char/ipmi/ipmi_poweroff.c
-> index 941d2dcc8c9d..05f17e3e6207 100644
-> --- a/drivers/char/ipmi/ipmi_poweroff.c
-> +++ b/drivers/char/ipmi/ipmi_poweroff.c
-> @@ -699,8 +699,6 @@ static int __init ipmi_poweroff_init(void)
->  #ifdef MODULE
->  static void __exit ipmi_poweroff_cleanup(void)
->  {
-> -	int rv;
-> -
->  #ifdef CONFIG_PROC_FS
->  	unregister_sysctl_table(ipmi_table_header);
->  #endif
-> @@ -708,9 +706,7 @@ static void __exit ipmi_poweroff_cleanup(void)
->  	ipmi_smi_watcher_unregister(&smi_watcher);
->  
->  	if (ready) {
-> -		rv = ipmi_destroy_user(ipmi_user);
-> -		if (rv)
-> -			pr_err("could not cleanup the IPMI user: 0x%x\n", rv);
-> +		ipmi_destroy_user(ipmi_user);
->  		pm_power_off = old_poweroff_func;
+> @@ -596,6 +595,7 @@ static void process_smbus_cmd(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
+>  		if (ssif_bmc->aborting)
+>  			ssif_bmc->aborting = false;
 >  	}
+> +	ssif_bmc->part_buf.smbus_cmd = *val;
 >  }
-> diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
-> index 335eea80054e..f1875b2bebbc 100644
-> --- a/drivers/char/ipmi/ipmi_watchdog.c
-> +++ b/drivers/char/ipmi/ipmi_watchdog.c
-> @@ -1064,7 +1064,6 @@ static void ipmi_register_watchdog(int ipmi_intf)
 >  
->  static void ipmi_unregister_watchdog(int ipmi_intf)
->  {
-> -	int rv;
->  	struct ipmi_user *loc_user = watchdog_user;
->  
->  	if (!loc_user)
-> @@ -1089,9 +1088,7 @@ static void ipmi_unregister_watchdog(int ipmi_intf)
->  	mutex_lock(&ipmi_watchdog_mutex);
->  
->  	/* Disconnect from IPMI. */
-> -	rv = ipmi_destroy_user(loc_user);
-> -	if (rv)
-> -		pr_warn("error unlinking from IPMI: %d\n",  rv);
-> +	ipmi_destroy_user(loc_user);
->  
->  	/* If it comes back, restart it properly. */
->  	ipmi_start_timer_on_heartbeat = 1;
-> diff --git a/include/linux/ipmi.h b/include/linux/ipmi.h
-> index a1c9c0d48ebf..2f74dd90c271 100644
-> --- a/include/linux/ipmi.h
-> +++ b/include/linux/ipmi.h
-> @@ -126,7 +126,7 @@ int ipmi_create_user(unsigned int          if_num,
->   * the users before you destroy the callback structures, it should be
->   * safe, too.
->   */
-> -int ipmi_destroy_user(struct ipmi_user *user);
-> +void ipmi_destroy_user(struct ipmi_user *user);
->  
->  /* Get the IPMI version of the BMC we are talking to. */
->  int ipmi_get_version(struct ipmi_user *user,
+>  static void on_read_requested_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
 > -- 
-> 2.47.1
+> 2.34.1
 > 
 
 
