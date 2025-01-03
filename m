@@ -2,190 +2,133 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 13BAB9FF9EE
-	for <lists+openipmi-developer@lfdr.de>; Thu,  2 Jan 2025 14:46:34 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id AF875A0032D
+	for <lists+openipmi-developer@lfdr.de>; Fri,  3 Jan 2025 04:34:48 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tTLWt-0000Zu-4x;
-	Thu, 02 Jan 2025 13:46:27 +0000
+	id 1tTYSL-0000U0-Ds;
+	Fri, 03 Jan 2025 03:34:37 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tzimmermann@suse.de>) id 1tTLJY-0004yW-6H
+ (envelope-from <corey@minyard.net>) id 1tTYSJ-0000Tq-9L
  for openipmi-developer@lists.sourceforge.net;
- Thu, 02 Jan 2025 13:32:41 +0000
+ Fri, 03 Jan 2025 03:34:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=RlpeBegLDMWjIlaozf6zr/23rBU7oNvZVb1IrqZ6KHo=; b=gkvS4+KbRUpdvCAEEH5mYL6No1
- DdSmkXtTeKYlRQ1FWwQkHDUWWqehtFHPXrZN2RjF4PEWsYgrpLpovxfsK4goyyMv/2tIgWh4Iqv8i
- sXrBY7aD2MsUN+dkLkF82QK0zhzmnUupylX8rB+9b9jJIeyqqxmToirMgtELGt7b0yaQ=;
+ bh=ojyDsvzcYX6bZ9hy4t2yQkdLV82UeQ9UgOyBYBPPp1A=; b=hrKqwxzQFZLrHyGn3UXh3r77wI
+ HiwXSpDD7l5UgwX+xXpsswueXMONAAwuW0VryqMu3YMShgvhi0gOYQ9/9jOOAhfCVMRN7JLzP8JY8
+ 3FDwC+OyON249DHMl5yqazlP83pGgCBYTs2Rntry3Y0XYzqnmXPUYX/r1+SnhR9Am+jo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=RlpeBegLDMWjIlaozf6zr/23rBU7oNvZVb1IrqZ6KHo=; b=Wxziik4mnjnxPYzcc7JmPgpnJn
- QY/Q2NBXNBla95ztobMh3ul4V3Gw9/WSO8y2GbkGErXehxarXqBzxWBUtJtM6Rlu9e/E+hXGa+Kso
- BJrWy1urdYsBOyFD7ZsLNUFyOO1t4abtIjoWnYlXPAexIGs0H7QoWIElKj+Jy4uBQmlo=;
-Received: from smtp-out1.suse.de ([195.135.223.130])
+ bh=ojyDsvzcYX6bZ9hy4t2yQkdLV82UeQ9UgOyBYBPPp1A=; b=TVrHBNHHJvb6HbeJopYWmbpnlp
+ GQIpZazDIggALP0dLJigqXYcGtCLf/Q6ymqxFvqQM07v8rF6EmTRnhjXxvBoRNYYqFh3xJTk193jh
+ PjKFbldOrUXA2F26obyztJeU0RH5camdDibpEkcGM0u2U/fjKvSEvbS6s8lUGLnH82xY=;
+Received: from mail-il1-f177.google.com ([209.85.166.177])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1tTLJX-0001Dr-PV for openipmi-developer@lists.sourceforge.net;
- Thu, 02 Jan 2025 13:32:40 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-out1.suse.de (Postfix) with ESMTPS id 6471C2115F;
- Thu,  2 Jan 2025 13:32:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1735824748; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=RlpeBegLDMWjIlaozf6zr/23rBU7oNvZVb1IrqZ6KHo=;
- b=1QxeSUBxYrahEdYTWGgcoWxi5ScO4QnBe34R6T79AznUPmjZInp/BLjNEHitk6NC+RHfC+
- FwLGo8I8zVYmmiEDZXnLNgzRs2cSevvgzpx6bw3zfPTbBJ6e5omy7H6oPJngO/hq5Yf/jr
- V8AJn+X36Yl8lhv8LdKrbdFbOr6CJVY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1735824748;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=RlpeBegLDMWjIlaozf6zr/23rBU7oNvZVb1IrqZ6KHo=;
- b=WgaNnnIdsJ6Ijw9kBOzR+YcXefqL7kghxoU3Dq6wbkx7d+Hght8ux30TnPT6U4Mf2szNpF
- JVdQVMIybr+pDiDw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1735824748; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=RlpeBegLDMWjIlaozf6zr/23rBU7oNvZVb1IrqZ6KHo=;
- b=1QxeSUBxYrahEdYTWGgcoWxi5ScO4QnBe34R6T79AznUPmjZInp/BLjNEHitk6NC+RHfC+
- FwLGo8I8zVYmmiEDZXnLNgzRs2cSevvgzpx6bw3zfPTbBJ6e5omy7H6oPJngO/hq5Yf/jr
- V8AJn+X36Yl8lhv8LdKrbdFbOr6CJVY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1735824748;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=RlpeBegLDMWjIlaozf6zr/23rBU7oNvZVb1IrqZ6KHo=;
- b=WgaNnnIdsJ6Ijw9kBOzR+YcXefqL7kghxoU3Dq6wbkx7d+Hght8ux30TnPT6U4Mf2szNpF
- JVdQVMIybr+pDiDw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested)
- by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 01D6D132EA;
- Thu,  2 Jan 2025 13:32:27 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
- by imap1.dmz-prg2.suse.org with ESMTPSA id E66rOmuVdmdQBwAAD6G6ig
- (envelope-from <tzimmermann@suse.de>); Thu, 02 Jan 2025 13:32:27 +0000
-Message-ID: <390c14a5-44fe-4328-bcc4-2aa1384e3ad1@suse.de>
-Date: Thu, 2 Jan 2025 14:32:27 +0100
+ id 1tTYSI-0001o0-9N for openipmi-developer@lists.sourceforge.net;
+ Fri, 03 Jan 2025 03:34:35 +0000
+Received: by mail-il1-f177.google.com with SMTP id
+ e9e14a558f8ab-3a9cb8460f7so89741865ab.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Thu, 02 Jan 2025 19:34:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1735875263; x=1736480063;
+ darn=lists.sourceforge.net; 
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=ojyDsvzcYX6bZ9hy4t2yQkdLV82UeQ9UgOyBYBPPp1A=;
+ b=y0Xzwa6kfQCT0FajV+lZB/1844b22yxMcEVG8FLk0mnnYLp95O3IhK2cp0wbg8TKf5
+ 0yiyhbw5YptyPBw6hudUH3MJNRrOjhzFWE3apZYHzDNtG+sD3N4GiFOYtKUVyZxBq2L1
+ UIGuWOhu2/VOh8/fyhs/3E2SvguHObgT/aGvocj/JyPeV2ywb+6IXiMnvR6/zV4aId7u
+ 3ba1XZvWLeo5WoQKV8n6wXQQTDPTE4os71emf9zkrNJg12wYDIyewTRW1x+qEbei7WEz
+ YkvTnPLeeemv1eJo/pYqEOjzpaW6HPgwRDEoTt972mxwbBUOR+ev6/eAX+Y5I1byPpeW
+ 3Piw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1735875263; x=1736480063;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=ojyDsvzcYX6bZ9hy4t2yQkdLV82UeQ9UgOyBYBPPp1A=;
+ b=ab/SyzQ1upOHjI0hvKCR4szf7XaTUu+BmwUZu3hPjlepPrIA5sRntkfyHah9c/sqcX
+ VoslFiDEf0gQ4NI14YDFiR5hYhnYffFnse6zW2dN+2THo+ongbwVf+6T2NozjWhAi+oi
+ Xz/UCNLojOk3ioHSun0Vu1HkbFx2wc8+bJCzsDAWJdqqr/XJGAelxTlTEZN3ZAKpXpya
+ gwFQo/sGT1zFgzDBVBiyDqDT8QdmEiPi011k6CVMUQGvno4QD24b2qY1kLT6oTGTtq0p
+ upFow2WB0gaUNA6pis2L/4yQlO31v+ZHVz5e/ltsrA/gBziBfKm/ecQnz7UeLmh0a5sz
+ Vjxg==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCWTX7ftAHANYxFQx7MHT/TzE8mQDRJuCvj6gtV14nlSkHnmOLDhB0H36uiQ9aFXquz6ZOn64lmz1J2Y5hlp+Xy0FTk=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YzxUVafYJoQ6OtfC+xnFTJ4Fva2njUA4OdQ0RKg85YomKSnNe8R
+ gCsADmoNBf5XXCWzyV9Jy8EZ4fKnNKnS4VMIxr2TZFZdN3cCNEtwkAC9jDSVmVjPG3FklcZziBI
+ JMY4=
+X-Gm-Gg: ASbGncs9Tz9pagLaJ7aWfnhkv/9tmfzOw6dgBI0fRwQ6/v1PMMVgY9FtVMfjnq4SB2b
+ vKK+D4YVDzK4vF0bstZf7XjZSD/JbFlolnal1VLiavjaXHddwWJAQprG2j5UHq+clx2JpT3sdVU
+ hzhPjLzU9jF27jzjTLZnI2SHw7U732Ah8navEG//iLIEesSRmOX0WlQaxhrQXka6rLb5Eke85yV
+ Xi/t7a3F1bLvIMaClB7C16OQQCBPEfEZHGmJ/16crkJ9m8uQXKllS/62ZMj
+X-Google-Smtp-Source: AGHT+IEslTTiif85XWGg8q4fNEh33Y6f4ykrORDcDRtaao/HSQsmL91nYJNrhpwMcqyeh0FHcF+sHg==
+X-Received: by 2002:a05:6830:6f43:b0:71d:88f0:b13 with SMTP id
+ 46e09a7af769-720ff6850dcmr26206959a34.1.1735873989618; 
+ Thu, 02 Jan 2025 19:13:09 -0800 (PST)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:81ab:b2d6:d879:cada])
+ by smtp.gmail.com with ESMTPSA id
+ 46e09a7af769-71fc97a4085sm8072576a34.22.2025.01.02.19.13.06
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 02 Jan 2025 19:13:08 -0800 (PST)
+Date: Thu, 2 Jan 2025 21:13:03 -0600
+From: Corey Minyard <corey@minyard.net>
+To: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
+Message-ID: <Z3dVv-SYIljxw_OX@mail.minyard.net>
+References: <20241225014532.20091-1-v.shevtsov@maxima.ru>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Binbin Zhou <zhoubb.aaron@gmail.com>
-References: <cover.1735550269.git.zhoubinbin@loongson.cn>
- <4d62076ee560b35c653a9fbced8d03ef3bdb3005.1735550269.git.zhoubinbin@loongson.cn>
- <3daaaff8-062a-4985-a5bc-8d228314b02e@suse.de>
- <CAMpQs4JcuRhpOyXHxy0ab+D-Wd0itKdb0GiZdTE59_qEpUfyLA@mail.gmail.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <CAMpQs4JcuRhpOyXHxy0ab+D-Wd0itKdb0GiZdTE59_qEpUfyLA@mail.gmail.com>
-X-Spam-Level: 
-X-Spamd-Result: default: False [-2.80 / 50.00]; BAYES_HAM(-3.00)[100.00%];
- SUSPICIOUS_RECIPS(1.50)[]; NEURAL_HAM_LONG(-1.00)[-1.000];
- NEURAL_HAM_SHORT(-0.20)[-1.000]; MIME_GOOD(-0.10)[text/plain];
- MIME_TRACE(0.00)[0:+]; TAGGED_RCPT(0.00)[];
- RCVD_VIA_SMTP_AUTH(0.00)[]; RCPT_COUNT_TWELVE(0.00)[16];
- ARC_NA(0.00)[]; RCVD_TLS_ALL(0.00)[];
- FREEMAIL_TO(0.00)[gmail.com];
- FREEMAIL_ENVRCPT(0.00)[gmail.com];
- DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
- FROM_HAS_DN(0.00)[];
- FREEMAIL_CC(0.00)[loongson.cn,kernel.org,acm.org,linux.intel.com,gmail.com,ffwll.ch,vger.kernel.org,lists.sourceforge.net,lists.freedesktop.org,xen0n.name,lists.linux.dev];
- MID_RHS_MATCH_FROM(0.00)[]; FROM_EQ_ENVFROM(0.00)[];
- RCVD_COUNT_TWO(0.00)[2]; TO_MATCH_ENVRCPT_ALL(0.00)[];
- FUZZY_BLOCKED(0.00)[rspamd.com]; TO_DN_SOME(0.00)[]
-X-Spam-Score: -2.80
-X-Spam-Flag: NO
-X-Spam-Score: -2.5 (--)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
+Content-Disposition: inline
+In-Reply-To: <20241225014532.20091-1-v.shevtsov@maxima.ru>
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: Spam detection software,
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- 
- Content preview:  Hi Am 02.01.25 um 13:55 schrieb Binbin Zhou: > Hi Thomas:
-   > > Thanks for your reply. > > On Thu, Jan 2, 2025 at 5:07 PM Thomas Zimmermann
-    <tzimmermann@suse.de> wrote: >> Hi >> >> >> Am 30.12.24 um 10:3 [...] 
- 
- Content analysis details:   (-2.5 points, 6.0 required)
- 
-  pts rule name              description
+ Content preview:  On Wed, Dec 25, 2024 at 01:45:30AM +0000, Vitaliy Shevtsov
+ wrote: > Return value of ipmi_destroy_user() has no meaning, because it's
+ always > zero and callers can do nothing with it. And in most cases [...]
+ Content analysis details:   (0.0 points, 6.0 required)
+ pts rule name              description
  ---- ---------------------- --------------------------------------------------
-  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
-                             The query to Validity was blocked.  See
-                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
-                              for more information.
-                        [195.135.223.130 listed in sa-trusted.bondedsender.org]
-  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
-                             query to Validity was blocked.  See
-                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
-                              for more information.
-                           [195.135.223.130 listed in bl.score.senderscore.com]
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
-                             medium trust
-                             [195.135.223.130 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
-  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
-                             author's domain
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
-                             valid
-X-Headers-End: 1tTLJX-0001Dr-PV
-X-Mailman-Approved-At: Thu, 02 Jan 2025 13:46:18 +0000
-Subject: Re: [Openipmi-developer] [PATCH v1 3/4] drm/ls2kbmc: Add support
- for Loongson-2K BMC display
+ 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
+ The query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [209.85.166.177 listed in sa-accredit.habeas.com]
+ 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [209.85.166.177 listed in bl.score.senderscore.com]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.177 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.166.177 listed in list.dnswl.org]
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1tTYSI-0001o0-9N
+Subject: Re: [Openipmi-developer] [PATCH v2] ipmi: make ipmi_destroy_user()
+ return void
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -198,63 +141,141 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Simona Vetter <simona@ffwll.ch>, Chong Qiao <qiaochong@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Corey Minyard <minyard@acm.org>,
- Binbin Zhou <zhoubinbin@loongson.cn>, Lee Jones <lee@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>,
- dri-devel@lists.freedesktop.org, loongarch@lists.linux.dev,
- openipmi-developer@lists.sourceforge.net, David Airlie <airlied@gmail.com>,
- Xuerui Wang <kernel@xen0n.name>, Huacai Chen <chenhuacai@loongson.cn>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Reply-To: corey@minyard.net
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ Corey Minyard <minyard@acm.org>, lvc-project@linuxtesting.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-SGkKCgpBbSAwMi4wMS4yNSB1bSAxMzo1NSBzY2hyaWViIEJpbmJpbiBaaG91Ogo+IEhpIFRob21h
-czoKPgo+IFRoYW5rcyBmb3IgeW91ciByZXBseS4KPgo+IE9uIFRodSwgSmFuIDIsIDIwMjUgYXQg
-NTowN+KAr1BNIFRob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPiB3cm90ZToK
-Pj4gSGkKPj4KPj4KPj4gQW0gMzAuMTIuMjQgdW0gMTA6MzEgc2NocmllYiBCaW5iaW4gWmhvdToK
-Pj4gWy4uLl0KPj4+ICsKPj4+ICtzdGF0aWMgc3RydWN0IHBsYXRmb3JtX2RyaXZlciBsczJrYm1j
-X3BsYXRmb3JtX2RyaXZlciA9IHsKPj4+ICsgICAgIC5kcml2ZXIgPSB7Cj4+PiArICAgICAgICAg
-ICAgIC5uYW1lID0gImxzMmtibWMtZnJhbWVidWZmZXIiLAo+PiBUaGUgZHJpdmVyIGlzIG1vc3Rs
-eSBhIGNvcHkgb2Ygc2ltcGxlZHJtLiBXaHkgZG9uJ3QgeW91IHVzZQo+PiAic2ltcGxlLWZyYW1l
-YnVmZmVyIiBmb3IgeW91ciBkZXZpY2UgbmFtZT8gWW91IGNvdWxkIHVzZSBzaW1wbGVkcm0KPj4g
-ZGlyZWN0bHkgdGhlbi4KPiBBaCwgaW5kZWVkLCB0aGUgZHJpdmVyIGlzIGJhc2VkIG9uIHNpbXBs
-ZWRybS4KPgo+IEluaXRpYWxseSwgSSBhbHNvIHRyaWVkIHRvIHVzZSBzaW1wbGVkcm0gZGlyZWN0
-bHksIGJ1dCBpdCB3aWxsIGZhaWwgaW4KPiBkcm0gbWVtb3J5IGFjcXVpcmUuCgpDb3VsZCB5b3Ug
-cG9pbnQgdG8gdGhlIGV4YWN0IGNhbGwgdGhhdCBmYWlscyB3aXRoaW4gc2ltcGxlZHJtPwoKPiBC
-ZWNhdXNlIGFsdGhvdWdoIHdlIHJlZ2lzdGVyIHRoZSBkcml2ZXIgaW4gcGxhdGZvcm0gZm9ybSwg
-aXRzIG1lbW9yeQo+IGJlbG9uZ3MgdG8gcGNpIHNwYWNlIGFuZCB3ZSBjYW4gc2VlIHRoZSBjb3Jy
-ZXNwb25kaW5nIHBjaSBwcm9iZSBhbmQKPiByZXNvdXJjZSBhbGxvY2F0aW9uIGluIFBhdGNoLTEu
-CgpJIGRvbid0IHVuZGVyc3RhbmQuIEdyYXBoaWNzIG1lbW9yeSBpcyBvZnRlbiBsb2NhdGVkIG9u
-IHRoZSBQQ0kgYnVzLiAKV2hhdCBpcyBzbyBzcGVjaWFsIGFib3V0IHRoaXMgb25lPwoKPiBUaGVy
-ZWZvcmUsIHdlIG5lZWQgdG8gdXNlIGFwZXJ0dXJlX3JlbW92ZV9jb25mbGljdGluZ19wY2lfZGV2
-aWNlcygpLgoKU28gdGhlcmUgaXMgYWxyZWFkeSBhIGRldmljZSB0aGF0IHJlcHJlc2VudHMgdGhl
-IGdyYXBoaWNzIGNhcmQ/IFRoYXQncyAKd2hhdCB5b3UnZCByZW1vdmUgaGVyZT8gSWYgeW91IG9u
-bHkgYWRkIHRoYXQgTUZEIGRldmljZSwgd2hvIG93bnMgdGhlIApmcmFtZWJ1ZmZlcj8gSWYgaXQn
-cyB0aGUgUENJIGRldmljZSBmcm9tIHBhdGNoIDEgKCJsczJrLWJtYyIpLCB3aHkgZG9lcyAKYXBl
-cnR1cmVfcmVtb3ZlX2NvbmZsaWN0aW5nX3BjaV9kZXZpY2VzKCkgbm90IHJlbW92ZSB0aGF0IGRl
-dmljZT8gSSdtIApzb21ld2hhdCBjb25mdXNlZCwgYmVjYXVzZSB0aGUgbG9naWMgaW4geW91ciBk
-cml2ZXIgbW9zdGx5IGxvb2tzIGxpa2UgaXQgCmJpbmRzIHRvIGEgcHJlLWNvbmZpZ3VyZWQgZnJh
-bWVidWZmZXIsIGJ1dCBzb21lIG9mIHRoZSBjb2RlIGRvZXNuJ3QuIApCZXN0IHJlZ2FyZHMgVGhv
-bWFzCgo+Cj4gQWxzbywgc2luY2Ugd2UgYXJlIHVzaW5nIEJNQyBkaXNwbGF5LCB0aGUgZGlzcGxh
-eSB3aWxsIGJlIGRpc2Nvbm5lY3RlZAo+IHdoZW4gQk1DIHJlc2V0LCBhdCB0aGlzIHRpbWUgd2Ug
-bmVlZCB0byBwdXNoIHRoZSBkaXNwbGF5IGRhdGEgKGNydGMsCj4gY29ubmVjdG9yLCBldGMuKSBt
-YW51YWxseSBhcyBzaG93biBpbiBQYXRjaC00Lgo+Cj4gUHJvYmFibHkgaXQncyBub3QgdGhlIG1v
-c3Qgc3VpdGFibGUgd2F5IHRvIGltcGxlbWVudCBpdC4KPgo+PiBCZXN0IHJlZ2FyZHMKPj4gVGhv
-bWFzCj4+Cj4+PiArICAgICB9LAo+Pj4gKyAgICAgLnByb2JlID0gbHMya2JtY19wcm9iZSwKPj4+
-ICsgICAgIC5yZW1vdmUgPSBsczJrYm1jX3JlbW92ZSwKPj4+ICt9Owo+Pj4gKwo+Pj4gK21vZHVs
-ZV9wbGF0Zm9ybV9kcml2ZXIobHMya2JtY19wbGF0Zm9ybV9kcml2ZXIpOwo+Pj4gKwo+Pj4gK01P
-RFVMRV9ERVNDUklQVElPTigiRFJNIGRyaXZlciBmb3IgTG9vbmdzb24tMksgQk1DIik7Cj4+PiAr
-TU9EVUxFX0xJQ0VOU0UoIkdQTCIpOwo+PiAtLQo+PiAtLQo+PiBUaG9tYXMgWmltbWVybWFubgo+
-PiBHcmFwaGljcyBEcml2ZXIgRGV2ZWxvcGVyCj4+IFNVU0UgU29mdHdhcmUgU29sdXRpb25zIEdl
-cm1hbnkgR21iSAo+PiBGcmFua2Vuc3RyYXNzZSAxNDYsIDkwNDYxIE51ZXJuYmVyZywgR2VybWFu
-eQo+PiBHRjogSXZvIFRvdGV2LCBBbmRyZXcgTXllcnMsIEFuZHJldyBNY0RvbmFsZCwgQm91ZGll
-biBNb2VybWFuCj4+IEhSQiAzNjgwOSAoQUcgTnVlcm5iZXJnKQo+Pgo+CgotLSAKLS0KVGhvbWFz
-IFppbW1lcm1hbm4KR3JhcGhpY3MgRHJpdmVyIERldmVsb3BlcgpTVVNFIFNvZnR3YXJlIFNvbHV0
-aW9ucyBHZXJtYW55IEdtYkgKRnJhbmtlbnN0cmFzc2UgMTQ2LCA5MDQ2MSBOdWVybmJlcmcsIEdl
-cm1hbnkKR0Y6IEl2byBUb3RldiwgQW5kcmV3IE15ZXJzLCBBbmRyZXcgTWNEb25hbGQsIEJvdWRp
-ZW4gTW9lcm1hbgpIUkIgMzY4MDkgKEFHIE51ZXJuYmVyZykKCgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcg
-bGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlz
-dHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+On Wed, Dec 25, 2024 at 01:45:30AM +0000, Vitaliy Shevtsov wrote:
+> Return value of ipmi_destroy_user() has no meaning, because it's always
+> zero and callers can do nothing with it. And in most cases it's not
+> checked. So make this function return void. This also will eliminate static
+> code analyzer warnings such as unreachable code/redundant comparison when
+> the return value is checked against non-zero value.
+
+This is applied to my next tree, thank you.
+
+-corey
+
+> 
+> Found by Linux Verification Center (linuxtesting.org) with Svace.
+> 
+> Signed-off-by: Vitaliy Shevtsov <v.shevtsov@maxima.ru>
+> ---
+> v2: Add changes in drivers/char/ipmi/ipmi_poweroff.c missed by chance
+> 
+>  drivers/char/ipmi/ipmi_devintf.c    | 5 +----
+>  drivers/char/ipmi/ipmi_msghandler.c | 4 +---
+>  drivers/char/ipmi/ipmi_poweroff.c   | 6 +-----
+>  drivers/char/ipmi/ipmi_watchdog.c   | 5 +----
+>  include/linux/ipmi.h                | 2 +-
+>  5 files changed, 5 insertions(+), 17 deletions(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_devintf.c b/drivers/char/ipmi/ipmi_devintf.c
+> index 332082e02ea5..e6ba35b71f10 100644
+> --- a/drivers/char/ipmi/ipmi_devintf.c
+> +++ b/drivers/char/ipmi/ipmi_devintf.c
+> @@ -122,12 +122,9 @@ static int ipmi_open(struct inode *inode, struct file *file)
+>  static int ipmi_release(struct inode *inode, struct file *file)
+>  {
+>  	struct ipmi_file_private *priv = file->private_data;
+> -	int                      rv;
+>  	struct ipmi_recv_msg *msg, *next;
+>  
+> -	rv = ipmi_destroy_user(priv->user);
+> -	if (rv)
+> -		return rv;
+> +	ipmi_destroy_user(priv->user);
+>  
+>  	list_for_each_entry_safe(msg, next, &priv->recv_msgs, link)
+>  		ipmi_free_recv_msg(msg);
+> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+> index e12b531f5c2f..1e5313748f8b 100644
+> --- a/drivers/char/ipmi/ipmi_msghandler.c
+> +++ b/drivers/char/ipmi/ipmi_msghandler.c
+> @@ -1398,13 +1398,11 @@ static void _ipmi_destroy_user(struct ipmi_user *user)
+>  	module_put(owner);
+>  }
+>  
+> -int ipmi_destroy_user(struct ipmi_user *user)
+> +void ipmi_destroy_user(struct ipmi_user *user)
+>  {
+>  	_ipmi_destroy_user(user);
+>  
+>  	kref_put(&user->refcount, free_user);
+> -
+> -	return 0;
+>  }
+>  EXPORT_SYMBOL(ipmi_destroy_user);
+>  
+> diff --git a/drivers/char/ipmi/ipmi_poweroff.c b/drivers/char/ipmi/ipmi_poweroff.c
+> index 941d2dcc8c9d..05f17e3e6207 100644
+> --- a/drivers/char/ipmi/ipmi_poweroff.c
+> +++ b/drivers/char/ipmi/ipmi_poweroff.c
+> @@ -699,8 +699,6 @@ static int __init ipmi_poweroff_init(void)
+>  #ifdef MODULE
+>  static void __exit ipmi_poweroff_cleanup(void)
+>  {
+> -	int rv;
+> -
+>  #ifdef CONFIG_PROC_FS
+>  	unregister_sysctl_table(ipmi_table_header);
+>  #endif
+> @@ -708,9 +706,7 @@ static void __exit ipmi_poweroff_cleanup(void)
+>  	ipmi_smi_watcher_unregister(&smi_watcher);
+>  
+>  	if (ready) {
+> -		rv = ipmi_destroy_user(ipmi_user);
+> -		if (rv)
+> -			pr_err("could not cleanup the IPMI user: 0x%x\n", rv);
+> +		ipmi_destroy_user(ipmi_user);
+>  		pm_power_off = old_poweroff_func;
+>  	}
+>  }
+> diff --git a/drivers/char/ipmi/ipmi_watchdog.c b/drivers/char/ipmi/ipmi_watchdog.c
+> index 335eea80054e..f1875b2bebbc 100644
+> --- a/drivers/char/ipmi/ipmi_watchdog.c
+> +++ b/drivers/char/ipmi/ipmi_watchdog.c
+> @@ -1064,7 +1064,6 @@ static void ipmi_register_watchdog(int ipmi_intf)
+>  
+>  static void ipmi_unregister_watchdog(int ipmi_intf)
+>  {
+> -	int rv;
+>  	struct ipmi_user *loc_user = watchdog_user;
+>  
+>  	if (!loc_user)
+> @@ -1089,9 +1088,7 @@ static void ipmi_unregister_watchdog(int ipmi_intf)
+>  	mutex_lock(&ipmi_watchdog_mutex);
+>  
+>  	/* Disconnect from IPMI. */
+> -	rv = ipmi_destroy_user(loc_user);
+> -	if (rv)
+> -		pr_warn("error unlinking from IPMI: %d\n",  rv);
+> +	ipmi_destroy_user(loc_user);
+>  
+>  	/* If it comes back, restart it properly. */
+>  	ipmi_start_timer_on_heartbeat = 1;
+> diff --git a/include/linux/ipmi.h b/include/linux/ipmi.h
+> index a1c9c0d48ebf..2f74dd90c271 100644
+> --- a/include/linux/ipmi.h
+> +++ b/include/linux/ipmi.h
+> @@ -126,7 +126,7 @@ int ipmi_create_user(unsigned int          if_num,
+>   * the users before you destroy the callback structures, it should be
+>   * safe, too.
+>   */
+> -int ipmi_destroy_user(struct ipmi_user *user);
+> +void ipmi_destroy_user(struct ipmi_user *user);
+>  
+>  /* Get the IPMI version of the BMC we are talking to. */
+>  int ipmi_get_version(struct ipmi_user *user,
+> -- 
+> 2.47.1
+> 
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
