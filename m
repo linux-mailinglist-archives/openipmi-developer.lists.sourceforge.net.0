@@ -2,205 +2,132 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BD517A005B7
-	for <lists+openipmi-developer@lfdr.de>; Fri,  3 Jan 2025 09:22:30 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 18EC8A009B3
+	for <lists+openipmi-developer@lfdr.de>; Fri,  3 Jan 2025 14:02:27 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tTcwl-0005oJ-Rj;
-	Fri, 03 Jan 2025 08:22:19 +0000
+	id 1tThJf-0004z3-IO;
+	Fri, 03 Jan 2025 13:02:14 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <quan@os.amperecomputing.com>) id 1tTcwk-0005oC-Sa
+ (envelope-from <corey@minyard.net>) id 1tThJb-0004yr-By
  for openipmi-developer@lists.sourceforge.net;
- Fri, 03 Jan 2025 08:22:18 +0000
+ Fri, 03 Jan 2025 13:02:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=fMB4w7qR1Jv081sOmf7GDPF15nl4XhjkM/0JdYUPAfc=; b=JpnLqzP6210PXzy/EKfNOs0EqE
- kJQrbuabtmNvu7n9stx5E/8A6vEm0ju4pu864wnFuIykDcZv4BhmaRV8zIUJtHXw7NzZ5S0pTWEwk
- rxQPokudVtsC0iPuK6WGXrTjj3zGm3S6k09x6HB2YphaDu5llnRyS1WESvISOAz3aDJc=;
+ bh=kwslepnGSbcUTKLuxRUjLV9/n9Tgqc36suysjk6sk7w=; b=RrDm9W8YXXlz+RPe6t/cc5bsfy
+ /hcatRSImha78Sax/iZrO95WwQWcjDMmNT4f+VF8qeYPAIVmG0aGabBLubgkSWj4VCfYtHKZpePGs
+ nCDrB42bcSEpwRETYyPJtGxhcPXV8UZkFaE68RllxLyYGx2NfTCmIbi5CWa5BKPun/rg=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
- References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=fMB4w7qR1Jv081sOmf7GDPF15nl4XhjkM/0JdYUPAfc=; b=M+8Zu/zf/9qhPHH+ulnRzcqmEG
- IWV5ePw5bD+jBTt+EemKD4oqiwESqrBtMDNOqe0FIpWCT1C6z7+e494P9fFBfd/bs1o6NQhlZxU31
- gn0a1M+VLw5UewJkaxJ4bP8rfXFeZrSjdgGqD/NHp2sIy2AQ+Eo6HUsneO5aM62G35wM=;
-Received: from mail-eastus2azon11020113.outbound.protection.outlook.com
- ([52.101.56.113] helo=BN1PR04CU002.outbound.protection.outlook.com)
+ bh=kwslepnGSbcUTKLuxRUjLV9/n9Tgqc36suysjk6sk7w=; b=feLvM7CFNex6ol0GkX3OU7JIiC
+ EoA/qWaDYNOCcYHpEliZIkcvm7X5XVqqYuz0CA0q0eIGwAsDIDjzuUMDkzpsQy9+F2xu0Fp6Cq+sU
+ PYVGid0s+3H3X9FKluWuu6W+Yhf2RQnTcD5VMZdhN24Y7cjfMowvHe/SmkMPVJwJ/goo=;
+Received: from mail-ot1-f45.google.com ([209.85.210.45])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tTcwk-0003bW-6H for openipmi-developer@lists.sourceforge.net;
- Fri, 03 Jan 2025 08:22:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LX1YaiTvZ4/pZNJWmWwjIct+ZARcBsjJeDqteNWYwh6VSif4wiE+M4Dyn3UX/cFf9rZ4PSwnU83m+7V6jgGWa/L/R1X37fvcFuTlIWUQ5w5+CKUxQlC2ireChj15ZKn2NEHdqyVLWKYtlYWTi8dUKIh7eVG+TyXBHKU4Mal29P1AS6+s78cJi4XsM4GASmVXZX1hn0nE/RAzIGzD/H8Y2XMlI8Nb9LvMSrA8paaIYHHSxgvFkHIZE3K8mDj0ZFELjOfDffz+/PKTcB3SW+Y1hys0sUQ8OLa6CQck2NkIj4cJil0Gim244EXkvE0VBxllnNvNiWOLZG4HyXA/VsG/NA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fMB4w7qR1Jv081sOmf7GDPF15nl4XhjkM/0JdYUPAfc=;
- b=k5AFu7ng5flYalp1+ZJzhFT+6K+7RZNMzgjwnjyP8cKJJCn0xSgxq3xOJaQng1Nqs6qxflvjBd92F7Ai3f6XB3PAVkcsFzp9S4dr3PrEVziMrVUaCU91xcCTF5VI4coYDO4SLDvcUy4yVjzkdZPDUgUqm/GXTBK09nrW1l7S6qIWK6yN+BMG6g/b0wlUOdOF3EUSmJF9OcrwRnBYxbRmWWC2VhE5/DW/+gZrKQamh6o8doD+3rSQ+5UZsoKG3G/ksZx9VmCUhhixKTp6+n3OxiF32dI3nHBHz7xOp24N78Dezli7RBOjgkPm3YC5Zlb08j4z+IGGNriOnKktlREy2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1tThJZ-0008HY-W1 for openipmi-developer@lists.sourceforge.net;
+ Fri, 03 Jan 2025 13:02:10 +0000
+Received: by mail-ot1-f45.google.com with SMTP id
+ 46e09a7af769-71e181fb288so7484851a34.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 03 Jan 2025 05:02:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fMB4w7qR1Jv081sOmf7GDPF15nl4XhjkM/0JdYUPAfc=;
- b=ZxEJE0xu0dAuRY0tDFZp3gFwgGpVISGd3bg82pa9ZpPpH7+TvC2A3AoxvlbJnnDYUx+kA5NPp7DH4n1dzgKLFmyb4PZjJzUiW7RAccVbsTdcrTqBeQZZu6Mxs6ywfngxSAMA6Y8BvlF/SPjDIVZTSP+wYHfXHZuPlSRbCLFGhBo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SJ2PR01MB8193.prod.exchangelabs.com (2603:10b6:a03:4f6::15) by
- BL3PR01MB6835.prod.exchangelabs.com (2603:10b6:208:350::9) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8335.6; Fri, 3 Jan 2025 03:50:10 +0000
-Received: from SJ2PR01MB8193.prod.exchangelabs.com
- ([fe80::4167:3f60:16af:411d]) by SJ2PR01MB8193.prod.exchangelabs.com
- ([fe80::4167:3f60:16af:411d%4]) with mapi id 15.20.8314.012; Fri, 3 Jan 2025
- 03:50:06 +0000
-Message-ID: <12ed4d01-9fe8-4d2b-af5a-fdb0ebe38bf1@os.amperecomputing.com>
-Date: Fri, 3 Jan 2025 10:49:59 +0700
-User-Agent: Mozilla Thunderbird
-To: corey@minyard.net, Cosmo Chou <chou.cosmo@gmail.com>
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1735909324; x=1736514124;
+ darn=lists.sourceforge.net; 
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=kwslepnGSbcUTKLuxRUjLV9/n9Tgqc36suysjk6sk7w=;
+ b=fhCrGzX2rTLf64WdGKASPDVAmgZ83cUhsR7X3Y5m/eC95bHKnS5U2giIDVZg7z6OVj
+ YWdMZ0Mte7COpneJ5JxsFycg+z3v+Nqzv12btiSUBN+B/R+g1DK6T8z0T7b7LtsdbQqm
+ h5HpX/wP6DigekJspysBt/COD7lDIAgDo3NrrXFb8Gew/3Er5M30Us1/Qm+L9Lp6GIQp
+ lWXPY4y14eoyklhgmJF3QmX8D6GmhpS/3V39rw+adTRk1qqX4cO4hPuyUDtNhHlg5f35
+ xkmEWUH6o7DOlnrYj/OJiT9J85Ft84aItm6URx+4c3GA6ywq+vT3zoM/GhSkPAxYl3Ln
+ HqVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1735909324; x=1736514124;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=kwslepnGSbcUTKLuxRUjLV9/n9Tgqc36suysjk6sk7w=;
+ b=ahCtD7NgwBBnHZzlCuQTMQNn6Pamw5soZr4xWUGMzcXCQrsbopFP67VD/FS232TpMe
+ 3FFsUo3GDSqCl/aAKDGsC2fAPZd+vKLaUO7CO7zS8HSj1Vx60IIN2Oo5N4TqhQoc/qDu
+ buZT1oyRG3WCuKJ6BGjwoClW2mTCqw+9uRxDCAhDpz6SdouO+UxfBLFKVSvUEvV/shj7
+ WncyqqoF7l9iMvPrx8rTn1DX6nhD90L23JalPuwLJ7C3mdb2vKMkUVkQYrzg2sExWmOA
+ znhLD2xnLlczWzEVDgItgbFqexXx5TM8DUjlPxTjk0lZ2e9NfUp0Mccu9647MdPJREVD
+ O67A==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCX3h0XOt4E6TD7YHStF89ALT76z0wdqdbZj6SKjjQpGdWGtHzW2C2FEJTPxtb1GCTywPlICvrGZZ4R42bqOGopg81Y=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YyhHyKgNJlcHqnUCCAzrxu1MHGN0+ymgjB5MfaR2an3EQkSWB4B
+ 6td6kWgVw+PLStnv1vUqwLfQ28LZYVddONWeDXpybdxQBAXA/QheTBtOSzMR+2E=
+X-Gm-Gg: ASbGncs57u/iTSbIaOUXLQVG7PFJFT4C/YgujZ6O2CPoWdp5VblYg+iSOdsdI5241bm
+ rf5WcWwVbtMS9sDTexNakh46LxUwTKJJ/hLnTQA+JKDr4B7M2upjeu78gNBvCG45pLFC3K2Jvx1
+ vc51Ma4/0dmMxiuXANHHcW+c3gJhzwvWbnnXob6MUJHjTDUQwcflgXI6O3Ji+0aIHw0sQOMku5m
+ lCcs6OcRb2/OPJ2OJb4TXBYEkRcamM8otigSH1oJzaLAvsNWwlPrPmXmU3J
+X-Google-Smtp-Source: AGHT+IFqSJg1bPoYXPE1KKsn0KYetjUPM+I0u/NVnIIThCGd6JpnoHvogaJhfdTx5yTrKznPRCuY5g==
+X-Received: by 2002:a05:6830:903:b0:717:f666:9559 with SMTP id
+ 46e09a7af769-720ff6c837fmr25104369a34.9.1735909324195; 
+ Fri, 03 Jan 2025 05:02:04 -0800 (PST)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:81ab:b2d6:d879:cada])
+ by smtp.gmail.com with ESMTPSA id
+ 46e09a7af769-71fc97dca80sm7991059a34.37.2025.01.03.05.02.01
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 03 Jan 2025 05:02:02 -0800 (PST)
+Date: Fri, 3 Jan 2025 07:01:57 -0600
+From: Corey Minyard <corey@minyard.net>
+To: Quan Nguyen <quan@os.amperecomputing.com>
+Message-ID: <Z3ffxfF6eEtvqOxx@mail.minyard.net>
 References: <20250101165431.2113407-1-chou.cosmo@gmail.com>
- <Z3dXaMlZ1zTt5HHd@mail.minyard.net>
-Content-Language: en-CA
-In-Reply-To: <Z3dXaMlZ1zTt5HHd@mail.minyard.net>
-X-ClientProxiedBy: SG2PR06CA0244.apcprd06.prod.outlook.com
- (2603:1096:4:ac::28) To SJ2PR01MB8193.prod.exchangelabs.com
- (2603:10b6:a03:4f6::15)
+ <c92cab21-ca41-4f34-b507-e773c463d82f@os.amperecomputing.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR01MB8193:EE_|BL3PR01MB6835:EE_
-X-MS-Office365-Filtering-Correlation-Id: 390ea50f-06d0-44f6-aa0f-08dd2ba9b627
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MEdQM0NONk9LdmplZ0dYZ2llUi9QNGcrUmxQN01xTXp2UHhOLzhUQVE2VjFK?=
- =?utf-8?B?VHhlL0lIS2Q2YW5lZ2M4ZEN0WHlUYStsT1U2R2EwanRjRXdsR3lJM0pGVi9E?=
- =?utf-8?B?NzJ0dmtkNGdkQjBxckFGT3Roamk0RldiOW9rckxZM2VTUFF2N2lKM2svWVdi?=
- =?utf-8?B?RkRvYnRNTXcvMVUwUUpxU3pDTVQ1Q1cwZzdMeUN0c0w3NVN2QSt6VHN5b2RR?=
- =?utf-8?B?QjdsNkxnbS9tc2FoaWNEV0t4V0JZRG14RDNKRFoxVnlpMCtSWUhIYlVBUVha?=
- =?utf-8?B?cFNjS0huMUQ1Rk4ydmg4aXBXTG5haEZWRzVQVzgzMnk1UGpYY1dOWGcvYXZV?=
- =?utf-8?B?aEZZOFVPTC9JOTFDbFZuZk1aWWVwcUJ3UzFVLzhOTTZzRXdKaHBUVlcyZS9t?=
- =?utf-8?B?bEdlc3JaTVFCUkZRa09tT1JwbjFzN3Z0eVR0d0k2QjM0K3JyNUJmUnVJdmdM?=
- =?utf-8?B?c3dTRFpSL2w1ZkRJWXU1QmNtZmE1VklMNE92YTY3QUZZK3VaMUJCODAvK0JH?=
- =?utf-8?B?MzBCMXBHR0dkWHk1cTBvRTNiei90Y3FzSnpKVkhnNjVROW9DaUlFc3VXOTlK?=
- =?utf-8?B?NENOTGtCQmdVMDBBVHplQWliZFVSM1M0VEJRaE5TbDBxU0VKdlhnek91eUJk?=
- =?utf-8?B?c3dIa0xxZ0l5Z2diaDBqWm5zR2cwQWlwbW1aSlNoa2ZtVFNpSFhyZG43ZG1M?=
- =?utf-8?B?RnhReEd5QlVQNnRGVUlwVHlaNXJjVDEvZnZVbThtSFZoYXVNMkp4V25HcUl4?=
- =?utf-8?B?cjRCdVlZd0ZkQy9paVR5SmJkY1MzT2FoNEdHbXhxMnhQamp3ZWRobHRmTU1P?=
- =?utf-8?B?L1ovcUxMQm4rcm5UTzl4UmdBWFdoUXoxa3hHRmRMQnlUQ3ZjMWN3ckNJMW1y?=
- =?utf-8?B?YTBvRFgzZStNWVhKdWh1blhiQ0J3a1lidHltMTVYbXJ1YmhFeGNCb3FDMnVn?=
- =?utf-8?B?KzRad3BjOUZuSHlMVklwRVdlUzBXbFlrMjFLVmJWNDNIdVUreWlUZmhHR0V1?=
- =?utf-8?B?bmdKT0tLUVpRMGZieGlHOXpsdDU1b0pFK05yVjZ4Q1hPczNObm81SUMrMGVU?=
- =?utf-8?B?MS83UFFrWktaVEsvRnZYcndRcFgrbDJSOGVFaDlERVJjTmZ0RTYrUVl4T3l2?=
- =?utf-8?B?TkFBTFREWmVTaEUyZ3RwSDc2TS9GMStia241Q2JBUE0wdHc0OHE1Y1hhTkZ3?=
- =?utf-8?B?Y2NzUlZvTnJSU2NCeVVWTnBkN0hQbHhGZGNtdUxLcmU4dXVBWkVwdmYxcGtJ?=
- =?utf-8?B?VldicVhTd1N4WVVackpQRkVMSncya2s1L3VSdytpeTJNWVVtVU9ndWFWblMx?=
- =?utf-8?B?aXQ3cDJyY0xwQXJ1cjlQL1V4QnJ6ZE5ZTGxnY3NMeW1uNkN1RGZmS1pkVXNE?=
- =?utf-8?B?S3NCWUJPVkwrS0c0N1dzbkFsSWZhQ3hkcGVWakFqRi82WkJrVWlPMDVBVEhK?=
- =?utf-8?B?Vm9QdHp2SWsybTBqZEovaS82b3Z6Nk1GS2tJaW5nVXl3MWV0WnNRT1loS1Z3?=
- =?utf-8?B?NUJFSmpuaFQ2N1BFZ3pwT2tWQ00wZlZaU3NqaURoY25YK2FNRGdYYUFYUzVo?=
- =?utf-8?B?QWtyQ2xlcENObVlrdW9Odml4UzVSVjRGUFpRYUEzODRYbkVTOVp6bkl2T3NF?=
- =?utf-8?B?UytlNWRPeGdxN0VUcXhGdG50R2Z1aG8zaTY1K283NEhMYXc5YzFzNFlyTHZD?=
- =?utf-8?B?OEZoMVdNWk9uelphcURSZUlFSEJGc0tVL2J3SHViYXRGU0ZuZlRtZlR4STFN?=
- =?utf-8?B?MFI5WDBhU1p4SjY3blZpMUlHdWtWUk5KRzd1ZTdqcWVJZUJDM1p2VVkyb3FK?=
- =?utf-8?B?d3BVNkhDOFFLWUJySG5hWHJFOXdlT1RzSndnYW5wV2d6ZFBZL25NNGZQUmNL?=
- =?utf-8?Q?LCbNala6MGU11?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:SJ2PR01MB8193.prod.exchangelabs.com; PTR:; CAT:NONE;
- SFS:(13230040)(376014)(1800799024)(366016); DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TURzMmNPU3liLzJiSXF3U0plQ3dxcDQydWdqU0E0eVNTOXJBc1Jybm5NZWtL?=
- =?utf-8?B?TW9DVVFPUTdxT0QxcnZocng1dk0yQjZWNUI5ZDNseVBTVTcrMm5za2NKb2VW?=
- =?utf-8?B?QVVpUU1FZGxCT0RWaWN0TE94enM4Wmw1V0R0Z0ZPQ2RtbE1kT3U5RnBDRzZV?=
- =?utf-8?B?VXFLZUd0cjJNRHJ0Nm05RUwxTGNtYVFxWXkzZTQ5RHN4b1JXK085bUt2b1RK?=
- =?utf-8?B?eDRlaGNOMVg0bjVXMkFWR3FqNnh4SG5uZk1kaDBiZjRXeUdzZ1lpbHgyaEx4?=
- =?utf-8?B?Q0c5Y0YrWVd0VkRNcUg1ZFAvVk9IamszNWFtZEpocVZjcmVJdW5JYmZLbXZG?=
- =?utf-8?B?UENVd2tyZWR1MTUyRW1yR0E1Y0x5K0pHTDg0aUUyOFZMZ0w2UWNwT29iTnlO?=
- =?utf-8?B?VTQ5WTV0R2c5L2J3QWFjaTdwMTB6QWE4U3BBREJXMUwvdG1WUVJFK1dKYStm?=
- =?utf-8?B?dWVvQzRZRUJmdkdEWGRwMGw0MXBLcFFCdnVuL1QzeFc0ZEh1QzJBOHNVMlRS?=
- =?utf-8?B?TmNoODdLYnFGdG9sanI0a2tvTldJbW9KTndRWVdQSS83UTV3NHlUR2VVWW9H?=
- =?utf-8?B?eHNOQStVY0ZFdGJWUE5yY0pPS3U3VVU1Tm03MTNLSm5rQnBrc0dmU1RTdVdh?=
- =?utf-8?B?M2o1VHVWWXo3SDhQN2R6NkNONWt5MG9PZjRJT0hPejFJMHB3WHlKZE1TUmlQ?=
- =?utf-8?B?QmtFRGJDbmYwU2NxalN6RVFBbnhtVTFmWTFZU2NjaHJCbHM2bEdYbkxiT2Ni?=
- =?utf-8?B?Ymw1Smd6bTdYU0hFVC93dXdrSEVJZ0p5WkZzOEVjUGtXUjVjaWZOY3VGbFFI?=
- =?utf-8?B?M0NqVlVGV1JrTm5jdDJoYVdXeVpUUms2NHVlMjNrM2VQRGxUQXR3elYwMTZC?=
- =?utf-8?B?c3ZJbW1FTjZVTUxacVZtMHY2cG1aZWpHT1NFT1B5QjU4UHNpSTZ4elVvZHRT?=
- =?utf-8?B?T1p6YS9BMC83eVM1YmJWN2dxZDJnWE5YWXdtSS9xTUpuay9naXJ6Yit4b0dK?=
- =?utf-8?B?cUZtaHQ1dEd3aVNNOVdRdGlWYzRkUVFucGNxQUhpaThZQ0N3a1M3eFRRa3cw?=
- =?utf-8?B?ZHEvVStnTVJHTzlVRVh6Mmk4Rk4wb0wvWFZQTERGZmxLaDNVdThyMUJLbWZR?=
- =?utf-8?B?UWZTNFFwRlBjMjdmRDUySVNrQ0U0SUFhaksrQUFXNTBsRXdYa0FMOWxDZ3RF?=
- =?utf-8?B?YSs5ZE12Tm9KbVBHcHVIYWtPa2hUQ2g3bFFGQzhjQW5tWnpyVTNxVHdMY1lN?=
- =?utf-8?B?OUlUUkZsL1QxOENNMkxXa0hiamhYaGwwcGxwbGh5NXRwdk1xTzJOKzFOamxR?=
- =?utf-8?B?Y3NYVFZSUEZVQm9CZklTdGpXdEtlY3ZINHRmbXdHWjRvSWRPZWEvMmlheHJj?=
- =?utf-8?B?M1FyaXplbC9qWENtUHM5TnpxMGtzLzhKL3BHMThCMHE0SnFNVXJFOW1KYnl4?=
- =?utf-8?B?TXFyVGd1RnhWTXh0VVdGY1hFODIwbUJzRmk5TUtZUFJYMmpiem50NG5WM0JJ?=
- =?utf-8?B?TWlpNkVseVI5cEFidGhxcDZvSlFhaXVza3pMZXdSOVMzQXVtYmFiR0I5TFN1?=
- =?utf-8?B?enpKbWV1NlZqQ0RzUnRTanpnMVNucm9EeVp0WFpoWWJkNmM0SVVGMXJvaWpI?=
- =?utf-8?B?eU1HK01TQTlVb1dYSE8zLytYL1FnUlIxWnA2WWEwUDJhWXFYMzk4ZE5obUM5?=
- =?utf-8?B?QklBUi85OHNDLzFXUDlma044SWlYT3FtQTRWdnhCYlFGMjZveWtUbzBiTC9y?=
- =?utf-8?B?K2F4OWFkWWZPN01zZWw5QjF2MnhJSjBBb0xJdkpMMlV3OGZKaEt2S3FqM1hn?=
- =?utf-8?B?KzhkTk9NUmJkZlRjNk1YRldyZHY3TDVDNW1QRG9ubTVBL01lcEo4eDhpdEhz?=
- =?utf-8?B?SGRNYUtCT0lEUENqdW1hUkhFTktPQTJZY1JOZjZkd1FsODZWbW8xUTJoK0lp?=
- =?utf-8?B?Qi9DWGpjbkdObkpmSUIya0J4L0h4bGRJZTBtMXNwbWtrZVNOK1Jxa0dTc2Y5?=
- =?utf-8?B?R2U2ejJKNXl6M2xDSGNWa3FIYU52RUtiWXBiVmhEQkkxWm55ZDZzdUxXUWdR?=
- =?utf-8?B?ZWRiSnB6OUkxNWc5L0VSc3BTTzg3NXkvNTAwa3RiMW04eHYzUDlEbzk3UUcr?=
- =?utf-8?B?UU5qVmVPZlllNllvMWRCVUl4WXZURnczZ2xPNHNTeWxQVi84UmZtQkgwK0xa?=
- =?utf-8?Q?Crujvn3XOrWNH4xj24Ck9gM=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 390ea50f-06d0-44f6-aa0f-08dd2ba9b627
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8193.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jan 2025 03:50:06.5491 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +wJBvWiWAMDhg9bz+f3utoHmYPhhZVyqRot9AwrTmKLgYDQ+LzhHNsINk741bC038ZBwzbrLhp4bEYu23HQ8Gap75Wra2saEPMCALbp4WA8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR01MB6835
-X-Spam-Score: -0.1 (/)
+Content-Disposition: inline
+In-Reply-To: <c92cab21-ca41-4f34-b507-e773c463d82f@os.amperecomputing.com>
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 03/01/2025 10:20, Corey Minyard wrote: > On Thu, Jan 02, 
- 2025 at 12:54:31AM +0800, Cosmo Chou wrote: >> Move smbus_cmd assignment
- to the end of process_smbus_cmd() to ensure >> the new command is n [...] 
- Content analysis details:   (-0.1 points, 6.0 required)
+ Content preview:  On Fri, Jan 03, 2025 at 10:44:46AM +0700, Quan Nguyen wrote:
+ > > > On 01/01/2025 23:54, Cosmo Chou wrote: > > Move smbus_cmd assignment
+ to the end of process_smbus_cmd() to ensure > > the new command [...] 
+ Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [52.101.56.113 listed in list.dnswl.org]
- 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
- The query to Validity was blocked.  See
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [52.101.56.113 listed in sa-accredit.habeas.com]
+ [209.85.210.45 listed in sa-trusted.bondedsender.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [52.101.56.113 listed in bl.score.senderscore.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ [209.85.210.45 listed in bl.score.senderscore.com]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.45 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.210.45 listed in list.dnswl.org]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
-X-Headers-End: 1tTcwk-0003bW-6H
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1tThJZ-0008HY-W1
 Subject: Re: [Openipmi-developer] [PATCH] ipmi: ssif_bmc: Move smbus_cmd
  assignment after cleanup
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -215,33 +142,75 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Quan Nguyen via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Quan Nguyen <quan@os.amperecomputing.com>
-Cc: openipmi-developer@lists.sourceforge.net, cosmo.chou@quantatw.com,
- linux-kernel@vger.kernel.org, minyard@acm.org, potin.lai@quantatw.com
+Reply-To: corey@minyard.net
+Cc: minyard@acm.org, Cosmo Chou <chou.cosmo@gmail.com>, potin.lai@quantatw.com,
+ linux-kernel@vger.kernel.org, cosmo.chou@quantatw.com,
+ openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
-
-On 03/01/2025 10:20, Corey Minyard wrote:
-> On Thu, Jan 02, 2025 at 12:54:31AM +0800, Cosmo Chou wrote:
->> Move smbus_cmd assignment to the end of process_smbus_cmd() to ensure
->> the new command is not lost when complete_response() is triggered.
+On Fri, Jan 03, 2025 at 10:44:46AM +0700, Quan Nguyen wrote:
 > 
-> Ok, I see, patch is applied.  Thank you.
 > 
-> Quan, I assume this is ok.  Please double-check it for me.
+> On 01/01/2025 23:54, Cosmo Chou wrote:
+> > Move smbus_cmd assignment to the end of process_smbus_cmd() to ensure
+> > the new command is not lost when complete_response() is triggered.
+> > 
 > 
+> Thanks Cosmo for the catch.
+> 
+> And, IMHO, the root cause is the memset() on part buffer called in
+> complete_response() is not quite correct. In the current implementation, the
+> complete_response() should only be called when the READ is completed, ie:
+> only on I2C_SLAVE_STOP of READ transaction, otherwise all the info of
+> current on-going request will be mistakenly cleared as in this case.
+> 
+> This patch is good and I wonder if we can make this a bit further as below?
 
-Yes, Corey,
+Yes, this is probably more future proof.
 
-This patch looks good to me and I think this can be improved a bit 
-further in my reply for Cosmo.
+Can you send me a formal patch, with a "Found-by:" for Cosmo?  I'll
+replace Cosmo's patch.
 
-- Quan
+Thanks,
+
+-corey
+
+> 
+> diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
+> index a14fafc583d4..310f17dd9511 100644
+> --- a/drivers/char/ipmi/ssif_bmc.c
+> +++ b/drivers/char/ipmi/ssif_bmc.c
+> @@ -292,7 +292,6 @@ static void complete_response(struct ssif_bmc_ctx
+> *ssif_bmc)
+>         ssif_bmc->nbytes_processed = 0;
+>         ssif_bmc->remain_len = 0;
+>         ssif_bmc->busy = false;
+> -       memset(&ssif_bmc->part_buf, 0, sizeof(struct ssif_part_buffer));
+>         wake_up_all(&ssif_bmc->wait_queue);
+>  }
+> 
+> @@ -744,9 +743,11 @@ static void on_stop_event(struct ssif_bmc_ctx
+> *ssif_bmc, u8 *val)
+>                         ssif_bmc->aborting = true;
+>                 }
+>         } else if (ssif_bmc->state == SSIF_RES_SENDING) {
+> -               if (ssif_bmc->is_singlepart_read || ssif_bmc->block_num ==
+> 0xFF)
+> +               if (ssif_bmc->is_singlepart_read || ssif_bmc->block_num ==
+> 0xFF) {
+> +                       memset(&ssif_bmc->part_buf, 0, sizeof(struct
+> ssif_part_buffer));
+>                         /* Invalidate response buffer to denote it is sent
+> */
+>                         complete_response(ssif_bmc);
+> +               }
+>                 ssif_bmc->state = SSIF_READY;
+>         }
+> 
+> Thanks and Happy New Year.
+> - Quan
 
 
 _______________________________________________
