@@ -2,189 +2,192 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7D1FA0278A
-	for <lists+openipmi-developer@lfdr.de>; Mon,  6 Jan 2025 15:10:50 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5120CA03658
+	for <lists+openipmi-developer@lfdr.de>; Tue,  7 Jan 2025 04:48:23 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tUnoV-0007bh-Ih;
-	Mon, 06 Jan 2025 14:10:40 +0000
+	id 1tV0Ze-0007LC-Nx;
+	Tue, 07 Jan 2025 03:48:11 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tzimmermann@suse.de>) id 1tUnoT-0007ba-Su
+ (envelope-from <quan@os.amperecomputing.com>) id 1tV0Zd-0007L6-EQ
  for openipmi-developer@lists.sourceforge.net;
- Mon, 06 Jan 2025 14:10:38 +0000
+ Tue, 07 Jan 2025 03:48:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Type:Content-Transfer-Encoding
+ :Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=De2f0n7HkbUbWwqJqOqDRVUUeul3Z2c9oNqi2ssPUOc=; b=Ug3wBgABfrU+1Ob0/7RBMwLNB6
- 4Jg2wEp0r/8RMebbMRuz3CkDgCb9EgiJlY/OfaeC8sH/i7k78Yqm4UbVkSjKpqMLWrens24nJ9G2H
- Dshy40n9ZF3DSzCydswmkji8aIT5nlG+19myeFM4W0AEvMggbWqMs93M7XgajWpTro40=;
+ bh=wrOn5KDjgJmty2lGHl3TlKiAYTQGi8Kvu9mookrotbA=; b=P4+NlY5ru99qlZkHufpWPmm3/1
+ hFWYyLn+TliJpg/Wo9i9UCllJwbl0Oy60ycsB6402ZcOOsHtrqruL1dsAEpgaDrHeWUFILwHR/Ole
+ 7Wx/cDvKjXhyKwJXAiPeVDXiTFIMeZ7qa4NFuGZ6Dh48+kSwAhW7z0EkEBMNUB/7nOFY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=De2f0n7HkbUbWwqJqOqDRVUUeul3Z2c9oNqi2ssPUOc=; b=gsUbUaIWpWQgDbL0a5wJyrNvIG
- rvuIPKEt7sw1oeCUi14QC1GnHfzwDNxk9xapjcDghT42gBg4hFpppGqwX/n3LHIwfK9yQRUMDEgV8
- dG5QvSiqpJ1GdoYfDg7xk9dOgiJTc9/ZG73b/UeMW6LTjNYR9QniBPSTw8Qgt5E6X1ok=;
-Received: from smtp-out1.suse.de ([195.135.223.130])
+ h=MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Date:
+ Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=wrOn5KDjgJmty2lGHl3TlKiAYTQGi8Kvu9mookrotbA=; b=Z
+ Oh+BHtBqVsGHoT/K/f9V2NufLQRcKefVKA2t2XmAuc/VWBoPuSqFAV+AuxJ9+qp2MeDXIrdXDSXA6
+ nXhRQFCqtisDKfQMDR1BzxG/0xE4qPnZDJgC+v5yS8dQKxO+xOXxl4sMDp4x3pmiLsHha5o1IV7QC
+ +KiTX2iBB84+QumE=;
+Received: from mail-bn8nam04on2107.outbound.protection.outlook.com
+ ([40.107.100.107] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1tUnoT-0001wD-D1 for openipmi-developer@lists.sourceforge.net;
- Mon, 06 Jan 2025 14:10:38 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-out1.suse.de (Postfix) with ESMTPS id AC2852115D;
- Mon,  6 Jan 2025 14:10:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1736172625; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=De2f0n7HkbUbWwqJqOqDRVUUeul3Z2c9oNqi2ssPUOc=;
- b=HelyNMIxaBWze5R7sTCqWKff0Ugd8fwW4o4jcw4+kHsmCDqg4h3sWBAZg/kgy0l0rgaANU
- CWkCPl5WhsQHSVSBzVEs4/TH2Rj0gAKTmWroZotx+dee6/RENl7EDBOD+6/Z4Xwtr3cHwr
- 9+RhpzzyrQsBI4+7f4Vb2ynpMQpPYjs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1736172625;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=De2f0n7HkbUbWwqJqOqDRVUUeul3Z2c9oNqi2ssPUOc=;
- b=WRdPCFNc32Gn4oAdt7BCTIBxOGoaE907HS33bajlGXXejq5rZKFkxdti4EIvXh5Zh70E1F
- SyzN+X+Gr1UNdGCw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1736172625; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=De2f0n7HkbUbWwqJqOqDRVUUeul3Z2c9oNqi2ssPUOc=;
- b=HelyNMIxaBWze5R7sTCqWKff0Ugd8fwW4o4jcw4+kHsmCDqg4h3sWBAZg/kgy0l0rgaANU
- CWkCPl5WhsQHSVSBzVEs4/TH2Rj0gAKTmWroZotx+dee6/RENl7EDBOD+6/Z4Xwtr3cHwr
- 9+RhpzzyrQsBI4+7f4Vb2ynpMQpPYjs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1736172625;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=De2f0n7HkbUbWwqJqOqDRVUUeul3Z2c9oNqi2ssPUOc=;
- b=WRdPCFNc32Gn4oAdt7BCTIBxOGoaE907HS33bajlGXXejq5rZKFkxdti4EIvXh5Zh70E1F
- SyzN+X+Gr1UNdGCw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested)
- by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 45EC5137DA;
- Mon,  6 Jan 2025 14:10:25 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
- by imap1.dmz-prg2.suse.org with ESMTPSA id GA1fD1Hke2fPNQAAD6G6ig
- (envelope-from <tzimmermann@suse.de>); Mon, 06 Jan 2025 14:10:25 +0000
-Message-ID: <392f855c-4474-4e12-8bdc-3baf43d34e13@suse.de>
-Date: Mon, 6 Jan 2025 15:10:24 +0100
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1tV0Za-0004bf-Ro for openipmi-developer@lists.sourceforge.net;
+ Tue, 07 Jan 2025 03:48:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kcrxmHNFf38QfhpS53s80bj6QCXznuus3PpWDv5l2z10JrChcm/JCGyNbiT4+BltaQSdIW2UFb7YoyWLDywiukpzV1yskUUAWEsgDrxcdK7CugqpI5A1FngZO7s97Q3h7e+UexLB9L+DNKpQW7MbgDZCMUZxrcU6T7tQaIcKMpx9Tc8AIP+7lw1p519qGUF+kMgO7M32AiDHgRF3GuJXXS7h5L4TyvDVxGrWdurlETQo3IGTiYB08+2Yvaxkq6Hsd4M+pglKvly51S6NZ/faRV7qXfgmq73AFNREhX49TbuVbKsxvOvTMCvANsWyuwKN6Cbn4no53QnRKUhouUFD8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wrOn5KDjgJmty2lGHl3TlKiAYTQGi8Kvu9mookrotbA=;
+ b=CHqjC06a97I4Yo5rtwGEKa04/XLrR1VSyRvtY3dY0TGEg1qGLuqpDozcwsY/g+LzE6PEgWvIGhif6uHywHY4lIzO0yx8CKMExhNaEaw7I3Q6AlbAvNVHgpNl8RlOGIPWFRWPqw1G/MCg2Sh3/kAq5qFtd88dSs1TMKQxkaohYGbuwg3HT99uk9siWSXhKBYuSi9dmiMH4vX7Pb6pxrqYcbdavgNQtvkg6IW1W3Kp2TVclbjZ3GfG0qdG8KfpfQE1b4l9uTV/18LLKzF1UF1Tbx2a+ePvYv54jIR3wPxwNJZbgg9EvO+3357AB9DFeZtCngnMr9FwxvS7TLa5zYRZKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wrOn5KDjgJmty2lGHl3TlKiAYTQGi8Kvu9mookrotbA=;
+ b=lE3uAhqsZ50Rkxkh+qNPJ2SlEimYCaoKUiJwJ6zNLwmE2VONb0v0VUnUG2OubhmcElHEK80G0Y3osQxZSo+jOeb6260Hpm8YsVZObCZb4HoiANvWitkqEDOvdiIDmFN8qOhPnZKWXpPxQMlAqNZr1Lv+P1TIn0H0B0O+SSLh3+c=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8193.prod.exchangelabs.com (2603:10b6:a03:4f6::15) by
+ CO1PR01MB6792.prod.exchangelabs.com (2603:10b6:303:d5::21) with
+ Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8335.10; Tue, 7 Jan 2025 03:47:53 +0000
+Received: from SJ2PR01MB8193.prod.exchangelabs.com
+ ([fe80::4167:3f60:16af:411d]) by SJ2PR01MB8193.prod.exchangelabs.com
+ ([fe80::4167:3f60:16af:411d%4]) with mapi id 15.20.8335.007; Tue, 7 Jan 2025
+ 03:47:53 +0000
+To: minyard@acm.org,
+	Cosmo Chou <chou.cosmo@gmail.com>
+Date: Tue,  7 Jan 2025 10:47:34 +0700
+Message-Id: <20250107034734.1842247-1-quan@os.amperecomputing.com>
+X-Mailer: git-send-email 2.35.1
+X-ClientProxiedBy: SI2PR01CA0049.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::13) To SJ2PR01MB8193.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Binbin Zhou <zhoubb.aaron@gmail.com>
-References: <cover.1735550269.git.zhoubinbin@loongson.cn>
- <4d62076ee560b35c653a9fbced8d03ef3bdb3005.1735550269.git.zhoubinbin@loongson.cn>
- <3daaaff8-062a-4985-a5bc-8d228314b02e@suse.de>
- <CAMpQs4JcuRhpOyXHxy0ab+D-Wd0itKdb0GiZdTE59_qEpUfyLA@mail.gmail.com>
- <390c14a5-44fe-4328-bcc4-2aa1384e3ad1@suse.de>
- <CAMpQs4L38rDEDYM64jJ6pO+g=M4+etKN9v9+ygzkLY6RQgu94A@mail.gmail.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <CAMpQs4L38rDEDYM64jJ6pO+g=M4+etKN9v9+ygzkLY6RQgu94A@mail.gmail.com>
-X-Spam-Score: -2.80
-X-Spamd-Result: default: False [-2.80 / 50.00]; BAYES_HAM(-3.00)[100.00%];
- SUSPICIOUS_RECIPS(1.50)[]; NEURAL_HAM_LONG(-1.00)[-1.000];
- NEURAL_HAM_SHORT(-0.20)[-1.000]; MIME_GOOD(-0.10)[text/plain];
- TO_MATCH_ENVRCPT_ALL(0.00)[]; FUZZY_BLOCKED(0.00)[rspamd.com];
- DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
- FREEMAIL_TO(0.00)[gmail.com]; MIME_TRACE(0.00)[0:+];
- ARC_NA(0.00)[]; RCPT_COUNT_TWELVE(0.00)[16];
- FREEMAIL_ENVRCPT(0.00)[gmail.com];
- FREEMAIL_CC(0.00)[loongson.cn,kernel.org,acm.org,linux.intel.com,gmail.com,ffwll.ch,vger.kernel.org,lists.sourceforge.net,lists.freedesktop.org,xen0n.name,lists.linux.dev];
- RCVD_TLS_ALL(0.00)[]; FROM_EQ_ENVFROM(0.00)[];
- FROM_HAS_DN(0.00)[]; TO_DN_SOME(0.00)[];
- RCVD_COUNT_TWO(0.00)[2]; TAGGED_RCPT(0.00)[];
- MID_RHS_MATCH_FROM(0.00)[]; RCVD_VIA_SMTP_AUTH(0.00)[];
- DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spam-Score: -2.5 (--)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8193:EE_|CO1PR01MB6792:EE_
+X-MS-Office365-Filtering-Correlation-Id: 21da8728-3684-498c-0366-08dd2ece1036
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+ ARA:13230040|366016|376014|1800799024|52116014|38350700014; 
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?z7lgJ0n0m/75eQkwT3tkvpkYejjrbLi5D6mu6GpuRPXr70ZyTpGCtudBVhvt?=
+ =?us-ascii?Q?LpwSXdlN34UiuDETwIDWrosk0WVRVX3i+aIMgF7Ti5JV0Dk9tqM+WUaEsU03?=
+ =?us-ascii?Q?EDjZsTme6wTSU9GBQ12CLsIhslLsaNEEE6CZxdYht8Sm5T+wtxSe0aij0B+v?=
+ =?us-ascii?Q?Vcb4jt925styPe0Zh/RNGtvCzb9H9NXt49L5uCf6/iDJzkdaM//y0zO8oY3v?=
+ =?us-ascii?Q?RVL5aaJ5TPmvwmyGVubRt1bn7HFowrghXaCbzGPzcfvBQiMcNFELObiqpPFe?=
+ =?us-ascii?Q?3Rg89t0Q1po8zBkyNAC7U6Q5VM4PIB8ZrfnmztuLpKwOSaWiMhs9WQXF0ZYG?=
+ =?us-ascii?Q?EfnzS+eUh+O5WgT79TooqKvZca9AS9tF3MLUxWZI0D6CrZASd3QHPpZ9SGE/?=
+ =?us-ascii?Q?xyuDtyNzzTkkPiX2Hgb7fOyFeZVkjv1F51ZP4xcSdx9k3U/tIe1VJJ5rXC1c?=
+ =?us-ascii?Q?FkbQtNuj4EmB5QIaE1ceK2mQDEjmtNJrX8kvaBh9I/6xtRsq/AI0TUDQaU8E?=
+ =?us-ascii?Q?rk9neLGVugEt/Fv9Dwv2KsLQjlDfbCaJFqiGzNcafwCLQVgKIujtS2nJdzYY?=
+ =?us-ascii?Q?lxigDg3Nr3bXLdCVhz0/PXtTbJ0IJex/KpcSyXfLfURl1Edhp7lGqG9cRClz?=
+ =?us-ascii?Q?FsY9JTxhpfe0Cj4H2Is0VejCZUZKL/wipraANyYdSsi/cVJ/DbOjKpz9o7vA?=
+ =?us-ascii?Q?t9Co+pf/i2zxHMtOJhXxv8sEMT9i/oDzLmp8iykBpoWUh8DLmNNwNH4u7DTo?=
+ =?us-ascii?Q?cUXE0WMJftRwA5m3psdP67InrXwTZ5KkyM7+LelO5N9PWms06exVqib6CGMz?=
+ =?us-ascii?Q?KBItLJh1uGdH7YDDZwJslc4RrptOPwoCaiTDykoZEA3bKdvfKrfK6/yK+hl+?=
+ =?us-ascii?Q?hyZ9zdsfIg+9i3WkhRgqhO1Oa6+kSc4Smu8n0RvPg6axpYhfinFAqzgCa+CN?=
+ =?us-ascii?Q?JMv+aySWVhKaUSI9B2Y4yfUZeudx41DlWdh2MgnzNXeyAaS9TfT2lrRoy4Rf?=
+ =?us-ascii?Q?kTY6KW3sa/iM303tPXvWr97iRiLXEiKf/X6QgkVD47BE8Z9iE4v+rPRYIMiG?=
+ =?us-ascii?Q?MnH0p283DuKar0h4yJJ5Muj5BPTa6gQ7aJcaBHzgA7Xb+YwurcX5BgelVyGL?=
+ =?us-ascii?Q?534P6/8gVbKkjBYXa4PUNCaaUNVvlxc885cq1BMQHeW5TuKHe9Aiqvm8tMod?=
+ =?us-ascii?Q?GKfQtwXDRlQdoujbLHGjl4ARZ2D39QFRzGDRh3rw0yQ6bxe03Q5fSKLrd0J9?=
+ =?us-ascii?Q?nXA5DC3J8vpoxKglvJ3YeGfK0IdO26sWm/GrTYcI4EMDSP+SuY2t5se07z9i?=
+ =?us-ascii?Q?dNMbJA76CRWmm6WPhygPSkEQ4K5ehxmXi9hM6ziK6KaxJOSt+1xWWszWYakA?=
+ =?us-ascii?Q?y42pJLCHUe+Ch3JIPv07R6ChteijhmKehjDwObT6fUwnV/Ejx73dHjjVbCn+?=
+ =?us-ascii?Q?QokCSPsZxjKs1INTuaYdwocmZAWKp9Vd?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SJ2PR01MB8193.prod.exchangelabs.com; PTR:; CAT:NONE;
+ SFS:(13230040)(366016)(376014)(1800799024)(52116014)(38350700014); DIR:OUT;
+ SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pYiHQK/4o4YpWII8msV4/LimKbwGI0ujPT/bI6lM67Xpy8aGWU1ixd/uVx9w?=
+ =?us-ascii?Q?8ogGxicsh65TMV5UsWLUEhXCyLNQP32meYB6Tq+prWQT5zlFPRAOF6fRZGKZ?=
+ =?us-ascii?Q?2oFdNSQFRaB4Q9N6s3hSA60UdAsq5pNHHTPnCPznMRIaoEdyi0IkUrCdibzI?=
+ =?us-ascii?Q?5ulwU7hxBtOf3wB0/0BNXJLcQCP0D6rHN/C2wvXlRi8cKm53gXKnOnzCWEpU?=
+ =?us-ascii?Q?bjlJ6OVTKx3XhnE9Xfp2EWVzarpKCGgs47GWjz1ntH0YV7Cb9Y1ZBCtNWbeg?=
+ =?us-ascii?Q?WeITX3e55UjhvywtDjKOFN5QwjYGegQxNTSkUTjnxI4nW+5B4abwyxzuTP2C?=
+ =?us-ascii?Q?cFkDj9WiHxthxqQ5qpnLGE5o60C218kSp8VrU8wBSi3nT1u550HWyLZG1QeE?=
+ =?us-ascii?Q?ICV80U42cdQnckxJcFLJSIkFTipGei3AILCEyOuLC3lIFAxyPW0BzGqyvtK6?=
+ =?us-ascii?Q?It2IyXIDo1mhShOqrLHswF/wHsGFrhTO8W8209gxcL3KAfPwXx5jW27du20y?=
+ =?us-ascii?Q?1OPyMPxeRli+VNy9r7reDlCF2erDzwrNg122uI4FKLG8U0cxFFA9FUNZS3/3?=
+ =?us-ascii?Q?/MmRTf+jFz9Lk8a3kR1zjcIhpivDehrYuiGKj4mx/Mv2C90WdeGi+QsT/rpR?=
+ =?us-ascii?Q?7QUd1M4KezVsvQkEjjqRASXKfn5/u8wDGjq0T7xLpIl8uruXt1eLwVbdfFiE?=
+ =?us-ascii?Q?TEHE6RPvA+LDmCghr1MT2lz2R//neC3THVu8fCW61E7z33wpNLtPJhhrjXR4?=
+ =?us-ascii?Q?7+oxYqNYXG6gVTZfKZvv6LhifuKOlS5ELtftYizNxv57Re+Vllz2kRzBz0sc?=
+ =?us-ascii?Q?VXTWUE8rWgMecw00o6X5ZBYvViDQeBEmQ3JKIa29BswfOdIz1ChefnAhlXmf?=
+ =?us-ascii?Q?xnCgiUEtxAEXZW7NFocRlgkIEHXfe1q6zNYWzDGUTzvHP2+r5yRAJqi8zGIq?=
+ =?us-ascii?Q?C5TzEQdzcYT7MV4Gg161FqMfjaO4yjCoZ/WiuxP6JC+G4fF7WAyDrtEjRae0?=
+ =?us-ascii?Q?TBq4t386F1wlYBxMac44q2zidPfOyzx6SAHEOvEI6vWVR5QqJMyiFFPcILWF?=
+ =?us-ascii?Q?lCo/JZG/VFHng8rImmIt2MNCqzGj3l7QJu4Rzd5wOps31V20C7EDN9eoMFXe?=
+ =?us-ascii?Q?0MeBjfaNzQukkxw+J0hfmsCUrImxXR3bn1Psz4XBm6HRGqAHpzAE7gMZy51l?=
+ =?us-ascii?Q?lkluERwLboeGnB9D0WNqI7ENiV68FN4zZzoS94BZwneaFwVaYr1rq+zKat8Q?=
+ =?us-ascii?Q?4+ZlORgz08fSmVWEbAj+YciftcJkV4wD8tVkJk8dpElEKOlShDDN2MFRm8kX?=
+ =?us-ascii?Q?PMO6UW+nlTmi0kYivGYflw5cRLjizJWd48D/nuzlwi5eVwvRxMLW8acPmD6z?=
+ =?us-ascii?Q?BoEyWDbHAtg0C7ME9xa2ENR+uccg8dXSfLsbQz5DCAvG4vCsilhTNv3XqYzk?=
+ =?us-ascii?Q?64xhUpCTGE3Fqtg7KuCVs/va1mYzd5TV3GD3hkgNMACarwRkcFj8uIU76x6O?=
+ =?us-ascii?Q?mTrrnccRZzxg1WbjYH64UAveL/JNg9TJdVp54UxTPF1jjPemKNWKfG41K39q?=
+ =?us-ascii?Q?GVIsiQu3WLe+fcG+ztHKzhLgrTVHIqtgNDgSwio49oxgiChO4vXtsb+IDJrV?=
+ =?us-ascii?Q?YCkUNemy6Z1O5uSP88hA/38=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21da8728-3684-498c-0366-08dd2ece1036
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8193.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jan 2025 03:47:52.9060 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6IwBsY51l/PhG9y29IaGEus/4OQR3Ac7eML6V64CMEKvnapqqYUPa0UwDx87Q3OoVJXHbT4r9fyyJ1Q07ba17wUv9r1PZYzRPhpzUK6cQ68=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB6792
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi, Thanks for the info. Am 06.01.25 um 08:03 schrieb Binbin
- Zhou: [...] >> Could you point to the exact call that fails within simpledrm?
- > If we use simpledrm directly, the following error occurs: > > [ 8.289823]
- simple-fra [...] 
- Content analysis details:   (-2.5 points, 6.0 required)
+ Content preview: Cosmo found that when there is a new request comes in while
+ BMC is ready for a response, the complete_response(), which is called to
+ complete the pending response, would accidentally clear out that ne [...] 
+ Content analysis details:   (-0.1 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.223.130 listed in list.dnswl.org]
- 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [195.135.223.130 listed in sa-accredit.habeas.com]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [195.135.223.130 listed in bl.score.senderscore.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ [40.107.100.107 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [40.107.100.107 listed in sa-trusted.bondedsender.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [40.107.100.107 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [40.107.100.107 listed in wl.mailspike.net]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
-X-Headers-End: 1tUnoT-0001wD-D1
-Subject: Re: [Openipmi-developer] [PATCH v1 3/4] drm/ls2kbmc: Add support
- for Loongson-2K BMC display
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1tV0Za-0004bf-Ro
+Subject: [Openipmi-developer] [PATCH] ipmi: ssif_bmc: Fix new request loss
+ when bmc ready for a response
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -197,94 +200,62 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Simona Vetter <simona@ffwll.ch>, Chong Qiao <qiaochong@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Corey Minyard <minyard@acm.org>,
- Binbin Zhou <zhoubinbin@loongson.cn>, Lee Jones <lee@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>,
- dri-devel@lists.freedesktop.org, loongarch@lists.linux.dev,
- openipmi-developer@lists.sourceforge.net, David Airlie <airlied@gmail.com>,
- Xuerui Wang <kernel@xen0n.name>, Huacai Chen <chenhuacai@loongson.cn>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+From: Quan Nguyen via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Quan Nguyen <quan@os.amperecomputing.com>
+Cc: potin.lai@quantatw.com, linux-kernel@vger.kernel.org,
+ cosmo.chou@quantatw.com, Quan Nguyen <quan@os.amperecomputing.com>,
+ patches@amperecomputing.com, openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-SGksCgpUaGFua3MgZm9yIHRoZSBpbmZvLgoKCkFtIDA2LjAxLjI1IHVtIDA4OjAzIHNjaHJpZWIg
-QmluYmluIFpob3U6ClsuLi5dCj4+IENvdWxkIHlvdSBwb2ludCB0byB0aGUgZXhhY3QgY2FsbCB0
-aGF0IGZhaWxzIHdpdGhpbiBzaW1wbGVkcm0/Cj4gSWYgd2UgdXNlIHNpbXBsZWRybSBkaXJlY3Rs
-eSwgdGhlIGZvbGxvd2luZyBlcnJvciBvY2N1cnM6Cj4KPiBbICAgIDguMjg5ODIzXSBzaW1wbGUt
-ZnJhbWVidWZmZXIgc2ltcGxlLWZyYW1lYnVmZmVyLjA6IFtkcm1dICpFUlJPUioKPiBjb3VsZCBu
-b3QgYWNxdWlyZSBtZW1vcnkgcmFuZ2UgW21lbSAweGUwMDMxMjAwMDAwLTB4ZTAwMzE1ZmZmZmYg
-ZmxhZ3MKPiAweDIwMF06IC0xNgo+IFsgICAgOC4zMTI2ODFdIHNpbXBsZS1mcmFtZWJ1ZmZlciBz
-aW1wbGUtZnJhbWVidWZmZXIuMDogcHJvYmUgd2l0aAo+IGRyaXZlciBzaW1wbGUtZnJhbWVidWZm
-ZXIgZmFpbGVkIHdpdGggZXJyb3IgLTE2Cj4KPiBUaGUgcmVhc29uIGZvciB0aGUgZmFpbHVyZTog
-b3ZlcmxhcHBpbmcgcmVzb3VyY2VzLgo+Cj4gaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGlu
-dXgvdjYuMTIuNi9zb3VyY2UvZHJpdmVycy92aWRlby9hcGVydHVyZS5jI0wxNzUKClRoaXMgZXJy
-b3IgbWVhbnMgdGhhdCB0aGVyZSdzIGFscmVhZHkgYW4gaW5zdGFuY2Ugb2Ygc2ltcGxlZHJtIGJv
-dW5kIHRvIAp0aGUgQk1DIGZyYW1lYnVmZmVyLiBTbyB5b3UgYWxyZWFkeSBoYXZlIGEgd29ya2lu
-ZyBkaXNwbGF5IGFuZCBzb21lIApncmFwaGljcyB1bmRlciBMaW51eCB3aXRob3V0IHRoZSBuZXcg
-ZHJpdmVyLCByaWdodD8KCklmIHNvLCB3aHkgZG8geW91IG5lZWQgYSBuZXcgZHJpdmVyIHRoYXQg
-ZG9lcyBleGFjdGx5IHRoZSBzYW1lIGFzIHNpbXBsZWRybT8KCkJlc3QgcmVnYXJkcwpUaG9tYXMK
-Cj4+PiBCZWNhdXNlIGFsdGhvdWdoIHdlIHJlZ2lzdGVyIHRoZSBkcml2ZXIgaW4gcGxhdGZvcm0g
-Zm9ybSwgaXRzIG1lbW9yeQo+Pj4gYmVsb25ncyB0byBwY2kgc3BhY2UgYW5kIHdlIGNhbiBzZWUg
-dGhlIGNvcnJlc3BvbmRpbmcgcGNpIHByb2JlIGFuZAo+Pj4gcmVzb3VyY2UgYWxsb2NhdGlvbiBp
-biBQYXRjaC0xLgo+PiBJIGRvbid0IHVuZGVyc3RhbmQuIEdyYXBoaWNzIG1lbW9yeSBpcyBvZnRl
-biBsb2NhdGVkIG9uIHRoZSBQQ0kgYnVzLgo+PiBXaGF0IGlzIHNvIHNwZWNpYWwgYWJvdXQgdGhp
-cyBvbmU/Cj4+Cj4+PiBUaGVyZWZvcmUsIHdlIG5lZWQgdG8gdXNlIGFwZXJ0dXJlX3JlbW92ZV9j
-b25mbGljdGluZ19wY2lfZGV2aWNlcygpLgo+PiBTbyB0aGVyZSBpcyBhbHJlYWR5IGEgZGV2aWNl
-IHRoYXQgcmVwcmVzZW50cyB0aGUgZ3JhcGhpY3MgY2FyZD8gVGhhdCdzCj4+IHdoYXQgeW91J2Qg
-cmVtb3ZlIGhlcmU/IElmIHlvdSBvbmx5IGFkZCB0aGF0IE1GRCBkZXZpY2UsIHdobyBvd25zIHRo
-ZQo+PiBmcmFtZWJ1ZmZlcj8gSWYgaXQncyB0aGUgUENJIGRldmljZSBmcm9tIHBhdGNoIDEgKCJs
-czJrLWJtYyIpLCB3aHkgZG9lcwo+PiBhcGVydHVyZV9yZW1vdmVfY29uZmxpY3RpbmdfcGNpX2Rl
-dmljZXMoKSBub3QgcmVtb3ZlIHRoYXQgZGV2aWNlPyBJJ20KPj4gc29tZXdoYXQgY29uZnVzZWQs
-IGJlY2F1c2UgdGhlIGxvZ2ljIGluIHlvdXIgZHJpdmVyIG1vc3RseSBsb29rcyBsaWtlIGl0Cj4+
-IGJpbmRzIHRvIGEgcHJlLWNvbmZpZ3VyZWQgZnJhbWVidWZmZXIsIGJ1dCBzb21lIG9mIHRoZSBj
-b2RlIGRvZXNuJ3QuCj4gUGVyaGFwcyB0aGUgdXNlIG9mIGFwZXJ0dXJlX3JlbW92ZV9jb25mbGlj
-dGluZ19wY2lfZGV2aWNlcygpIGlzIHdyb25nLAo+IGFzIHRoZXJlIGlzIG9ubHkgb25lIGRpc3Bs
-YXkgZGV2aWNlIGZvciB0aGUgTFMySyBCTUMgYW5kIHRoZXJlIHdpbGwgYmUKPiBubyBwaGFzZSBj
-b25mbGljdC4KPgo+IFdoZW4gSSB0cmllZCB0byB1c2UgdGhhdCBBUEkgYmVmb3JlLCBpdCB3YXMg
-cGFydGx5IGR1ZSB0byB0aGUgZXJyb3IKPiBhYm92ZSwgYW5kIHBhcnRseSBiZWNhdXNlIEkgcmVm
-ZXJlbmNlZCB0aGF0IG90aGVyIGRpc3BsYXkgZHJpdmVycyB2aWEKPiBwY2lfZHJpdmVyLnByb2Jl
-KCkgd291bGQgaGF2ZSBpdCwganVzdCBpbiBjYXNlIEkgdXNlZCBpdCwgd2hpY2ggd2FzCj4gcHJv
-YmFibHkgdGhlIHdyb25nIGNob2ljZS4KPgo+IFRoZSByZXNvdXJjZXMgZm9yIHBjaSBiYXIwIGFy
-ZSBhcyBmb2xsb3dzOgo+IEJBUjA6IGUwMDMwMDAwMDAwL1NaXzMyTQo+Cj4gMHgwICAgICAgICAg
-ICAgICAweDYwMDAwMCAgMHhmMDAwMDFjICAgIDE2TSAgICAgICAgICAgIDMyTQo+ICstLS0tKy0t
-LS0tLS0tLS0tLS0tKy0tLS0tLS0tKy0tLS0tLS0tLS0tKy0tLSstLS0tLS0tLS0tLS0tLS0tLSsK
-PiB8IDJNIHwgc2ltcGxkcm0gfCAgICAgICAgICAgfCBJUE1JICAgICAgfCAgICAgfCB2aWRlbyBl
-bnYgICAgIHwKPiArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0rCj4KPiBUaGUgbWZkIGRyaXZlciByZWdpc3RlcnMgdGhlIGxz
-MmtibWMtZnJhbWVidWZmZXIgYW5kIGxzMmstaXBtaS1zaQo+IGRldmljZXMgYWNjb3JkaW5nIHRv
-IHRoZSByZXNvdXJjZSBhbGxvY2F0aW9uIHNob3duIGFib3ZlLiBBdCB0aGUgc2FtZQo+IHRpbWUs
-IHRoZSBsczJrYm1jIGRybSBpcyBib3VuZCB0byB0aGUgcHJlLWNvbmZpZ3VyZWQg4oCcc2ltcGxk
-cm3igJ0KPiByZXNvdXJjZSBpbiB0aGUgYWJvdmUgZmlndXJlLCB3aGljaCBpcyBwYXNzZWQgdGhy
-b3VnaCB0aGUKPiBsczJrYm1jLWZyYW1lYnVmZmVyIGRyaXZlci4gSW4gYWRkaXRpb24sIHRoZSBy
-ZXNvbHV0aW9uIGlzIHJlYWQgZnJvbQo+IOKAnHZpZGVvIGVuduKAnSBmb3IgdGhlIHRpbWUgYmVp
-bmcsIGFuZCB0aGUgcmVzb2x1dGlvbiBhZGFwdGlvbiBpcyBwbGFubmVkCj4gdG8gYmUgYWRkZWQg
-bGF0ZXIuCj4KPj4gQmVzdCByZWdhcmRzIFRob21hcwo+Pgo+Pj4gQWxzbywgc2luY2Ugd2UgYXJl
-IHVzaW5nIEJNQyBkaXNwbGF5LCB0aGUgZGlzcGxheSB3aWxsIGJlIGRpc2Nvbm5lY3RlZAo+Pj4g
-d2hlbiBCTUMgcmVzZXQsIGF0IHRoaXMgdGltZSB3ZSBuZWVkIHRvIHB1c2ggdGhlIGRpc3BsYXkg
-ZGF0YSAoY3J0YywKPj4+IGNvbm5lY3RvciwgZXRjLikgbWFudWFsbHkgYXMgc2hvd24gaW4gUGF0
-Y2gtNC4KPj4+Cj4+PiBQcm9iYWJseSBpdCdzIG5vdCB0aGUgbW9zdCBzdWl0YWJsZSB3YXkgdG8g
-aW1wbGVtZW50IGl0Lgo+Pj4KPj4+PiBCZXN0IHJlZ2FyZHMKPj4+PiBUaG9tYXMKPj4+Pgo+Pj4+
-PiArICAgICB9LAo+Pj4+PiArICAgICAucHJvYmUgPSBsczJrYm1jX3Byb2JlLAo+Pj4+PiArICAg
-ICAucmVtb3ZlID0gbHMya2JtY19yZW1vdmUsCj4+Pj4+ICt9Owo+Pj4+PiArCj4+Pj4+ICttb2R1
-bGVfcGxhdGZvcm1fZHJpdmVyKGxzMmtibWNfcGxhdGZvcm1fZHJpdmVyKTsKPj4+Pj4gKwo+Pj4+
-PiArTU9EVUxFX0RFU0NSSVBUSU9OKCJEUk0gZHJpdmVyIGZvciBMb29uZ3Nvbi0ySyBCTUMiKTsK
-Pj4+Pj4gK01PRFVMRV9MSUNFTlNFKCJHUEwiKTsKPj4+PiAtLQo+Pj4+IC0tCj4+Pj4gVGhvbWFz
-IFppbW1lcm1hbm4KPj4+PiBHcmFwaGljcyBEcml2ZXIgRGV2ZWxvcGVyCj4+Pj4gU1VTRSBTb2Z0
-d2FyZSBTb2x1dGlvbnMgR2VybWFueSBHbWJICj4+Pj4gRnJhbmtlbnN0cmFzc2UgMTQ2LCA5MDQ2
-MSBOdWVybmJlcmcsIEdlcm1hbnkKPj4+PiBHRjogSXZvIFRvdGV2LCBBbmRyZXcgTXllcnMsIEFu
-ZHJldyBNY0RvbmFsZCwgQm91ZGllbiBNb2VybWFuCj4+Pj4gSFJCIDM2ODA5IChBRyBOdWVybmJl
-cmcpCj4+Pj4KPj4gLS0KPj4gLS0KPj4gVGhvbWFzIFppbW1lcm1hbm4KPj4gR3JhcGhpY3MgRHJp
-dmVyIERldmVsb3Blcgo+PiBTVVNFIFNvZnR3YXJlIFNvbHV0aW9ucyBHZXJtYW55IEdtYkgKPj4g
-RnJhbmtlbnN0cmFzc2UgMTQ2LCA5MDQ2MSBOdWVybmJlcmcsIEdlcm1hbnkKPj4gR0Y6IEl2byBU
-b3RldiwgQW5kcmV3IE15ZXJzLCBBbmRyZXcgTWNEb25hbGQsIEJvdWRpZW4gTW9lcm1hbgo+PiBI
-UkIgMzY4MDkgKEFHIE51ZXJuYmVyZykKPj4KPgo+IC0tCj4gVGhhbmtzLgo+IEJpbmJpbgoKLS0g
-Ci0tClRob21hcyBaaW1tZXJtYW5uCkdyYXBoaWNzIERyaXZlciBEZXZlbG9wZXIKU1VTRSBTb2Z0
-d2FyZSBTb2x1dGlvbnMgR2VybWFueSBHbWJICkZyYW5rZW5zdHJhc3NlIDE0NiwgOTA0NjEgTnVl
-cm5iZXJnLCBHZXJtYW55CkdGOiBJdm8gVG90ZXYsIEFuZHJldyBNeWVycywgQW5kcmV3IE1jRG9u
-YWxkLCBCb3VkaWVuIE1vZXJtYW4KSFJCIDM2ODA5IChBRyBOdWVybmJlcmcpCgoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3Bl
-ciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApo
-dHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZl
-bG9wZXIK
+Cosmo found that when there is a new request comes in while BMC is
+ready for a response, the complete_response(), which is called to
+complete the pending response, would accidentally clear out that new
+request and force ssif_bmc to move back to abort state again.
+
+This commit is to address that issue.
+
+Link: https://lore.kernel.org/lkml/20250101165431.2113407-1-chou.cosmo@gmail.com/
+Fixes: dd2bc5cc9e25 ("ipmi: ssif_bmc: Add SSIF BMC driver")
+Found-by: Cosmo Chou <chou.cosmo@gmail.com>
+Signed-off-by: Quan Nguyen <quan@os.amperecomputing.com>
+---
+ drivers/char/ipmi/ssif_bmc.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
+index a14fafc583d4..310f17dd9511 100644
+--- a/drivers/char/ipmi/ssif_bmc.c
++++ b/drivers/char/ipmi/ssif_bmc.c
+@@ -292,7 +292,6 @@ static void complete_response(struct ssif_bmc_ctx *ssif_bmc)
+ 	ssif_bmc->nbytes_processed = 0;
+ 	ssif_bmc->remain_len = 0;
+ 	ssif_bmc->busy = false;
+-	memset(&ssif_bmc->part_buf, 0, sizeof(struct ssif_part_buffer));
+ 	wake_up_all(&ssif_bmc->wait_queue);
+ }
+ 
+@@ -744,9 +743,11 @@ static void on_stop_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
+ 			ssif_bmc->aborting = true;
+ 		}
+ 	} else if (ssif_bmc->state == SSIF_RES_SENDING) {
+-		if (ssif_bmc->is_singlepart_read || ssif_bmc->block_num == 0xFF)
++		if (ssif_bmc->is_singlepart_read || ssif_bmc->block_num == 0xFF) {
++			memset(&ssif_bmc->part_buf, 0, sizeof(struct ssif_part_buffer));
+ 			/* Invalidate response buffer to denote it is sent */
+ 			complete_response(ssif_bmc);
++		}
+ 		ssif_bmc->state = SSIF_READY;
+ 	}
+ 
+-- 
+2.35.1
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
