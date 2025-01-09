@@ -2,148 +2,98 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B380A07948
-	for <lists+openipmi-developer@lfdr.de>; Thu,  9 Jan 2025 15:33:18 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0DA00A0799C
+	for <lists+openipmi-developer@lfdr.de>; Thu,  9 Jan 2025 15:48:59 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tVtaz-0000VI-2v;
-	Thu, 09 Jan 2025 14:33:13 +0000
+	id 1tVtqA-0000KQ-Sr;
+	Thu, 09 Jan 2025 14:48:54 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <ninad@linux.ibm.com>) id 1tVtax-0000VA-1r
+ (envelope-from <andrew@lunn.ch>) id 1tVtqA-0000KK-3u
  for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jan 2025 14:33:11 +0000
+ Thu, 09 Jan 2025 14:48:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=a4WYV/lBqDuwS3x6xguYcEfUiXeq4SXjFmogzAE4jlY=; b=hx22kNRIm3QOQ6RiqLQZUaEoPY
- /z4t2vthNeJvD8/OyZod4pXnX1nPvw9wc8+TCcehGw/Qt1UWHla63x42MGhQdzA6FFxm323zsdGEQ
- Atlc8CqKDF0FowlLcl7igehPGFRqMbk7ETcQvLXN1ArmuvfNAgtaSJ47a0u6zBp4fgJA=;
+ bh=YfjcKm0d4Vajn+h/jwMfdima+TwcpMUsitsmuyI+KwE=; b=ISALJj548HAPYMEGF+sSTRGCw1
+ FkrNmQOAXxPnW4lxvqU2vPyXVCgWZlpt3IkA2Btl9zDHxELa+xJpYd27YZMIIWUR50Sm+vhHv7Yvv
+ LiOaildDS8s+GbB/xywh8lMBX5y+rl/lCn75Zu8tOHIpVZy8VpKjexQgHObapM6dEH3Q=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=a4WYV/lBqDuwS3x6xguYcEfUiXeq4SXjFmogzAE4jlY=; b=G3pyWa3kgHxW2I94RxDP1mzIWM
- HsVfokaHBahnuhm/uUIHCxbGEe686TZiitAD+eSy/d5dzXcgKBTYAxEiCK+nR737CYivdSxzawOZn
- vFVZLhb1QtdK52F0GgRv2MDwnRaS7jCUcaiKscvxJh9yKGS0Opc3YV+JfEW1e/uDWHBM=;
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+ bh=YfjcKm0d4Vajn+h/jwMfdima+TwcpMUsitsmuyI+KwE=; b=A//PM16ctebjBm0VgjQPIvOySu
+ fs95ayF44NoYDqquTbX6N9fXPOYMWxX9RRo0DxHg9XwHzAUOs0wUiJnOFkR2m8dUHVWvKd0+1wTZp
+ pfGBuwrYgFOPv933/gORRvmkbQLFav/fy7DGGlOlp69qOLqFaOOnqTF+nPQb7kmqgMWw=;
+Received: from vps0.lunn.ch ([156.67.10.101])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tVtaw-0007yy-O5 for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jan 2025 14:33:11 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50985ZkV022344;
- Thu, 9 Jan 2025 14:32:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
- :content-transfer-encoding:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to; s=pp1; bh=a4WYV/
- lBqDuwS3x6xguYcEfUiXeq4SXjFmogzAE4jlY=; b=D35v4VwvI1M8HpJsAPOasd
- eRruPQqZXqyJ3WhcCy+1kV6fZMnmxpu77zFS/dz+AJCA/cwwldDnkUESVzSkIdXa
- X3dOeIYO7HiD2dLeHTdQdSJzLcTeYLaC0e1bJs9Uh4qiMjaGOsq1SNj/qk2BC/Fe
- lPGrWYuifpNnalP+5rpCV58S5RiDHJGzj1XmozxSj01OBRSE2Q5ot+Hvl26rdr/7
- RQS94A14lVPvKTc5/imLR8zz5fBf8nLoT1EHClzJ0BCIzKYe2zje0YAV7ttYT958
- PKluzbXSlvdV82p8RlR2Q7dfJCeMPUxiGIcfTJO2fo5Vu6ZsCykGFWOPdDaLl/VQ
- ==
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 442an2hkvy-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 09 Jan 2025 14:32:22 +0000 (GMT)
-Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
- by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 509EOrxJ010500;
- Thu, 9 Jan 2025 14:32:21 GMT
-Received: from ppma12.dal12v.mail.ibm.com
- (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 442an2hkvv-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 09 Jan 2025 14:32:21 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
- by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 509CG5VP003593;
- Thu, 9 Jan 2025 14:32:20 GMT
-Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
- by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yfatdqdm-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 09 Jan 2025 14:32:20 +0000
-Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com
- [10.39.53.231])
- by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 509EWKN847776206
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 9 Jan 2025 14:32:20 GMT
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 404F158056;
- Thu,  9 Jan 2025 14:32:20 +0000 (GMT)
-Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 2BFCA58045;
- Thu,  9 Jan 2025 14:32:16 +0000 (GMT)
-Received: from [9.61.139.65] (unknown [9.61.139.65])
- by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
- Thu,  9 Jan 2025 14:32:16 +0000 (GMT)
-Message-ID: <6ac77e5d-e931-494a-9777-6ed0bc4aa1e9@linux.ibm.com>
-Date: Thu, 9 Jan 2025 08:32:15 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Andrew Lunn <andrew@lunn.ch>, Jacky Chou <jacky_chou@aspeedtech.com>
+ id 1tVtq9-0000xV-JG for openipmi-developer@lists.sourceforge.net;
+ Thu, 09 Jan 2025 14:48:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+ s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+ Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+ bh=YfjcKm0d4Vajn+h/jwMfdima+TwcpMUsitsmuyI+KwE=; b=mGzh0Iq+K5BiGQJKCYwFjh52FU
+ 8bznveg2/N0yjqFingSY3hMZhRhiI8vCLBYMpXXUpVkwspAxYT7Ot3r33BkECyz5qI+0WzMjqmqFc
+ YzPlAj0bQp/V5Fg/nycCtFmwKyIZNH5f0qN5RcgXWY1eYQhNiuE/4nPdt9jR7lGytIio=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+ (envelope-from <andrew@lunn.ch>)
+ id 1tVtpR-002v8k-IQ; Thu, 09 Jan 2025 15:48:09 +0100
+Date: Thu, 9 Jan 2025 15:48:09 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ninad Palsule <ninad@linux.ibm.com>
+Message-ID: <8ae7c237-abcf-4079-a4ba-ce17e401917d@lunn.ch>
 References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
  <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
-Content-Language: en-US
-In-Reply-To: <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 8L7sZPoUTETvRf7B5TvBSMQ-8W5xEmny
-X-Proofpoint-ORIG-GUID: py666dZ04-ObN4IbDM5590QG7o3LXVlq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 mlxscore=0
- lowpriorityscore=0 priorityscore=1501 spamscore=0 suspectscore=0
- clxscore=1015 impostorscore=0 mlxlogscore=999 phishscore=0 adultscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501090116
-X-Spam-Score: -0.8 (/)
+ <6ac77e5d-e931-494a-9777-6ed0bc4aa1e9@linux.ibm.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <6ac77e5d-e931-494a-9777-6ed0bc4aa1e9@linux.ibm.com>
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Andrew, Thanks for the explanation. On 1/8/25 11:52,
- Andrew
- Lunn wrote: >>> Does the mac0 TX clock have an extra long clock line on the
- PCB? >>> >>> Does the mac1 TX and RX clocks have extra long clock lines on
- the PCB? >>> >>> Anything [...] 
- Content analysis details:   (-0.8 points, 6.0 required)
+ Content preview: > When does someone use rgmii-txid and rgmii-rxid? When there
+ is an extra long RX clock line on the PCB, but not the TX clock line, you
+ would use rgmii-txid. If there is an extra long TX clock line, but not RX
+ clock, you would use rgmii-rxid. You do n [...] 
+ Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [148.163.158.5 listed in list.dnswl.org]
- 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [148.163.158.5 listed in bl.score.senderscore.com]
- 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [148.163.158.5 listed in sa-accredit.habeas.com]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [148.163.158.5 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
-X-Headers-End: 1tVtaw-0007yy-O5
+ 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [156.67.10.101 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [156.67.10.101 listed in sa-trusted.bondedsender.org]
+X-Headers-End: 1tVtq9-0000xV-JG
 Subject: Re: [Openipmi-developer] [PATCH v2 05/10] ARM: dts: aspeed:
  system1: Add RGMII support
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -158,16 +108,14 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Ninad Palsule via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Ninad Palsule <ninad@linux.ibm.com>
 Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ Jacky Chou <jacky_chou@aspeedtech.com>,
  "pabeni@redhat.com" <pabeni@redhat.com>, "minyard@acm.org" <minyard@acm.org>,
  "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
  "robh@kernel.org" <robh@kernel.org>,
  "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
  "eajames@linux.ibm.com" <eajames@linux.ibm.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
  "edumazet@google.com" <edumazet@google.com>,
@@ -177,83 +125,25 @@ Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
  <openipmi-developer@lists.sourceforge.net>,
  "davem@davemloft.net" <davem@davemloft.net>,
  "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi Andrew,
+> When does someone use rgmii-txid and rgmii-rxid?
 
-Thanks for the explanation.
+When there is an extra long RX clock line on the PCB, but not the TX
+clock line, you would use rgmii-txid. If there is an extra long TX
+clock line, but not RX clock, you would use rgmii-rxid. You do not see
+this very often, but it does exist:
 
-On 1/8/25 11:52, Andrew Lunn wrote:
->>> Does the mac0 TX clock have an extra long clock line on the PCB?
->>>
->>> Does the mac1 TX and RX clocks have extra long clock lines on the PCB?
->>>
->>> Anything but rgmii-id is in most cases wrong, so you need a really
->>> good explanation why you need to use something else. Something that
->>> shows you understand what is going on, and why what you have is
->>> correct.
->> Here I'll add some explanation.
->>
->> In our design, we hope the TX and RX RGMII delay are configured by our MAC side.
->> We can control the TX/RX RGMII delay on MAC step by step, it is not a setting to delay to 2 ns.
->> We are not sure the all target PHYs are support for RX internal delay.
->>
->> But ast2600 MAC1/2 delay cell cannot cover range to 2 ns, MAC 3/4 can do that.
->> Therefore, when using ast2600 MAC1/2, please enable the RX internal delay on the PHY side
->> to make up for the part we cannot cover.
->>
->> Summarize our design and we recommend.
->> AST2600 MAC1/2: rgmii-rxid
->> (RGMII with internal RX delay provided by the PHY, the MAC should not add an RX delay in this
->> case)
->> AST2600 MAC3/4: rgmii
->> (RX and TX delays are added by the MAC when required)
->>
->> rgmii and rgmii-rxid are referred from ethernet-controller.yaml file.
-> O.K, so you have the meaning of phy-mode wrong. phy-mode effectively
-> described the PCB. Does the PCB implement the 2ns delay via extra long
-> clock lines or not. If the PCB has long clock lines, phy-mode is
-> 'rgmii'. If the PCB does not have long clock lines, 'rgmii-id' is
-> used, meaning either the MAC or the PHY needs to add the delays.
->
-> The MAC driver is the one that reads the phy-mode from the DT, and
-> then it decides what to do. 95% of linux MAC drivers simply pass it
-> direct to the PHY. If the phy-mode is 'rgmii', the PHY does nothing,
-> because the PCB has added the delays. If it is rgmii-id, it adds
-> delays in both directions. This works, because nearly very RGMII PHY
-> on the market does support RGMII delays.
->
-> There is however a very small number of MAC drivers which do things
-> differently. Renesas produced an RDK with a PHY which could not do
-> delays in the PHY, and so were forced to do the delays in the
-> MAC. Please look at how the ravb driver works. If the PCB does not add
-> the delays, rmgii-id, the MAC driver adds the delays. It then masks
-> the phy-mode it passes to of_phy_connect() back to 'rgmii', so that
-> the PHY does not add any delays. If the PCB did add the delays,
-> 'rgmii', the MAC driver does not add delays, and it passed rgmii to
-> the PHY driver, and it also does not add delays.
+arch/arm/boot/dts/nxp/ls/ls1021a-tsn.dts
 
-When does someone use rgmii-txid and rgmii-rxid?
+/* RGMII delays added via PCB traces */
+&enet2 {
+        phy-mode = "rgmii";
+        status = "okay";
 
-Regards,
-
-Ninad
-
->
-> So, your MAC driver is broken. It is not correctly handling the
-> phy-mode. First question is, how many boards are there in mainline
-> which have broken phy-modes. If this is the first board, we can fix
-> the MAC driver. If there are already boards in mainline we have to be
-> much more careful when fixing this, so as not to regress boards which
-> are already merged.
->
-> Humm, interesting. Looking at ftgmac100.c, i don't see where you
-> configure the RGMII delays in the MAC?
->
-> 	  Andrew
->
+	Andrew
 
 
 _______________________________________________
