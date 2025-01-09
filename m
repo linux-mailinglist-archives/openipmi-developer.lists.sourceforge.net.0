@@ -2,227 +2,131 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B2E45A07C29
-	for <lists+openipmi-developer@lfdr.de>; Thu,  9 Jan 2025 16:43:36 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F59AA07C3B
+	for <lists+openipmi-developer@lfdr.de>; Thu,  9 Jan 2025 16:45:59 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tVugv-0004dE-39;
-	Thu, 09 Jan 2025 15:43:25 +0000
+	id 1tVujF-0003y6-Ik;
+	Thu, 09 Jan 2025 15:45:48 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <martin.petersen@oracle.com>) id 1tVu2F-0005fF-FU
+ (envelope-from <corey@minyard.net>) id 1tVujE-0003xz-51
  for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jan 2025 15:01:23 +0000
+ Thu, 09 Jan 2025 15:45:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Type:Date:References:
- Message-ID:In-Reply-To:From:Subject:Cc:To:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=jMUptaI9fqg5+RUs+IvqiL3lFR7AmqejQbFAnHpRhQc=; b=I2BiolDoAE0gEu7G3GVSdU6E7l
- NbnX8ShbI8ZoyQE4bDolSjd/gZ1vvDkJxEzlEEVdnSceCGNJo/ekl7ac3Jvedj+M4yF6NSCrH07bL
- 8hEqUYvWzbyAY3tEoCjnXA6DAvbgfmUuIJiUw2ai1qoOzTio0/dMvGk4c6BvFcf2XdKQ=;
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=cgTp2x21PamB5G5tjbV3jPSQRWSgTUkiJmrzV93coW4=; b=KQcrO4JMy8Gc9rxahZKpQE/SI1
+ oAX//8YUtD7PT2WluXaUbmxwzPu4sA8uYtg3N0tBUcpJHYeIqnD3g90m2dzD1w4O+RP9CI2T9egPg
+ Jvbi6UeEOK7fBi0U5WQt/bhEH0q9NWGV7MIQtFRpq7aM+z0NfaCjHE9QpzZJCGoLVUYE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Type:Date:References:Message-ID:In-Reply-To:From:
- Subject:Cc:To:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=jMUptaI9fqg5+RUs+IvqiL3lFR7AmqejQbFAnHpRhQc=; b=Pa+xFi6rVgfyPHZ1Shn5h/69/4
- zQIbTfP9b92lC5dL3dmtuURToD7KxbTs+VedF+s9HiUnpKTuynXdjKrTYWiiFPcWfTX0SD/8ygzbL
- ZSv+wZ0NtO8odoK1Yl13aqwKeGBbG/n0MK8hVEkjBlH2wMSGOfA0rnex/HZzBAMhMKBs=;
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+ bh=cgTp2x21PamB5G5tjbV3jPSQRWSgTUkiJmrzV93coW4=; b=Zu0WR5azHo+YzE6+GTCbH3ajfG
+ tW0EexTdPVu9Q5uSJHzPknwoYurxM0bhYsB77ODhwAZ1snQvk5jIallqtbfIq2yoo9WZ6nvhVXXzt
+ v2YJmg7IptcVPQbyoxml9hkG2JUCn+ZbEr2MAqGxVb038S61SnHuHNsUv0500rl2Wamc=;
+Received: from mail-ot1-f44.google.com ([209.85.210.44])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tVu2D-0001lp-8z for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jan 2025 15:01:23 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
- by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 509CfnEU010941;
- Thu, 9 Jan 2025 15:00:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
- :content-type:date:from:in-reply-to:message-id:mime-version
- :references:subject:to; s=corp-2023-11-20; bh=jMUptaI9fqg5+RUs+I
- vqiL3lFR7AmqejQbFAnHpRhQc=; b=ZKLqGfAlKID2gYfwuP+LlcWuWqkWRhqfLC
- 4bMhKd4WlYQVAjthTvyZqd0q7fioOBZdzjqHs/jv2ywfetWrPXV06bV9X4G/Ycfl
- wbYtAciZa6qM0+dDNx14odAb5sY+rDbk/iViTIp6ARSA5g9oWtXwya4FY6wpHzHa
- EN0aiJ6II3L6JnL1fIMMhPI3o6/ZesY2Ery53T5MKvPRXupL86Fd/A6dYZ8CtIML
- W08wSLa7uBN+faiccwo5qvsrhFJX3XnULycouwCV/SyvUagLteCJ0/ZIg2AmADCi
- QJ/0Y+2uU6lYLBQcRj1gAA22kdqSD0a3GJDtLzuxe0cWa/iCgm1A==
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com
- (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
- by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 43xuwb95dc-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 09 Jan 2025 15:00:53 +0000 (GMT)
-Received: from pps.filterd
- (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
- by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2)
- with ESMTP id 509EQ3lm010865; Thu, 9 Jan 2025 15:00:52 GMT
-Received: from nam04-bn8-obe.outbound.protection.outlook.com
- (mail-bn8nam04lp2042.outbound.protection.outlook.com [104.47.74.42])
- by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id
- 43xueb1ah4-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 09 Jan 2025 15:00:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lCFpDHOQhu6xZGt6Sa3mc5WvDHjASrjznsuq3pa9/8gRdKM6+Oy4KZVZGtccD1klyRCKYI4s8NOj3rMlYqtCJQPk3q1RISpnRy0RXOtoz6iBIkBfzQf490DydD1ecW+HLd+tJUy5lJcomhb1wgaebFs/kfxyXocJpyxECvDWC+NDr6usPFLqUXwnqVD0dEgsXNRZ8NHjW8DBk7KM1OgrnCKY77Qk91Et3w3KGd+LAp0s1FEiyk+5RbF8u1SX/vCVYQZ19qR6x3bRXsC0PCOXHtrkysizcmdFRJd04JLEHuK2Yu9Ptt5zXej8v7Q9vRrlM2p/ybIe52aAo73idrKTfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jMUptaI9fqg5+RUs+IvqiL3lFR7AmqejQbFAnHpRhQc=;
- b=BMRs0/8tL8b3tWch/NJTK/7Pz9rctGrgpf95IuDWE2UOD/7YrppNXhigasORdyjo1UCOFDnODQoI2KqKFmjaxxdPDEGHRhva9ryzSach02Jm1omjqFEhffSxDUXuttDqIVzBg7b2PV/2ZUPXq/MJZuOdhitBXEBQk7l7AeZBf10R4NklOWqWiMRgTYmSrbog0+lcP3fn8KmjjBqcV1AKpq9cQp50h5Wozhz1q0Wp5Xn2e50Bzy/5F8exuPXBvsIDHmmf1lHUwftYWW5Kmmb18hbNBF6GeWJ2y3392RUvdcStbWubWJDRNBfieOzMRm3dszF9MnF4zCucKWSAiIQLRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1tVujC-0004za-Ni for openipmi-developer@lists.sourceforge.net;
+ Thu, 09 Jan 2025 15:45:47 +0000
+Received: by mail-ot1-f44.google.com with SMTP id
+ 46e09a7af769-721d213e2aeso270506a34.3
+ for <openipmi-developer@lists.sourceforge.net>;
+ Thu, 09 Jan 2025 07:45:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jMUptaI9fqg5+RUs+IvqiL3lFR7AmqejQbFAnHpRhQc=;
- b=OrOCCYEBQosTxVVlFghCyGRnSbxwjYNaQBAUHfLPuEhq6USvwVdXmhomijJ2+HEcDnpL+oYdBas0Ko8OQ+Xv4KVr4i+i8oQv9xnL8WUxMcGiDrmVQOfh5BibsNN0vr637OmP1k3h778mNsH+Gk42K9EKIEr5HU0jdteeSRM6tsU=
-Received: from CH0PR10MB5338.namprd10.prod.outlook.com (2603:10b6:610:cb::8)
- by SN7PR10MB7001.namprd10.prod.outlook.com (2603:10b6:806:345::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.10; Thu, 9 Jan
- 2025 15:00:49 +0000
-Received: from CH0PR10MB5338.namprd10.prod.outlook.com
- ([fe80::5cca:2bcc:cedb:d9bf]) by CH0PR10MB5338.namprd10.prod.outlook.com
- ([fe80::5cca:2bcc:cedb:d9bf%6]) with mapi id 15.20.8335.012; Thu, 9 Jan 2025
- 15:00:49 +0000
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1736437536; x=1737042336;
+ darn=lists.sourceforge.net; 
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=cgTp2x21PamB5G5tjbV3jPSQRWSgTUkiJmrzV93coW4=;
+ b=R8zSON0HEnkqzD/dvfJzpKcieVfVnrHSKBjrr9qULxzj6kqYWC0WvQtt7hlrNWbnH0
+ kR/ycZ99odRtggib78DAimlRUdHKwylkpZBe8Dngu4IpkHHM4Ii8Yf2JtdMH8/ERWGN+
+ B9G3OkvMkMKZhXP9Wp9wTl0EZWcO6yfqIJbV2wN0cGmW4wJANE1IuWPXQyntCjgwzNFd
+ DZc+Stp0Py5mflZ74IsfP1VbTlqAAnWHs9m94OsQi3LmhdYWvOEF2fT6VFwgdyug1Hnn
+ LsybCM+k4OYpUpyHiPSgE8fR/Q0GKqZez/IvxFzZ4MTiIDtCtuyw5QmWPU4ZJaJ1mMNB
+ C5Ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1736437536; x=1737042336;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=cgTp2x21PamB5G5tjbV3jPSQRWSgTUkiJmrzV93coW4=;
+ b=r6zmdqQP+D6/rrYZHhpTuWvR9v5jkc0GykR8SVo5CgWEZstFA6cYrwCNmdtUX9dv0c
+ KfeZQ6kmVF3ZCilRFvoFzku4nkLsXw2ewAFhUzT3yu9XKgq6j8E6LXwY5pYcFs1kAFrW
+ OQvXWfPoyKiRz0tPHjTV5/Ib2COGc8fV77yImN3k8rNK1rZqNmA4cYFgmjyaOfwjsom1
+ 9UHl9yPQPw4DUkGWF89PeKAHh8/jcQ1Zxjr4FcRWT7EDU1U1M/S+8He/523YlbnSDfJZ
+ i+AqeOXmurNh+tmJiIRwzaSqhA1a9lMMM9VWAAz8yHNFj/XY6QQlK6alwLS8vgknBjI3
+ AAHA==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCXNYSEeGa+loTLtfcymeWHbydYfleE7waw661KH1wR8lhRZY9w/bCdJNO0/sUVB54ONHJJQJz+AMT18V6xSCGjRciY=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0Yykn43vKB27yZxktlxcUgq5FGhBvqDzKvvnnSAUDojCzZFFdtKk
+ JPX+6JWriz4eSJf5rEaNh+v5EASONU/ZxHwpY3zzVNAD1kniJ1wlb06GyySCkcc=
+X-Gm-Gg: ASbGncvOUtuHjxhrDiPdIEwZ31t6w2WjVS6CcEBbdshLkFvgOKikHaJBiPuZ5w4CqGi
+ Fyxk11EGKlA66DNUQ9Zv5twC00S5HtleHcs/mPrU6cJMDj22yWycKVQWdqtgeKAa4HBGgNcYM8g
+ 8uHYhF0tDoxuI3l4sH4K1gptFxCXZHZ9LUUW7x1pjPN0QN3uVNzpZTUQ17xOmlJEeQUi0Egk+R1
+ oIrZxdYtPnAAkNbFQxf9zAyje7kgoKmMI/4KKEWRz9QsrIyUbx1DOB971tk
+X-Google-Smtp-Source: AGHT+IHELUnxP9ZvL+e2Ztemz39I9ORoPYZLTVwEa+XG73J5uz7w7yM0cuXu9KZqTaUsGk+1/+jmGA==
+X-Received: by 2002:a05:6830:6610:b0:716:a95d:9ef with SMTP id
+ 46e09a7af769-721e2e000d6mr4949630a34.2.1736437534534; 
+ Thu, 09 Jan 2025 07:45:34 -0800 (PST)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:9076:47eb:1e0a:16fb])
+ by smtp.gmail.com with ESMTPSA id
+ 006d021491bc7-5f882625f0esm386258eaf.9.2025.01.09.07.45.32
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 09 Jan 2025 07:45:34 -0800 (PST)
+Date: Thu, 9 Jan 2025 09:45:27 -0600
+From: Corey Minyard <corey@minyard.net>
 To: Joel Granados <joel.granados@kernel.org>
-In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org> (Joel
- Granados's message of "Thu, 09 Jan 2025 14:16:39 +0100")
-Organization: Oracle Corporation
-Message-ID: <yq1ed1c823x.fsf@ca-mkp.ca.oracle.com>
+Message-ID: <Z3_vF3I453flXoZv@mail.minyard.net>
 References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
-Date: Thu, 09 Jan 2025 10:00:46 -0500
-X-ClientProxiedBy: SJ2PR07CA0015.namprd07.prod.outlook.com
- (2603:10b6:a03:505::28) To CH0PR10MB5338.namprd10.prod.outlook.com
- (2603:10b6:610:cb::8)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR10MB5338:EE_|SN7PR10MB7001:EE_
-X-MS-Office365-Filtering-Correlation-Id: 57ca7bf9-9646-491b-b6df-08dd30be6736
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1s5eliMSE67bSIt5uQKs2IcnP+0PNCj0WZFBBku5t3uvZomcBm6xiJzzqgmI?=
- =?us-ascii?Q?+XHPLdw+eszd1/QyQrJPQNTTQGoQ0r6A7EHV4YmnZxrMySwRwTMKbnLRjstN?=
- =?us-ascii?Q?jPHt9B18dW5Jc4xUXfLdJMTzatVzshMrKqA/ohaLOkvQRuMJS1QLxJyXvUeb?=
- =?us-ascii?Q?vv5bbjR698U6ikpCZ+PLDFxq5eQ7AZjJs7PdjSCX0pwbzzxDimK80RdbgWGf?=
- =?us-ascii?Q?0AroawK83y5svXx6thDxQjQgBnz4+K64uryopn61Qr46+fQoncUV5i3LKKkg?=
- =?us-ascii?Q?2dOj2x107aOMexqiLArcaMJw7RMKWKtjw8KPvref/3xYIQWalB5vv5y/sn9G?=
- =?us-ascii?Q?hvSfmB3g09Thi1y40nIwusr8OgBFBlSWfJsdvUnZn80PdR1vWrqXTbMJovp1?=
- =?us-ascii?Q?ocEfIVEqBsppyY1WVbmKSpEqYmMlxiIGDBnF8F0p5CrEnsAvXB7Zpi9GuhiH?=
- =?us-ascii?Q?OcbJRt8veDrcu84G9H9eshJunDn9D/un02cG6x8/lMF7M2vd2XL+hW3HGmjL?=
- =?us-ascii?Q?ytkwL/frvsBE/nhleo7zBNXarmoxAtTjjPvSSrMf5F4mVADVMgL30MERFK95?=
- =?us-ascii?Q?1iiHhz1qvu8Ou1hlsxWqHLO90O4fSUounpfRNbzEuRbhIQvel4J+m7ZHXb2m?=
- =?us-ascii?Q?iekRVTSZBCwbNUinUi3LYCfHeBkXjcK3dPKFVFZjUVBmC2LrOrV2nHDtOG3i?=
- =?us-ascii?Q?q2X3joQYJ/tcR9bDhRPZ5tlRikiBOT7VE3yURFC3rNNCZUEa+hOxNFvbYkrS?=
- =?us-ascii?Q?nl5WnQdvm2IM3bafp7Vo+6wNAMuCI3wZQs6j4eAGqKN0KEU0S1Dxh70d4axv?=
- =?us-ascii?Q?H4wTt1q7pr28TlIFNl0PfctPMmHJBdcJaHzBvbNTo5KVYsucjQxhxmDNUVqr?=
- =?us-ascii?Q?8StZ2Vkasxkex+OFgjsBcMUDTR8B2qFSb/MRPh3Rh1+WcbkCGcwPup6I8zpJ?=
- =?us-ascii?Q?1HjTT/a+amAxP4yi/sW4j8pWYTBx2CZIy10YJ8Tbdydy/HH8iekZVSEzxBqn?=
- =?us-ascii?Q?Jv47TpOuTl9MigO3m6ov/6gf71YaU2xnC1/mmgej/oy+twi3Uvr1RJn3ptNg?=
- =?us-ascii?Q?g2cA+a6gKL3SYY9phppNZAe/eEHK1wsx7dhMve3MOpgxGW2qmGa2yQc9AsJO?=
- =?us-ascii?Q?WvFu0MdkMAVN0hJiyMVjuhzicu583QJ58PtDQibgopUVAbCmGMakal+G1RxB?=
- =?us-ascii?Q?HviCgXT+W/c8i1o3H/BGd65sJtxQkFz+3gWKKrITHpS5j7KccnOZj41Sd+6O?=
- =?us-ascii?Q?b6V0wjDzzI1q6lMPVkHyd2rO1/CRq0b8VAvxZWU0oj1z2DJaqoWumNSbr7R6?=
- =?us-ascii?Q?i+w2GAokUpbp82H6N/M8tL4IKOntd5dzeuv1zxQP35Rv6TkvI/xFtagtT+Hc?=
- =?us-ascii?Q?IGINZ4zJUJZy40/LyzmX2agqnz3K?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CH0PR10MB5338.namprd10.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230040)(366016)(376014)(7416014)(1800799024); DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WZNn6E1Pa7bGKzLrcJDJZOlfoqcHArJ/1AObxs3buzZgzUpMr8lBMjhap0F9?=
- =?us-ascii?Q?mYMw0mCidu5gzvLAi8PBvxj0uhCHw9K3LgPDSnmUwTYcICw856X+uMf30Tho?=
- =?us-ascii?Q?3FDT/VmGo38Jwp53p8Bfm8qyxp/0LytCAwqwBlGP8VB6MT1LnVmLBLM9uRvY?=
- =?us-ascii?Q?kA3haz6zRHG5ZBQPXop+/6efFgCuyLTz9CCNFA4e0Z8WgSAgJKsQrMsQSN1j?=
- =?us-ascii?Q?qfd2Nxs2aS9uWBaVrZLtVdaco5UmKyhfMudR9asTb3S+nIh/A0o88X3cMlJ8?=
- =?us-ascii?Q?7qQlUIfjM8/WIj3VP4zsJLfxe4UKkL8OnT9BcfIS9GZwhaGqGbKbR+D3jtof?=
- =?us-ascii?Q?rp0tMONITtuY4+MGPUBAtzGYkYwW/6GaTFOibH9vZ0arw4NzmWgaOv8JtRjO?=
- =?us-ascii?Q?oM27MHfMuLwrHzGtM2pe5ezq5WyS6/bWGLo/JLtWb85ItRkBNeGKgSFNXdWj?=
- =?us-ascii?Q?K0WkUnbkLQ3erszvL93qxuLf36uMCiQIrjvziGhCA0AJYJ8O2Q4iV0QYWIWH?=
- =?us-ascii?Q?vxP7YlUjTCdESdXhxyN+z6WxZrd/O3bV77dfkk+l8RfodLl4dMIl3XCHazSZ?=
- =?us-ascii?Q?tNY19C1vkXbpHjyJagJ+Kipdphsm5Nfk029iSFbb7S+qG2POw2Z7OYg6MWLx?=
- =?us-ascii?Q?2KnKr668r8F8/DvynAy2zKi94Zfc+Ex6Ca8HiKQI55EMeIwKnauWfEmXqPEP?=
- =?us-ascii?Q?ybf1A+fy7vO52eWYrVIf/K58IT8RbOy9sXBULZpmF5XaQHLX3KE0Oz9USdQ6?=
- =?us-ascii?Q?YjQngikYaXNrgzbXf8Wsc/skw1gx+kck/Isa2JhBRBShgN8p9WZMyCn6gBw7?=
- =?us-ascii?Q?gZeqcEstNVEKVKK2fGZpkEEqQhmXBcVYFDjY0YvaM5Ceb36ussgJb9YzuNM+?=
- =?us-ascii?Q?zNMSL9o2Rf/sy+xyqe4MTCL8lykXCFbysWguFjNzmXidVzssSDfRv86/cWR+?=
- =?us-ascii?Q?yDIFJpwzweS2h7eoqDO42g0M2HJF2SC0eGjcs5wKAZB13Qj7CyhK7NED+ynV?=
- =?us-ascii?Q?9Q+gNeBoZknbT1X1wZqhrHD5nU+0VQpEhGVKoTYqYp7CRWmdcB6OoMUyXEL6?=
- =?us-ascii?Q?qcQsmxq1otuQP6/vvFXSBbEdxHvE1fIli8t4pxe4PE57V2sHk6djEeRDXxxZ?=
- =?us-ascii?Q?KE0gE0FpKS75eQDRfCZM6yiSgfEs181Te4+8TJpTQ7/2MIVZHG4DkZvtF8In?=
- =?us-ascii?Q?tJrfIrZnPLTE7hb5rdomq6StRLsCkRDPbxpgS4s63GjDXzeI8a7kF6is6GQe?=
- =?us-ascii?Q?MoFw9u2F5ger1qJ30DJuI6ISnVE17NaPINaCxiXeNqNwSfjfizMnMXBRGhwy?=
- =?us-ascii?Q?23RsyQHncvlXPZvcSYXA4FijIuCYOrky+B7oUBqSgdI9fRP84jQbXI/OJDx2?=
- =?us-ascii?Q?uz9U6vTi0uB1nHn6NCs1aOAac2w28+og4LYyE/9//S3ek+8P6IlaDGipvKYV?=
- =?us-ascii?Q?QagAbCVxdUi7LZDS+55o4HF/1TiL5nCXySk+mRU9ASBwxtuDZsf+OPpiIJeJ?=
- =?us-ascii?Q?tH2ppTFQ8SV9JH39LgIEe3yoPCXUojgQHKGRFVPAnLGqFj/Wy9p8fGHjvKCY?=
- =?us-ascii?Q?dxwuK/flWMBwLr1owtHdeGOzFj+sbzhcHME3fP5Sd5WDvk6BgqYwvUYSM3Vu?=
- =?us-ascii?Q?fw=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: Z2ezp0GeC+tCAty8oNhH+Bxy14WAfO6YLudztqZns732Dr0QNSgcWLPMEb56XKYzxsISMSnUx1GkxolfLHx8QwH3aPViqoqQPRniwzxVRHjbJRNQSnKucs2z/YFx9ssTzXfjE0G3Qi9taDO5X17op/ReRjMnQ2OQAduZfRc9Qqy3JDI/0eXh2ZWUSh0+GDq+BQKFROJVrTHTnW2o6xNdER+888B1/cz+pmLrD0EvYPmvjrCKQBpkGB8IZYwKuLCB4t0pzswCmFKAxhxYYTuLhER6orCrIWpsZoXZxRqwUfindm1PxU+UfzvfK2NCcRyOazoVvYNENj9yXk3leqQ6Y8l2ijF/gdhZzD/fZZQYvnAc7LEKfcXFULkUL9vbaZTMBWRUAXJuAW0gRCuvA9deA1xfXb8yzPHxOiszwK+r2qgMTA5ec9WUelk3pY8aeq3FQnHvnKk8ooLyMCpeUisQFjoKRzVWGyRWQ8J6T5YYj+xGYdFi0F9jGWX83dtphIz6bHam3CAuzy/gpWh1k+to6CNnv2uO6iwMHozr7LpA+r9oYSwJ8o1AN8jws6/8kVKYGulR99qsLzEvnjqFQNQsyA96ngiGqmo6v1xIeg2yoiU=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57ca7bf9-9646-491b-b6df-08dd30be6736
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR10MB5338.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2025 15:00:49.1161 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: leHSaRakdAn44d9JTPJGGjwmkjIzP6V+HUsYDpT9nyRHh5QA3A00LFHg8x0aOHYjIzoJs/bIHXolJQXc/ZKEsw5B5oXtdGA/kAFQ3UU4rdI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB7001
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-09_06,2025-01-09_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0
- malwarescore=0
- adultscore=0 mlxlogscore=811 suspectscore=0 mlxscore=0 spamscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2411120000 definitions=main-2501090120
-X-Proofpoint-GUID: ujTpPHVSX-fTLPpls6O5X7zV8q5ouFNE
-X-Proofpoint-ORIG-GUID: ujTpPHVSX-fTLPpls6O5X7zV8q5ouFNE
-X-Spam-Score: -0.9 (/)
+Content-Disposition: inline
+In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Joel, > Add the const qualifier to all the ctl_tables in the
- tree except the > ones in ./net dir. The "net" sysctl code is special as
- it modifies the > arrays before passing it on to the registration functi [...]
- Content analysis details:   (-0.9 points, 6.0 required)
+ Content preview:  On Thu, Jan 09, 2025 at 02:16:39PM +0100,
+ Joel Granados wrote:
+ > Add the const qualifier to all the ctl_tables in the tree except the >
+ ones in ./net dir. The "net" sysctl code is special as it modifi [...] 
+ Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [205.220.165.32 listed in list.dnswl.org]
- 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
- The query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [205.220.165.32 listed in sa-accredit.habeas.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.210.44 listed in list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [205.220.165.32 listed in bl.score.senderscore.com]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [205.220.165.32 listed in wl.mailspike.net]
+ [209.85.210.44 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [209.85.210.44 listed in sa-accredit.habeas.com]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.44 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
-X-Headers-End: 1tVu2D-0001lp-8z
-X-Mailman-Approved-At: Thu, 09 Jan 2025 15:43:23 +0000
+ valid 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1tVujC-0004za-Ni
 Subject: Re: [Openipmi-developer] [PATCH] treewide: const qualify ctl_tables
  where applicable
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -237,9 +141,7 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: "Martin K. Petersen via Openipmi-developer"
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: "Martin K. Petersen" <martin.petersen@oracle.com>
+Reply-To: corey@minyard.net
 Cc: linux-aio@kvack.org, linux-hyperv@vger.kernel.org,
  Kees Cook <kees@kernel.org>, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-mm@kvack.org, keyrings@vger.kernel.org,
@@ -261,17 +163,30 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
-Joel,
-
+On Thu, Jan 09, 2025 at 02:16:39PM +0100, Joel Granados wrote:
 > Add the const qualifier to all the ctl_tables in the tree except the
 > ones in ./net dir. The "net" sysctl code is special as it modifies the
 > arrays before passing it on to the registration function.
+> 
+...
+> diff --git a/drivers/char/ipmi/ipmi_poweroff.c b/drivers/char/ipmi/ipmi_poweroff.c
+> index 941d2dcc8c9d..de84f59468a9 100644
+> --- a/drivers/char/ipmi/ipmi_poweroff.c
+> +++ b/drivers/char/ipmi/ipmi_poweroff.c
+> @@ -650,7 +650,7 @@ static struct ipmi_smi_watcher smi_watcher = {
+>  #ifdef CONFIG_PROC_FS
+>  #include <linux/sysctl.h>
+>  
+> -static struct ctl_table ipmi_table[] = {
+> +static const struct ctl_table ipmi_table[] = {
+>  	{ .procname	= "poweroff_powercycle",
+>  	  .data		= &poweroff_powercycle,
+>  	  .maxlen	= sizeof(poweroff_powercycle),
 
-Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com> # SCSI
+For the IPMI portion:
 
--- 
-Martin K. Petersen	Oracle Linux Engineering
+Acked-by: Corey Minyard <cminyard@mvista.com>
+
 
 
 _______________________________________________
