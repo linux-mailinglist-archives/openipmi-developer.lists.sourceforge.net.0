@@ -2,100 +2,91 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0DA00A0799C
-	for <lists+openipmi-developer@lfdr.de>; Thu,  9 Jan 2025 15:48:59 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4729AA079AC
+	for <lists+openipmi-developer@lfdr.de>; Thu,  9 Jan 2025 15:49:29 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tVtqA-0000KQ-Sr;
-	Thu, 09 Jan 2025 14:48:54 +0000
+	id 1tVtqa-0000zF-Uq;
+	Thu, 09 Jan 2025 14:49:21 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <andrew@lunn.ch>) id 1tVtqA-0000KK-3u
- for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jan 2025 14:48:54 +0000
+ (envelope-from <SRS0=Vo0Q=UB=goodmis.org=rostedt@kernel.org>)
+ id 1tVtqZ-0000z9-5p for openipmi-developer@lists.sourceforge.net;
+ Thu, 09 Jan 2025 14:49:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=YfjcKm0d4Vajn+h/jwMfdima+TwcpMUsitsmuyI+KwE=; b=ISALJj548HAPYMEGF+sSTRGCw1
- FkrNmQOAXxPnW4lxvqU2vPyXVCgWZlpt3IkA2Btl9zDHxELa+xJpYd27YZMIIWUR50Sm+vhHv7Yvv
- LiOaildDS8s+GbB/xywh8lMBX5y+rl/lCn75Zu8tOHIpVZy8VpKjexQgHObapM6dEH3Q=;
+ bh=hItSMR0IDjkdMJUBRKLD8SPiYiiCgPMm35ASO9oVDjg=; b=mUn7VYrYS8TlGk2o7b36FmRzq8
+ qminNAZdCS7uVQ9kHYXYFOIYMWcFTqXEhw/APoHqJaKrb+qk0eNdEInXVtppRN6FtRUWbO6uZa2OG
+ z2odDqKDceRXHZcmIqJt7SVfUZJ+dyN6AMztZeGdN2EqxJM/q8Zj9bp/ssFKCFKrxnc4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
+ In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=YfjcKm0d4Vajn+h/jwMfdima+TwcpMUsitsmuyI+KwE=; b=A//PM16ctebjBm0VgjQPIvOySu
- fs95ayF44NoYDqquTbX6N9fXPOYMWxX9RRo0DxHg9XwHzAUOs0wUiJnOFkR2m8dUHVWvKd0+1wTZp
- pfGBuwrYgFOPv933/gORRvmkbQLFav/fy7DGGlOlp69qOLqFaOOnqTF+nPQb7kmqgMWw=;
-Received: from vps0.lunn.ch ([156.67.10.101])
+ bh=hItSMR0IDjkdMJUBRKLD8SPiYiiCgPMm35ASO9oVDjg=; b=OnFG8+MB8CFPlzeUvzBZ+TyrDf
+ HngNilKBVYg9RCW4I1qPb3q4UrsD+kjngmwgyMUZo8+K7KwhTI6XvpmC2amMxz1TedJ9Ev3xQYLQ7
+ uw5jqqT0gNwcfqjzZhcyAoPAtLLACEH0/khDgs/zrJJhwdgPnxCa1zaxYV7POS1oWH6Y=;
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tVtq9-0000xV-JG for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jan 2025 14:48:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
- s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
- Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
- Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
- bh=YfjcKm0d4Vajn+h/jwMfdima+TwcpMUsitsmuyI+KwE=; b=mGzh0Iq+K5BiGQJKCYwFjh52FU
- 8bznveg2/N0yjqFingSY3hMZhRhiI8vCLBYMpXXUpVkwspAxYT7Ot3r33BkECyz5qI+0WzMjqmqFc
- YzPlAj0bQp/V5Fg/nycCtFmwKyIZNH5f0qN5RcgXWY1eYQhNiuE/4nPdt9jR7lGytIio=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
- (envelope-from <andrew@lunn.ch>)
- id 1tVtpR-002v8k-IQ; Thu, 09 Jan 2025 15:48:09 +0100
-Date: Thu, 9 Jan 2025 15:48:09 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ninad Palsule <ninad@linux.ibm.com>
-Message-ID: <8ae7c237-abcf-4079-a4ba-ce17e401917d@lunn.ch>
-References: <SEYPR06MB5134CC0EBA73420A4B394A009D122@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <0c42bbd8-c09d-407b-8400-d69a82f7b248@lunn.ch>
- <6ac77e5d-e931-494a-9777-6ed0bc4aa1e9@linux.ibm.com>
+ id 1tVtqY-0000zF-Sr for openipmi-developer@lists.sourceforge.net;
+ Thu, 09 Jan 2025 14:49:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+ by dfw.source.kernel.org (Postfix) with ESMTP id 861CE5C5A84;
+ Thu,  9 Jan 2025 14:48:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35F4DC4CED2;
+ Thu,  9 Jan 2025 14:49:04 +0000 (UTC)
+Date: Thu, 9 Jan 2025 09:50:37 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Joel Granados <joel.granados@kernel.org>
+Message-ID: <20250109095037.0ac3fe09@gandalf.local.home>
+In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6ac77e5d-e931-494a-9777-6ed0bc4aa1e9@linux.ibm.com>
-X-Spam-Score: -0.2 (/)
+X-Spam-Score: -4.7 (----)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: > When does someone use rgmii-txid and rgmii-rxid? When there
- is an extra long RX clock line on the PCB, but not the TX clock line, you
- would use rgmii-txid. If there is an extra long TX clock line, but not RX
- clock, you would use rgmii-rxid. You do n [...] 
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content preview:  On Thu,
+ 09 Jan 2025 14:16:39 +0100 Joel Granados <joel.granados@kernel.org>
+ wrote: > diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c > index
+ 2e113f8b13a2..489cbab3d64c 100644 > --- a/kernel/trace/ftrace.c > +++
+ b/kernel/trace/ftrace.c
+ > @@ -8786,7 +8786,7 @@ ftrace_enable [...] 
+ Content analysis details:   (-4.7 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [156.67.10.101 listed in bl.score.senderscore.com]
+ [139.178.84.217 listed in bl.score.senderscore.com]
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [156.67.10.101 listed in sa-trusted.bondedsender.org]
-X-Headers-End: 1tVtq9-0000xV-JG
-Subject: Re: [Openipmi-developer] [PATCH v2 05/10] ARM: dts: aspeed:
- system1: Add RGMII support
+ [139.178.84.217 listed in sa-trusted.bondedsender.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [139.178.84.217 listed in list.dnswl.org]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+X-Headers-End: 1tVtqY-0000zF-Sr
+Subject: Re: [Openipmi-developer] [PATCH] treewide: const qualify ctl_tables
+ where applicable
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -108,42 +99,60 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Jacky Chou <jacky_chou@aspeedtech.com>,
- "pabeni@redhat.com" <pabeni@redhat.com>, "minyard@acm.org" <minyard@acm.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "eajames@linux.ibm.com" <eajames@linux.ibm.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
- "edumazet@google.com" <edumazet@google.com>,
- "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Cc: linux-aio@kvack.org, linux-hyperv@vger.kernel.org,
+ Kees Cook <kees@kernel.org>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, keyrings@vger.kernel.org,
+ linux-hardening@vger.kernel.org, linux-riscv@lists.infradead.org,
+ io-uring@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-security-module@vger.kernel.org, codalist@coda.cs.cmu.edu,
+ linux-serial@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-trace-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+ apparmor@lists.ubuntu.com, linux-raid@vger.kernel.org,
+ ocfs2-devel@lists.linux.dev, openipmi-developer@lists.sourceforge.net,
+ intel-xe@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ fsverity@lists.linux.dev, linux-nfs@vger.kernel.org, kexec@lists.infradead.org,
+ Thomas =?UTF-8?B?V2Vpw59zY2h1aA==?= <linux@weissschuh.net>,
+ linux-xfs@vger.kernel.org, Luis Chamberlain <mcgrof@kernel.org>,
+ linux-crypto@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ netfs@lists.linux.dev, bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-> When does someone use rgmii-txid and rgmii-rxid?
+On Thu, 09 Jan 2025 14:16:39 +0100
+Joel Granados <joel.granados@kernel.org> wrote:
 
-When there is an extra long RX clock line on the PCB, but not the TX
-clock line, you would use rgmii-txid. If there is an extra long TX
-clock line, but not RX clock, you would use rgmii-rxid. You do not see
-this very often, but it does exist:
+> diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+> index 2e113f8b13a2..489cbab3d64c 100644
+> --- a/kernel/trace/ftrace.c
+> +++ b/kernel/trace/ftrace.c
+> @@ -8786,7 +8786,7 @@ ftrace_enable_sysctl(const struct ctl_table *table, int write,
+>  	return ret;
+>  }
+>  
+> -static struct ctl_table ftrace_sysctls[] = {
+> +static const struct ctl_table ftrace_sysctls[] = {
+>  	{
+>  		.procname       = "ftrace_enabled",
+>  		.data           = &ftrace_enabled,
+> diff --git a/kernel/trace/trace_events_user.c b/kernel/trace/trace_events_user.c
+> index 17bcad8f79de..97325fbd6283 100644
+> --- a/kernel/trace/trace_events_user.c
+> +++ b/kernel/trace/trace_events_user.c
+> @@ -2899,7 +2899,7 @@ static int set_max_user_events_sysctl(const struct ctl_table *table, int write,
+>  	return ret;
+>  }
+>  
+> -static struct ctl_table user_event_sysctls[] = {
+> +static const struct ctl_table user_event_sysctls[] = {
+>  	{
+>  		.procname	= "user_events_max",
+>  		.data		= &max_user_events,
 
-arch/arm/boot/dts/nxp/ls/ls1021a-tsn.dts
+Acked-by: Steven Rostedt (Google) <rostedt@goodmis.org> # for kernel/trace/
 
-/* RGMII delays added via PCB traces */
-&enet2 {
-        phy-mode = "rgmii";
-        status = "okay";
-
-	Andrew
+-- Steve
 
 
 _______________________________________________
