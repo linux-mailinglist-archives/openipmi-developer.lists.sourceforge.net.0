@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A2ED0A113A7
-	for <lists+openipmi-developer@lfdr.de>; Tue, 14 Jan 2025 23:02:48 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id CC597A113AA
+	for <lists+openipmi-developer@lfdr.de>; Tue, 14 Jan 2025 23:02:50 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tXozk-00020e-PO;
-	Tue, 14 Jan 2025 22:02:45 +0000
+	id 1tXozo-0008Q6-Q1;
+	Tue, 14 Jan 2025 22:02:48 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <ninad@linux.ibm.com>) id 1tXozj-00020V-JE
+ (envelope-from <ninad@linux.ibm.com>) id 1tXozn-0008Pv-5q
  for openipmi-developer@lists.sourceforge.net;
- Tue, 14 Jan 2025 22:02:44 +0000
+ Tue, 14 Jan 2025 22:02:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=FvwpfrEgGuj6O2Lps8W2ZtH+Fx+MCupa6IfkENeBymw=; b=j64L86+Jq9ywTBji+35wfNPrpj
- 0aZfsECQ+BMKYolguD4vN3WNMf+hJtaCBDmzQaZ3Q8GV5hiN+N+TjFp40vQ8OxQIqQ62VeOt3a3dW
- 8KGqaTSI9iC5b9UTJS2q7gcm3d3UfCqP3qkd+IlryuVZxIPQRhkxDvR0FejB9JKyUgHY=;
+ bh=kvT1XISWemI7eWoTeyROmYKlBgLHtamPdwfYh7kIPQI=; b=V0MnCWlI5lmXpOiHnmS2T4+E70
+ QpWZoQRV5oCnzsW++NlgF+rs8/xuJSqzjnsAJP7fKnG/rUT52tapl6JBu0jjk/Wqy7PserA9MRr17
+ V8D5OVCa19G7Bkn/+Fgi/VwJBLJfzWouTIFxMVDdH7OaDV5CP46crUV6JtPdpHkbg+hU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -31,56 +31,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=FvwpfrEgGuj6O2Lps8W2ZtH+Fx+MCupa6IfkENeBymw=; b=MSyiJiWSJgFyCjbcaRt3bsRLPB
- X664W1v4Vi7G5BID70VgNrvbI5DRcrLirUVbEgi4/Dmpxv7xpZGhAIcoAwVzZX7w/DTzK+jzre9iG
- MDcIjxzPhbTAAm+7mfSyOHlG/G39PoprO0p9IGxs36Icw/Mfw3HQ4cuqELW4v3FcHhqE=;
+ bh=kvT1XISWemI7eWoTeyROmYKlBgLHtamPdwfYh7kIPQI=; b=jBxqFcrK75skVDa94ZJNI51TMN
+ uUoNRqlmD5VVWhzHPWANnFpwAIcsPd+XHu5oWsFxJWqwwSVycFEgr/v5UHOqQM0jZ49CVnybxsN7f
+ t53uypKywFM6J6BGsrEcj0RCiCbSzgBOw1+XkwlQFVE/emBdEc5UV2z2ulDV/F+KZxEU=;
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tXozj-0001Ec-JU for openipmi-developer@lists.sourceforge.net;
- Tue, 14 Jan 2025 22:02:44 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50EJ0lh1022734;
- Tue, 14 Jan 2025 22:01:53 GMT
+ id 1tXozl-0001El-T6 for openipmi-developer@lists.sourceforge.net;
+ Tue, 14 Jan 2025 22:02:46 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50EClxMW029143;
+ Tue, 14 Jan 2025 22:01:54 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
  :content-transfer-encoding:date:from:in-reply-to:message-id
- :mime-version:references:subject:to; s=pp1; bh=FvwpfrEgGuj6O2Lps
- 8W2ZtH+Fx+MCupa6IfkENeBymw=; b=U77Eacmvy0HcUD4VbpNwu+pBTNIDGnKo+
- Rcjkc+R+93X2/2r7Mt5c8Gx1gmdT/R7rLCsbX1+ge8SJMg5Qumah4vlGDZkVLt3I
- ulRb+WximX5KC1fD7ngUe1/s1JlYhw1KslA16EZjT6Eaa020J3VUtWZVDK8+Inhu
- mhMVXs+XYCLclu2jwdx28FUvKMSX6+OYykRM2tOQFtru61npYNehKNKSZhFqvO1B
- swA4EPjBBzSVFVwFQ/XcXHy8ZrRfbd3X6pLEFIRFw/yGCO4lyeAYMAd9tVtisAX3
- dCv3evpuZxn5RpOM/NjRkSH7LsgnhayZs2TUNanBhJXanhdtD/Vxw==
+ :mime-version:references:subject:to; s=pp1; bh=kvT1XISWemI7eWoTe
+ yROmYKlBgLHtamPdwfYh7kIPQI=; b=VcKAV7mng3f4FRKBTOaeKmdJ6y2pqVEdo
+ hW1Ef8EelcvAxpMD6blqPG+v4W0xpHb7v2wodtq0mzMYax+auAPshl9HAD3LV0mx
+ jqMfQ/Kv7v3ap7yOQVeaylrxnDOqSY8c7CY+x7/VsU4ukA0WZBvIOpEm5CQgqGbk
+ UfcTNjSdwHhqd6a+pa9hSHSl+fNNxD++1koo78zEtVDRcYUIOqVqn8W/ctfLzHe5
+ m2qw5MiKegoF0YwmCTjK9US3f9exGe2YEeYGIe7naL4a8uQwKwIMhg7mDhlgXcej
+ JI9U1ICj+PaPChmenKi1yqEvGY70Dbsh8NqsrPzrcbuydIL7CKCgw==
 Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 445m433cpx-1
+ by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 445cnb4y8j-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
  Tue, 14 Jan 2025 22:01:53 +0000 (GMT)
-Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
- by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50EM1rdp018798;
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+ by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50ELvFHm013472;
  Tue, 14 Jan 2025 22:01:53 GMT
-Received: from ppma21.wdc07v.mail.ibm.com
- (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
- by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 445m433cps-1
+Received: from ppma22.wdc07v.mail.ibm.com
+ (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+ by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 445cnb4y8d-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
  Tue, 14 Jan 2025 22:01:53 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
- by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50ELcVU5007396;
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+ by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50ELHmIw002734;
  Tue, 14 Jan 2025 22:01:52 GMT
-Received: from smtprelay04.wdc07v.mail.ibm.com ([172.16.1.71])
- by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4443yn59uq-1
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+ by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4443by5dj4-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
  Tue, 14 Jan 2025 22:01:52 +0000
 Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com
  [10.241.53.105])
- by smtprelay04.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 50EM1pX227918778
+ by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 50EM1pQJ13238874
  (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
  Tue, 14 Jan 2025 22:01:51 GMT
 Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id DEBED58055;
- Tue, 14 Jan 2025 22:01:50 +0000 (GMT)
+ by IMSVA (Postfix) with ESMTP id 353365805D;
+ Tue, 14 Jan 2025 22:01:51 +0000 (GMT)
 Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 9B05A5805D;
+ by IMSVA (Postfix) with ESMTP id E6A5D5805F;
  Tue, 14 Jan 2025 22:01:50 +0000 (GMT)
 Received: from gfwa153.aus.stglabs.ibm.com (unknown [9.3.84.127])
  by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
@@ -93,23 +93,23 @@ To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  devicetree@vger.kernel.org, eajames@linux.ibm.com,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
  linux-kernel@vger.kernel.org
-Date: Tue, 14 Jan 2025 16:01:38 -0600
-Message-ID: <20250114220147.757075-5-ninad@linux.ibm.com>
+Date: Tue, 14 Jan 2025 16:01:39 -0600
+Message-ID: <20250114220147.757075-6-ninad@linux.ibm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250114220147.757075-1-ninad@linux.ibm.com>
 References: <20250114220147.757075-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
 X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: oT3G2yull-RzWSXTZQgoEimMRqk0itE_
-X-Proofpoint-GUID: pyHXKbzpIH46EZkHzZKJXP9Epf2o-r-h
+X-Proofpoint-ORIG-GUID: i06E3VT6US5i_cBUUY4GI9y965_73AMM
+X-Proofpoint-GUID: pkP5LmZoVsdNYoo5vwWMTKY97bEVmui0
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-01-14_07,2025-01-13_02,2024-11-22_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0
- lowpriorityscore=0 mlxscore=0 malwarescore=0 impostorscore=0 spamscore=0
- bulkscore=0 mlxlogscore=745 phishscore=0 priorityscore=1501 clxscore=1015
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ impostorscore=0
+ priorityscore=1501 bulkscore=0 phishscore=0 clxscore=1015 mlxscore=0
+ mlxlogscore=720 spamscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2411120000 definitions=main-2501140166
 X-Spam-Score: -2.6 (--)
 X-Spam-Report: Spam detection software,
@@ -118,14 +118,11 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: Add IPMB device sitting behind PCH module Signed-off-by:
- Ninad Palsule <ninad@linux.ibm.com> ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
- | 9 +++++++++ 1 file changed, 9 insertions(+) diff --git
- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
- b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts index
- 8f77bc9e860c..0d16987cfc80
- 100644 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc [...] 
+ Content preview:  Add following GPIO line name so that userspace can control
+ them - Flash write override - pch-reset Signed-off-by: Ninad Palsule
+ <ninad@linux.ibm.com>
+ --- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 2 +- 1 file changed, 
+ 1 insertion(+), 1 deletion(-) 
  Content analysis details:   (-2.6 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -145,14 +142,15 @@ X-Spam-Report: Spam detection software,
  [148.163.158.5 listed in bl.score.senderscore.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 WEIRD_QUOTING          BODY: Weird repeated double-quotation marks
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
-X-Headers-End: 1tXozj-0001Ec-JU
-Subject: [Openipmi-developer] [PATCH v5 04/10] ARM: dts: aspeed: system1:
- Add IPMB device
+X-Headers-End: 1tXozl-0001El-T6
+Subject: [Openipmi-developer] [PATCH v5 05/10] ARM: dts: aspeed: system1:
+ Add GPIO line name
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -173,33 +171,28 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Add IPMB device sitting behind PCH module
+Add following GPIO line name so that userspace can control them
+    - Flash write override
+    - pch-reset
 
 Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-index 8f77bc9e860c..0d16987cfc80 100644
+index 0d16987cfc80..973169679c8d 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-@@ -763,6 +763,15 @@ i2c3mux0chn7: i2c@7 {
- 
- &i2c4 {
- 	status = "okay";
-+	multi-master;
-+	bus-frequency = <1000000>;
-+
-+	ipmb@10 {
-+		compatible = "ipmb-dev";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+
-+		i2c-protocol;
-+	};
- };
- 
- &i2c5 {
+@@ -370,7 +370,7 @@ &gpio0 {
+ 	/*K0-K7*/	"","","","","","","","",
+ 	/*L0-L7*/	"","","","","","","","bmc-ready",
+ 	/*M0-M7*/	"","","","","","","","",
+-	/*N0-N7*/	"fpga-debug-enable","","","","","","","",
++	/*N0-N7*/	"pch-reset","","","","","flash-write-override","","",
+ 	/*O0-O7*/	"","","","","","","","",
+ 	/*P0-P7*/	"","","","","","","","bmc-hb",
+ 	/*Q0-Q7*/	"","","","","","","pch-ready","",
 -- 
 2.43.0
 
