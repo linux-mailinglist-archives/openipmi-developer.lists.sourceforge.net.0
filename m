@@ -2,117 +2,156 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 440A8A1934A
-	for <lists+openipmi-developer@lfdr.de>; Wed, 22 Jan 2025 15:06:16 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8FB0FA194C1
+	for <lists+openipmi-developer@lfdr.de>; Wed, 22 Jan 2025 16:11:05 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tabMy-0006YI-D1;
-	Wed, 22 Jan 2025 14:06:11 +0000
+	id 1tacNg-0006k4-M2;
+	Wed, 22 Jan 2025 15:11:00 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <maxime.chevallier@bootlin.com>) id 1tabMq-0006Y6-A6
+ (envelope-from <ninad@linux.ibm.com>) id 1tacNe-0006jn-Ey
  for openipmi-developer@lists.sourceforge.net;
- Wed, 22 Jan 2025 14:06:04 +0000
+ Wed, 22 Jan 2025 15:10:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Cc:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=u6A2D9Gp6FOhIbSWgb9j5UrKEP+ZhUZ+HlhkvNqPm+8=; b=GodKN2gDCPuGnv34TonF+XHjsD
- rZfj/bUz7X+8UlQS1v6Q8o/sO3/7ffcz88Vty9Sm/xqEF+FQ7k4vzBYMBnqEb9UoVQFXSJQ0Ez6Yp
- NOfm0Y6iSAxzz1KQuG6t2v0OW6ALl0lq0CtnEHnAeJHFa7xiiN2EkKa0diTGGqJzgnQw=;
+ bh=iP6JYLAn3kSqxDMH1x2eypCfziCgLVwxubhfad9Yzqg=; b=EEn38EV9aHhE74F6BLvOcubMjI
+ n1mfpHpJ/DMyu/Ed8SB1b4hbKukf1DmrP842PjTBdr1uci1JAAM8sPskSJukCQAgJJCXxu/WJ2hAC
+ 8J0x0PMMZbsJ7YnVd8RbggxPR7sM16NG2L07lu9UDAr7twgzVtnNsp8gw5+D/cdRtl8Y=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
- In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=u6A2D9Gp6FOhIbSWgb9j5UrKEP+ZhUZ+HlhkvNqPm+8=; b=WYpxOA+4bXxARudQVbm2CaAULz
- gDeFr98UPBJpXYubD9I1xmNgPkd3QngtzU/KwmdR2TXWfRQySZCEnMt0MXh05PUBsyK1onNcuV2DT
- VDNwzkXkDlxBfkT0c8AoXaZ8H1/OVelPLLzQzBkpvTSSDqYKbYgOD678zAXeZ9mfg9TY=;
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+ bh=iP6JYLAn3kSqxDMH1x2eypCfziCgLVwxubhfad9Yzqg=; b=kw7J5RiuxSGRKwALfNhts9+GcK
+ 78WXbsFqoeanL2xmGyKGX5i3rsYhDqxrW6GeKfGTB/iSEETKeXia2mDdIR84uQy7lQ0py37qKroPU
+ WSgsVDg/ZggvujGw+iHX3hZ9bJvPufSuNKgXrHgwL7q7whokJmw5Z1+cjRvls42tW2tE=;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tabMl-0005TN-Ke for openipmi-developer@lists.sourceforge.net;
- Wed, 22 Jan 2025 14:06:01 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9D40F1BF208;
- Wed, 22 Jan 2025 14:05:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
- t=1737554747;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=u6A2D9Gp6FOhIbSWgb9j5UrKEP+ZhUZ+HlhkvNqPm+8=;
- b=j45+Wj0bkZUjkfE2K7uxrujT3U0CBiljadFY9MriVnVTIHNFfsdFA5xnU5ptdu/wlydT4b
- n2vJbfLP+TmM0g0MR4H0vd5fJviqvSdbh8lgC+59TU/F7Kg9mInq2xT1/fXyc8Tympc6pG
- SC1r2wzqeAOGO3MYoRZWhHoz94AxeCf6w7Sg90jqLyrtUdnL1bBgjkNRgxmFFzVSP+iS14
- gMCgNt+ynhl7pYBKfOnoTLNBgl1YBVjuodqnbWHX3XtTAebrVCkdoAeIJFUCtV2Rus55TL
- 9HF2d9LlA3ulb67ms7LaA+aWcA3fGjTx4RxCyixqFvkjd/WiVeMYS9QNDhjXUQ==
-Date: Wed, 22 Jan 2025 15:05:42 +0100
-To: Andrew Lunn <andrew@lunn.ch>
-Message-ID: <20250122150542.55d483e6@fedora.home>
-In-Reply-To: <c83f0193-ce24-4a3e-87d1-f52587e13ca4@lunn.ch>
-References: <59116067-0caa-4666-b8dc-9b3125a37e6f@lunn.ch>
- <SEYPR06MB51344BA59830265A083469489D132@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <8042c67c-04d3-41c0-9e88-8ce99839f70b@lunn.ch>
- <c0b653ea-3fe0-4bdb-9681-bf4e3ef1364a@linux.ibm.com>
- <c05c0476-c8bd-42f4-81da-7fe96e8e503b@lunn.ch>
- <SEYPR06MB5134A63DBE28AA1305967A0C9D1C2@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <9fbc6f4c-7263-4783-8d41-ac2abe27ba95@lunn.ch>
- <81567190-a683-4542-a530-0fb419f5f9be@linux.ibm.com>
- <0ee94fd3-d099-4d82-9ba8-eb1939450cc3@lunn.ch>
- <20250122140719.5629ae57@fedora.home>
- <c83f0193-ce24-4a3e-87d1-f52587e13ca4@lunn.ch>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+ id 1tacNd-0000vw-O6 for openipmi-developer@lists.sourceforge.net;
+ Wed, 22 Jan 2025 15:10:58 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M7XBIe013509;
+ Wed, 22 Jan 2025 15:10:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
+ content-transfer-encoding:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to; s=pp1; bh=iP6JYL
+ An3kSqxDMH1x2eypCfziCgLVwxubhfad9Yzqg=; b=oe++BO6+6YaXyzZAzm2Vfe
+ asicoVzK9bzTB/35VuO19PVEov7mApKRfkrMPWfXeOYra4CfAHA1mr1lktJZf+Zv
+ 7Ag47fEY1i4UAi0CIPAeRwcVKNEIxnyKJu8N3fCxyPbnRLrntjgJpBs/IceK1iFY
+ DJ7Fcy/106hdA/XY9MUWQ+C6qe99C20B91IyKrbYXZSwRt6YAUE85U9C+ggslZsg
+ oOtEDkspkp2eVrgL7hks82sba8qZ1mgGWNzvkte47E8yHqCo3YaHrCt130KCF9n7
+ nkQmY5mPCFK++maitW6BhKlvOsH9XirJYldKMx8KATkRgth6qWytCDqGgNEdpqfA
+ ==
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44avcp2183-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 22 Jan 2025 15:10:28 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+ by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50MF5I64021452;
+ Wed, 22 Jan 2025 15:10:28 GMT
+Received: from ppma21.wdc07v.mail.ibm.com
+ (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+ by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44avcp2180-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 22 Jan 2025 15:10:28 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+ by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50MEWxV4029604;
+ Wed, 22 Jan 2025 15:10:27 GMT
+Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
+ by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 448qmngxum-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 22 Jan 2025 15:10:27 +0000
+Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com
+ [10.241.53.105])
+ by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 50MFAQnW30474798
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 22 Jan 2025 15:10:26 GMT
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id BBCE258043;
+ Wed, 22 Jan 2025 15:10:26 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 21C2658055;
+ Wed, 22 Jan 2025 15:10:25 +0000 (GMT)
+Received: from [9.67.103.45] (unknown [9.67.103.45])
+ by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
+ Wed, 22 Jan 2025 15:10:25 +0000 (GMT)
+Message-ID: <79c859c6-ff59-4641-8ae7-4136d7c3724e@linux.ibm.com>
+Date: Wed, 22 Jan 2025 09:10:24 -0600
 MIME-Version: 1.0
-X-GND-Sasl: maxime.chevallier@bootlin.com
-X-Spam-Score: -0.9 (/)
+User-Agent: Mozilla Thunderbird
+To: minyard@acm.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com,
+ openipmi-developer@lists.sourceforge.net, netdev@vger.kernel.org,
+ joel@jms.id.au, andrew@codeconstruct.com.au,
+ devicetree@vger.kernel.org, eajames@linux.ibm.com,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+References: <20250116203527.2102742-1-ninad@linux.ibm.com>
+ <20250116203527.2102742-3-ninad@linux.ibm.com>
+Content-Language: en-US
+In-Reply-To: <20250116203527.2102742-3-ninad@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 6-n8PCpmb03FndjCSeNg3mA0W6V6JDMb
+X-Proofpoint-GUID: vA3A8Mv6S_n51l7CjcDZtEnBqfbDtcHD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_06,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0
+ bulkscore=0 mlxlogscore=838 spamscore=0 phishscore=0 mlxscore=0
+ suspectscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501220111
+X-Spam-Score: -0.8 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: > > Can we consider an update in the kernel doc along these
- lines : > > > > --- > > Documentation/networking/phy.rst | 19
- +++++++++++--------
- > > 1 file changed, 11 insertions(+), 8 deletions(-) > > > [...] 
- Content analysis details:   (-0.9 points, 6.0 required)
+ Content preview:  Hello Corey, Rob & Krzysztof On 1/16/25 14:35, Ninad Palsule
+ wrote: > Add device tree binding document for the IPMB device interface.
+ > This device is already in use in both driver and .dts files. > >
+ Signed-off-by: Ninad Palsule [...] 
+ Content analysis details:   (-0.8 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.201 listed in list.dnswl.org]
- 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [217.70.183.201 listed in sa-trusted.bondedsender.org]
+ low trust [148.163.158.5 listed in list.dnswl.org]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [217.70.183.201 listed in bl.score.senderscore.com]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.183.201 listed in wl.mailspike.net]
+ [148.163.158.5 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [148.163.158.5 listed in sa-accredit.habeas.com]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
-X-Headers-End: 1tabMl-0005TN-Ke
-Subject: Re: [Openipmi-developer] 
- =?utf-8?b?5Zue6KaGOiDlm57opoY6IFtQQVRDSCB2?=
- =?utf-8?q?2_05/10=5D_ARM=3A_dts=3A_aspeed=3A_system1=3A_Add_RGMII_support?=
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [148.163.158.5 listed in wl.mailspike.net]
+X-Headers-End: 1tacNd-0000vw-O6
+Subject: Re: [Openipmi-developer] [PATCH v6 02/10] bindings: ipmi: Add
+ binding for IPMB device intf
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -125,119 +164,27 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Maxime Chevallier via Openipmi-developer
+From: Ninad Palsule via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
-Reply-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Jacky Chou <jacky_chou@aspeedtech.com>,
- "pabeni@redhat.com" <pabeni@redhat.com>, "minyard@acm.org" <minyard@acm.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "eajames@linux.ibm.com" <eajames@linux.ibm.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Ninad Palsule <ninad@linux.ibm.com>,
- "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
- "edumazet@google.com" <edumazet@google.com>,
- "ratbert@faraday-tech.com" <ratbert@faraday-tech.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "openipmi-developer@lists.sourceforge.net"
- <openipmi-developer@lists.sourceforge.net>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: Ninad Palsule <ninad@linux.ibm.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-> > Can we consider an update in the kernel doc along these lines :
-> > 
-> > ---
-> >  Documentation/networking/phy.rst | 19 +++++++++++--------
-> >  1 file changed, 11 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/Documentation/networking/phy.rst b/Documentation/networking/phy.rst
-> > index f64641417c54..7ab77f9867a0 100644
-> > --- a/Documentation/networking/phy.rst
-> > +++ b/Documentation/networking/phy.rst
-> > @@ -106,14 +106,17 @@ Whenever possible, use the PHY side RGMII delay for these reasons:
-> >    configure correctly a specified delay enables more designs with similar delay
-> >    requirements to be operated correctly
-> >  
-> > -For cases where the PHY is not capable of providing this delay, but the
-> > -Ethernet MAC driver is capable of doing so, the correct phy_interface_t value
-> > -should be PHY_INTERFACE_MODE_RGMII, and the Ethernet MAC driver should be
-> > -configured correctly in order to provide the required transmit and/or receive
-> > -side delay from the perspective of the PHY device. Conversely, if the Ethernet
-> > -MAC driver looks at the phy_interface_t value, for any other mode but
-> > -PHY_INTERFACE_MODE_RGMII, it should make sure that the MAC-level delays are
-> > -disabled.
-> > +The MAC driver may add delays if the PCB doesn't include any. This can be
-> > +detected based on firmware "rx-internal-delay-ps" and "tx-internal-delay-ps"
-> > +properties.
-> > +
-> > +When the MAC driver can insert the delays, it should always do so when these
-> > +properties are present and non-zero, regardless of the RGMII mode specified.
-> > +
-> > +However, the MAC driver must adjust the PHY_INTERFACE_MODE_RGMII_* mode it passes
-> > +to the connected PHY device (through phy_attach or phylink_create() for example)
-> > +to account for MAC-side delay insertion, so that the the PHY device knows
-> > +if any delays still needs insertion on either TX or RX paths.  
-> 
-> You dropped:
-> 
->    For cases where the PHY is not capable of providing this delay...
-> 
-> This is something i would like to keep, to strengthen that we really
-> do want the PHY to add the delays. Many MACs are capable of adding
-> delays, but we don't want them to, the PHY should do it, so we have
-> consistency.
-> 
-> The language i've tried to use is that "rx-internal-delay-ps" and
-> "tx-internal-delay-ps" can be used to fine tune the delays, so i'm
-> expecting their values to be small, because the PHY is adding the 2ns,
-> and the MAC is just adding/removing 0-200ps etc. I've also used the
-> same terminology for PHY drivers, the PHY DT properties for delays are
-> used for fine tuning, but the basic 2ns on/off comes from the phy-mode
-> passed to phylib.
-> 
-> If it is just fine tuning, and not adding the full 2ns, it should just
-> pass phy-mode straight through.
-> 
-> So your text becomes something like:
-> 
->   The MAC driver may fine tune the delays. This can be configured
->   based on firmware "rx-internal-delay-ps" and "tx-internal-delay-ps"
->   properties. These values are expected to be small, not the full 2ns
->   delay.
-> 
->   A MAC driver inserting these fine tuning delays should always do so
->   when these properties are present and non-zero, regardless of the
->   RGMII mode specified.
-> 
-> Then we can address when the MAC adds the full 2ns.
-> 
->   For cases where the PHY is not capable of providing the 2ns delay,
->   the MAC must provide it, if the phy-mode indicates the PCB is not
->   providing the delays. The MAC driver must adjust the
->   PHY_INTERFACE_MODE_RGMII_* mode it passes to the connected PHY
->   device (through phy_attach or phylink_create() for example) to
->   account for MAC-side delay insertion, so that the the PHY device
->   does not add additional delays.
-> 
-> I also think we need something near the beginning like:
-> 
->   The device tree property phy-mode describes the hardware. When used
->   with RGMII, its value indicates if the hardware, i.e. the PCB,
->   provides the 2ns delay required for RGMII. A phy-mode of 'rgmii'
->   indicates the PCB is adding the 2ns delay. For other values, the
->   MAC/PHY pair must insert the needed 2ns delay, with the strong
->   preference the PHY adds the delay.
+Hello Corey, Rob & Krzysztof
 
-Thanks Andrew for the suggestions, your wording is definitely better
-than mine :) I'll queue that for when net-next re-opens.
+On 1/16/25 14:35, Ninad Palsule wrote:
+> Add device tree binding document for the IPMB device interface.
+> This device is already in use in both driver and .dts files.
+> 
+> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 
-Maxime
+Do you have further comments on this? If not can you please send the ACK?
+
+-- 
+Thanks & Regards,
+Ninad
+
 
 
 _______________________________________________
