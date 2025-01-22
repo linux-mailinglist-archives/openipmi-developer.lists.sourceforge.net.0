@@ -2,66 +2,83 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 37DA3A19156
-	for <lists+openipmi-developer@lfdr.de>; Wed, 22 Jan 2025 13:26:16 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id C40D5A1918C
+	for <lists+openipmi-developer@lfdr.de>; Wed, 22 Jan 2025 13:42:11 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1taZny-0003v6-UA;
-	Wed, 22 Jan 2025 12:25:59 +0000
+	id 1taa3W-0007Sv-7t;
+	Wed, 22 Jan 2025 12:42:02 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <joel.granados@kernel.org>) id 1taZnx-0003v0-Fx
+ (envelope-from <ardb@kernel.org>) id 1taa3U-0007Sg-3V
  for openipmi-developer@lists.sourceforge.net;
- Wed, 22 Jan 2025 12:25:58 +0000
+ Wed, 22 Jan 2025 12:42:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
+ In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=GKsy0CgAI7HNXTSqszrGM2CRCHMFPbrE3yv+YuKGi6g=; b=Ood1+tMCE9die6P1Mm5GvhKpd+
- DLL3WEAizReHLVDaOuf6uQvPyeVgCkUL4V1h4KRF1xUQ+z27lZq1y2scVk0TNz4bWb4If1K8im14D
- +NwpMNN9KDVBjouqE9hVRXWAHAeusV0TalP/T8rP32wPkfW/dZxr2kqFXcjItair3P3g=;
+ bh=/nRt7/FOVju0HHPP7y/y/GmcikIqd0uun9LCjQjrq7E=; b=mF4OL/rpebnnf2stBHpVGY7mnw
+ 78VguOFgB1Qy7ov2jjesPptJagAcbNBCvFxpCmfSF7ae7kq8CzUZxs+3Q3CPVS4iFZgAFHeLHo7W1
+ vtxmLk/dq3ubYfj3+d7302qS+fkEiG1hx5HkURFnvzUM+LtTBLjNcicEDNWWCoJ2ghSk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=GKsy0CgAI7HNXTSqszrGM2CRCHMFPbrE3yv+YuKGi6g=; b=mKCaxGc8C4PHIEPQiYH+GhN3vn
- QrpTPiyUiV3hhT2ZdsAhUS1IK7k0zVk2KQTNTWRIrVOuBH8QitzEquAxndORxuukNUlexrrC5eFGG
- NLklL2nwyxATGaKVjLrGBb951beFD6fOR1mbAaAIL/Hkmm8lCuCWLasEmyVaQ0jmF8cc=;
+ bh=/nRt7/FOVju0HHPP7y/y/GmcikIqd0uun9LCjQjrq7E=; b=hBdnEjlxRZDdXiaSdWazULgNJN
+ /fOL9SI0qVXwFH8UoZRPbUpzz39o7sAKSWsGhrdhHBqxc92YzGahN5lI8ZD0iwikxPoMFr4siqlJ5
+ JSySKu45lXpR1QFShjbr2EmC0xuXI/uL5jP2W5WtoqEag5LK/W8AQEUg2r7k1XHWjjzk=;
 Received: from dfw.source.kernel.org ([139.178.84.217])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1taZnx-0008TT-D4 for openipmi-developer@lists.sourceforge.net;
- Wed, 22 Jan 2025 12:25:58 +0000
+ id 1taa3T-000190-Ce for openipmi-developer@lists.sourceforge.net;
+ Wed, 22 Jan 2025 12:42:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by dfw.source.kernel.org (Postfix) with ESMTP id 8086E5C54FD;
- Wed, 22 Jan 2025 12:25:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DED6C4CED6;
- Wed, 22 Jan 2025 12:25:51 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTP id 6EE0B5C5EAD
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 22 Jan 2025 12:41:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 677E8C4CEE9
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 22 Jan 2025 12:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1737548751;
- bh=Xfp892u0X0rMtHWkGD3r2bVHj+FTM/t28M4VtoJ0Wyc=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=ZRnNn+6Tt76019xBirdMVmzRbeL8Q2odMq6HFhgkth9P5ZrYdpErYPlXsxL6Fl3rj
- ZI5VtP10jvH/fQAv6HRDykVpsfGmvb0d/xEWjnDE5tgAnq++jvuWWHT6WYDemhqEh2
- qhtEzGq7/MMx5/wpO74r4FRgEujUuclOLSKI/Yy3NZM6X5dfnqSKY4Ag8uJB7GG8XW
- AQ7J/NzQdgEpLRKLYUKh7jqPAvOBjZZ+gq5nRJ0qTwqiguA+mChUjtx0pX3QTt2bwy
- E0gMyTw1G3DnV5TJGaTuN+E86ySP5PQe5fDrGHlTa+/9p9roru7zJ1Awo7fm8PfyZm
- vQJdRIi7afA0Q==
-Date: Wed, 22 Jan 2025 13:25:46 +0100
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Message-ID: <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
+ s=k20201202; t=1737549708;
+ bh=/nRt7/FOVju0HHPP7y/y/GmcikIqd0uun9LCjQjrq7E=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=VoyrM/KR3y6SyzXqcrUXIeXUzSXAukF1jTugO3Tp/XeZbDQsZz0btjWFVZexImUyA
+ GNv9Ye0JlCb6LXyPS9Jx9MVxR+Wdtkk0Ms+qZSrA1Lr8Xe+0i9vU/ISeGtF/6vb7Vs
+ 1Uj3RovlFmNzqVfmuzQ82cCacT+Fx0ki2YqsVx1IY92F3iqqKCafCCMLWLqphwdRxg
+ srLeLPCzyALTJw1qCRW7tcb44xO01Rx4zDtdApARN9p2pthq2z1LppbizS751cMHo9
+ cZn++ylUYdHjeWMHwboi8qRzV/CerfY2kd1XCsOqWLze560AIlYM8svAXpyzid0N54
+ v69z43CGgr7bQ==
+Received: by mail-lj1-f171.google.com with SMTP id
+ 38308e7fff4ca-3022484d4e4so70972141fa.1
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 22 Jan 2025 04:41:48 -0800 (PST)
+X-Forwarded-Encrypted: i=1;
+ AJvYcCUxV4psBoHt8crGioZSP6yWAaIDvf2WphorbJiWEUgozGa2K9ZuMS+C5Hz5zahYNTUZqVxhcZXgtlSIIc8cm43wow8=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YxGbdb+djfEqX2CUid21qAxfpdtH/SCj+mokAeJ4sPDCImprJuK
+ 9OcXiHcLu4ELt4xsay4YMs9UeXH7kn0dRmRFvXtNAY8NdKnuaTpY6PmSN/xi8VWzfeRjWMlus44
+ 6LdIkSscZO2puZH0E82KtPJZ4850=
+X-Google-Smtp-Source: AGHT+IFcRSReB7hah7mapcirnp1PWu31SswN3BbR4HjBYPEG79Tzl030J0TjqkE7fYQS4xaDIi2/KgOUqh2J3fswv1A=
+X-Received: by 2002:a05:651c:2228:b0:302:4130:e19c with SMTP id
+ 38308e7fff4ca-3072caa15c1mr71017091fa.19.1737549706586; Wed, 22 Jan 2025
+ 04:41:46 -0800 (PST)
+MIME-Version: 1.0
 References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
  <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
+In-Reply-To: <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
+Date: Wed, 22 Jan 2025 13:41:35 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
+X-Gm-Features: AbW1kvaDj3u8bGVj1m4rnYAkpiRSTpmPAB3bThAH-GyuG2Tmgw9okzkp1e58uCc
+Message-ID: <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
+To: Joel Granados <joel.granados@kernel.org>
 X-Spam-Score: -8.2 (--------)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
@@ -69,14 +86,20 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev
- wrote: > On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote: >
- > Hi Joel, > > > Add the const qualifier to all the ctl_tables in [...] 
+ Content preview:  On Wed, 22 Jan 2025 at 13:25,
+ Joel Granados <joel.granados@kernel.org>
+ wrote: > > On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
+ > > On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel [...] 
  Content analysis details:   (-8.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
  high trust [139.178.84.217 listed in list.dnswl.org]
+ 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [139.178.84.217 listed in bl.score.senderscore.com]
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
@@ -84,11 +107,6 @@ X-Spam-Report: Spam detection software,
  [139.178.84.217 listed in sa-trusted.bondedsender.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [139.178.84.217 listed in bl.score.senderscore.com]
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -97,7 +115,7 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -3.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1taZnx-0008TT-D4
+X-Headers-End: 1taa3T-000190-Ce
 Subject: Re: [Openipmi-developer] [PATCH v2] treewide: const qualify
  ctl_tables where applicable
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -112,14 +130,15 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Joel Granados via Openipmi-developer
+From: Ard Biesheuvel via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
-Reply-To: Joel Granados <joel.granados@kernel.org>
+Reply-To: Ard Biesheuvel <ardb@kernel.org>
 Cc: linux-aio@kvack.org, linux-hyperv@vger.kernel.org,
  Corey Minyard <cminyard@mvista.com>, Kees Cook <kees@kernel.org>,
  "Darrick J. Wong" <djwong@kernel.org>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, keyrings@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-riscv@lists.infradead.org,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, linux-mm@kvack.org,
+ keyrings@vger.kernel.org, linux-hardening@vger.kernel.org,
+ Alexander Gordeev <agordeev@linux.ibm.com>, linux-riscv@lists.infradead.org,
  io-uring@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-scsi@vger.kernel.org, linux-rdma@vger.kernel.org,
  linux-security-module@vger.kernel.org, codalist@coda.cs.cmu.edu,
@@ -131,8 +150,7 @@ Cc: linux-aio@kvack.org, linux-hyperv@vger.kernel.org,
  intel-xe@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
  fsverity@lists.linux.dev, linux-nfs@vger.kernel.org,
  "Martin K. Petersen" <martin.petersen@oracle.com>, Song Liu <song@kernel.org>,
- kexec@lists.infradead.org,
- Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+ kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-xfs@vger.kernel.org, Luis Chamberlain <mcgrof@kernel.org>,
  linux-crypto@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  netfs@lists.linux.dev, bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
@@ -140,153 +158,61 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
-> On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
-> 
-> Hi Joel,
-> 
-> > Add the const qualifier to all the ctl_tables in the tree except for
-> > watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
-> > loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
-> > drivers/inifiniband dirs). These are special cases as they use a
-> > registration function with a non-const qualified ctl_table argument or
-> > modify the arrays before passing them on to the registration function.
-> > 
-> > Constifying ctl_table structs will prevent the modification of
-> > proc_handler function pointers as the arrays would reside in .rodata.
-> > This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
-> > constify the ctl_table argument of proc_handlers") constified all the
-> > proc_handlers.
-> 
-> I could identify at least these occurences in s390 code as well:
-Hey Alexander
+On Wed, 22 Jan 2025 at 13:25, Joel Granados <joel.granados@kernel.org> wrote:
+>
+> On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
+> > On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
+> >
+> > Hi Joel,
+> >
+> > > Add the const qualifier to all the ctl_tables in the tree except for
+> > > watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
+> > > loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
+> > > drivers/inifiniband dirs). These are special cases as they use a
+> > > registration function with a non-const qualified ctl_table argument or
+> > > modify the arrays before passing them on to the registration function.
+> > >
+> > > Constifying ctl_table structs will prevent the modification of
+> > > proc_handler function pointers as the arrays would reside in .rodata.
+> > > This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
+> > > constify the ctl_table argument of proc_handlers") constified all the
+> > > proc_handlers.
+> >
+> > I could identify at least these occurences in s390 code as well:
+> Hey Alexander
+>
+> Thx for bringing these to my attention. I had completely missed them as
+> the spatch only deals with ctl_tables outside functions.
+>
+> Short answer:
+> These should not be included in the current patch because they are a
+> different pattern from how sysctl tables are usually used. So I will not
+> include them.
+>
+> With that said, I think it might be interesting to look closer at them
+> as they seem to be complicating the proc_handler (I have to look at them
+> closer).
+>
+> I see that they are defining a ctl_table struct within the functions and
+> just using the data (from the incoming ctl_table) to forward things down
+> to proc_do{u,}intvec_* functions. This is very odd and I have only seen
+> it done in order to change the incoming ctl_table (which is not what is
+> being done here).
+>
+> I will take a closer look after the merge window and circle back with
+> more info. Might take me a while as I'm not very familiar with s390
+> code; any additional information on why those are being used inside the
+> functions would be helpfull.
+>
 
-Thx for bringing these to my attention. I had completely missed them as
-the spatch only deals with ctl_tables outside functions.
+Using const data on the stack is not as useful, because the stack is
+always mapped writable.
 
-Short answer:
-These should not be included in the current patch because they are a
-different pattern from how sysctl tables are usually used. So I will not
-include them.
-
-With that said, I think it might be interesting to look closer at them
-as they seem to be complicating the proc_handler (I have to look at them
-closer).
-
-I see that they are defining a ctl_table struct within the functions and
-just using the data (from the incoming ctl_table) to forward things down
-to proc_do{u,}intvec_* functions. This is very odd and I have only seen
-it done in order to change the incoming ctl_table (which is not what is
-being done here).
-
-I will take a closer look after the merge window and circle back with
-more info. Might take me a while as I'm not very familiar with s390
-code; any additional information on why those are being used inside the
-functions would be helpfull.
-
-Best
-
-
-> 
-> diff --git a/arch/s390/appldata/appldata_base.c b/arch/s390/appldata/appldata_base.c
-> index dd7ba7587dd5..9b83c318f919 100644
-> --- a/arch/s390/appldata/appldata_base.c
-> +++ b/arch/s390/appldata/appldata_base.c
-> @@ -204,7 +204,7 @@ appldata_timer_handler(const struct ctl_table *ctl, int write,
->  {
->  	int timer_active = appldata_timer_active;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &timer_active,
->  		.maxlen		= sizeof(int),
-> @@ -237,7 +237,7 @@ appldata_interval_handler(const struct ctl_table *ctl, int write,
->  {
->  	int interval = appldata_interval;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &interval,
->  		.maxlen		= sizeof(int),
-> @@ -269,7 +269,7 @@ appldata_generic_handler(const struct ctl_table *ctl, int write,
->  	struct list_head *lh;
->  	int rc, found;
->  	int active;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.data		= &active,
->  		.maxlen		= sizeof(int),
->  		.extra1		= SYSCTL_ZERO,
-> diff --git a/arch/s390/kernel/hiperdispatch.c b/arch/s390/kernel/hiperdispatch.c
-> index 7857a7e8e56c..7d0ba16085c1 100644
-> --- a/arch/s390/kernel/hiperdispatch.c
-> +++ b/arch/s390/kernel/hiperdispatch.c
-> @@ -273,7 +273,7 @@ static int hiperdispatch_ctl_handler(const struct ctl_table *ctl, int write,
->  {
->  	int hiperdispatch;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &hiperdispatch,
->  		.maxlen		= sizeof(int),
-> diff --git a/arch/s390/kernel/topology.c b/arch/s390/kernel/topology.c
-> index 6691808bf50a..26e50de83d80 100644
-> --- a/arch/s390/kernel/topology.c
-> +++ b/arch/s390/kernel/topology.c
-> @@ -629,7 +629,7 @@ static int topology_ctl_handler(const struct ctl_table *ctl, int write,
->  	int enabled = topology_is_enabled();
->  	int new_mode;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &enabled,
->  		.maxlen		= sizeof(int),
-> @@ -658,7 +658,7 @@ static int polarization_ctl_handler(const struct ctl_table *ctl, int write,
->  {
->  	int polarization;
->  	int rc;
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &polarization,
->  		.maxlen		= sizeof(int),
-> diff --git a/arch/s390/mm/cmm.c b/arch/s390/mm/cmm.c
-> index 939e3bec2db7..8e354c90a3dd 100644
-> --- a/arch/s390/mm/cmm.c
-> +++ b/arch/s390/mm/cmm.c
-> @@ -263,7 +263,7 @@ static int cmm_pages_handler(const struct ctl_table *ctl, int write,
->  			     void *buffer, size_t *lenp, loff_t *ppos)
->  {
->  	long nr = cmm_get_pages();
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &nr,
->  		.maxlen		= sizeof(long),
-> @@ -283,7 +283,7 @@ static int cmm_timed_pages_handler(const struct ctl_table *ctl, int write,
->  				   loff_t *ppos)
->  {
->  	long nr = cmm_get_timed_pages();
-> -	struct ctl_table ctl_entry = {
-> +	const struct ctl_table ctl_entry = {
->  		.procname	= ctl->procname,
->  		.data		= &nr,
->  		.maxlen		= sizeof(long),
-> 
-> 
-> > Best regards,
-> > -- 
-> > Joel Granados <joel.granados@kernel.org>
-> 
-> Thanks!
-
--- 
-
-Joel Granados
+Global data structures marked 'const' will be moved into an ELF
+section that is typically mapped read-only in its entirely, and so the
+data cannot be modified by writing to it directly. No such protection
+is possible for the stack, and so the constness there is only enforced
+at compile time.
 
 
 _______________________________________________
