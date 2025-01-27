@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CD6CEA1D6DD
-	for <lists+openipmi-developer@lfdr.de>; Mon, 27 Jan 2025 14:33:10 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 212C4A1D74B
+	for <lists+openipmi-developer@lfdr.de>; Mon, 27 Jan 2025 14:51:15 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tcPEU-0001aM-LV;
-	Mon, 27 Jan 2025 13:32:55 +0000
+	id 1tcPVz-00021d-Ao;
+	Mon, 27 Jan 2025 13:50:59 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <andriy.shevchenko@intel.com>) id 1tcPET-0001Zz-MR
+ (envelope-from <joel.granados@kernel.org>) id 1tcPVM-0001yB-EO
  for openipmi-developer@lists.sourceforge.net;
- Mon, 27 Jan 2025 13:32:54 +0000
+ Mon, 27 Jan 2025 13:50:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=8zhSZmwclT1lFpSMh22BW/UMVkHqTlcnWx4Yhu83TkA=; b=lHyR9sd0BxBeEI/nB87Afg8wSL
- L2zT83yy8c9U/dKUNklBI1420q8YECi4J9P8Xo6TUin43j9sc1VZakj3i6zcbuwNLMG7ENkOiPvyO
- APIdSxOfH3c/tn75yh04AQvcxjWVtPHA8gT9LvQKQ0N4P/HifP1r5NszCZWUUL/F8gjU=;
+ bh=epQcBRbikRChnEcLD7GohI/p/yPUxTUqgScFKmNVdcQ=; b=RgM9j1P0tdmH4xriSGwyi9axio
+ l/vKOqmZ2YLgp/Md+1BqhUWag0+8XxMfGZwq0+CKzDxfN94buFiZQ9pueINlls70wjlzLlSiLr3yF
+ CxZ3F/Zzuhfku+fv0A7xDy/hvUDB/R4F1vdYo53NNq9prQ+f0Jhhkar1EWmL0K9qDDS0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -31,52 +31,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=8zhSZmwclT1lFpSMh22BW/UMVkHqTlcnWx4Yhu83TkA=; b=R/EycJVdHJPlCyK6LHUbvFt96V
- kUJMycAeBVNapcN0j1RJmJjBMqYJsF3nBzdFeY5q27d4MUHqzRkfVAjD23vbIEwUOQTZjWpNvx63x
- L/wqMZbXFiwdLoV2eWALmddEoczRUPqa6GWSWt6QGYktp+7GCn1klkw+pb5rZENdFJoY=;
-Received: from mgamail.intel.com ([198.175.65.15])
+ bh=epQcBRbikRChnEcLD7GohI/p/yPUxTUqgScFKmNVdcQ=; b=i7gyiOnmPLXOZkb09u1TK8p5um
+ Muutr9N5LDf+xWuLVSk8Qlaumad3kU3rRKtoTmczDQL99CD71Zxc/ivlvWktcXzEIRVcpiSLY3DPk
+ QE0XQsvUY5Pdk3m7qG4yPBcUQAMdcFArWhcCCjpJc0nBffhxWHxKCmcfkHbycymXceKc=;
+Received: from nyc.source.kernel.org ([147.75.193.91])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tcP7T-0007iR-80 for openipmi-developer@lists.sourceforge.net;
- Mon, 27 Jan 2025 13:25:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1737984339; x=1769520339;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:in-reply-to;
- bh=RjFj+btLOrA1I0c/0XDEPot6dd9rNyckywxmgkJzq3o=;
- b=MYtpikc+v5TIWLaHfnNr1YhaSZoBbcp045ZBRRtAGoX22MxD6mW9JJ/h
- x9wyYnPdKmsyLQvogXepMSOlsdhX1gMPBX0DzyDwOnLO/L+CG05/01ABu
- 4DMWPrl5cw7XeaQuyaqcgr4AydhqAXKKrZ4SEEJoiP/UHs6II+2PUxli+
- KQ0YCeD0bDiuNWngEo1kKFsRpNavDYoElN38okulOhExSeKD6YCbz4Zao
- JhsJE9o+o5jpshuS3QjvpgFi5jMQCtRXqLgE35pm0TDHSHocgPY08fCCv
- sWNLuZdLhDZ+YoVaDSej6Amu88VnQStur+0MtWStVh+1HtrxuHLcuuxuB Q==;
-X-CSE-ConnectionGUID: MQN4PPAeQoOZS0Mepk0eJQ==
-X-CSE-MsgGUID: aCQQwqeeStqBwpR6eYdrRw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11328"; a="42105384"
-X-IronPort-AV: E=Sophos;i="6.13,238,1732608000"; d="scan'208";a="42105384"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
- by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 27 Jan 2025 05:25:22 -0800
-X-CSE-ConnectionGUID: oOw//HyuRH2sXbDiVD3/cA==
-X-CSE-MsgGUID: F7vXYkyrSx2N1gt4t3xT9A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; d="scan'208";a="131730368"
-Received: from smile.fi.intel.com ([10.237.72.58])
- by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 27 Jan 2025 05:25:02 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
- (envelope-from <andriy.shevchenko@intel.com>)
- id 1tcP6l-00000005jpm-3fIe; Mon, 27 Jan 2025 15:24:55 +0200
-Date: Mon, 27 Jan 2025 15:24:55 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Message-ID: <Z5eJJ199QwL0HVJT@smile.fi.intel.com>
-References: <20240403080702.3509288-1-arnd@kernel.org>
+ id 1tcPVD-0000nd-4T for openipmi-developer@lists.sourceforge.net;
+ Mon, 27 Jan 2025 13:50:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+ by nyc.source.kernel.org (Postfix) with ESMTP id 554B0A4154E;
+ Mon, 27 Jan 2025 13:48:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 881ACC4CED2;
+ Mon, 27 Jan 2025 13:49:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1737985800;
+ bh=laZX1iWKmTFe6EBXe6dQ6V5dBHky9feUPubV8bbHYy0=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=ITreSYYkYqJo0yzT/NmeCNaU8ylN9fF82uixbVQhbAMNhn/x1ksvsdeN2BZIjx7Av
+ 6jRzLOfnz1KOiZ8BN/+a6yzSKjX86nOzP6ewnKK12LbyYoLRgr6MitIVZMs+Q9nRjt
+ 1O56sOuQWf9/oW9JBeL1K1Ep9SPnbGRY0gAqf1BfWdrmsV6P6rbrAzrEzJaWATIpCg
+ PxgyGHOSh+1Dp+na/sGNdWcGsgzNCRs4/nnMHS16Kt8UOkwJO9cYsDiIOKruHAZkDs
+ tuJVwo0MPlNeiRHuQkLVgJEWRQ8mSboCfx8PwGZonQ0+bdJkEjI8BLPDWS5oZchNDY
+ iBi9Q4ViZ4cfA==
+Date: Mon, 27 Jan 2025 14:49:55 +0100
+To: Ard Biesheuvel <ardb@kernel.org>
+Message-ID: <f4lfo2fb7ajogucsvisfd5sg2avykavmkizr6ycsllcrco4mo3@qt2zx4zp57zh>
+References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
+ <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
+ <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20240403080702.3509288-1-arnd@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
 X-Spam-Score: -3.8 (---)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
@@ -84,27 +71,27 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Apr 03, 2024 at 10:06:18AM +0200,
- Arnd Bergmann wrote:
- > From: Arnd Bergmann <arnd@arndb.de> > > Compilers traditionally warn for
- unused 'static' variables, but not > if they are constant. The [...] 
+ Content preview:  On Wed, Jan 22, 2025 at 01:41:35PM +0100,
+ Ard Biesheuvel wrote:
+ > On Wed, 22 Jan 2025 at 13:25, Joel Granados <joel.granados@kernel.org>
+ wrote: > > > > On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexan [...] 
  Content analysis details:   (-3.8 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [147.75.193.91 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [198.175.65.15 listed in sa-trusted.bondedsender.org]
+ [147.75.193.91 listed in sa-trusted.bondedsender.org]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [198.175.65.15 listed in bl.score.senderscore.com]
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [198.175.65.15 listed in list.dnswl.org]
- 0.0 T_SPF_TEMPERROR        SPF: test of record failed (temperror)
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ [147.75.193.91 listed in bl.score.senderscore.com]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
@@ -113,9 +100,9 @@ X-Spam-Report: Spam detection software,
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
  -1.3 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1tcP7T-0007iR-80
-Subject: Re: [Openipmi-developer] [PATCH 00/34] address all -Wunused-const
- warnings
+X-Headers-End: 1tcPVD-0000nd-4T
+Subject: Re: [Openipmi-developer] [PATCH v2] treewide: const qualify
+ ctl_tables where applicable
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -128,110 +115,100 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
- Heiko Stuebner <heiko@sntech.de>, "Rafael J. Wysocki" <rafael@kernel.org>,
- dri-devel@lists.freedesktop.org,
- Benjamin Tissoires <benjamin.tissoires@redhat.com>,
- Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
- Christoph Hellwig <hch@lst.de>, linux-samsung-soc@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>,
- Christophe Leroy <christophe.leroy@csgroup.eu>, linux-pm@vger.kernel.org,
- linux-sound@vger.kernel.org, Ian Abbott <abbotti@mev.co.uk>,
- linux-omap@vger.kernel.org, Trond Myklebust <trond.myklebust@hammerspace.com>,
- Alex Elder <elder@kernel.org>, Tero Kristo <kristo@kernel.org>,
- Xiang Chen <chenxiang66@hisilicon.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-spi@vger.kernel.org, H Hartley Sweeten <hsweeten@visionengravers.com>,
- Iyappan Subramanian <iyappan@os.amperecomputing.com>,
- linux-crypto@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- linux-trace-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Markuss Broks <markuss.broks@gmail.com>,
- Vaibhav Hiremath <hvaibhav.linux@gmail.com>, linux-i2c@vger.kernel.org,
- Lars-Peter Clausen <lars@metafoo.de>, Corey Minyard <minyard@acm.org>,
- Helge Deller <deller@gmx.de>, Lee Jones <lee@kernel.org>,
- linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, Yisen Zhuang <yisen.zhuang@huawei.com>,
- Len Brown <lenb@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Michael Hennerich <michael.hennerich@analog.com>, linux-kbuild@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, greybus-dev@lists.linaro.org,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
- Jarkko Sakkinen <jarkko@kernel.org>, Anna Schumaker <anna@kernel.org>,
- linux-integrity@vger.kernel.org, alsa-devel@alsa-project.org,
- Jonathan Cameron <jic23@kernel.org>, linux-efi@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-fpga@vger.kernel.org,
- linux-fbdev@vger.kernel.org, kasan-dev@googlegroups.com,
- Jiri Slaby <jirislaby@kernel.org>, linux-rtc@vger.kernel.org,
- Stanislaw Gruszka <stf_xl@wp.pl>, Masahiro Yamada <masahiroy@kernel.org>,
- linux-staging@lists.linux.dev, linux-input@vger.kernel.org,
- Jacky Huang <ychuang3@nuvoton.com>, Kees Cook <keescook@chromium.org>,
- Arnd Bergmann <arnd@arndb.de>, Jiri Kosina <jikos@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Steven Rostedt <rostedt@goodmis.org>,
- Nathan Chancellor <nathan@kernel.org>, Mark Brown <broonie@kernel.org>,
- Moritz Fischer <mdf@kernel.org>, openipmi-developer@lists.sourceforge.net,
- linux-nfs@vger.kernel.org, "Martin K. Petersen" <martin.petersen@oracle.com>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Sebastian Reichel <sre@kernel.org>, Peter Rosin <peda@axentia.se>,
- linux-stm32@st-md-mailman.stormreply.com, Tony Lindgren <tony@atomide.com>,
- Liviu Dudau <liviu.dudau@arm.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-ide@vger.kernel.org,
- Peter Huewe <peterhuewe@gmx.de>, Ard Biesheuvel <ardb@kernel.org>,
- linux-leds@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
- linux-scsi@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
- linux-serial@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
- Masami Hiramatsu <mhiramat@kernel.org>, Kalle Valo <kvalo@kernel.org>,
- John Allen <john.allen@amd.com>, netdev@vger.kernel.org,
- Bjorn Andersson <andersson@kernel.org>, Takashi Iwai <tiwai@suse.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Damien Le Moal <dlemoal@kernel.org>, dmaengine@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org
+From: Joel Granados via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Joel Granados <joel.granados@kernel.org>
+Cc: linux-aio@kvack.org, linux-hyperv@vger.kernel.org,
+ Corey Minyard <cminyard@mvista.com>, Kees Cook <kees@kernel.org>,
+ "Darrick J. Wong" <djwong@kernel.org>, dri-devel@lists.freedesktop.org,
+ Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, linux-mm@kvack.org,
+ keyrings@vger.kernel.org, linux-hardening@vger.kernel.org,
+ Alexander Gordeev <agordeev@linux.ibm.com>, linux-riscv@lists.infradead.org,
+ io-uring@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-security-module@vger.kernel.org, codalist@coda.cs.cmu.edu,
+ linux-serial@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-trace-kernel@vger.kernel.org, Jani Nikula <jani.nikula@intel.com>,
+ intel-gfx@lists.freedesktop.org, apparmor@lists.ubuntu.com,
+ "Steven Rostedt \(Google\)" <rostedt@goodmis.org>, linux-raid@vger.kernel.org,
+ ocfs2-devel@lists.linux.dev, openipmi-developer@lists.sourceforge.net,
+ intel-xe@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ fsverity@lists.linux.dev, linux-nfs@vger.kernel.org,
+ "Martin K. Petersen" <martin.petersen@oracle.com>, Song Liu <song@kernel.org>,
+ kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-xfs@vger.kernel.org, Luis Chamberlain <mcgrof@kernel.org>,
+ linux-crypto@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ netfs@lists.linux.dev, bpf@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Apr 03, 2024 at 10:06:18AM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Wed, Jan 22, 2025 at 01:41:35PM +0100, Ard Biesheuvel wrote:
+> On Wed, 22 Jan 2025 at 13:25, Joel Granados <joel.granados@kernel.org> wrote:
+> >
+> > On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
+> > > On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
+> > >
+> > > Hi Joel,
+> > >
+> > > > Add the const qualifier to all the ctl_tables in the tree except for
+> > > > watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
+> > > > loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
+> > > > drivers/inifiniband dirs). These are special cases as they use a
+> > > > registration function with a non-const qualified ctl_table argument or
+> > > > modify the arrays before passing them on to the registration function.
+> > > >
+> > > > Constifying ctl_table structs will prevent the modification of
+> > > > proc_handler function pointers as the arrays would reside in .rodata.
+> > > > This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
+> > > > constify the ctl_table argument of proc_handlers") constified all the
+> > > > proc_handlers.
+> > >
+> > > I could identify at least these occurences in s390 code as well:
+> > Hey Alexander
+> >
+> > Thx for bringing these to my attention. I had completely missed them as
+> > the spatch only deals with ctl_tables outside functions.
+> >
+> > Short answer:
+> > These should not be included in the current patch because they are a
+> > different pattern from how sysctl tables are usually used. So I will not
+> > include them.
+> >
+> > With that said, I think it might be interesting to look closer at them
+> > as they seem to be complicating the proc_handler (I have to look at them
+> > closer).
+> >
+> > I see that they are defining a ctl_table struct within the functions and
+> > just using the data (from the incoming ctl_table) to forward things down
+> > to proc_do{u,}intvec_* functions. This is very odd and I have only seen
+> > it done in order to change the incoming ctl_table (which is not what is
+> > being done here).
+> >
+> > I will take a closer look after the merge window and circle back with
+> > more info. Might take me a while as I'm not very familiar with s390
+> > code; any additional information on why those are being used inside the
+> > functions would be helpfull.
+> >
 > 
-> Compilers traditionally warn for unused 'static' variables, but not
-> if they are constant. The reason here is a custom for C++ programmers
-> to define named constants as 'static const' variables in header files
-> instead of using macros or enums.
+> Using const data on the stack is not as useful, because the stack is
+> always mapped writable.
 > 
-> In W=1 builds, we get warnings only static const variables in C
-> files, but not in headers, which is a good compromise, but this still
-> produces warning output in at least 30 files. These warnings are
-> almost all harmless, but also trivial to fix, and there is no
-> good reason to warn only about the non-const variables being unused.
-> 
-> I've gone through all the files that I found using randconfig and
-> allmodconfig builds and created patches to avoid these warnings,
-> with the goal of retaining a clean build once the option is enabled
-> by default.
-> 
-> Unfortunately, there is one fairly large patch ("drivers: remove
-> incorrect of_match_ptr/ACPI_PTR annotations") that touches
-> 34 individual drivers that all need the same one-line change.
-> If necessary, I can split it up by driver or by subsystem,
-> but at least for reviewing I would keep it as one piece for
-> the moment.
-> 
-> Please merge the individual patches through subsystem trees.
-> I expect that some of these will have to go through multiple
-> revisions before they are picked up, so anything that gets
-> applied early saves me from resending.
+> Global data structures marked 'const' will be moved into an ELF
+> section that is typically mapped read-only in its entirely, and so the
+> data cannot be modified by writing to it directly. No such protection
+> is possible for the stack, and so the constness there is only enforced
+> at compile time.
+I completely agree with you. No reason to use const within those
+functions. But why define those ctl_tables in function to begin with.
+Can't you just use the ones that are defined outside the functions?
 
-Arnd, can you refresh this one? It seems some misses still...
-I have got 3+ 0-day reports against one of the mux drivers.
+Best
 
-https://lore.kernel.org/all/?q=adg792a.c
 
 -- 
-With Best Regards,
-Andy Shevchenko
 
-
+Joel Granados
 
 
 _______________________________________________
