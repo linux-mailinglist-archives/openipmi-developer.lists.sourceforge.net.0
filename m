@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C87DAA1AC96
-	for <lists+openipmi-developer@lfdr.de>; Thu, 23 Jan 2025 23:17:27 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id CD6CEA1D6DD
+	for <lists+openipmi-developer@lfdr.de>; Mon, 27 Jan 2025 14:33:10 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tb5Vs-0006gE-Kk;
-	Thu, 23 Jan 2025 22:17:24 +0000
+	id 1tcPEU-0001aM-LV;
+	Mon, 27 Jan 2025 13:32:55 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <robh@kernel.org>) id 1tb5Vr-0006g7-0y
+ (envelope-from <andriy.shevchenko@intel.com>) id 1tcPET-0001Zz-MR
  for openipmi-developer@lists.sourceforge.net;
- Thu, 23 Jan 2025 22:17:23 +0000
+ Mon, 27 Jan 2025 13:32:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Oq5Svr+0mkoExl6RExPJDLf8AuUnGZxC8idcmofzQaM=; b=CuiLUZMKED58L+ULqnKP+wOmxQ
- BAUUFyYXHojP19wuXo5plGH181nr8SlkN7nMQqfw/CTA4nh8qiocjd2Mg8KRvDtRBddhyB+26eOjS
- t29ry20a+wAwKiO/nLMozfbnL4VxjJ7HnzeNkISg4zeYR9fXwbi2gQ5PxqMV39Qte9Ww=;
+ bh=8zhSZmwclT1lFpSMh22BW/UMVkHqTlcnWx4Yhu83TkA=; b=lHyR9sd0BxBeEI/nB87Afg8wSL
+ L2zT83yy8c9U/dKUNklBI1420q8YECi4J9P8Xo6TUin43j9sc1VZakj3i6zcbuwNLMG7ENkOiPvyO
+ APIdSxOfH3c/tn75yh04AQvcxjWVtPHA8gT9LvQKQ0N4P/HifP1r5NszCZWUUL/F8gjU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -31,77 +31,91 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Oq5Svr+0mkoExl6RExPJDLf8AuUnGZxC8idcmofzQaM=; b=FUPgKn4xpOhb86UZYZablBZxeC
- fb6elQ4UomRqKzgE5EvCo5u6e4XdP01sfSRWu/k6fgPvSYqc2x7d2Lv8mrqZDyf88qlTQ7jQ6tzK2
- DZpS7xZhQc2OV0Xxqg4vdCjgagr2V2ZkPRuB5E7tygn6llPw0u4nA7BlMx/ENW9UW6Xo=;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+ bh=8zhSZmwclT1lFpSMh22BW/UMVkHqTlcnWx4Yhu83TkA=; b=R/EycJVdHJPlCyK6LHUbvFt96V
+ kUJMycAeBVNapcN0j1RJmJjBMqYJsF3nBzdFeY5q27d4MUHqzRkfVAjD23vbIEwUOQTZjWpNvx63x
+ L/wqMZbXFiwdLoV2eWALmddEoczRUPqa6GWSWt6QGYktp+7GCn1klkw+pb5rZENdFJoY=;
+Received: from mgamail.intel.com ([198.175.65.15])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tb5Vq-0007tW-5p for openipmi-developer@lists.sourceforge.net;
- Thu, 23 Jan 2025 22:17:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by dfw.source.kernel.org (Postfix) with ESMTP id 7570E5C54F0;
- Thu, 23 Jan 2025 22:16:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BA96C4CED3;
- Thu, 23 Jan 2025 22:17:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1737670631;
- bh=pcG2D2/E0u37nyJWQeA42BhrzuRLXs0n2hWP0puC9mc=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=N4R4wPYqGTTiYnldH6jl4hR7pTwLxm1N71v7m5eehLbDNhx+4mJyeyqxiR4pFwI0h
- BzRQ3n+ZUAgEwvc/4Y5lI7iZ+ncK5tubXKO7UKpRdK4bKBQm9EudmHDLsJXh5EwPOa
- QjSuiqxT0/Hetex3f6MmQggKiggCAIBtUlqvdcDSscMT/Lve8uS38Wyg3GRSfyr6cD
- bDZj4PoYC7S8FKd/BwB0XJ+jxpy83STlru5dq0DXwLPPRZFgUURvm70nA/IWJBegL3
- WGwaeSntD53ucCbC2AqECdcEAHJftzwl/qu33tBvVmrOD/yqI95kMCNF4K3CKWszYS
- C7GaiHLKajSaA==
-Date: Thu, 23 Jan 2025 16:17:10 -0600
-To: Ninad Palsule <ninad@linux.ibm.com>
-Message-ID: <20250123221710.GA448645-robh@kernel.org>
-References: <20250116203527.2102742-1-ninad@linux.ibm.com>
- <20250116203527.2102742-4-ninad@linux.ibm.com>
+ id 1tcP7T-0007iR-80 for openipmi-developer@lists.sourceforge.net;
+ Mon, 27 Jan 2025 13:25:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1737984339; x=1769520339;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=RjFj+btLOrA1I0c/0XDEPot6dd9rNyckywxmgkJzq3o=;
+ b=MYtpikc+v5TIWLaHfnNr1YhaSZoBbcp045ZBRRtAGoX22MxD6mW9JJ/h
+ x9wyYnPdKmsyLQvogXepMSOlsdhX1gMPBX0DzyDwOnLO/L+CG05/01ABu
+ 4DMWPrl5cw7XeaQuyaqcgr4AydhqAXKKrZ4SEEJoiP/UHs6II+2PUxli+
+ KQ0YCeD0bDiuNWngEo1kKFsRpNavDYoElN38okulOhExSeKD6YCbz4Zao
+ JhsJE9o+o5jpshuS3QjvpgFi5jMQCtRXqLgE35pm0TDHSHocgPY08fCCv
+ sWNLuZdLhDZ+YoVaDSej6Amu88VnQStur+0MtWStVh+1HtrxuHLcuuxuB Q==;
+X-CSE-ConnectionGUID: MQN4PPAeQoOZS0Mepk0eJQ==
+X-CSE-MsgGUID: aCQQwqeeStqBwpR6eYdrRw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11328"; a="42105384"
+X-IronPort-AV: E=Sophos;i="6.13,238,1732608000"; d="scan'208";a="42105384"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+ by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 27 Jan 2025 05:25:22 -0800
+X-CSE-ConnectionGUID: oOw//HyuRH2sXbDiVD3/cA==
+X-CSE-MsgGUID: F7vXYkyrSx2N1gt4t3xT9A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; d="scan'208";a="131730368"
+Received: from smile.fi.intel.com ([10.237.72.58])
+ by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 27 Jan 2025 05:25:02 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+ (envelope-from <andriy.shevchenko@intel.com>)
+ id 1tcP6l-00000005jpm-3fIe; Mon, 27 Jan 2025 15:24:55 +0200
+Date: Mon, 27 Jan 2025 15:24:55 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Message-ID: <Z5eJJ199QwL0HVJT@smile.fi.intel.com>
+References: <20240403080702.3509288-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250116203527.2102742-4-ninad@linux.ibm.com>
-X-Spam-Score: -8.2 (--------)
+In-Reply-To: <20240403080702.3509288-1-arnd@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-Spam-Score: -3.8 (---)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Thu, Jan 16, 2025 at 02:35:18PM -0600,
- Ninad Palsule wrote:
- > Allow parsing GPIO controller children nodes with GPIO hogs. > >
- Signed-off-by:
- Ninad Palsule <ninad@linux.ibm.com> > --- > .../devicet [...] 
- Content analysis details:   (-8.2 points, 6.0 required)
+ Content preview:  On Wed, Apr 03, 2024 at 10:06:18AM +0200,
+ Arnd Bergmann wrote:
+ > From: Arnd Bergmann <arnd@arndb.de> > > Compilers traditionally warn for
+ unused 'static' variables, but not > if they are constant. The [...] 
+ Content analysis details:   (-3.8 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [139.178.84.217 listed in list.dnswl.org]
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [139.178.84.217 listed in sa-trusted.bondedsender.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ [198.175.65.15 listed in sa-trusted.bondedsender.org]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [139.178.84.217 listed in bl.score.senderscore.com]
+ [198.175.65.15 listed in bl.score.senderscore.com]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [198.175.65.15 listed in list.dnswl.org]
+ 0.0 T_SPF_TEMPERROR        SPF: test of record failed (temperror)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -3.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1tb5Vq-0007tW-5p
-Subject: Re: [Openipmi-developer] [PATCH v6 03/10] dt-bindings: gpio:
- ast2400-gpio: Add hogs parsing
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+ -1.3 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1tcP7T-0007iR-80
+Subject: Re: [Openipmi-developer] [PATCH 00/34] address all -Wunused-const
+ warnings
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -114,51 +128,110 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Rob Herring via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, conor+dt@kernel.org,
- linux-aspeed@lists.ozlabs.org, minyard@acm.org, netdev@vger.kernel.org,
- eajames@linux.ibm.com, linux-kernel@vger.kernel.org, andrew+netdev@lunn.ch,
- edumazet@google.com, kuba@kernel.org, krzk+dt@kernel.org, pabeni@redhat.com,
- openipmi-developer@lists.sourceforge.net, davem@davemloft.net,
- linux-arm-kernel@lists.infradead.org
+Cc: Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
+ Heiko Stuebner <heiko@sntech.de>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ dri-devel@lists.freedesktop.org,
+ Benjamin Tissoires <benjamin.tissoires@redhat.com>,
+ Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ Christoph Hellwig <hch@lst.de>, linux-samsung-soc@vger.kernel.org,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, linux-pm@vger.kernel.org,
+ linux-sound@vger.kernel.org, Ian Abbott <abbotti@mev.co.uk>,
+ linux-omap@vger.kernel.org, Trond Myklebust <trond.myklebust@hammerspace.com>,
+ Alex Elder <elder@kernel.org>, Tero Kristo <kristo@kernel.org>,
+ Xiang Chen <chenxiang66@hisilicon.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
+ linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org, H Hartley Sweeten <hsweeten@visionengravers.com>,
+ Iyappan Subramanian <iyappan@os.amperecomputing.com>,
+ linux-crypto@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-trace-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Markuss Broks <markuss.broks@gmail.com>,
+ Vaibhav Hiremath <hvaibhav.linux@gmail.com>, linux-i2c@vger.kernel.org,
+ Lars-Peter Clausen <lars@metafoo.de>, Corey Minyard <minyard@acm.org>,
+ Helge Deller <deller@gmx.de>, Lee Jones <lee@kernel.org>,
+ linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ iommu@lists.linux.dev, Yisen Zhuang <yisen.zhuang@huawei.com>,
+ Len Brown <lenb@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Michael Hennerich <michael.hennerich@analog.com>, linux-kbuild@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, greybus-dev@lists.linaro.org,
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
+ Jarkko Sakkinen <jarkko@kernel.org>, Anna Schumaker <anna@kernel.org>,
+ linux-integrity@vger.kernel.org, alsa-devel@alsa-project.org,
+ Jonathan Cameron <jic23@kernel.org>, linux-efi@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-fpga@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, kasan-dev@googlegroups.com,
+ Jiri Slaby <jirislaby@kernel.org>, linux-rtc@vger.kernel.org,
+ Stanislaw Gruszka <stf_xl@wp.pl>, Masahiro Yamada <masahiroy@kernel.org>,
+ linux-staging@lists.linux.dev, linux-input@vger.kernel.org,
+ Jacky Huang <ychuang3@nuvoton.com>, Kees Cook <keescook@chromium.org>,
+ Arnd Bergmann <arnd@arndb.de>, Jiri Kosina <jikos@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Nathan Chancellor <nathan@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Moritz Fischer <mdf@kernel.org>, openipmi-developer@lists.sourceforge.net,
+ linux-nfs@vger.kernel.org, "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Sebastian Reichel <sre@kernel.org>, Peter Rosin <peda@axentia.se>,
+ linux-stm32@st-md-mailman.stormreply.com, Tony Lindgren <tony@atomide.com>,
+ Liviu Dudau <liviu.dudau@arm.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-ide@vger.kernel.org,
+ Peter Huewe <peterhuewe@gmx.de>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-leds@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
+ linux-scsi@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+ linux-serial@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Kalle Valo <kvalo@kernel.org>,
+ John Allen <john.allen@amd.com>, netdev@vger.kernel.org,
+ Bjorn Andersson <andersson@kernel.org>, Takashi Iwai <tiwai@suse.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Damien Le Moal <dlemoal@kernel.org>, dmaengine@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Thu, Jan 16, 2025 at 02:35:18PM -0600, Ninad Palsule wrote:
-> Allow parsing GPIO controller children nodes with GPIO hogs.
+On Wed, Apr 03, 2024 at 10:06:18AM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
-> ---
->  .../devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml       | 6 ++++++
->  1 file changed, 6 insertions(+)
+> Compilers traditionally warn for unused 'static' variables, but not
+> if they are constant. The reason here is a custom for C++ programmers
+> to define named constants as 'static const' variables in header files
+> instead of using macros or enums.
 > 
-> diff --git a/Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml b/Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml
-> index b9afd07a9d24..0497d19a60e9 100644
-> --- a/Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml
-> @@ -46,6 +46,12 @@ properties:
->      minimum: 12
->      maximum: 232
->  
-> +patternProperties:
-> +  "^(.+-hog(-[0-9]+)?)$":
+> In W=1 builds, we get warnings only static const variables in C
+> files, but not in headers, which is a good compromise, but this still
+> produces warning output in at least 30 files. These warnings are
+> almost all harmless, but also trivial to fix, and there is no
+> good reason to warn only about the non-const variables being unused.
+> 
+> I've gone through all the files that I found using randconfig and
+> allmodconfig builds and created patches to avoid these warnings,
+> with the goal of retaining a clean build once the option is enabled
+> by default.
+> 
+> Unfortunately, there is one fairly large patch ("drivers: remove
+> incorrect of_match_ptr/ACPI_PTR annotations") that touches
+> 34 individual drivers that all need the same one-line change.
+> If necessary, I can split it up by driver or by subsystem,
+> but at least for reviewing I would keep it as one piece for
+> the moment.
+> 
+> Please merge the individual patches through subsystem trees.
+> I expect that some of these will have to go through multiple
+> revisions before they are picked up, so anything that gets
+> applied early saves me from resending.
 
-This can be further simplified to: "-hog(-[0-9]+)?$"
+Arnd, can you refresh this one? It seems some misses still...
+I have got 3+ 0-day reports against one of the mux drivers.
 
-With that,
+https://lore.kernel.org/all/?q=adg792a.c
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-BTW, no need to ping. You can check the status of binding patches in 
-patchwork[1].
-
-Rob
-
-[1] https://patchwork.ozlabs.org/project/devicetree-bindings/list/
 
 
 _______________________________________________
