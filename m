@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 90432A25A6E
+	by mail.lfdr.de (Postfix) with ESMTPS id B4419A25A70
 	for <lists+openipmi-developer@lfdr.de>; Mon,  3 Feb 2025 14:12:07 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tewF6-00006N-Cn;
-	Mon, 03 Feb 2025 13:12:00 +0000
+	id 1tewF6-0000ht-4N;
+	Mon, 03 Feb 2025 13:11:59 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <potin.lai.pt@gmail.com>) id 1tewF4-00006G-VF
+ (envelope-from <potin.lai.pt@gmail.com>) id 1tewF4-0000hn-HV
  for openipmi-developer@lists.sourceforge.net;
- Mon, 03 Feb 2025 13:11:58 +0000
+ Mon, 03 Feb 2025 13:11:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
  :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=b1FY1lFZx1d7qtietTMvsLIGmuJzU+GwniaWJjqysAo=; b=Bb3GweSGl6f4q8Kvykw1hjQRHv
- nWxgshzeX1kV+kZz7Mdlwy+M/bHAXB3MQsw8cdafJs6TBjeAzb2QEVuvA7/ilvRo+8tGW+PK2d3Wq
- +O0s+IrpdY7N5KpXacQqE2Suhz+EYHzPUfwsM8qOepZ/96w79vAdlXZp3GC/yj/VDSPg=;
+ bh=PDJizsvXaw9+teo3wUwPkWJCqORZkNmTQyuSkt5H4CY=; b=JUeUiEgtXkUIcNp1Z2qSvjf42q
+ cQcKArvpnIhTEg1Svcuqr6sNA5XCAYSdvcFOxszP39Fuu/heFM3mQa5im6RZK4cu0NOca15aaszt+
+ RPdJZU7b6nygFKmT+WB9my96tna9Tofmw8NcsTCaH7NCvoSAeGSfr/MTt4r7mSKTKJUs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Cc:To:In-Reply-To:References:Message-Id:Content-Transfer-Encoding:
@@ -31,61 +31,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=b1FY1lFZx1d7qtietTMvsLIGmuJzU+GwniaWJjqysAo=; b=YEZ3nNm1AybxYXNRmZlAzpySfq
- o9RcBEyn3wkdKQIo09gxSuOnLLmO5LN++4/Q671zOn2MRPdrZB7S6YjtHMBloSUGgL3rah4Kjg3DK
- h07bjyvC1mw8nrFhhbRVZor87womKwpLB4v2nbJgpe9SlDvwOMGpqAsjgQT42TKELhbo=;
-Received: from mail-pl1-f176.google.com ([209.85.214.176])
+ bh=PDJizsvXaw9+teo3wUwPkWJCqORZkNmTQyuSkt5H4CY=; b=O7JumkyZCSHO/BZdI3zKGMnw1X
+ D9GyT6/mN3GO30HG4j1ytFDJxzlG33/ng3DfsZdDNOnOki6EXvDv2BDXBMNQJ1Jwg91kCQDwuLZ9J
+ 0rRmRnJajomvX7/ev9nNm6NhlWfCPXLlb1vu+wuIUT7R7xSSolvqiWcxFun3BEDMPTNI=;
+Received: from mail-pl1-f175.google.com ([209.85.214.175])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1tewF4-00027y-Bn for openipmi-developer@lists.sourceforge.net;
- Mon, 03 Feb 2025 13:11:58 +0000
-Received: by mail-pl1-f176.google.com with SMTP id
- d9443c01a7336-21644aca3a0so100521275ad.3
+ id 1tewF2-000272-V9 for openipmi-developer@lists.sourceforge.net;
+ Mon, 03 Feb 2025 13:11:57 +0000
+Received: by mail-pl1-f175.google.com with SMTP id
+ d9443c01a7336-2165cb60719so76353355ad.0
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 03 Feb 2025 05:11:58 -0800 (PST)
+ Mon, 03 Feb 2025 05:11:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1738588308; x=1739193108; darn=lists.sourceforge.net;
+ d=gmail.com; s=20230601; t=1738588310; x=1739193110; darn=lists.sourceforge.net;
  h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
  :mime-version:subject:date:from:from:to:cc:subject:date:message-id
- :reply-to; bh=b1FY1lFZx1d7qtietTMvsLIGmuJzU+GwniaWJjqysAo=;
- b=HFEASHzjVCfj78zrMS1uolkas00PHIYeyitR2APAPoA7nhdI1OhhVm7icz9bNMza9v
- BO9kpLGtwzx+23t8G5YwmOaI2EmmiZyfAbd0OWms4c3v3ojuA349Cn7rouAPXbD8+cJH
- bEGp7D09pVF+OHfweczsF/PERwRIz2O5ak0H050f71138E79U5i2/JnlRxplo+1Zcqv1
- O18WSN9eQlWpCKXORWhpWuOOcmHNg54H8kZW2iGLzEYEoTGq4KPIUn4BQs+yqp/+eWRH
- WXYMFwQFDxb4ZwtiBWGsy+up7dxjQ6C6n6A907+1nt8siO58iwnP7neOuxFy03uBf6l0
- /DoQ==
+ :reply-to; bh=PDJizsvXaw9+teo3wUwPkWJCqORZkNmTQyuSkt5H4CY=;
+ b=RYhzt8KorD2JqrbCwtk0sIcIU/a2v53AE4BZVEyvn9kCDeW0OLOE7BX0V6PAbx7qDq
+ xmZYvdOx5zOwZGAd6Wj9YGH4HVuAffrYau9QpuoDx9nKq1BX+s22o1vjGxtkrgCYjp9Q
+ FAjZENM9OiNhjNOG6SP4G4xYwrEOKnWjM5n6w98erUCK8ouGRz4dAPZ+FZ00xXTxCaDN
+ j76hSK3alw5cUbGqoXvuBhgVqm72G9B5jwZiR2Oi51UD43Ha/WTgYLCr0AtMZ0KRMnt4
+ FO0T815OY2CH9olSE9dJH5gw7Yf/bbVbli78Xallx8WOlCflnm1SPiOLGmIonByvIRTV
+ vuqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1738588308; x=1739193108;
+ d=1e100.net; s=20230601; t=1738588310; x=1739193110;
  h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
  :mime-version:subject:date:from:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=b1FY1lFZx1d7qtietTMvsLIGmuJzU+GwniaWJjqysAo=;
- b=XqsrDx4GE0S9rUh86QsaW4tWcOdOufXkTqKX5kYl4iSuBTNKre2ddaiYfhrT+WrKJn
- zmyOzPCcnQ4XWts5ysOdPkIh2SeUMAumy9jApkyOK6bdqV9X/2bOpD2sSFVayFEispgr
- BtarFGpcW/ketUoXyW3eLKJdB9F7wD5S3X8iXJxviyQfBvCgnqL6+fcRCW+IvohnyeQ9
- AiwS5uoUZt4CFiY7r3jBjOOY3/yi/e5Xt/xWNFSJIPS96yL2Ts6XHzyXMZQAMAIyPAfP
- AWQhI8Fxqd43PqDLNeT686SC3U3ssMamOfip9iHciQ+p8+F2wzrVzGEQyTacVszjRa3X
- 1dKg==
-X-Gm-Message-State: AOJu0YwI4Uf/1dMDlbtI3ehdntU/avQ1+4gnzMrV0CnABNBvId3IT75V
- o4tV5RAKcxLn7OsWgyjTDSltJw4QJMww/jElpnZ82AnI/2Scr3He
-X-Gm-Gg: ASbGnctn53g28Q5PSWQ07ATxewzKknfgAaKdM0ZGLbxsieZaDDX87mZ8A3MswXKdOzI
- Gz+UDX0isDS8wHHJ5AV5lpR0BNTu2q0j96S1rTp+gg38zvUc3G/1Y90Bty7OlfAGLCydzTO2cj/
- IpKodneCdz9hOKOgo5CbutkZ0SxUCcGjMMD+baUncKkTIwW12h/9a/TW8+5oKFpaoyNEB/uR9Xt
- GZOV7kFUv2W9NMVVYnuQm6Fs0DxnsGd/2pDLTMfAGVSepmaUa9uv74gpHZBaWwv3X+pZjGDxZW+
- XOelY43qnvR3KXRmeVlsBF/GDs9+98cL9mP0vsox/qwUzMPfJ1H4w+YiuavXOPfxvSqK
-X-Google-Smtp-Source: AGHT+IGT7jAJmUUjkG0BGyDGRldNkdDhZUJrCU7FxK0JnZjhlR1jS8uZ/XiuM5Sfwz08ryIp703/Tg==
-X-Received: by 2002:a05:6a21:9102:b0:1e1:faa:d8cf with SMTP id
- adf61e73a8af0-1ed7a6e1efcmr39872358637.40.1738588307666; 
- Mon, 03 Feb 2025 05:11:47 -0800 (PST)
+ bh=PDJizsvXaw9+teo3wUwPkWJCqORZkNmTQyuSkt5H4CY=;
+ b=gj5yTRRX+h0tOMNr/zKRxqfqx83ia/mZYzoUdm0WLU+rt6PqOW6fPOcu0DmiH/Tvku
+ cvtKLg3voe4WQhs1yZvMjDtPzUOpFmfVMrq3gdc/PbfEUTSNUlRYqkSNrFabRNsz7CqY
+ 9Diw0ZDC/S5YTgG1n/lXtakiPO+jIU7K8QTBBuQDxcao9E4wg7FaKo8RZ2vGOPCYRazL
+ pvRzpUWRBTQWbAIJVvVt94pvVd0cndhvY8+dY0T6XOq1qh8PcqFZ8I7hFjDwV2Op/gPC
+ 1766cQXkECmqEoBzayxS3tMR9tgWghrJ6r08wCEitl09efA0O0PVmCDCwuWqR73Lknh2
+ JSoA==
+X-Gm-Message-State: AOJu0YwDMdX0mG806m6RKeZ1t6YGEdxyX70yxuBXBm7+z9x4beKsTIcy
+ glQxJQGOsHYoI4Mo/stYcfkQ/iK9UasfDKN6OPDuZ6MtZF5BgLbQ
+X-Gm-Gg: ASbGnctUAlwBje3YtunBcmPVjMQDU/X27MHZ6lvtViS1OcCgzeB0Z4I3CQdH/oN2CB3
+ 2bSvWQ0fOgy/UsBZ1Sy8ugGO8NrgpL0iEjGQtm/Jmra8dK7mruGKb3tWuCr0EnkeP3/cpB6r6tv
+ ARmoTdvrRjKOJw0qp51of4wlqN/OprGWQ/uBoeURgmZzeB9up5dePgWdtUP1oLOwXoGuRxoRGvZ
+ s8bANQXFTOMKhdEOpQB5DAQrozct4O9JaG2itySL2UJhVIAef2CR0AE6J1JsuJ7cjIjh+mUjN2W
+ mhYv49JNL5vrxZop7Jd79oKx/94q2ZsThRXINDhVT5oM1ci+zXWe7BJ00TrccnoChEyB
+X-Google-Smtp-Source: AGHT+IHvk6/UEgPuUarQoM3QIGf47jIEwUV97FOhse5NsNON8UUQENswlYanuyKROZD7+6+YsdUArQ==
+X-Received: by 2002:a05:6a00:244a:b0:725:f097:ed21 with SMTP id
+ d2e1a72fcca58-72fd0c62288mr30218643b3a.15.1738588310373; 
+ Mon, 03 Feb 2025 05:11:50 -0800 (PST)
 Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net.
  [61.220.246.151]) by smtp.gmail.com with ESMTPSA id
- d2e1a72fcca58-72fe631be3csm8377629b3a.7.2025.02.03.05.11.45
+ d2e1a72fcca58-72fe631be3csm8377629b3a.7.2025.02.03.05.11.47
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 03 Feb 2025 05:11:47 -0800 (PST)
+ Mon, 03 Feb 2025 05:11:50 -0800 (PST)
 From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Mon, 03 Feb 2025 21:09:13 +0800
+Date: Mon, 03 Feb 2025 21:09:14 +0800
 MIME-Version: 1.0
-Message-Id: <20250203-ssif-response-timeout-ms-v1-1-6fe279740181@gmail.com>
+Message-Id: <20250203-ssif-response-timeout-ms-v1-2-6fe279740181@gmail.com>
 References: <20250203-ssif-response-timeout-ms-v1-0-6fe279740181@gmail.com>
 In-Reply-To: <20250203-ssif-response-timeout-ms-v1-0-6fe279740181@gmail.com>
 To: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>, 
@@ -94,11 +94,11 @@ To: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>,
  Quan Nguyen <quan@os.amperecomputing.com>, 
  Patrick Williams <patrick@stwcx.xyz>
 X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1738588302; l=1068;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1738588302; l=1887;
  i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=qw6/oRijMeiMYBDoqhdnPazfxbD4I4FYFWBsgfYvwO0=;
- b=GphBV5ux1rtL3yI82K1iZX8DbcLYPnDAEW6mgZAMtCBvCuJhsB8VvMB4KdeNGred/5XaW2fjV
- WP5bZpBWXC/A135QX0XhY812LMteOCwmJd80L8SKtM26uG24A5FJwPW
+ bh=/kUKPWCuiO07PV8wX+eiL75OEyrHSx5RcfpFsjZDG/U=;
+ b=6Osmui4mmnSoBdZ1gq0ddokpf1z0Xv5oKdw5ZwDKeeh07nb1EchIXM0IDY8TT+h+DkK/rim1B
+ L1S67E8or2BDDYV7xxZSB+Phz0qXdRGzMx2ulkUpkk+1OR2qQ8mhX57
 X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
  pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
 X-Spam-Score: -0.2 (/)
@@ -108,31 +108,30 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  The SSIF response is handled by a userspace application,
- which
- may exceed the default 500 ms timeout when the BMC or application is under
- heavy load. Add a new device tree property, `timeout-ms`, allowing platforms
- to adjust the response timeout based on their specific requirements. This
- helps prevent timeouts in scenarios where longer processing t [...] 
+ Content preview:  Implement support for the `timeout-ms` device tree property, 
+ allowing platforms to adjust the userspace response timeout as needed. If
+ `timeout-ms` is not specified, the default response timeout remains 500 ms.
+ This ensures compatibility while providing flexibility for platforms that
+ require longer timeouts due to BMC or applicati [...] 
  Content analysis details:   (-0.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.214.176 listed in list.dnswl.org]
+ no trust [209.85.214.175 listed in list.dnswl.org]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.214.176 listed in bl.score.senderscore.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [potin.lai.pt[at]gmail.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ [209.85.214.175 listed in bl.score.senderscore.com]
  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
  The query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.214.176 listed in sa-accredit.habeas.com]
+ [209.85.214.175 listed in sa-accredit.habeas.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [potin.lai.pt[at]gmail.com]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -141,10 +140,10 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.214.176 listed in wl.mailspike.net]
-X-Headers-End: 1tewF4-00027y-Bn
-Subject: [Openipmi-developer] [PATCH 1/2] bindings: ipmi: ssif-bmc: Add
- property to adjust response timeout
+ [209.85.214.175 listed in wl.mailspike.net]
+X-Headers-End: 1tewF2-000272-V9
+Subject: [Openipmi-developer] [PATCH 2/2] ipmi: ssif_bmc: Add support for
+ adjustable response timeout
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -164,35 +163,51 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-The SSIF response is handled by a userspace application, which may exceed
-the default 500 ms timeout when the BMC or application is under heavy load.
+Implement support for the `timeout-ms` device tree property, allowing
+platforms to adjust the userspace response timeout as needed.
 
-Add a new device tree property, `timeout-ms`, allowing platforms to adjust
-the response timeout based on their specific requirements. This helps
-prevent timeouts in scenarios where longer processing times are expected.
+If `timeout-ms` is not specified, the default response timeout remains
+500 ms. This ensures compatibility while providing flexibility for
+platforms that require longer timeouts due to BMC or application load.
 
 Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
 ---
- Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/char/ipmi/ssif_bmc.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml b/Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml
-index 02b662d780bb..c8a863d44f97 100644
---- a/Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml
-+++ b/Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml
-@@ -19,6 +19,12 @@ properties:
-   reg:
-     maxItems: 1
+diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
+index 310f17dd9511..8f0fbc941936 100644
+--- a/drivers/char/ipmi/ssif_bmc.c
++++ b/drivers/char/ipmi/ssif_bmc.c
+@@ -87,6 +87,7 @@ struct ssif_bmc_ctx {
+ 	/* Timeout waiting for response */
+ 	struct timer_list       response_timer;
+ 	bool                    response_timer_inited;
++	u32                     response_timeout;
+ 	/* Flag to identify a Multi-part Read Transaction */
+ 	bool                    is_singlepart_read;
+ 	u8                      nbytes_processed;
+@@ -331,7 +332,8 @@ static void handle_request(struct ssif_bmc_ctx *ssif_bmc)
+ 		timer_setup(&ssif_bmc->response_timer, response_timeout, 0);
+ 		ssif_bmc->response_timer_inited = true;
+ 	}
+-	mod_timer(&ssif_bmc->response_timer, jiffies + msecs_to_jiffies(RESPONSE_TIMEOUT));
++	mod_timer(&ssif_bmc->response_timer, jiffies +
++		  msecs_to_jiffies(ssif_bmc->response_timeout));
+ }
  
-+  timeout-ms:
-+    minimum: 0
-+    maximum: 4294967295
-+    default: 500
-+    description: Response timeout in millisecond.
+ static void calculate_response_part_pec(struct ssif_part_buffer *part)
+@@ -809,6 +811,10 @@ static int ssif_bmc_probe(struct i2c_client *client)
+ 	if (!ssif_bmc)
+ 		return -ENOMEM;
+ 
++	if (of_property_read_u32(client->dev.of_node, "timeout-ms",
++				 &ssif_bmc->response_timeout))
++		ssif_bmc->response_timeout = RESPONSE_TIMEOUT;
 +
- required:
-   - compatible
-   - reg
+ 	spin_lock_init(&ssif_bmc->lock);
+ 
+ 	init_waitqueue_head(&ssif_bmc->wait_queue);
 
 -- 
 2.31.1
