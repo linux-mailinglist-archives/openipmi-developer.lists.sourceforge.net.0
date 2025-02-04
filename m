@@ -2,104 +2,109 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BD634A26761
-	for <lists+openipmi-developer@lfdr.de>; Tue,  4 Feb 2025 00:01:25 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6475FA26B23
+	for <lists+openipmi-developer@lfdr.de>; Tue,  4 Feb 2025 05:51:11 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tf5RM-0003Mz-5i;
-	Mon, 03 Feb 2025 23:01:16 +0000
+	id 1tfAts-0003GX-AP;
+	Tue, 04 Feb 2025 04:51:03 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <robh@kernel.org>) id 1tf5RK-0003Mr-O1
+ (envelope-from <andrew@codeconstruct.com.au>) id 1tfAtq-0003GN-Ke
  for openipmi-developer@lists.sourceforge.net;
- Mon, 03 Feb 2025 23:01:14 +0000
+ Tue, 04 Feb 2025 04:51:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
+ :References:In-Reply-To:Date:To:From:Subject:Message-ID:Sender:Reply-To:Cc:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=pyPlbmzdNy+ozLRLu+PL0IeHsFxjphyqgxVQfOygGFw=; b=d4RT+jyN7m1VYqnxwn81nvS4F5
- QznkVzzBHwBYvIHL4+dVxJpdohoVUYIrlFeZGyTu2POWjfgCnbr67P8koEvfS1UZsAwvoV+aP3ljq
- OOvNBw8EncpZ727mXVP5wdEdHHisl9Z6+oy+GmO237xOtPORW4eLn+CaKpoYNY3dFZSM=;
+ bh=OVO7pPvS9it63pRV7s9Xy2kC4yPGFJZs59pPpi//UPs=; b=G8B30Q6JVyLXzaSPRIJjeHD0sT
+ cd1J1AK/iwwcTxv/A3rL+7xteXuKpaiO/vD0WuVP+Cksm1vRdlyAZohLsJfS7uVMsjRUTp20CKpHF
+ 0wCJfzQTxzZZj0QM5IrmQ9Pw6XK9hh/Pvml4yPs5TSHX2Fm7qE5TDdKpqP3YCRnmAarw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+ In-Reply-To:Date:To:From:Subject:Message-ID:Sender:Reply-To:Cc:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=pyPlbmzdNy+ozLRLu+PL0IeHsFxjphyqgxVQfOygGFw=; b=PDs8z0ZxOd7mqX6q9GZ6dyH5mx
- BBAGPFy8Zna9R28h3musi0nilv/XqcK98ncRV5CO6Jk6qcpwIj7tujWZzrOrgYzcPECdV/uFM7Ey6
- jmkPJQ87e0Bgx6I3gdbQdLgvJZgf8nJk+ZnnclWzm37qCGQFFvCTyXSWu7HQhNsk8Mak=;
-Received: from nyc.source.kernel.org ([147.75.193.91])
+ bh=OVO7pPvS9it63pRV7s9Xy2kC4yPGFJZs59pPpi//UPs=; b=c0ADnlnFAILM8i8VaFCQiiaKFY
+ I03dQskiFsmCJGXJja/Wyc020eOA1JudcZ91M1bSSjpre+Lgdwj9rLHpLAbZinnUIxRTe2IDELuha
+ BQin8iqlBAt82Dg+VriaB7EV9hEhCA3YffxOB4rcE5pA2XNwy13I+Qk9WZILtBkJa1YA=;
+Received: from pi.codeconstruct.com.au ([203.29.241.158]
+ helo=codeconstruct.com.au)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tf5RK-00023O-1u for openipmi-developer@lists.sourceforge.net;
- Mon, 03 Feb 2025 23:01:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by nyc.source.kernel.org (Postfix) with ESMTP id 2E5A8A41F41;
- Mon,  3 Feb 2025 22:59:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1E9EC4CEE0;
- Mon,  3 Feb 2025 23:01:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1738623663;
- bh=SYLHmixviQoIpESsL58YplO1Ev5dZ26Prpu2dtnbuok=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=jq3YEzbM5g1Jc+vUThYy5+MzRuB3bVDl2bV+KXfIhcBq1SqkHDVZR9uF0PSR7edhq
- OK1TgAxRSETSpJzFvxPYOl+oP1HA832d0+fnt3JI8B28hmqSm7pEj2Bo9UF/0q+ffB
- 0LaiQCs9mwJe1NjKFNZTIOGLJ9PWJdvCiHlVBXn9cHEkoWTWyb4jX8dVaz3X7JE8ND
- 1AsIJGnFPLRDUAdcKEytwK/kuThZp/5uartgvC+gZhFCFXIk24+Nhmpw5eJNIYc151
- DRJcf/MRWOWVmFN4UsWAxVEQNn/yXhie7sRS+ugRGHEtyaGZRKDnj1kTcNDug3lIPg
- 4Vf8O/WXy2GCw==
-Date: Mon, 3 Feb 2025 17:01:01 -0600
-To: Potin Lai <potin.lai.pt@gmail.com>
-Message-ID: <173862366090.502195.2408290922979845637.robh@kernel.org>
-References: <20250203-ssif-response-timeout-ms-v1-0-6fe279740181@gmail.com>
- <20250203-ssif-response-timeout-ms-v1-1-6fe279740181@gmail.com>
+ id 1tfAto-0000uj-QZ for openipmi-developer@lists.sourceforge.net;
+ Tue, 04 Feb 2025 04:51:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=codeconstruct.com.au; s=2022a; t=1738643597;
+ bh=OVO7pPvS9it63pRV7s9Xy2kC4yPGFJZs59pPpi//UPs=;
+ h=Subject:From:To:Date:In-Reply-To:References;
+ b=AZ5+ijlKDQgxKTEifzz0lMAm8+CID+Vq9cW8amOSUOU2Lnrbgnn+RCsZMj1J/bF9P
+ IXpGFNm7WoQQrR5ryZs0gtv7IJQ3SiM/fDn72Ih4I/3VGF2Bp/MKobboggFt1+xwPE
+ 20bsV5MIrHoCNcVNagNJVt72f4eopKbWzvG+eqWWe7fsd1hDwWs7vJFg5vOctzsb2t
+ gUfSqg0iYSd5RlppAuDM2qcmEB8YxwbJspydO//mUNV6Xhu+4fceeckJJy3Mn7gSUv
+ EtsHS5/nOLzIYgNbpyy78UmaGA5ttbtGugGQBuhz2hKfevC4/FMBLMO1bOPGqqbJV2
+ T3oJaaY0oFD8A==
+Received: from [192.168.68.112] (58-7-156-140.dyn.iinet.net.au [58.7.156.140])
+ by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D96DD734A6;
+ Tue,  4 Feb 2025 12:33:13 +0800 (AWST)
+Message-ID: <79b819b6d06e3be0aa7e7f6872353f103294710c.camel@codeconstruct.com.au>
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Ninad Palsule <ninad@linux.ibm.com>, brgl@bgdev.pl, 
+ linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
+ krzk+dt@kernel.org,  conor+dt@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net,  edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com,  openipmi-developer@lists.sourceforge.net,
+ netdev@vger.kernel.org, joel@jms.id.au,  devicetree@vger.kernel.org,
+ eajames@linux.ibm.com,  linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org,  linux-kernel@vger.kernel.org
+Date: Tue, 04 Feb 2025 15:03:13 +1030
+In-Reply-To: <20250203144422.269948-1-ninad@linux.ibm.com>
+References: <20250203144422.269948-1-ninad@linux.ibm.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250203-ssif-response-timeout-ms-v1-1-6fe279740181@gmail.com>
-X-Spam-Score: -2.5 (--)
-X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+X-Spam-Score: -0.2 (/)
+X-Spam-Report: Spam detection software, running on the system "util-spamd-2.v13.lw.sourceforge.com",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, 03 Feb 2025 21:09:13 +0800, Potin Lai wrote: > The
- SSIF response is handled by a userspace application, which may exceed > the
- default 500 ms timeout when the BMC or application is under heavy [...] 
- Content analysis details:   (-2.5 points, 6.0 required)
- pts rule name              description
+ 
+ Content preview:  Hi Ninad, On Mon, 2025-02-03 at 08:44 -0600, Ninad Palsule
+    wrote: > Hello, > > Please review the patch set version 7. > > V7: > ---
+   >   - Updated pattern in the ast2400-gpio.yaml >   - Dropped "dt-bindings:
+    n [...] 
+ 
+ Content analysis details:   (-0.2 points, 6.0 required)
+ 
+  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                            [203.29.241.158 listed in bl.score.senderscore.com]
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [203.29.241.158 listed in sa-accredit.habeas.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [147.75.193.91 listed in bl.score.senderscore.com]
- 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [147.75.193.91 listed in sa-accredit.habeas.com]
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+                             envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [147.75.193.91 listed in list.dnswl.org]
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1tf5RK-00023O-1u
-Subject: Re: [Openipmi-developer] [PATCH 1/2] bindings: ipmi: ssif-bmc: Add
- property to adjust response timeout
+                             author's domain
+X-Headers-End: 1tfAto-0000uj-QZ
+Subject: Re: [Openipmi-developer] [PATCH v7 0/9] DTS updates for system1 BMC
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -112,40 +117,66 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: "Rob Herring \(Arm\) via Openipmi-developer"
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: "Rob Herring \(Arm\)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Potin Lai <potin.lai@quantatw.com>, linux-kernel@vger.kernel.org,
- Corey Minyard <corey@minyard.net>, Patrick Williams <patrick@stwcx.xyz>,
- Cosmo Chou <cosmo.chou@quantatw.com>,
- Quan Nguyen <quan@os.amperecomputing.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- openipmi-developer@lists.sourceforge.net
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
-On Mon, 03 Feb 2025 21:09:13 +0800, Potin Lai wrote:
-> The SSIF response is handled by a userspace application, which may exceed
-> the default 500 ms timeout when the BMC or application is under heavy load.
-> 
-> Add a new device tree property, `timeout-ms`, allowing platforms to adjust
-> the response timeout based on their specific requirements. This helps
-> prevent timeouts in scenarios where longer processing times are expected.
-> 
-> Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
-> ---
->  Documentation/devicetree/bindings/ipmi/ssif-bmc.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+SGkgTmluYWQsCgpPbiBNb24sIDIwMjUtMDItMDMgYXQgMDg6NDQgLTA2MDAsIE5pbmFkIFBhbHN1
+bGUgd3JvdGU6Cj4gSGVsbG8sCj4gCj4gUGxlYXNlIHJldmlldyB0aGUgcGF0Y2ggc2V0IHZlcnNp
+b24gNy4KPiAKPiBWNzoKPiAtLS0KPiDCoCAtIFVwZGF0ZWQgcGF0dGVybiBpbiB0aGUgYXN0MjQw
+MC1ncGlvLnlhbWwKPiDCoCAtIERyb3BwZWQgImR0LWJpbmRpbmdzOiBuZXQ6IGZhcmFkYXksZnRn
+bWFjMTAwIiBwYXRjaCBzZW5kaW5nIGl0Cj4gwqDCoMKgIHNlcGFyYXRlbHkuCj4gCj4gVjY6Cj4g
+LS0tCj4gwqAgLSBGaXhlZCBkdF9iaW5kaW5nX2NoZWNrIGVycm9ycyBmb3IgaXBtYi1kZXYueWFt
+bAo+IMKgIC0gQ2hhbmdlZCB0aGUgaG9nIHBhcnNpbmcgcGF0dGVybiBpbiBhc3QyNDAwLWdwaW8K
+PiAKPiBWNToKPiAtLS0KPiDCoCAtIEltcHJvdmVkIElQQk0gZGV2aWNlIGRvY3VtZW50YXRpb24u
+Cj4gwqAgLSBBZGRlZCB0aGUgaG9nIHBhcnNpbmcgaW4gYXN0MjQwMC1ncGlvCj4gCj4gVjQ6Cj4g
+LS0tCj4gwqAgLSBSZW1vdmVkICJBZGQgUkdNSUkgc3VwcG9ydCIgcGF0Y2ggYXMgaXQgbmVlZHMg
+c29tZSB3b3JrIGZyb20gdGhlCj4gwqDCoMKgIGRyaXZlciBzaWRlLgo+IMKgIC0gSW1wcm92ZWQg
+SVBCTSBkZXZpY2UgZG9jdW1lbnRhdGlvbi4KPiDCoCAtIFRoZXJlIGlzIGEgbmV3IHdhcm5pbmcg
+aW4gQ0hFQ0tfRFRCUyB3aGljaCBhcmUgZmFsc2UgcG9zaXRpdmUgc28KPiDCoMKgwqAgaWdub3Jl
+ZCB0aGVtLgo+IMKgwqDCoCBhcmNoL2FybS9ib290L2R0cy9hc3BlZWQvYXNwZWVkLWJtYy1pYm0t
+c3lzdGVtMS5kdGI6Cj4gZ3Bpb0AxZTc4MDAwMDogJ2hvZy0wJywgJ2hvZy0xJywgJ2hvZy0yJywg
+J2hvZy0zJyBkbyBub3QgbWF0Y2ggYW55IG9mCj4gdGhlIHJlZ2V4ZXM6ICdwaW5jdHJsLVswLTld
+KycKPiAKPiBWMzoKPiAtLS0KPiDCoCAtIEZpeGVkIGR0X2JpbmRpbmdfY2hlY2sgd2FybmluZ3Mg
+aW4gaXBtYi1kZXYueWFtbAo+IMKgIC0gVXBkYXRlZCB0aXRsZSBhbmQgZGVzY3JpcHRpb24gaW4g
+aXBtYi1kZXYueWFtbCBmaWxlLgo+IMKgIC0gVXBkYXRlZCBpMmMtcHJvdG9jb2wgZGVzY3JpcHRp
+b24gaW4gaXBtYi1kZXYueWFtbCBmaWxlLgo+IAo+IFYyOgo+IC0tLQo+IMKgIEZpeGVkIENIRUNL
+X0RUQlMgZXJyb3JzIGJ5Cj4gwqDCoMKgIC0gVXNpbmcgZ2VuZXJpYyBub2RlIG5hbWVzCj4gwqDC
+oMKgIC0gRG9jdW1lbnRpbmcgcGh5LW1vZGUgcmdtaWktcnhpZCBpbiBmdGdtYWMxMDAueWFtbAo+
+IMKgwqDCoCAtIEFkZGluZyBiaW5kaW5nIGRvY3VtZW50YXRpb24gZm9yIElQTUIgZGV2aWNlIGlu
+dGVyZmFjZQo+IAo+IE5JTkFEIFBBTFNVTEUgKDYpOgoKV2h5IGlzIHlvdXIgbmFtZSBhbGwgaW4g
+Y2FwcyBoZXJlIGJ1dCBub3QgZm9yIHRoZSBiaW5kaW5nIHBhdGNoZXMKYmVsb3c/IENhbiB5b3Ug
+Zml4IHRoYXQgdXA/Cgo+IMKgIEFSTTogZHRzOiBhc3BlZWQ6IHN5c3RlbTE6IEFkZCBJUE1CIGRl
+dmljZQo+IMKgIEFSTTogZHRzOiBhc3BlZWQ6IHN5c3RlbTE6IEFkZCBHUElPIGxpbmUgbmFtZQo+
+IMKgIEFSTTogZHRzOiBhc3BlZWQ6IHN5c3RlbTE6IFJlZHVjZSBzZ3BpbyBzcGVlZAo+IMKgIEFS
+TTogZHRzOiBhc3BlZWQ6IHN5c3RlbTE6IFVwZGF0ZSBMRUQgZ3BpbyBuYW1lCj4gwqAgQVJNOiBk
+dHM6IGFzcGVlZDogc3lzdGVtMTogUmVtb3ZlIFZScyBtYXg4OTUyCj4gwqAgQVJNOiBkdHM6IGFz
+cGVlZDogc3lzdGVtMTogTWFyayBHUElPIGxpbmUgaGlnaC9sb3cKPiAKPiBOaW5hZCBQYWxzdWxl
+ICgzKToKPiDCoCBiaW5kaW5nczogaXBtaTogQWRkIGJpbmRpbmcgZm9yIElQTUIgZGV2aWNlIGlu
+dGYKClRoaXMgb25lIG5lZWRzIGFuIGFjayBmcm9tIENvcmV5IGlmIEknbSB0byB0YWtlIGl0LgoK
+PiDCoCBkdC1iaW5kaW5nczogZ3BpbzogYXN0MjQwMC1ncGlvOiBBZGQgaG9ncyBwYXJzaW5nCgpU
+aGlzIG9uZSBuZWVkcyBhbiBhY2sgZnJvbSBMaW51cyBXIG9yIEJhcnRvc3ogaWYgSSdtIHRvIHRh
+a2UgaXQuCkhvd2V2ZXIsIGl0J3MgYWxzbyBjYXVzaW5nIHNvbWUgZ3JpZWYgZnJvbSBSb2IncyBi
+b3Q6CgpodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMTczODU5Njk0ODg5LjI2MDE3MjYuMTA2
+MTgzMzYyMTk3MjYxOTM4MjQucm9iaEBrZXJuZWwub3JnLwoKQXMgdGhlIHJlcG9ydGVkIG5vZGVz
+IHNob3VsZCBhbGwgYmUgaG9ncyB0aGUgbmFtZSBzaG91bGRuJ3QgbWF0dGVyCmFueXdoZXJlIGVs
+c2UgKGFzIGZhciBhcyBJJ20gYXdhcmUpLiBJdCB3b3VsZCBiZSBuaWNlIGlmIGFsbCB0aGUKd2Fy
+bmluZ3Mgd2VyZSBjbGVhbmVkIHVwIGJlZm9yZSB3ZSBtZXJnZWQgdGhlIGJpbmRpbmcgdXBkYXRl
+LiBUaGF0IHdheQp3ZSBkb24ndCBjYXVzZSBldmVyeW9uZSBlbHNlIGxvb2tpbmcgYXQgdGhlIENI
+RUNLX0RUQlM9eSBvdXRwdXQgbW9yZQpncmllZiB0aGFuIHRoZXkgYWxyZWFkeSBnZXQgZm9yIHRo
+ZSBBc3BlZWQgZGV2aWNldHJlZXMuCgpJbiBvcmRlciB0byBub3QgZ2V0IGJvZ2dlZCBkb3duIGl0
+IG1pZ2h0IGJlIHdvcnRoIHNwbGl0dGluZyBvdXQgYm90aAp0aGUgSVBNQi0gYW5kIEdQSU8tIHJl
+bGF0ZWQgcGF0Y2hlcyBsaWtlIHlvdSBkaWQgdGhlIEZUR01BQzEwMCBwYXRjaCwKYW5kIHRoZW4g
+SSBjYW4gbWVyZ2Ugd2hhdCByZW1haW5zIChmcm9tIGEgcXVpY2sgbG9vayB0aGV5IHNlZW0KcmVs
+YXRpdmVseSB1bmNvbnRyb3ZlcnNpYWwpLgoKQW5kcmV3Cgo+IMKgIEFSTTogZHRzOiBhc3BlZWQ6
+IHN5c3RlbTE6IERpc2FibGUgZ3BpbyBwdWxsIGRvd24KPiAKPiDCoC4uLi9iaW5kaW5ncy9ncGlv
+L2FzcGVlZCxhc3QyNDAwLWdwaW8ueWFtbMKgwqDCoCB8wqDCoCA2ICsKPiDCoC4uLi9kZXZpY2V0
+cmVlL2JpbmRpbmdzL2lwbWkvaXBtYi1kZXYueWFtbMKgwqDCoCB8wqAgNTYgKysrKysrKwo+IMKg
+Li4uL2R0cy9hc3BlZWQvYXNwZWVkLWJtYy1pYm0tc3lzdGVtMS5kdHPCoMKgwqDCoCB8IDEzOSAr
+KysrKysrKysrKy0tLS0tCj4gLS0KPiDCoDMgZmlsZXMgY2hhbmdlZCwgMTQ3IGluc2VydGlvbnMo
+KyksIDU0IGRlbGV0aW9ucygtKQo+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24v
+ZGV2aWNldHJlZS9iaW5kaW5ncy9pcG1pL2lwbWItCj4gZGV2LnlhbWwKPiAKCgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVy
+IG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0
+dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVs
+b3Blcgo=
