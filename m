@@ -2,110 +2,141 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B9C64A27FF6
-	for <lists+openipmi-developer@lfdr.de>; Wed,  5 Feb 2025 01:06:02 +0100 (CET)
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0DEB9A28B39
+	for <lists+openipmi-developer@lfdr.de>; Wed,  5 Feb 2025 14:08:52 +0100 (CET)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tfSvV-0003Of-8e;
-	Wed, 05 Feb 2025 00:05:58 +0000
+	id 1tff94-0007LM-6H;
+	Wed, 05 Feb 2025 13:08:46 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <andrew@codeconstruct.com.au>) id 1tfSvU-0003OX-BD
+ (envelope-from <brgl@bgdev.pl>) id 1tfc6c-0003MZ-6s
  for openipmi-developer@lists.sourceforge.net;
- Wed, 05 Feb 2025 00:05:57 +0000
+ Wed, 05 Feb 2025 09:54:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
- :References:In-Reply-To:Date:To:From:Subject:Message-ID:Sender:Reply-To:Cc:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=aMffe2cuyieFMT/ZvHdJ4Q+mva2yTWC26VFHFOFlKeI=; b=dWHlbt9EMVosd3uoL0VTPc9rr1
- BFH349Wh6pQKzuaPtzd5iWeteJtPytUDA+/Whu0XpxhsS3yBWhIbchIgL9YEtJ0Gz3uaEOrbiSPbV
- JSTL6giQ3nSdP+lOTR0I7GjSsAfCtSCkC1bsPi4VUxXwf/tkgDRsZLCAxkVam9H2WMgA=;
+ bh=+es5DswhUHJuqnAtb0R/kgWj5lIvrRgBlmdAByRuO1k=; b=Mzfwj7ePGzft4Hhe+NhdCrlE5K
+ i5n4TEgRRb7BiAHBy6O9IE9NIZRPGzEwPK2R02pXXx9gnoEpVlI6D1q8SQ9JB1M/rsDRuxtyTjxAN
+ tUSFa3KwyTOzjt9ilatfGPlNFSGUJulY3muzOYjAl+k5OwDUxJ5LGG9LVPkj1Qs8MPJE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
- In-Reply-To:Date:To:From:Subject:Message-ID:Sender:Reply-To:Cc:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
+ In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=aMffe2cuyieFMT/ZvHdJ4Q+mva2yTWC26VFHFOFlKeI=; b=X/S4eBy0p84BK1DMlmcdUK0dhi
- +k6JMxSx0Yfkpe3vCavdKemPAssMupx7SavVSyfQ4mSLDEwxVuiI90dJqd/DwWHBemEOiNrnur8PZ
- 70f9EN+UcD0BNhNY/3i50uNz4qRazIqsztxawBl6psq5C6i5sZOdUf9afG2HQ+JPaIbU=;
-Received: from pi.codeconstruct.com.au ([203.29.241.158]
- helo=codeconstruct.com.au)
+ bh=+es5DswhUHJuqnAtb0R/kgWj5lIvrRgBlmdAByRuO1k=; b=dptIpWY/x61sh9kd1AK2KwC9JX
+ m/NyysxhMMlRW+duHvwsH29C1mvfRMaQjmpbLbSrsBQf2+u1IrRT2MNOVCFAK7Ypj6DUWf674qVd+
+ xOqTjoYnquLELuNwk85JjhtNaRLcvQqRg4xXo1n0nezH0f1OzAJ30rNEyy6UXov5k57I=;
+Received: from mail-lf1-f46.google.com ([209.85.167.46])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tfSvT-0005eM-75 for openipmi-developer@lists.sourceforge.net;
- Wed, 05 Feb 2025 00:05:57 +0000
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1tfc6b-000133-AO for openipmi-developer@lists.sourceforge.net;
+ Wed, 05 Feb 2025 09:54:02 +0000
+Received: by mail-lf1-f46.google.com with SMTP id
+ 2adb3069b0e04-540215984f0so7313043e87.1
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 05 Feb 2025 01:54:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=codeconstruct.com.au; s=2022a; t=1738713948;
- bh=aMffe2cuyieFMT/ZvHdJ4Q+mva2yTWC26VFHFOFlKeI=;
- h=Subject:From:To:Date:In-Reply-To:References;
- b=LRIFxGFFHQUulv7+gJaJmDaWZ/PPEQJVmMZGlxQsy7SG15tOvvOCxT6hHwupywBAO
- bFTs9JIdo0/N5USrIdXdMxDqzfYs4LDT+w+9d2V2E6DVvPhUXbKta2mrcRSWADjZjJ
- IFHRP+OSir09zKCOJGmq5BNwhrDamJW5HcnePqwfJgdo1JUjcRR3AruwfHcdOG7cnG
- qKxX8ddUePxs12+jcVYZTdNBiXM3WMdrbFtjW2Xca+mLz/lRWd4bOXsBk568jKtjeo
- SrzUlAatdu22ie+tuIF/MRU3W8Vf34yIuNph5y4IBwrSBZ+EBo8i/jo1WRRyHZfnjV
- O7vCiBEdMjeRA==
-Received: from [192.168.68.112]
- (ppp118-210-185-209.adl-adc-lon-bras34.tpg.internode.on.net
- [118.210.185.209])
- by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 941067104E;
- Wed,  5 Feb 2025 08:05:46 +0800 (AWST)
-Message-ID: <acf79ff017d7648d4d502b7031b88c4853bf724c.camel@codeconstruct.com.au>
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Ninad Palsule <ninad@linux.ibm.com>, brgl@bgdev.pl, 
- linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
- krzk+dt@kernel.org,  conor+dt@kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net,  edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com,  openipmi-developer@lists.sourceforge.net,
- netdev@vger.kernel.org, joel@jms.id.au,  devicetree@vger.kernel.org,
- eajames@linux.ibm.com,  linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org,  linux-kernel@vger.kernel.org
-Date: Wed, 05 Feb 2025 10:35:46 +1030
-In-Reply-To: <66e2e5e4-5ce5-442c-ba0f-d12cbe79e868@linux.ibm.com>
-References: <20250203144422.269948-1-ninad@linux.ibm.com>
- <79b819b6d06e3be0aa7e7f6872353f103294710c.camel@codeconstruct.com.au>
- <66e2e5e4-5ce5-442c-ba0f-d12cbe79e868@linux.ibm.com>
-User-Agent: Evolution 3.46.4-2 
+ d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1738749235; x=1739354035;
+ darn=lists.sourceforge.net; 
+ h=content-transfer-encoding:mime-version:references:in-reply-to
+ :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=+es5DswhUHJuqnAtb0R/kgWj5lIvrRgBlmdAByRuO1k=;
+ b=C1IUDSrJwOsqfvf2Ruut3TZI+PvXg4653/TDKAZwnPtBPJ+FJpOUvuVeoDvqb+ct5n
+ dX0VGv+2N2ob+w27m3UDyoE28IQHc8b38ysH/0JyZfndTYeJa6Emp9dYAa/h9K4cl2lQ
+ twNPIzmAUq8yqlSR1+LLRgALyrMPA+IGx+paw+Dxfd9qNoGVUowSHSYwkaxVsbQfRBhj
+ 1biX7v6tqy/Ma7Mvyf48GlJFCWqkp/C/No2k3gwKVWxq24wVIyyYTqqDib7o+7L95ys+
+ Sn/n1ozJMkuh2Y4Uo655qWX5f3G3K2cFnrY97VUv7+UEyGeAkYa1MhET5VmtSvzg6d7O
+ lE1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1738749235; x=1739354035;
+ h=content-transfer-encoding:mime-version:references:in-reply-to
+ :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=+es5DswhUHJuqnAtb0R/kgWj5lIvrRgBlmdAByRuO1k=;
+ b=jwmFC+TMcrk6HSww5DP049Efe5l4nWDRocGZYI1HUmLYAjHDl/gDgORDwKLaYgTpQh
+ s9ovURZ/t4CbFTU6NCHWrE7Ex2S+MclAw6Bl26xhH3h4Dfq5aTlsieB66dyNAbiUVq7G
+ iUYR+f3U8Mce9YHGbCxpJMH54feCIh20KU8vJBGPHMSzIIYiNaSQYU1JsrQRRN5dTzcP
+ DeyLCbrh9VXYf4st9KxyUYFjBzKadDFPE7daI7skBs23ee7i1N5XYI8UoYzMXsxwvjGm
+ pLrDP4DVBgKYesFlcVeW2AFdnVvPAZ+E5P3Ja9kr1x0oOAyAcEMaBoC+vb9102E1qwNm
+ APVg==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCUCa1rKKgVxtAlj752ZtoqcrVBB3Sn2iN7Vy1oGD7PPUpBUR4BN9xnyBxXEcx+FxEtmlGB5sygH8ArAcE4mJLCAfCQ=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YwvlTaSXJCU4BmLbk99aze/tSRSl1VIrvrRIk8tmtZcK7OpGqVS
+ iW5YOlBPAH2xyHrpZ8gQYQyyCMS3YClQOZkVKOJzua/3HehEGXJYPumR/VM8Soz8L7HCkKQnSyX
+ 9/u0=
+X-Gm-Gg: ASbGncs87GjxoemD7Q2gQrNIGbVIJCEiJzQvglR+CyikomtvKjiMrUVELFJHr716q1j
+ bgVPIDXUR558VJDS5j2p9fDHUq+RHw1gwhCZipltA5CvNhcOBPC8aeH/Ejo78rbb3L0nP3212fw
+ HHlhWObhj/+kjWUpXKjtddf8U2OS5us9zTFZd3QMxeWRAKwXK0OAl6j3DsOTbHDwGPd4AgUuZ70
+ Zu2aqBL0lsQrb7qBtTtmUDthQfv1fMN4CCU29zMz24Hl3h+V1u+M2h5f1YIVAcRMQeD1c9Q9Zt1
+ U0/d18ZousvqPrA=
+X-Google-Smtp-Source: AGHT+IHufl43yH4h42TNeRNb4pIxJfhWtSlcWpDN/3IHQPb679izKuQl7RiI9837Q+o9LDGQeygmhQ==
+X-Received: by 2002:a5d:47a4:0:b0:38b:ec34:2d62 with SMTP id
+ ffacd0b85a97d-38db48a0aa1mr1427352f8f.24.1738744823940; 
+ Wed, 05 Feb 2025 00:40:23 -0800 (PST)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:a766:1fb1:99b5:1d5f])
+ by smtp.gmail.com with ESMTPSA id
+ ffacd0b85a97d-38db6d7fb3dsm704259f8f.72.2025.02.05.00.40.23
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 05 Feb 2025 00:40:23 -0800 (PST)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: brgl@bgdev.pl, linus.walleij@linaro.org, minyard@acm.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org,
+ openipmi-developer@lists.sourceforge.net, joel@jms.id.au,
+ andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
+ eajames@linux.ibm.com, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Ninad Palsule <ninad@linux.ibm.com>
+Date: Wed,  5 Feb 2025 09:40:21 +0100
+Message-ID: <173874481706.6250.3472033617115260753.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250204194115.3899174-1-ninad@linux.ibm.com>
+References: <20250204194115.3899174-1-ninad@linux.ibm.com>
 MIME-Version: 1.0
-X-Spam-Score: -0.2 (/)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Tue, 2025-02-04 at 13:40 -0600, Ninad Palsule wrote: >
- > This one needs an ack from Linus W or Bartosz if I'm to take it. > > However,
- it's also causing some grief from Rob's bot: > > > > https://l [...] 
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content preview:  From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+ On Tue, 04 Feb 2025 13:41:03 -0600, Ninad Palsule wrote: > Please review
+ the patch set version 9. > > V9: > Applied, thanks! 
+ Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
  The query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [203.29.241.158 listed in sa-trusted.bondedsender.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ [209.85.167.46 listed in sa-accredit.habeas.com]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [203.29.241.158 listed in bl.score.senderscore.com]
+ [209.85.167.46 listed in bl.score.senderscore.com]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
-X-Headers-End: 1tfSvT-0005eM-75
-Subject: Re: [Openipmi-developer] [PATCH v7 0/9] DTS updates for system1 BMC
+ 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.46 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.167.46 listed in list.dnswl.org]
+X-Headers-End: 1tfc6b-000133-AO
+X-Mailman-Approved-At: Wed, 05 Feb 2025 13:08:45 +0000
+Subject: Re: [Openipmi-developer] (subset) [PATCH v9 0/9] DTS updates for
+ system1 BMC
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -118,43 +149,28 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
+Cc: andrew@lunn.ch, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Tue, 2025-02-04 at 13:40 -0600, Ninad Palsule wrote:
-> > This one needs an ack from Linus W or Bartosz if I'm to take it.
-> > However, it's also causing some grief from Rob's bot:
-> > 
-> > https://lore.kernel.org/all/173859694889.2601726.10618336219726193824.robh@kernel.org/
-> > 
-> > As the reported nodes should all be hogs the name shouldn't matter
-> > anywhere else (as far as I'm aware). It would be nice if all the
-> > warnings were cleaned up before we merged the binding update. That way
-> > we don't cause everyone else looking at the CHECK_DTBS=y output more
-> > grief than they already get for the Aspeed devicetrees.
-> > 
-> > In order to not get bogged down it might be worth splitting out both
-> > the IPMB- and GPIO- related patches like you did the FTGMAC100 patch,
-> > and then I can merge what remains (from a quick look they seem
-> > relatively uncontroversial).
-> > 
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+
+On Tue, 04 Feb 2025 13:41:03 -0600, Ninad Palsule wrote:
+> Please review the patch set version 9.
 > 
-> The warnings are fixed by different patch by Krzysztof. As there are no 
-> more changes then I will wait for other responses. If I don't get those 
-> response in couple of days then I will split it.
-> https://lore.kernel.org/linux-kernel/20250116085947.87241-1-krzysztof.kozlowski@linaro.org/
+> V9:
+> 
 
-That patch fixes a couple of Marvell systems. I think you might have
-meant this:
+Applied, thanks!
 
-https://lore.kernel.org/all/20250116090009.87338-1-krzysztof.kozlowski@linaro.org/
+[2/9] dt-bindings: gpio: ast2400-gpio: Add hogs parsing
+      commit: e8f2ca6be61f1cae2ff12932fa03224581b6b231
 
-In which case, I've applied it.
-
-Thanks,
-
-Andrew
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
 
 _______________________________________________
