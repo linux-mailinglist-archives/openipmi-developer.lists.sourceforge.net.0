@@ -2,187 +2,115 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A5046A5EAAB
-	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Mar 2025 05:38:03 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DF72DA60078
+	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Mar 2025 20:05:38 +0100 (CET)
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1tsaKP-0003dY-CJ;
-	Thu, 13 Mar 2025 04:37:54 +0000
+	id 1tsnrt-0004ia-KJ;
+	Thu, 13 Mar 2025 19:05:22 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <pbonzini@redhat.com>) id 1tsQw6-0007c9-L8
+ (envelope-from <lkp@intel.com>) id 1tsnrs-0004iQ-D6
  for openipmi-developer@lists.sourceforge.net;
- Wed, 12 Mar 2025 18:36:10 +0000
+ Thu, 13 Mar 2025 19:05:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=kg8OG6fCTKrHasfY8Q5mZEHdaUAY73IbW5wsrfqydq4=; b=JAsBYQNT5K7oyiU1/YKC+461Az
- cMmOrwXSq2JSe4pgwLB66vgr17l2uA78a8qHnM3B5+KzRnzygfVw/GdjoNby8tWcH2lug0VB8ohce
- FfZvEu13xZSg8EKBci/pGqK1q04OecBjOwXFIAjf3zhNyPYkkucePaqp/124tYSi6w9g=;
+ bh=KAJts6qkepkcgt0enfmDrbp7FRX5Lp2lsklD1r6e6c0=; b=KZqUcgGXR2PIn7gYDOe++IzaPv
+ 7TjNNcyGCvYNnY0bVPN4bW6DMu6FP1uiIYx1aLWnk7kvRWO/oB/cUKzAlyjWOERb9ZhF6SGWnU4z7
+ cDGli+CqcAsouGFIxa7pWCkcSKcX9ZTDEiQo62o51DTnz5XLeAXGjGTGdbi6xKNMwhNs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
- Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=kg8OG6fCTKrHasfY8Q5mZEHdaUAY73IbW5wsrfqydq4=; b=I7aOf98EyZ02d0KVkfw7HF58dk
- hNow3lsm/Bop8UFCMjhlzMCbtlIdKvo2EfCXLu49sLUpsrjXGf06XRqguLlFK29GG7qnvst00OtKc
- 6Hk7+JzAg81NBzDD97Z9hmnwbz2wkWU5hxopZEzx/BvEOxt/eJLYAqZu/l1HFLJMvQw0=;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+ bh=KAJts6qkepkcgt0enfmDrbp7FRX5Lp2lsklD1r6e6c0=; b=OshZPblfudWD1gcRphaJWuKcDD
+ zHU0JGw3nEjSjjcsxjjwje3VzTnRTZrDIxRC3Ratd1fbx+j1QA2GXvibh786yLSksddjR2R/tHRwW
+ KobAJjvmjeizqrsQtsu+WKjAJkhL1jhc0Ul9TXN02dTeCp9iJUY8W32KEPyV3oZDL0aw=;
+Received: from mgamail.intel.com ([192.198.163.18])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1tsQvz-0002xC-7I for openipmi-developer@lists.sourceforge.net;
- Wed, 12 Mar 2025 18:36:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1741804552;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=kg8OG6fCTKrHasfY8Q5mZEHdaUAY73IbW5wsrfqydq4=;
- b=OAYNAVKxy+qNeFsADcRAFESdy3YT1resb3D8eJUP+43eDbe+DVkCAM3r2A9VSVPqPBWOfA
- bE/Byf18RvPqVpghKm3YkE6zc/iRozFFH3XHKNCmp16B8XXYsh4D45NVa753m0kgFUwHZK
- kM0PTCs2PNgRARpxkyPBIir4wC/djCg=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-400-qlKupD63MQezmyy2Sjl2GA-1; Wed, 12 Mar 2025 14:35:50 -0400
-X-MC-Unique: qlKupD63MQezmyy2Sjl2GA-1
-X-Mimecast-MFC-AGG-ID: qlKupD63MQezmyy2Sjl2GA_1741804550
-Received: by mail-wm1-f72.google.com with SMTP id
- 5b1f17b1804b1-43943bd1409so830805e9.3
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 12 Mar 2025 11:35:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1741804549; x=1742409349;
- h=content-transfer-encoding:in-reply-to:autocrypt:content-language
- :from:references:cc:to:subject:user-agent:mime-version:date
- :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=kg8OG6fCTKrHasfY8Q5mZEHdaUAY73IbW5wsrfqydq4=;
- b=FCtH3CvrqD9O2I3ck8y95B7r5aN2OQjQsK2Bn2No8MuoUE7lPYoWL20EwPuC5m2AZm
- 2kFuq6jJD2IKtmSdK3dOEIxzU+lonP43CvfNitFpK4a9HYcK+EPwsfAt4ALzlhz2mnGa
- cgEzyy8Vw+KUQvJ56Cji+fcV2c5kE4av9XE3u9AAE414535wa/GiSw4sTcP7Bj8QAj+U
- arR3myUjkA0G0x0b0EW7g56+cZbGNHd5iroxN85dTYaNZCUapBGHZxtOjONoSVqvtbqt
- I6GOBXgFaeKNb0rgVGNA+ZBTuFh84waXtT9aA+ZD9fHQvjism1JqCkGHTKAmYFFt6jnk
- Ck1w==
-X-Forwarded-Encrypted: i=1;
- AJvYcCXSBTo3SkYQALq44TWOwxESxNlLMN6mKp77PGwCOvHbEZpP6XTqJg/mifbX6BWmsvTTaTl602c8Oee/OUXsTg6qfs4=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yw6+Dcu79OIu94w3O8GwP771AmdikxyJ6j9gR3/PZ2Pd3vUSNfk
- enPhi/aFnNGVE2qf9uIWob4v2jA9yM023IjUSiTI2pjdqyKvNsWrfo0pBdGLVxFRco/qXTMsUed
- K6+etxcF4ePeJPHaCiYmGcnaPuCZ+fDDstkEAm0J5fG3JHc034wNgEvvzaGB6tI3qxWzpBmb/cI
- EqGw==
-X-Gm-Gg: ASbGncvV5ya56tXzkZzy1WDzH/ZatZT7pHcsDgES5ZQcW9u9smUMSQdgXaEvK56P+BI
- sOFhjaMJgTJ5e4mx82w/RPPnRuyIiqsntN6EwPG+qqhOBz03KMwbLqevI7XMuV09xdk5hJ0g4xx
- OuOjspj+rCdSJW67fvAESZWNCMtuzWbd2Z6mbO7FETP7AaiaxVd/4x4xxZu1FCILZ1kWHC8B3DX
- +PAbcvIyGqe0sx32BW6LhpHIY494KooS/Bh7irCOTwXwA8kP2+zjusQ4Cd8PovMF44tIS+eJxBH
- H4N6ItOvIzbob+Zh1W0xzA==
-X-Received: by 2002:a05:600c:154c:b0:43c:f63c:babb with SMTP id
- 5b1f17b1804b1-43cf63cc031mr103512895e9.1.1741804549607; 
- Wed, 12 Mar 2025 11:35:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHgUwihZCzD7+DVSttzbZ8rO0kvBaS+3OmjiSWBjMucBzvhILF5dcq8VX5WPbUXHctg2KmujA==
-X-Received: by 2002:a05:600c:154c:b0:43c:f63c:babb with SMTP id
- 5b1f17b1804b1-43cf63cc031mr103512755e9.1.1741804549186; 
- Wed, 12 Mar 2025 11:35:49 -0700 (PDT)
-Received: from [192.168.10.81] ([176.206.122.167])
- by smtp.googlemail.com with ESMTPSA id
- 5b1f17b1804b1-43d0a8d068esm28753615e9.33.2025.03.12.11.35.48
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Wed, 12 Mar 2025 11:35:48 -0700 (PDT)
-Message-ID: <a006b1db-5cdd-4f73-b230-8fd4abfbfc7a@redhat.com>
-Date: Wed, 12 Mar 2025 19:35:46 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: paulmck@kernel.org, Rik van Riel <riel@surriel.com>
+ id 1tsnrp-0007dE-2i for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Mar 2025 19:05:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1741892717; x=1773428717;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=iWg4hVFvyTLL0ZXRr8B9fT0VXiGOPMtR0tov4PwJgNE=;
+ b=RQeABq76SvdGZB8hyN7HIa6eoXBxBYegMAZxA2XzBb/JVBGXUFkW9s2d
+ MWTKEWw7x+aG9eXACeWzntk1vyAfs7Ow3f4ZPfoVaABteZ33gzQalmXtf
+ aYEjmsV7FCOzY5+etPf0ylXlh3npFdjya1OCcmX00meGn5q017O26KUiU
+ fH/NTZZ8zdybX5iOjs/Lrm9bBBk6+FpDJ7bdKk5AaFBuTkJfhNA9EzWTI
+ rjExQ471H9SBMK4cK0VOsFKWIodYQDcdDfGxIgMcyNvrRDAC8iJyGchK+
+ xY/NXAsolQEAsHsdwGhUTCzi5Q97c4otRw4tPt/NjiNhaVv78qtMJzOEz g==;
+X-CSE-ConnectionGUID: jYZPztwaSfiDjHALPetCAQ==
+X-CSE-MsgGUID: u1bT1ysCTsyb5nfluX8GAA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11372"; a="42278593"
+X-IronPort-AV: E=Sophos;i="6.14,245,1736841600"; d="scan'208";a="42278593"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+ by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 13 Mar 2025 12:05:06 -0700
+X-CSE-ConnectionGUID: 24YuMAPCSUyHEHtc3yh94w==
+X-CSE-MsgGUID: jfo4HKpeQJGe/AaWt/Jqag==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,245,1736841600"; d="scan'208";a="121095565"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+ by fmviesa007.fm.intel.com with ESMTP; 13 Mar 2025 12:05:04 -0700
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+ (envelope-from <lkp@intel.com>) id 1tsnrZ-0009mO-37;
+ Thu, 13 Mar 2025 19:05:01 +0000
+Date: Fri, 14 Mar 2025 03:04:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Rik van Riel <riel@surriel.com>, Corey Minyard <corey@minyard.net>
+Message-ID: <202503140113.cTWvIvtK-lkp@intel.com>
 References: <20250312131932.44d901f7@fangorn>
- <e28d914d-5842-4bfa-8208-9ac34fd38a95@paulmck-laptop>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <e28d914d-5842-4bfa-8208-9ac34fd38a95@paulmck-laptop>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: KNTpV_JrQYqfkJyX81d5hKUJ6RMXTU6UC4VXx9Yes_Q_1741804550
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-X-Spam-Score: -0.2 (/)
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250312131932.44d901f7@fangorn>
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-2.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 3/12/25 18:29, Paul E. McKenney wrote: > On Wed, Mar 12, 
- 2025 at 01:19:32PM -0400,
- Rik van Riel wrote: >> diff --git a/drivers/char/ipmi/ipmi_msghandler.c
- b/drivers/char/ipmi/ipmi_msghandler.c >> i [...] 
- Content analysis details:   (-0.2 points, 6.0 required)
+ Content preview:  Hi Rik, kernel test robot noticed the following build errors:
+ [auto build test ERROR on v6.14-rc6] [also build test ERROR on linus/master
+ next-20250313] [If your patch is applied to the wrong git tree, kindly drop
+ us a note. And when submitting patch, we suggest [...] 
+ Content analysis details:   (-2.5 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
- The query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [170.10.133.124 listed in sa-accredit.habeas.com]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [170.10.133.124 listed in bl.score.senderscore.com]
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [170.10.133.124 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [170.10.133.124 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ [192.198.163.18 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [192.198.163.18 listed in sa-accredit.habeas.com]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [192.198.163.18 listed in list.dnswl.org]
+ 0.0 T_SPF_TEMPERROR        SPF: test of record failed (temperror)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1tsQvz-0002xC-7I
-X-Mailman-Approved-At: Thu, 13 Mar 2025 04:37:52 +0000
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1tsnrp-0007dE-2i
 Subject: Re: [Openipmi-developer] [PATCH] ipmi: fix suspicious RCU usage
  warning
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -197,109 +125,157 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Corey Minyard <corey@minyard.net>, openipmi-developer@lists.sourceforge.net,
- kernel-team@meta.com, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, "Paul E. McKenney" <paulmck@kernel.org>,
+ kernel-team@meta.com, linux-kernel@vger.kernel.org,
+ oe-kbuild-all@lists.linux.dev, openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On 3/12/25 18:29, Paul E. McKenney wrote:
-> On Wed, Mar 12, 2025 at 01:19:32PM -0400, Rik van Riel wrote:
->> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
->> index 1e5313748f8b..a2823763fd37 100644
->> --- a/drivers/char/ipmi/ipmi_msghandler.c
->> +++ b/drivers/char/ipmi/ipmi_msghandler.c
->> @@ -1235,7 +1235,7 @@ int ipmi_create_user(unsigned int          if_num,
->>   		return -ENOMEM;
->>   
->>   	index = srcu_read_lock(&ipmi_interfaces_srcu);
->> -	list_for_each_entry_rcu(intf, &ipmi_interfaces, link) {
->> +	list_for_each_entry_srcu(intf, &ipmi_interfaces, link) {
-> 
-> Doesn't the above line want to be something like this?
-> 
-> +	list_for_each_entry_srcu(intf, &ipmi_interfaces, link,
-> 				 srcu_read_lock_held(&ipmi_interfaces_srcu)) {
+Hi Rik,
 
-Ouch what a mess.  There are multiple occurrences of this,
-almost all susceptible to the same warning.
+kernel test robot noticed the following build errors:
 
-I'd start with:
+[auto build test ERROR on v6.14-rc6]
+[also build test ERROR on linus/master next-20250313]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
--#define ipmi_interfaces_mutex_held() \
--	lockdep_is_held(&ipmi_interfaces_mutex)
-+#define for_each_ipmi_interface(intf) \
-+	list_for_each_entry_srcu(intf, &ipmi_interfaces, link,
-+				 srcu_read_lock_held(&ipmi_interfaces_srcu)
-+				 || lockdep_is_held(&ipmi_interfaces_mutex)) {
+url:    https://github.com/intel-lab-lkp/linux/commits/Rik-van-Riel/ipmi-fix-suspicious-RCU-usage-warning/20250313-013222
+base:   v6.14-rc6
+patch link:    https://lore.kernel.org/r/20250312131932.44d901f7%40fangorn
+patch subject: [PATCH] ipmi: fix suspicious RCU usage warning
+config: i386-randconfig-001-20250313 (https://download.01.org/0day-ci/archive/20250314/202503140113.cTWvIvtK-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250314/202503140113.cTWvIvtK-lkp@intel.com/reproduce)
 
-and use the for_each_ipmi_interface() macro throughout the file.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503140113.cTWvIvtK-lkp@intel.com/
 
-Here is the list... all of them are using _rcu, plus:
+All error/warnings (new ones prefixed by >>):
 
-- ipmi_smi_watcher_register is using the wrong lockdep_is_held() assertion,
-   but would warn if fixed
-- ipmi_add_smi is using _rcu but otherwise correct
-- ipmi_get_smi_info is using _rcu and can warn
-- ipmi_timeout is using _rcu and can warn
-- panic_event is using _rcu and can warn, and is also not
-   using any protection around the walk.  Taking srcu_read_lock
-   would be much better
-
-
-On top of this, intf->users_srcu never does a synchronize_srcu, so I'm
-a bit at a loss at how it is protecting the list.  The safest change
-here is probably:
-
-diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index f2a56c624f54..dc8936254c1b 100644
---- a/drivers/char/ipmi/ipmi_msghandler.c
-+++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -3769,12 +3769,12 @@ void ipmi_unregister_smi(struct ipmi_smi *intf)
-  	intf->in_shutdown = true;
-  	list_del_rcu(&intf->link);
-  	mutex_unlock(&ipmi_interfaces_mutex);
--	synchronize_srcu(&ipmi_interfaces_srcu);
-  
-  	/* At this point no users can be added to the interface. */
-  
-  	device_remove_file(intf->si_dev, &intf->nr_msgs_devattr);
-  	device_remove_file(intf->si_dev, &intf->nr_users_devattr);
-+	synchronize_srcu(&ipmi_interfaces_srcu);
-  
-  	/*
-  	 * Call all the watcher interfaces to tell them that
-
-... plus replacing all uses of intf->users_srcu with ipmi_interfaces_srcu.
+   drivers/char/ipmi/ipmi_msghandler.c: In function 'ipmi_create_user':
+>> drivers/char/ipmi/ipmi_msghandler.c:1238:62: error: macro "list_for_each_entry_srcu" requires 4 arguments, but only 3 given
+    1238 |         list_for_each_entry_srcu(intf, &ipmi_interfaces, link) {
+         |                                                              ^
+   In file included from include/linux/dcache.h:8,
+                    from include/linux/fs.h:8,
+                    from include/linux/poll.h:10,
+                    from drivers/char/ipmi/ipmi_msghandler.c:20:
+   include/linux/rculist.h:455: note: macro "list_for_each_entry_srcu" defined here
+     455 | #define list_for_each_entry_srcu(pos, head, member, cond)               \
+         | 
+>> drivers/char/ipmi/ipmi_msghandler.c:1238:9: error: 'list_for_each_entry_srcu' undeclared (first use in this function)
+    1238 |         list_for_each_entry_srcu(intf, &ipmi_interfaces, link) {
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/char/ipmi/ipmi_msghandler.c:1238:9: note: each undeclared identifier is reported only once for each function it appears in
+>> drivers/char/ipmi/ipmi_msghandler.c:1238:33: error: expected ';' before '{' token
+    1238 |         list_for_each_entry_srcu(intf, &ipmi_interfaces, link) {
+         |                                 ^                              ~
+         |                                 ;
+>> drivers/char/ipmi/ipmi_msghandler.c:1246:2: warning: label 'found' defined but not used [-Wunused-label]
+    1246 |  found:
+         |  ^~~~~
 
 
-A couple more issues:
+vim +/list_for_each_entry_srcu +1238 drivers/char/ipmi/ipmi_msghandler.c
 
-- in handle_read_event_rsp() there's a lone rcu_read_unlock()
-that should become srcu_read_unlock() (currently for intf->users_srcu;
-modulo changes like the above)
+  1203	
+  1204	int ipmi_create_user(unsigned int          if_num,
+  1205			     const struct ipmi_user_hndl *handler,
+  1206			     void                  *handler_data,
+  1207			     struct ipmi_user      **user)
+  1208	{
+  1209		unsigned long flags;
+  1210		struct ipmi_user *new_user;
+  1211		int           rv, index;
+  1212		struct ipmi_smi *intf;
+  1213	
+  1214		/*
+  1215		 * There is no module usecount here, because it's not
+  1216		 * required.  Since this can only be used by and called from
+  1217		 * other modules, they will implicitly use this module, and
+  1218		 * thus this can't be removed unless the other modules are
+  1219		 * removed.
+  1220		 */
+  1221	
+  1222		if (handler == NULL)
+  1223			return -EINVAL;
+  1224	
+  1225		/*
+  1226		 * Make sure the driver is actually initialized, this handles
+  1227		 * problems with initialization order.
+  1228		 */
+  1229		rv = ipmi_init_msghandler();
+  1230		if (rv)
+  1231			return rv;
+  1232	
+  1233		new_user = vzalloc(sizeof(*new_user));
+  1234		if (!new_user)
+  1235			return -ENOMEM;
+  1236	
+  1237		index = srcu_read_lock(&ipmi_interfaces_srcu);
+> 1238		list_for_each_entry_srcu(intf, &ipmi_interfaces, link) {
+  1239			if (intf->intf_num == if_num)
+  1240				goto found;
+  1241		}
+  1242		/* Not found, return an error */
+  1243		rv = -EINVAL;
+  1244		goto out_kfree;
+  1245	
+> 1246	 found:
+  1247		if (atomic_add_return(1, &intf->nr_users) > max_users) {
+  1248			rv = -EBUSY;
+  1249			goto out_kfree;
+  1250		}
+  1251	
+  1252		INIT_WORK(&new_user->remove_work, free_user_work);
+  1253	
+  1254		rv = init_srcu_struct(&new_user->release_barrier);
+  1255		if (rv)
+  1256			goto out_kfree;
+  1257	
+  1258		if (!try_module_get(intf->owner)) {
+  1259			rv = -ENODEV;
+  1260			goto out_kfree;
+  1261		}
+  1262	
+  1263		/* Note that each existing user holds a refcount to the interface. */
+  1264		kref_get(&intf->refcount);
+  1265	
+  1266		atomic_set(&new_user->nr_msgs, 0);
+  1267		kref_init(&new_user->refcount);
+  1268		new_user->handler = handler;
+  1269		new_user->handler_data = handler_data;
+  1270		new_user->intf = intf;
+  1271		new_user->gets_events = false;
+  1272	
+  1273		rcu_assign_pointer(new_user->self, new_user);
+  1274		spin_lock_irqsave(&intf->seq_lock, flags);
+  1275		list_add_rcu(&new_user->link, &intf->users);
+  1276		spin_unlock_irqrestore(&intf->seq_lock, flags);
+  1277		if (handler->ipmi_watchdog_pretimeout)
+  1278			/* User wants pretimeouts, so make sure to watch for them. */
+  1279			smi_add_watch(intf, IPMI_WATCH_MASK_CHECK_WATCHDOG);
+  1280		srcu_read_unlock(&ipmi_interfaces_srcu, index);
+  1281		*user = new_user;
+  1282		return 0;
+  1283	
+  1284	out_kfree:
+  1285		atomic_dec(&intf->nr_users);
+  1286		srcu_read_unlock(&ipmi_interfaces_srcu, index);
+  1287		vfree(new_user);
+  1288		return rv;
+  1289	}
+  1290	EXPORT_SYMBOL(ipmi_create_user);
+  1291	
 
-- while the intf->cmd_rcvrs list is protected by regular RCU,
-there are many other occurrences of rcu_read_lock(), typically
-followed by
-
-         if (intf->in_shutdown) {
-                 rv = -ENODEV;
-                 goto out_err;
-         }
-
-and I think they should use interfaces_srcu instead.
-
-Paolo
-
->>   		if (intf->intf_num == if_num)
->>   			goto found;
->>   	}
->> -- 
->> 2.48.1
->>
-> 
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 
 _______________________________________________
