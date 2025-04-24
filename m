@@ -2,131 +2,137 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id AEDC1A9B480
-	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Apr 2025 18:51:05 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C63CA9B481
+	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Apr 2025 18:51:06 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1u7zmn-0001Uq-4X;
-	Thu, 24 Apr 2025 16:50:53 +0000
+	id 1u7zmr-0004R1-GA;
+	Thu, 24 Apr 2025 16:50:56 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1u7zmm-0001Uf-2s
+ (envelope-from <corey@minyard.net>) id 1u7zmp-0004Qt-OG
  for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Apr 2025 16:50:52 +0000
+ Thu, 24 Apr 2025 16:50:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-ID:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=irqP/fJ8dLQK1ES9rmqL9YT2JfrGImrnE/KpnWMXB4c=; b=Wj6m3GYgnryYecHzRz5cqP0W3M
- kfA0vWS3ug9pIjfwEH2rZiyB8eCAaLBf0Kasi28mCTQF6hoK2dpht9ZI867EsL2bSpSL3oGo1uWov
- rXhTW/ihw3C7k+pei31YVM05oHENyejzaSC06Pe3hCqnelza5rWdyOm/gsWr51qgTt2U=;
+ bh=Zwio3ISUto8LUTujsv8QXqK82cuXiEJf2BXkC619czg=; b=BErwsWXUz+LaCc2Xlh1Z+d6d71
+ 8Z912B1KS7DMRfAKgkBfn1I1zm8IOX8ZcQorhcZt8D3flZMMgpn/G8gF1P0nEoYPfN5BaEpGi5ypC
+ R6mdpevjbh8PI6KJT0Mp1in3ugnPHuvkzkCPNZfkj5YIf4eharxQUWJ/UK/8WxiIETIY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=irqP/fJ8dLQK1ES9rmqL9YT2JfrGImrnE/KpnWMXB4c=; b=B
- 9CDnzw6vdY7K0pav/13MB7AC4Tcw9H4t6Gb21VIh+PxHKmigU85dTh8oJV3StWatuSWs23uRhpi8a
- oURcPbRqk2u1vdHnda20+HNX4xWvWTjWJ91JVEmyIzyaevgWaGmgi49OGFiP+zAJ7k3okrsJMZGBN
- XLQf8PLmRi2br08s=;
-Received: from mail-oi1-f177.google.com ([209.85.167.177])
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=Zwio3ISUto8LUTujsv8QXqK82cuXiEJf2BXkC619czg=; b=jkbBC1aS4Fl1600zceDKpdod1D
+ 32ectA6Z9qUQKCEGXTKCZORDs5x3oP3x9zq4Wdiv2sA/3m/GefD36LJ/HfZtE1w9u8LrTpNWmNxs5
+ o0IUjAqMZ4feGgpYyumd7SdWdnhEn6wRb796j2zQA9u1vyfbZagYSyR7m7KvDGEeqX7I=;
+Received: from mail-ot1-f50.google.com ([209.85.210.50])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1u7zmX-0002gN-3f for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Apr 2025 16:50:52 +0000
-Received: by mail-oi1-f177.google.com with SMTP id
- 5614622812f47-3f8d2f8d890so821006b6e.0
+ id 1u7zmZ-0002gY-EP for openipmi-developer@lists.sourceforge.net;
+ Thu, 24 Apr 2025 16:50:55 +0000
+Received: by mail-ot1-f50.google.com with SMTP id
+ 46e09a7af769-7302a769534so956830a34.1
  for <openipmi-developer@lists.sourceforge.net>;
- Thu, 24 Apr 2025 09:50:37 -0700 (PDT)
+ Thu, 24 Apr 2025 09:50:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1745513426; x=1746118226;
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1745513429; x=1746118229;
  darn=lists.sourceforge.net; 
- h=content-transfer-encoding:mime-version:message-id:date:subject:cc
- :to:from:from:to:cc:subject:date:message-id:reply-to;
- bh=irqP/fJ8dLQK1ES9rmqL9YT2JfrGImrnE/KpnWMXB4c=;
- b=xwRSEWgMBDTR6Se6ZBiBzxjgYG3TkV5ElhYSiSPPQA4aIWduEoewsue5BetkFXGqF8
- rNO3NKsc9CiuHW0BJz9XdAJA347zuWJGs9PInqSl23oC/p74ZPBhNkY/+4u8OwdxKduM
- dvwklqHZm0Ft86SbapHO7KNCAxxcnUAJSbVqx6qPtICcUgkKY0ptGf7YoUe2e6k3UUV4
- msXgWptR70AEiTE7Dlpv84K7sUbxMO1KJIcc6ZnUwgZ1WhhgN9V+F09ygS+pgyL9HoPY
- ko9feIRAaDCGiF4WBthB3atfrBWgNaNWwWdWWJfMj7f0U1Wxesh8QdXp3Jk+y7rqhB4t
- Vr6Q==
+ h=content-transfer-encoding:mime-version:references:in-reply-to
+ :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=Zwio3ISUto8LUTujsv8QXqK82cuXiEJf2BXkC619czg=;
+ b=XzLzqM1EKL/KoyKLaI8OFj1SjtF85gFS3pM+ECBU5ZKtu97qGemQE9Lx0gcQYMAWbj
+ AyRcByj8QIt97g8iicBs8MAW+qb3lp9TEEXQxfUm5H6WEPjAzPjL+XEmQswjldcGSQXg
+ G0ZDFURnNkzomXsJVj49qpncqaqZbf3erSPbtbcUZBhzuwCqcx59ZF1ntXXVcquSJZCr
+ 9/JGlbjj1m4HgPIDFqlFY5mWj5IN2PWy09ItTBcBhpuzlXD29SK3Dy7kvxV0SidYBECI
+ IAn3GW0w2KsCrJ7E1VI/av0FUpa8hIiPG+CDr9SAytWW+685iYeTl2/2/tFtu5rAW9+q
+ zjlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1745513426; x=1746118226;
- h=content-transfer-encoding:mime-version:message-id:date:subject:cc
- :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=irqP/fJ8dLQK1ES9rmqL9YT2JfrGImrnE/KpnWMXB4c=;
- b=OyygDLu7r60U8PoBLhtPmgGLCvhcI45Fc7HjagapgQ8ihpyrANhVEaIsIFqqpTvHQv
- S/XdpGfML0VRbbh8k9A35wkHMDVGsR6h5TWAaV7NDDed9e02ezREm93Ynt8JRhpc9qLE
- OhOHi0QhOCFMSOftVdCeQ37pUycSup29ZcnfIvWHUtTuIe7mRCYceGUFAOqRra7LNI/l
- miSQibJE1Kj7WQ7GhRvtAf4hL2DIU5aqlZAsxkS+lkWgNoMkVbJ3X+e74OuNCjeKji6o
- AboxUFFWXQOD41vGSxakNL7Hkx9GTfW4llxszhakzSHi12mnM7l31QOSBQnsZt9SwWsv
- r6sw==
+ d=1e100.net; s=20230601; t=1745513429; x=1746118229;
+ h=content-transfer-encoding:mime-version:references:in-reply-to
+ :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=Zwio3ISUto8LUTujsv8QXqK82cuXiEJf2BXkC619czg=;
+ b=oPBtvlTA00a8sb0TB4FGnpPacFC5WCm0sK6SHdHNH/nX4DCZUPeoUDqqW8MtEiTUfW
+ OoFqNoDoiiqbkXTIl9C5af5Pxpy1zWaGsWkj6fR23Wj09nD+npmqL0vuOpe7y1PlNlMT
+ dqoKoXMD3OOiYQYbu2SzptqTGkvoxJh8rTiLViTs35QJmdx26v7oMP5xAN1nmY/gbT5g
+ W0YhqU/ugvHaVuAikT1kSVdjdtItpypJMaqOVq40BoiJxAk1YmxY5XKmCekgJy+ENYjk
+ fWn5VVPBiEqiYLihxhH4HAgDntrBflaOJRCVb9hTt3w9ulN27995oYpk0SGONjruOzFt
+ 3s1Q==
 X-Forwarded-Encrypted: i=1;
- AJvYcCUwtWp9la9+C27Z1js3XnrLM+usIuoX0i8tBD8JqJoX+w0x5AYqK70eEUb3GvLRByijoifnw0dE9niApOzyyWJQF4I=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yy7ll+zVK8CvOjbWNecp3hxXOsjYNGpQSuRlKnHa109utMQ2jVZ
- Y6xWKH5Ni6P3vymfKQ+ihgIdSovH5/kSgowp9EjhRUb/ZnI79yaZ5be/Z3Rtcw4=
-X-Gm-Gg: ASbGncvvTIKAmIUZnNhVgvkLho7G/tKsd1WQYmnT/tlELSU4TddPYdlr33Qq3Ky/e03
- CG20ZPMeZ/gI5rLBoU+jFUSqFLXaqKRebW5B1SMq31v9JGO3QEqvf5JQhpcuZ4JsYw3ysRDPG+q
- YSemAJga7+IYUoqPhm80YQ/cvGCDd/nFfTgseXVHp5Jk1b+zPiE5XQ2FFRnwNfmJmCglvSdKyYI
- a7l8mEN71VoUz5TEEoUjATgUfuRnc+YMxLdOWzwDia+mnj9uwkslFCiTALTPN6XKKoA7z55XDcF
- 2CgC0rgZMj55YrEUq0y61ViOw7bSODtw2Vc=
-X-Google-Smtp-Source: AGHT+IFI5A1FFn/q4E9plQOCPB3xcIBLhIbNwEPSnznmLTFhyxyKrEh1jvaOGs0nK04Q3S1k9Zl6qw==
-X-Received: by 2002:a05:6871:2b0e:b0:2c2:d749:82d3 with SMTP id
- 586e51a60fabf-2d99449365amr274841fac.27.1745513426395; 
- Thu, 24 Apr 2025 09:50:26 -0700 (PDT)
+ AJvYcCUMF4ur0NsHj0kN3fNDTirrtgI7kNo5yYSq9W7+C/+3Kn7bT+WgK7Fd/ebzx6KQIXdq3mrexi21RC33clariqo2bSw=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0Yxf3Cgtf5q+2pQkCgcByEEzzyTrFJBmdNvtnEVeMvLRhmaAGVDj
+ IykZeXUBiStZD0UPZqXnkkk26vSDvFlbJYtL1MDhGNr/yIkxWM4c+PVRT8khB+I=
+X-Gm-Gg: ASbGncsZGpwnrX64ziKrOyp2hD4wn8r8ZtcjsbKiSpYFmjxJ+TJQF0KqibMMaPius/f
+ VQsrXKDoInnER3lEJ9tQxq4/lQV0w5XHrvQqdNgbxMQbSNsvFFocNrDGLiOzfnlwUOJb/uBzb2z
+ dsNFiAAscdIwVAuf6xeRoW0nbyNazW/nHkC4sPnGvxXtsD8wisyXrpo8z5TlJor57hLtPYQ7Fth
+ 0jjHsyxoYnFmGubL2VqUVe4tD5KNHJrDSpbHYqEaOZ41MlVMaefcIqUhFvpYIvW6t+9F8zME9Pm
+ VddDSUGyCcgOR0aQx7kZiKIWUgh8AU1ZZnQ=
+X-Google-Smtp-Source: AGHT+IGy7CZalF5Miu4rlUrqy24erWiGVBihUFSHTQCWfAbTX6kMHsZPYJdkMwwydQR7vrtwIl+ZPQ==
+X-Received: by 2002:a05:6830:3c08:b0:72b:a175:2f1d with SMTP id
+ 46e09a7af769-7304dbd8709mr2441810a34.23.1745513428769; 
+ Thu, 24 Apr 2025 09:50:28 -0700 (PDT)
 Received: from localhost ([2001:470:b8f6:1b:af2e:7abf:8abe:2726])
  by smtp.gmail.com with UTF8SMTPSA id
- 586e51a60fabf-2d97364d9c5sm367930fac.7.2025.04.24.09.50.24
+ 46e09a7af769-7304f188d01sm296180a34.14.2025.04.24.09.50.27
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 24 Apr 2025 09:50:24 -0700 (PDT)
+ Thu, 24 Apr 2025 09:50:27 -0700 (PDT)
 From: Corey Minyard <corey@minyard.net>
 To: linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
  Rik van Riel <riel@surriel.com>
-Date: Thu, 24 Apr 2025 11:49:37 -0500
-Message-ID: <20250424165020.627193-1-corey@minyard.net>
+Date: Thu, 24 Apr 2025 11:49:38 -0500
+Message-ID: <20250424165020.627193-2-corey@minyard.net>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250424165020.627193-1-corey@minyard.net>
+References: <20250424165020.627193-1-corey@minyard.net>
 MIME-Version: 1.0
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-2.v13.lw.sourceforge.com", 
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: This patch set switches from SRCU to using normal locks. This
- required pulling most of the IPMI message handler up to run in kernel threads, 
- which was a good thing, anyway. It also handles some fallou [...] 
+ Content preview: It needs to be read only once because it's used in
+ lock/unlock
+ scenarios. Signed-off-by: Corey Minyard <cminyard@mvista.com> ---
+ drivers/char/ipmi/ipmi_msghandler.c
+ | 17 ++++++++--------- 1 file changed, 8 insertions(+), 9 deletions(-) 
  Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.167.177 listed in list.dnswl.org]
+ no trust [209.85.210.50 listed in list.dnswl.org]
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.167.177 listed in sa-trusted.bondedsender.org]
+ [209.85.210.50 listed in sa-trusted.bondedsender.org]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.167.177 listed in bl.score.senderscore.com]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ [209.85.210.50 listed in bl.score.senderscore.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.177 listed in wl.mailspike.net]
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.50 listed in wl.mailspike.net]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
-X-Headers-End: 1u7zmX-0002gN-3f
-Subject: [Openipmi-developer] [PATCH 00/23] ipmi: Remove SRCU and handle the
- fallout
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1u7zmZ-0002gY-EP
+Subject: [Openipmi-developer] [PATCH 01/23] ipmi:msghandler: Use READ_ONCE
+ on run_to_completion
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -139,23 +145,85 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Breno Leitao <leitao@debian.org>, "Paul E . McKenney" <paulmck@kernel.org>
+Cc: Breno Leitao <leitao@debian.org>, Corey Minyard <corey@minyard.net>,
+ "Paul E . McKenney" <paulmck@kernel.org>, Corey Minyard <cminyard@mvista.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-This patch set switches from SRCU to using normal locks.  This required
-pulling most of the IPMI message handler up to run in kernel threads,
-which was a good thing, anyway.  It also handles some fallout from
-that change.
+It needs to be read only once because it's used in lock/unlock
+scenarios.
 
-I didn't have a way to thoroughly test the IPMI driver, most of the
-work for this was creating a test framework, which required work in
-QEMU, the OpenIPMI simulator, and a few other things.  But that's
-working now, and it shook out surprisingly few bugs, one in the new
-changes and one driver unload issue.
+Signed-off-by: Corey Minyard <cminyard@mvista.com>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 17 ++++++++---------
+ 1 file changed, 8 insertions(+), 9 deletions(-)
 
-Anyway, here's the first candidate for this.
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 1e5313748f8b..77f0f41f2e3d 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -1882,13 +1882,12 @@ static void smi_send(struct ipmi_smi *intf,
+ 		     const struct ipmi_smi_handlers *handlers,
+ 		     struct ipmi_smi_msg *smi_msg, int priority)
+ {
+-	int run_to_completion = intf->run_to_completion;
++	int run_to_completion = READ_ONCE(intf->run_to_completion);
+ 	unsigned long flags = 0;
+ 
+ 	if (!run_to_completion)
+ 		spin_lock_irqsave(&intf->xmit_msgs_lock, flags);
+ 	smi_msg = smi_add_send_msg(intf, smi_msg, priority);
+-
+ 	if (!run_to_completion)
+ 		spin_unlock_irqrestore(&intf->xmit_msgs_lock, flags);
+ 
+@@ -4753,10 +4752,10 @@ static int handle_one_recv_msg(struct ipmi_smi *intf,
+  */
+ static void handle_new_recv_msgs(struct ipmi_smi *intf)
+ {
+-	struct ipmi_smi_msg  *smi_msg;
+-	unsigned long        flags = 0;
+-	int                  rv;
+-	int                  run_to_completion = intf->run_to_completion;
++	struct ipmi_smi_msg *smi_msg;
++	unsigned long flags = 0;
++	int rv;
++	int run_to_completion = READ_ONCE(intf->run_to_completion);
+ 
+ 	/* See if any waiting messages need to be processed. */
+ 	if (!run_to_completion)
+@@ -4813,7 +4812,7 @@ static void smi_recv_work(struct work_struct *t)
+ {
+ 	unsigned long flags = 0; /* keep us warning-free. */
+ 	struct ipmi_smi *intf = from_work(intf, t, recv_work);
+-	int run_to_completion = intf->run_to_completion;
++	int run_to_completion = READ_ONCE(intf->run_to_completion);
+ 	struct ipmi_smi_msg *newmsg = NULL;
+ 
+ 	/*
+@@ -4843,9 +4842,9 @@ static void smi_recv_work(struct work_struct *t)
+ 			intf->curr_msg = newmsg;
+ 		}
+ 	}
+-
+ 	if (!run_to_completion)
+ 		spin_unlock_irqrestore(&intf->xmit_msgs_lock, flags);
++
+ 	if (newmsg)
+ 		intf->handlers->sender(intf->send_info, newmsg);
+ 
+@@ -4859,7 +4858,7 @@ void ipmi_smi_msg_received(struct ipmi_smi *intf,
+ 			   struct ipmi_smi_msg *msg)
+ {
+ 	unsigned long flags = 0; /* keep us warning-free. */
+-	int run_to_completion = intf->run_to_completion;
++	int run_to_completion = READ_ONCE(intf->run_to_completion);
+ 
+ 	/*
+ 	 * To preserve message order, we keep a queue and deliver from
+-- 
+2.43.0
 
 
 
