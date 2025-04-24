@@ -2,28 +2,28 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F1049A9B489
-	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Apr 2025 18:51:19 +0200 (CEST)
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	by mail.lfdr.de (Postfix) with ESMTPS id 17401A9B48D
+	for <lists+openipmi-developer@lfdr.de>; Thu, 24 Apr 2025 18:51:22 +0200 (CEST)
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1u7zn9-0004SY-B0;
-	Thu, 24 Apr 2025 16:51:14 +0000
+	id 1u7znA-0007u6-PK;
+	Thu, 24 Apr 2025 16:51:16 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1u7zn7-0004SO-Of
+ (envelope-from <corey@minyard.net>) id 1u7zn8-0007tq-Jd
  for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Apr 2025 16:51:13 +0000
+ Thu, 24 Apr 2025 16:51:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=kUz7DXMA39otnLyfDSP3DMy4MLC8l/U84/KlxK55hqA=; b=UMefSMI7tnGSfW8KqHCA0Gemsh
- mEstEvtWK70LpE/Cxf83tYGAwcqhqodeoXVSG/0cUkjbUS4f9hdPm/etH2uddghZybEjqXmm9BAXH
- 0tYtCL4OnYI72uhMFKc5feh6OlB0aczvojiBYsgbBdCy8j3WVl92EAOSu3WhCN4brOx8=;
+ bh=Bo8OORB/CMRTqZ+jmfB+YUkyYwA6MdIiB5QaJmUO56E=; b=hm/g0YB33LV7G+7yQ4CEiSsiij
+ ulgQL1WuDY731Cf8NVjM+k9+pzoVR4ainzt3262fMe5YnxeiSvfNlNhhcccAhRNfZXegO+6MiBIo4
+ LCqTbTCa1Xwl/TFuvy/2HFSr1HsKFSsgid46ux0ENHf5iRcf0l/ZvPfPJUAv24k9sezw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -31,66 +31,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=kUz7DXMA39otnLyfDSP3DMy4MLC8l/U84/KlxK55hqA=; b=hVasR59mvrkfzb/NeVzxBeK+TF
- 8N5vA5WmZrTqUQHJOrVocZmIMhDoiVy5QW0r77tJXe2o7SrB2zjKo+YrtfUq35flei1YaSLLn3/Mn
- vJv0JNMmeamzWMjPk52RHhkWjQKRLjfjceV0hijIQBHg/66so0rAQ5dG+Km8w6ZqJqgM=;
-Received: from mail-ot1-f54.google.com ([209.85.210.54])
+ bh=Bo8OORB/CMRTqZ+jmfB+YUkyYwA6MdIiB5QaJmUO56E=; b=gMOAmiU4unKenLlwMYxMPbJHYm
+ cSVCOCiXGyO78c6vjNPx62cQ/VCAaCUxZm+QCK+wgPp3EuqvRNxM0lSe03ZvzgO+3Z8JmdBAaFYWp
+ BwMuo7fP6AGxxIJ1bItitAoeYAg3k/ahgMOD8LD3LTUWZ4/K4QBI2qsBHAnulmwchIZk=;
+Received: from mail-ot1-f42.google.com ([209.85.210.42])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1u7zmr-0002hd-JP for openipmi-developer@lists.sourceforge.net;
- Thu, 24 Apr 2025 16:51:13 +0000
-Received: by mail-ot1-f54.google.com with SMTP id
- 46e09a7af769-72bb9725de1so325602a34.2
+ id 1u7zmt-0002hk-1R for openipmi-developer@lists.sourceforge.net;
+ Thu, 24 Apr 2025 16:51:14 +0000
+Received: by mail-ot1-f42.google.com with SMTP id
+ 46e09a7af769-72c1425fbfcso1067516a34.3
  for <openipmi-developer@lists.sourceforge.net>;
- Thu, 24 Apr 2025 09:50:57 -0700 (PDT)
+ Thu, 24 Apr 2025 09:50:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1745513447; x=1746118247;
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1745513448; x=1746118248;
  darn=lists.sourceforge.net; 
  h=content-transfer-encoding:mime-version:references:in-reply-to
  :message-id:date:subject:cc:to:from:from:to:cc:subject:date
  :message-id:reply-to;
- bh=kUz7DXMA39otnLyfDSP3DMy4MLC8l/U84/KlxK55hqA=;
- b=FJFvpbUZQvpXEBWVapkqwTJ6PK/9TuKXLy/ao2njOkm39JINL8vEKapbQhzYMwTlD+
- PRvynHxHQhst0I2+JtRt5pJg7vR8mP1wDVsQgWMdq3AWX/9D9fwKtRqOAZXNKnFBKP4/
- YCjYe++7WliSMSZRIo5qgd+500OrWR4Mw8lZDK1Jmtz58m6D5f1czKBvod1EJPMyyRu2
- bPGrufqZcxTkcAQRVBmPy8joNAByYIwD3nimmpnUHqV5oCXBLpsQl0jaKW7vhBUhFpWx
- KBbwhoZNbG1FJtDDCXvvZ8wHPyjlFDuqwZGbfhM1ewR8EHg5ikPbPwfv6FjX2oiCGUot
- yNWA==
+ bh=Bo8OORB/CMRTqZ+jmfB+YUkyYwA6MdIiB5QaJmUO56E=;
+ b=QvVot5ackiKsUnnP97UxIffy2lG/hS/hs2xYtL5RH/WxoUeJD8KUVfhRHCFnErl8VI
+ W6rwSkot+oRnurBrTRxWi/PPcBtMF4m8vtDueejEnfdxEoz+1gHRn4TY9evXyKiQloGs
+ zI7dcQhn8MQowrJDUzINIfr5fNB6xlEfQB006BFXyN3mrd1prBI/ZMu+sTyVKd0j/eYb
+ 6hDSnHvjUZimpu7qLPDLM2TwLiewBawKEYjYW3nvjpIzmV2hl/CdFpcdR54ogWRtIM/r
+ 6QwNYr+/S6/pR6VN4L7b1JB2eKIfGrCr7ywhcFNY8RcQzjw7Rhm3+Qu/6WCERmW4H7rJ
+ IRnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1745513447; x=1746118247;
+ d=1e100.net; s=20230601; t=1745513448; x=1746118248;
  h=content-transfer-encoding:mime-version:references:in-reply-to
  :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=kUz7DXMA39otnLyfDSP3DMy4MLC8l/U84/KlxK55hqA=;
- b=OF1wX+pIeiEFR3iHLNSZXi8LStrNRVrWQTe+siuG5Pxs2rbmJpRCY4+xeaFUOiNfRf
- eBjMAyxLL3O/tcjoarxfItJmqj9T75j8orGRsdOzAks7Q9Gx3J5Xy2TshsGD0LEtCvmQ
- ewN6xEcvbLBtsleYA41gho5TnOQRq74o8W7+OAh7SPnDpIMqQlfQMDxDhn/wmzVu2Qfr
- YwQ9hZTDquxVIczdGNkosEo5oFPygYVr9j+AedtKPC2JoRcyiy+fXjJdJf2uQ1kgpvbS
- 9lXcGjb4u2BLqDFNDNglXJAqcZku9rCO74dV8a06uPGYa4iDoS/OXR9Eq0xYXK06YT0o
- k7Ww==
+ bh=Bo8OORB/CMRTqZ+jmfB+YUkyYwA6MdIiB5QaJmUO56E=;
+ b=L3n9YX9vOtW/3E8ZVJeX5VzsVZ8RNLJzFbYmiHIs20mRCjpX8jAKHHHnjtqf49yjGk
+ 5vGh5OGBuiINj4gc44bOqB9fAp6wBPjqRRDIfW3AjnJm2QhyJY5Bc3h7Oe5jdeULOcuL
+ wwgDaI/jy2Ntc1dOKJSxT7KKpfuvCC7UMSNJpE3XzwvYl8F87BlgIP0HNUPxI08RzK6F
+ FKUW4qmFp7xUdZYMfco0D/wgfcoyiOwYuzWBrhoiC92DtL5j18DqEqeM2pwBCvaraykM
+ t8SV5pO0jUTBPDnPTnEkGM6L8iV9wx6LqiX7o/RzhhniG/sLVj7pRKGg36+HQeHpf+Gy
+ xRww==
 X-Forwarded-Encrypted: i=1;
- AJvYcCUDF4hl68cAhIuHvEPZjlYch1LgjAA/tOeqdEvdCkjT6TPZuWWGdI3acmxGyrdmuLFZ49UmttkwaBAjiGc+/XMJ75M=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yy4KShhi3z1k8oYUnaOjH0jgghI24kw3rT/f4SGSXtitsA0vp3Z
- lKFkjOkHScmVH12Le8U62c1RrgiwxMNJlEEBqYy4300yATyWGtnD+bgmUfgjKGg=
-X-Gm-Gg: ASbGncvPP488xB4OjiRhOQgEaUK6VDVX0z+QuC8cAtu+helULYJ2xmZqGKq+LEzHaCU
- z5G/cMwQE5/eJsIpvxQLgPCiPOtoACCJ3gqiE/h/tz0+ZsdkMHsiHNwTMSFosmZ7HEnuT5brv53
- M9t/C8qgzXq9P13MLoTPYjej/vyJrILxy5NKmcDy5YG7FT65av5ME9T1zfEKBjYdHjeMtq//o8S
- jM0ewapdZYVTtTBxe71P/EPlfPsaqOIdQpe/VKXIHIU62iBbOTOxL/9k/NiyZgxNt68TWWMkqGs
- nW5TlIT8W0Y7STedZvRWm/UfdWHMCfeho+o=
-X-Google-Smtp-Source: AGHT+IEFBkV7UHEn58Xszvm0tfXkA82Ab6TrMIvEXYPdUN5UB+Wy6GEu8BwlPZj7yfPnj9aDzbXcQQ==
-X-Received: by 2002:a05:6870:1592:b0:2d5:230f:b34a with SMTP id
- 586e51a60fabf-2d99420d1b8mr332806fac.9.1745513446880; 
- Thu, 24 Apr 2025 09:50:46 -0700 (PDT)
+ AJvYcCXaPw4oUVz5HTrnAQLmcy1XVJM3bup5jUw4Hod/lJL0PXpJF+0Oq3FRQ7TTE/fh96lG/nYfGCjTz5RLVU9UQaS0gCo=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YyUM7WHu9ygN6BgEynDhFz2okCh4iPljsvDpbNIRxcqeFt7o+xS
+ u/9l3SsYgbgqCfFqL3J+3/q4vhlBsYfrz3p2vkCnMUrWFC4mqli3tc7m0z2ggo0=
+X-Gm-Gg: ASbGncvW2xgikl0zeyETuht4MEDHsDRMTyiFoBkFJ1oNJ4jKRN3CB27pMEJXwMisyK5
+ NIHs3rHuW9+DKh+D0qXCYoz+bshcV0iqWakBo0V/Lf1N2Ds/bSjIuHKJwW9LvwZ5/NT4aB8HI21
+ PsVY6km5ypUsclt8BUu5omWrTwVfnmnACEGgLUnVD+LtFV6g4mHRlIec0ym+IOAN7RgmY0UvgIl
+ VBkb1OjwgKRtyW9k56MT6AS+0lKrnUZVx7F4hYfGx91fwm0TJZJ59NNHkFLzzBSnr08w91dzIB0
+ 4im7xu3Aw0TC4P6NRJkOSEp1GYTOlF1G17k=
+X-Google-Smtp-Source: AGHT+IGActbYLMI+4Dv1DxR+pkcu73M2Hm6w/m4/WWnj+zX8JKJ9d7TyKjUutOCfa+lPaH6GRQXn7w==
+X-Received: by 2002:a05:6830:3741:b0:72b:8000:d487 with SMTP id
+ 46e09a7af769-73059bc8b48mr414897a34.3.1745513448417; 
+ Thu, 24 Apr 2025 09:50:48 -0700 (PDT)
 Received: from localhost ([2001:470:b8f6:1b:af2e:7abf:8abe:2726])
  by smtp.gmail.com with UTF8SMTPSA id
- 586e51a60fabf-2d973650836sm361584fac.9.2025.04.24.09.50.46
+ 46e09a7af769-7304f187fa9sm292307a34.11.2025.04.24.09.50.47
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 24 Apr 2025 09:50:46 -0700 (PDT)
+ Thu, 24 Apr 2025 09:50:47 -0700 (PDT)
 From: Corey Minyard <corey@minyard.net>
 To: linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
  Rik van Riel <riel@surriel.com>
-Date: Thu, 24 Apr 2025 11:49:47 -0500
-Message-ID: <20250424165020.627193-11-corey@minyard.net>
+Date: Thu, 24 Apr 2025 11:49:48 -0500
+Message-ID: <20250424165020.627193-12-corey@minyard.net>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250424165020.627193-1-corey@minyard.net>
 References: <20250424165020.627193-1-corey@minyard.net>
@@ -102,35 +102,36 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  You can't do IPMI calls from the callback, it's called with
- locks held. Signed-off-by: Corey Minyard <cminyard@mvista.com> ---
- include/linux/ipmi.h
- | 3 ++- 1 file changed, 2 insertions(+), 1 deletion(-) 
+ Content preview:  When run to completion is set, don't call things that will
+ claim mutexes or call user callbacks. Signed-off-by: Corey Minyard
+ <cminyard@mvista.com>
+ --- drivers/char/ipmi/ipmi_msghandler.c | 4 ++++ 1 file changed,
+ 4 insertions(+)
  Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.54 listed in list.dnswl.org]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.210.54 listed in sa-accredit.habeas.com]
+ [209.85.210.42 listed in sa-trusted.bondedsender.org]
  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.210.54 listed in bl.score.senderscore.com]
+ [209.85.210.42 listed in bl.score.senderscore.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.210.42 listed in list.dnswl.org]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.54 listed in wl.mailspike.net]
+ [209.85.210.42 listed in wl.mailspike.net]
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1u7zmr-0002hd-JP
-Subject: [Openipmi-developer] [PATCH 10/23] ipmi: Add a note about the
- pretimeout callback
+X-Headers-End: 1u7zmt-0002hk-1R
+Subject: [Openipmi-developer] [PATCH 11/23] ipmi:msghandler: Remove some
+ user level processing in panic mode
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -149,28 +150,29 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-You can't do IPMI calls from the callback, it's called with locks
-held.
+When run to completion is set, don't call things that will claim
+mutexes or call user callbacks.
 
 Signed-off-by: Corey Minyard <cminyard@mvista.com>
 ---
- include/linux/ipmi.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/char/ipmi/ipmi_msghandler.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/include/linux/ipmi.h b/include/linux/ipmi.h
-index 2f74dd90c271..27cd5980bb27 100644
---- a/include/linux/ipmi.h
-+++ b/include/linux/ipmi.h
-@@ -93,7 +93,8 @@ struct ipmi_user_hndl {
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 3e88ac6831d8..e7bed764b4bb 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -4808,6 +4808,10 @@ static void smi_work(struct work_struct *t)
  
+ 	handle_new_recv_msgs(intf);
+ 
++	/* Nothing below applies during panic time. */
++	if (run_to_completion)
++		return;
++
  	/*
- 	 * Called when the interface detects a watchdog pre-timeout.  If
--	 * this is NULL, it will be ignored for the user.
-+	 * this is NULL, it will be ignored for the user.  Note that you
-+	 * can't do any IPMI calls from here, it's called with locks held.
- 	 */
- 	void (*ipmi_watchdog_pretimeout)(void *handler_data);
- 
+ 	 * If the pretimout count is non-zero, decrement one from it and
+ 	 * deliver pretimeouts to all the users.
 -- 
 2.43.0
 
