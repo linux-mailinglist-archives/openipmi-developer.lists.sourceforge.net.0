@@ -2,102 +2,107 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id D6186AB7BB5
-	for <lists+openipmi-developer@lfdr.de>; Thu, 15 May 2025 04:46:15 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 891DFAB7FDF
+	for <lists+openipmi-developer@lfdr.de>; Thu, 15 May 2025 10:11:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ve1K2n4r9cJefKusC3VB0xfJU5IzT2mF+dnvvF5JcCE=; b=E09gsDkKusLUIfAg8MNkABbeIG
-	ajyHazvHWB7VOEieIlO3pxc7DjgyT0lX5oFccTB9XcgdXMlDtclPnI4RFjNISd3LkIzFqRQYYsG2J
-	QCHKmtXb6ibYP+p1Zz1dSsboKDjZ0sr7e8Q6Q8ahIANmqLea4kcEnpeYaHOa6zwe4TAg=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	d=lists.sourceforge.net; s=beta; h=Content-Type:Content-Transfer-Encoding:Cc:
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:Message-ID:
+	References:To:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tUfNYrFVrpmfLYoKMHlycuh2EZMfpMsorqlZK7vc7M0=; b=m7VKRff9P4rScDc0jvdv9bohMQ
+	iIStaQ95vBIvO4XhaHqPBgTNC0MIr6pAQbAkZp0aJAk/4NMeyInsFoNMioD6GoJajEpmBVE7/eRCv
+	NCm/Fsadx2Lh1H/TmZ5465o5iINAaGLkK/AyiiwJ8AlljVdGbz0S/Ufc3QNL4K9z7eJQ=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1uFObj-0000yC-1l;
-	Thu, 15 May 2025 02:46:03 +0000
+	id 1uFTgK-0002Hm-7w;
+	Thu, 15 May 2025 08:11:08 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhoubinbin@loongson.cn>) id 1uFObh-0000xx-4R
+ (envelope-from <yiyang13@huawei.com>) id 1uFTgJ-0002Ha-1B
  for openipmi-developer@lists.sourceforge.net;
- Thu, 15 May 2025 02:46:01 +0000
+ Thu, 15 May 2025 08:11:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ MIME-Version:Date:Message-ID:From:References:CC:To:Subject:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ABqdOrEY1GJbZ4P8++fPzOJTTWTob21+kzbFcX3Al0A=; b=C9ticwNVff90x/wqMBCphtm9rW
- KCTd/cdegUDGTrxhqEtyxlKnebpG7DLO4+kjssq9qiPaaizAu5O6bctVAIduzDyqPQh8MYzKv00x+
- P1mZTfUVbVdn8zvXKbVXuq108POZ3yJDG+sRYaQ0HnKUcaFQrX3KZQE9SnE96pJwk/EA=;
+ bh=Ciae2PhsKAbhLLYPgoR8E5F91Q/zo8JrWRWF2Lhs4UQ=; b=MrEuXA9kBPvPSUNHRqIHGCVYwh
+ 2Ezc7V3BskJPnnLV8rlmbTaolnvPtsP3MxyyfjL3cybbA7If82MgtLso8twf7NNVUfgQFzUQ2/SZm
+ q0W7aRdq8XAPHUqvvZG8wh739GlDZMJ49eugskGkxb0y3dj+UTDDBYHJobFvOXjwdS1w=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+ Message-ID:From:References:CC:To:Subject:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=ABqdOrEY1GJbZ4P8++fPzOJTTWTob21+kzbFcX3Al0A=; b=Uc3Ier7sXFck3IK8kYtWSt+VGX
- 3VCKEoqqDjHK9a/WFvZtuqx3x5pb3L26yZWfUIofm5zKlPODmbDtikznp8emoqTi+C5nbBGvqqgq0
- Vs6XnKs14K5amzXXJW1L10Qeen6wg3NLTz6Z7xkVHosnzHH4MGMV948JtX+czYDKkzuU=;
-Received: from mail.loongson.cn ([114.242.206.163])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.95)
- id 1uFObf-0003bV-Dy for openipmi-developer@lists.sourceforge.net;
- Thu, 15 May 2025 02:46:00 +0000
-Received: from loongson.cn (unknown [223.64.68.186])
- by gateway (Coremail) with SMTP id _____8AxDGtKUiVoX4noAA--.50316S3;
- Thu, 15 May 2025 10:32:42 +0800 (CST)
-Received: from localhost.localdomain (unknown [223.64.68.186])
- by front1 (Coremail) with SMTP id qMiowMCxbsVDUiVo1PnTAA--.19913S5;
- Thu, 15 May 2025 10:32:41 +0800 (CST)
-From: Binbin Zhou <zhoubinbin@loongson.cn>
-To: Binbin Zhou <zhoubb.aaron@gmail.com>, Huacai Chen <chenhuacai@loongson.cn>,
- Lee Jones <lee@kernel.org>, Corey Minyard <minyard@acm.org>
-Date: Thu, 15 May 2025 10:32:26 +0800
-Message-ID: <eff0c02e30118c45463f4b6488c895bf3ec9edb9.1747276047.git.zhoubinbin@loongson.cn>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <cover.1747276047.git.zhoubinbin@loongson.cn>
-References: <cover.1747276047.git.zhoubinbin@loongson.cn>
+ bh=Ciae2PhsKAbhLLYPgoR8E5F91Q/zo8JrWRWF2Lhs4UQ=; b=d3TChXUSf8XKmRFqvAM+W3gBNy
+ KY9pWOxqYTW0tezvDK/lzLnooAfFegC/taRE1MdUKn2eNVNe7WWMcat+L4wraZ+rfJFzoBVn9rQGq
+ Vi1R+86LJ1tofQqF9by9xkgIKIi1oiI2bLjfgYAOON9/0PX2uTmD8e2l6GanepsUFlr8=;
+Received: from szxga08-in.huawei.com ([45.249.212.255])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1uFTgE-0007MW-5U for openipmi-developer@lists.sourceforge.net;
+ Thu, 15 May 2025 08:11:06 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+ by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4ZyjXx6Knwz1DKb1;
+ Thu, 15 May 2025 16:09:21 +0800 (CST)
+Received: from kwepemk200016.china.huawei.com (unknown [7.202.194.82])
+ by mail.maildlp.com (Postfix) with ESMTPS id 2B59F180B55;
+ Thu, 15 May 2025 16:10:49 +0800 (CST)
+Received: from [10.67.108.122] (10.67.108.122) by
+ kwepemk200016.china.huawei.com (7.202.194.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 15 May 2025 16:10:48 +0800
+To: <corey@minyard.net>
+References: <20250513081622.125071-1-yiyang13@huawei.com>
+ <aCMrg1wqUVi2iCMk@mail.minyard.net>
+Message-ID: <d3d50ad3-19e7-7822-f22a-3deb57758ab7@huawei.com>
+Date: Thu, 15 May 2025 16:10:34 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.12.0
 MIME-Version: 1.0
-X-CM-TRANSID: qMiowMCxbsVDUiVo1PnTAA--.19913S5
-X-CM-SenderInfo: p2kr3uplqex0o6or00hjvr0hdfq/
-X-Coremail-Antispam: 1Uk129KBj93XoWxKw48CF4UCF1xAw1UGw1xWFX_yoWfArWfpa
- y5AFy5tr4ktr1YvFZrJ3WUur4agrs0qa47Ka4Ig3Zaqa12y34kXFy8KF1aqF9xGFWkJr13
- X3yFkF47CF9rWagCm3ZEXasCq-sJn29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7KY7ZEXa
- sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
- 0xBIdaVrnRJUUUvEb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
- IYs7xG6rWj6s0DM7CIcVAFz4kK6r126r13M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
- e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
- 0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
- GcCE3s1ln4kS14v26r1Y6r17M2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2
- x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5
- McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr4
- 1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_Jrv_
- JF1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17
- CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Xr0_Ar1lIxAIcVC0
- I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I
- 8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73
- UjIFyTuYvjxU4OzVUUUUU
-X-Spam-Score: 0.0 (/)
+In-Reply-To: <aCMrg1wqUVi2iCMk@mail.minyard.net>
+X-Originating-IP: [10.67.108.122]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemk200016.china.huawei.com (7.202.194.82)
+X-Spam-Score: -3.1 (---)
 X-Spam-Report: Spam detection software, running on the system "6901ab67b84d", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Since the display is a sub-function of the Loongson-2K BMC, 
- when the BMC reset, the entire BMC PCIe is disconnected, including the display
- which is interrupted. Not only do you need to save/restore the relevant PCIe
- registers throughout the reset process, but you also need to re-push the
- display to the monitor at the end. 
- Content analysis details:   (0.0 points, 5.0 required)
+ Content preview:  On 2025/5/13 19:22, Corey Minyard wrote: > On Tue, May 13,
+ 2025 at 08:16:22AM +0000, Yi Yang wrote: >> Syzkaller reported this bug:
+ >> ================================================================= [...]
+ Content analysis details:   (-3.1 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
-X-Headers-End: 1uFObf-0003bV-Dy
-Subject: [Openipmi-developer] [PATCH v2 3/3] mfd: ls2kbmc: Add Loongson-2K
- BMC reset function support
+ 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [45.249.212.255 listed in sa-trusted.bondedsender.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [45.249.212.255 listed in list.dnswl.org]
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+ Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [45.249.212.255 listed in sa-accredit.habeas.com]
+ 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+ Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [45.249.212.255 listed in bl.score.senderscore.com]
+ -0.8 NICE_REPLY_A           Looks like a legit reply (A)
+X-Headers-End: 1uFTgE-0007MW-5U
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: fix underflow in
+ ipmi_create_user()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -110,320 +115,150 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Chong Qiao <qiaochong@loongson.cn>, Binbin Zhou <zhoubinbin@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, Xuerui Wang <kernel@xen0n.name>,
- openipmi-developer@lists.sourceforge.net
-Content-Type: text/plain; charset="us-ascii"
+From: "yiyang \(D\) via Openipmi-developer"
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: "yiyang \(D\)" <yiyang13@huawei.com>
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ lujialin4@huawei.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Since the display is a sub-function of the Loongson-2K BMC, when the
-BMC reset, the entire BMC PCIe is disconnected, including the display
-which is interrupted.
 
-Not only do you need to save/restore the relevant PCIe registers
-throughout the reset process, but you also need to re-push the display
-to the monitor at the end.
 
-Co-developed-by: Chong Qiao <qiaochong@loongson.cn>
-Signed-off-by: Chong Qiao <qiaochong@loongson.cn>
-Signed-off-by: Binbin Zhou <zhoubinbin@loongson.cn>
----
- drivers/mfd/ls2kbmc-mfd.c | 242 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 242 insertions(+)
+On 2025/5/13 19:22, Corey Minyard wrote:
+> On Tue, May 13, 2025 at 08:16:22AM +0000, Yi Yang wrote:
+>> Syzkaller reported this bug:
+>> ==================================================================
+>> BUG: KASAN: global-out-of-bounds in instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
+>> BUG: KASAN: global-out-of-bounds in atomic_dec include/linux/atomic/atomic-instrumented.h:592 [inline]
+>> BUG: KASAN: global-out-of-bounds in ipmi_create_user.part.0+0x5e5/0x790 drivers/char/ipmi/ipmi_msghandler.c:1291
+>> Write of size 4 at addr ffffffff8fc6a438 by task syz.5.1074/5888
+> 
+> This code has been completely rewritten in the next tree and already
+> fixed.
+> 
+> -corey
+> 
+>>
+>> CPU: 0 PID: 5888 Comm: syz.5.1074 Not tainted 6.6.0+ #60
+>> ......
+>> Call Trace:
+>>   <TASK>
+>>   __dump_stack lib/dump_stack.c:88 [inline]
+>>   dump_stack_lvl+0x72/0xa0 lib/dump_stack.c:106
+>>   print_address_description.constprop.0+0x6b/0x3d0 mm/kasan/report.c:364
+>>   print_report+0xba/0x280 mm/kasan/report.c:475
+>>   kasan_report+0xa9/0xe0 mm/kasan/report.c:588
+>>   check_region_inline mm/kasan/generic.c:181 [inline]
+>>   kasan_check_range+0x100/0x1c0 mm/kasan/generic.c:187
+>>   instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
+>>   atomic_dec include/linux/atomic/atomic-instrumented.h:592 [inline]
+>>   ipmi_create_user.part.0+0x5e5/0x790 drivers/char/ipmi/ipmi_msghandler.c:1291
+>>   ipmi_create_user+0x56/0x80 drivers/char/ipmi/ipmi_msghandler.c:1236
+>>   ipmi_open+0xac/0x2b0 drivers/char/ipmi/ipmi_devintf.c:97
+>>   chrdev_open+0x276/0x700 fs/char_dev.c:414
+>>   do_dentry_open+0x6a7/0x1410 fs/open.c:929
+>>   vfs_open+0xd1/0x440 fs/open.c:1060
+>>   do_open+0x957/0x10d0 fs/namei.c:3671
+>>   path_openat+0x258/0x770 fs/namei.c:3830
+>>   do_filp_open+0x1c7/0x410 fs/namei.c:3857
+>>   do_sys_openat2+0x5bd/0x6a0 fs/open.c:1428
+>>   do_sys_open fs/open.c:1443 [inline]
+>>   __do_sys_openat fs/open.c:1459 [inline]
+>>   __se_sys_openat fs/open.c:1454 [inline]
+>>   __x64_sys_openat+0x17a/0x210 fs/open.c:1454
+>>   do_syscall_x64 arch/x86/entry/common.c:51 [inline]
+>>   do_syscall_64+0x59/0x110 arch/x86/entry/common.c:81
+>>   entry_SYSCALL_64_after_hwframe+0x78/0xe2
+>> RIP: 0033:0x54d2cd
+>> Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+>> RSP: 002b:00007f4751920048 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+>> RAX: ffffffffffffffda RBX: 0000000000796080 RCX: 000000000054d2cd
+>> RDX: 0000000000000000 RSI: 0000000020004280 RDI: ffffffffffffff9c
+>> RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+>> R10: 000000000000001e R11: 0000000000000246 R12: 000000000079608c
+>> R13: 0000000000000000 R14: 0000000000796080 R15: 00007f4751900000
+>>   </TASK>
+>>
+>> The buggy address belongs to the variable:
+>>   ipmi_interfaces+0x38/0x40
+>>
+>> The buggy address belongs to the physical page:
+>> page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x45a6a
+>> flags: 0x3fffff00004000(reserved|node=0|zone=1|lastcpupid=0x1fffff)
+>> raw: 003fffff00004000 ffffea0001169a88 ffffea0001169a88 0000000000000000
+>> raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
+>> page dumped because: kasan: bad access detected
+>>
+>> Memory state around the buggy address:
+>>   ffffffff8fc6a300: 00 00 00 00 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
+>>   ffffffff8fc6a380: 00 00 f9 f9 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
+>>> ffffffff8fc6a400: 00 00 f9 f9 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
+>>                                          ^
+>>   ffffffff8fc6a480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>>   ffffffff8fc6a500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f9 f9
+>> ==================================================================
+>>
+>> In the ipmi_create_user() function, the intf->nr_users variable has an
+>> underflow issue. Specifically, on the exception path (goto out_kfree;)
+>> before atomic_add_return(), calling atomic_dec() when intf->nr_users has
+>> not been incremented will result in an underflow.
+>>
+>> Fixes: 8e76741c3d8b ("ipmi: Add a limit on the number of users that may use IPMI")
+>> Signed-off-by: Yi Yang <yiyang13@huawei.com>
+>> ---
+>>   drivers/char/ipmi/ipmi_msghandler.c | 9 +++++----
+>>   1 file changed, 5 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+>> index 3ba9d7e9a6c7..27a12b31cfb6 100644
+>> --- a/drivers/char/ipmi/ipmi_msghandler.c
+>> +++ b/drivers/char/ipmi/ipmi_msghandler.c
+>> @@ -1246,18 +1246,18 @@ int ipmi_create_user(unsigned int          if_num,
+>>    found:
+>>   	if (atomic_add_return(1, &intf->nr_users) > max_users) {
+>>   		rv = -EBUSY;
+>> -		goto out_kfree;
+>> +		goto out_dec;
+>>   	}
+>>   
+>>   	INIT_WORK(&new_user->remove_work, free_user_work);
+>>   
+>>   	rv = init_srcu_struct(&new_user->release_barrier);
+>>   	if (rv)
+>> -		goto out_kfree;
+>> +		goto out_dec;
+>>   
+>>   	if (!try_module_get(intf->owner)) {
+>>   		rv = -ENODEV;
+>> -		goto out_kfree;
+>> +		goto out_dec;
+>>   	}
+>>   
+>>   	/* Note that each existing user holds a refcount to the interface. */
+>> @@ -1281,8 +1281,9 @@ int ipmi_create_user(unsigned int          if_num,
+>>   	*user = new_user;
+>>   	return 0;
+>>   
+>> -out_kfree:
+>> +out_dec:
+>>   	atomic_dec(&intf->nr_users);
+>> +out_kfree:
+>>   	srcu_read_unlock(&ipmi_interfaces_srcu, index);
+>>   	vfree(new_user);
+>>   	return rv;
+>> -- 
+>> 2.25.1
+>>
+> 
+> .
+> 
 
-diff --git a/drivers/mfd/ls2kbmc-mfd.c b/drivers/mfd/ls2kbmc-mfd.c
-index b309f6132c24..4d35a13b3da5 100644
---- a/drivers/mfd/ls2kbmc-mfd.c
-+++ b/drivers/mfd/ls2kbmc-mfd.c
-@@ -9,8 +9,11 @@
-  */
- 
- #include <linux/aperture.h>
-+#include <linux/delay.h>
- #include <linux/errno.h>
- #include <linux/init.h>
-+#include <linux/iopoll.h>
-+#include <linux/kbd_kern.h>
- #include <linux/kernel.h>
- #include <linux/mfd/core.h>
- #include <linux/module.h>
-@@ -18,6 +21,8 @@
- #include <linux/pci_ids.h>
- #include <linux/platform_data/simplefb.h>
- #include <linux/platform_device.h>
-+#include <linux/stop_machine.h>
-+#include <linux/vt_kern.h>
- 
- #define LS2K_DISPLAY_RES_START (SZ_16M + SZ_2M)
- #define LS2K_IPMI_RES_SIZE	0x1c
-@@ -27,6 +32,9 @@
- #define LS2K_IPMI3_RES_START	(LS2K_IPMI2_RES_START + LS2K_IPMI_RES_SIZE)
- #define LS2K_IPMI4_RES_START	(LS2K_IPMI3_RES_START + LS2K_IPMI_RES_SIZE)
- 
-+#define LS2K_BMC_RESET_DELAY	(60 * HZ)
-+#define LS2K_BMC_RESET_WAIT	(10 * HZ)
-+
- static struct resource ls2k_display_resources[] = {
- 	DEFINE_RES_MEM_NAMED(LS2K_DISPLAY_RES_START, SZ_4M, "simpledrm-res"),
- };
-@@ -60,6 +68,227 @@ static struct mfd_cell ls2k_bmc_cells[] = {
- 	MFD_CELL_RES("ls2k-ipmi-si", ls2k_ipmi4_resources),
- };
- 
-+static const u32 index[] = { 0x4, 0x10, 0x14, 0x18, 0x1c, 0x20, 0x24,
-+			     0x30, 0x3c, 0x54, 0x58, 0x78, 0x7c, 0x80 };
-+static const u32 cindex[] = { 0x4, 0x10, 0x3c };
-+
-+struct ls2k_bmc_pci_data {
-+	u32 d80c;
-+	u32 d71c;
-+	u32 data[14];
-+	u32 cdata[3];
-+};
-+
-+struct ls2k_bmc_pdata {
-+	struct device *dev;
-+	struct work_struct reset_work;
-+	unsigned long reset_time;
-+	struct ls2k_bmc_pci_data pci_data;
-+};
-+
-+static bool ls2k_bmc_bar0_addr_is_set(struct pci_dev *ppdev)
-+{
-+	u32 addr;
-+
-+	pci_read_config_dword(ppdev, PCI_BASE_ADDRESS_0, &addr);
-+	addr &= PCI_BASE_ADDRESS_MEM_MASK;
-+
-+	return addr ? true : false;
-+}
-+
-+static bool ls2k_bmc_check_pcie_connected(struct pci_dev *parent,
-+					  struct ls2k_bmc_pdata *priv)
-+{
-+	void __iomem *mmio;
-+	int sts, ret;
-+
-+	mmio = pci_iomap(parent, 0, 0x100);
-+	if (!mmio)
-+		return false;
-+
-+	writel(readl(mmio) | 0x8, mmio);
-+
-+	ret = readl_poll_timeout_atomic(mmio + 0xc, sts, (sts & 0x11) == 0x11,
-+					1000, 1000000);
-+	if (ret) {
-+		pci_iounmap(parent, mmio);
-+		dev_err(priv->dev, "PCIE train failed status=0x%x\n", sts);
-+		return false;
-+	}
-+
-+	pci_iounmap(parent, mmio);
-+	return true;
-+}
-+
-+static int ls2k_bmc_recover_pci_data(void *data)
-+{
-+	struct ls2k_bmc_pdata *priv = data;
-+	struct pci_dev *pdev = to_pci_dev(priv->dev);
-+	struct pci_dev *parent = pdev->bus->self;
-+	bool ready, dirty;
-+	u32 i;
-+
-+	pci_write_config_dword(parent, PCI_BASE_ADDRESS_2, 0);
-+	pci_write_config_dword(parent, PCI_BASE_ADDRESS_3, 0);
-+	pci_write_config_dword(parent, PCI_BASE_ADDRESS_4, 0);
-+
-+	for (i = 2000; i > 0 ; i--) {
-+		dirty = ls2k_bmc_bar0_addr_is_set(parent);
-+		if (!dirty)
-+			break;
-+		mdelay(1);
-+	};
-+
-+	if (i == 0)
-+		dev_warn(priv->dev, "The PCI Bar is not cleared.\n");
-+
-+	for (i = 0; i < ARRAY_SIZE(index); i++)
-+		pci_write_config_dword(parent, index[i], priv->pci_data.data[i]);
-+
-+	pci_write_config_dword(parent, 0x80c, priv->pci_data.d80c);
-+	pci_write_config_dword(parent, 0x71c, priv->pci_data.d71c);
-+
-+	/* Check if the pcie is connected */
-+	ready = ls2k_bmc_check_pcie_connected(parent, priv);
-+	if (!ready)
-+		return ready;
-+
-+	dev_dbg(priv->dev, "The PCIE recovered done.\n");
-+
-+	/* Waiting for u-boot ddr config ready */
-+	mdelay(jiffies_to_msecs(LS2K_BMC_RESET_WAIT));
-+	ready = ls2k_bmc_bar0_addr_is_set(parent);
-+	if (!ready)
-+		return ready;
-+
-+	for (i = 0; i < ARRAY_SIZE(cindex); i++)
-+		pci_write_config_dword(pdev, cindex[i], priv->pci_data.cdata[i]);
-+
-+	return 0;
-+}
-+
-+static void ls2k_bmc_events_fn(struct work_struct *work)
-+{
-+	struct ls2k_bmc_pdata *priv = container_of(work, struct ls2k_bmc_pdata, reset_work);
-+
-+	/*
-+	 * The pcie is lost when the BMC resets,
-+	 * at which point access to the pcie from other CPUs
-+	 * is suspended to prevent a crash.
-+	 */
-+	stop_machine(ls2k_bmc_recover_pci_data, priv, NULL);
-+
-+#ifdef CONFIG_VT
-+	/* Re-push the display due to previous pcie loss. */
-+	set_console(vt_move_to_console(MAX_NR_CONSOLES - 1, 1));
-+#endif
-+
-+	dev_info(priv->dev, "Loongson-2K BMC recovered done.\n");
-+}
-+
-+static irqreturn_t ls2k_bmc_interrupt(int irq, void *arg)
-+{
-+	struct ls2k_bmc_pdata *priv = arg;
-+
-+	if (system_state != SYSTEM_RUNNING)
-+		return IRQ_HANDLED;
-+
-+	/* Skip interrupt in LS2K_BMC_RESET_DELAY */
-+	if (time_after(jiffies, priv->reset_time + LS2K_BMC_RESET_DELAY))
-+		schedule_work(&priv->reset_work);
-+
-+	priv->reset_time = jiffies;
-+
-+	return IRQ_HANDLED;
-+}
-+
-+#define BMC_RESET_GPIO			14
-+#define LOONGSON_GPIO_REG_BASE		0x1fe00500
-+#define LOONGSON_GPIO_REG_SIZE		0x18
-+#define LOONGSON_GPIO_OEN		0x0
-+#define LOONGSON_GPIO_FUNC		0x4
-+#define LOONGSON_GPIO_INTPOL		0x10
-+#define LOONGSON_GPIO_INTEN		0x14
-+
-+/* The gpio interrupt is a watchdog interrupt that is triggered when the BMC resets. */
-+static int ls2k_bmc_gpio_reset_handler(struct ls2k_bmc_pdata *priv)
-+{
-+	int gsi = 16 + (BMC_RESET_GPIO & 7);
-+	void __iomem *gpio_base;
-+	int irq, ret = 0;
-+
-+	/* Since Loongson-3A hardware does not support GPIO interrupt cascade,
-+	 * chip->gpio_to_irq() cannot be implemented,
-+	 * here acpi_register_gsi() is used to get gpio irq.
-+	 */
-+	irq = acpi_register_gsi(NULL, gsi, ACPI_EDGE_SENSITIVE, ACPI_ACTIVE_LOW);
-+	if (irq < 0)
-+		return irq;
-+
-+	gpio_base = ioremap(LOONGSON_GPIO_REG_BASE, LOONGSON_GPIO_REG_SIZE);
-+	if (!gpio_base) {
-+		ret = PTR_ERR(gpio_base);
-+		goto acpi_failed;
-+	}
-+
-+	writel(readl(gpio_base + LOONGSON_GPIO_OEN) | BIT(BMC_RESET_GPIO),
-+	       gpio_base + LOONGSON_GPIO_OEN);
-+	writel(readl(gpio_base + LOONGSON_GPIO_FUNC) & ~BIT(BMC_RESET_GPIO),
-+	       gpio_base + LOONGSON_GPIO_FUNC);
-+	writel(readl(gpio_base + LOONGSON_GPIO_INTPOL) & ~BIT(BMC_RESET_GPIO),
-+	       gpio_base + LOONGSON_GPIO_INTPOL);
-+	writel(readl(gpio_base + LOONGSON_GPIO_INTEN) | BIT(BMC_RESET_GPIO),
-+	       gpio_base + LOONGSON_GPIO_INTEN);
-+
-+	ret = devm_request_irq(priv->dev, irq, ls2k_bmc_interrupt,
-+			       IRQF_SHARED | IRQF_TRIGGER_FALLING, "ls2kbmc gpio", priv);
-+	if (ret)
-+		dev_err(priv->dev, "ls2kbmc gpio request_irq(%d) failed\n", irq);
-+
-+	iounmap(gpio_base);
-+
-+acpi_failed:
-+	acpi_unregister_gsi(gsi);
-+
-+	return ret;
-+}
-+
-+static void ls2k_bmc_save_pci_data(struct pci_dev *pdev, struct ls2k_bmc_pdata *priv)
-+{
-+	struct pci_dev *parent = pdev->bus->self;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(index); i++)
-+		pci_read_config_dword(parent, index[i], &priv->pci_data.data[i]);
-+
-+	for (i = 0; i < ARRAY_SIZE(cindex); i++)
-+		pci_read_config_dword(pdev, cindex[i], &priv->pci_data.cdata[i]);
-+
-+	pci_read_config_dword(parent, 0x80c, &priv->pci_data.d80c);
-+	priv->pci_data.d80c = (priv->pci_data.d80c & ~(3 << 17)) | BIT(17);
-+
-+	pci_read_config_dword(parent, 0x71c, &priv->pci_data.d71c);
-+	priv->pci_data.d71c |= BIT(26);
-+}
-+
-+static int ls2k_bmc_pdata_initial(struct pci_dev *pdev, struct ls2k_bmc_pdata *priv)
-+{
-+	int ret;
-+
-+	ls2k_bmc_save_pci_data(pdev, priv);
-+
-+	INIT_WORK(&priv->reset_work, ls2k_bmc_events_fn);
-+
-+	ret = devm_request_irq(&pdev->dev, pdev->irq, ls2k_bmc_interrupt,
-+			       IRQF_SHARED | IRQF_TRIGGER_FALLING, "ls2kbmc pcie", priv);
-+	if (ret) {
-+		dev_err(priv->dev, "ls2kbmc pcie request_irq(%d) failed\n", pdev->irq);
-+		return ret;
-+	}
-+
-+	return ls2k_bmc_gpio_reset_handler(priv);
-+}
-+
- /*
-  * Currently the Loongson-2K0500 BMC hardware does not have an i2c interface to
-  * adapt to the resolution.
-@@ -101,12 +330,25 @@ static int ls2k_bmc_probe(struct pci_dev *dev, const struct pci_device_id *id)
- {
- 	int ret = 0;
- 	resource_size_t base;
-+	struct ls2k_bmc_pdata *priv;
- 	struct simplefb_platform_data pd;
- 
- 	ret = pci_enable_device(dev);
- 	if (ret)
- 		return ret;
- 
-+	priv = devm_kzalloc(&dev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (IS_ERR(priv)) {
-+		ret = -ENOMEM;
-+		goto disable_pci;
-+	}
-+
-+	priv->dev = &dev->dev;
-+
-+	ret = ls2k_bmc_pdata_initial(dev, priv);
-+	if (ret)
-+		goto disable_pci;
-+
- 	ret = ls2k_bmc_get_video_mode(dev, &pd);
- 	if (ret)
- 		goto disable_pci;
--- 
-2.47.1
+I see that you resolved this issue through code refactoring in the Linux 
+next tree. How do you plan to address it in the stable 6.6 tree?
+
+--yiyang
 
 
 
