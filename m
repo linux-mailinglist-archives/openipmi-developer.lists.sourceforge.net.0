@@ -2,107 +2,144 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 891DFAB7FDF
-	for <lists+openipmi-developer@lfdr.de>; Thu, 15 May 2025 10:11:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 29C10AB9311
+	for <lists+openipmi-developer@lfdr.de>; Fri, 16 May 2025 02:14:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Type:Content-Transfer-Encoding:Cc:
-	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:Date:Message-ID:
-	References:To:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tUfNYrFVrpmfLYoKMHlycuh2EZMfpMsorqlZK7vc7M0=; b=m7VKRff9P4rScDc0jvdv9bohMQ
-	iIStaQ95vBIvO4XhaHqPBgTNC0MIr6pAQbAkZp0aJAk/4NMeyInsFoNMioD6GoJajEpmBVE7/eRCv
-	NCm/Fsadx2Lh1H/TmZ5465o5iINAaGLkK/AyiiwJ8AlljVdGbz0S/Ufc3QNL4K9z7eJQ=;
+	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
+	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
+	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
+	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vfaDJ09njOmdELhI9fpnjEu1+lygH5o74GcxJx9jQu8=; b=EB6HGmkycl8fwrJ/YF7h2Uuqgk
+	LIO/1NKnfXCiUsq+SO1oVFledAnGT27VagjGiEmb7urRtgdnVkHyDcBjkoU2RPxdRl+jPwEAyE2j6
+	a+EisBgvKMZiwAzJVm/4fYFEpzfiGZO5WBfTFC4vXhnoTPcndL0sD8oyTeR8qRZDhV3c=;
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1uFTgK-0002Hm-7w;
-	Thu, 15 May 2025 08:11:08 +0000
+	id 1uFihv-00068W-8w;
+	Fri, 16 May 2025 00:13:47 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <yiyang13@huawei.com>) id 1uFTgJ-0002Ha-1B
+ (envelope-from <corey@minyard.net>) id 1uFihu-00068N-8O
  for openipmi-developer@lists.sourceforge.net;
- Thu, 15 May 2025 08:11:07 +0000
+ Fri, 16 May 2025 00:13:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
- MIME-Version:Date:Message-ID:From:References:CC:To:Subject:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Ciae2PhsKAbhLLYPgoR8E5F91Q/zo8JrWRWF2Lhs4UQ=; b=MrEuXA9kBPvPSUNHRqIHGCVYwh
- 2Ezc7V3BskJPnnLV8rlmbTaolnvPtsP3MxyyfjL3cybbA7If82MgtLso8twf7NNVUfgQFzUQ2/SZm
- q0W7aRdq8XAPHUqvvZG8wh739GlDZMJ49eugskGkxb0y3dj+UTDDBYHJobFvOXjwdS1w=;
+ bh=fIQzh+d2Cl2iQMRyzQRgpL9ZV/FSzUS9sLNvNDM8pQA=; b=d577XS5vKwLMPirCK2Q5wuiMzQ
+ zz9VLmC1mPZEhMvbn+pIHMlN9qvDs+kyeG61bOthelzyD66sn0wYS+/rih4fSDwcAZeLcmjmUXCzj
+ cDu53hjZjFmNNL+Lf+qWoRzn7+x80c/VNeUqWkywPu7e9tbeUqQuOsnnbhbXy1RxTM/0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
- Message-ID:From:References:CC:To:Subject:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Ciae2PhsKAbhLLYPgoR8E5F91Q/zo8JrWRWF2Lhs4UQ=; b=d3TChXUSf8XKmRFqvAM+W3gBNy
- KY9pWOxqYTW0tezvDK/lzLnooAfFegC/taRE1MdUKn2eNVNe7WWMcat+L4wraZ+rfJFzoBVn9rQGq
- Vi1R+86LJ1tofQqF9by9xkgIKIi1oiI2bLjfgYAOON9/0PX2uTmD8e2l6GanepsUFlr8=;
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+ bh=fIQzh+d2Cl2iQMRyzQRgpL9ZV/FSzUS9sLNvNDM8pQA=; b=JSju1WeBMyfhYxp5+R8mg2vSvF
+ UuohoKZx/pMgiakMbx4pZYTCi/MOQjVky0R42SNZWrQ6pVPkuSIY9QBRxdeNy+OVaVUKXNiqlIlD3
+ oIvKowwpMogiC3+355frvdXf+NDePcxT3UPnya5ZGnJiTjklHsyoeWBW6PkyLKh7lrlE=;
+Received: from mail-oi1-f175.google.com ([209.85.167.175])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1uFTgE-0007MW-5U for openipmi-developer@lists.sourceforge.net;
- Thu, 15 May 2025 08:11:06 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
- by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4ZyjXx6Knwz1DKb1;
- Thu, 15 May 2025 16:09:21 +0800 (CST)
-Received: from kwepemk200016.china.huawei.com (unknown [7.202.194.82])
- by mail.maildlp.com (Postfix) with ESMTPS id 2B59F180B55;
- Thu, 15 May 2025 16:10:49 +0800 (CST)
-Received: from [10.67.108.122] (10.67.108.122) by
- kwepemk200016.china.huawei.com (7.202.194.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 15 May 2025 16:10:48 +0800
-To: <corey@minyard.net>
-References: <20250513081622.125071-1-yiyang13@huawei.com>
- <aCMrg1wqUVi2iCMk@mail.minyard.net>
-Message-ID: <d3d50ad3-19e7-7822-f22a-3deb57758ab7@huawei.com>
-Date: Thu, 15 May 2025 16:10:34 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1uFiht-0000hp-71 for openipmi-developer@lists.sourceforge.net;
+ Fri, 16 May 2025 00:13:46 +0000
+Received: by mail-oi1-f175.google.com with SMTP id
+ 5614622812f47-401be80368fso725578b6e.1
+ for <openipmi-developer@lists.sourceforge.net>;
+ Thu, 15 May 2025 17:13:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1747354414; x=1747959214;
+ darn=lists.sourceforge.net; 
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=fIQzh+d2Cl2iQMRyzQRgpL9ZV/FSzUS9sLNvNDM8pQA=;
+ b=tEJ9MGOrNcby1y45c5GHvL/N4CurHhDHGDz8Cx4eGn+T7PQPt7g8e7OHLXJah9VodG
+ S9XJfyMt/46vtE9TB6h2z8TI/wASltKLZmEtd7O9cm+jvGAMOaVstvWgu53P8buVWyG+
+ N1p/JbIOnWlE7/TqcMgUFPF4iD4ZyHimuwNORQcNPLM8tvDpiC9/S8/+2iviWBh8UB+F
+ gNk/8GF9WRzk8h4D+STIb7Z8Yp1jNqYfWIwHqCiSFFNcLb28aPcd78hIfaa/fcWKze6t
+ HuE8zwabHmTOe2+cJKz+w+Buwstdh0igdhpCQPKPDrwunSsaOEQoICVoAS9tcuygk/3Q
+ sZ8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1747354414; x=1747959214;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=fIQzh+d2Cl2iQMRyzQRgpL9ZV/FSzUS9sLNvNDM8pQA=;
+ b=EEADU6Fgl8i3FLkGaftEkfI05K8kV6nf7G5wKmldi3KmZSPG2Za6YaiFwHc7RxRVfK
+ TutzQYAz44aEX8CSzKPARvZKomPatFb9pEWKvYjHtTpyOlPm0ZbcV1jvfqDj8D75rDtM
+ BlVpcMUkMI/OeaiN1SU0b6yheRVJ/wB7EYsCk7ubAL9a/l7X3P1ueDqLMAxViikTiq0x
+ YDAQiN2sEERf3qL+Apl2w/8mIrvvFxgjGzEODasd/d2qkbOwAtf8nKwtTaTYjBNRy8bz
+ /1kMO9Dk8+x7hivE6Ne45gD8S+1/rI1saX7AYnfCX0ilvUVXdqSOZ589V3XDnYBREODl
+ Pw2w==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCX65wE8zTh7GRXfT7XBCkFan9cth48abJl23kJHh3T9gRehunRFdvCHDSX2cJcvBtjt227C3WHnd0Oq6BAR5Bv5HSM=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YxhHAggymRDWDVEXqf5k0GcB5gqcmzl3XQOx2Q/6xCXFaZekq1U
+ 6tXLAkw34/+l0QBGRMyTTkE11WameYTzUAsWMn9iKpj1SMOE3ox5ndy3waRDQlEJQgw=
+X-Gm-Gg: ASbGncse0J4W6MWV7NyOMRSaob1jjvr9cXMiH5z+7pzNLAhkJimnnDUsPOp7LUzVmpG
+ /FhjO5qWXSgmCcG529B/S0CEsDymD0rFbNt7DJCypTAT631nO6X+7CE2tp+TbW+7zlAsBg4v8Uy
+ NRR2kDJXGP6RH5BtzPg9Y/aOGbEpUNC13mjJhul0jTSlxDoAzuvrsvLTDxn8sYrnDZxMLHEQdVd
+ b0m67FJBMUxkoFK28k3Z3IN2B7VK3Jic5DoHJUyFYW04B2rtHWuue+cY2PIX40GBTbppPq94QE+
+ Gc3WVd6LTDZRHUWjI6Ius+YEFKnRTtI+5YU2Bp8eiVhCFDMq1wcolcE=
+X-Google-Smtp-Source: AGHT+IHw+xOETWTyOT89ZTuJ4/7y2Jcun/+WyMsgKHv9WFHVKeTtE/CECud8o+oMJFlD/SDqIiuTug==
+X-Received: by 2002:a05:6808:338c:b0:3f9:2fdc:ee93 with SMTP id
+ 5614622812f47-404d87b897dmr1274677b6e.30.1747354414372; 
+ Thu, 15 May 2025 17:13:34 -0700 (PDT)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:d0c5:1ce0:9035:258c])
+ by smtp.gmail.com with ESMTPSA id
+ 006d021491bc7-609f2f43884sm188602eaf.15.2025.05.15.17.13.31
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 15 May 2025 17:13:32 -0700 (PDT)
+Date: Thu, 15 May 2025 19:13:27 -0500
+From: Corey Minyard <corey@minyard.net>
+To: Praveen Balakrishnan <praveen.balakrishnan@magd.ox.ac.uk>
+Message-ID: <aCaDJyq18soCNMqa@mail.minyard.net>
+References: <20250515234757.19710-1-praveen.balakrishnan@magd.ox.ac.uk>
 MIME-Version: 1.0
-In-Reply-To: <aCMrg1wqUVi2iCMk@mail.minyard.net>
-X-Originating-IP: [10.67.108.122]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemk200016.china.huawei.com (7.202.194.82)
-X-Spam-Score: -3.1 (---)
-X-Spam-Report: Spam detection software, running on the system "6901ab67b84d", 
+Content-Disposition: inline
+In-Reply-To: <20250515234757.19710-1-praveen.balakrishnan@magd.ox.ac.uk>
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: Spam detection software,
+ running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On 2025/5/13 19:22, Corey Minyard wrote: > On Tue, May 13,
- 2025 at 08:16:22AM +0000, Yi Yang wrote: >> Syzkaller reported this bug:
- >> ================================================================= [...]
- Content analysis details:   (-3.1 points, 5.0 required)
+ Content preview:  On Fri, May 16, 2025 at 12:47:57AM +0100,
+ Praveen Balakrishnan
+ wrote: > Corrected various spelling and grammatical mistakes in >
+ Documentation/driver-api/ipmi.rst
+ to improve readability. > > No change [...] 
+ Content analysis details:   (0.0 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [45.249.212.255 listed in sa-trusted.bondedsender.org]
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.255 listed in list.dnswl.org]
- 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
- Validity was blocked.  See
+ [209.85.167.175 listed in bl.score.senderscore.com]
+ 0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [45.249.212.255 listed in sa-accredit.habeas.com]
- 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
- Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [45.249.212.255 listed in bl.score.senderscore.com]
- -0.8 NICE_REPLY_A           Looks like a legit reply (A)
-X-Headers-End: 1uFTgE-0007MW-5U
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: fix underflow in
- ipmi_create_user()
+ [209.85.167.175 listed in sa-accredit.habeas.com]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.175 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.167.175 listed in list.dnswl.org]
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1uFiht-0000hp-71
+Subject: Re: [Openipmi-developer] [PATCH] docs: ipmi: fix spelling and
+ grammar mistakes
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -115,151 +152,118 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: "yiyang \(D\) via Openipmi-developer"
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: "yiyang \(D\)" <yiyang13@huawei.com>
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- lujialin4@huawei.com
+Reply-To: corey@minyard.net
+Cc: linux-doc@vger.kernel.org, corbet@lwn.net, linux-kernel@vger.kernel.org,
+ skhan@linuxfoundation.org, openipmi-developer@lists.sourceforge.net,
+ linux-kernel-mentees@lists.linux.dev
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-
-
-On 2025/5/13 19:22, Corey Minyard wrote:
-> On Tue, May 13, 2025 at 08:16:22AM +0000, Yi Yang wrote:
->> Syzkaller reported this bug:
->> ==================================================================
->> BUG: KASAN: global-out-of-bounds in instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
->> BUG: KASAN: global-out-of-bounds in atomic_dec include/linux/atomic/atomic-instrumented.h:592 [inline]
->> BUG: KASAN: global-out-of-bounds in ipmi_create_user.part.0+0x5e5/0x790 drivers/char/ipmi/ipmi_msghandler.c:1291
->> Write of size 4 at addr ffffffff8fc6a438 by task syz.5.1074/5888
+On Fri, May 16, 2025 at 12:47:57AM +0100, Praveen Balakrishnan wrote:
+> Corrected various spelling and grammatical mistakes in
+> Documentation/driver-api/ipmi.rst to improve readability.
 > 
-> This code has been completely rewritten in the next tree and already
-> fixed.
-> 
-> -corey
-> 
->>
->> CPU: 0 PID: 5888 Comm: syz.5.1074 Not tainted 6.6.0+ #60
->> ......
->> Call Trace:
->>   <TASK>
->>   __dump_stack lib/dump_stack.c:88 [inline]
->>   dump_stack_lvl+0x72/0xa0 lib/dump_stack.c:106
->>   print_address_description.constprop.0+0x6b/0x3d0 mm/kasan/report.c:364
->>   print_report+0xba/0x280 mm/kasan/report.c:475
->>   kasan_report+0xa9/0xe0 mm/kasan/report.c:588
->>   check_region_inline mm/kasan/generic.c:181 [inline]
->>   kasan_check_range+0x100/0x1c0 mm/kasan/generic.c:187
->>   instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
->>   atomic_dec include/linux/atomic/atomic-instrumented.h:592 [inline]
->>   ipmi_create_user.part.0+0x5e5/0x790 drivers/char/ipmi/ipmi_msghandler.c:1291
->>   ipmi_create_user+0x56/0x80 drivers/char/ipmi/ipmi_msghandler.c:1236
->>   ipmi_open+0xac/0x2b0 drivers/char/ipmi/ipmi_devintf.c:97
->>   chrdev_open+0x276/0x700 fs/char_dev.c:414
->>   do_dentry_open+0x6a7/0x1410 fs/open.c:929
->>   vfs_open+0xd1/0x440 fs/open.c:1060
->>   do_open+0x957/0x10d0 fs/namei.c:3671
->>   path_openat+0x258/0x770 fs/namei.c:3830
->>   do_filp_open+0x1c7/0x410 fs/namei.c:3857
->>   do_sys_openat2+0x5bd/0x6a0 fs/open.c:1428
->>   do_sys_open fs/open.c:1443 [inline]
->>   __do_sys_openat fs/open.c:1459 [inline]
->>   __se_sys_openat fs/open.c:1454 [inline]
->>   __x64_sys_openat+0x17a/0x210 fs/open.c:1454
->>   do_syscall_x64 arch/x86/entry/common.c:51 [inline]
->>   do_syscall_64+0x59/0x110 arch/x86/entry/common.c:81
->>   entry_SYSCALL_64_after_hwframe+0x78/0xe2
->> RIP: 0033:0x54d2cd
->> Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
->> RSP: 002b:00007f4751920048 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
->> RAX: ffffffffffffffda RBX: 0000000000796080 RCX: 000000000054d2cd
->> RDX: 0000000000000000 RSI: 0000000020004280 RDI: ffffffffffffff9c
->> RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
->> R10: 000000000000001e R11: 0000000000000246 R12: 000000000079608c
->> R13: 0000000000000000 R14: 0000000000796080 R15: 00007f4751900000
->>   </TASK>
->>
->> The buggy address belongs to the variable:
->>   ipmi_interfaces+0x38/0x40
->>
->> The buggy address belongs to the physical page:
->> page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x45a6a
->> flags: 0x3fffff00004000(reserved|node=0|zone=1|lastcpupid=0x1fffff)
->> raw: 003fffff00004000 ffffea0001169a88 ffffea0001169a88 0000000000000000
->> raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
->> page dumped because: kasan: bad access detected
->>
->> Memory state around the buggy address:
->>   ffffffff8fc6a300: 00 00 00 00 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
->>   ffffffff8fc6a380: 00 00 f9 f9 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
->>> ffffffff8fc6a400: 00 00 f9 f9 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
->>                                          ^
->>   ffffffff8fc6a480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
->>   ffffffff8fc6a500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f9 f9
->> ==================================================================
->>
->> In the ipmi_create_user() function, the intf->nr_users variable has an
->> underflow issue. Specifically, on the exception path (goto out_kfree;)
->> before atomic_add_return(), calling atomic_dec() when intf->nr_users has
->> not been incremented will result in an underflow.
->>
->> Fixes: 8e76741c3d8b ("ipmi: Add a limit on the number of users that may use IPMI")
->> Signed-off-by: Yi Yang <yiyang13@huawei.com>
->> ---
->>   drivers/char/ipmi/ipmi_msghandler.c | 9 +++++----
->>   1 file changed, 5 insertions(+), 4 deletions(-)
->>
->> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
->> index 3ba9d7e9a6c7..27a12b31cfb6 100644
->> --- a/drivers/char/ipmi/ipmi_msghandler.c
->> +++ b/drivers/char/ipmi/ipmi_msghandler.c
->> @@ -1246,18 +1246,18 @@ int ipmi_create_user(unsigned int          if_num,
->>    found:
->>   	if (atomic_add_return(1, &intf->nr_users) > max_users) {
->>   		rv = -EBUSY;
->> -		goto out_kfree;
->> +		goto out_dec;
->>   	}
->>   
->>   	INIT_WORK(&new_user->remove_work, free_user_work);
->>   
->>   	rv = init_srcu_struct(&new_user->release_barrier);
->>   	if (rv)
->> -		goto out_kfree;
->> +		goto out_dec;
->>   
->>   	if (!try_module_get(intf->owner)) {
->>   		rv = -ENODEV;
->> -		goto out_kfree;
->> +		goto out_dec;
->>   	}
->>   
->>   	/* Note that each existing user holds a refcount to the interface. */
->> @@ -1281,8 +1281,9 @@ int ipmi_create_user(unsigned int          if_num,
->>   	*user = new_user;
->>   	return 0;
->>   
->> -out_kfree:
->> +out_dec:
->>   	atomic_dec(&intf->nr_users);
->> +out_kfree:
->>   	srcu_read_unlock(&ipmi_interfaces_srcu, index);
->>   	vfree(new_user);
->>   	return rv;
->> -- 
->> 2.25.1
->>
-> 
-> .
-> 
+> No changes to the technical content has been made.
 
-I see that you resolved this issue through code refactoring in the Linux 
-next tree. How do you plan to address it in the stable 6.6 tree?
+Thank you, I have added this to my tree.
 
---yiyang
+-corey
 
+> 
+> Signed-off-by: Praveen Balakrishnan <praveen.balakrishnan@magd.ox.ac.uk>
+> ---
+>  Documentation/driver-api/ipmi.rst | 20 ++++++++++----------
+>  1 file changed, 10 insertions(+), 10 deletions(-)
+> 
+> diff --git a/Documentation/driver-api/ipmi.rst b/Documentation/driver-api/ipmi.rst
+> index dfa021eacd63..d9fb2376e8da 100644
+> --- a/Documentation/driver-api/ipmi.rst
+> +++ b/Documentation/driver-api/ipmi.rst
+> @@ -45,7 +45,7 @@ manual), choose the 'IPMI SI handler' option.  A driver also exists
+>  for direct I2C access to the IPMI management controller.  Some boards
+>  support this, but it is unknown if it will work on every board.  For
+>  this, choose 'IPMI SMBus handler', but be ready to try to do some
+> -figuring to see if it will work on your system if the SMBIOS/APCI
+> +figuring to see if it will work on your system if the SMBIOS/ACPI
+>  information is wrong or not present.  It is fairly safe to have both
+>  these enabled and let the drivers auto-detect what is present.
+>  
+> @@ -63,7 +63,7 @@ situation, you need to read the section below named 'The SI Driver' or
+>  IPMI defines a standard watchdog timer.  You can enable this with the
+>  'IPMI Watchdog Timer' config option.  If you compile the driver into
+>  the kernel, then via a kernel command-line option you can have the
+> -watchdog timer start as soon as it initializes.  It also have a lot
+> +watchdog timer start as soon as it initializes.  It also has a lot
+>  of other options, see the 'Watchdog' section below for more details.
+>  Note that you can also have the watchdog continue to run if it is
+>  closed (by default it is disabled on close).  Go into the 'Watchdog
+> @@ -317,13 +317,13 @@ This gives the receiver a place to actually put the message.
+>  
+>  If the message cannot fit into the data you provide, you will get an
+>  EMSGSIZE error and the driver will leave the data in the receive
+> -queue.  If you want to get it and have it truncate the message, us
+> +queue.  If you want to get it and have it truncate the message, use
+>  the IPMICTL_RECEIVE_MSG_TRUNC ioctl.
+>  
+>  When you send a command (which is defined by the lowest-order bit of
+>  the netfn per the IPMI spec) on the IPMB bus, the driver will
+>  automatically assign the sequence number to the command and save the
+> -command.  If the response is not receive in the IPMI-specified 5
+> +command.  If the response is not received in the IPMI-specified 5
+>  seconds, it will generate a response automatically saying the command
+>  timed out.  If an unsolicited response comes in (if it was after 5
+>  seconds, for instance), that response will be ignored.
+> @@ -367,7 +367,7 @@ channel bitmasks do not overlap.
+>  
+>  To respond to a received command, set the response bit in the returned
+>  netfn, use the address from the received message, and use the same
+> -msgid that you got in the receive message.
+> +msgid that you got in the received message.
+>  
+>  From userland, equivalent IOCTLs are provided to do these functions.
+>  
+> @@ -440,7 +440,7 @@ register would be 0xca6.  This defaults to 1.
+>  
+>  The regsizes parameter gives the size of a register, in bytes.  The
+>  data used by IPMI is 8-bits wide, but it may be inside a larger
+> -register.  This parameter allows the read and write type to specified.
+> +register.  This parameter allows the read and write type to be specified.
+>  It may be 1, 2, 4, or 8.  The default is 1.
+>  
+>  Since the register size may be larger than 32 bits, the IPMI data may not
+> @@ -481,8 +481,8 @@ If your IPMI interface does not support interrupts and is a KCS or
+>  SMIC interface, the IPMI driver will start a kernel thread for the
+>  interface to help speed things up.  This is a low-priority kernel
+>  thread that constantly polls the IPMI driver while an IPMI operation
+> -is in progress.  The force_kipmid module parameter will all the user to
+> -force this thread on or off.  If you force it off and don't have
+> +is in progress.  The force_kipmid module parameter will allow the user
+> +to force this thread on or off.  If you force it off and don't have
+>  interrupts, the driver will run VERY slowly.  Don't blame me,
+>  these interfaces suck.
+>  
+> @@ -583,7 +583,7 @@ kernel command line as::
+>  These are the same options as on the module command line.
+>  
+>  The I2C driver does not support non-blocking access or polling, so
+> -this driver cannod to IPMI panic events, extend the watchdog at panic
+> +this driver cannot do IPMI panic events, extend the watchdog at panic
+>  time, or other panic-related IPMI functions without special kernel
+>  patches and driver modifications.  You can get those at the openipmi
+>  web page.
+> @@ -610,7 +610,7 @@ Parameters are::
+>  	ipmi_ipmb.retry_time_ms=<Time between retries on IPMB>
+>  	ipmi_ipmb.max_retries=<Number of times to retry a message>
+>  
+> -Loading the module will not result in the driver automatcially
+> +Loading the module will not result in the driver automatically
+>  starting unless there is device tree information setting it up.  If
+>  you want to instantiate one of these by hand, do::
+>  
+> -- 
+> 2.39.5
+> 
 
 
 _______________________________________________
