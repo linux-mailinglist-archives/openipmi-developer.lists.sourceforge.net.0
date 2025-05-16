@@ -2,142 +2,112 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 29C10AB9311
-	for <lists+openipmi-developer@lfdr.de>; Fri, 16 May 2025 02:14:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1BF9CAB93B2
+	for <lists+openipmi-developer@lfdr.de>; Fri, 16 May 2025 03:36:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vfaDJ09njOmdELhI9fpnjEu1+lygH5o74GcxJx9jQu8=; b=EB6HGmkycl8fwrJ/YF7h2Uuqgk
-	LIO/1NKnfXCiUsq+SO1oVFledAnGT27VagjGiEmb7urRtgdnVkHyDcBjkoU2RPxdRl+jPwEAyE2j6
-	a+EisBgvKMZiwAzJVm/4fYFEpzfiGZO5WBfTFC4vXhnoTPcndL0sD8oyTeR8qRZDhV3c=;
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:In-Reply-To:From:References:To:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kI6IggE+yt3iZQJWs3YhmnrIihvAAHmjF2Tkx4xM2Yk=; b=UfJKCyFAKu7S2bUeP1mupgNhj7
+	e3JjqhYtEQArpHKeFVaFzJGw0J6SbkZGEXGatgryPZbkVao20kdV0TDmjU1w05U61cMzE0I4WFruc
+	y7JOBPAd7reGPIX3/T2m7Ddb8/4sJFOiqKOvj09D97MXq2mGYgeGPVhmzlSu+6Dsod38=;
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1uFihv-00068W-8w;
-	Fri, 16 May 2025 00:13:47 +0000
+	id 1uFk07-0006bG-QT;
+	Fri, 16 May 2025 01:36:39 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1uFihu-00068N-8O
+ (envelope-from <rdunlap@infradead.org>) id 1uFk06-0006b9-BP
  for openipmi-developer@lists.sourceforge.net;
- Fri, 16 May 2025 00:13:46 +0000
+ Fri, 16 May 2025 01:36:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=fIQzh+d2Cl2iQMRyzQRgpL9ZV/FSzUS9sLNvNDM8pQA=; b=d577XS5vKwLMPirCK2Q5wuiMzQ
- zz9VLmC1mPZEhMvbn+pIHMlN9qvDs+kyeG61bOthelzyD66sn0wYS+/rih4fSDwcAZeLcmjmUXCzj
- cDu53hjZjFmNNL+Lf+qWoRzn7+x80c/VNeUqWkywPu7e9tbeUqQuOsnnbhbXy1RxTM/0=;
+ bh=p3TP/VPMxxlEonz02VIawXMvSXarvt5nx0vp3mbv6Z4=; b=Chs2nonfzl5g9/vj4m5287z8a4
+ kDoEPNN+ymspowM/lgeSN6bfdFdMz+9yefG6v23OSVnrSGNdY/pI3GnwoH5UIMXu4cHcrqls5OLp3
+ sS5+M8WwEkYGIKnP9E3cp6JQwdP/alPJK470npsu4c1r9WbWyzS2lDWW16wIFpjVZsRk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=fIQzh+d2Cl2iQMRyzQRgpL9ZV/FSzUS9sLNvNDM8pQA=; b=JSju1WeBMyfhYxp5+R8mg2vSvF
- UuohoKZx/pMgiakMbx4pZYTCi/MOQjVky0R42SNZWrQ6pVPkuSIY9QBRxdeNy+OVaVUKXNiqlIlD3
- oIvKowwpMogiC3+355frvdXf+NDePcxT3UPnya5ZGnJiTjklHsyoeWBW6PkyLKh7lrlE=;
-Received: from mail-oi1-f175.google.com ([209.85.167.175])
+ bh=p3TP/VPMxxlEonz02VIawXMvSXarvt5nx0vp3mbv6Z4=; b=aOcY9oe/7PG5BMluRGnjbb9/qF
+ CC2b2h19mTr+iHUyoGy0TllOVEjiN2Iai+Wen+IWsghhpJOaEIHnEiotXO71fbqYPni22P/NCVpox
+ XMqSjMXshAN8lu3tKVT/Uj4qaxQ/YiNNdBodpaCSskA0ku2OZhHQCOfmOH8NBI53UKGg=;
+Received: from [90.155.92.199] (helo=desiato.infradead.org)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1uFiht-0000hp-71 for openipmi-developer@lists.sourceforge.net;
- Fri, 16 May 2025 00:13:46 +0000
-Received: by mail-oi1-f175.google.com with SMTP id
- 5614622812f47-401be80368fso725578b6e.1
- for <openipmi-developer@lists.sourceforge.net>;
- Thu, 15 May 2025 17:13:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1747354414; x=1747959214;
- darn=lists.sourceforge.net; 
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:from:to:cc:subject:date
- :message-id:reply-to;
- bh=fIQzh+d2Cl2iQMRyzQRgpL9ZV/FSzUS9sLNvNDM8pQA=;
- b=tEJ9MGOrNcby1y45c5GHvL/N4CurHhDHGDz8Cx4eGn+T7PQPt7g8e7OHLXJah9VodG
- S9XJfyMt/46vtE9TB6h2z8TI/wASltKLZmEtd7O9cm+jvGAMOaVstvWgu53P8buVWyG+
- N1p/JbIOnWlE7/TqcMgUFPF4iD4ZyHimuwNORQcNPLM8tvDpiC9/S8/+2iviWBh8UB+F
- gNk/8GF9WRzk8h4D+STIb7Z8Yp1jNqYfWIwHqCiSFFNcLb28aPcd78hIfaa/fcWKze6t
- HuE8zwabHmTOe2+cJKz+w+Buwstdh0igdhpCQPKPDrwunSsaOEQoICVoAS9tcuygk/3Q
- sZ8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1747354414; x=1747959214;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=fIQzh+d2Cl2iQMRyzQRgpL9ZV/FSzUS9sLNvNDM8pQA=;
- b=EEADU6Fgl8i3FLkGaftEkfI05K8kV6nf7G5wKmldi3KmZSPG2Za6YaiFwHc7RxRVfK
- TutzQYAz44aEX8CSzKPARvZKomPatFb9pEWKvYjHtTpyOlPm0ZbcV1jvfqDj8D75rDtM
- BlVpcMUkMI/OeaiN1SU0b6yheRVJ/wB7EYsCk7ubAL9a/l7X3P1ueDqLMAxViikTiq0x
- YDAQiN2sEERf3qL+Apl2w/8mIrvvFxgjGzEODasd/d2qkbOwAtf8nKwtTaTYjBNRy8bz
- /1kMO9Dk8+x7hivE6Ne45gD8S+1/rI1saX7AYnfCX0ilvUVXdqSOZ589V3XDnYBREODl
- Pw2w==
-X-Forwarded-Encrypted: i=1;
- AJvYcCX65wE8zTh7GRXfT7XBCkFan9cth48abJl23kJHh3T9gRehunRFdvCHDSX2cJcvBtjt227C3WHnd0Oq6BAR5Bv5HSM=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0YxhHAggymRDWDVEXqf5k0GcB5gqcmzl3XQOx2Q/6xCXFaZekq1U
- 6tXLAkw34/+l0QBGRMyTTkE11WameYTzUAsWMn9iKpj1SMOE3ox5ndy3waRDQlEJQgw=
-X-Gm-Gg: ASbGncse0J4W6MWV7NyOMRSaob1jjvr9cXMiH5z+7pzNLAhkJimnnDUsPOp7LUzVmpG
- /FhjO5qWXSgmCcG529B/S0CEsDymD0rFbNt7DJCypTAT631nO6X+7CE2tp+TbW+7zlAsBg4v8Uy
- NRR2kDJXGP6RH5BtzPg9Y/aOGbEpUNC13mjJhul0jTSlxDoAzuvrsvLTDxn8sYrnDZxMLHEQdVd
- b0m67FJBMUxkoFK28k3Z3IN2B7VK3Jic5DoHJUyFYW04B2rtHWuue+cY2PIX40GBTbppPq94QE+
- Gc3WVd6LTDZRHUWjI6Ius+YEFKnRTtI+5YU2Bp8eiVhCFDMq1wcolcE=
-X-Google-Smtp-Source: AGHT+IHw+xOETWTyOT89ZTuJ4/7y2Jcun/+WyMsgKHv9WFHVKeTtE/CECud8o+oMJFlD/SDqIiuTug==
-X-Received: by 2002:a05:6808:338c:b0:3f9:2fdc:ee93 with SMTP id
- 5614622812f47-404d87b897dmr1274677b6e.30.1747354414372; 
- Thu, 15 May 2025 17:13:34 -0700 (PDT)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:d0c5:1ce0:9035:258c])
- by smtp.gmail.com with ESMTPSA id
- 006d021491bc7-609f2f43884sm188602eaf.15.2025.05.15.17.13.31
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 15 May 2025 17:13:32 -0700 (PDT)
-Date: Thu, 15 May 2025 19:13:27 -0500
-From: Corey Minyard <corey@minyard.net>
-To: Praveen Balakrishnan <praveen.balakrishnan@magd.ox.ac.uk>
-Message-ID: <aCaDJyq18soCNMqa@mail.minyard.net>
-References: <20250515234757.19710-1-praveen.balakrishnan@magd.ox.ac.uk>
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1uFk04-0002xu-GO for openipmi-developer@lists.sourceforge.net;
+ Fri, 16 May 2025 01:36:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+ :In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+ Sender:Reply-To:Content-ID:Content-Description;
+ bh=p3TP/VPMxxlEonz02VIawXMvSXarvt5nx0vp3mbv6Z4=; b=SVglxsZee/njbichUMAoYWcZUJ
+ WrDx1MfXZ1iX19DCOZPzCu2YsVGZZpMkXyDVdoJ7L6Qgk+38RrS5PNzr2JDwat2ZhyBA4UOP+/LG5
+ t9OfOft7yKTBzPXbHe8ZLJQmTqDsiJkOAebombxkUaFBqlb84FquCOB6evC8mgkIiD9ojt6eBMn8m
+ F0gCPWkdsKnMRwR2Wh+FeX2cRZtS+l/hVgMN2rkAOHy68HGqryiFrkv/kR0/QFs/LpT+bYopZ9KqE
+ YV8mCQmx8hgtth6W+XPgVnVXZ+/2M3EVVns3vwbsYuK4CLL6868A52dsB51AVCWVf1yIIPVnwHaIg
+ M/cui+tg==;
+Received: from [50.53.25.54] (helo=[192.168.254.17])
+ by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
+ id 1uFj3O-000000000s6-3vup; Fri, 16 May 2025 00:36:01 +0000
+Message-ID: <5baa0fc5-bdb4-45bc-a986-171fa440e2e5@infradead.org>
+Date: Thu, 15 May 2025 17:35:55 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+To: Praveen Balakrishnan <praveen.balakrishnan@magd.ox.ac.uk>,
+ corey@minyard.net, corbet@lwn.net
+References: <20250515234757.19710-1-praveen.balakrishnan@magd.ox.ac.uk>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
 In-Reply-To: <20250515234757.19710-1-praveen.balakrishnan@magd.ox.ac.uk>
-X-Spam-Score: 0.0 (/)
+X-Spam-Score: -1.2 (-)
 X-Spam-Report: Spam detection software,
  running on the system "util-spamd-1.v13.lw.sourceforge.com", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Fri, May 16, 2025 at 12:47:57AM +0100,
- Praveen Balakrishnan
- wrote: > Corrected various spelling and grammatical mistakes in >
+ Content preview:  On 5/15/25 4:47 PM, Praveen Balakrishnan wrote: > Corrected
+ various spelling and grammatical mistakes in >
  Documentation/driver-api/ipmi.rst
- to improve readability. > > No change [...] 
- Content analysis details:   (0.0 points, 6.0 required)
+ to improve readability. > > No changes to the technical con [...] 
+ Content analysis details:   (-1.2 points, 6.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [209.85.167.175 listed in bl.score.senderscore.com]
  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
  query to Validity was blocked.  See
  https://knowledge.validity.com/hc/en-us/articles/20961730681243
  for more information.
- [209.85.167.175 listed in sa-accredit.habeas.com]
+ [90.155.92.199 listed in sa-trusted.bondedsender.org]
+ 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+ query to Validity was blocked.  See
+ https://knowledge.validity.com/hc/en-us/articles/20961730681243
+ for more information.
+ [90.155.92.199 listed in bl.score.senderscore.com]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [90.155.92.199 listed in list.dnswl.org]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.175 listed in wl.mailspike.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.167.175 listed in list.dnswl.org]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1uFiht-0000hp-71
+ 1.3 RDNS_NONE Delivered to internal network by a host with no rDNS
+X-Headers-End: 1uFk04-0002xu-GO
 Subject: Re: [Openipmi-developer] [PATCH] docs: ipmi: fix spelling and
  grammar mistakes
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -152,26 +122,27 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: linux-doc@vger.kernel.org, corbet@lwn.net, linux-kernel@vger.kernel.org,
- skhan@linuxfoundation.org, openipmi-developer@lists.sourceforge.net,
- linux-kernel-mentees@lists.linux.dev
+Cc: openipmi-developer@lists.sourceforge.net, skhan@linuxfoundation.org,
+ linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
+ linux-doc@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, May 16, 2025 at 12:47:57AM +0100, Praveen Balakrishnan wrote:
+
+
+On 5/15/25 4:47 PM, Praveen Balakrishnan wrote:
 > Corrected various spelling and grammatical mistakes in
 > Documentation/driver-api/ipmi.rst to improve readability.
 > 
 > No changes to the technical content has been made.
-
-Thank you, I have added this to my tree.
-
--corey
-
 > 
 > Signed-off-by: Praveen Balakrishnan <praveen.balakrishnan@magd.ox.ac.uk>
+
+Reviewed-by: Randy Dunlap <rdunlap@infradead.org>
+
+Thanks.
+
 > ---
 >  Documentation/driver-api/ipmi.rst | 20 ++++++++++----------
 >  1 file changed, 10 insertions(+), 10 deletions(-)
@@ -261,9 +232,9 @@ Thank you, I have added this to my tree.
 >  starting unless there is device tree information setting it up.  If
 >  you want to instantiate one of these by hand, do::
 >  
-> -- 
-> 2.39.5
-> 
+
+-- 
+~Randy
 
 
 _______________________________________________
