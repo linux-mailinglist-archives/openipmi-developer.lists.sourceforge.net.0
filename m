@@ -2,153 +2,263 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B538DAC1D76
-	for <lists+openipmi-developer@lfdr.de>; Fri, 23 May 2025 09:10:37 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 37B7DAC24C6
+	for <lists+openipmi-developer@lfdr.de>; Fri, 23 May 2025 16:12:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:To:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVwN0zVnSwnsIsTvdlflxvlppZYBJRcxfONoYf9iLWs=; b=KzFyTPhsM0dVd1O3MIgBXrX0lF
-	WAmWy+hayMTfK8j2UgbgFq1Q1T8ILoerJZ2584JEiNrTQkKNElL3KjEvx5JNrYzl1HFeq6ystoj5m
-	UN3FAVe+5A23LX0iy3ppBF7vKwrq78FIga2gcwDu+ztF+U4pj14KLLdOgEO1Gt4fbtU8=;
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	d=lists.sourceforge.net; s=beta; h=Content-Type:Content-Transfer-Encoding:Cc:
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:MIME-Version:In-Reply-To:References:To:Date:
+	Message-ID:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xs0WXdazEEs/uG+ud7VHFbQDHpaor83/ZuEOLyfHQkw=; b=VD1pQBldqQlZ3+YFB1H/lc5Eoy
+	9I6Rb+zjmt6ZuIbK2tzAmrWY1EW6VUY6zyQ7SNmSZ5zVi26oonG2JNXRHRvGFuVmvjwECz4nVVx0B
+	QTf/EO/payub4NIXOcI4lIuSjlPFsJofXOKdAp9VGae+5ze2kLCS0aIBcMG+7Wf8gmk4=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1uIMXz-0006LU-8G;
-	Fri, 23 May 2025 07:10:27 +0000
+	id 1uIT8E-0005KN-TA;
+	Fri, 23 May 2025 14:12:18 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhoubb.aaron@gmail.com>) id 1uIMXx-0006LO-MO
+ (envelope-from <alok.a.tiwari@oracle.com>) id 1uHeiq-00084l-Ml
  for openipmi-developer@lists.sourceforge.net;
- Fri, 23 May 2025 07:10:25 +0000
+ Wed, 21 May 2025 08:22:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
- Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
- Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
- :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Transfer-Encoding:Content-Type
+ :In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=psWq3z8m85bqv4VpT7bLMSWTFKID89rBSYBA4nH9rFw=; b=f1cIe6SJ2sC+wzk/0uHF7Kn5YH
- j4flSd/j5v8F4/YrPN2xr+3ylq7f6+rt5LcF0ngwTPW9aTgMmyRd8ztKWi0ACgcV0+bvxhYqRIcf1
- 41Ng0bNk50VnaduWvF1h/reQEHOvIdcnrGFC5jJqrJNT+qfPSdzjKkcyZSm7Ciz4t6Lc=;
+ bh=Wk54o+1v1foRnaqHLMXaKtCvuG2upHPvIaIIQfRZDwg=; b=f0dhhiykPVjW6Jb6t1auODUktw
+ 4TkAImwC3kvrZ176HmcqdqBGhQrI1jZwrRopfu7gaY22/ke0liow3qK2FSswNqJJh2svnMTy1dRsb
+ QJVDJqlMOVeTnYnow4LGibZGJC9qlmGg2QvMcoeROhnEuRys0fZA+OeRHAdW3IaqR7rc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
- :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
+ h=MIME-Version:Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+ References:Cc:To:Subject:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=psWq3z8m85bqv4VpT7bLMSWTFKID89rBSYBA4nH9rFw=; b=lCTIwnHZT1iELnEawXpSiN8a3V
- kJ7Jqc+IhaYtXuNn/rjuk4FlqrB6P49qaodTNra3a+kT3RtKNKvlvA/qeIwImPJc2Tm8KEjZzyBVU
- 4jojGTiSnI6JvEHLArMKRBUU6ktBeWi4zfICymEbbjhaGV74GDgTpDoTjcOxqui1GObE=;
-Received: from mail-ed1-f43.google.com ([209.85.208.43])
+ bh=Wk54o+1v1foRnaqHLMXaKtCvuG2upHPvIaIIQfRZDwg=; b=AzrD11YRc/bql+Wav8XcmWgaq2
+ Rn4AFo86zjOYXPSO6ljut8ghMbB2z7zKsg9i2t4NmHx9w74ra7n9FcVghQp8p4T2uuIGgwNV24Cc3
+ AdwUK/UFGqPFXrvar4LjqLPUHeju9eZN0R8cl8Jf7/YU+7k4I5iErTMvX+f2TH8wLnR0=;
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1uIMXw-0002Eg-K5 for openipmi-developer@lists.sourceforge.net;
- Fri, 23 May 2025 07:10:25 +0000
-Received: by mail-ed1-f43.google.com with SMTP id
- 4fb4d7f45d1cf-601dbd75b74so8752967a12.1
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 23 May 2025 00:10:24 -0700 (PDT)
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1uHeip-0002iX-MS for openipmi-developer@lists.sourceforge.net;
+ Wed, 21 May 2025 08:22:44 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+ by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54L7fnkO012021;
+ Wed, 21 May 2025 08:22:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+ :content-transfer-encoding:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to; s=
+ corp-2025-04-25; bh=Wk54o+1v1foRnaqHLMXaKtCvuG2upHPvIaIIQfRZDwg=; b=
+ EFmEEgywGN7KJJY6dpA0ZYCK/TjLtUImr6Cz/gZcN04VLuKedsnpIWPXtpeK1Xdy
+ OXQnCJMj/FXQIpXXorl3onLOYTOfYxKzQfReXpptxKHieibbGXa7UZo539mGeJRp
+ RNxNrWeaFnoUZmzX8l1rqJPj4V4tbkLIuVu/z+slZIKnj4HQBjuuFkiTZ0c59Rkf
+ F9f0SixEYHJrIYcaJodGMEcuibiTy1gbGilYdt54pcksxqsJ0JcnJ7vDnmWB2uvv
+ Q3iojaPuko0BpZTc0BbDYq5Sll9CGNjumx5VkC3jpmdQoOwSdy95n2T2MRD+zuAH
+ /WKe9pPTUzv2s8RdqhYKQg==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com
+ (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+ by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46saew83bf-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 21 May 2025 08:22:20 +0000 (GMT)
+Received: from pps.filterd
+ (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+ by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2)
+ with ESMTP id 54L7tawO032226; Wed, 21 May 2025 08:22:19 GMT
+Received: from nam10-dm6-obe.outbound.protection.outlook.com
+ (mail-dm6nam10on2077.outbound.protection.outlook.com [40.107.93.77])
+ by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id
+ 46rwem1vfg-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 21 May 2025 08:22:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pII/4mfj8jNq5J6fq1oS9JOe6YKVeMgZu4K4pGFXn00NaBmyDCIEQlFjDUPzyWwBfJsSWmbaSW1NHJnakLua3EgcM364zQf+BnN5NnfoP3djNcOoPvYUFPAdT9MlouZq2+MGywG8+qjQC9Uh9GXhb6mScJw4YKUD9RW/o08zdaNd/qwozX+w+Q7029/d4enObyziOFledAt7Y3YGXgDQMvlmXGvfDjvOi8ZjMWamZwT/wg1sEpMhsP6D/7LL9dQBbK4aNSUWQWhSUcReMw6HzWYXIvAZJHlEheTYgKygQQBNCKJprkSg+CF6325fnUOH/P79e+5Od6jotWyxn6FNEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Wk54o+1v1foRnaqHLMXaKtCvuG2upHPvIaIIQfRZDwg=;
+ b=gRQD8QKH20/F27wE340fCk2WgXLLWCBA8eYMANxcmRJoGpcCe4SdsoG/IwrtjR9Deashv6/aaVNLrUko9BFdOpWmGaChQhFJPVY4PBH7KO5GTgEtjp0oK9yKUO2HBFJFBDpZv2hkKTWKPKhbGGol8fCEe/1f5soBXO7AdQUXodteffz6xROsvf7mZkHn3ihfFRLlGjoTbmN1PJR6LmYawo2H8qao0a0i/ecdkOo0pqfp5ILG8Ne1JHLc/b1e0GtGdd03c8rGhTPpeSNpE4L149CWH+WSaukYvUXc/NLmdU0zRhCAI5g2dhOu3PVrDodrG/dFFMzokaIuQDqGgacTaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1747984218; x=1748589018; darn=lists.sourceforge.net;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:from:to:cc:subject:date
- :message-id:reply-to;
- bh=psWq3z8m85bqv4VpT7bLMSWTFKID89rBSYBA4nH9rFw=;
- b=kbdgudtj2/1PeA/jK+TN4jGIj9Znfd1yhyUVBN2xjBoYEA3ffOHOwiuJizO2sweOlk
- xSHLL+UK6lqOwgmvFwCbuylPtlhUk5ft4TXqA2JI7+Ur7VEhTuKreDMtws2B1s0QiRUb
- UeYUSBwNLKV8tnWm7fNI0Laxh9ttz8v58IM60ECqA2hUar+K9c09RTaEhpcKrPGFOv3k
- MKpLm/VcRW98CIF1U8EO9Qtd317MmYrwhIjJCh/vWE2QaSH9XZp/lYsUN+WBZzAIGsda
- L9iIBQ4cGsmBmivJhqQkEC52UHFd5fogteBmYME1+4MnS4wuL62+RQnBz9WFfshrxeDL
- v1GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1747984218; x=1748589018;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=psWq3z8m85bqv4VpT7bLMSWTFKID89rBSYBA4nH9rFw=;
- b=AC+hgNECLVN6RKzQshvKYqMbPE3pvjsa0f8lur36FieUdFO/iv7TG0hehX80jb7Rn0
- JqDz679hnIcx0PM/axOUIOKKNCRwvGWWfE9m6xgs9dgktyWs17TXD7FrSmQ+/VikrcP+
- rD2Xg8ecCbELEN2F9jchC/qvCizpGxfgYr5Rtja2+SRpun1aRmvzzi7g/UK1SQ+zbYxn
- 4r76cSFj4BWCcPygJbV1rvavCFt0S/bWV3ExhnvGWjTKGalL+FXhxastmKvoQPEFsukG
- ozX+8ii/sXHGxCYEBsH4PxLettqxiGNKzxjfm0i98uqnyGruCIniO2U7YnAbgQQpxwcb
- RuNQ==
-X-Forwarded-Encrypted: i=1;
- AJvYcCV6PMLBY0fJIYkCxWLJiyZwRq00h10KTTob52JlVpTsrkGuOyd43AKjhpBDSa7kgo7/Ea6FlWVJPgtl9RCGFn0nTrU=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yympa86kwRQTKn1HSOEJUtZijer1kHKIZtYkzUE5XWt59nr1O4f
- BWxMronQqBX4dNfJKAOPMvlRsBOQGzlBayg6NTAMp7Eka6+2hM/TIcAV8O3QZO0svMs2qGZRvKl
- 5skjGa7u6msu2GDSihCRdqEY1JOt6FY0=
-X-Gm-Gg: ASbGnctNEJfDfqDvMZ3FFW7RxZ0pJTO3e7wpF8npg/UkVGjEtm28+LW1OjBvB36Byn+
- XWprx79f4gLhwbydVhRwZYZHcDsvBkt2N8xqqt3Z8a3H/ba3a8Ke1eAHOyu3fwrLlDCiPXa2hUW
- UKQIV9h0LiRszbs5Li82RyR5LP1FZJ5nm80K4=
-X-Google-Smtp-Source: AGHT+IGAUWXACG5WwPLjQk0XIMVgHZ2GR2I0S2finLg9ytbRe6xt7N0y1Qz8suntOMz2kmChuw+V3HIoS4AE+EzWjbM=
-X-Received: by 2002:a17:907:3d10:b0:acb:33c6:5c71 with SMTP id
- a640c23a62f3a-ad536c1a834mr2408937866b.29.1747984217646; Fri, 23 May 2025
- 00:10:17 -0700 (PDT)
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Wk54o+1v1foRnaqHLMXaKtCvuG2upHPvIaIIQfRZDwg=;
+ b=IlNtZSJ+c7rZJPkq7wJBrincmKTza3OAJtVaZEyYvIN2xrBoh6O8laLa1QcxeLmeNP6fUCH1EJ8JUyGWuzDU8qziiMhPOihSByDoxy5vCRWLnPIQetEjFPUBIqgSVpbpledYlWc13bvTgMJAIiD7QmTHPvsl02HDVXrA3JEKWns=
+Received: from DS7PR10MB5328.namprd10.prod.outlook.com (2603:10b6:5:3a6::12)
+ by SA1PR10MB6567.namprd10.prod.outlook.com (2603:10b6:806:2bc::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Wed, 21 May
+ 2025 08:22:16 +0000
+Received: from DS7PR10MB5328.namprd10.prod.outlook.com
+ ([fe80::ea13:c6c1:9956:b29c]) by DS7PR10MB5328.namprd10.prod.outlook.com
+ ([fe80::ea13:c6c1:9956:b29c%2]) with mapi id 15.20.8746.030; Wed, 21 May 2025
+ 08:22:16 +0000
+Message-ID: <2d2fc30c-62bd-4243-b53a-8a477b153cd6@oracle.com>
+Date: Wed, 21 May 2025 13:52:00 +0530
+User-Agent: Mozilla Thunderbird
+To: Tony Hutter <hutter2@llnl.gov>, Bjorn Helgaas <helgaas@kernel.org>,
+ Lukas Wunner <lukas@wunner.de>, mariusz.tkaczyk@linux.intel.com,
+ minyard@acm.org
+References: <553813b6-1d44-488c-b41b-4be08e1c1733@llnl.gov>
+Content-Language: en-US
+In-Reply-To: <553813b6-1d44-488c-b41b-4be08e1c1733@llnl.gov>
+X-ClientProxiedBy: PN3PR01CA0019.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:97::10) To DS7PR10MB5328.namprd10.prod.outlook.com
+ (2603:10b6:5:3a6::12)
 MIME-Version: 1.0
-References: <cover.1747276047.git.zhoubinbin@loongson.cn>
- <778675bfe1040cd1bf4d281dc5c5f20edc4145c1.1747276047.git.zhoubinbin@loongson.cn>
- <20250522092208.GB1199143@google.com>
-In-Reply-To: <20250522092208.GB1199143@google.com>
-From: Binbin Zhou <zhoubb.aaron@gmail.com>
-Date: Fri, 23 May 2025 15:10:04 +0800
-X-Gm-Features: AX0GCFvIEPoY7TLdSh637kUPlWeIADhqYAt7EMIVJ2WvSxjuFhKsIiRg_NoYNP0
-Message-ID: <CAMpQs4+dZjEzaBOrzknL2+5B5kkz5weZ2zWKu8GwHUoQZqPJ5A@mail.gmail.com>
-To: Lee Jones <lee@kernel.org>
-X-Spam-Score: -0.2 (/)
-X-Spam-Report: Spam detection software, running on the system "util-spamd-1.v13.lw.sourceforge.com",
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR10MB5328:EE_|SA1PR10MB6567:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34b9e66e-f67d-4d14-ce31-08dd984098a0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TFVseUhHTU9rRFVlS2VBM1JLSHk3VjlhSFR0Y3BrUHhoenNpVEg4ZzF6eDhK?=
+ =?utf-8?B?OFQvcnlGYll0SU1ia2ZKbmpNQll0RzgyUUo0ZHFZNlNHUFdoeVlKNWl2eVNF?=
+ =?utf-8?B?ZmMxU1B4VEhTcjBGK2F1MUpONU5YVWduWW4vUXdRV3JRaG1GNkZDbGROMVZU?=
+ =?utf-8?B?SzRnNGpKZDFwZnFOazREVStYL2ZVNSs4SXJNaVVRbDFKa3FYT2thbjJQa2FO?=
+ =?utf-8?B?N3VYSlE0aDdvb2JSK05mNU9obkhDNjVXc0dkWjVLRmVQaFdaRlpJWEhEYnJ4?=
+ =?utf-8?B?TElvakVtQ3l3MmxoSXQ5VnViMEw3S0xpM3EyNzJjcXgzdWZnWkk0UFZVeFZO?=
+ =?utf-8?B?R2VLQ1JTbkRKYnAva28zblVkZHBqY3c1aWZydW5GMHEvQ0VQOXRGb3J3UzZH?=
+ =?utf-8?B?MWx5ZXVwOVp0KzhXYVhzRFl6TWUzTVhtUUVMTFljcWk2aVUvTktCSDFuZVZn?=
+ =?utf-8?B?bG00cHJKaHdlem9qOWxnNWFYU3NHMXE5M1BMMHpyb1YyVG9YSWZ3OFV2cUVK?=
+ =?utf-8?B?bSszSFZ4Sy9zVE9YUmNiS3pBaVNGQWFnOHE2amlQTmJJMmMrRldIbTVnN3Y5?=
+ =?utf-8?B?MXN3b0NMbWFSSWlJcnNuWmx5SGtYVVlMMklVNC9uZzlzdHZOa2swanlkQ1Nj?=
+ =?utf-8?B?MWt1V2JEVkxoQWJaK3dQNXF0aGRibnBZUktEYkN2ekRQSHE2ZkRuNjVuRkhZ?=
+ =?utf-8?B?TENiTGFoZmJURHVCZEk4TDdadXRzOXdvNnE5TUlLRjNtUmJoWnVzR3VCbEJR?=
+ =?utf-8?B?NU5ueDZVZEdYK1RCc1pTYXlBclhZTElPZWF1N01GK1JnSHZyNDVxMmdZMnpM?=
+ =?utf-8?B?SFVybG5lQXVlT0U2U0dKc2VUS1B5R1lxVlZ3eFZwMHh0T1VNME1FU0hFUnBi?=
+ =?utf-8?B?aWlQbGNUeFRsRkhHRmd2WlRQZ1lscDc1MDU3d0k1Wlhydnd2Mm1EVFZDMFll?=
+ =?utf-8?B?M3ZPcjc1Tjl1anEwdVR5bTNZUkdiNWoxakYxZjR4WVlRMkNPWkYvNXp0RXFw?=
+ =?utf-8?B?aHZ5YU1zQjcrREluM3JwZW5JbVlHaXNKQzR6QVBlbFVJK04yTTk5ejltS3Mv?=
+ =?utf-8?B?SU52ODdEUzJLUnpCcVBsVlRYaTJMY0tlcDNmTmpsT09xNytxTWh4SktGeU5z?=
+ =?utf-8?B?d1lCUTJSeW9YVkhVaVB0NldTcUc4K0l1YlhDM25TT1FOb0RyclJQbHc0dEtP?=
+ =?utf-8?B?Zk9iQ1Y4RWo1cDBmdGVGZndjYnZmaEgzbHRZaTZ0Y0E4M1BGczRsdWMvazdy?=
+ =?utf-8?B?RUFHL0pINE9LZUpLK3Q4RVlpdlh2eTEzaEtWckZYSWlxeEhycWovT2pjazhw?=
+ =?utf-8?B?NzcwcHRUajdJWWQrQytZUFF3WVpyakIrUXcwRDZmR1gxOEltakE4R2RFUlpY?=
+ =?utf-8?B?SGxWS0l3T0U1OHlWWHhGL3IrbkQwWjJxWjRQNDA4ZU0vRVV1b29pWE9iQ0s1?=
+ =?utf-8?B?Rlp6R1NyQ0dobTFLNmFFdGRjbklzYjRZU1gwYy9FQVh6ZEhVZmNlRDNuRHB4?=
+ =?utf-8?B?cVNYWGxjczJXamxOMXErbXprNnhjKzg5UHQyN0xYUXoyaWt1U0RrcWVVMXh1?=
+ =?utf-8?B?V2hOOFhrdTcvcGdUR2RKWFJ5LzhTdjF1UnBWMnhsZnhjcDRBNUdGVFdoWTAr?=
+ =?utf-8?B?dDNQRnBTRkxZaUdZWCtYWWQySDQ2T0lJVzl5UUNUWTlxanlnM0hnYTB0VnpU?=
+ =?utf-8?B?MzhNN3g2empweGJvRlFUTUorWWtWOE13c1gzTWdvcm9laHhmZWx0Y0tBSlV3?=
+ =?utf-8?B?LzhRQzhBQTF3dVpaMkora2pPaFFRRVl1VnphOHc4MjVpeDZYT2l2V3Q5WC8v?=
+ =?utf-8?B?dGVyZWR0M1NuZE05YXRXOFFzMWR1UmFyT3ljZ0w2ZEhHZ3hXRG1TbDBUUnla?=
+ =?utf-8?B?TFVVREVlTVV0MEZ4TUYzeURQeVdHY2NDamNqd0Vsbkh4QnVwQUVOZjN1cWs1?=
+ =?utf-8?Q?nMvUddCBnYM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DS7PR10MB5328.namprd10.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(13230040)(366016)(376014)(1800799024); DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TVNDVktZMjl4QTViNUdiUjhEcWtRcTYzK2UxUWxVckRkMHdkNFh1WTdlQXJ4?=
+ =?utf-8?B?enVYRmxhUWtlRXVXY2xFdHpyaldhckRnWWtDVE1odnpIZzBTaDBpd3RDTHQy?=
+ =?utf-8?B?Q1dFTTdzWEpaWFVFZmRxVFl4c1k5RElYcHhIRUlZL0p3Q05LcThvQ2o1dXVT?=
+ =?utf-8?B?c2dSOVJjUmNlNkJDUmdvME9nTld3cktZZGkxUGtzOCs5SWlkdWR2NjRIOVF5?=
+ =?utf-8?B?MFk1eHVCYkZCUG4vNmY0bEkyUkhSNjJRTTJIZ1pYc29GdUUvZHlNcjZUTlNR?=
+ =?utf-8?B?dzNjVDMwQUpMc25aaGtkNzN1MytDSjcrdDl5VytBYmVUUDVPUm42VExDODhX?=
+ =?utf-8?B?NExUWm8za0g5cEE5MUNUNzJURkIxMTNhVTQ2MlkxMGNYRHgvY2JmbzhsSDlC?=
+ =?utf-8?B?c0ZnZHIvUnZISTBnSGdmRGl5dG9iVUIwVXRMMXRUdTExNUhDMVQ0cjRNWnZk?=
+ =?utf-8?B?N2tqTmg3SWw3N0dBditwWjlaQkoyT21wR3lzUHpBdWl2REM4RWxBSHEzUDl5?=
+ =?utf-8?B?UGZydUZtcGhIOUhMVnROKzhOeS9kYzlTdjhSMjNzcG5FVUVZeEpsSDlMYXVx?=
+ =?utf-8?B?b1YwVE5uckZydEVQb2dDblMrWWF0dG1LR2JjVnd4cWg1YUovMllUZFhoZUpu?=
+ =?utf-8?B?REJ3QUtRQk94RDkxZGRQUmRxWVRmbmFzUWlOK0xLUGIrVnhTRFlqZ2RBemc0?=
+ =?utf-8?B?aUlRVk11S1VCRHdVUHYzKzdnRmRtdGE3UGwzMXpXNTQ0eVNoekF5bFJCelJi?=
+ =?utf-8?B?WER0UGJTOUF1WFBBUnVNSHVUMENZUnZBNnhWMkxNTTBFWmw0QWd6dEtHK0Vm?=
+ =?utf-8?B?OFVJZWt2RExNOW5zWWJYMkNCVFJwRzFvM3ZVMnRvVUpmTFl2U0pkZ0dWWTlt?=
+ =?utf-8?B?Um1jZDVuOXBEd3J5WU5uV05FcVpSbUZRUFZXcmsydmpIVVRQYjhBL1FUVEtq?=
+ =?utf-8?B?b0Z6emtsUStlSTR1QUpqUS8zVDRWLzFqemZEdmVxSGNlMzVLa3U3V1hGUndr?=
+ =?utf-8?B?WldVdk1BOTVKSE5vczdpVmI5TXIyc29BQkI0YjJIZTg0V2Yxc0xRMVhuVXNJ?=
+ =?utf-8?B?VTZaQjhDbFQxeVBUVzFjUkIybERIR2RyR2JlRFZpeWVRUlNRUTg3U1BFMUlT?=
+ =?utf-8?B?QmlOcDRaazNiV2VNYmtFUXVCeGYyYnZKODFtZVRwYUhyaHJPdVFONG9xZGpn?=
+ =?utf-8?B?ZTM0WHdPUkZGWmRHQUhzc0ZoWVJmSUh2UDh0SkZvcndNbGxlV1p2YXFqY3pC?=
+ =?utf-8?B?NHJwVlRUenZacEpCMU9jNkZia3Z6TXdjL1ZKNzdSdjBOOVplRHNYM002bXRV?=
+ =?utf-8?B?QVVMWjZ0SlhGZHRteE01WEk0M09KSUVMRkxFWVFzZmlVUkk3bUE4dkh6OFhV?=
+ =?utf-8?B?Y3NvRlNMYU9EWHM5eXcvdnB3T3BLRzM3czZZVk40UHRHVjZuNVJWZDFuWUZX?=
+ =?utf-8?B?ZDFicVRKNmtZVGZvM0ozUElCaWFYa0tpZHVOVzRMMWlRVTRHNXF2VkFwdWoy?=
+ =?utf-8?B?VEcrMm5MVi9raFNyanRKM0RRekp1OVBmTjVIaXkzdVNhc0NUZFlsdnd4MEEy?=
+ =?utf-8?B?N0VYZktJeDFhK21iNmtTRkV0bFdYVjVYWnFRT3FDRkRxaW84Y2pHbjlwbktm?=
+ =?utf-8?B?UCtNU1pBZVozQ2pXMldVOHhaT0srUTdTNU5GU0VrNVBDdWpQOTBCS29xNXRt?=
+ =?utf-8?B?ZXllaXM0TlpFcWMxc0dxQVM1Tk40TElRT2o3eHA1REppbzdDUlVSM2h3Uk1S?=
+ =?utf-8?B?VndXamFvaElTeEVTZ3pBTHFONWNXT1lML2x6Qk9nS25zcUlyRGdmL1h6TE9W?=
+ =?utf-8?B?NXdETEIwTFZIeEFESVpaMkRsa0pVQldrdEpycmR2OExPMDhGUGFFYVJSMkZw?=
+ =?utf-8?B?Smg5QTh1OFIrendyczRvWGw5WEdNdlhUOUdBRGd3bFdXQmZ3VnpsVDNLbmNV?=
+ =?utf-8?B?SlBHS0xNUE90aFJRK1Juem8xMEJGRFIvOWtYMWlWRGc4bU5tT24zbmJ5Rmh0?=
+ =?utf-8?B?bi9GdW1QUzI5eXJ3amJ2SmgrNUh4V1lmQ1ZiRnJBNy90WkE2R21keVI1R0tJ?=
+ =?utf-8?B?M3hnM002OTdBVkpTcVQ5amJlU1o5dFBybTdDSXNZN2hpYmtWRHYzVURzNEla?=
+ =?utf-8?B?cEYxMm1lYkthOGkyclFTVDRkakFQdU1hNlNKWWl5Qmd0SmdMMkNENzFKQW1G?=
+ =?utf-8?B?R2c9PQ==?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: BVzM8Sguhdz+HiuX80ebanVwiqtuxkjwO7avGwHyLAFObJuDaADgsrK6APmflaHprZJtW8hGiw/kfudmle6ujtF5MAmA6xmQoibA76iDrZwyEkO2mOxkFoL1kQp0Tky7dL3MZMbgvld/14O4lu+EMFhCj9H7/ZAqTO3H5gBAxi+32AmDJ9nRteTAjUqWKcUJ2OeGYEf7cSqLEwq6mAX/HcZtPI3GXRA6fNIgDeJVHvF+6xbKu7/rfn3V9bUmG58XG0PGczvaBfuaoZb0GJmM4hMM4nX9pIRtf7cSRblPnweyWRAI2TgOVAcBc2TuiAxCDdYEFgQVC4s3ukv/k1pzMLpEdqzaP2h+dpxhwr6/d0j6CkNjD4Lw9qb/QAmJWyoCZHj7oh144G+NN6+WL3O8c8s6ltX8SDGWrB8D7ZHFOAAyfPuH6oVvKDWQXo0TF9LMGu3WYjvXIib2rcHNcetJo5M6NuwgLCR1bKuyWD7dYo4n8D1LJLsGt80/rAqjR6MJoPTTzvv8158c4gCLT+WygG68yUFW10TX1ia+HJp6UjYYMjdltw+CKk5kFCuvsFSEDZj4ZY24QE1ClaX7s8hD1njsSw6X3rQMkt5HZvCOOVs=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34b9e66e-f67d-4d14-ce31-08dd984098a0
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR10MB5328.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2025 08:22:16.7145 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ob1WSviQvzFsASGg4PiP326nRsbgAyx3H9HcH97mQURDy8kiGgVInQNzaiZvpyAzK1Jn+v27KszqRMYp2vgEVycFjx9+HIEntjZc07wpR70=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6567
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-21_02,2025-05-20_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
+ mlxlogscore=999
+ suspectscore=0 phishscore=0 mlxscore=0 malwarescore=0 adultscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2505160000 definitions=main-2505210081
+X-Proofpoint-GUID: Yl2DAUoIXbhNCOnHP0LbA0pjLtWJYiCC
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIxMDA4MSBTYWx0ZWRfX4cnZjHFpGHwM
+ BwqoJ7I1UettdgSefpckXXFVs+89fVe/lejXi1tyZHio+MZfUn7nmLwJFO8YqBQzQWZ3Gk5uL57
+ O6UoG0N2wdAvx/xX7vlPn5HBn03zdXhfyiEtCo6z344IU22N8+Veh2ifTh343VMF2gu+tRWt5Ka
+ MB+Iha8rIQcoEuNiYaLyVFxc8oV7P+cj4ZWZZ7pvU0Kscb8DS5F+yE2FcT1BFpRJpW2AAWPUuNc
+ C19uj84ZLyE2TuXjhZDzM9NA/JXmLON79LROMUOEma6LWBMgux6ULOjUKeAVpcHxJpO4LcVsUWN
+ j9HjyUirQvweA2N0pLBkr3lS9Wt10JDqLYlou0sqbVPEPvve7MzzVwHvYhbfukUcqK2DOO1+NBT
+ f4g+4sxfIWsm1je7PPxDeUKDCQBifmtpFmuo9AaZsECrN7wXLTyq+M03U/kMKEq18be7AD22
+X-Proofpoint-ORIG-GUID: Yl2DAUoIXbhNCOnHP0LbA0pjLtWJYiCC
+X-Authority-Analysis: v=2.4 cv=V7F90fni c=1 sm=1 tr=0 ts=682d8d3c cx=c_pps
+ a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10
+ a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=GoEa3M9JfhUA:10 a=xfFmMR3ya0G0WbDnzncA:9
+ a=QEXdDO2ut3YA:10
+X-Spam-Score: -2.0 (--)
+X-Spam-Report: Spam detection software, running on the system "0e5755722a66", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- 
- Content preview:  Hi Lee: Thanks for your detailed review. On Thu, May 22, 2025
-    at 5:22 PM Lee Jones wrote: > > Just "core driver" in the subject line,
-    rather than "MFD core driver". > > > The Loongson-2K Board Management Controller
-    provides an PCIe > > i [...] 
- 
- Content analysis details:   (-0.2 points, 6.0 required)
- 
-  pts rule name              description
+ Content preview: > diff --git a/drivers/pci/hotplug/Kconfig
+ b/drivers/pci/hotplug/Kconfig
+ > index 123c4c7c2ab5..75c77cec0b21 100644 > --- a/drivers/pci/hotplug/Kconfig
+ > +++ b/drivers/pci/hotplug/Kconfig > @@ -183,4 [...] 
+ Content analysis details:   (-2.0 points, 5.0 required)
+ pts rule name              description
  ---- ---------------------- --------------------------------------------------
-  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
-                             provider
-                             [zhoubb.aaron[at]gmail.com]
-  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
-                             The query to Validity was blocked.  See
-                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
-                              for more information.
-                          [209.85.208.43 listed in sa-trusted.bondedsender.org]
-  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
-                             query to Validity was blocked.  See
-                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
-                              for more information.
-                             [209.85.208.43 listed in bl.score.senderscore.com]
-  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
-                             blocked.  See
-                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
-                              for more information.
-                             [URIs: bootlin.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
-  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
-                              no trust
-                             [209.85.208.43 listed in list.dnswl.org]
-  0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
-                             [209.85.208.43 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 ARC_SIGNED             Message has a ARC signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
-                             author's domain
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
-                             valid
-X-Headers-End: 1uIMXw-0002Eg-K5
-Subject: Re: [Openipmi-developer] [PATCH v2 1/3] mfd: ls2kbmc: Introduce
- Loongson-2K BMC MFD Core driver
+ envelope-from domain
+ -0.1 ARC_VALID              Message has a valid ARC signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -1.0 RCVD_IN_MSPIKE_H5      RBL: Excellent reputation (+5)
+ [205.220.177.32 listed in wl.mailspike.net]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/, low
+ trust [205.220.177.32 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1uHeip-0002iX-MS
+X-Mailman-Approved-At: Fri, 23 May 2025 14:12:05 +0000
+Subject: Re: [Openipmi-developer] [PATCH v3 RESEND] PCI: Introduce Cray
+ ClusterStor E1000 NVMe slot LED driver
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -161,183 +271,318 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Chong Qiao <qiaochong@loongson.cn>, Corey Minyard <minyard@acm.org>,
- Binbin Zhou <zhoubinbin@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- Xuerui Wang <kernel@xen0n.name>, openipmi-developer@lists.sourceforge.net,
- Huacai Chen <chenhuacai@loongson.cn>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: ALOK TIWARI via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: ALOK TIWARI <alok.a.tiwari@oracle.com>
+Cc: linux-pci@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-SGkgTGVlOgoKVGhhbmtzIGZvciB5b3VyIGRldGFpbGVkIHJldmlldy4KCk9uIFRodSwgTWF5IDIy
-LCAyMDI1IGF0IDU6MjLigK9QTSBMZWUgSm9uZXMgPGxlZUBrZXJuZWwub3JnPiB3cm90ZToKPgo+
-IEp1c3QgImNvcmUgZHJpdmVyIiBpbiB0aGUgc3ViamVjdCBsaW5lLCByYXRoZXIgdGhhbiAiTUZE
-IGNvcmUgZHJpdmVyIi4KPgo+ID4gVGhlIExvb25nc29uLTJLIEJvYXJkIE1hbmFnZW1lbnQgQ29u
-dHJvbGxlciBwcm92aWRlcyBhbiBQQ0llCj4gPiBpbnRlcmZhY2UgdG8gdGhlIGhvc3QgdG8gYWNj
-ZXNzIHRoZSBmZWF0dXJlIGltcGxlbWVudGVkIGluIHRoZSBCTUMuCj4gPgo+ID4gVGhlIEJNQyBp
-cyBhc3NlbWJsZWQgb24gYSBzZXJ2ZXIgc2ltaWxhciB0byB0aGUgc2VydmVyIG1hY2hpbmUgd2l0
-aAo+ID4gTG9vbmdzb24tM0M2MDAwIENQVXMuIEl0IHN1cHBvcnRzIG11bHRpcGxlIHN1Yi1kZXZp
-Y2VzIGxpa2UgRFJNLgo+ID4KPiA+IENvLWRldmVsb3BlZC1ieTogQ2hvbmcgUWlhbyA8cWlhb2No
-b25nQGxvb25nc29uLmNuPgo+ID4gU2lnbmVkLW9mZi1ieTogQ2hvbmcgUWlhbyA8cWlhb2Nob25n
-QGxvb25nc29uLmNuPgo+ID4gU2lnbmVkLW9mZi1ieTogQmluYmluIFpob3UgPHpob3ViaW5iaW5A
-bG9vbmdzb24uY24+Cj4gPiAtLS0KPiA+ICBkcml2ZXJzL21mZC9LY29uZmlnICAgICAgIHwgIDEz
-ICsrKysKPiA+ICBkcml2ZXJzL21mZC9NYWtlZmlsZSAgICAgIHwgICAyICsKPiA+ICBkcml2ZXJz
-L21mZC9sczJrYm1jLW1mZC5jIHwgMTU2ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrCj4gPiAgMyBmaWxlcyBjaGFuZ2VkLCAxNzEgaW5zZXJ0aW9ucygrKQo+ID4gIGNyZWF0
-ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21mZC9sczJrYm1jLW1mZC5jCj4gPgo+ID4gZGlmZiAtLWdp
-dCBhL2RyaXZlcnMvbWZkL0tjb25maWcgYi9kcml2ZXJzL21mZC9LY29uZmlnCj4gPiBpbmRleCAy
-MmI5MzYzMTAwMzkuLjA0ZTQwMDg1NDQxZCAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvbWZkL0tj
-b25maWcKPiA+ICsrKyBiL2RyaXZlcnMvbWZkL0tjb25maWcKPiA+IEBAIC0yNDIyLDUgKzI0MjIs
-MTggQEAgY29uZmlnIE1GRF9VUEJPQVJEX0ZQR0EKPiA+ICAgICAgICAgVG8gY29tcGlsZSB0aGlz
-IGRyaXZlciBhcyBhIG1vZHVsZSwgY2hvb3NlIE0gaGVyZTogdGhlIG1vZHVsZSB3aWxsIGJlCj4g
-PiAgICAgICAgIGNhbGxlZCB1cGJvYXJkLWZwZ2EuCj4gPgo+ID4gK2NvbmZpZyBNRkRfTFMyS19C
-TUMKPiA+ICsgICAgIHRyaXN0YXRlICJMb29uZ3Nvbi0ySyBCb2FyZCBNYW5hZ2VtZW50IENvbnRy
-b2xsZXIgU3VwcG9ydCIKPiA+ICsgICAgIGRlcGVuZHMgb24gTE9PTkdBUkNICj4gPiArICAgICBk
-ZWZhdWx0IHkgaWYgTE9PTkdBUkNICj4gPiArICAgICBzZWxlY3QgTUZEX0NPUkUKPiA+ICsgICAg
-IGhlbHAKPiA+ICsgICAgICAgU2F5IHllcyBoZXJlIHRvIGFkZCBzdXBwb3J0IGZvciB0aGUgTG9v
-bmdzb24tMksgQk1DCj4gPiArICAgICAgIHdoaWNoIGlzIGEgQm9hcmQgTWFuYWdlbWVudCBDb250
-cm9sbGVyIGNvbm5lY3RlZCB0byB0aGUgUENJZSBidXMuCj4gPiArICAgICAgIFRoZSBkZXZpY2Ug
-c3VwcG9ydHMgbXVsdGlwbGUgc3ViLWRldmljZXMgbGlrZSBEUk0uCj4gPiArICAgICAgIFRoaXMg
-ZHJpdmVyIHByb3ZpZGVzIGNvbW1vbiBzdXBwb3J0IGZvciBhY2Nlc3NpbmcgdGhlIGRldmljZXM7
-Cj4gPiArICAgICAgIGFkZGl0aW9uYWwgZHJpdmVycyBtdXN0IGJlIGVuYWJsZWQgaW4gb3JkZXIg
-dG8gdXNlIHRoZQo+ID4gKyAgICAgICBmdW5jdGlvbmFsaXR5IG9mIHRoZSBCTUMgZGV2aWNlLgo+
-Cj4gVGhpcyBwYXJhZ3JhcGggaGFzIHNvbWUgb2RkIGxpbmUgYnJlYWtzLiAgUGxlYXNlIHJlLWFs
-aWduLgo+Cj4gPiAgZW5kbWVudQo+ID4gIGVuZGlmCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9t
-ZmQvTWFrZWZpbGUgYi9kcml2ZXJzL21mZC9NYWtlZmlsZQo+ID4gaW5kZXggOTQ4Y2JkZjQyYTE4
-Li4xODk2MGVhMTNiNjQgMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL21mZC9NYWtlZmlsZQo+ID4g
-KysrIGIvZHJpdmVycy9tZmQvTWFrZWZpbGUKPiA+IEBAIC0yOTAsMyArMjkwLDUgQEAgb2JqLSQo
-Q09ORklHX01GRF9SU01VX0kyQykgICAgICAgICs9IHJzbXVfaTJjLm8gcnNtdV9jb3JlLm8KPiA+
-ICBvYmotJChDT05GSUdfTUZEX1JTTVVfU1BJKSAgICs9IHJzbXVfc3BpLm8gcnNtdV9jb3JlLm8K
-PiA+Cj4gPiAgb2JqLSQoQ09ORklHX01GRF9VUEJPQVJEX0ZQR0EpICAgICAgICs9IHVwYm9hcmQt
-ZnBnYS5vCj4gPiArCj4gPiArb2JqLSQoQ09ORklHX01GRF9MUzJLX0JNQykgICArPSBsczJrYm1j
-LW1mZC5vCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tZmQvbHMya2JtYy1tZmQuYyBiL2RyaXZl
-cnMvbWZkL2xzMmtibWMtbWZkLmMKPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAw
-MDAwMDAwMDAwMDAuLmIzMDlmNjEzMmMyNAo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvZHJp
-dmVycy9tZmQvbHMya2JtYy1tZmQuYwo+ID4gQEAgLTAsMCArMSwxNTYgQEAKPiA+ICsvLyBTUERY
-LUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5Cj4gPiArLyoKPiA+ICsgKiBMb29uZ3Nv
-bi0ySyBCb2FyZCBNYW5hZ2VtZW50IENvbnRyb2xsZXIgKEJNQykgTUZEIENvcmUgRHJpdmVyLgo+
-Cj4gUmVtb3ZlIHRoZSBNRkQgcGFydC4gIEl0J3Mgbm90IGEgdGhpbmcgLSB3ZSBtYWRlIGl0IHVw
-Lgo+Cj4gPiArICogQ29weXJpZ2h0IChDKSAyMDI0IExvb25nc29uIFRlY2hub2xvZ3kgQ29ycG9y
-YXRpb24gTGltaXRlZC4KPgo+IE5vIGNoYW5nZXMgc2luY2UgMjAyND8KPgo+ID4gKyAqCj4gPiAr
-ICogT3JpZ2luYWxseSB3cml0dGVuIGJ5IENob25nIFFpYW8gPHFpYW9jaG9uZ0Bsb29uZ3Nvbi5j
-bj4KPiA+ICsgKiBSZXdyaXR0ZW4gZm9yIG1haW5saW5lIGJ5IEJpbmJpbiBaaG91IDx6aG91Ymlu
-YmluQGxvb25nc29uLmNuPgo+Cj4gIk1haW5saW5lIgo+Cj4gVHlwaWNhbGx5IHdlIGp1c3QgZG86
-Cj4KPiBBdXRob3JzOgo+ICAgICAgICAgQXV0aG9yIE9uZSA8b25lQGNvcnAuY29tPgo+ICAgICAg
-ICAgQXV0aG9yIFR3byA8dHdvQGNvcnAuY29tPgo+Cj4gPiArICovCj4gPiArCj4gPiArI2luY2x1
-ZGUgPGxpbnV4L2FwZXJ0dXJlLmg+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L2Vycm5vLmg+Cj4gPiAr
-I2luY2x1ZGUgPGxpbnV4L2luaXQuaD4KPiA+ICsjaW5jbHVkZSA8bGludXgva2VybmVsLmg+Cj4g
-PiArI2luY2x1ZGUgPGxpbnV4L21mZC9jb3JlLmg+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L21vZHVs
-ZS5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9wY2kuaD4KPiA+ICsjaW5jbHVkZSA8bGludXgvcGNp
-X2lkcy5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9wbGF0Zm9ybV9kYXRhL3NpbXBsZWZiLmg+Cj4g
-PiArI2luY2x1ZGUgPGxpbnV4L3BsYXRmb3JtX2RldmljZS5oPgo+ID4gKwo+ID4gKyNkZWZpbmUg
-TFMyS19ESVNQTEFZX1JFU19TVEFSVCAoU1pfMTZNICsgU1pfMk0pCj4gPiArI2RlZmluZSBMUzJL
-X0lQTUlfUkVTX1NJWkUgICAweDFjCj4gPiArI2RlZmluZSBMUzJLX0lQTUkwX1JFU19TVEFSVCAo
-U1pfMTZNICsgMHhmMDAwMDApCj4gPiArI2RlZmluZSBMUzJLX0lQTUkxX1JFU19TVEFSVCAoTFMy
-S19JUE1JMF9SRVNfU1RBUlQgKyBMUzJLX0lQTUlfUkVTX1NJWkUpCj4gPiArI2RlZmluZSBMUzJL
-X0lQTUkyX1JFU19TVEFSVCAoTFMyS19JUE1JMV9SRVNfU1RBUlQgKyBMUzJLX0lQTUlfUkVTX1NJ
-WkUpCj4gPiArI2RlZmluZSBMUzJLX0lQTUkzX1JFU19TVEFSVCAoTFMyS19JUE1JMl9SRVNfU1RB
-UlQgKyBMUzJLX0lQTUlfUkVTX1NJWkUpCj4gPiArI2RlZmluZSBMUzJLX0lQTUk0X1JFU19TVEFS
-VCAoTFMyS19JUE1JM19SRVNfU1RBUlQgKyBMUzJLX0lQTUlfUkVTX1NJWkUpCj4KPiBMaW5lIHRo
-ZW0gX2FsbF8gdXAgcGxlYXNlLiAgT25lIG1vcmUgdGFiIHNob3VsZCBkbyBpdC4KPgo+ID4gK3N0
-YXRpYyBzdHJ1Y3QgcmVzb3VyY2UgbHMya19kaXNwbGF5X3Jlc291cmNlc1tdID0gewo+ID4gKyAg
-ICAgREVGSU5FX1JFU19NRU1fTkFNRUQoTFMyS19ESVNQTEFZX1JFU19TVEFSVCwgU1pfNE0sICJz
-aW1wbGVkcm0tcmVzIiksCj4gPiArfTsKPiA+ICsKPiA+ICtzdGF0aWMgc3RydWN0IHJlc291cmNl
-IGxzMmtfaXBtaTBfcmVzb3VyY2VzW10gPSB7Cj4gPiArICAgICBERUZJTkVfUkVTX01FTV9OQU1F
-RChMUzJLX0lQTUkwX1JFU19TVEFSVCwgTFMyS19JUE1JX1JFU19TSVpFLCAiaXBtaTAtcmVzIiks
-Cj4gPiArfTsKPiA+ICsKPiA+ICtzdGF0aWMgc3RydWN0IHJlc291cmNlIGxzMmtfaXBtaTFfcmVz
-b3VyY2VzW10gPSB7Cj4gPiArICAgICBERUZJTkVfUkVTX01FTV9OQU1FRChMUzJLX0lQTUkxX1JF
-U19TVEFSVCwgTFMyS19JUE1JX1JFU19TSVpFLCAiaXBtaTEtcmVzIiksCj4gPiArfTsKPiA+ICsK
-PiA+ICtzdGF0aWMgc3RydWN0IHJlc291cmNlIGxzMmtfaXBtaTJfcmVzb3VyY2VzW10gPSB7Cj4g
-PiArICAgICBERUZJTkVfUkVTX01FTV9OQU1FRChMUzJLX0lQTUkyX1JFU19TVEFSVCwgTFMyS19J
-UE1JX1JFU19TSVpFLCAiaXBtaTItcmVzIiksCj4gPiArfTsKPiA+ICsKPiA+ICtzdGF0aWMgc3Ry
-dWN0IHJlc291cmNlIGxzMmtfaXBtaTNfcmVzb3VyY2VzW10gPSB7Cj4gPiArICAgICBERUZJTkVf
-UkVTX01FTV9OQU1FRChMUzJLX0lQTUkzX1JFU19TVEFSVCwgTFMyS19JUE1JX1JFU19TSVpFLCAi
-aXBtaTMtcmVzIiksCj4gPiArfTsKPiA+ICsKPiA+ICtzdGF0aWMgc3RydWN0IHJlc291cmNlIGxz
-MmtfaXBtaTRfcmVzb3VyY2VzW10gPSB7Cj4gPiArICAgICBERUZJTkVfUkVTX01FTV9OQU1FRChM
-UzJLX0lQTUk0X1JFU19TVEFSVCwgTFMyS19JUE1JX1JFU19TSVpFLCAiaXBtaTQtcmVzIiksCj4g
-PiArfTsKPiA+ICsKPiA+ICtzdGF0aWMgc3RydWN0IG1mZF9jZWxsIGxzMmtfYm1jX2NlbGxzW10g
-PSB7Cj4gPiArICAgICBNRkRfQ0VMTF9SRVMoInNpbXBsZS1mcmFtZWJ1ZmZlciIsIGxzMmtfZGlz
-cGxheV9yZXNvdXJjZXMpLAo+ID4gKyAgICAgTUZEX0NFTExfUkVTKCJsczJrLWlwbWktc2kiLCBs
-czJrX2lwbWkwX3Jlc291cmNlcyksCj4gPiArICAgICBNRkRfQ0VMTF9SRVMoImxzMmstaXBtaS1z
-aSIsIGxzMmtfaXBtaTFfcmVzb3VyY2VzKSwKPiA+ICsgICAgIE1GRF9DRUxMX1JFUygibHMyay1p
-cG1pLXNpIiwgbHMya19pcG1pMl9yZXNvdXJjZXMpLAo+ID4gKyAgICAgTUZEX0NFTExfUkVTKCJs
-czJrLWlwbWktc2kiLCBsczJrX2lwbWkzX3Jlc291cmNlcyksCj4gPiArICAgICBNRkRfQ0VMTF9S
-RVMoImxzMmstaXBtaS1zaSIsIGxzMmtfaXBtaTRfcmVzb3VyY2VzKSwKPiA+ICt9Owo+ID4gKwo+
-ID4gKy8qCj4gPiArICogQ3VycmVudGx5IHRoZSBMb29uZ3Nvbi0ySzA1MDAgQk1DIGhhcmR3YXJl
-IGRvZXMgbm90IGhhdmUgYW4gaTJjIGludGVyZmFjZSB0bwo+Cj4gSTJDCj4KPiA+ICsgKiBhZGFw
-dCB0byB0aGUgcmVzb2x1dGlvbi4KPgo+IFJlbW92ZSB0aGUgbGluZSBicmVhayBoZXJlLgo+Cj4g
-PiArICogV2Ugc2V0IHRoZSByZXNvbHV0aW9uIGJ5IHByZXNldHRpbmcgInZpZGVvPTEyODB4MTAy
-NC0xNkAyTSIgdG8gdGhlIGJtYyBtZW1vcnkuCj4KPiBCTUMKPgo+ID4gKyAqLwo+ID4gK3N0YXRp
-YyBpbnQgbHMya19ibWNfZ2V0X3ZpZGVvX21vZGUoc3RydWN0IHBjaV9kZXYgKnBkZXYsIHN0cnVj
-dCBzaW1wbGVmYl9wbGF0Zm9ybV9kYXRhICpwZCkKPiA+ICt7Cj4gPiArICAgICBjaGFyICptb2Rl
-Owo+ID4gKyAgICAgaW50IGRlcHRoLCByZXQ7Cj4gPiArCj4gPiArICAgICAvKiBUaGUgcGNpIG1l
-bSBiYXIgbGFzdCAxNk0gaXMgdXNlZCB0byBzdG9yZSB0aGUgc3RyaW5nLiAqLwo+Cj4gUENJCj4K
-PiBCQVIncyAobWF5YmU/KQoKLyogVGhlIGxhc3QgMTZNIG9mIFBDSSBCQVIwIGlzIHVzZWQgdG8g
-c3RvcmUgdGhlIHJlc29sdXRpb24gc3RyaW5nLiAqLwo+Cj4gPiArICAgICBtb2RlID0gZGV2bV9p
-b3JlbWFwKCZwZGV2LT5kZXYsIHBjaV9yZXNvdXJjZV9zdGFydChwZGV2LCAwKSArIFNaXzE2TSwg
-U1pfMTZNKTsKPiA+ICsgICAgIGlmICghbW9kZSkKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIC1F
-Tk9NRU07Cj4gPiArCj4gPiArICAgICAvKiBlbnYgYXQgbGFzdCAxNk0ncyBiZWdpbm5pbmcsIGZp
-cnN0IGVudiBpcyAidmlkZW89IiAqLwo+Cj4gVGhpcyBkb2Vzbid0IG1ha2Ugc2Vuc2UgdG8gbWUg
-LSBwbGVhc2UgcmV3b3JkLgoKSG93IGFib3V0OgoKLyogVGhlIHJlc29sdXRpb24gZmllbGQgc3Rh
-cnRzIHdpdGggdGhlIGZsYWcg4oCcdmlkZW894oCdLiAqLwo+Cj4gPiArICAgICBpZiAoIXN0cm5j
-bXAobW9kZSwgInZpZGVvPSIsIDYpKQo+ID4gKyAgICAgICAgICAgICBtb2RlID0gbW9kZSArIDY7
-Cj4gPiArCj4gPiArICAgICByZXQgPSBrc3RydG9pbnQoc3Ryc2VwKCZtb2RlLCAieCIpLCAxMCwg
-JnBkLT53aWR0aCk7Cj4gPiArICAgICBpZiAocmV0KQo+ID4gKyAgICAgICAgICAgICByZXR1cm4g
-cmV0Owo+ID4gKwo+ID4gKyAgICAgcmV0ID0ga3N0cnRvaW50KHN0cnNlcCgmbW9kZSwgIi0iKSwg
-MTAsICZwZC0+aGVpZ2h0KTsKPiA+ICsgICAgIGlmIChyZXQpCj4gPiArICAgICAgICAgICAgIHJl
-dHVybiByZXQ7Cj4gPiArCj4gPiArICAgICByZXQgPSBrc3RydG9pbnQoc3Ryc2VwKCZtb2RlLCAi
-QCIpLCAxMCwgJmRlcHRoKTsKPiA+ICsgICAgIGlmIChyZXQpCj4gPiArICAgICAgICAgICAgIHJl
-dHVybiByZXQ7Cj4gPiArCj4gPiArICAgICBwZC0+c3RyaWRlID0gcGQtPndpZHRoICogZGVwdGgg
-LyA4Owo+ID4gKyAgICAgcGQtPmZvcm1hdCA9IGRlcHRoID09IDMyID8gImE4cjhnOGI4IiA6ICJy
-NWc2YjUiOwo+ID4gKwo+ID4gKyAgICAgcmV0dXJuIDA7Cj4gPiArfQo+Cj4gU3VyZWx5IHRoZXJl
-IGlzIGEgc3RhbmRhcmQgZm9ybWF0IC8gQVBJIGZvciB0aGlzIGFscmVhZHk/Cj4KPgpOb3csIHNp
-bXBsZWZiX3BsYXRmb3JtX2RhdGEgaXMgbWFpbmx5IGRlc2NyaWJlZCBpbiBEVFMgYW5kIHBhcnNl
-ZCBieSBzaW1wbGVkcm0uCkFuZCB3aGVuIGl0IGlzIHVzZWQgYXMgcGxhdGZvcm1fZGF0YSwgdGhl
-cmUgZG9lc24ndCBzZWVtIHRvIGJlIGEKdW5pZmllZCBBUEkgdG8gcG9wdWxhdGUgc2ltcGxlZmJf
-cGxhdGZvcm1fZGF0YS4gZS5nLiBpbgpzeXNmYl9zaW1wbGVmYlsxXSwgaXQgaXMgcGFyc2VkIHVz
-aW5nIHN5c2ZiX3BhcnNlX21vZGUoKS4KClsxXTogaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20v
-bGludXgvdjYuMTUtcmMxL3NvdXJjZS9kcml2ZXJzL2Zpcm13YXJlL3N5c2ZiX3NpbXBsZWZiLmMj
-TDI3Cj4KPiA+ICtzdGF0aWMgaW50IGxzMmtfYm1jX3Byb2JlKHN0cnVjdCBwY2lfZGV2ICpkZXYs
-IGNvbnN0IHN0cnVjdCBwY2lfZGV2aWNlX2lkICppZCkKPiA+ICt7Cj4gPiArICAgICBpbnQgcmV0
-ID0gMDsKPgo+IFRoZXJlIGlzIG5vIG5lZWQgdG8gcHJlLWluaXRpYWxpc2UgdGhpcy4KPgo+ID4g
-KyAgICAgcmVzb3VyY2Vfc2l6ZV90IGJhc2U7Cj4gPiArICAgICBzdHJ1Y3Qgc2ltcGxlZmJfcGxh
-dGZvcm1fZGF0YSBwZDsKPgo+IFJldmVyc2UgdGhlc2UgcGxlYXNlIChyZXZlcnNlIENocmlzdG1h
-cyB0cmVlIGlzIHByZWZlcnJlZCkuCj4gPiArCj4gPiArICAgICByZXQgPSBwY2lfZW5hYmxlX2Rl
-dmljZShkZXYpOwo+ID4gKyAgICAgaWYgKHJldCkKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIHJl
-dDsKPiA+ICsKPiA+ICsgICAgIHJldCA9IGxzMmtfYm1jX2dldF92aWRlb19tb2RlKGRldiwgJnBk
-KTsKPiA+ICsgICAgIGlmIChyZXQpCj4gPiArICAgICAgICAgICAgIGdvdG8gZGlzYWJsZV9wY2k7
-Cj4gPiArCj4gPiArICAgICBsczJrX2JtY19jZWxsc1swXS5wbGF0Zm9ybV9kYXRhID0gJnBkOwo+
-ID4gKyAgICAgbHMya19ibWNfY2VsbHNbMF0ucGRhdGFfc2l6ZSA9IHNpemVvZihwZCk7Cj4gPiAr
-ICAgICBiYXNlID0gZGV2LT5yZXNvdXJjZVswXS5zdGFydCArIExTMktfRElTUExBWV9SRVNfU1RB
-UlQ7Cj4gPiArCj4gPiArICAgICAvKiBSZW1vdmUgY29uZmxpY3RpbmcgZWZpZmIgZGV2aWNlICov
-Cj4gPiArICAgICByZXQgPSBhcGVydHVyZV9yZW1vdmVfY29uZmxpY3RpbmdfZGV2aWNlcyhiYXNl
-LCBTWl80TSwgInNpbXBsZS1mcmFtZWJ1ZmZlciIpOwo+ID4gKyAgICAgaWYgKHJldCkgewo+ID4g
-KyAgICAgICAgICAgICBkZXZfZXJyKCZkZXYtPmRldiwgIlJlbW92ZSBmaXJtd2FyZSBmcmFtZWJ1
-ZmZlcnMgZmFpbGVkOiAlZFxuIiwgcmV0KTsKPgo+ICJGYWlsZWQgdG8gcmVtb3ZlZCBmaXJtd2Fy
-ZSBmcmFtZWJ1ZmZlcnMiCj4KPiA+ICsgICAgICAgICAgICAgZ290byBkaXNhYmxlX3BjaTsKPiA+
-ICsgICAgIH0KPiA+ICsKPiA+ICsgICAgIHJldHVybiBkZXZtX21mZF9hZGRfZGV2aWNlcygmZGV2
-LT5kZXYsIFBMQVRGT1JNX0RFVklEX0FVVE8sCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgbHMya19ibWNfY2VsbHMsIEFSUkFZX1NJWkUobHMya19ibWNfY2VsbHMpLAo+ID4g
-KyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICZkZXYtPnJlc291cmNlWzBdLCAwLCBO
-VUxMKTsKPiA+ICsKPiA+ICtkaXNhYmxlX3BjaToKPiA+ICsgICAgIHBjaV9kaXNhYmxlX2Rldmlj
-ZShkZXYpOwo+ID4gKyAgICAgcmV0dXJuIHJldDsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIHZv
-aWQgbHMya19ibWNfcmVtb3ZlKHN0cnVjdCBwY2lfZGV2ICpkZXYpCj4gPiArewo+ID4gKyAgICAg
-cGNpX2Rpc2FibGVfZGV2aWNlKGRldik7Cj4gPiArfQo+ID4gKwo+ID4gK3N0YXRpYyBzdHJ1Y3Qg
-cGNpX2RldmljZV9pZCBsczJrX2JtY19kZXZpY2VzW10gPSB7Cj4gPiArICAgICB7IFBDSV9ERVZJ
-Q0UoUENJX1ZFTkRPUl9JRF9MT09OR1NPTiwgMHgxYTA1KSB9LAo+ID4gKyAgICAgeyB9Cj4gPiAr
-fTsKPiA+ICtNT0RVTEVfREVWSUNFX1RBQkxFKHBjaSwgbHMya19ibWNfZGV2aWNlcyk7Cj4gPiAr
-Cj4gPiArc3RhdGljIHN0cnVjdCBwY2lfZHJpdmVyIGxzMmtfYm1jX2RyaXZlciA9IHsKPiA+ICsg
-ICAgIC5uYW1lID0gImxzMmstYm1jIiwKPiA+ICsgICAgIC5pZF90YWJsZSA9IGxzMmtfYm1jX2Rl
-dmljZXMsCj4gPiArICAgICAucHJvYmUgPSBsczJrX2JtY19wcm9iZSwKPiA+ICsgICAgIC5yZW1v
-dmUgPSBsczJrX2JtY19yZW1vdmUsCj4gPiArfTsKPiA+ICsKPgo+IFJlbW92ZSB0aGlzIGxpbmUu
-CgpBbGwgY29tbWVudHMgYWJvdXQgY29kZSBmb3JtYXR0aW5nIHdpbGwgYmUgY2hhbmdlZCBpbiB0
-aGUgbmV4dCB2ZXJzaW9uLgo+Cj4gPiArbW9kdWxlX3BjaV9kcml2ZXIobHMya19ibWNfZHJpdmVy
-KTsKPiA+ICsKPiA+ICtNT0RVTEVfREVTQ1JJUFRJT04oIkxvb25nc29uLTJLIEJNQyBkcml2ZXIi
-KTsKPiA+ICtNT0RVTEVfQVVUSE9SKCJMb29uZ3NvbiBUZWNobm9sb2d5IENvcnBvcmF0aW9uIExp
-bWl0ZWQiKTsKPiA+ICtNT0RVTEVfTElDRU5TRSgiR1BMIik7Cj4gPiAtLQo+ID4gMi40Ny4xCj4g
-Pgo+Cj4gLS0KPiBMZWUgSm9uZXMgW+adjueQvOaWr10KCi0tIApUaGFua3MuCkJpbmJpbgoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRl
-dmVsb3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdl
-Lm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBt
-aS1kZXZlbG9wZXIK
+
+> diff --git a/drivers/pci/hotplug/Kconfig b/drivers/pci/hotplug/Kconfig
+> index 123c4c7c2ab5..75c77cec0b21 100644
+> --- a/drivers/pci/hotplug/Kconfig
+> +++ b/drivers/pci/hotplug/Kconfig
+> @@ -183,4 +183,14 @@ config HOTPLUG_PCI_S390
+>   
+>   	  When in doubt, say Y.
+>   
+> +config HOTPLUG_PCI_PCIE_CRAY_E1000
+> +	bool "PCIe Hotplug extensions for Cray ClusterStor E1000"
+> +	depends on HOTPLUG_PCI_PCIE && IPMI_HANDLER=y
+> +	help
+> +	  Say Y here if you have a Cray ClusterStor E1000 and want to control
+> +	  your NVMe slot LEDs.  Without this driver is it not possible
+
+typo is it ->  it is
+
+> +	  to control the fault and locate LEDs on the E1000's 24 NVMe slots.
+> +
+> +	  When in doubt, say N.
+> +
+>   endif # HOTPLUG_PCI
+> diff --git a/drivers/pci/hotplug/Makefile b/drivers/pci/hotplug/Makefile
+> index 40aaf31fe338..82a1f0592d0a 100644
+> --- a/drivers/pci/hotplug/Makefile
+> +++ b/drivers/pci/hotplug/Makefile
+> @@ -66,6 +66,9 @@ pciehp-objs		:=	pciehp_core.o	\
+>   				pciehp_ctrl.o	\
+>   				pciehp_pci.o	\
+>   				pciehp_hpc.o
+> +ifdef CONFIG_HOTPLUG_PCI_PCIE_CRAY_E1000
+> +pciehp-objs		+=	pciehp_craye1k.o
+> +endif
+>   
+>   shpchp-objs		:=	shpchp_core.o	\
+>   				shpchp_ctrl.o	\
+> diff --git a/drivers/pci/hotplug/pciehp.h b/drivers/pci/hotplug/pciehp.h
+> index 273dd8c66f4e..ea68ae041547 100644
+> --- a/drivers/pci/hotplug/pciehp.h
+> +++ b/drivers/pci/hotplug/pciehp.h
+> @@ -198,6 +198,13 @@ int pciehp_get_raw_indicator_status(struct hotplug_slot *h_slot, u8 *status);
+>   
+>   int pciehp_slot_reset(struct pcie_device *dev);
+>   
+> +#ifdef CONFIG_HOTPLUG_PCI_PCIE_CRAY_E1000
+> +int craye1k_get_attention_status(struct hotplug_slot *hotplug_slot, u8 *status);
+> +int craye1k_set_attention_status(struct hotplug_slot *hotplug_slot, u8 status);
+> +bool is_craye1k_slot(struct controller *ctrl);
+> +int craye1k_init(void);
+> +#endif
+> +
+>   static inline const char *slot_name(struct controller *ctrl)
+>   {
+>   	return hotplug_slot_name(&ctrl->hotplug_slot);
+> diff --git a/drivers/pci/hotplug/pciehp_core.c b/drivers/pci/hotplug/pciehp_core.c
+> index ff458e692fed..9a7a7b320810 100644
+> --- a/drivers/pci/hotplug/pciehp_core.c
+> +++ b/drivers/pci/hotplug/pciehp_core.c
+> @@ -73,6 +73,13 @@ static int init_slot(struct controller *ctrl)
+>   		ops->get_attention_status = pciehp_get_raw_indicator_status;
+>   		ops->set_attention_status = pciehp_set_raw_indicator_status;
+>   	}
+> +#ifdef CONFIG_HOTPLUG_PCI_PCIE_CRAY_E1000
+> +	if (is_craye1k_slot(ctrl)) {
+> +		/* slots 1-24 on Cray E1000s are controlled differently */
+> +		ops->get_attention_status = craye1k_get_attention_status;
+> +		ops->set_attention_status = craye1k_set_attention_status;
+> +	}
+> +#endif
+>   
+>   	/* register this slot with the hotplug pci core */
+>   	ctrl->hotplug_slot.ops = ops;
+> @@ -404,6 +411,11 @@ int __init pcie_hp_init(void)
+>   	pr_debug("pcie_port_service_register = %d\n", retval);
+>   	if (retval)
+>   		pr_debug("Failure to register service\n");
+> +#ifdef CONFIG_HOTPLUG_PCI_PCIE_CRAY_E1000
+> +	retval = craye1k_init();
+> +	if (retval)
+> +		pr_debug("Failure to register Cray E1000 extensions");
+> +#endif
+>   
+>   	return retval;
+>   }
+> diff --git a/drivers/pci/hotplug/pciehp_craye1k.c b/drivers/pci/hotplug/pciehp_craye1k.c
+> new file mode 100644
+> index 000000000000..844b36882316
+> --- /dev/null
+> +++ b/drivers/pci/hotplug/pciehp_craye1k.c
+> @@ -0,0 +1,659 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright 2022-2024 Lawrence Livermore National Security, LLC
+> + */
+> +/*
+> + * Cray ClusterStor E1000 hotplug slot LED driver extensions
+> + *
+> + * This driver controls the NVMe slot LEDs on the Cray ClusterStore E1000.
+> + * It provides hotplug attention status callbacks for the 24 NVMe slots on
+> + * the E1000.  This allows users to access the E1000's locate and fault
+> + * LEDs via the normal /sys/bus/pci/slots/<slot>/attention sysfs entries.
+> + * This driver uses IPMI to communicate with the E1000 controller to toggle
+> + * the LEDs.
+> + *
+> + * This driver is based off of ibmpex.c
+> + */
+> +
+> +#include <linux/debugfs.h>
+> +#include <linux/delay.h>
+> +#include <linux/errno.h>
+> +#include <linux/dmi.h>
+> +#include <linux/ipmi.h>
+> +#include <linux/ipmi_smi.h>
+> +#include <linux/module.h>
+> +#include <linux/pci.h>
+> +#include <linux/pci_hotplug.h>
+> +#include <linux/random.h>
+> +#include "pciehp.h"
+> +
+> +/* Cray E1000 commands */
+> +#define CRAYE1K_CMD_NETFN       0x3c
+> +#define CRAYE1K_CMD_PRIMARY     0x33
+> +#define CRAYE1K_CMD_FAULT_LED   0x39
+> +#define CRAYE1K_CMD_LOCATE_LED  0x22
+> +
+> +/* Subcommands */
+> +#define CRAYE1K_GET_LED		0x0
+> +#define CRAYE1K_SET_LED		0x1
+> +#define CRAYE1K_SET_PRIMARY		0x1
+
+both defined as 0x1
+This is likely intentional because they belong to different context, it 
+is ok.
+what about prefix CRAYE1K_SUBCMD_ for subcommands?
+
+> +
+> +/*
+> + * Milliseconds to wait after get/set LED command.  200ms value found though
+> + * experimentation
+> + */
+> +#define	CRAYE1K_POST_CMD_WAIT_MS	200
+> +
+> +struct craye1k {
+> +	struct device *dev;   /* BMC device */
+> +	struct mutex lock;
+> +	struct completion read_complete;
+> +	struct ipmi_addr address;
+> +	struct ipmi_user *user;
+> +	int iface;
+> +
+> +	long tx_msg_id;
+> +	struct kernel_ipmi_msg tx_msg;
+> +	unsigned char tx_msg_data[IPMI_MAX_MSG_LENGTH];
+> +	unsigned char rx_msg_data[IPMI_MAX_MSG_LENGTH];
+> +	unsigned long rx_msg_len;
+> +	unsigned char rx_result;	/* IPMI completion code */
+> +
+> +	/* Parent dir for all our debugfs entries */
+> +	struct dentry *parent;
+> +
+> +	/* debugfs stats */
+> +	u64 check_primary;
+> +	u64 check_primary_failed;
+> +	u64 was_already_primary;
+> +	u64 was_not_already_primary;
+> +	u64 set_primary;
+> +	u64 set_initial_primary_failed;
+> +	u64 set_primary_failed;
+> +	u64 set_led_locate_failed;
+> +	u64 set_led_fault_failed;
+> +	u64 set_led_readback_failed;
+> +	u64 set_led_failed;
+> +	u64 get_led_failed;
+> +	u64 completion_timeout;
+> +	u64 wrong_msgid;
+> +	u64 request_failed;
+> +
+> +	/* debugfs configuration options */
+> +
+> +	/* Print info on spurious IPMI messages */
+> +	bool print_errors;
+> +
+> +	/* Retries for kernel IPMI layer */
+> +	u32 ipmi_retries;
+> +
+> +	/* Timeout in ms for IPMI (0 = use IPMI default_retry_ms) */
+> +	u32 ipmi_timeout_ms;
+> +
+> +	/* Timeout in ms to wait for E1000 message completion */
+> +	u32 completion_timeout_ms;
+> +};
+> +
+> +/*
+> + * Make our craye1k a global so get/set_attention_status() can access it.
+> + * This is safe since there's only one node controller on the board, and so it's
+> + * impossible to instantiate more than one craye1k.
+> + */
+> +static struct craye1k *craye1k_global;
+> +
+> +/* Return parent dir dentry */
+> +static struct dentry *
+> +craye1k_debugfs_init(struct craye1k *craye1k)
+> +{
+> +	umode_t mode = 0644;
+> +	struct dentry *parent = debugfs_create_dir("pciehp_craye1k", NULL);
+> +
+
+if (!parent) is correct! but debugfs_create_dir() can return ERR_PTR
+what about check for IS_ERR(parent) to make fully robust?
+
+> +	if (!parent)
+> +		return NULL;
+> +
+> +	debugfs_create_x64("check_primary", mode, parent,
+> +			   &craye1k->check_primary);
+> +	debugfs_create_x64("check_primary_failed", mode, parent,
+> +			   &craye1k->check_primary_failed);
+> +	debugfs_create_x64("was_already_primary", mode, parent,
+> +			   &craye1k->was_already_primary);
+> +	debugfs_create_x64("was_not_already_primary", mode, parent,
+> +			   &craye1k->was_not_already_primary);
+> +	debugfs_create_x64("set_primary", mode, parent,
+> +			   &craye1k->set_primary);
+> +	debugfs_create_x64("set_initial_primary_failed", mode, parent,
+> +			   &craye1k->set_initial_primary_failed);
+> +	debugfs_create_x64("set_primary_failed", mode, parent,
+> +			   &craye1k->set_primary_failed);
+> +	debugfs_create_x64("set_led_locate_failed", mode, parent,
+> +			   &craye1k->set_led_locate_failed);
+> +	debugfs_create_x64("set_led_fault_failed", mode, parent,
+> +			   &craye1k->set_led_fault_failed);
+> +	debugfs_create_x64("set_led_readback_failed", mode, parent,
+> +			   &craye1k->set_led_readback_failed);
+> +	debugfs_create_x64("set_led_failed", mode, parent,
+> +			   &craye1k->set_led_failed);
+> +	debugfs_create_x64("get_led_failed", mode, parent,
+> +			   &craye1k->get_led_failed);
+> +	debugfs_create_x64("completion_timeout", mode, parent,
+> +			   &craye1k->completion_timeout);
+> +	debugfs_create_x64("wrong_msgid", mode, parent,
+> +			   &craye1k->wrong_msgid);
+> +	debugfs_create_x64("request_failed", mode, parent,
+> +			   &craye1k->request_failed);
+> +
+> +	debugfs_create_x32("ipmi_retries", mode, parent,
+> +			   &craye1k->ipmi_retries);
+> +	debugfs_create_x32("ipmi_timeout_ms", mode, parent,
+> +			   &craye1k->ipmi_timeout_ms);
+> +	debugfs_create_x32("completion_timeout_ms", mode, parent,
+> +			   &craye1k->completion_timeout_ms);
+> +	debugfs_create_bool("print_errors", mode, parent,
+> +			    &craye1k->print_errors);
+> +
+> +	return parent;
+> +}
+[clip]
+> +static int __craye1k_get_attention_status(struct hotplug_slot *hotplug_slot,
+> +					  u8 *status, bool set_primary)
+> +{
+> +	unsigned char slot;
+> +	int locate, fault;
+> +	struct craye1k *craye1k;
+> +
+> +	craye1k = craye1k_global;
+> +	slot = PSN(to_ctrl(hotplug_slot));
+> +
+> +	if (set_primary) {
+> +		if (craye1k_set_primary(craye1k) != 0) {
+> +			craye1k->get_led_failed++;
+> +			return -EIO;
+> +		}
+> +	}
+> +
+
+-EIO when craye1k_set_primary() fails,but -EINVAL when LED reads fail
+is it not both hardware I/O failures case ?
+
+> +	locate = craye1k_get_slot_led(craye1k, slot, true);
+> +	if (locate == -1) {
+> +		craye1k->get_led_failed++;
+> +		return -EINVAL;
+> +	}
+> +	msleep(CRAYE1K_POST_CMD_WAIT_MS);
+> +
+> +	fault = craye1k_get_slot_led(craye1k, slot, false);
+> +	if (fault == -1) {
+> +		craye1k->get_led_failed++;
+> +		return -EINVAL;
+> +	}
+> +	msleep(CRAYE1K_POST_CMD_WAIT_MS);
+> +
+> +	*status = locate << 1 | fault;
+> +
+> +	return 0;
+> +}
+
+
+Thanks,
+Alok
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
