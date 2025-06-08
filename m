@@ -2,116 +2,114 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3DE5BACD13A
-	for <lists+openipmi-developer@lfdr.de>; Wed,  4 Jun 2025 02:53:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D141DAD1171
+	for <lists+openipmi-developer@lfdr.de>; Sun,  8 Jun 2025 09:36:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:To:Sender:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kApo9PWhqGlrxVKp4GoynGZ6zP0wsZl9gc7OiySxwX8=; b=ABvn/YF7IDFj+BwC05r6HxeLv6
-	tnDOirCk7uAIYKVchySJrx6v4ePQjSVmur/5EscuuMQgb+cpS1EH1yhlVZwLevuSKfp5s2TIsXdgR
-	FTah59sR2TRkrDfaAmVqLLcf3CUojKW4IN+lpU8FCUpQAHTlklLwwSyfWOFUiRaaZdm4=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	List-Unsubscribe:List-Id:Subject:To:Message-ID:Date:In-Reply-To:References:
+	MIME-Version:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EHzH9d2jOXMgVo+d7obgPPkuM8zhESGazQ/nSU2JRKQ=; b=Diov0P76U1ZeOSrvHh7Gm2Umq8
+	EW88CsxjXf9HT3H1S/QPe15ILs5lSBOvzKBG08eOJ4Fs+3fnfVt+4QQ5H7yH8tWOCv6n3ln3inhGE
+	+Q//MYv4baLCPYp9rGOotOX6NnMpPsS3IzXpvFBvU4CsUXEIheacyvNK5VpRNvolaipw=;
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1uMcNo-0002hR-Di;
-	Wed, 04 Jun 2025 00:53:32 +0000
+	id 1uOAZE-000892-K5;
+	Sun, 08 Jun 2025 07:35:44 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <sashal@kernel.org>) id 1uMcNk-0002hH-Mw
+ (envelope-from <chenhuacai@kernel.org>) id 1uOAZB-00088r-Tb
  for openipmi-developer@lists.sourceforge.net;
- Wed, 04 Jun 2025 00:53:28 +0000
+ Sun, 08 Jun 2025 07:35:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
+ Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=KDfUgtHLHYLqBaDjMKqOyWO+jpDTNPz1POM8v16LGZM=; b=PQ69oh+RsJa8SOmEMcQU+M80uA
- mZY5i9G0ztDRkuFXeYrow6RtJqe28X0kUwXr0j8zIT6xxsCzdne/3ha/lKMM+jPMV0+mzX14IcZyj
- vqIhgLLJOELbUPY7bPS1mPdnPPiLJXdo9/C2y/d7YZbsf3cVLhk2NydarfXEIOBuwmI4=;
+ bh=L6wSy+Py9eufD7P/Ip12ftarvoiCWDy4GEjbOKTH+DM=; b=RUw5+wZFtyGmxTzw8uZRiwa1A5
+ gLQlUpmMh6ng2ojz79HG9WMJC5w9ql98sWlDLjvqc8Hb64wRYJmKv10K9G7fNJwBoO7TYYTSZ+1vO
+ 1UZvpA2ril3MLey0pMsN8GW2RVl7EvU287SBlz6rFLMM3aKGIzfSX6XhPYeeBbbxH2sw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
+ :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=KDfUgtHLHYLqBaDjMKqOyWO+jpDTNPz1POM8v16LGZM=; b=CV4FoRCbM3FUQ60dqVw+XFXH4r
- 8y/Oh132SCnRKDhCqPLo2naB81gg4qAN635IW3KEL8Ny8b3DcVeni4QU0NI94GYJiRYzNidh/wV1j
- 1NXUjiNputOWOKJlDl7RY3I8rhaw+pmXJ3kdw6BFmpoGycFimVIsJ1uCLZoQdaArLr34=;
+ bh=L6wSy+Py9eufD7P/Ip12ftarvoiCWDy4GEjbOKTH+DM=; b=P8Um+0bcc1rf5OhKKLSwLsmhbY
+ ZLStm0i6hdMQL0ALx4cPmgv4yLmfX7taQdu7TqU/gR6zsDPRp2j+m3IWBfR2fFso5x/duQkpso6Pm
+ vpoxyRghJcwI08jRHPv245EwbJ4tgJJ9gcMih+ZiONiBvBMryxT9BDQznQ4QW2MMc1jM=;
 Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1uMcNj-0000iN-Ta for openipmi-developer@lists.sourceforge.net;
- Wed, 04 Jun 2025 00:53:28 +0000
+ id 1uOAZB-0005Xx-Ae for openipmi-developer@lists.sourceforge.net;
+ Sun, 08 Jun 2025 07:35:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by sea.source.kernel.org (Postfix) with ESMTP id 9615549DD3;
- Wed,  4 Jun 2025 00:53:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4CC0C4CEEF;
- Wed,  4 Jun 2025 00:53:16 +0000 (UTC)
+ by sea.source.kernel.org (Postfix) with ESMTP id D25334A68B
+ for <openipmi-developer@lists.sourceforge.net>;
+ Sun,  8 Jun 2025 07:35:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4C9C4CEF0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Sun,  8 Jun 2025 07:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1748998397;
- bh=axkEuClrDEyDL+B3BjOzjzBjrVkp3Y8nU8mEnJirXmU=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=m+fl/g+OwSiSnp3HUOdQmPRFDVurc3lxZIu5yZIIuijqWWRJNdJaE7SJbuvMToNNO
- n5Xdst1dAwZv52ZoLkiYhHcxRGwrvbZDzgzg24E21hTEnO/qf2mP7nHrVvzqlNBjH5
- qfOg2pnCp6FubLzEZ6sgO84KL0jXwRNBqiGlLHVOUVpNrLObpClmpyREhSb6df7scQ
- 3tN79Hd6bBP5PmLQecRMIPJLcGPvOTaR307V7dgnaPRVnBoL6J47JlLQ9SjIFbUvwu
- dGU7dunyAYTZT8g/1cmML/y+kv0vDOtmLWmwXQh6RnNxtxjwIPaAmnToqPP6vmylR9
- yqGy4PFExUuBA==
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Date: Tue,  3 Jun 2025 20:49:54 -0400
-Message-Id: <20250604005049.4147522-63-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250604005049.4147522-1-sashal@kernel.org>
-References: <20250604005049.4147522-1-sashal@kernel.org>
+ s=k20201202; t=1749368130;
+ bh=kFOysKXG8GqTo4p3fFuz9+4KW4EIctx32RHzxS6qN+U=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=pYVdAu0JAuSLlkJBhgrHfhWdCkEE2K8yKsOkDOUTTil+d96yCCvSa+IX7+EqOOY+C
+ zQRDypLyMfBgrToqv3etEFhsriXjkSbqSllccnRBkiBeasWVMdO5t7g9DHHafQdmSA
+ BxxiEfSQ3sYZgBYhuFDXMCVYe+bpP4i1S4YYxIQFP84AxnfovXFOs4dE+OPi4M58tt
+ cKaAnpqiCC6oPmArMgRKsRkiCFwL2gDkhoFuFjSQVpZhwIbOV+HZcfFJ76I5SQDLOd
+ tweXFFnoNDTxgVhIUY7CHeocA+Zg3DWGjVtTaO3foYePZLoHCBIR/M0cqUyyed1dvG
+ gPOFg9/CcJ29g==
+Received: by mail-ed1-f48.google.com with SMTP id
+ 4fb4d7f45d1cf-60700a745e5so3727697a12.3
+ for <openipmi-developer@lists.sourceforge.net>;
+ Sun, 08 Jun 2025 00:35:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1;
+ AJvYcCWJEWWvnMohSraETwUZevOl6C+6pR+0pmAVkwZLAjOWt9jMyaHMpeSTXDAeUV3c5kuU9dhRszbXqdooj0R8w4sxL6I=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YwcQm6V2kLb+K6Z8CpjpoE/WZI6Q7NgE4AfM/3y+8U7krRPlaPg
+ 99TS6JPS4ADq/cRoo22+p6rNgO4DJGn91HtpaN5l6bunoXBHEOhu47YWO1V43+SaoY+Z/O8AYoh
+ HbAw7bNydj1te0xIT598uZbNWzTkZRQs=
+X-Google-Smtp-Source: AGHT+IGXHk1U6rfYExFO/mc0/QqUnhoSlT+XQ9nCDnVpXOz/KSZJJ+E759KnH9foQHa4JG334VcHcgsqPOhLN7knhkg=
+X-Received: by 2002:a05:6402:174d:b0:607:783e:5970 with SMTP id
+ 4fb4d7f45d1cf-607783e61fdmr5725488a12.8.1749368129125; Sun, 08 Jun 2025
+ 00:35:29 -0700 (PDT)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.15
+References: <cover.1747276047.git.zhoubinbin@loongson.cn>
+In-Reply-To: <cover.1747276047.git.zhoubinbin@loongson.cn>
+Date: Sun, 8 Jun 2025 15:35:18 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H7kbuJfoUbD3XJVwpBZjcYtHZ6kWhFwu4HGjno6gkmSYA@mail.gmail.com>
+X-Gm-Features: AX0GCFtdqkmwOqP8bVELz2Njdxh0gmwMM1ltahpWIc_beMymoC73koIQh5ivYvo
+Message-ID: <CAAhV-H7kbuJfoUbD3XJVwpBZjcYtHZ6kWhFwu4HGjno6gkmSYA@mail.gmail.com>
+To: Binbin Zhou <zhoubinbin@loongson.cn>
 X-Spam-Score: -0.3 (/)
 X-Spam-Report: Spam detection software,
- running on the system "util-spamd-1.v13.lw.sourceforge.com", 
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  From: Corey Minyard <corey@minyard.net> [ Upstream commit
- 6bd0eb6d759b9a22c5509ea04e19c2e8407ba418 ] It was possible for the SSIF thread
- to stop and quit before the kthread_stop() call because ssif->stopping was
- set before the stop. So only exit the SSIF thread is kthread_should_stop()
- returns true. 
- Content analysis details:   (-0.3 points, 6.0 required)
+ Content preview:  Hi, Binbin, I have some small comments,
+ you can add "Reviewed-by:
+ Huacai Chen <chenhuacai@loongson.cn>" after you make changes. Huacai 
+ Content analysis details:   (-0.3 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE:
- The query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [172.234.252.31 listed in sa-accredit.habeas.com]
- 0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
- query to Validity was blocked.  See
- https://knowledge.validity.com/hc/en-us/articles/20961730681243
- for more information.
- [172.234.252.31 listed in bl.score.senderscore.com]
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  -0.1 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1uMcNj-0000iN-Ta
-Subject: [Openipmi-developer] [PATCH AUTOSEL 6.15 063/118] ipmi:ssif: Fix a
- shutdown race
+X-Headers-End: 1uOAZB-0005Xx-Ae
+Subject: Re: [Openipmi-developer] [PATCH v2 0/3] LoongArch: Add
+ Loongson-2K0500 BMC support
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -124,112 +122,64 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Sasha Levin via Openipmi-developer
+From: Huacai Chen via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
-Reply-To: Sasha Levin <sashal@kernel.org>
-Cc: Corey Minyard <corey@minyard.net>, Corey Minyard <cminyard@mvista.com>,
- openipmi-developer@lists.sourceforge.net, Sasha Levin <sashal@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: Huacai Chen <chenhuacai@kernel.org>
+Cc: Corey Minyard <minyard@acm.org>, Binbin Zhou <zhoubb.aaron@gmail.com>,
+ Lee Jones <lee@kernel.org>, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, Xuerui Wang <kernel@xen0n.name>,
+ openipmi-developer@lists.sourceforge.net, Huacai Chen <chenhuacai@loongson.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: Corey Minyard <corey@minyard.net>
-
-[ Upstream commit 6bd0eb6d759b9a22c5509ea04e19c2e8407ba418 ]
-
-It was possible for the SSIF thread to stop and quit before the
-kthread_stop() call because ssif->stopping was set before the
-stop.  So only exit the SSIF thread is kthread_should_stop()
-returns true.
-
-There is no need to wake the thread, as the wait will be interrupted
-by kthread_stop().
-
-Signed-off-by: Corey Minyard <cminyard@mvista.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-Based on my analysis of the commit and the current kernel code, here's
-my assessment: **YES** This commit should be backported to stable kernel
-trees. ## Detailed Analysis: ### Nature of the Bug Fix: The commit fixes
-a **race condition during shutdown** in the IPMI SSIF driver. This is a
-critical synchronization bug that can lead to system instability during
-driver cleanup. ### Specific Race Condition: Looking at the code
-changes, the race occurs between: 1. **Thread termination logic**: In
-`ipmi_ssif_thread()` at line 484, there was a check for
-`ssif_info->stopping` that would break out of the thread loop 2.
-**Shutdown sequence**: In `shutdown_ssif()` at line 1270,
-`ssif_info->stopping` is set to `true`, followed by
-`complete(&ssif_info->wake_thread)` and then `kthread_stop()` ### The
-Race Window: The problematic sequence was: 1. `shutdown_ssif()` sets
-`ssif_info->stopping = true` (line 1270) 2. `shutdown_ssif()` calls
-`complete(&ssif_info->wake_thread)` (line 1274) 3. The thread wakes up,
-sees `stopping = true`, and exits the loop (line 484-485) 4. The thread
-function returns and the thread terminates 5. `shutdown_ssif()` calls
-`kthread_stop()` (line 1275) on an already-dead thread ### The Fix: The
-commit removes the `ssif_info->stopping` check from the thread loop
-(lines 484-485 removed) and the unnecessary
-`complete(&ssif_info->wake_thread)` call from shutdown (line 1274
-removed). Now: 1. The thread **only** exits when `kthread_should_stop()`
-returns true (line 478) 2. `kthread_stop()` will properly signal the
-thread to stop and wait for it 3. The
-`wait_for_completion_interruptible()` call will be interrupted by
-`kthread_stop()` ### Why This Should Be Backported: 1. **Critical Bug**:
-Race conditions during shutdown can lead to kernel crashes, memory
-corruption, or system hangs during reboot/module unload 2. **Minimal
-Risk**: The changes are very small and surgical: - Removes 2 lines from
-thread logic - Removes 1 line from shutdown logic - No new functionality
-introduced - No architectural changes 3. **Follows Stable Tree
-Criteria**: - Important bugfix (race condition) - Small, contained
-change - Low regression risk - Affects critical kernel subsystem (IPMI)
-4. **Similar Pattern**: Looking at the historical commits, commit #4
-("Remove rtc_us_timer") and commit #5 ("Rename idle state and check")
-both had `Cc: stable@vger.kernel.org` tags and were marked as
-backportable, showing this maintainer's pattern of marking important
-SSIF fixes for stable backporting 5. **Production Impact**: IPMI is
-commonly used in server environments where system stability during
-shutdown/reboot is critical 6. **Clean Fix**: The fix aligns with proper
-kernel thread management practices - relying on the standard
-`kthread_should_stop()` mechanism rather than custom stopping flags The
-commit addresses a real concurrency bug with a clean, minimal fix that
-follows kernel best practices for thread management. The risk of
-regression is extremely low while the benefit of preventing shutdown
-races is significant.
-
- drivers/char/ipmi/ipmi_ssif.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
-
-diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-index 0b45b07dec22c..5bf038e620c75 100644
---- a/drivers/char/ipmi/ipmi_ssif.c
-+++ b/drivers/char/ipmi/ipmi_ssif.c
-@@ -481,8 +481,6 @@ static int ipmi_ssif_thread(void *data)
- 		/* Wait for something to do */
- 		result = wait_for_completion_interruptible(
- 						&ssif_info->wake_thread);
--		if (ssif_info->stopping)
--			break;
- 		if (result == -ERESTARTSYS)
- 			continue;
- 		init_completion(&ssif_info->wake_thread);
-@@ -1270,10 +1268,8 @@ static void shutdown_ssif(void *send_info)
- 	ssif_info->stopping = true;
- 	timer_delete_sync(&ssif_info->watch_timer);
- 	timer_delete_sync(&ssif_info->retry_timer);
--	if (ssif_info->thread) {
--		complete(&ssif_info->wake_thread);
-+	if (ssif_info->thread)
- 		kthread_stop(ssif_info->thread);
--	}
- }
- 
- static void ssif_remove(struct i2c_client *client)
--- 
-2.39.5
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+SGksIEJpbmJpbiwKCkkgaGF2ZSBzb21lIHNtYWxsIGNvbW1lbnRzLCB5b3UgY2FuIGFkZCAiUmV2
+aWV3ZWQtYnk6IEh1YWNhaSBDaGVuCjxjaGVuaHVhY2FpQGxvb25nc29uLmNuPiIgYWZ0ZXIgeW91
+IG1ha2UgY2hhbmdlcy4KCkh1YWNhaQoKT24gVGh1LCBNYXkgMTUsIDIwMjUgYXQgMTA6MzLigK9B
+TSBCaW5iaW4gWmhvdSA8emhvdWJpbmJpbkBsb29uZ3Nvbi5jbj4gd3JvdGU6Cj4KPiBIaSBhbGw6
+Cj4KPiBUaGlzIHBhdGNoIHNldCBpbnRyb2R1Y2VzIHRoZSBMb29uZ3Nvbi0ySzA1MDAgQk1DLgo+
+Cj4gSXQgaXMgYSBQQ0llIGRldmljZSBwcmVzZW50IG9uIHNlcnZlcnMgc2ltaWxhciB0byB0aGUg
+TG9vbmdzb24tM0M2MDAwLgo+IEFuZCBpdCBpcyBhIG11bHRpZnVuY3Rpb25hbCBkZXZpY2UgKE1G
+RCksIHN1Y2ggYXMgZGlzcGxheSBhcyBhIHN1Yi1mdW5jdGlvbgo+IG9mIGl0Lgo+Cj4gRm9yIElQ
+TUksIGFjY29yZGluZyB0byB0aGUgZXhpc3RpbmcgZGVzaWduLCB3ZSB1c2Ugc29mdHdhcmUgc2lt
+dWxhdGlvbiB0bwo+IGltcGxlbWVudCB0aGUgS0NTIGludGVyZmFjZSByZWdpc3RlcnM6IFN0YXV0
+cy9Db21tYW5kL0RhdGFfT3V0L0RhdGFfSW4uCj4KPiBBbHNvIHNpbmNlIGJvdGggaG9zdCBzaWRl
+IGFuZCBCTUMgc2lkZSByZWFkIGFuZCB3cml0ZSBrY3Mgc3RhdHVzLCB3ZSB1c2UKPiBmaWZvIHBv
+aW50ZXIgdG8gZW5zdXJlIGRhdGEgY29uc2lzdGVuY3kuCj4KPiBGb3IgdGhlIGRpc3BsYXksIGJh
+c2VkIG9uIHNpbXBsZWRybSwgdGhlIHJlc29sdXRpb24gaXMgcmVhZCBmcm9tIGEgZml4ZWQKPiBw
+b3NpdGlvbiBpbiB0aGUgQk1DIHNpbmNlIHRoZSBoYXJkd2FyZSBkb2VzIG5vdCBzdXBwb3J0IGF1
+dG8tZGV0ZWN0aW9uCj4gb2YgdGhlIHJlc29sdXRpb24uIE9mIGNvdXJzZSwgd2Ugd2lsbCB0cnkg
+dG8gc3VwcG9ydCBtdWx0aXBsZQo+IHJlc29sdXRpb25zIGxhdGVyLCB0aHJvdWdoIGEgdmJpb3Mt
+bGlrZSBhcHByb2FjaC4KPgo+IEVzcGVjaWFsbHksIGZvciB0aGUgQk1DIHJlc2V0IGZ1bmN0aW9u
+LCBzaW5jZSB0aGUgZGlzcGxheSB3aWxsIGJlCj4gZGlzY29ubmVjdGVkIHdoZW4gQk1DIHJlc2V0
+LCB3ZSBtYWRlIGEgc3BlY2lhbCB0cmVhdG1lbnQgb2YgcmUtcHVzaC4KPgo+IEJhc2VkIG9uIHRo
+aXMsIEkgd2lsbCBwcmVzZW50IGl0IGluIGZvdXIgcGF0Y2hlczoKPiBwYXRjaC0xOiBCTUMgZGV2
+aWNlIFBDSSByZXNvdXJjZSBhbGxvY2F0aW9uLgo+IHBhdGNoLTI6IElQTUkgaW1wbGVtZW50YXRp
+b24KPiBwYXRjaC0zOiBkaXNwbGF5LCBiYXNlZCBvbiBzaW1wbGVkcm0KPiBwYXRjaC00OiBCTUMg
+cmVib290IHN1cHBvcnQKPgo+IFRoYW5rcy4KPgo+IC0tLS0tLS0KPiBWMjoKPiAtIERyb3AgbHMy
+a2RybSwgdXNlIHNpbXBsZWRybSBpbnN0ZWFkLgo+IFBhdGNoICgxLzMpOgo+ICAtIFVzZSBERUZJ
+TkVfUkVTX01FTV9OQU1FRC9NRkRfQ0VMTF9SRVMgc2ltcGxpZmllZCBjb2RlOwo+ICAtIEFkZCBy
+ZXNvbHV0aW9uIGZldGNoaW5nIGR1ZSB0byByZXBsYWNpbmcgdGhlIG9yaWdpbmFsIGRpc3BsYXkK
+PiAgICBzb2x1dGlvbiB3aXRoIHNpbXBsZWRybTsKPiAgLSBBZGQgYXBlcnR1cmVfcmVtb3ZlX2Nv
+bmZsaWN0aW5nX2RldmljZXMoKSB0byBhdm9pZCBlZmlmYgo+ICAgIGNvbmZsaWN0IHdpdGggc2lt
+cGxlZHJtLgo+IFBhdGNoICgzLzMpOgo+ICAtIFRoaXMgcGFydCBvZiB0aGUgZnVuY3Rpb24sIG1v
+dmVkIGZyb20gdGhlIG9yaWdpbmFsIGxzMmtkcm0gdG8gbWZkOwo+ICAtIFVzZSBzZXRfY29uc29s
+ZSB0byBpbXBsZW1lbnQgdGhlIFJlLXB1c2ggZGlzcGxheSBmdW5jdGlvbi4KPgo+IExpbmsgdG8g
+VjE6Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL2NvdmVyLjE3MzU1NTAyNjkuZ2l0Lnpo
+b3ViaW5iaW5AbG9vbmdzb24uY24vCj4KPiBCaW5iaW4gWmhvdSAoMyk6Cj4gICBtZmQ6IGxzMmti
+bWM6IEludHJvZHVjZSBMb29uZ3Nvbi0ySyBCTUMgTUZEIENvcmUgZHJpdmVyCj4gICBpcG1pOiBB
+ZGQgTG9vbmdzb24tMksgQk1DIHN1cHBvcnQKPiAgIG1mZDogbHMya2JtYzogQWRkIExvb25nc29u
+LTJLIEJNQyByZXNldCBmdW5jdGlvbiBzdXBwb3J0Cj4KPiAgZHJpdmVycy9jaGFyL2lwbWkvTWFr
+ZWZpbGUgICAgICAgfCAgIDEgKwo+ICBkcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NpLmggICAgICB8
+ICAgNyArCj4gIGRyaXZlcnMvY2hhci9pcG1pL2lwbWlfc2lfaW50Zi5jIHwgICAzICsKPiAgZHJp
+dmVycy9jaGFyL2lwbWkvaXBtaV9zaV9sczJrLmMgfCAyNTAgKysrKysrKysrKysrKysrKysrKwo+
+ICBkcml2ZXJzL21mZC9LY29uZmlnICAgICAgICAgICAgICB8ICAxMyArCj4gIGRyaXZlcnMvbWZk
+L01ha2VmaWxlICAgICAgICAgICAgIHwgICAyICsKPiAgZHJpdmVycy9tZmQvbHMya2JtYy1tZmQu
+YyAgICAgICAgfCAzOTggKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ICA3IGZpbGVz
+IGNoYW5nZWQsIDY3NCBpbnNlcnRpb25zKCspCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJz
+L2NoYXIvaXBtaS9pcG1pX3NpX2xzMmsuYwo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVycy9t
+ZmQvbHMya2JtYy1tZmQuYwo+Cj4KPiBiYXNlLWNvbW1pdDogOWYyYjBjMTViNzUyYmI5NDBlMmVi
+NjczN2JlZTMwZmZmOTZkOTZiNgo+IC0tCj4gMi40Ny4xCj4KPgoKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5n
+IGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xp
+c3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
