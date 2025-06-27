@@ -2,103 +2,93 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6237DAE9D80
-	for <lists+openipmi-developer@lfdr.de>; Thu, 26 Jun 2025 14:31:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7601BAEB2D8
+	for <lists+openipmi-developer@lfdr.de>; Fri, 27 Jun 2025 11:28:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wrGisFzZlv9HZ6JWct+4MPG7LX7ce0WTYs9kVhQwrSg=; b=d/3S9+GcCxuspZr6XJ35nRofAv
-	RACMi1PSl3VOYtA564VD4tRKbscLIhMAVtP1IqC/o0Pmw1dhOPyuAFcMCfw5oQk9U1jbEsPceluv0
-	By/HcCHDV3cXLVNPoTJ75EVl20FlutklpAfKPYi77u7DTfScdxRAYrc4RC9/0nfnTwCM=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:To:Sender:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wR2BUIOgPA9rKF8x0WddbrmSDaBp1neBHOGCccSfuF0=; b=iQmAjCnJ5aMqX2O3DjJAsocugS
+	raSur1KEvWKP5Rby1tMqCVd5c2iriaGs7DKHcPA78y+CO6ji+pXXF1lbdQLnEoQi2ptPNKBTaUSt5
+	/7tesx3GvZH3YvCyoCErY/TJAPwDboXQciGYOSgH4O4Gwq1G2pMQYbCo18nEvLYLP4Tk=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1uUllE-0001GH-Jy;
-	Thu, 26 Jun 2025 12:31:24 +0000
+	id 1uV5Np-0003r5-H8;
+	Fri, 27 Jun 2025 09:28:33 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhoubinbin@loongson.cn>) id 1uUllC-0001G4-Sm
+ (envelope-from <yiyang13@h-partners.com>) id 1uV5No-0003qt-TB
  for openipmi-developer@lists.sourceforge.net;
- Thu, 26 Jun 2025 12:31:22 +0000
+ Fri, 27 Jun 2025 09:28:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ d=sourceforge.net; s=x; h=Content-Type:Content-Transfer-Encoding:MIME-Version
+ :References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=1gNsCk05tsuEymDHgmIOGZy4MJGl+/S8F9ENj6/LWzI=; b=Vgkf/pWmcc0XE8C/W65CmqPj3v
- SZ8RJqz3GTRXiXqSllhH9iYq22YU4Zz7Wg0nPcORkqLgL4KiFiOyD8hWCSEZ6u7y+vz7RNelSZXkn
- TMpHjFAxKQoGWbH39B8Y9/6uJBCPmNAxYJM+HRxiTQzjQPufbf7oQteEJcQt+0201268=;
+ bh=j6XHV5398Pg+LuWUTMaRvy1jiaLb1v4OntP/f2gqers=; b=esyOGlY6pJnzDHMhEmLw9xfxSo
+ h4UugSmihKVPs5ME4LXZAgAI2yZx9/9pq3y6iub4xpcJsfpDuv6f+9qCMxblp5iUmoZ60N4A79vfa
+ WXJoi7GhlBUBUhDpv5FGYMzXMVSlEzia60LeiaP42rh0hbV0hXTqr4dRMHEz66Js7yM0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=1gNsCk05tsuEymDHgmIOGZy4MJGl+/S8F9ENj6/LWzI=; b=hKxnqgkbO9BHTKQ5qbR4jvvSbP
- D1hjdyxDIavq6X2UCv0GRR1d7SFxdKQAwefd/CISiKfPRvOxFLoXJAbOh2RmgDkdOw/61tFUaGL03
- ZHrje8Lr0MYD5MO4tQ05WGy4xcBOrVfZicPxDcqEIBhS/nb6TXAEDqzzIKvmqbiPmBiw=;
-Received: from mail.loongson.cn ([114.242.206.163])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.95)
- id 1uUllB-0002aQ-Rc for openipmi-developer@lists.sourceforge.net;
- Thu, 26 Jun 2025 12:31:22 +0000
-Received: from loongson.cn (unknown [223.64.68.149])
- by gateway (Coremail) with SMTP id _____8AxLOKOPV1oLJgdAQ--.24874S3;
- Thu, 26 Jun 2025 20:31:10 +0800 (CST)
-Received: from localhost.localdomain (unknown [223.64.68.149])
- by front1 (Coremail) with SMTP id qMiowMCx7xt8PV1ohncrAQ--.65009S5;
- Thu, 26 Jun 2025 20:31:09 +0800 (CST)
-From: Binbin Zhou <zhoubinbin@loongson.cn>
-To: Binbin Zhou <zhoubb.aaron@gmail.com>, Huacai Chen <chenhuacai@loongson.cn>,
- Lee Jones <lee@kernel.org>, Corey Minyard <minyard@acm.org>
-Date: Thu, 26 Jun 2025 20:30:42 +0800
-Message-ID: <b0551cf0ecab31dabba9bf9a059928e8833df1e2.1750939357.git.zhoubinbin@loongson.cn>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <cover.1750939357.git.zhoubinbin@loongson.cn>
-References: <cover.1750939357.git.zhoubinbin@loongson.cn>
+ bh=j6XHV5398Pg+LuWUTMaRvy1jiaLb1v4OntP/f2gqers=; b=IFYmBSC0FPL/m6HStFMgdsz5nk
+ U1tZEFgerxv/WNDVk8eN8xKGKwkWL2TRsTWh5v7lEFHuasSXpXJngxZSSECg4JzAtvhQcAgMpCyEs
+ o4CR89nE0CTS5d1pNGXjkLajoSxfCNKZLpgP/OKa4AKIoTghG8poKamGjnh3EzQr+o6w=;
+Received: from szxga01-in.huawei.com ([45.249.212.187])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtps
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1uV5Nn-0005jC-Pi for openipmi-developer@lists.sourceforge.net;
+ Fri, 27 Jun 2025 09:28:32 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bT8ny1Slsz10XVg;
+ Fri, 27 Jun 2025 17:07:18 +0800 (CST)
+Received: from kwepemk200016.china.huawei.com (unknown [7.202.194.82])
+ by mail.maildlp.com (Postfix) with ESMTPS id 67EE81400D1;
+ Fri, 27 Jun 2025 17:11:56 +0800 (CST)
+Received: from huawei.com (10.67.174.78) by kwepemk200016.china.huawei.com
+ (7.202.194.82) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 27 Jun
+ 2025 17:11:55 +0800
+To: <yiyang13@huawei.com>
+Date: Fri, 27 Jun 2025 09:02:20 +0000
+Message-ID: <20250627090220.592415-1-yiyang13@huawei.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250610121523.252149-1-yiyang13@huawei.com>
+References: <20250610121523.252149-1-yiyang13@huawei.com>
 MIME-Version: 1.0
-X-CM-TRANSID: qMiowMCx7xt8PV1ohncrAQ--.65009S5
-X-CM-SenderInfo: p2kr3uplqex0o6or00hjvr0hdfq/
-X-Coremail-Antispam: 1Uk129KBj93XoW3Ar17WF17Gr17GF4rtr4UKFX_yoWfur47pa
- 1aya43Cr48tF47G397ZryDWFyrC3ZxWa4rtF47W34ruFWj934vgr1vya4fAry7tFy0qrW3
- JrZ8ArW3WF13JwcCm3ZEXasCq-sJn29KB7ZKAUJUUUUx529EdanIXcx71UUUUU7KY7ZEXa
- sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
- 0xBIdaVrnRJUUUB0b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
- IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
- e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
- 0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
- GcCE3s1ln4kS14v26r126r1DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2
- x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26rWY6Fy7
- McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr4
- 1lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
- Gr1l4IxYO2xFxVAFwI0_JF0_Jw1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
- AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
- cVAFwI0_Xr0_Ar1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI
- 8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v2
- 6r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUVWrXDUUUU
+X-Originating-IP: [10.67.174.78]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemk200016.china.huawei.com (7.202.194.82)
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  This patch adds Loongson-2K BMC IPMI support. According to
- the existing design, we use software simulation to implement the KCS interface
- registers: Stauts/Command/Data_Out/Data_In. Also since both host side and
- BMC side read and write kcs status,
- fifo flag is used to ensure data consistency.
+ Content preview:  On 2025/6/27 17:10, yiyang wrote: > Syzkaller reported this
+ bug: > ==================================================================
+ > BUG: KASAN: global-out-of-bounds in instrument_atomic_read_write [...] 
  Content analysis details:   (0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
-X-Headers-End: 1uUllB-0002aQ-Rc
-Subject: [Openipmi-developer] [PATCH v6 3/3] ipmi: Add Loongson-2K BMC
- support
+ 0.0 RCVD_IN_MSPIKE_H5      RBL: Excellent reputation (+5)
+ [45.249.212.187 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
+X-Headers-End: 1uV5Nn-0005jC-Pi
+Subject: Re: [Openipmi-developer] [PATCH] ipmi: fix underflow in
+ ipmi_create_user()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -111,325 +101,140 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Chong Qiao <qiaochong@loongson.cn>, jeffbai@aosc.io,
- Binbin Zhou <zhoubinbin@loongson.cn>, kexybiscuit@aosc.io,
- Huacai Chen <chenhuacai@kernel.org>, linux-kernel@vger.kernel.org,
- Corey Minyard <corey@minyard.net>, loongarch@lists.linux.dev,
- wangyao@lemote.com, Xuerui Wang <kernel@xen0n.name>,
- openipmi-developer@lists.sourceforge.net
+From: Yi Yang via Openipmi-developer <openipmi-developer@lists.sourceforge.net>
+Reply-To: Yi Yang <yiyang13@huawei.com>
+Cc: corey@minyard.net, stable@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ lujialin4@huawei.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-This patch adds Loongson-2K BMC IPMI support.
+On 2025/6/27 17:10, yiyang wrote:
+> Syzkaller reported this bug:
+> ==================================================================
+> BUG: KASAN: global-out-of-bounds in instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
+> BUG: KASAN: global-out-of-bounds in atomic_dec include/linux/atomic/atomic-instrumented.h:592 [inline]
+> BUG: KASAN: global-out-of-bounds in ipmi_create_user.part.0+0x5e5/0x790 drivers/char/ipmi/ipmi_msghandler.c:1291
+> Write of size 4 at addr ffffffff8fc6a438 by task syz.5.1074/5888
+>
+> CPU: 0 PID: 5888 Comm: syz.5.1074 Not tainted 6.6.0+ #60
+> ......
+> Call Trace:
+>  <TASK>
+>  __dump_stack lib/dump_stack.c:88 [inline]
+>  dump_stack_lvl+0x72/0xa0 lib/dump_stack.c:106
+>  print_address_description.constprop.0+0x6b/0x3d0 mm/kasan/report.c:364
+>  print_report+0xba/0x280 mm/kasan/report.c:475
+>  kasan_report+0xa9/0xe0 mm/kasan/report.c:588
+>  check_region_inline mm/kasan/generic.c:181 [inline]
+>  kasan_check_range+0x100/0x1c0 mm/kasan/generic.c:187
+>  instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
+>  atomic_dec include/linux/atomic/atomic-instrumented.h:592 [inline]
+>  ipmi_create_user.part.0+0x5e5/0x790 drivers/char/ipmi/ipmi_msghandler.c:1291
+>  ipmi_create_user+0x56/0x80 drivers/char/ipmi/ipmi_msghandler.c:1236
+>  ipmi_open+0xac/0x2b0 drivers/char/ipmi/ipmi_devintf.c:97
+>  chrdev_open+0x276/0x700 fs/char_dev.c:414
+>  do_dentry_open+0x6a7/0x1410 fs/open.c:929
+>  vfs_open+0xd1/0x440 fs/open.c:1060
+>  do_open+0x957/0x10d0 fs/namei.c:3671
+>  path_openat+0x258/0x770 fs/namei.c:3830
+>  do_filp_open+0x1c7/0x410 fs/namei.c:3857
+>  do_sys_openat2+0x5bd/0x6a0 fs/open.c:1428
+>  do_sys_open fs/open.c:1443 [inline]
+>  __do_sys_openat fs/open.c:1459 [inline]
+>  __se_sys_openat fs/open.c:1454 [inline]
+>  __x64_sys_openat+0x17a/0x210 fs/open.c:1454
+>  do_syscall_x64 arch/x86/entry/common.c:51 [inline]
+>  do_syscall_64+0x59/0x110 arch/x86/entry/common.c:81
+>  entry_SYSCALL_64_after_hwframe+0x78/0xe2
+> RIP: 0033:0x54d2cd
+> Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+> RSP: 002b:00007f4751920048 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+> RAX: ffffffffffffffda RBX: 0000000000796080 RCX: 000000000054d2cd
+> RDX: 0000000000000000 RSI: 0000000020004280 RDI: ffffffffffffff9c
+> RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+> R10: 000000000000001e R11: 0000000000000246 R12: 000000000079608c
+> R13: 0000000000000000 R14: 0000000000796080 R15: 00007f4751900000
+>  </TASK>
+>
+> The buggy address belongs to the variable:
+>  ipmi_interfaces+0x38/0x40
+>
+> The buggy address belongs to the physical page:
+> page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x45a6a
+> flags: 0x3fffff00004000(reserved|node=0|zone=1|lastcpupid=0x1fffff)
+> raw: 003fffff00004000 ffffea0001169a88 ffffea0001169a88 0000000000000000
+> raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
+> page dumped because: kasan: bad access detected
+>
+> Memory state around the buggy address:
+>  ffffffff8fc6a300: 00 00 00 00 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
+>  ffffffff8fc6a380: 00 00 f9 f9 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
+>> ffffffff8fc6a400: 00 00 f9 f9 f9 f9 f9 f9 00 00 00 00 f9 f9 f9 f9
+>                                         ^
+>  ffffffff8fc6a480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>  ffffffff8fc6a500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f9 f9
+> ==================================================================
+>
+> In the ipmi_create_user() function, the intf->nr_users variable has an
+> underflow issue. Specifically, on the exception path (goto out_kfree;)
+> before atomic_add_return(), calling atomic_dec() when intf->nr_users has
+> not been incremented will result in an underflow.
+>
+> The relevant code has been completely rewritten in the next tree and has
+> been fixed with commit 9e91f8a6c868 ("ipmi:msghandler: Remove srcu for the
+> ipmi_interfaces list"). However, the issue still exists in the 5.19+
+> stable branches and needs to be fixed on those branches.
+>
+> Cc: stable@vger.kernel.org # 5.19+
+> Fixes: 8e76741c3d8b ("ipmi: Add a limit on the number of users that may use IPMI")
+> Signed-off-by: Yi Yang <yiyang13@huawei.com>
+> ---
+>  drivers/char/ipmi/ipmi_msghandler.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+> index 186f1fee7534..0293fad2f4f2 100644
+> --- a/drivers/char/ipmi/ipmi_msghandler.c
+> +++ b/drivers/char/ipmi/ipmi_msghandler.c
+> @@ -1246,18 +1246,18 @@ int ipmi_create_user(unsigned int          if_num,
+>   found:
+>      if (atomic_add_return(1, &intf->nr_users) > max_users) {
+>          rv = -EBUSY;
+> -        goto out_kfree;
+> +        goto out_dec;
+>      }
+>  
+>      INIT_WORK(&new_user->remove_work, free_user_work);
+>  
+>      rv = init_srcu_struct(&new_user->release_barrier);
+>      if (rv)
+> -        goto out_kfree;
+> +        goto out_dec;
+>  
+>      if (!try_module_get(intf->owner)) {
+>          rv = -ENODEV;
+> -        goto out_kfree;
+> +        goto out_dec;
+>      }
+>  
+>      /* Note that each existing user holds a refcount to the interface. */
+> @@ -1281,8 +1281,9 @@ int ipmi_create_user(unsigned int          if_num,
+>      *user = new_user;
+>      return 0;
+>  
+> -out_kfree:
+> +out_dec:
+>      atomic_dec(&intf->nr_users);
+> +out_kfree:
+>      srcu_read_unlock(&ipmi_interfaces_srcu, index);
+>      vfree(new_user);
+>      return rv;
+> -- 
+> 2.25.1
 
-According to the existing design, we use software simulation to
-implement the KCS interface registers: Stauts/Command/Data_Out/Data_In.
-
-Also since both host side and BMC side read and write kcs status, fifo flag
-is used to ensure data consistency.
-
-The single KCS message block is as follows:
-
-+-------------------------------------------------------------------------+
-|FIFO flags| KCS register data | CMD data | KCS version | WR REQ | WR ACK |
-+-------------------------------------------------------------------------+
-
-Co-developed-by: Chong Qiao <qiaochong@loongson.cn>
-Signed-off-by: Chong Qiao <qiaochong@loongson.cn>
-Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
-Acked-by: Corey Minyard <corey@minyard.net>
-Signed-off-by: Binbin Zhou <zhoubinbin@loongson.cn>
----
- MAINTAINERS                      |   1 +
- drivers/char/ipmi/Kconfig        |   7 ++
- drivers/char/ipmi/Makefile       |   1 +
- drivers/char/ipmi/ipmi_si.h      |   7 ++
- drivers/char/ipmi/ipmi_si_intf.c |   4 +
- drivers/char/ipmi/ipmi_si_ls2k.c | 189 +++++++++++++++++++++++++++++++
- 6 files changed, 209 insertions(+)
- create mode 100644 drivers/char/ipmi/ipmi_si_ls2k.c
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 611f2f9acbe2..8779e9eaf296 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14202,6 +14202,7 @@ LOONGSON-2K Board Management Controller (BMC) DRIVER
- M:	Binbin Zhou <zhoubinbin@loongson.cn>
- M:	Chong Qiao <qiaochong@loongson.cn>
- S:	Maintained
-+F:	drivers/char/ipmi/ipmi_si_ls2k.c
- F:	drivers/mfd/ls2k-bmc-core.c
- 
- LOONGSON EDAC DRIVER
-diff --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig
-index f4adc6feb3b2..92bed266d07c 100644
---- a/drivers/char/ipmi/Kconfig
-+++ b/drivers/char/ipmi/Kconfig
-@@ -84,6 +84,13 @@ config IPMI_IPMB
- 	  bus, and it also supports direct messaging on the bus using
- 	  IPMB direct messages.  This module requires I2C support.
- 
-+config IPMI_LS2K
-+	bool 'Loongson-2K IPMI interface'
-+	depends on LOONGARCH
-+	select MFD_LS2K_BMC_CORE
-+	help
-+	  Provides a driver for Loongson-2K IPMI interfaces.
-+
- config IPMI_POWERNV
- 	depends on PPC_POWERNV
- 	tristate 'POWERNV (OPAL firmware) IPMI interface'
-diff --git a/drivers/char/ipmi/Makefile b/drivers/char/ipmi/Makefile
-index e0944547c9d0..4ea450a82242 100644
---- a/drivers/char/ipmi/Makefile
-+++ b/drivers/char/ipmi/Makefile
-@@ -8,6 +8,7 @@ ipmi_si-y := ipmi_si_intf.o ipmi_kcs_sm.o ipmi_smic_sm.o ipmi_bt_sm.o \
- 	ipmi_si_mem_io.o
- ipmi_si-$(CONFIG_HAS_IOPORT) += ipmi_si_port_io.o
- ipmi_si-$(CONFIG_PCI) += ipmi_si_pci.o
-+ipmi_si-$(CONFIG_IPMI_LS2K) += ipmi_si_ls2k.o
- ipmi_si-$(CONFIG_PARISC) += ipmi_si_parisc.o
- 
- obj-$(CONFIG_IPMI_HANDLER) += ipmi_msghandler.o
-diff --git a/drivers/char/ipmi/ipmi_si.h b/drivers/char/ipmi/ipmi_si.h
-index 508c3fd45877..687835b53da5 100644
---- a/drivers/char/ipmi/ipmi_si.h
-+++ b/drivers/char/ipmi/ipmi_si.h
-@@ -101,6 +101,13 @@ void ipmi_si_pci_shutdown(void);
- static inline void ipmi_si_pci_init(void) { }
- static inline void ipmi_si_pci_shutdown(void) { }
- #endif
-+#ifdef CONFIG_IPMI_LS2K
-+void ipmi_si_ls2k_init(void);
-+void ipmi_si_ls2k_shutdown(void);
-+#else
-+static inline void ipmi_si_ls2k_init(void) { }
-+static inline void ipmi_si_ls2k_shutdown(void) { }
-+#endif
- #ifdef CONFIG_PARISC
- void ipmi_si_parisc_init(void);
- void ipmi_si_parisc_shutdown(void);
-diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-index bb42dfe1c6a8..9c38aca16fd0 100644
---- a/drivers/char/ipmi/ipmi_si_intf.c
-+++ b/drivers/char/ipmi/ipmi_si_intf.c
-@@ -2121,6 +2121,8 @@ static int __init init_ipmi_si(void)
- 
- 	ipmi_si_pci_init();
- 
-+	ipmi_si_ls2k_init();
-+
- 	ipmi_si_parisc_init();
- 
- 	mutex_lock(&smi_infos_lock);
-@@ -2335,6 +2337,8 @@ static void cleanup_ipmi_si(void)
- 
- 	ipmi_si_pci_shutdown();
- 
-+	ipmi_si_ls2k_shutdown();
-+
- 	ipmi_si_parisc_shutdown();
- 
- 	ipmi_si_platform_shutdown();
-diff --git a/drivers/char/ipmi/ipmi_si_ls2k.c b/drivers/char/ipmi/ipmi_si_ls2k.c
-new file mode 100644
-index 000000000000..45442c257efd
---- /dev/null
-+++ b/drivers/char/ipmi/ipmi_si_ls2k.c
-@@ -0,0 +1,189 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Driver for Loongson-2K BMC IPMI interface
-+ *
-+ * Copyright (C) 2024-2025 Loongson Technology Corporation Limited.
-+ *
-+ * Authors:
-+ *	Chong Qiao <qiaochong@loongson.cn>
-+ *	Binbin Zhou <zhoubinbin@loongson.cn>
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/ioport.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+
-+#include "ipmi_si.h"
-+
-+#define LS2K_KCS_FIFO_IBFH	0x0
-+#define LS2K_KCS_FIFO_IBFT	0x1
-+#define LS2K_KCS_FIFO_OBFH	0x2
-+#define LS2K_KCS_FIFO_OBFT	0x3
-+
-+/* KCS registers */
-+#define LS2K_KCS_REG_STS	0x4
-+#define LS2K_KCS_REG_DATA_OUT	0x5
-+#define LS2K_KCS_REG_DATA_IN	0x6
-+#define LS2K_KCS_REG_CMD	0x8
-+
-+#define LS2K_KCS_CMD_DATA	0xa
-+#define LS2K_KCS_VERSION	0xb
-+#define LS2K_KCS_WR_REQ		0xc
-+#define LS2K_KCS_WR_ACK		0x10
-+
-+#define LS2K_KCS_STS_OBF	BIT(0)
-+#define LS2K_KCS_STS_IBF	BIT(1)
-+#define LS2K_KCS_STS_SMS_ATN	BIT(2)
-+#define LS2K_KCS_STS_CMD	BIT(3)
-+
-+#define LS2K_KCS_DATA_MASK	(LS2K_KCS_STS_OBF | LS2K_KCS_STS_IBF | LS2K_KCS_STS_CMD)
-+
-+static bool ls2k_registered;
-+
-+static unsigned char ls2k_mem_inb_v0(const struct si_sm_io *io, unsigned int offset)
-+{
-+	void __iomem *addr = io->addr;
-+	int reg_offset;
-+
-+	if (offset & BIT(0)) {
-+		reg_offset = LS2K_KCS_REG_STS;
-+	} else {
-+		writeb(readb(addr + LS2K_KCS_REG_STS) & ~LS2K_KCS_STS_OBF, addr + LS2K_KCS_REG_STS);
-+		reg_offset = LS2K_KCS_REG_DATA_OUT;
-+	}
-+
-+	return readb(addr + reg_offset);
-+}
-+
-+static unsigned char ls2k_mem_inb_v1(const struct si_sm_io *io, unsigned int offset)
-+{
-+	void __iomem *addr = io->addr;
-+	unsigned char inb = 0, cmd;
-+	bool obf, ibf;
-+
-+	obf = readb(addr + LS2K_KCS_FIFO_OBFH) ^ readb(addr + LS2K_KCS_FIFO_OBFT);
-+	ibf = readb(addr + LS2K_KCS_FIFO_IBFH) ^ readb(addr + LS2K_KCS_FIFO_IBFT);
-+	cmd = readb(addr + LS2K_KCS_CMD_DATA);
-+
-+	if (offset & BIT(0)) {
-+		inb = readb(addr + LS2K_KCS_REG_STS) & ~LS2K_KCS_DATA_MASK;
-+		inb |= FIELD_PREP(LS2K_KCS_STS_OBF, obf)
-+		    | FIELD_PREP(LS2K_KCS_STS_IBF, ibf)
-+		    | FIELD_PREP(LS2K_KCS_STS_CMD, cmd);
-+	} else {
-+		inb = readb(addr + LS2K_KCS_REG_DATA_OUT);
-+		writeb(readb(addr + LS2K_KCS_FIFO_OBFH), addr + LS2K_KCS_FIFO_OBFT);
-+	}
-+
-+	return inb;
-+}
-+
-+static void ls2k_mem_outb_v0(const struct si_sm_io *io, unsigned int offset,
-+			     unsigned char val)
-+{
-+	void __iomem *addr = io->addr;
-+	unsigned char sts = readb(addr + LS2K_KCS_REG_STS);
-+	int reg_offset;
-+
-+	if (sts & LS2K_KCS_STS_IBF)
-+		return;
-+
-+	if (offset & BIT(0)) {
-+		reg_offset = LS2K_KCS_REG_CMD;
-+		sts |= LS2K_KCS_STS_CMD;
-+	} else {
-+		reg_offset = LS2K_KCS_REG_DATA_IN;
-+		sts &= ~LS2K_KCS_STS_CMD;
-+	}
-+
-+	writew(val, addr + reg_offset);
-+	writeb(sts | LS2K_KCS_STS_IBF, addr + LS2K_KCS_REG_STS);
-+	writel(readl(addr + LS2K_KCS_WR_REQ) + 1, addr + LS2K_KCS_WR_REQ);
-+}
-+
-+static void ls2k_mem_outb_v1(const struct si_sm_io *io, unsigned int offset,
-+			     unsigned char val)
-+{
-+	void __iomem *addr = io->addr;
-+	unsigned char ibfh, ibft;
-+	int reg_offset;
-+
-+	ibfh = readb(addr + LS2K_KCS_FIFO_IBFH);
-+	ibft = readb(addr + LS2K_KCS_FIFO_IBFT);
-+
-+	if (ibfh ^ ibft)
-+		return;
-+
-+	reg_offset = (offset & BIT(0)) ? LS2K_KCS_REG_CMD : LS2K_KCS_REG_DATA_IN;
-+	writew(val, addr + reg_offset);
-+
-+	writeb(offset & BIT(0), addr + LS2K_KCS_CMD_DATA);
-+	writeb(!ibft, addr + LS2K_KCS_FIFO_IBFH);
-+	writel(readl(addr + LS2K_KCS_WR_REQ) + 1, addr + LS2K_KCS_WR_REQ);
-+}
-+
-+static void ls2k_mem_cleanup(struct si_sm_io *io)
-+{
-+	if (io->addr)
-+		iounmap(io->addr);
-+}
-+
-+static int ipmi_ls2k_mem_setup(struct si_sm_io *io)
-+{
-+	unsigned char version;
-+
-+	io->addr = ioremap(io->addr_data, io->regspacing);
-+	if (!io->addr)
-+		return -EIO;
-+
-+	version = readb(io->addr + LS2K_KCS_VERSION);
-+
-+	io->inputb = version ? ls2k_mem_inb_v1 : ls2k_mem_inb_v0;
-+	io->outputb = version ? ls2k_mem_outb_v1 : ls2k_mem_outb_v0;
-+	io->io_cleanup = ls2k_mem_cleanup;
-+
-+	return 0;
-+}
-+
-+static int ipmi_ls2k_probe(struct platform_device *pdev)
-+{
-+	struct si_sm_io io;
-+
-+	memset(&io, 0, sizeof(io));
-+
-+	io.si_info	= &ipmi_kcs_si_info;
-+	io.io_setup	= ipmi_ls2k_mem_setup;
-+	io.addr_data	= pdev->resource[0].start;
-+	io.regspacing	= resource_size(&pdev->resource[0]);
-+	io.dev		= &pdev->dev;
-+
-+	dev_dbg(&pdev->dev, "addr 0x%lx, spacing %d.\n", io.addr_data, io.regspacing);
-+
-+	return ipmi_si_add_smi(&io);
-+}
-+
-+static void ipmi_ls2k_remove(struct platform_device *pdev)
-+{
-+	ipmi_si_remove_by_dev(&pdev->dev);
-+}
-+
-+struct platform_driver ipmi_ls2k_platform_driver = {
-+	.driver = {
-+		.name = "ls2k-ipmi-si",
-+	},
-+	.probe	= ipmi_ls2k_probe,
-+	.remove	= ipmi_ls2k_remove,
-+};
-+
-+void ipmi_si_ls2k_init(void)
-+{
-+	platform_driver_register(&ipmi_ls2k_platform_driver);
-+	ls2k_registered = true;
-+}
-+
-+void ipmi_si_ls2k_shutdown(void)
-+{
-+	if (ls2k_registered)
-+		platform_driver_unregister(&ipmi_ls2k_platform_driver);
-+}
--- 
-2.47.1
-
+ping 
 
 
 _______________________________________________
