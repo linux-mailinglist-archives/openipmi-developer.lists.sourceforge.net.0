@@ -2,128 +2,99 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id ABD57AF67B8
-	for <lists+openipmi-developer@lfdr.de>; Thu,  3 Jul 2025 04:07:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B42AAF8E4D
+	for <lists+openipmi-developer@lfdr.de>; Fri,  4 Jul 2025 11:22:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:To:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xCgd5+RtYeS3A2BTNMVnWEFHNFukHMc2O3cheQjqE4g=; b=XsbFbWcnI4h6kS9H2Z8SekoIUu
-	InttNymqKAp0MniBiH2SPa55cjru3LHsk0cifp8xugOMk4oQyVMU8ypJ2HYJAeT4sc5mS2LgZvU6o
-	bsWcm5pnaZ+UYIcJKuuV6uOVKyZC2qkJ+MU+PwMT4URiZBMyjrw5kM+bVjK0AVrh1+mE=;
+	Subject:MIME-Version:Message-ID:Date:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MjS2/sKk3Fb8rFp3kcQeoG++V3npTIIfKC6GMFxWi/o=; b=ITA0mt1kyTeXPCKfxbRwqazDBE
+	6PyBh7vJBDOi7Up0u8/KhV1pUq/PDgzctDcYMNhHrbVa/Rnp93zMZeiKWHUwYJ4XcuDoIyXjtKGo+
+	oS6abHAsq6+oGl9xKilSKLukeVgc3y97SLpNL8TeWXm9IHDcIaTbxLYPIQa6m8XLe2S0=;
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1uX9Ma-0000LU-Ef;
-	Thu, 03 Jul 2025 02:07:48 +0000
+	id 1uXccA-0005pF-Oi;
+	Fri, 04 Jul 2025 09:21:50 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhoubb.aaron@gmail.com>) id 1uX9MY-0000LM-8s
+ (envelope-from <zhoubinbin@loongson.cn>) id 1uXcc8-0005p8-SB
  for openipmi-developer@lists.sourceforge.net;
- Thu, 03 Jul 2025 02:07:46 +0000
+ Fri, 04 Jul 2025 09:21:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
- Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
- Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
- :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-ID:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=UzkypJTa2aDOnGhEUSNksvIYvW5r2jEVvJtvSkexsCs=; b=Vm+iRQR5Rjw4A+n3FfhZuqQ81I
- Xeq9f3YMF9enrHsFr/QFZv5U5rmZnTfNiXj4/odk2TOUe0Ld8ZsEhHH9Ype/050PMcjYnrgYxWv/q
- GM3tuVzcmNOcfhh649JDmq8gr0mYxSscMleWTzaic+3afmey78ksudGS5KzK8fJpWgxE=;
+ bh=/1cH5EXeCVxUijMo8eQzIAd/1PEHtaSANZDt/taN86o=; b=hPkDXWbislox289dW63Jt321XK
+ VEumgcXUT0kotSIWN3vP7PRgv7pB6aihxbfWf+6TgTI5nElFfG5J9PHnfwbNvQDw+kSzc0Ybj3i0p
+ YfQmdNJfuBBo98Zy0qMtSUj3xtU5WpZm9QIERasbjQJYRaXUHweUGQJDE6w8qOE+Tq54=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
- :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=UzkypJTa2aDOnGhEUSNksvIYvW5r2jEVvJtvSkexsCs=; b=VwjK3VEumz1407OseT2TlVmuhy
- 4eUEvw98jokb/aOITc6Mnv+pc/IJS5D2QCZdjrpyWgI33P4wrKBD7oQtf32/0rRnWb64MjwIFxWkT
- wyKRVx737w1Gykee52vEkyGIF4O3lljuojtFdPGESWmHmSi1KFLgWyCVI1GDcs7Pdqf4=;
-Received: from mail-ed1-f41.google.com ([209.85.208.41])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1uX9MX-0002At-P1 for openipmi-developer@lists.sourceforge.net;
- Thu, 03 Jul 2025 02:07:46 +0000
-Received: by mail-ed1-f41.google.com with SMTP id
- 4fb4d7f45d1cf-60cc11b34f6so836573a12.0
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 02 Jul 2025 19:07:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1751508459; x=1752113259; darn=lists.sourceforge.net;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:from:to:cc:subject:date
- :message-id:reply-to;
- bh=UzkypJTa2aDOnGhEUSNksvIYvW5r2jEVvJtvSkexsCs=;
- b=O3xAXydJ5j+er6w8BgoW+v3EUyN9CPgbmo5GFRVltvImssUcpA5QBobZyv1c8nPyje
- JAGAeqTo/suYoqPjH1oMAPRrmLNIQdV2r3BjQp2x/vJxbMaf9UWb6GHY+L8cyeZbX9H9
- XwWpmUIUDr6XQF+wocYsEZudOKrJqeZFFxEkQxq1g9kmPmfs9VfRnBL01v0VuorXO77L
- M4zrBx6mR23ZnHpLuDeQvl+EPIziwHYsMj8tLrewN/IKgQFKv8rZ0Kqs0K+CVHsxi58n
- JaQOWbUUcBinAODWAaHFlsA802XCRW22/hnuVYEue8zVSL93pxXYoqokQyy2j5Hq0ROI
- ZAqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1751508459; x=1752113259;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=UzkypJTa2aDOnGhEUSNksvIYvW5r2jEVvJtvSkexsCs=;
- b=Kn6hzFhf532LKj8e6sD1MXzjqVUvG3dzWRr+OSXcF1IX4U4DUJmqSPLEOxvWdV9XC9
- d4NnY3GlRSFZY4xWHOlBEe6VpmecyTGWkVMPRB9QG9WMhLH6y1+ZlCDH0zbEYtz1vb6m
- NcXdpeNnBxvX4QrRVi+dJXzgBZS22wS5aZTG2Auvf6sIoRVYiwbu5NuNiqJhvoq35HDa
- 1sD7Hz/t1xdr2yGxxOwVg4+fPMYziuePOOg0eagp5VyQwYmj9XbwQYlA8Wki2kyfyZZZ
- aKwNJxLKPyuE7OlH1Ew75uMdWdiN4WmF+6GKDCveLfz3OKFq+nRaG3QVBYFK6NkHvPnG
- zOQA==
-X-Forwarded-Encrypted: i=1;
- AJvYcCUwPg7ITBpg79uieRG6rEaypLlQorKSjiUtCKd2oYnG4JNLaqUHb9GGZx3BZeDRYhP/KZVfD77iGahg4RUaZYpyuNY=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yz627b8+KDP3i5wjlfMfciNu9ejdpYEmH0774egKM0Gzhu/rE7B
- PbiDp+qgxaEBv25UVW6DRZAGeBUBg/QyLfF9SBeE3ZqvWo+w5QaXkmdlYYe//hHjS1gM8WfJTGF
- rlEQrqCwcAz7rsmhl+85KLCXXX2sCSAI=
-X-Gm-Gg: ASbGncuBaUmT0XPeJZPG/dMSKm4bCwAHsH8Yp4U44twyey0cK89crvltXjzqvnYAbpQ
- R6dLTcK9VM2dlmVUT2PEsvxZ2hFru1k1A3fxX+Cu4/hMA3w/IziGa62i74fw3CtFQ7fgCjLfBfM
- Wn5djfuV+oB0nQnexphwaBmr9WJwSCA0pK8lH8qiwyhw==
-X-Google-Smtp-Source: AGHT+IF218GiZpeI/D+rXXzILlAv1cDE70/cS0aOmmY37xRfNjnVhepbNq4j1eM5FlQuPv33Nwb46LfderGxoJgZ+S8=
-X-Received: by 2002:a17:907:1c97:b0:ae3:c777:6e5e with SMTP id
- a640c23a62f3a-ae3dd25aca9mr88160166b.19.1751508458811; Wed, 02 Jul 2025
- 19:07:38 -0700 (PDT)
+ h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=/1cH5EXeCVxUijMo8eQzIAd/1PEHtaSANZDt/taN86o=; b=K
+ /EHOyxtgalNSlgWo2y83gnog0RLzsdNH0dcVnmF1/v7RJqD/l/gFXz7KQTbQbjtJWTnD7dAdE5dBF
+ 02dPfJW0PUZikFeQMvAAcAsRN513eSj0Ka00PbudbH9LdtwfHt1N/d0p8W36l1I1tumoGDAHY3bKG
+ VPWmE7b9q+Nh2LJo=;
+Received: from mail.loongson.cn ([114.242.206.163])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.95)
+ id 1uXcc7-0005cu-LT for openipmi-developer@lists.sourceforge.net;
+ Fri, 04 Jul 2025 09:21:48 +0000
+Received: from loongson.cn (unknown [223.64.68.149])
+ by gateway (Coremail) with SMTP id _____8BxrOIcnWdotlAiAQ--.33576S3;
+ Fri, 04 Jul 2025 17:21:32 +0800 (CST)
+Received: from localhost.localdomain (unknown [223.64.68.149])
+ by front1 (Coremail) with SMTP id qMiowJAxT+YTnWdobxoJAA--.53746S2;
+ Fri, 04 Jul 2025 17:21:25 +0800 (CST)
+From: Binbin Zhou <zhoubinbin@loongson.cn>
+To: Binbin Zhou <zhoubb.aaron@gmail.com>, Huacai Chen <chenhuacai@loongson.cn>,
+ Lee Jones <lee@kernel.org>, Corey Minyard <minyard@acm.org>
+Date: Fri,  4 Jul 2025 17:21:10 +0800
+Message-ID: <cover.1751617911.git.zhoubinbin@loongson.cn>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-References: <78b06d1c7ae0677868e0c7498b589af163313c8d.1750939357.git.zhoubinbin@loongson.cn>
- <202507021011.sDAHGinj-lkp@intel.com> <20250702162318.GZ10134@google.com>
-In-Reply-To: <20250702162318.GZ10134@google.com>
-From: Binbin Zhou <zhoubb.aaron@gmail.com>
-Date: Thu, 3 Jul 2025 10:07:26 +0800
-X-Gm-Features: Ac12FXxvQYgSR_pb1CaQhAd5356-n99IGXBSgkWflU0a6alpsxti5PcQ-gLfDuE
-Message-ID: <CAMpQs4+hrJ8B4wZRmCH2T7wLAwnmD8_WH2OpNLWH64AbanZ-pw@mail.gmail.com>
-To: Lee Jones <lee@kernel.org>
-X-Spam-Score: -0.2 (/)
+X-CM-TRANSID: qMiowJAxT+YTnWdobxoJAA--.53746S2
+X-CM-SenderInfo: p2kr3uplqex0o6or00hjvr0hdfq/
+X-Coremail-Antispam: 1Uk129KBj93XoWxJF13CF1fuw1DKFW3Kw1kXrc_yoWrKr1Dpa
+ 15urs8Crn8KF17J393Cw1fuFyYqa95Ja4Sgr17Aw15uF4UCa4jyrWrKa13XFyUAF4kKryI
+ qrsayr1fKa45Z3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUx529EdanIXcx71UUUUU7KY7ZEXa
+ sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+ 0xBIdaVrnRJUUUB0b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+ IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+ e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+ 0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+ 6rxl6s0DM2kKe7AKxVWUAVWUtwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
+ kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWU
+ twAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI4
+ 8JMxkF7I0En4kS14v26r126r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
+ 6r4UMxCIbckI1I0E14v26r126r1DMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwV
+ AFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv2
+ 0xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4
+ v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AK
+ xVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUcbAwUUUUU
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Lee: On Thu, Jul 3, 2025 at 12:23 AM Lee Jones wrote: >
- > On Wed, 02 Jul 2025, kernel test robot wrote: > > > Hi Binbin, > > > >
- kernel test robot noticed the following build errors: > > > > [auto build
- [...] Content analysis details:   (-0.2 points, 5.0 required)
+ Content preview:  Hi all: This patch set introduces the Loongson-2K BMC. It
+ is a PCIe device present on servers similar to the Loongson-3 CPUs. And it
+ is a multifunctional device (MFD), such as display as a sub-function of it.
+ Content analysis details:   (0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
- [zhoubb.aaron(at)gmail.com]
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.208.41 listed in wl.mailspike.net]
-X-Headers-End: 1uX9MX-0002At-P1
-Subject: Re: [Openipmi-developer] [PATCH v6 2/3] mfd: ls2kbmc: Add
- Loongson-2K BMC reset function support
+X-Headers-End: 1uXcc7-0005cu-LT
+Subject: [Openipmi-developer] [PATCH v7 0/3] LoongArch: Add Loongson-2K BMC
+ support
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -136,56 +107,156 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Chong Qiao <qiaochong@loongson.cn>, jeffbai@aosc.io,
- kernel test robot <lkp@intel.com>, Corey Minyard <minyard@acm.org>,
- Binbin Zhou <zhoubinbin@loongson.cn>, kexybiscuit@aosc.io, wangyao@lemote.com,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- oe-kbuild-all@lists.linux.dev, Xuerui Wang <kernel@xen0n.name>,
- openipmi-developer@lists.sourceforge.net, Huacai Chen <chenhuacai@loongson.cn>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: jeffbai@aosc.io, Binbin Zhou <zhoubinbin@loongson.cn>, kexybiscuit@aosc.io,
+ Huacai Chen <chenhuacai@kernel.org>, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, wangyao@lemote.com, Xuerui Wang <kernel@xen0n.name>,
+ openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-SGkgTGVlOgoKT24gVGh1LCBKdWwgMywgMjAyNSBhdCAxMjoyM+KAr0FNIExlZSBKb25lcyA8bGVl
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gV2VkLCAwMiBKdWwgMjAyNSwga2VybmVsIHRlc3Qg
-cm9ib3Qgd3JvdGU6Cj4KPiA+IEhpIEJpbmJpbiwKPiA+Cj4gPiBrZXJuZWwgdGVzdCByb2JvdCBu
-b3RpY2VkIHRoZSBmb2xsb3dpbmcgYnVpbGQgZXJyb3JzOgo+ID4KPiA+IFthdXRvIGJ1aWxkIHRl
-c3QgRVJST1Igb24gM2Q3N2IzY2M3Y2M4MTE1ZDg5ZmExNGVhZjYwMWU1NjM3Mjk1MzQ4NF0KPiA+
-Cj4gPiB1cmw6ICAgIGh0dHBzOi8vZ2l0aHViLmNvbS9pbnRlbC1sYWItbGtwL2xpbnV4L2NvbW1p
-dHMvQmluYmluLVpob3UvbWZkLWxzMmtibWMtSW50cm9kdWNlLUxvb25nc29uLTJLLUJNQy1jb3Jl
-LWRyaXZlci8yMDI1MDYyNi0yMDMzNTMKPiA+IGJhc2U6ICAgM2Q3N2IzY2M3Y2M4MTE1ZDg5ZmEx
-NGVhZjYwMWU1NjM3Mjk1MzQ4NAo+ID4gcGF0Y2ggbGluazogICAgaHR0cHM6Ly9sb3JlLmtlcm5l
-bC5vcmcvci83OGIwNmQxYzdhZTA2Nzc4NjhlMGM3NDk4YjU4OWFmMTYzMzEzYzhkLjE3NTA5Mzkz
-NTcuZ2l0Lnpob3ViaW5iaW4lNDBsb29uZ3Nvbi5jbgo+ID4gcGF0Y2ggc3ViamVjdDogW1BBVENI
-IHY2IDIvM10gbWZkOiBsczJrYm1jOiBBZGQgTG9vbmdzb24tMksgQk1DIHJlc2V0IGZ1bmN0aW9u
-IHN1cHBvcnQKPiA+IGNvbmZpZzogc3BhcmM2NC1hbGxtb2Rjb25maWcgKGh0dHBzOi8vZG93bmxv
-YWQuMDEub3JnLzBkYXktY2kvYXJjaGl2ZS8yMDI1MDcwMi8yMDI1MDcwMjEwMTEuc0RBSEdpbmot
-bGtwQGludGVsLmNvbS9jb25maWcpCj4gPiBjb21waWxlcjogc3BhcmM2NC1saW51eC1nY2MgKEdD
-QykgMTUuMS4wCj4gPiByZXByb2R1Y2UgKHRoaXMgaXMgYSBXPTEgYnVpbGQpOiAoaHR0cHM6Ly9k
-b3dubG9hZC4wMS5vcmcvMGRheS1jaS9hcmNoaXZlLzIwMjUwNzAyLzIwMjUwNzAyMTAxMS5zREFI
-R2luai1sa3BAaW50ZWwuY29tL3JlcHJvZHVjZSkKPiA+Cj4gPiBJZiB5b3UgZml4IHRoZSBpc3N1
-ZSBpbiBhIHNlcGFyYXRlIHBhdGNoL2NvbW1pdCAoaS5lLiBub3QganVzdCBhIG5ldyB2ZXJzaW9u
-IG9mCj4gPiB0aGUgc2FtZSBwYXRjaC9jb21taXQpLCBraW5kbHkgYWRkIGZvbGxvd2luZyB0YWdz
-Cj4gPiB8IFJlcG9ydGVkLWJ5OiBrZXJuZWwgdGVzdCByb2JvdCA8bGtwQGludGVsLmNvbT4KPiA+
-IHwgQ2xvc2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9vZS1rYnVpbGQtYWxsLzIwMjUwNzAy
-MTAxMS5zREFIR2luai1sa3BAaW50ZWwuY29tLwo+ID4KPiA+IEFsbCBlcnJvcnMgKG5ldyBvbmVz
-IHByZWZpeGVkIGJ5ID4+KToKPiA+Cj4gPiAgICBkcml2ZXJzL21mZC9sczJrLWJtYy1jb3JlLmM6
-IEluIGZ1bmN0aW9uICdsczJrX2JtY19wZGF0YV9pbml0aWFsJzoKPiA+ID4+IGRyaXZlcnMvbWZk
-L2xzMmstYm1jLWNvcmUuYzozNDk6MTU6IGVycm9yOiBpbXBsaWNpdCBkZWNsYXJhdGlvbiBvZiBm
-dW5jdGlvbiAnYWNwaV9yZWdpc3Rlcl9nc2knIFstV2ltcGxpY2l0LWZ1bmN0aW9uLWRlY2xhcmF0
-aW9uXQo+ID4gICAgICAzNDkgfCAgICAgICAgIGlycSA9IGFjcGlfcmVnaXN0ZXJfZ3NpKE5VTEws
-IGdzaSwgQUNQSV9FREdFX1NFTlNJVElWRSwgQUNQSV9BQ1RJVkVfTE9XKTsKPiA+ICAgICAgICAg
-IHwgICAgICAgICAgICAgICBefn5+fn5+fn5+fn5+fn5+fgo+ID4gPj4gZHJpdmVycy9tZmQvbHMy
-ay1ibWMtY29yZS5jOjM3Njo5OiBlcnJvcjogaW1wbGljaXQgZGVjbGFyYXRpb24gb2YgZnVuY3Rp
-b24gJ2FjcGlfdW5yZWdpc3Rlcl9nc2knOyBkaWQgeW91IG1lYW4gJ2FyY2hfdW5yZWdpc3Rlcl9j
-cHUnPyBbLVdpbXBsaWNpdC1mdW5jdGlvbi1kZWNsYXJhdGlvbl0KPiA+ICAgICAgMzc2IHwgICAg
-ICAgICBhY3BpX3VucmVnaXN0ZXJfZ3NpKGdzaSk7Cj4gPiAgICAgICAgICB8ICAgICAgICAgXn5+
-fn5+fn5+fn5+fn5+fn5+fgo+ID4gICAgICAgICAgfCAgICAgICAgIGFyY2hfdW5yZWdpc3Rlcl9j
-cHUKPgo+IElzIHRoaXMgZXJyb3IgdmFsaWQ/CgpFbW0uLi4KClRoaXMgZXJyb3IgZG9lcyBleGlz
-dCBpZiBBQ1BJX0dFTkVSSUNfR1NJIGlzIG5vdCBzZWxlY3RlZC4KSSB3aWxsIGFkZCB0aGlzIGRl
-cGVuZGVuY3kgaW4gdGhlIG5leHQgdmVyc2lvbi4KCmRlcGVuZHMgb24gUENJICYmIEFDUElfR0VO
-RVJJQ19HU0kKCj4KPiAtLQo+IExlZSBKb25lcyBb5p2O55C85pavXQoKLS0gClRoYW5rcy4KQmlu
-YmluCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KT3Bl
-bmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291
-cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZv
-L29wZW5pcG1pLWRldmVsb3Blcgo=
+Hi all:
+
+This patch set introduces the Loongson-2K BMC.
+
+It is a PCIe device present on servers similar to the Loongson-3 CPUs.
+And it is a multifunctional device (MFD), such as display as a sub-function
+of it.
+
+For IPMI, according to the existing design, we use software simulation to
+implement the KCS interface registers: Stauts/Command/Data_Out/Data_In.
+
+Also since both host side and BMC side read and write kcs status, we use
+fifo pointer to ensure data consistency.
+
+For the display, based on simpledrm, the resolution is read from a fixed
+position in the BMC since the hardware does not support auto-detection
+of the resolution. Of course, we will try to support multiple
+resolutions later, through a vbios-like approach.
+
+Especially, for the BMC reset function, since the display will be
+disconnected when BMC reset, we made a special treatment of re-push.
+
+Based on this, I will present it in four patches:
+patch-1: BMC basic function support, such as display with simpledrm;
+patch-2: BMC reset function support;
+patch-3: IPMI implementation.
+
+Thanks.
+
+-------
+V7:
+Patch (1/3):
+  - Fix build warning by lkp: Add depend on ACPI_GENERIC_GSI
+    - https://lore.kernel.org/all/202507021011.sDAHGinj-lkp@intel.com/
+
+Link to V6:
+https://lore.kernel.org/all/cover.1750939357.git.zhoubinbin@loongson.cn/
+
+V6:
+- Add Acked-by tag from Corey, thanks;
+Patch (1/3):
+  - Fix build warning by lkp: Add depend on PCI
+    - https://lore.kernel.org/all/202506210204.LVZc2VG2-lkp@intel.com/
+    - https://lore.kernel.org/all/202506210231.ZWWNhofU-lkp@intel.com/
+    - https://lore.kernel.org/all/202506210652.ipUFDU5B-lkp@intel.com/
+    - https://lore.kernel.org/all/202506210343.XCHkzorp-lkp@intel.com/
+
+Link to V5:
+https://lore.kernel.org/all/cover.1750301674.git.zhoubinbin@loongson.cn/
+
+V5:
+Patch (1/3):
+ - Rename ls2kbmc-mfd.c to ls2k-bmc-core.c;
+ - Rename MFD_LS2K_BMC to MFD_LS2K_BMC_CORE and update its help text.
+Patch (3/3):
+ - Add an IPMI_LS2K config in the IPMI section that enables the IPMI
+   interface and selects MFD_LS2K_BMC_CORE.
+
+Link to V4:
+https://lore.kernel.org/all/cover.1749731531.git.zhoubinbin@loongson.cn/
+
+V4:
+- Add Reviewed-by tag;
+- Change the order of the patches.
+Patch (1/3):
+  - Fix build warning by lkp: Kconfig tristate -> bool
+    - https://lore.kernel.org/all/202505312022.QmFmGE1F-lkp@intel.com/
+ - Update commit message;
+ - Move MFD_LS2K_BMC after MFD_INTEL_M10_BMC_PMCI in Kconfig and
+   Makefile.
+Patch (2/3):
+  - Remove unnecessary newlines;
+  - Rename ls2k_bmc_check_pcie_connected() to
+    ls2k_bmc_pcie_is_connected();
+  - Update comment message.
+Patch (3/3):
+  - Remove unnecessary newlines.
+
+Link to V3:
+https://lore.kernel.org/all/cover.1748505446.git.zhoubinbin@loongson.cn/
+
+V3:
+Patch (1/3):
+ - Drop "MFD" in title and comment;
+ - Fromatting code;
+ - Add clearer comments.
+Patch (2/3):
+ - Rebase linux-ipmi/next tree;
+ - Use readx()/writex() to read and write IPMI data instead of structure
+   pointer references;
+ - CONFIG_LOONGARCH -> MFD_LS2K_BMC;
+ - Drop unused output.
+Patch (3/3):
+ - Inline the ls2k_bmc_gpio_reset_handler() function to ls2k_bmc_pdata_initial();
+ - Add clearer comments.
+ - Use proper multi-line commentary as per the Coding Style documentation;
+ - Define all magic numbers.
+
+Link to V2:
+https://lore.kernel.org/all/cover.1747276047.git.zhoubinbin@loongson.cn/
+
+V2:
+- Drop ls2kdrm, use simpledrm instead.
+Patch (1/3):
+ - Use DEFINE_RES_MEM_NAMED/MFD_CELL_RES simplified code;
+ - Add resolution fetching due to replacing the original display
+   solution with simpledrm; 
+ - Add aperture_remove_conflicting_devices() to avoid efifb
+   conflict with simpledrm.
+Patch (3/3):
+ - This part of the function, moved from the original ls2kdrm to mfd;
+ - Use set_console to implement the Re-push display function.
+
+Link to V1:
+https://lore.kernel.org/all/cover.1735550269.git.zhoubinbin@loongson.cn/
+
+Binbin Zhou (3):
+  mfd: ls2kbmc: Introduce Loongson-2K BMC core driver
+  mfd: ls2kbmc: Add Loongson-2K BMC reset function support
+  ipmi: Add Loongson-2K BMC support
+
+ MAINTAINERS                      |   7 +
+ drivers/char/ipmi/Kconfig        |   7 +
+ drivers/char/ipmi/Makefile       |   1 +
+ drivers/char/ipmi/ipmi_si.h      |   7 +
+ drivers/char/ipmi/ipmi_si_intf.c |   4 +
+ drivers/char/ipmi/ipmi_si_ls2k.c | 189 ++++++++++++
+ drivers/mfd/Kconfig              |  13 +
+ drivers/mfd/Makefile             |   2 +
+ drivers/mfd/ls2k-bmc-core.c      | 484 +++++++++++++++++++++++++++++++
+ 9 files changed, 714 insertions(+)
+ create mode 100644 drivers/char/ipmi/ipmi_si_ls2k.c
+ create mode 100644 drivers/mfd/ls2k-bmc-core.c
+
+
+base-commit: 2e8185c0f214d45cdbc20ee4e6796c561ba66c55
+-- 
+2.47.1
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
