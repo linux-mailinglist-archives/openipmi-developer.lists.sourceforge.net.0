@@ -2,83 +2,85 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6294DB2263D
-	for <lists+openipmi-developer@lfdr.de>; Tue, 12 Aug 2025 14:00:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D3FE1B2263F
+	for <lists+openipmi-developer@lfdr.de>; Tue, 12 Aug 2025 14:00:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:MIME-Version:Message-ID:Date:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=caP9e2iA+0J6O/GWa1STEGXVZ4XyfMh9tzt7yzRAR+I=; b=kIAxUrLU+/zzQXSEGpko9+TyH9
-	HS+zV6HwTFXnEMNG6NtHPZCQx8twYAuRWuBFi3AgsDaloG8kP0JP6PqXB1bRhxgORCkwbzD8gExcU
-	aPkwdTFb2PhkLXQEZpe9gjKLLiM/cxxfj3J4xp/rpvu9ROeP2xg+bqBCGAgmto1XLW8Q=;
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WzwLkDksjyl93BHRUfmJNg1lSh5JaeQOnDDZLPVcd7A=; b=Z45cCgefLk6fPZy56mb0PLbfZQ
+	AvgdOHKXTf2WIw9R5zuFZL7mbn7l8Rx1E18ohQDDXIAe+Uzqq0t2QKfifhuXEABMCSMNzL5LHRcRY
+	rHcPHEIinucSe//rCrt6hJ3UqrvmQ6uqJcXM7GNq04xjEUPR/EiOABsyZB3Cb/lNhRGs=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1ulnfi-0006TV-1B;
-	Tue, 12 Aug 2025 12:00:06 +0000
+	id 1ulnfr-0006rx-Nz;
+	Tue, 12 Aug 2025 12:00:15 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhoubinbin@loongson.cn>) id 1ulnfg-0006TJ-Vk
+ (envelope-from <zhoubinbin@loongson.cn>) id 1ulnfq-0006rr-Ie
  for openipmi-developer@lists.sourceforge.net;
- Tue, 12 Aug 2025 12:00:05 +0000
+ Tue, 12 Aug 2025 12:00:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-ID:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=b9cDG0HsOXX77+r+7wHX2pvcQhH8q+M3eRT8W8ZK3DQ=; b=iZblNPns49ZGthHxnFAx/RJhSA
- mpLAUqnp+2AMhfmGEKmz7eHatrDGT4nRF/24punBrnHGrwuVQiPvW78VijiwclD6a44EVIvR0nIpF
- 4uQqFtNGLmh10MQLqEqk7cyK/TToaX99mfZyvQuNqWQhno1KP4UZLMP3hf+TWRwvAVZk=;
+ bh=BaiHyz/5KXl9nstqyOPT7HXOvaMS2kbJQt3t4qWzKwU=; b=UerPo2lkDwl8fFPrtfcX6Zm7n6
+ s/AosYG5eQBNNBtXm8ovWKT0zcLzesYqs1GONhClp1GecAlSxmKdQEKmb5XlQdhvDa2CUZwVYmpaW
+ ESQPS2ggkCWUgh7AurKY7P3sKsClz/ZcpkntFNfuXoLs1YS3oA+QAfv9kLs4kenx4cUk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=b9cDG0HsOXX77+r+7wHX2pvcQhH8q+M3eRT8W8ZK3DQ=; b=D
- AZ4jsUSZbcMHCd2RTh/ij1/u1MTI5aChRGuS31bwc+S2nlKBCMvyyHytEWoNdm+YwuQSkc2gwzBFW
- bc0CFAvqWZJJJS59FSFxuUXgx3SKIN+Czwcx5G/LeHpSVc0Djjk0rkJXmU2f9p1b4V5fG1o/Jlj/5
- yQsxAGKDwEamoaug=;
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=BaiHyz/5KXl9nstqyOPT7HXOvaMS2kbJQt3t4qWzKwU=; b=ByDvclmbaw6ZpiZh6GdhFlaXlU
+ x3qyLRW5BWh1Pr2fgvMBubJPcwKDylA4Tp/wT2YNLKBwX1uZNoyfkpUqQ+5YxMj7BHmrstsobe0Dn
+ ZaREbir+KQLp/J10H78zBX2mfmywc63mAt92b/L5YrR81KWy83BRVSP63cX7ZGvs8Akw=;
 Received: from mail.loongson.cn ([114.242.206.163])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.95)
- id 1ulnfg-0003iT-IP for openipmi-developer@lists.sourceforge.net;
- Tue, 12 Aug 2025 12:00:05 +0000
+ id 1ulnfp-0003js-4j for openipmi-developer@lists.sourceforge.net;
+ Tue, 12 Aug 2025 12:00:14 +0000
 Received: from loongson.cn (unknown [223.64.69.45])
- by gateway (Coremail) with SMTP id _____8BxYa+2LJtofvI+AQ--.14251S3;
- Tue, 12 Aug 2025 19:59:50 +0800 (CST)
+ by gateway (Coremail) with SMTP id _____8BxnmvBLJtoj_I+AQ--.13449S3;
+ Tue, 12 Aug 2025 20:00:01 +0800 (CST)
 Received: from localhost.localdomain (unknown [223.64.69.45])
- by front1 (Coremail) with SMTP id qMiowJDx_8OvLJtodotGAA--.3774S2;
- Tue, 12 Aug 2025 19:59:46 +0800 (CST)
+ by front1 (Coremail) with SMTP id qMiowJDx_8OvLJtodotGAA--.3774S3;
+ Tue, 12 Aug 2025 19:59:54 +0800 (CST)
 From: Binbin Zhou <zhoubinbin@loongson.cn>
 To: Binbin Zhou <zhoubb.aaron@gmail.com>, Huacai Chen <chenhuacai@loongson.cn>,
  Lee Jones <lee@kernel.org>, Corey Minyard <minyard@acm.org>
-Date: Tue, 12 Aug 2025 19:59:32 +0800
-Message-ID: <cover.1754999365.git.zhoubinbin@loongson.cn>
+Date: Tue, 12 Aug 2025 19:59:33 +0800
+Message-ID: <b58c56703017d6afd2b2f1a5546155d30f31c6ea.1754999365.git.zhoubinbin@loongson.cn>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1754999365.git.zhoubinbin@loongson.cn>
+References: <cover.1754999365.git.zhoubinbin@loongson.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qMiowJDx_8OvLJtodotGAA--.3774S2
+X-CM-TRANSID: qMiowJDx_8OvLJtodotGAA--.3774S3
 X-CM-SenderInfo: p2kr3uplqex0o6or00hjvr0hdfq/
-X-Coremail-Antispam: 1Uk129KBj93XoWxuFyxtFyxZF1fuF47Wr15Awc_yoW7Ar1Upa
- 15ursxCr1DKF1xJrZ3Aw1fuFyYga95Ja4SgF17A345ZF4UCa40yryFka13XFy7AF4kKryI
- qrsayF1Ska45u3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUx529EdanIXcx71UUUUU7KY7ZEXa
+X-Coremail-Antispam: 1Uk129KBj93XoW3Jw1DWF1rZr1rXw1DKF1rGrX_yoWfWry5p3
+ WxAay5Cr1DJF47Ga9xAr1UuFs3ua9Yv3y5Xa9rJwnIva13Ca4UXw4ktFya9ryDJFyvgry2
+ qF9xJr4UC3ZxJFcCm3ZEXasCq-sJn29KB7ZKAUJUUUUx529EdanIXcx71UUUUU7KY7ZEXa
  sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
- 0xBIdaVrnRJUUUBjb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+ 0xBIdaVrnRJUUUB0b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
  IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
  e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
  0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
  GcCE3s1ln4kS14v26r126r1DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2
- x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1D
- McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr4
+ x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5
+ McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr4
  1lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
  Gr1l4IxYO2xFxVAFwI0_JF0_Jw1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
  AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
- cVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI
- 8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
- 6r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j5o7tUUUUU=
+ cVAFwI0_Gr0_Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI
+ 8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v2
+ 6r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU4Xo7DUUUU
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
@@ -86,15 +88,16 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: Hi all: This patchset introduces the Loongson-2K BMC. It is
- a PCIe device present on servers similar to the Loongson-3 CPUs. And it is
- a multifunctional device (MFD), such as display as a sub-function of it. 
+ Content preview: The Loongson-2K Board Management Controller provides an PCIe
+ interface to the host to access the feature implemented in the BMC. The BMC
+ is assembled on a server similar to the server machine with Loongson-3 CPU.
+ It supports multiple sub-devices like DRM and IPMI. 
  Content analysis details:   (0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
-X-Headers-End: 1ulnfg-0003iT-IP
-Subject: [Openipmi-developer] [PATCH v9 0/3] LoongArch: Add Loongson-2K BMC
- support
+X-Headers-End: 1ulnfp-0003js-4j
+Subject: [Openipmi-developer] [PATCH v9 1/3] mfd: ls2kbmc: Introduce
+ Loongson-2K BMC core driver
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -107,171 +110,284 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: jeffbai@aosc.io, Binbin Zhou <zhoubinbin@loongson.cn>, kexybiscuit@aosc.io,
+Cc: Chong Qiao <qiaochong@loongson.cn>, jeffbai@aosc.io,
+ Binbin Zhou <zhoubinbin@loongson.cn>, kexybiscuit@aosc.io,
  Huacai Chen <chenhuacai@kernel.org>, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, wangyao@lemote.com, Xuerui Wang <kernel@xen0n.name>,
+ Corey Minyard <corey@minyard.net>, loongarch@lists.linux.dev,
+ wangyao@lemote.com, Xuerui Wang <kernel@xen0n.name>,
  openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi all:
+The Loongson-2K Board Management Controller provides an PCIe interface
+to the host to access the feature implemented in the BMC.
 
-This patchset introduces the Loongson-2K BMC.
+The BMC is assembled on a server similar to the server machine with
+Loongson-3 CPU. It supports multiple sub-devices like DRM and IPMI.
 
-It is a PCIe device present on servers similar to the Loongson-3 CPUs.
-And it is a multifunctional device (MFD), such as display as a sub-function
-of it.
-
-For IPMI, according to the existing design, we use software simulation to
-implement the KCS interface registers: Stauts/Command/Data_Out/Data_In.
-
-Also since both host side and BMC side read and write kcs status, we use
-fifo pointer to ensure data consistency.
-
-For the display, based on simpledrm, the resolution is read from a fixed
-position in the BMC since the hardware does not support auto-detection
-of the resolution. Of course, we will try to support multiple
-resolutions later, through a vbios-like approach.
-
-Especially, for the BMC reset function, since the display will be
-disconnected when BMC reset, we made a special treatment of re-push.
-
-Based on this, I will present it in four patches:
-patch-1: BMC device PCI resource allocation.
-patch-2: BMC reset function support
-patch-3: IPMI implementation
-
-Thanks.
-
--------
-V9:
-Patch (2/3):
- - PCIE -> PCI-E in dev_err();
- - Separate the read from the write;
-
-Link to V8:
-https://lore.kernel.org/all/cover.1752548073.git.zhoubinbin@loongson.cn/
-
-V8:
-Patch (1/3):
- - Similar to as3711_subdevs, identify elements in ls2k_bmc_cells.
-
-Patch (2/3):
- - Rename variables using usual names, such as `priv` -> `ddata`;
- - Use if statements instead of #ifery;
- - Rewrite the error message to ensure it is easy to understand;
- - ls2k_bmc_pdata_initial(dev, priv); -> ls2k_bmc_pdata_initial(priv);
-
-Link to V7:
-https://lore.kernel.org/all/cover.1751617911.git.zhoubinbin@loongson.cn/
-
-V7:
-Patch (1/3):
-  - Fix build warning by lkp: Add depend on ACPI_GENERIC_GSI
-    - https://lore.kernel.org/all/202507021011.sDAHGinj-lkp@intel.com/
-
-Link to V6:
-https://lore.kernel.org/all/cover.1750939357.git.zhoubinbin@loongson.cn/
-
-V6:
-- Add Acked-by tag from Corey, thanks;
-Patch (1/3):
-  - Fix build warning by lkp: Add depend on PCI
-    - https://lore.kernel.org/all/202506210204.LVZc2VG2-lkp@intel.com/
-    - https://lore.kernel.org/all/202506210231.ZWWNhofU-lkp@intel.com/
-    - https://lore.kernel.org/all/202506210652.ipUFDU5B-lkp@intel.com/
-    - https://lore.kernel.org/all/202506210343.XCHkzorp-lkp@intel.com/
-
-Link to V5:
-https://lore.kernel.org/all/cover.1750301674.git.zhoubinbin@loongson.cn/
-
-V5:
-Patch (1/3):
- - Rename ls2kbmc-mfd.c to ls2k-bmc-core.c;
- - Rename MFD_LS2K_BMC to MFD_LS2K_BMC_CORE and update its help text.
-Patch (3/3):
- - Add an IPMI_LS2K config in the IPMI section that enables the IPMI
-   interface and selects MFD_LS2K_BMC_CORE.
-
-Link to V4:
-https://lore.kernel.org/all/cover.1749731531.git.zhoubinbin@loongson.cn/
-
-V4:
-- Add Reviewed-by tag;
-- Change the order of the patches.
-Patch (1/3):
-  - Fix build warning by lkp: Kconfig tristate -> bool
-    - https://lore.kernel.org/all/202505312022.QmFmGE1F-lkp@intel.com/
- - Update commit message;
- - Move MFD_LS2K_BMC after MFD_INTEL_M10_BMC_PMCI in Kconfig and
-   Makefile.
-Patch (2/3):
-  - Remove unnecessary newlines;
-  - Rename ls2k_bmc_check_pcie_connected() to
-    ls2k_bmc_pcie_is_connected();
-  - Update comment message.
-Patch (3/3):
-  - Remove unnecessary newlines.
-
-Link to V3:
-https://lore.kernel.org/all/cover.1748505446.git.zhoubinbin@loongson.cn/
-
-V3:
-Patch (1/3):
- - Drop "MFD" in title and comment;
- - Fromatting code;
- - Add clearer comments.
-Patch (2/3):
- - Rebase linux-ipmi/next tree;
- - Use readx()/writex() to read and write IPMI data instead of structure
-   pointer references;
- - CONFIG_LOONGARCH -> MFD_LS2K_BMC;
- - Drop unused output.
-Patch (3/3):
- - Inline the ls2k_bmc_gpio_reset_handler() function to ls2k_bmc_pdata_initial();
- - Add clearer comments.
- - Use proper multi-line commentary as per the Coding Style documentation;
- - Define all magic numbers.
-
-Link to V2:
-https://lore.kernel.org/all/cover.1747276047.git.zhoubinbin@loongson.cn/
-
-V2:
-- Drop ls2kdrm, use simpledrm instead.
-Patch (1/3):
- - Use DEFINE_RES_MEM_NAMED/MFD_CELL_RES simplified code;
- - Add resolution fetching due to replacing the original display
-   solution with simpledrm; 
- - Add aperture_remove_conflicting_devices() to avoid efifb
-   conflict with simpledrm.
-Patch (3/3):
- - This part of the function, moved from the original ls2kdrm to mfd;
- - Use set_console to implement the Re-push display function.
-
-Link to V1:
-https://lore.kernel.org/all/cover.1735550269.git.zhoubinbin@loongson.cn/
-
-Binbin Zhou (3):
-  mfd: ls2kbmc: Introduce Loongson-2K BMC core driver
-  mfd: ls2kbmc: Add Loongson-2K BMC reset function support
-  ipmi: Add Loongson-2K BMC support
-
- MAINTAINERS                      |   7 +
- drivers/char/ipmi/Kconfig        |   7 +
- drivers/char/ipmi/Makefile       |   1 +
- drivers/char/ipmi/ipmi_si.h      |   7 +
- drivers/char/ipmi/ipmi_si_intf.c |   4 +
- drivers/char/ipmi/ipmi_si_ls2k.c | 189 +++++++++++
- drivers/mfd/Kconfig              |  13 +
- drivers/mfd/Makefile             |   2 +
- drivers/mfd/ls2k-bmc-core.c      | 525 +++++++++++++++++++++++++++++++
- 9 files changed, 755 insertions(+)
- create mode 100644 drivers/char/ipmi/ipmi_si_ls2k.c
+Co-developed-by: Chong Qiao <qiaochong@loongson.cn>
+Signed-off-by: Chong Qiao <qiaochong@loongson.cn>
+Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
+Acked-by: Corey Minyard <corey@minyard.net>
+Signed-off-by: Binbin Zhou <zhoubinbin@loongson.cn>
+---
+ MAINTAINERS                 |   6 ++
+ drivers/mfd/Kconfig         |  13 +++
+ drivers/mfd/Makefile        |   2 +
+ drivers/mfd/ls2k-bmc-core.c | 189 ++++++++++++++++++++++++++++++++++++
+ 4 files changed, 210 insertions(+)
  create mode 100644 drivers/mfd/ls2k-bmc-core.c
 
-
-base-commit: 006aa8f57f55dd5bf68c4ada1e0d3f4e59027d71
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0f84051ef044..d50b2c3b2bb8 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14206,6 +14206,12 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/thermal/loongson,ls2k-thermal.yaml
+ F:	drivers/thermal/loongson2_thermal.c
+ 
++LOONGSON-2K Board Management Controller (BMC) DRIVER
++M:	Binbin Zhou <zhoubinbin@loongson.cn>
++M:	Chong Qiao <qiaochong@loongson.cn>
++S:	Maintained
++F:	drivers/mfd/ls2k-bmc-core.c
++
+ LOONGSON EDAC DRIVER
+ M:	Zhao Qunqin <zhaoqunqin@loongson.cn>
+ L:	linux-edac@vger.kernel.org
+diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+index 425c5fba6cb1..55fbeba2ca33 100644
+--- a/drivers/mfd/Kconfig
++++ b/drivers/mfd/Kconfig
+@@ -2428,6 +2428,19 @@ config MFD_INTEL_M10_BMC_PMCI
+ 	  additional drivers must be enabled in order to use the functionality
+ 	  of the device.
+ 
++config MFD_LS2K_BMC_CORE
++	bool "Loongson-2K Board Management Controller Support"
++	depends on PCI && ACPI_GENERIC_GSI
++	select MFD_CORE
++	help
++	  Say yes here to add support for the Loongson-2K BMC which is a Board
++	  Management Controller connected to the PCIe bus. The device supports
++	  multiple sub-devices like display and IPMI. This driver provides common
++	  support for accessing the devices.
++
++	  The display is enabled by default in the driver, while the IPMI interface
++	  is enabled independently through the IPMI_LS2K option in the IPMI section.
++
+ config MFD_QNAP_MCU
+ 	tristate "QNAP microcontroller unit core driver"
+ 	depends on SERIAL_DEV_BUS
+diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+index f7bdedd5a66d..a950e670efba 100644
+--- a/drivers/mfd/Makefile
++++ b/drivers/mfd/Makefile
+@@ -286,6 +286,8 @@ obj-$(CONFIG_MFD_INTEL_M10_BMC_CORE)   += intel-m10-bmc-core.o
+ obj-$(CONFIG_MFD_INTEL_M10_BMC_SPI)    += intel-m10-bmc-spi.o
+ obj-$(CONFIG_MFD_INTEL_M10_BMC_PMCI)   += intel-m10-bmc-pmci.o
+ 
++obj-$(CONFIG_MFD_LS2K_BMC_CORE)		+= ls2k-bmc-core.o
++
+ obj-$(CONFIG_MFD_ATC260X)	+= atc260x-core.o
+ obj-$(CONFIG_MFD_ATC260X_I2C)	+= atc260x-i2c.o
+ 
+diff --git a/drivers/mfd/ls2k-bmc-core.c b/drivers/mfd/ls2k-bmc-core.c
+new file mode 100644
+index 000000000000..39cc481d9ba1
+--- /dev/null
++++ b/drivers/mfd/ls2k-bmc-core.c
+@@ -0,0 +1,189 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Loongson-2K Board Management Controller (BMC) Core Driver.
++ *
++ * Copyright (C) 2024-2025 Loongson Technology Corporation Limited.
++ *
++ * Authors:
++ *	Chong Qiao <qiaochong@loongson.cn>
++ *	Binbin Zhou <zhoubinbin@loongson.cn>
++ */
++
++#include <linux/aperture.h>
++#include <linux/errno.h>
++#include <linux/init.h>
++#include <linux/kernel.h>
++#include <linux/mfd/core.h>
++#include <linux/module.h>
++#include <linux/pci.h>
++#include <linux/pci_ids.h>
++#include <linux/platform_data/simplefb.h>
++#include <linux/platform_device.h>
++
++/* LS2K BMC resources */
++#define LS2K_DISPLAY_RES_START		(SZ_16M + SZ_2M)
++#define LS2K_IPMI_RES_SIZE		0x1C
++#define LS2K_IPMI0_RES_START		(SZ_16M + 0xF00000)
++#define LS2K_IPMI1_RES_START		(LS2K_IPMI0_RES_START + LS2K_IPMI_RES_SIZE)
++#define LS2K_IPMI2_RES_START		(LS2K_IPMI1_RES_START + LS2K_IPMI_RES_SIZE)
++#define LS2K_IPMI3_RES_START		(LS2K_IPMI2_RES_START + LS2K_IPMI_RES_SIZE)
++#define LS2K_IPMI4_RES_START		(LS2K_IPMI3_RES_START + LS2K_IPMI_RES_SIZE)
++
++enum {
++	LS2K_BMC_DISPLAY,
++	LS2K_BMC_IPMI0,
++	LS2K_BMC_IPMI1,
++	LS2K_BMC_IPMI2,
++	LS2K_BMC_IPMI3,
++	LS2K_BMC_IPMI4,
++};
++
++static struct resource ls2k_display_resources[] = {
++	DEFINE_RES_MEM_NAMED(LS2K_DISPLAY_RES_START, SZ_4M, "simpledrm-res"),
++};
++
++static struct resource ls2k_ipmi0_resources[] = {
++	DEFINE_RES_MEM_NAMED(LS2K_IPMI0_RES_START, LS2K_IPMI_RES_SIZE, "ipmi0-res"),
++};
++
++static struct resource ls2k_ipmi1_resources[] = {
++	DEFINE_RES_MEM_NAMED(LS2K_IPMI1_RES_START, LS2K_IPMI_RES_SIZE, "ipmi1-res"),
++};
++
++static struct resource ls2k_ipmi2_resources[] = {
++	DEFINE_RES_MEM_NAMED(LS2K_IPMI2_RES_START, LS2K_IPMI_RES_SIZE, "ipmi2-res"),
++};
++
++static struct resource ls2k_ipmi3_resources[] = {
++	DEFINE_RES_MEM_NAMED(LS2K_IPMI3_RES_START, LS2K_IPMI_RES_SIZE, "ipmi3-res"),
++};
++
++static struct resource ls2k_ipmi4_resources[] = {
++	DEFINE_RES_MEM_NAMED(LS2K_IPMI4_RES_START, LS2K_IPMI_RES_SIZE, "ipmi4-res"),
++};
++
++static struct mfd_cell ls2k_bmc_cells[] = {
++	[LS2K_BMC_DISPLAY] = {
++		.name = "simple-framebuffer",
++		.num_resources = ARRAY_SIZE(ls2k_display_resources),
++		.resources = ls2k_display_resources
++	},
++	[LS2K_BMC_IPMI0] = {
++		.name = "ls2k-ipmi-si",
++		.num_resources = ARRAY_SIZE(ls2k_ipmi0_resources),
++		.resources = ls2k_ipmi0_resources
++	},
++	[LS2K_BMC_IPMI1] = {
++		.name = "ls2k-ipmi-si",
++		.num_resources = ARRAY_SIZE(ls2k_ipmi1_resources),
++		.resources = ls2k_ipmi1_resources
++	},
++	[LS2K_BMC_IPMI2] = {
++		.name = "ls2k-ipmi-si",
++		.num_resources = ARRAY_SIZE(ls2k_ipmi2_resources),
++		.resources = ls2k_ipmi2_resources
++	},
++	[LS2K_BMC_IPMI3] = {
++		.name = "ls2k-ipmi-si",
++		.num_resources = ARRAY_SIZE(ls2k_ipmi3_resources),
++		.resources = ls2k_ipmi3_resources
++	},
++	[LS2K_BMC_IPMI4] = {
++		.name = "ls2k-ipmi-si",
++		.num_resources = ARRAY_SIZE(ls2k_ipmi4_resources),
++		.resources = ls2k_ipmi4_resources
++	},
++};
++
++/*
++ * Currently the Loongson-2K BMC hardware does not have an I2C interface to adapt to the
++ * resolution. We set the resolution by presetting "video=1280x1024-16@2M" to the BMC memory.
++ */
++static int ls2k_bmc_parse_mode(struct pci_dev *pdev, struct simplefb_platform_data *pd)
++{
++	char *mode;
++	int depth, ret;
++
++	/* The last 16M of PCI BAR0 is used to store the resolution string. */
++	mode = devm_ioremap(&pdev->dev, pci_resource_start(pdev, 0) + SZ_16M, SZ_16M);
++	if (!mode)
++		return -ENOMEM;
++
++	/* The resolution field starts with the flag "video=". */
++	if (!strncmp(mode, "video=", 6))
++		mode = mode + 6;
++
++	ret = kstrtoint(strsep(&mode, "x"), 10, &pd->width);
++	if (ret)
++		return ret;
++
++	ret = kstrtoint(strsep(&mode, "-"), 10, &pd->height);
++	if (ret)
++		return ret;
++
++	ret = kstrtoint(strsep(&mode, "@"), 10, &depth);
++	if (ret)
++		return ret;
++
++	pd->stride = pd->width * depth / 8;
++	pd->format = depth == 32 ? "a8r8g8b8" : "r5g6b5";
++
++	return 0;
++}
++
++static int ls2k_bmc_probe(struct pci_dev *dev, const struct pci_device_id *id)
++{
++	struct simplefb_platform_data pd;
++	resource_size_t base;
++	int ret;
++
++	ret = pci_enable_device(dev);
++	if (ret)
++		return ret;
++
++	ret = ls2k_bmc_parse_mode(dev, &pd);
++	if (ret)
++		goto disable_pci;
++
++	ls2k_bmc_cells[LS2K_BMC_DISPLAY].platform_data = &pd;
++	ls2k_bmc_cells[LS2K_BMC_DISPLAY].pdata_size = sizeof(pd);
++	base = dev->resource[0].start + LS2K_DISPLAY_RES_START;
++
++	/* Remove conflicting efifb device */
++	ret = aperture_remove_conflicting_devices(base, SZ_4M, "simple-framebuffer");
++	if (ret) {
++		dev_err(&dev->dev, "Failed to removed firmware framebuffers: %d\n", ret);
++		goto disable_pci;
++	}
++
++	return devm_mfd_add_devices(&dev->dev, PLATFORM_DEVID_AUTO,
++				    ls2k_bmc_cells, ARRAY_SIZE(ls2k_bmc_cells),
++				    &dev->resource[0], 0, NULL);
++
++disable_pci:
++	pci_disable_device(dev);
++	return ret;
++}
++
++static void ls2k_bmc_remove(struct pci_dev *dev)
++{
++	pci_disable_device(dev);
++}
++
++static struct pci_device_id ls2k_bmc_devices[] = {
++	{ PCI_DEVICE(PCI_VENDOR_ID_LOONGSON, 0x1a05) },
++	{ }
++};
++MODULE_DEVICE_TABLE(pci, ls2k_bmc_devices);
++
++static struct pci_driver ls2k_bmc_driver = {
++	.name = "ls2k-bmc",
++	.id_table = ls2k_bmc_devices,
++	.probe = ls2k_bmc_probe,
++	.remove = ls2k_bmc_remove,
++};
++module_pci_driver(ls2k_bmc_driver);
++
++MODULE_DESCRIPTION("Loongson-2K Board Management Controller (BMC) Core driver");
++MODULE_AUTHOR("Loongson Technology Corporation Limited");
++MODULE_LICENSE("GPL");
 -- 
 2.47.3
 
