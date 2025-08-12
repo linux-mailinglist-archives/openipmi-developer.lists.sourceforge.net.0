@@ -2,104 +2,99 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id AC02DB1F76D
-	for <lists+openipmi-developer@lfdr.de>; Sun, 10 Aug 2025 02:22:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6294DB2263D
+	for <lists+openipmi-developer@lfdr.de>; Tue, 12 Aug 2025 14:00:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:To:Sender:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iJZeT6Z/GS+AXoR9RRkiPizuql9YPkfwTMDF/+zUYFI=; b=Knp9vP0ftjRptoUw+KLXPZvjQ4
-	0EUfLw+anJLNiHsxPCDVixJn7nukZBA9Q049DMNEoJAoq4jndMeHIX+rVXoNi2XG7kVX57utYsU4X
-	pJq5/DukBHPtd/0o65JMWxcQkLj10ruuohmGwXZaZFMDF4wnmTZVIEtt8W+UYumlfyyM=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:MIME-Version:Message-ID:Date:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=caP9e2iA+0J6O/GWa1STEGXVZ4XyfMh9tzt7yzRAR+I=; b=kIAxUrLU+/zzQXSEGpko9+TyH9
+	HS+zV6HwTFXnEMNG6NtHPZCQx8twYAuRWuBFi3AgsDaloG8kP0JP6PqXB1bRhxgORCkwbzD8gExcU
+	aPkwdTFb2PhkLXQEZpe9gjKLLiM/cxxfj3J4xp/rpvu9ROeP2xg+bqBCGAgmto1XLW8Q=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1uktoq-0003XB-Sm;
-	Sun, 10 Aug 2025 00:21:48 +0000
+	id 1ulnfi-0006TV-1B;
+	Tue, 12 Aug 2025 12:00:06 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <sashal@kernel.org>) id 1uktop-0003X4-C0
+ (envelope-from <zhoubinbin@loongson.cn>) id 1ulnfg-0006TJ-Vk
  for openipmi-developer@lists.sourceforge.net;
- Sun, 10 Aug 2025 00:21:47 +0000
+ Tue, 12 Aug 2025 12:00:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=fy7NLMPKVrZDXkSDiEf85Twj4zFsdyteViMvRMJgkbU=; b=GE8Bdx4FMars/5C7jbJPdZC4vE
- jVFMeTBKOvh5Nffku0qF/3qCO0BMUwCe2/P1eCLc7ZWgjgPO5d/naRf/OAK7RqgBk8Cd0qwMDHVkZ
- +MAj6axHi64kOakrFBuopiITVdg6qn3T/vG39FvyRM55I1kWXzsSQnyVV/Y1GjgtB1n4=;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
- ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-ID:
  Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=fy7NLMPKVrZDXkSDiEf85Twj4zFsdyteViMvRMJgkbU=; b=Ne9XoLTdMlMDC7TqvRFxWwspB2
- mRd8SB0CNolzDDLX7qohN3CT4vFq9TXlLif6cyjx4BWB0jXedUN1I7pRafEvtdEnNOp08ATzab+lF
- F1HngycSP0dA8KJ96+IxfrFO2BKa7rva5y7E71vzIyx9ySLrlOz3LYUR2XNmoGxUF270=;
-Received: from dfw.source.kernel.org ([139.178.84.217])
- by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1uktoo-00006F-NT for openipmi-developer@lists.sourceforge.net;
- Sun, 10 Aug 2025 00:21:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by dfw.source.kernel.org (Postfix) with ESMTP id 5F2965C51AA;
- Sun, 10 Aug 2025 00:21:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03514C4CEE7;
- Sun, 10 Aug 2025 00:21:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1754785296;
- bh=oxbFC8LpeOtA7fHqzIDtkJBaA/dia+1GofAqcvEpL8o=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=sSez/7yU8bXOeMwMYXDYpCPguSdYR+krOp0FUnPi2586/vJgTDx3BLsytNczSxfD/
- hDoRqN26JsKUVdves38CJi+i0SjdyeJ3KiCM6qn/SZUsYANl0H9bxiV56eN6Y5QjYh
- LoF72yLG6HpOrNAoQP0hbIBVoPHXCV1T921vaxtqTuARA0qsUMD9A+L3UpOjxA5loQ
- 2lhBjGhQOpr1Pdxv47q5O5GNtSf14aEJ2smGESyo6P9UVNNCLzzNp6DgSNkyoH6vla
- fMsdh+T+zY2k5lOrvVK8toRTIwbo80nRmVZiLNuYW2JEBu2DijTcWZoWchMlgZiDrx
- 8Tx1g9k8GIUDw==
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Date: Sat,  9 Aug 2025 20:21:02 -0400
-Message-Id: <20250810002104.1545396-13-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250810002104.1545396-1-sashal@kernel.org>
-References: <20250810002104.1545396-1-sashal@kernel.org>
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=b9cDG0HsOXX77+r+7wHX2pvcQhH8q+M3eRT8W8ZK3DQ=; b=iZblNPns49ZGthHxnFAx/RJhSA
+ mpLAUqnp+2AMhfmGEKmz7eHatrDGT4nRF/24punBrnHGrwuVQiPvW78VijiwclD6a44EVIvR0nIpF
+ 4uQqFtNGLmh10MQLqEqk7cyK/TToaX99mfZyvQuNqWQhno1KP4UZLMP3hf+TWRwvAVZk=;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
+ ;
+ h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From
+ :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=b9cDG0HsOXX77+r+7wHX2pvcQhH8q+M3eRT8W8ZK3DQ=; b=D
+ AZ4jsUSZbcMHCd2RTh/ij1/u1MTI5aChRGuS31bwc+S2nlKBCMvyyHytEWoNdm+YwuQSkc2gwzBFW
+ bc0CFAvqWZJJJS59FSFxuUXgx3SKIN+Czwcx5G/LeHpSVc0Djjk0rkJXmU2f9p1b4V5fG1o/Jlj/5
+ yQsxAGKDwEamoaug=;
+Received: from mail.loongson.cn ([114.242.206.163])
+ by sfi-mx-2.v28.lw.sourceforge.com with esmtp (Exim 4.95)
+ id 1ulnfg-0003iT-IP for openipmi-developer@lists.sourceforge.net;
+ Tue, 12 Aug 2025 12:00:05 +0000
+Received: from loongson.cn (unknown [223.64.69.45])
+ by gateway (Coremail) with SMTP id _____8BxYa+2LJtofvI+AQ--.14251S3;
+ Tue, 12 Aug 2025 19:59:50 +0800 (CST)
+Received: from localhost.localdomain (unknown [223.64.69.45])
+ by front1 (Coremail) with SMTP id qMiowJDx_8OvLJtodotGAA--.3774S2;
+ Tue, 12 Aug 2025 19:59:46 +0800 (CST)
+From: Binbin Zhou <zhoubinbin@loongson.cn>
+To: Binbin Zhou <zhoubb.aaron@gmail.com>, Huacai Chen <chenhuacai@loongson.cn>,
+ Lee Jones <lee@kernel.org>, Corey Minyard <minyard@acm.org>
+Date: Tue, 12 Aug 2025 19:59:32 +0800
+Message-ID: <cover.1754999365.git.zhoubinbin@loongson.cn>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.16
-X-Spam-Score: -0.2 (/)
+X-CM-TRANSID: qMiowJDx_8OvLJtodotGAA--.3774S2
+X-CM-SenderInfo: p2kr3uplqex0o6or00hjvr0hdfq/
+X-Coremail-Antispam: 1Uk129KBj93XoWxuFyxtFyxZF1fuF47Wr15Awc_yoW7Ar1Upa
+ 15ursxCr1DKF1xJrZ3Aw1fuFyYga95Ja4SgF17A345ZF4UCa40yryFka13XFy7AF4kKryI
+ qrsayF1Ska45u3gCm3ZEXasCq-sJn29KB7ZKAUJUUUUx529EdanIXcx71UUUUU7KY7ZEXa
+ sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+ 0xBIdaVrnRJUUUBjb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+ IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+ e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+ 0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+ GcCE3s1ln4kS14v26r126r1DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2
+ x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1D
+ McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr4
+ 1lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
+ Gr1l4IxYO2xFxVAFwI0_JF0_Jw1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
+ AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
+ cVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI
+ 8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
+ 6r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j5o7tUUUUU=
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: From: Breno Leitao <leitao@debian.org> [ Upstream commit
- ec50ec378e3fd83bde9b3d622ceac3509a60b6b5
- ] During BMC firmware upgrades on live systems, the ipmi_msghandler generates
- excessive "BMC returned incorrect response" warnings while the BMC is
- temporarily offline. This can flood system logs in lar [...] 
- Content analysis details:   (-0.2 points, 5.0 required)
+ Content preview: Hi all: This patchset introduces the Loongson-2K BMC. It is
+ a PCIe device present on servers similar to the Loongson-3 CPUs. And it is
+ a multifunctional device (MFD), such as display as a sub-function of it. 
+ Content analysis details:   (0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1uktoo-00006F-NT
-Subject: [Openipmi-developer] [PATCH AUTOSEL 6.16-5.4] ipmi: Use
- dev_warn_ratelimited() for incorrect message warnings
+X-Headers-End: 1ulnfg-0003iT-IP
+Subject: [Openipmi-developer] [PATCH v9 0/3] LoongArch: Add Loongson-2K BMC
+ support
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -112,111 +107,173 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Sasha Levin via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Sasha Levin <sashal@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>, Corey Minyard <corey@minyard.net>,
- openipmi-developer@lists.sourceforge.net, Sasha Levin <sashal@kernel.org>
+Cc: jeffbai@aosc.io, Binbin Zhou <zhoubinbin@loongson.cn>, kexybiscuit@aosc.io,
+ Huacai Chen <chenhuacai@kernel.org>, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, wangyao@lemote.com, Xuerui Wang <kernel@xen0n.name>,
+ openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: Breno Leitao <leitao@debian.org>
+Hi all:
 
-[ Upstream commit ec50ec378e3fd83bde9b3d622ceac3509a60b6b5 ]
+This patchset introduces the Loongson-2K BMC.
 
-During BMC firmware upgrades on live systems, the ipmi_msghandler
-generates excessive "BMC returned incorrect response" warnings
-while the BMC is temporarily offline. This can flood system logs
-in large deployments.
+It is a PCIe device present on servers similar to the Loongson-3 CPUs.
+And it is a multifunctional device (MFD), such as display as a sub-function
+of it.
 
-Replace dev_warn() with dev_warn_ratelimited() to throttle these
-warnings and prevent log spam during BMC maintenance operations.
+For IPMI, according to the existing design, we use software simulation to
+implement the KCS interface registers: Stauts/Command/Data_Out/Data_In.
 
-Signed-off-by: Breno Leitao <leitao@debian.org>
-Message-ID: <20250710-ipmi_ratelimit-v1-1-6d417015ebe9@debian.org>
-Signed-off-by: Corey Minyard <corey@minyard.net>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
+Also since both host side and BMC side read and write kcs status, we use
+fifo pointer to ensure data consistency.
 
-LLM Generated explanations, may be completely bogus:
+For the display, based on simpledrm, the resolution is read from a fixed
+position in the BMC since the hardware does not support auto-detection
+of the resolution. Of course, we will try to support multiple
+resolutions later, through a vbios-like approach.
 
-**Backport Status: YES**
+Especially, for the BMC reset function, since the display will be
+disconnected when BMC reset, we made a special treatment of re-push.
 
-This commit is an excellent candidate for backporting to stable kernel
-trees for the following reasons:
+Based on this, I will present it in four patches:
+patch-1: BMC device PCI resource allocation.
+patch-2: BMC reset function support
+patch-3: IPMI implementation
 
-1. **Fixes a Real User-Impacting Bug**: The commit addresses log
-   flooding during BMC firmware upgrades or when BMC is temporarily
-   offline. This is a practical operational issue that affects
-   production systems, especially in large deployments where BMC
-   maintenance is routine.
+Thanks.
 
-2. **Minimal and Safe Change**: The change is trivial - simply replacing
-   `dev_warn()` with `dev_warn_ratelimited()`. This is:
-   - A single-line change
-   - Uses well-established kernel infrastructure (ratelimited logging)
-   - Has no functional impact on the IPMI driver's operation
-   - Cannot introduce regressions in driver functionality
+-------
+V9:
+Patch (2/3):
+ - PCIE -> PCI-E in dev_err();
+ - Separate the read from the write;
 
-3. **Clear Problem Statement**: The commit message clearly describes a
-   specific scenario (BMC firmware upgrades) where excessive "BMC
-   returned incorrect response" warnings flood system logs. This is a
-   documented, reproducible issue.
+Link to V8:
+https://lore.kernel.org/all/cover.1752548073.git.zhoubinbin@loongson.cn/
 
-4. **Follows Established Pattern**: The kernel already has precedent for
-   this type of fix. Commit ca8c1c53b03b ("ipmi: rate limit ipmi
-   smi_event failure message") from kernel v5.15 made similar changes to
-   address log flooding in the same subsystem, and that was successfully
-   integrated into stable trees.
+V8:
+Patch (1/3):
+ - Similar to as3711_subdevs, identify elements in ls2k_bmc_cells.
 
-5. **Low Risk**: The change only affects logging behavior, not the
-   actual handling of IPMI messages. The error path (goto
-   return_unspecified) remains unchanged, maintaining the same error
-   handling logic.
+Patch (2/3):
+ - Rename variables using usual names, such as `priv` -> `ddata`;
+ - Use if statements instead of #ifery;
+ - Rewrite the error message to ensure it is easy to understand;
+ - ls2k_bmc_pdata_initial(dev, priv); -> ls2k_bmc_pdata_initial(priv);
 
-6. **Addresses Operational Concerns**: In production environments with
-   many servers, BMC maintenance is common. Without rate limiting, logs
-   can grow excessively, potentially:
-   - Filling up disk space
-   - Making real issues harder to spot
-   - Degrading system performance due to excessive logging I/O
+Link to V7:
+https://lore.kernel.org/all/cover.1751617911.git.zhoubinbin@loongson.cn/
 
-7. **Code Context Shows Repeated Condition**: Looking at the code path
-   (lines 4604-4615), this warning triggers when the BMC response
-   doesn't match the expected NetFN and Command. During BMC firmware
-   updates or reboots, this mismatch can occur repeatedly until the BMC
-   comes back online, making rate limiting essential.
+V7:
+Patch (1/3):
+  - Fix build warning by lkp: Add depend on ACPI_GENERIC_GSI
+    - https://lore.kernel.org/all/202507021011.sDAHGinj-lkp@intel.com/
 
-The change meets all criteria for stable backporting: it fixes a bug
-affecting users, is small and contained, has minimal risk of regression,
-and addresses a clear operational problem without introducing new
-features or architectural changes.
+Link to V6:
+https://lore.kernel.org/all/cover.1750939357.git.zhoubinbin@loongson.cn/
 
- drivers/char/ipmi/ipmi_msghandler.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+V6:
+- Add Acked-by tag from Corey, thanks;
+Patch (1/3):
+  - Fix build warning by lkp: Add depend on PCI
+    - https://lore.kernel.org/all/202506210204.LVZc2VG2-lkp@intel.com/
+    - https://lore.kernel.org/all/202506210231.ZWWNhofU-lkp@intel.com/
+    - https://lore.kernel.org/all/202506210652.ipUFDU5B-lkp@intel.com/
+    - https://lore.kernel.org/all/202506210343.XCHkzorp-lkp@intel.com/
 
-diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 064944ae9fdc..8e9050f99e9e 100644
---- a/drivers/char/ipmi/ipmi_msghandler.c
-+++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -4607,10 +4607,10 @@ static int handle_one_recv_msg(struct ipmi_smi *intf,
- 		 * The NetFN and Command in the response is not even
- 		 * marginally correct.
- 		 */
--		dev_warn(intf->si_dev,
--			 "BMC returned incorrect response, expected netfn %x cmd %x, got netfn %x cmd %x\n",
--			 (msg->data[0] >> 2) | 1, msg->data[1],
--			 msg->rsp[0] >> 2, msg->rsp[1]);
-+		dev_warn_ratelimited(intf->si_dev,
-+				     "BMC returned incorrect response, expected netfn %x cmd %x, got netfn %x cmd %x\n",
-+				     (msg->data[0] >> 2) | 1, msg->data[1],
-+				     msg->rsp[0] >> 2, msg->rsp[1]);
- 
- 		goto return_unspecified;
- 	}
+Link to V5:
+https://lore.kernel.org/all/cover.1750301674.git.zhoubinbin@loongson.cn/
+
+V5:
+Patch (1/3):
+ - Rename ls2kbmc-mfd.c to ls2k-bmc-core.c;
+ - Rename MFD_LS2K_BMC to MFD_LS2K_BMC_CORE and update its help text.
+Patch (3/3):
+ - Add an IPMI_LS2K config in the IPMI section that enables the IPMI
+   interface and selects MFD_LS2K_BMC_CORE.
+
+Link to V4:
+https://lore.kernel.org/all/cover.1749731531.git.zhoubinbin@loongson.cn/
+
+V4:
+- Add Reviewed-by tag;
+- Change the order of the patches.
+Patch (1/3):
+  - Fix build warning by lkp: Kconfig tristate -> bool
+    - https://lore.kernel.org/all/202505312022.QmFmGE1F-lkp@intel.com/
+ - Update commit message;
+ - Move MFD_LS2K_BMC after MFD_INTEL_M10_BMC_PMCI in Kconfig and
+   Makefile.
+Patch (2/3):
+  - Remove unnecessary newlines;
+  - Rename ls2k_bmc_check_pcie_connected() to
+    ls2k_bmc_pcie_is_connected();
+  - Update comment message.
+Patch (3/3):
+  - Remove unnecessary newlines.
+
+Link to V3:
+https://lore.kernel.org/all/cover.1748505446.git.zhoubinbin@loongson.cn/
+
+V3:
+Patch (1/3):
+ - Drop "MFD" in title and comment;
+ - Fromatting code;
+ - Add clearer comments.
+Patch (2/3):
+ - Rebase linux-ipmi/next tree;
+ - Use readx()/writex() to read and write IPMI data instead of structure
+   pointer references;
+ - CONFIG_LOONGARCH -> MFD_LS2K_BMC;
+ - Drop unused output.
+Patch (3/3):
+ - Inline the ls2k_bmc_gpio_reset_handler() function to ls2k_bmc_pdata_initial();
+ - Add clearer comments.
+ - Use proper multi-line commentary as per the Coding Style documentation;
+ - Define all magic numbers.
+
+Link to V2:
+https://lore.kernel.org/all/cover.1747276047.git.zhoubinbin@loongson.cn/
+
+V2:
+- Drop ls2kdrm, use simpledrm instead.
+Patch (1/3):
+ - Use DEFINE_RES_MEM_NAMED/MFD_CELL_RES simplified code;
+ - Add resolution fetching due to replacing the original display
+   solution with simpledrm; 
+ - Add aperture_remove_conflicting_devices() to avoid efifb
+   conflict with simpledrm.
+Patch (3/3):
+ - This part of the function, moved from the original ls2kdrm to mfd;
+ - Use set_console to implement the Re-push display function.
+
+Link to V1:
+https://lore.kernel.org/all/cover.1735550269.git.zhoubinbin@loongson.cn/
+
+Binbin Zhou (3):
+  mfd: ls2kbmc: Introduce Loongson-2K BMC core driver
+  mfd: ls2kbmc: Add Loongson-2K BMC reset function support
+  ipmi: Add Loongson-2K BMC support
+
+ MAINTAINERS                      |   7 +
+ drivers/char/ipmi/Kconfig        |   7 +
+ drivers/char/ipmi/Makefile       |   1 +
+ drivers/char/ipmi/ipmi_si.h      |   7 +
+ drivers/char/ipmi/ipmi_si_intf.c |   4 +
+ drivers/char/ipmi/ipmi_si_ls2k.c | 189 +++++++++++
+ drivers/mfd/Kconfig              |  13 +
+ drivers/mfd/Makefile             |   2 +
+ drivers/mfd/ls2k-bmc-core.c      | 525 +++++++++++++++++++++++++++++++
+ 9 files changed, 755 insertions(+)
+ create mode 100644 drivers/char/ipmi/ipmi_si_ls2k.c
+ create mode 100644 drivers/mfd/ls2k-bmc-core.c
+
+
+base-commit: 006aa8f57f55dd5bf68c4ada1e0d3f4e59027d71
 -- 
-2.39.5
+2.47.3
 
 
 
