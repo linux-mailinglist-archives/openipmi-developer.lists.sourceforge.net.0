@@ -2,129 +2,145 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7ACD3B289C7
-	for <lists+openipmi-developer@lfdr.de>; Sat, 16 Aug 2025 04:03:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 348A8B29EE7
+	for <lists+openipmi-developer@lfdr.de>; Mon, 18 Aug 2025 12:16:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNyqa95x2UXtWohRr/nXxAK+UsOSJCU/f8HiVtJiEW4=; b=XY/bK7CMgV/CPOME7GUVyCGoXF
-	XLS4YvPoz29Lm1DHaeAQcQoOOENC+4xHor/Wdw6Njl2IaINyK/xnrj3XOx4aZ7d71wcQnMkuJkGJQ
-	mNdAe9FEO333Zftrlxl18imlxN4rYwg6gU10o14c4Q2hdRSujIM25z9yWqS3Z1ix1rhc=;
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	d=lists.sourceforge.net; s=beta; h=Content-Type:Cc:Reply-To:From:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:To:Message-ID:Date:In-Reply-To:References:MIME-Version:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JoVN3RgqdN8Wml3cpdm7aO7/xhAdvX4ncygd6WEvNrM=; b=kdg9O+45jkfjCi0H8dyNk2Abns
+	58Jeb3F0pU5A0gHWla/Rr3M/eAmeSxJMv3mLpx9tppF3MamNEO+k2rqGtCQue5JYa7EXFTHgkow4n
+	Bg/IFwpyfwHmDeEmLoXGSmM4+uFhdSRwrp3Dq4bHvod2il+WbrEcEPMsfoo9ot0vSkbo=;
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1un6Fv-0003Le-VZ;
-	Sat, 16 Aug 2025 02:02:51 +0000
+	id 1unwuR-0004NM-Mj;
+	Mon, 18 Aug 2025 10:16:11 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1un6Fu-0003LV-Gu
+ (envelope-from <mbannister@janestreet.com>) id 1unwuQ-0004NC-Sh
  for openipmi-developer@lists.sourceforge.net;
- Sat, 16 Aug 2025 02:02:50 +0000
+ Mon, 18 Aug 2025 10:16:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ d=sourceforge.net; s=x; h=Content-Type:Cc:To:Subject:Message-ID:Date:From:
+ In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-Transfer-Encoding
+ :Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=jP1W19LjLSkvrRoe2qDVizyJ7MFWz2WXooHFP4rj+9E=; b=lh2HbSmXvRTMuRmaoLm5/9D7Ey
- j0dfq277p1bIg0psiA/4Svk3gWK2SnIUznTkz/u+am8ELPj27jat87JXqfSHBr2a717UXuNK+Bvbq
- pa/S0+Sz/qJ9lC5+4Dr91XOXQ8DwW+UO2J3EmYA7tO/mv/wmP47SYKIIyYUPR95asWzk=;
+ bh=LWX1fFaX3nk2wvggKaPcoj2rrkWUWYuUPeC8X6HNxB0=; b=ktSHwPq/+oK3NA6NpppmHH1tZv
+ n8ApY3+AEMoIgLAbdv+8Q87nsAHaIL08UP48xx/F0sC4i8QFgT94DlNmzpkM1cIdRI4S/Zx5NfWUi
+ TpuKldVuCTEOXnUrubpbDsnVaLm+NkjX5Yp2gbYZmAWXElac4PEqfI6jg9xrwLS4EPGY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+ MIME-Version:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=jP1W19LjLSkvrRoe2qDVizyJ7MFWz2WXooHFP4rj+9E=; b=BH5KcTYnxFVhps+xctUnL8cbAW
- 8Hvpkr1V7+UEPL5S2pXC/0xYwhGNRcXbN7CkMf4juP6ujnvXlAln0wLQLJXJAoLiztX9V/sqODWvO
- mX/Kx7XCrqVFeXwOBiw6UQN+0b+cuDRTxRDS4HklLFptZB3qAFaX6MxWjWPIgdvq+2wM=;
-Received: from mail-qv1-f51.google.com ([209.85.219.51])
+ bh=LWX1fFaX3nk2wvggKaPcoj2rrkWUWYuUPeC8X6HNxB0=; b=K5pBTmaJj9zPgYrK2Kku3LOh5r
+ u6pdJ757EjvKXAEYRitc+99mKQ0lO1tfa0X9ihTzK/8y+BTa1fZRC3iJoyesAFwm6ponTIlvYvsxv
+ mczz6jmoD8TZ7g6depGm0yd+UVO3qvZZq6lDaV/nNdqAEJpkJuuub6T7VDK3w9rkj2W8=;
+Received: from mxout1.mail.janestreet.com ([38.105.200.78])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1un6Fu-0000xy-2s for openipmi-developer@lists.sourceforge.net;
- Sat, 16 Aug 2025 02:02:50 +0000
-Received: by mail-qv1-f51.google.com with SMTP id
- 6a1803df08f44-70a9282f475so22529656d6.1
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1unwuM-0007EL-Sr for openipmi-developer@lists.sourceforge.net;
+ Mon, 18 Aug 2025 10:16:10 +0000
+Received: from mail-io1-f72.google.com ([209.85.166.72])
+ by mxgoog2.mail.janestreet.com with esmtps (TLS1.3:TLS_AES_128_GCM_SHA256:128)
+ (Exim 4.98.2) id 1unwuH-00000005KIh-1kV1
+ for openipmi-developer@lists.sourceforge.net;
+ Mon, 18 Aug 2025 06:16:01 -0400
+Received: by mail-io1-f72.google.com with SMTP id
+ ca18e2360f4ac-88432cc8949so408093339f.0
  for <openipmi-developer@lists.sourceforge.net>;
- Fri, 15 Aug 2025 19:02:50 -0700 (PDT)
+ Mon, 18 Aug 2025 03:16:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1755309759; x=1755914559;
+ d=janestreet.com; s=google; t=1755512161; x=1756116961;
  darn=lists.sourceforge.net; 
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:from:to:cc:subject:date
- :message-id:reply-to;
- bh=jP1W19LjLSkvrRoe2qDVizyJ7MFWz2WXooHFP4rj+9E=;
- b=au0C2tqq3xnP9stC/wPgCalIln4lfzNiY8GVQ9mhjFZ099E0ZOPHFZqFiH95UaGpLc
- V3CY4BK38at9v3P/tu6yNrejJZiIk6qxe+8TnvkvmbSkucPt4ojjueaqEzfXm+v8bh0y
- GHXuFeoFDL4Wa3YDhhGtYExU15WY4Lhj6kwi8tZOMd9UWjNhZpDCbwZprW1qEJUvCGh6
- Xo8uNina7BDfal/IAmiiqrxIYw1SqxGvDYhAopctxllxSkyeQIy34uNzudVE58yQMDLP
- CmliQVgGiaqmkkQknCixaRUP+XDfI55jQoh1BeawWUY2KDXrWd9HaaDFW+nEsXQOzdeR
- lHog==
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:from:to:cc:subject:date:message-id:reply-to;
+ bh=LWX1fFaX3nk2wvggKaPcoj2rrkWUWYuUPeC8X6HNxB0=;
+ b=TMF3vlXlHHUjrkNk1Ms68bgOJenr69kFqoD/UfIVFr3g5u6401dnfO0wZwWQrlZ03n
+ EofIrqaOscMYELSRQisuotKxYlALN9b10fjEm7slxmRLgtmvwLNerubyC7PNL+N96e+w
+ NPwbMTIsYKY9cKdwg4NT031l7CYDj5GQ91sbc=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=janestreet.com;
+ s=waixah; t=1755512161;
+ bh=LWX1fFaX3nk2wvggKaPcoj2rrkWUWYuUPeC8X6HNxB0=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc;
+ b=BAQfEPuXkSMNTOCCn7LpUI5Gc4cCQ9k3wbCeNnYxF3Fpun00wfjg+HM/R/kI31tLQ
+ dMxm24qFD4ZR1XjGG5ofMYWnWwd2xRJaWeECe5cT71TfV7X4WmhEG9Wa2kjWO3jjuz
+ ukGwBH0KTXif39o7/UM/JxSbXZO98OI/KNSDEKDchb/qlbO1oxtjeBZc/XAsXnI7Ty
+ xPhjUuymQnzg1R8/wUBBil4p0qqfblnU7RSbunnEiqfF8vm8AWq8gf25ji4Zis59/u
+ Ce/H1039DekQ6EwpXRh6B6mmjT2XRtoBpt3z7iajoP3SaLvXRLG6JA+LzaKl3kNRH3
+ PJNJKFCQ6rVww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1755309759; x=1755914559;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=jP1W19LjLSkvrRoe2qDVizyJ7MFWz2WXooHFP4rj+9E=;
- b=t7EI4fZAxKuc9DXF5ivUwTBty/BeCesVMKDqcQq7exgeYn9MqHlqbRcB5sLIjt4gwo
- E+kxJeoEexk7dx0XYDNgy89NtjWpLWS8K2HzZDZ6C5CrqlcVjvwJXOseivLI518uhGar
- qFhHHiAeXqqN0KuqHzI4mhfamL1fETLOTKP6UYgPBCzYZrKOwH9CdbSp/CfFfA8hk19z
- r9HUkuZBAjjqBinRA89GsgvdzXnj9Oww9zWt/FgcuaXv4FkYm8T6d4YCWcSXlINKE142
- nuPRKb+alpT7rZJeFoPIvSUjCF5zldxoqXzflwCcq3SUI9jNfw2TC8WupS8bJEbpBDql
- vQkA==
-X-Gm-Message-State: AOJu0YzHsdR8MD3OgtuGwi6yjlzpgIJs+AMvfbDx1h7C8/BrMZPSj9Yg
- oK3t9IpwrFkdtcGMg8wjd8WENR9TgcTMSL/4+m57pgKQC10TOuWqGZqDCxiiauF19XZjGY0hf4e
- YD1G7
-X-Gm-Gg: ASbGncuue2IAd1Jnh/SGM+8xz+/0V2CVb9tM20P5XhQqF2B8YqTkF5MvIu0PpQccT3M
- U87I9lPcoyvvGpFLNGpfbUAZIrZhxNKJh8CtJ3o95Y+21sxyG4+hDcFmGAboW4KRFalvpDChCgr
- 1MF6q0AsJUp1Uo/jUvZRP0SzgH+TodI4Yheej4Dixfpkqv/GYUOI1kjBV9lFWDZeUN3D2mjLltv
- R4/LL1kDBYezBFB846GgdwY3cKtEXLy3hhODH2TE2MD3Z6nzrxVlW5CbyPckXpyIlB+VPE6T0fh
- fPO+W+OC+lPHi82Unoi7RJAmBmeqW8SzV+jPNto2AuB2zIXkhEM4ev5IMklg3XUgeh+YmtaoZfA
- Gzlu/yU4TH88UTKLtguep9SxF588koP/fpIxf
-X-Google-Smtp-Source: AGHT+IFU8iO56aObahNDHhvpR8cX3ydX0AhknrZWZalCNi8QAT4mM1Bfx8pbUZ3kDzm7L3D8FVl9Ag==
-X-Received: by 2002:a05:6808:30a5:b0:433:fa92:69e9 with SMTP id
- 5614622812f47-435ec53125dmr2455248b6e.34.1755309400441; 
- Fri, 15 Aug 2025 18:56:40 -0700 (PDT)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:e32c:c52b:6661:b446])
- by smtp.gmail.com with ESMTPSA id
- 5614622812f47-435ed1af894sm532720b6e.20.2025.08.15.18.56.38
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 15 Aug 2025 18:56:38 -0700 (PDT)
-Date: Fri, 15 Aug 2025 20:56:33 -0500
-From: Corey Minyard <corey@minyard.net>
-To: Frederick Lawler <fred@cloudflare.com>
-Message-ID: <aJ_lUYTlrzYnRD-5@mail.minyard.net>
-References: <20250807230648.1112569-1-corey@minyard.net>
- <aJ-lPAc2bLlvHNa3@CMGLRV3>
+ d=1e100.net; s=20230601; t=1755512161; x=1756116961;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=LWX1fFaX3nk2wvggKaPcoj2rrkWUWYuUPeC8X6HNxB0=;
+ b=gdt3Fl2CaNcUIQ+WXMVTbPAl+r5nwuT/mHZMDIeS47ZZ5iss5+x4XRUrFiGihOnkRc
+ BTj92b80/I6AN5ZetC2dpQxv8uSC0vMAjS4rJMMLuefX9fqZvB3fO6RRmk5Xn5d1vAFe
+ ZoVyK0tbdxTpm9f6ywNGbBXcCkOQq+3JCmXRP8Q1rbkqqorCBMOytEb1rQm+YUkatH/z
+ MuANwf381rYC6yDTySwwQV+ftRemMPR5lNImO5boicKO9EMXPJcrj7k9IM5QHoklGe7s
+ +dUddy3ZzKjveTbo/BuxX2UD/fgqs126oCU5VssGWyAV0B/zQ+jicYBq3SyIs1h2AHoz
+ B9zw==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCWhZ0bmJKoDMf5e0/a/HWt6YgoS+mWMOaysWWJMotAPWf/xHy4fr4I0uVjlZxlWdrhn3S5WUJx/pRjEzf7xka2ZdCE=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YwZn32c5Ke/Z27qK0b60cfL8BYod0cGWxjeDKBlRaiiFc42ts0Q
+ W3y1p8MHbZ9D4AUFgeYsZhtzxba/P+HkKhJxEPVYahDYvIGxb6bR/AiIkw6TdMXJshnEZt/Bb7v
+ RTCQ8Df4bxTz3H9H8QMRbbqJ8FOdYBvLfHfArMlho6qIxlJsAai7kbT2LXd6+2PLjNEoUgpKzD2
+ 1AOD5zgPzVzqMFU1kd/fHVbv13DK3ffbF9UViLjU5fMOSp8ho75CMnHag=
+X-Gm-Gg: ASbGncssHNVLtsQ1dNBw2ppqaN6+6ISPHZwxvL7A3L509peYrNtMvNCgmwKFx4fI76Z
+ odDF1jtcqnt8Jzi0nUjkXqg0XU4PwnfEWI1tTmH27C00p3lqD8VK3gMUwDN4GPH+GjnYu/oux3s
+ bfxDh1Z+otV+lq2JVgPnCZ
+X-Received: by 2002:a05:6602:6c1c:b0:875:d675:55f2 with SMTP id
+ ca18e2360f4ac-8843e3cee5bmr2004107039f.7.1755512160627; 
+ Mon, 18 Aug 2025 03:16:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF7FzQAOW9CqqhlLFM6zSQ02bKZHv2j3LboznSorZPIEOh/zLCYwL347dzo3fOTtq2pcVibbxYjdE0tKUtTyFU=
+X-Received: by 2002:a05:6602:6c1c:b0:875:d675:55f2 with SMTP id
+ ca18e2360f4ac-8843e3cee5bmr2004103639f.7.1755512160088; Mon, 18 Aug 2025
+ 03:16:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aJ-lPAc2bLlvHNa3@CMGLRV3>
-X-Spam-Score: 0.0 (/)
+References: <20250814135419.616256-1-corey@minyard.net>
+ <CABpvmx_FO+MSJahsNRrv2KBfnb-Rib9FZa2f0w05MvZuwDhYOw@mail.gmail.com>
+ <CABpvmx91CoVz8Tcui2j3CUSn=t4fSvCSRbYRWjZWZzSV+we_0w@mail.gmail.com>
+ <aJ4mXfx_fJsK7YUk@mail.minyard.net>
+In-Reply-To: <aJ4mXfx_fJsK7YUk@mail.minyard.net>
+Date: Mon, 18 Aug 2025 11:15:49 +0100
+X-Gm-Features: Ac12FXzwCKJD9yQk_tfskuhPDYZUHSbFmmjpu-Yk1y3HqVZgZ1IXcgDQfOg_zik
+Message-ID: <CABpvmx8F-JYxgkWxmBsu3t3oEMhestpLGboS4eN3=F1QvC9_yw@mail.gmail.com>
+To: corey@minyard.net
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Fri, Aug 15, 2025 at 04:23:08PM -0500, Frederick Lawler
- wrote: > Hi Corey, > > On Thu, Aug 07, 2025 at 06:02:31PM -0500, Corey Minyard
- wrote: > > I went ahead and did some patches for this, since i [...] 
- Content analysis details:   (0.0 points, 5.0 required)
+ Content preview:  > Perfect, I'll queue it for the next kernel release. I can
+ get it into > the current release if it's urgent. Thanks, that's great. Not
+ urgent, we can apply the patch manually anyway. > The change that caused
+ this was c608966f3f9c "ipmi: fix msg stack when > IPMI is disconnected" and
+ it came in between 6.1 and 6.6. I'm adding > the author of that patch because
+ this change may affec [...] 
+ Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.219.51 listed in wl.mailspike.net]
-X-Headers-End: 1un6Fu-0000xy-2s
-Subject: Re: [Openipmi-developer] [RFC] Patches to disable messages during
- BMC reset
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.0 HTML_MESSAGE           BODY: HTML included in message
+X-Headers-End: 1unwuM-0007EL-Sr
+Subject: Re: [Openipmi-developer] [TEST PATCH] ipmi:si: Delay when an error
+ is discovered in error recovery
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -137,73 +153,99 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- kernel-team@cloudflare.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+From: Mark Bannister via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Mark Bannister <mbannister@janestreet.com>
+Cc: openipmi-developer@lists.sourceforge.net,
+ Zhang Yuchen <zhangyuchen.lcr@bytedance.com>
+Content-Type: multipart/mixed; boundary="===============7536011445446291015=="
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Fri, Aug 15, 2025 at 04:23:08PM -0500, Frederick Lawler wrote:
-> Hi Corey,
-> 
-> On Thu, Aug 07, 2025 at 06:02:31PM -0500, Corey Minyard wrote:
-> > I went ahead and did some patches for this, since it was on my mind.
-> > 
-> > With these, if a reset is sent to the BMC, the driver will disable
-> > messages to the BMC for a time, defaulting to 30 seconds.  Don't
-> > modify message timing, since no messages are allowed, anyway.
-> > 
-> > If a firmware update command is sent to the BMC, then just reject
-> > sysfs commands that query the BMC.  Modify message timing and
-> > allow direct messages through the driver interface.
-> > 
-> > Hopefully this will work around the problem, and it's a good idea,
-> > anyway.
-> > 
-> > -corey
-> > 
-> 
-> Thanks for the patches, and sorry for the delay in response.
-> It's one of _those weeks_. Anyway, I backported the patch series
-> to 6.12, and the changes seem reasonable to me overall. Ran it
-> through our infra on a single node, and nothing seemed to break.
-> 
-> I did observe with testing that resetting BMC via ipmitool on the host
-> did kick out sysfs reads as expected.
+--===============7536011445446291015==
+Content-Type: multipart/alternative; boundary="000000000000b389f9063ca10632"
 
-Ok, I took the liberty of adding a "Tested-by" line with your name.  If
-that's not ok, I can pull it out.
+--000000000000b389f9063ca10632
+Content-Type: text/plain; charset="UTF-8"
 
-> 
-> Resetting the BMC remotely, was not handled (this seems obvious given the state
-> changes are handled via ipmi_msg handler). Would the BMC send an event
-> to the kernel letting it know its resetting so that case could be
-> handled?
+> Perfect, I'll queue it for the next kernel release.  I can get it into
+> the current release if it's urgent.
 
-Unfortunately not.  It's one of the many things that would be nice to
-have...
+Thanks, that's great.  Not urgent, we can apply the patch manually anyway.
 
-In general, dealing with a BMC being reset is a real pain.  They tend to
-do all kinds of different things.  The worst is when they sort of act
-like they are operational, but then do strange things.
+> The change that caused this was c608966f3f9c "ipmi: fix msg stack when
+> IPMI is disconnected" and it came in between 6.1 and 6.6.  I'm adding
+> the author of that patch because this change may affect that.
+>
+> In hindsight I think the fix that caused this is wrong.  I'm not sure
+> how what the author said was happening could happen.  There's a limit
+> of 100 messages per user.  I am inclined right now to revert that
+> change.
 
-I haven't thought of a good general purpose way to handle this.  I'm
-toying with the idea of making it so if the BMC gets an error, just shut
-things down for a second or so and then test it to see if it's working.
-During this time just return errors, like the new patches do during
-reset.
+So just checking with you what is most likely.  Are you going to add the
+patch from https://sourceforge.net/p/openipmi/mailman/message/59220700/ and
+not revert the patch for c608966f3f9c, or are you also going to revert that
+patch?  A quick look myself over c608966f3f9c it wasn't immediately obvious
+to me how it caused this problem and I would expect that the patch you
+provided last week would be needed anyway?  The crucial part of your fix
+seemed to me to be where you return from smi_event_handler after receiving
+SI_SM_HOSED instead of 'goto restart'.  Although I admit I haven't looked
+very hard at the message handler code.
 
-Thanks for testing these.
+Best regards
+Mark
 
--corey
+--000000000000b389f9063ca10632
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> 
-> Best,
-> Fred
+<div dir=3D"ltr"><div dir=3D"ltr"><div id=3D"gmail-:4wk" class=3D"gmail-Am =
+gmail-aiL gmail-aO9 gmail-Al editable gmail-LW-avf gmail-tS-tW gmail-tS-tY"=
+ aria-label=3D"Message Body" role=3D"textbox" aria-multiline=3D"true" tabin=
+dex=3D"1" style=3D"direction:ltr;min-height:85px" aria-controls=3D":4zh" ar=
+ia-expanded=3D"false">&gt; Perfect, I&#39;ll queue it for the next kernel r=
+elease.=C2=A0 I can get it into<br>&gt; the current release if it&#39;s urg=
+ent.<div><br></div><div>Thanks, that&#39;s great.=C2=A0 Not urgent, we can =
+apply the patch manually anyway.</div><div><br></div><div>&gt; The change t=
+hat caused this was c608966f3f9c &quot;ipmi: fix msg stack when<br>&gt; IPM=
+I is disconnected&quot; and it came in between 6.1 and 6.6.=C2=A0 I&#39;m a=
+dding<br>&gt; the author of that patch because this change may affect that.=
+<br>&gt;=C2=A0<br>&gt; In hindsight I think the fix that caused this is wro=
+ng.=C2=A0 I&#39;m not sure<br>&gt; how what the author said was happening c=
+ould happen.=C2=A0 There&#39;s a limit<br>&gt; of 100 messages per user.=C2=
+=A0 I am inclined right now to revert that<br>&gt; change.</div><div><br></=
+div><div>So just checking with you what is most likely.=C2=A0 Are you going=
+ to add the patch from=C2=A0<a href=3D"https://sourceforge.net/p/openipmi/m=
+ailman/message/59220700/">https://sourceforge.net/p/openipmi/mailman/messag=
+e/59220700/</a> and not revert the patch for=C2=A0c608966f3f9c, or are you =
+also going to revert that patch?=C2=A0 A quick=C2=A0look myself over c60896=
+6f3f9c it wasn&#39;t immediately obvious to me how it caused this problem a=
+nd I would expect that the patch you provided last week would be needed any=
+way?=C2=A0 The crucial part of your fix seemed to me to be where you return=
+ from smi_event_handler after receiving SI_SM_HOSED instead of &#39;goto re=
+start&#39;.=C2=A0 Although I admit I haven&#39;t looked very hard at the me=
+ssage handler code.</div><div><br></div><div>Best regards</div><div>Mark</d=
+iv></div></div></div>
 
+--000000000000b389f9063ca10632--
+
+
+--===============7536011445446291015==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+
+--===============7536011445446291015==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+
+--===============7536011445446291015==--
+
