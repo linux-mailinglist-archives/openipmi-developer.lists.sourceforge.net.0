@@ -2,7 +2,7 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id F3A89BACF8B
+	by mail.lfdr.de (Postfix) with ESMTPS id F17F2BACF8A
 	for <lists+openipmi-developer@lfdr.de>; Tue, 30 Sep 2025 15:06:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:
@@ -10,29 +10,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:List-Unsubscribe:List-Id:Subject:Message-Id:Date:To:Sender:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mSa075gg9Mew+Wd6b6TImbqRr1i4HQJXcrto1k/lSTk=; b=NLdVPyLjXHzPuz9ZVZb1PjD/RI
-	fBsWBCRVrbPW8XkSJhBDgA75J1wNVo8WGnKlfADI5lsnjqy0uHQWuQNW97metGusNK2t9MzUK+pmm
-	Syh1pUKkeLeXidmFM8emZqqU1zlnRa53PR6A3D9489lFNA+t1uL3OBzJkay6m/84s7dk=;
+	bh=9wJxk+twioR32X2MOb5Q8tHc6eyHttfgGyc4NTXFgQs=; b=ISX5Hvnc1sI8Wmki2R6uE1t/og
+	0+sCQamIAzGAzuNkhxbSFqpk0Nep9iY5w6p6vVg42gAl7Bs+2uo+QHF0kJdjsK2BPZi98tPQx3EuD
+	63prOGkBpnxWVvSXepBaIw+suFWZMA4376VcSQSYnPCsl9Y89Vob5OJQanFEiCD7NMb4=;
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1v3a3E-0002Tr-5N;
+	id 1v3a3E-0002Tx-FL;
 	Tue, 30 Sep 2025 13:05:52 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <guojinhui.liam@bytedance.com>) id 1v39Ud-0003AI-3Y
+ (envelope-from <guojinhui.liam@bytedance.com>) id 1v3V1W-0000ZS-Bu
  for openipmi-developer@lists.sourceforge.net;
- Mon, 29 Sep 2025 08:44:24 +0000
+ Tue, 30 Sep 2025 07:43:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=sj/9RNZ+daEA1X7yKVXnnH8RJIjqfJc52SMXbLdJl+Q=; b=IczrRk1t7N4MIIIol2UA1kxQkP
- +bMqLZheFvGs7mAb5X5H9CuB9YbHcqrj33JgFuw5o0LR07sMEztHNCOiy5GbYqUD3VtZoK414O99H
- JzIr9qxNNV1xU9tu2FPXLXozHDi5eqCSiKo2ysMRc1OlSSJMDJsgo78JzPnaEj/t+KFY=;
+ bh=axSEZrnXl/WyQ4MMR1Y0hlJLy0n8pxTq1p3rAAO8pa0=; b=Bc1BDDd/c1ZkKNOIRonAAF+8ZO
+ 9ZG4hI87vpIKmIgIE5yVlhUV8TOeEcbodvDg6/tKq5Wzcs2/jVmwXkmUa2Swr9Tld0wZabLQebRDl
+ 7WsRkTEEWg/Zh97sR5glaLbm5ACMcfJDdO1JGiqH7rMiOiGclGijLBBhyu27ATY/Wpkk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:
@@ -40,65 +40,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
  In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=sj/9RNZ+daEA1X7yKVXnnH8RJIjqfJc52SMXbLdJl+Q=; b=jxap2Yh6+S1z25mmGLk2QAfzni
- OD0zqUnVinwDPCNabQn7KVmADEPAw/XCOe36DzgktEvc0Sh43NnbKUz8aHqG+jRShn7T++xUy4kMR
- FgB25dkK/YkV6vSgpUwFjB8vn8I630Wxr+3q8oDLvWb0JbqfC+98nO9jQvlSpW5NCoas=;
-Received: from mail-ot1-f45.google.com ([209.85.210.45])
+ bh=axSEZrnXl/WyQ4MMR1Y0hlJLy0n8pxTq1p3rAAO8pa0=; b=Q8+kq4yLKh+WxsWNc5HItcVE7T
+ apOHGx7CXB8e2ksYkhmc7qTjTgMOwm6rUCxrkhjWVi7gzSDB37Eo7v+ojJz+iPESsn08dMuGGLtm6
+ kAm/hJfmN5813I0vomXo4yK+cvLwVqG3oZl95Ce/0wgh4ITc6rokqLndJaPqLDH+mTVA=;
+Received: from mail-pg1-f178.google.com ([209.85.215.178])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1v39Ud-00023r-7V for openipmi-developer@lists.sourceforge.net;
- Mon, 29 Sep 2025 08:44:23 +0000
-Received: by mail-ot1-f45.google.com with SMTP id
- 46e09a7af769-7b00927607eso1595647a34.0
+ id 1v3V1W-0000mw-GA for openipmi-developer@lists.sourceforge.net;
+ Tue, 30 Sep 2025 07:43:47 +0000
+Received: by mail-pg1-f178.google.com with SMTP id
+ 41be03b00d2f7-b551b040930so3759048a12.2
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 29 Sep 2025 01:44:23 -0700 (PDT)
+ Tue, 30 Sep 2025 00:43:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=bytedance.com; s=google; t=1759135452; x=1759740252;
+ d=bytedance.com; s=google; t=1759218221; x=1759823021;
  darn=lists.sourceforge.net; 
  h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
  :message-id:reply-to;
- bh=sj/9RNZ+daEA1X7yKVXnnH8RJIjqfJc52SMXbLdJl+Q=;
- b=LVU7ETikCCIDaTFBI0XPApqwedw0SAhcbM9X/zoj+FrM84+vJn44Jo2/9oNiqjVOmL
- dQEOD83zIZkfTjmWCTsNrbOfJNB4tCvnhs4p9d87pH5VNwRERlfdSqc0Div6rSxpbVz4
- UFdd1K4Ufa6wrtUEScjCKWOE/g/aAa670jcAtpgFE4z2j7NUObQfUM6+jSSz2g71bHvk
- cCmVo1I1KPZf1L9DRcfQy94zOz1VLozqrYSfDSPJJXbtaMFyXE8sVxa0w5gKR//kGgNr
- vsUg+wIp342ZVxp4ZUE0kr+0szk9NmiAfK4VliuTHfiosCDTN4zZcHsLxgq0c1JCdLhE
- 94BQ==
+ bh=axSEZrnXl/WyQ4MMR1Y0hlJLy0n8pxTq1p3rAAO8pa0=;
+ b=V8xD9QgeO9zwdDxE1e0NexhBOIoljbSXpZfQlcQt+1TWVyivUYKaIGsGR8hXoexQJz
+ R7CJO20DHX6NIwz682sQz/sTeU1N4B/ldIcd/E/3CIzzYyNe7c9sf2wGyBqwZg51hRLV
+ LT79172K0pCGQd+x+E594VA0BkanvtE/HDynIfZPp/evn2vu6G2ltcEVtJvUpMNc5Scd
+ 2GQ6pfIZ/hOItwN11Qu0e5iN0DlXOluKUyjeKCgjeQBsksoJZMwYfXonisUx8uLKC6pa
+ c5fXyUTrkrtzNXMnTDGePBN4GkOJY5o+dJzFKD7RSDpy/l3rZd4HF5VFya5iz5Eo1Syk
+ Ex0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1759135452; x=1759740252;
+ d=1e100.net; s=20230601; t=1759218221; x=1759823021;
  h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
  :subject:date:message-id:reply-to;
- bh=sj/9RNZ+daEA1X7yKVXnnH8RJIjqfJc52SMXbLdJl+Q=;
- b=Ak5oAAzV6KNhFLsr37YaeAUkxK2I66lM/8qSVj8cLUSljES/9dLxVWLBcuRPJM1PH6
- qJUY473/r56cEfEMYGsP2NKb3J1Y3vSWDmKdh6cTqF6F6DyZk6exG4iDWVfaYt4oeESM
- SCbKqQeNrLOvRlpxM2FsMRR2enWulSaAJzGcM6rtkrFn27CSKrCPLTQEk7AL4T5hQExW
- zWSz+Lv2oGAEQ0zgMInF1TvI2SQDMMFDuDIeUC47uIzTg1NeywclC7yNkVqqIUyiNJol
- OciTbC9qLzbyaP/z+sP3YjDj+DVDMQzgR5d5E1Bop80G25isEtYNQvr/1JZVmmOzY3Ze
- NyVw==
-X-Forwarded-Encrypted: i=1;
- AJvYcCVdlKah79unCfLcgAXBGfPP7SORa8gKO8B93DQO5YvaPkT4bwPPZqlx7c3xX0vQGgTKx3mlH6Tgvm8EISMSUjFHqGA=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0YwISWFh/e+6yyon8GMd0v00BkIwfMO/myEU1CAF4AYqkoy1r/oO
- QJXn86p8svn8khyAs3PhEh23f15shRNP3awKmyYkzrt6NYYSXyjtCgZUknb4d4M3SqFgVKTpc2z
- oe9Uypw0=
-X-Gm-Gg: ASbGncshYkCpKjlYX47OkmyNnsJ50/r8I88KJZo8sHSwi+IMfsWbqxtk9iqfHMgIgJp
- HVTf7fmGxocqjQf/M4GaTYjf+QO6cos19lKIiBY/uvqR0lErqqUot7C/vWsKjU6lDXvmm2OZi3p
- 2XrszdpOVzAnByNVrFx6NqnbPjFpv36Xc00adX1nnSR5JQEvOZItlGJGtTlmXuitxBvlfgUPyyX
- vRVmlCTwzRam6kBNqHm1Y8vZ//zONNEGQxsj3M+0Ds9Hkyo/0mZm4eSBUfzXeXrvaJXZ+Slj3Dl
- CIf0B5HPBw8G1ccDv2NNGvGhsgPTMngBjp2NcXd0CZMP2a2ikD5BJVmS6nq8NBb2kcmhgbDzI0W
- 9CmHFQg3qPB/N260S+bdr66ysYs4cZ2d6iHOAH+++38FPIJ4fRqwY36Pfxyyn5nGHeAncJqIze2
- 0=
-X-Google-Smtp-Source: AGHT+IGiP419V4N9F1bGIFD547BjpWNVr9OZdtoGYQyB69UrN3gsFpDrq3xuXiy3FTY/yZwcTTCLTQ==
-X-Received: by 2002:a17:90a:d60f:b0:32e:3837:284f with SMTP id
- 98e67ed59e1d1-3342a2d8c3dmr18391337a91.21.1759133796626; 
- Mon, 29 Sep 2025 01:16:36 -0700 (PDT)
-Received: from 5CG3510V44-KVS.bytedance.net ([139.177.225.254])
+ bh=axSEZrnXl/WyQ4MMR1Y0hlJLy0n8pxTq1p3rAAO8pa0=;
+ b=NWTr28k3LKj5CAcokWk55xa9c2LXGi6jk/hJ2ZPwA92hfbC2NwSgQTBAvYqvE/Wtdg
+ OYWDUEd3t3ypYsPPdwL/AKWkKPh5hROnoWxPXoetUQSzr5erVd97Cv4IhskkCq8RGRkK
+ n+H3h+OA2p2KCJhVjTLHEAwiO6LjHRt/Zqcbl+50KBaX1tF+/lbnd/nU+3eQqs85ewBE
+ ZtQVY9LDRQq+fwwKJqWOcffCKqj9cToleG2hvcmBk2FYzJ5WumPsvPrlZUbjonfpx8ei
+ FJm25xMUEtb7RQMSijo3AhnUX0xi/+pyHxTAmiLNS+7fVXbzkSNh6ajrsc4l6tGOssh8
+ J0XQ==
+X-Gm-Message-State: AOJu0YwKcHIyg7HofCUKiB4wowkXf1vTFKkUmJDHjATUn1GGin39MkGz
+ gqLXdq3qdXcHPlyaePhy39WSxAAFBgLFsf1QSnhSh0UYhNhx412hxlo/JH7X5KBnX9g=
+X-Gm-Gg: ASbGncsEjdnft9f921GZow4w2kNatI5a/UxWKGg0a7r4MhnKJRji+ZGKQm+w0/xa/Pn
+ 0sVtG8PZhJ1SIS7rJg3rrlGhDFwgwOJZWXtXRF4BSWZL4ytSB09WxPAa/k9ITmnRH9JiR1c/kMH
+ jbSfUDuRjFmZfcRDIXWIHhIuMHSaStDkOO5nJRxCwjTIFS857daDHGUmMH5ankrXynapl6r4WZW
+ d9xAz7zWx01GlrdRvwBFKRp4YCj60fCCZNBcE1UHaJDzTjgPb88tkEylwYCJTx92MDxbjRRqEPo
+ F1aqoawSaH0aFCGJZ9nVwa4qmq+M9RJYCop5sNculL0/0xVmeYvbWhQNTz+XGnBdKsqx2YussYA
+ B7mRpLPfC0yRq2Rj8nC7h9pahhfwyDZYnmxMt618iAv+vEtGOEaH9veTTR8wJeZtSF00/mKazuO
+ vIB8R8+HA62g7J+PdwoJWipnM=
+X-Google-Smtp-Source: AGHT+IHRGJdlwrgUn8z0FVOOqiAI6aN/EQorplmJHIi20oB6cflxPIMxeuYCJCaPdCg6cetvuv/Aag==
+X-Received: by 2002:a17:90b:1644:b0:330:6d5e:f17e with SMTP id
+ 98e67ed59e1d1-3342a2b94c2mr21467985a91.24.1759218220661; 
+ Tue, 30 Sep 2025 00:43:40 -0700 (PDT)
+Received: from 5CG3510V44-KVS.bytedance.net ([139.177.225.243])
  by smtp.gmail.com with ESMTPSA id
- 98e67ed59e1d1-3341be36bdesm16286509a91.24.2025.09.29.01.16.33
+ 98e67ed59e1d1-338386f577bsm3535374a91.2.2025.09.30.00.43.37
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 29 Sep 2025 01:16:35 -0700 (PDT)
+ Tue, 30 Sep 2025 00:43:40 -0700 (PDT)
 To: corey@minyard.net
-Date: Mon, 29 Sep 2025 16:16:02 +0800
-Message-Id: <20250929081602.1901-1-guojinhui.liam@bytedance.com>
+Date: Tue, 30 Sep 2025 15:42:36 +0800
+Message-Id: <20250930074239.2353-1-guojinhui.liam@bytedance.com>
 X-Mailer: git-send-email 2.17.1
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
@@ -123,11 +120,11 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.45 listed in wl.mailspike.net]
+ [209.85.215.178 listed in wl.mailspike.net]
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1v39Ud-00023r-7V
+X-Headers-End: 1v3V1W-0000mw-GA
 X-Mailman-Approved-At: Tue, 30 Sep 2025 13:05:51 +0000
-Subject: [Openipmi-developer] [PATCH] ipmi: Close the race between
+Subject: [Openipmi-developer] [PATCH v2 0/3] ipmi: Close the race between
  __scan_channels() and deliver_response()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -159,119 +156,36 @@ The command "ipmi -b -t" would occasionally fail:
 The race window between __scan_channels() and deliver_response() causes
 the parameters of some channels to be set to 0.
 
-1.[CPUA] After ipmi_add_smi() calling __bmc_get_device_id() ->
-         __scan_channels(), the intf->channels_ready is set to true and
-	 is never cleared by any function. ipmi_add_smi() then invokes
-	 __scan_channels(), which issues an IPMI request and waits with
-	 wait_event() until all channels have been scanned. wait_event()
-         internally calls might_sleep(), which might yield the CPU.
-         (wait_event() could also be interrupted by an interrupt, causing
-	 the task to yield the CPU.)
-2.[CPUB] deliver_response() is invoked when the CPU receives the IPMI
-         response. After processing a IPMI response, deliver_response()
-         directly assigns intf->wchannels to intf->channel_list and sets
-	 intf->channels_ready to true. However, not all channels are actually
-	 ready for use.
-3.[CPUA] Since intf->channels_ready is already true, wait_event() never
-         enters __wait_event(). __scan_channels() immediately clears
-	 intf->null_user_handler and exits.
-4.[CPUB] Once intf->null_user_handler is set to NULL, deliver_response()
-         ignores further IPMI responses, leaving the remaining channels
-	 zero-initialized and unusable.
-
-CPUA                             CPUB
--------------------------------  -----------------------------
-ipmi_add_smi()
- __scan_channels()
-  intf->null_user_handler
-        = channel_handler;
-  send_channel_info_cmd(intf,
-        0);
-  wait_event(intf->waitq,
-	intf->channels_ready);
-   do {
-    might_sleep();
-                                 deliver_response()
-                                  channel_handler()
-                                   intf->channel_list =
-				         intf->wchannels + set;
-                                   intf->channels_ready = true;
-                                   send_channel_info_cmd(intf,
-				          intf->curr_channel);
-    if (condition)
-     break;
-    __wait_event(wq_head,
-	    condition);
-   } while(0)
-  intf->null_user_handler
-        = NULL;
-                                 deliver_response()
-                                  if (!msg->user)
-                                   if (intf->null_user_handler)
-                                    rv = -EINVAL;
-                                  return rv;
--------------------------------  -----------------------------
-
 Fix the race between __scan_channels() and deliver_response() with the
 following changes.
 
-1. Drop the redundant __scan_channels() call in ipmi_add_smi(), the
-   function is already invoked via ipmi_add_smi() -> __bmc_get_device_id()
-   -> __scan_channels().
-2. channel_handler() sets intf->channels_ready to true but no one clears
-   it, preventing __scan_channels() from rescanning channels. Clear
-   intf->channels_ready to false in channel_handler() before starting
-   the channel scan.
-3. Only assign intf->channel_list = intf->wchannels and set
-   intf->channels_ready = true in channel_handler() after all channels
+1. Only assign intf->channel_list = intf->wchannels and set
+   intf->channels_ready = true in channel_handler() after all channels_ready
    have been successfully scanned or after failing to send the IPMI
    request.
+2. channel_handler() sets intf->channels_ready to true but no one clears
+   it, preventing __scan_channels() from rescanning channels. When the BMC
+   firmware changes a rescan is required. Allow it by clearing the flag
+   before starting a new scan.
+3. Channels remain static unless the BMC firmware changes. Skip channel
+   rescan when no BMC firmware update has occurred.
 
-Signed-off-by: Jinhui Guo <guojinhui.liam@bytedance.com>
----
- drivers/char/ipmi/ipmi_msghandler.c | 14 ++++----------
- 1 file changed, 4 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index 8e9050f99e9e..73dab3b21221 100644
---- a/drivers/char/ipmi/ipmi_msghandler.c
-+++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -3405,11 +3405,8 @@ channel_handler(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
- 			intf->channel_list = intf->wchannels + set;
- 			intf->channels_ready = true;
- 			wake_up(&intf->waitq);
--		} else {
--			intf->channel_list = intf->wchannels + set;
--			intf->channels_ready = true;
-+		} else
- 			rv = send_channel_info_cmd(intf, intf->curr_channel);
--		}
- 
- 		if (rv) {
- 			/* Got an error somehow, just give up. */
-@@ -3433,6 +3430,9 @@ static int __scan_channels(struct ipmi_smi *intf, struct ipmi_device_id *id)
- {
- 	int rv;
- 
-+	/* Clear channels_ready to force channels rescan. */
-+	intf->channels_ready = false;
-+
- 	if (ipmi_version_major(id) > 1
- 			|| (ipmi_version_major(id) == 1
- 			    && ipmi_version_minor(id) >= 5)) {
-@@ -3633,12 +3633,6 @@ int ipmi_add_smi(struct module         *owner,
- 		goto out_err_started;
- 	}
- 
--	mutex_lock(&intf->bmc_reg_mutex);
--	rv = __scan_channels(intf, &id);
--	mutex_unlock(&intf->bmc_reg_mutex);
--	if (rv)
--		goto out_err_bmc_reg;
--
- 	intf->nr_users_devattr = dev_attr_nr_users;
- 	sysfs_attr_init(&intf->nr_users_devattr.attr);
- 	rv = device_create_file(intf->si_dev, &intf->nr_users_devattr);
+v1: https://lore.kernel.org/all/20250929081602.1901-1-guojinhui.liam@bytedance.com/
+
+Changelog in v1 -> v2 (suggested by corey):
+ - Split the fix into three independent patches, each addressing a
+   separate issue.
+ - Clear intf->channels_ready only when the BMC firmware changes.
+
+Jinhui Guo (3):
+  ipmi: Fix the race between __scan_channels() and deliver_response()
+  ipmi: Fix __scan_channels() failing to rescan channels
+  ipmi: Skip channel scan if channels are already marked ready
+
+ drivers/char/ipmi/ipmi_msghandler.c | 24 +++++++++++++++++-------
+ 1 file changed, 17 insertions(+), 7 deletions(-)
+
 -- 
 2.20.1
 
