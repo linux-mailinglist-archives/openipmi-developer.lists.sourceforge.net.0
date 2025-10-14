@@ -2,7 +2,7 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 27C40BDA62E
+	by mail.lfdr.de (Postfix) with ESMTPS id A947ABDA631
 	for <lists+openipmi-developer@lfdr.de>; Tue, 14 Oct 2025 17:30:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
@@ -10,67 +10,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Subject:MIME-Version:Message-ID:Date:To:Sender:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1lg+LvgFMe9Z2EL0I8fj0CvAozgZuApTJiLwi91a00o=; b=kBo+wlMk9sMFC2Ro7vdJO2dAkm
-	6mz1Jxkc3c8jUIQaWYNpAEycmL9M0YqkuRIwlK5ldHqzltBIP7IkFsxoMDEbOPkXo3ve3wqi6hgZm
-	7Kkot0I24OSQBo19j8D2b92X8wW1+yO6FbGDRyJhbAtJY0aLUd9qRyM5xiyI22O0s7Xs=;
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=YS6runNqnREonvtdpcw1E/QQYTwgMps9dQsO5FOWKUI=; b=CIoeusjXPDyxecRA+NE+TbxGx1
+	Ku8mNB5b9a6OKL8Nnk61V51WzqlASdIEV+cYxQJP/3UZwL1+MeYz39SpKIWVpgAWsHfDScdujIYWI
+	seNLGDcKjgG+eRWyTT0Sl01EAexqQXg0EyCzsFNFoVFmO+uoWkkkZt2DJ5R0BAFF/Ux4=;
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1v8gyL-0004wL-KX;
-	Tue, 14 Oct 2025 15:29:57 +0000
+	id 1v8gyU-00034g-7T;
+	Tue, 14 Oct 2025 15:30:06 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <robh@kernel.org>) id 1v8gyJ-0004w8-Lw
+ (envelope-from <robh@kernel.org>) id 1v8gyS-00034Z-Vs
  for openipmi-developer@lists.sourceforge.net;
- Tue, 14 Oct 2025 15:29:55 +0000
+ Tue, 14 Oct 2025 15:30:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-ID:
  Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=1tjjJZTPucC0/IqLn+TggSumRZ38XQb/kTlvPmf+FTw=; b=c3vW5lMETsQP+zsj1+srDof/Zb
- W9PQEVV/XeENL8X73xdksFg0il+6e8vg8Wk6KthDi/7KokFlIeRQWT+geUYA8N1ANaMa7LHxM8KAW
- asj7+r1wu2UKskR1BUlJh6ZfAUX5wpm5VUVYrT9Rus/SfdpcgR0w4JpMKHW7l2wLtwkM=;
+ bh=WJ3wgMAYUBjmffEpxEcFsRtBghftLqNL1ylvJ36Y1bw=; b=CsqQkE5Y2zu3IBSuCrjPjpzxNl
+ U9T7+9IIb11KJFSLxIvwAi7hwgwPFDio3DmbbLLXh2zRxnoTZA80TWtWw2Gb7pHeNzexOFOJwYLHM
+ Oan8D9m6KHBZ8EgcIN4aLmx4VZ9iG143boHDHwnEUVO+ibw6RCtBycUGJP9y6jG6JErk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From
  :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
  Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
  References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=1tjjJZTPucC0/IqLn+TggSumRZ38XQb/kTlvPmf+FTw=; b=K
- tLu3xal02SH8KAPUy2u283oe7Wzxc/7iUd9teVSpkjIKrr1x48ytTs31BjnSLVGcWjr6pMxIjHj/P
- xNMLqhwgqiWFqRKpJGxJzfOEgbI57YuTINVTP6uOUNmSfRPuVzKl8QBdkcCNmAJFpkaYMsdRD6ZP2
- nlx5v6rhMFvJs72Y=;
-Received: from sea.source.kernel.org ([172.234.252.31])
+ List-Owner:List-Archive; bh=WJ3wgMAYUBjmffEpxEcFsRtBghftLqNL1ylvJ36Y1bw=; b=A
+ VWSrQGF1ig/FoaqtWne0gxzHdaqSh9TizjpCLtZ2mISIbSEKevtSXo1n5CfgjJstyxFVmRVQy6d/m
+ ACeSFkPGmhYUpfR7UY3ktrMGL3St2NQpEcGyOIAEo6PMn0Xku800JRQAJnlZgCwabw1ILnViul42s
+ K6zProMfkfCJ+l0U=;
+Received: from tor.source.kernel.org ([172.105.4.254])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1v8gyI-0003l0-OX for openipmi-developer@lists.sourceforge.net;
- Tue, 14 Oct 2025 15:29:55 +0000
+ id 1v8gyS-0003lQ-6W for openipmi-developer@lists.sourceforge.net;
+ Tue, 14 Oct 2025 15:30:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by sea.source.kernel.org (Postfix) with ESMTP id 48F1045263;
- Tue, 14 Oct 2025 15:29:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D838AC4CEE7;
- Tue, 14 Oct 2025 15:29:43 +0000 (UTC)
+ by tor.source.kernel.org (Postfix) with ESMTP id 85CDC6230A;
+ Tue, 14 Oct 2025 15:29:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40A1C4CEE7;
+ Tue, 14 Oct 2025 15:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1760455784;
- bh=BCLZnlFtfyfyqV95kvnr8DLzhbdzdFCeJdir6zX5uTc=;
+ s=k20201202; t=1760455793;
+ bh=zYExi83W0RHyJrqMwtyqJRZDpbfqUykmcag8kOhkVUI=;
  h=From:To:Cc:Subject:Date:From;
- b=Ui+5zuIWnH9o2ODiPohYBuH53HAXcp05rYdTb2k/l4FZoTMYVTi/zn2mHtu4w/lxw
- 4DU9Ds3qR9LCrH7/YQhG3qZKpC0uS9r88ZG//Xe/U7h5UnivDsuLe8gDRQqdqSBC1b
- KQzYtLhIYs3yF0eT9UYpeOySOWVQKuhQ99brGjB4ZuTiTUUO+DqSGvumpszs7kE5CV
- uNGFXL7ivKgcEL+L7Z668sMoxp8Y9RHnwP5EVJcaN9vYxuvQC1GA6yKTpTuD/s/avo
- 0zWtljnka2dgEzaAkYjQ8wcfF2tOSt9fsYmE5RWHhLKm2YHMMNsTVBCFerys4sxb7v
- 1/o2JHyUIXgZw==
-To: Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
- Corey Minyard <corey@minyard.net>,
+ b=eMkaAH4VUyJhLA+HEJG27I9pneelGaB8Y6DWmSQOO2qeeoZXmbHeHdaRSz/LHr53U
+ JPYOf98BlNoLSMpffIHQoztBZpWlMtYt//Z+NMY0C8lTN6IkgBtGj+7sZaFBKvazQK
+ E9CtgO2JZrsSYLEub6xnkVsKyOp4AhLYEisIjvdpRIP1O2+7+P2jkRaUBf1tzHqlfH
+ Od4tZLfPZ1AKRu1RegKMPhC2hGkEE4jilFtA7C3oxCdksozbgdtDOoVcIe2rNQvbih
+ 2H4v9pDdDYwYpxfza+OAhd/gDcolFANkctu1tFo+4aYdsjhR+LX7aiqEH1EE3GDS1/
+ ocRhZ/HwW3phw==
+To: Corey Minyard <corey@minyard.net>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Date: Tue, 14 Oct 2025 10:29:34 -0500
-Message-ID: <20251014152935.3782463-1-robh@kernel.org>
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Date: Tue, 14 Oct 2025 10:29:47 -0500
+Message-ID: <20251014152948.3782738-1-robh@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 X-Spam-Score: -0.2 (/)
@@ -80,13 +78,12 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Convert the nuvoton,
- npcm750-kcs-bmc binding to DT schema format.
+ Content preview:  Convert the aspeed,
+ ast2400-ibt-bmc binding to DT schema format.
  It's a straight-forward conversion. Signed-off-by: Rob Herring (Arm)
  <robh@kernel.org>
- --- .../bindings/ipmi/npcm7xx-kcs-bmc.txt | 40 .../ipmi/nuvoton,
- npcm750-kcs-bmc.yaml
- | 55 +++++++++++++++++++ 2 files changed, 55 inse [...] 
+ --- .../bindings/ipmi/aspeed, ast2400-ibt-bmc.txt | 28 .../bindings/ipmi/aspeed,
+ ast2400-ibt-bmc.yaml | 44 +++++++++++++++++++ 2 files cha [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -98,9 +95,9 @@ X-Spam-Report: Spam detection software,
  domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1v8gyI-0003l0-OX
-Subject: [Openipmi-developer] [PATCH] dt-bindings: ipmi: Convert nuvoton,
- npcm750-kcs-bmc to DT schema
+X-Headers-End: 1v8gyS-0003lQ-6W
+Subject: [Openipmi-developer] [PATCH] dt-bindings: ipmi: Convert aspeed,
+ ast2400-ibt-bmc to DT schema
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -116,129 +113,107 @@ List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer
 From: "Rob Herring \(Arm\) via Openipmi-developer"
  <openipmi-developer@lists.sourceforge.net>
 Reply-To: "Rob Herring \(Arm\)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, openbmc@lists.ozlabs.org,
- openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Convert the nuvoton,npcm750-kcs-bmc binding to DT schema format. It's a
+Convert the aspeed,ast2400-ibt-bmc binding to DT schema format. It's a
 straight-forward conversion.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/ipmi/npcm7xx-kcs-bmc.txt         | 40 --------------
- .../ipmi/nuvoton,npcm750-kcs-bmc.yaml         | 55 +++++++++++++++++++
- 2 files changed, 55 insertions(+), 40 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/ipmi/npcm7xx-kcs-bmc.txt
- create mode 100644 Documentation/devicetree/bindings/ipmi/nuvoton,npcm750-kcs-bmc.yaml
+ .../bindings/ipmi/aspeed,ast2400-ibt-bmc.txt  | 28 ------------
+ .../bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml | 44 +++++++++++++++++++
+ 2 files changed, 44 insertions(+), 28 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
+ create mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
 
-diff --git a/Documentation/devicetree/bindings/ipmi/npcm7xx-kcs-bmc.txt b/Documentation/devicetree/bindings/ipmi/npcm7xx-kcs-bmc.txt
+diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
 deleted file mode 100644
-index 4fda76e63396..000000000000
---- a/Documentation/devicetree/bindings/ipmi/npcm7xx-kcs-bmc.txt
+index 25f86da804b7..000000000000
+--- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
 +++ /dev/null
-@@ -1,40 +0,0 @@
--* Nuvoton NPCM KCS (Keyboard Controller Style) IPMI interface
+@@ -1,28 +0,0 @@
+-* Aspeed BT (Block Transfer) IPMI interface
 -
--The Nuvoton SOCs (NPCM) are commonly used as BMCs
--(Baseboard Management Controllers) and the KCS interface can be
--used to perform in-band IPMI communication with their host.
+-The Aspeed SOCs (AST2400 and AST2500) are commonly used as BMCs
+-(BaseBoard Management Controllers) and the BT interface can be used to
+-perform in-band IPMI communication with their host.
 -
 -Required properties:
+-
 -- compatible : should be one of
--    "nuvoton,npcm750-kcs-bmc"
--    "nuvoton,npcm845-kcs-bmc", "nuvoton,npcm750-kcs-bmc"
--- interrupts : interrupt generated by the controller
--- kcs_chan : The KCS channel number in the controller
+-	"aspeed,ast2400-ibt-bmc"
+-	"aspeed,ast2500-ibt-bmc"
+-	"aspeed,ast2600-ibt-bmc"
+-- reg: physical address and size of the registers
+-- clocks: clock for the device
+-
+-Optional properties:
+-
+-- interrupts: interrupt generated by the BT interface. without an
+-  interrupt, the driver will operate in poll mode.
 -
 -Example:
 -
--    lpc_kcs: lpc_kcs@f0007000 {
--        compatible = "nuvoton,npcm750-lpc-kcs", "simple-mfd", "syscon";
--        reg = <0xf0007000 0x40>;
--        reg-io-width = <1>;
--
--        #address-cells = <1>;
--        #size-cells = <1>;
--        ranges = <0x0 0xf0007000 0x40>;
--
--        kcs1: kcs1@0 {
--            compatible = "nuvoton,npcm750-kcs-bmc";
--            reg = <0x0 0x40>;
--            interrupts = <0 9 4>;
--            kcs_chan = <1>;
--            status = "disabled";
--        };
--
--        kcs2: kcs2@0 {
--            compatible = "nuvoton,npcm750-kcs-bmc";
--            reg = <0x0 0x40>;
--            interrupts = <0 9 4>;
--            kcs_chan = <2>;
--            status = "disabled";
--        };
--    };
-diff --git a/Documentation/devicetree/bindings/ipmi/nuvoton,npcm750-kcs-bmc.yaml b/Documentation/devicetree/bindings/ipmi/nuvoton,npcm750-kcs-bmc.yaml
+-	ibt@1e789140 {
+-		compatible = "aspeed,ast2400-ibt-bmc";
+-		reg = <0x1e789140 0x18>;
+-		interrupts = <8>;
+-		clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+-	};
+diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
 new file mode 100644
-index 000000000000..fc5df1c5e3bc
+index 000000000000..c4f7cdbbe16b
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/ipmi/nuvoton,npcm750-kcs-bmc.yaml
-@@ -0,0 +1,55 @@
++++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
+@@ -0,0 +1,44 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/ipmi/nuvoton,npcm750-kcs-bmc.yaml#
++$id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-ibt-bmc.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Nuvoton NPCM KCS BMC
++title: Aspeed Block Transfer (BT) IPMI interface
 +
 +maintainers:
-+  - Avi Fishman <avifishman70@gmail.com>
-+  - Tomer Maimon <tmaimon77@gmail.com>
-+  - Tali Perry <tali.perry1@gmail.com>
-+
-+description:
-+  The Nuvoton SOCs (NPCM) are commonly used as BMCs (Baseboard Management
-+  Controllers) and the KCS interface can be used to perform in-band IPMI
-+  communication with their host.
++  - Joel Stanley <joel@jms.id.au>
 +
 +properties:
 +  compatible:
-+    oneOf:
-+      - const: nuvoton,npcm750-kcs-bmc
-+      - items:
-+          - enum:
-+              - nuvoton,npcm845-kcs-bmc
-+          - const: nuvoton,npcm750-kcs-bmc
++    enum:
++      - aspeed,ast2400-ibt-bmc
++      - aspeed,ast2500-ibt-bmc
++      - aspeed,ast2600-ibt-bmc
 +
 +  reg:
++    maxItems: 1
++
++  clocks:
 +    maxItems: 1
 +
 +  interrupts:
 +    maxItems: 1
 +
-+  kcs_chan:
-+    description: The KCS channel number in the controller
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 1
-+    maximum: 3
-+
 +required:
 +  - compatible
 +  - reg
-+  - interrupts
-+  - kcs_chan
++  - clocks
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    kcs@0 {
-+        compatible = "nuvoton,npcm750-kcs-bmc";
-+        reg = <0x0 0x40>;
-+        interrupts = <9 4>;
-+        kcs_chan = <1>;
++    #include <dt-bindings/clock/aspeed-clock.h>
++
++    bt@1e789140 {
++        compatible = "aspeed,ast2400-ibt-bmc";
++        reg = <0x1e789140 0x18>;
++        interrupts = <8>;
++        clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
 +    };
 -- 
 2.51.0
