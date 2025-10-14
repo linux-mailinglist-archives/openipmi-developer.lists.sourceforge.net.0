@@ -2,102 +2,107 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A947ABDA631
-	for <lists+openipmi-developer@lfdr.de>; Tue, 14 Oct 2025 17:30:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4A60CBDA9E6
+	for <lists+openipmi-developer@lfdr.de>; Tue, 14 Oct 2025 18:31:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:MIME-Version:Message-ID:Date:To:Sender:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YS6runNqnREonvtdpcw1E/QQYTwgMps9dQsO5FOWKUI=; b=CIoeusjXPDyxecRA+NE+TbxGx1
-	Ku8mNB5b9a6OKL8Nnk61V51WzqlASdIEV+cYxQJP/3UZwL1+MeYz39SpKIWVpgAWsHfDScdujIYWI
-	seNLGDcKjgG+eRWyTT0Sl01EAexqQXg0EyCzsFNFoVFmO+uoWkkkZt2DJ5R0BAFF/Ux4=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Cc:Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive
+	:List-Unsubscribe:List-Id:Subject:To:Date:Message-Id:References:In-Reply-To:
+	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UMaHc+5A1fDyUEqQ18ADrpTgiFXBSWkad0UlHuW9ncE=; b=ZRxxSNB84Cm7kAoBVrNzxJTDiX
+	n32sqenO3h5ZctxIKI/r1Erbx4CkOIBLfO92LL8bl7bNdv7T9r2ptRyY6tA+oKEQC0betNaANFWUg
+	2A1EEEsENNaJ71PvjnvrOQ798sBapNTo1Bg4NFCTtJy2bsNWlOAK5tUeCF1v/i7bjaYc=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1v8gyU-00034g-7T;
-	Tue, 14 Oct 2025 15:30:06 +0000
+	id 1v8hwC-0006gp-MM;
+	Tue, 14 Oct 2025 16:31:49 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <robh@kernel.org>) id 1v8gyS-00034Z-Vs
+ (envelope-from <pr-tracker-bot@kernel.org>) id 1v8hwB-0006gb-Em
  for openipmi-developer@lists.sourceforge.net;
- Tue, 14 Oct 2025 15:30:05 +0000
+ Tue, 14 Oct 2025 16:31:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:Message-ID:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Cc:To:Date:Message-Id:References:In-Reply-To:From:
+ Subject:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=WJ3wgMAYUBjmffEpxEcFsRtBghftLqNL1ylvJ36Y1bw=; b=CsqQkE5Y2zu3IBSuCrjPjpzxNl
- U9T7+9IIb11KJFSLxIvwAi7hwgwPFDio3DmbbLLXh2zRxnoTZA80TWtWw2Gb7pHeNzexOFOJwYLHM
- Oan8D9m6KHBZ8EgcIN4aLmx4VZ9iG143boHDHwnEUVO+ibw6RCtBycUGJP9y6jG6JErk=;
+ bh=cRboy3RnIZgBfFZJyzSQAZPRJcKg5PM0amSD+/L7USI=; b=GXmlxbbiH43C6XHhJmZy6gvY00
+ 3yXkquFkhLt9skEPt6w4zK/68jWP+gRvNI1MScL0ZtTBCFDupkeLB3wH0rpmvOG+kZLJJlrHfxML5
+ KfqhGo9W+9iLEf0CyXK7f9F+dJCeN2i0ziBTpw6vvNLDWy6v0fTeqHb+lTbjRLZ3ttSs=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From
- :Sender:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=WJ3wgMAYUBjmffEpxEcFsRtBghftLqNL1ylvJ36Y1bw=; b=A
- VWSrQGF1ig/FoaqtWne0gxzHdaqSh9TizjpCLtZ2mISIbSEKevtSXo1n5CfgjJstyxFVmRVQy6d/m
- ACeSFkPGmhYUpfR7UY3ktrMGL3St2NQpEcGyOIAEo6PMn0Xku800JRQAJnlZgCwabw1ILnViul42s
- K6zProMfkfCJ+l0U=;
+ h=Cc:To:Date:Message-Id:References:In-Reply-To:From:Subject:Sender:Reply-To
+ :MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=cRboy3RnIZgBfFZJyzSQAZPRJcKg5PM0amSD+/L7USI=; b=EAg1l7StdR3WPmWEwvHKBUWqun
+ sD4xlRyQ3LV2GvlJftHdx903fDINLXbCaVFCIZ5LYpC0gIyUG90NwDFvoWRG/mVkfw459weModPBt
+ umdOcZdOKhUWr+QemZLhlY5MqTvulj8hcdQEo5APghMCEZ33fX4IHXIFavj87PqtJNDk=;
 Received: from tor.source.kernel.org ([172.105.4.254])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1v8gyS-0003lQ-6W for openipmi-developer@lists.sourceforge.net;
- Tue, 14 Oct 2025 15:30:04 +0000
+ id 1v8hwB-0006lr-Lx for openipmi-developer@lists.sourceforge.net;
+ Tue, 14 Oct 2025 16:31:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by tor.source.kernel.org (Postfix) with ESMTP id 85CDC6230A;
- Tue, 14 Oct 2025 15:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40A1C4CEE7;
- Tue, 14 Oct 2025 15:29:52 +0000 (UTC)
+ by tor.source.kernel.org (Postfix) with ESMTP id 06F046235D;
+ Tue, 14 Oct 2025 16:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE5D3C4CEE7;
+ Tue, 14 Oct 2025 16:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1760455793;
- bh=zYExi83W0RHyJrqMwtyqJRZDpbfqUykmcag8kOhkVUI=;
- h=From:To:Cc:Subject:Date:From;
- b=eMkaAH4VUyJhLA+HEJG27I9pneelGaB8Y6DWmSQOO2qeeoZXmbHeHdaRSz/LHr53U
- JPYOf98BlNoLSMpffIHQoztBZpWlMtYt//Z+NMY0C8lTN6IkgBtGj+7sZaFBKvazQK
- E9CtgO2JZrsSYLEub6xnkVsKyOp4AhLYEisIjvdpRIP1O2+7+P2jkRaUBf1tzHqlfH
- Od4tZLfPZ1AKRu1RegKMPhC2hGkEE4jilFtA7C3oxCdksozbgdtDOoVcIe2rNQvbih
- 2H4v9pDdDYwYpxfza+OAhd/gDcolFANkctu1tFo+4aYdsjhR+LX7aiqEH1EE3GDS1/
- ocRhZ/HwW3phw==
-To: Corey Minyard <corey@minyard.net>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Date: Tue, 14 Oct 2025 10:29:47 -0500
-Message-ID: <20251014152948.3782738-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
-MIME-Version: 1.0
+ s=k20201202; t=1760459496;
+ bh=p2uFuxbWNmwyLUoQ8GrO+NzS5l0VHS0mVzJ9Z/0RaIM=;
+ h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+ b=UjKYiVGf0Zt9aBTzr4SH4yqv8EnpL4/d8xtCjtVKMRzLDg423b10ou+BE0QdDhiaO
+ 0CpavfrhrscNusfnMC8nH7A9UF3K9huwvLE02qF0H8CsJDoh2lZ9hJte3qmZ/8pyJ9
+ lRAl8hQh/dDrCntH5ki1OhsllriCwg7d6As9CbB+BCO+l3RI5KBqKs9ZVzwtKeSt+M
+ fBUdwcEU0YnCOEpNDzHWSvbKu9InUf5sqMA/4i9cDgSNUFtp9a6z9P5pqmzeYrbRTc
+ fN06aMkDfhs+/zW3YqS+GolpvM1J4u1cDNAVHUU8V8lgo8N8Xxwz/fDUbWsE5IqRuQ
+ 9FN+r/Jdg0niA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+ by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id
+ 3407A380AAEA; Tue, 14 Oct 2025 16:31:23 +0000 (UTC)
+In-Reply-To: <aOzrxmNP1kT0FOxB@mail.minyard.net>
+References: <aOzrxmNP1kT0FOxB@mail.minyard.net>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <aOzrxmNP1kT0FOxB@mail.minyard.net>
+X-PR-Tracked-Remote: https://github.com/cminyard/linux-ipmi.git
+ tags/for-linus-6.18-2
+X-PR-Tracked-Commit-Id: e2c69490dda5d4c9f1bfbb2898989c8f3530e354
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 5bd0116d92a7849b12f0b4c8199d53aa80e449bc
+Message-Id: <176045948164.10193.4949713951951184632.pr-tracker-bot@kernel.org>
+Date: Tue, 14 Oct 2025 16:31:21 +0000
+To: Corey Minyard <corey@minyard.net>
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Convert the aspeed,
- ast2400-ibt-bmc binding to DT schema format.
- It's a straight-forward conversion. Signed-off-by: Rob Herring (Arm)
- <robh@kernel.org>
- --- .../bindings/ipmi/aspeed, ast2400-ibt-bmc.txt | 28 .../bindings/ipmi/aspeed,
- ast2400-ibt-bmc.yaml | 44 +++++++++++++++++++ 2 files cha [...] 
+ Content preview:  The pull request you sent on Mon, 13 Oct 2025 07:08:38 -0500:
+ > https://github.com/cminyard/linux-ipmi.git tags/for-linus-6.18-2 has been
+ merged into torvalds/linux.git:
+ https://git.kernel.org/torvalds/c/5bd0116d92a7849b12f0b4c8199d53aa80e449bc
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1v8gyS-0003lQ-6W
-Subject: [Openipmi-developer] [PATCH] dt-bindings: ipmi: Convert aspeed,
- ast2400-ibt-bmc to DT schema
+X-Headers-End: 1v8hwB-0006lr-Lx
+Subject: Re: [Openipmi-developer] [GIT PULL] more IPMI bug fixes for 6.18
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -110,114 +115,31 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: "Rob Herring \(Arm\) via Openipmi-developer"
+From: pr-tracker-bot--- via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
-Reply-To: "Rob Herring \(Arm\)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Reply-To: pr-tracker-bot@kernel.org
+Cc: linux-kernel <linux-kernel@vger.kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Dan Carpenter <dan.carpenter@linaro.org>,
+ Greg Thelen <gthelen@google.com>, openipmi-developer@lists.sourceforge.net,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Guenter Roeck <linux@roeck-us.net>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Convert the aspeed,ast2400-ibt-bmc binding to DT schema format. It's a
-straight-forward conversion.
+The pull request you sent on Mon, 13 Oct 2025 07:08:38 -0500:
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/ipmi/aspeed,ast2400-ibt-bmc.txt  | 28 ------------
- .../bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml | 44 +++++++++++++++++++
- 2 files changed, 44 insertions(+), 28 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
- create mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
+> https://github.com/cminyard/linux-ipmi.git tags/for-linus-6.18-2
 
-diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
-deleted file mode 100644
-index 25f86da804b7..000000000000
---- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
-+++ /dev/null
-@@ -1,28 +0,0 @@
--* Aspeed BT (Block Transfer) IPMI interface
--
--The Aspeed SOCs (AST2400 and AST2500) are commonly used as BMCs
--(BaseBoard Management Controllers) and the BT interface can be used to
--perform in-band IPMI communication with their host.
--
--Required properties:
--
--- compatible : should be one of
--	"aspeed,ast2400-ibt-bmc"
--	"aspeed,ast2500-ibt-bmc"
--	"aspeed,ast2600-ibt-bmc"
--- reg: physical address and size of the registers
--- clocks: clock for the device
--
--Optional properties:
--
--- interrupts: interrupt generated by the BT interface. without an
--  interrupt, the driver will operate in poll mode.
--
--Example:
--
--	ibt@1e789140 {
--		compatible = "aspeed,ast2400-ibt-bmc";
--		reg = <0x1e789140 0x18>;
--		interrupts = <8>;
--		clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
--	};
-diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
-new file mode 100644
-index 000000000000..c4f7cdbbe16b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
-@@ -0,0 +1,44 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-ibt-bmc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Aspeed Block Transfer (BT) IPMI interface
-+
-+maintainers:
-+  - Joel Stanley <joel@jms.id.au>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - aspeed,ast2400-ibt-bmc
-+      - aspeed,ast2500-ibt-bmc
-+      - aspeed,ast2600-ibt-bmc
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/aspeed-clock.h>
-+
-+    bt@1e789140 {
-+        compatible = "aspeed,ast2400-ibt-bmc";
-+        reg = <0x1e789140 0x18>;
-+        interrupts = <8>;
-+        clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
-+    };
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/5bd0116d92a7849b12f0b4c8199d53aa80e449bc
+
+Thank you!
+
 -- 
-2.51.0
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 
 _______________________________________________
