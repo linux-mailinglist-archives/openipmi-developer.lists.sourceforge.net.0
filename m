@@ -2,108 +2,69 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 764C0BDE4A1
-	for <lists+openipmi-developer@lfdr.de>; Wed, 15 Oct 2025 13:38:08 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7EEDCC1F4D0
+	for <lists+openipmi-developer@lfdr.de>; Thu, 30 Oct 2025 10:31:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLgROpGSDBk7Ls0lqCflCb/j4lJnxu7F7N8D34hSBkw=; b=gu/FFD6d4i/g652nfZ3UnGnqcK
-	+Rz7tU3Rplk5bMmW8XxX/mQYuSeQoeGJoUuSY9/GsUeRtWi+Yu5aff3CDF1DgzFt8VA2HatfHpC7K
-	QiaocB8u7q2mOzjkZThrnDKxLAyPWFIAiB4W7zgFkDRD/KLq8ucyUn3pd3IY3M/3oIPY=;
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kBx4yw/6zwf0SdY5oVBZiMbSeUUNmZ2z4UVS4YiTtJ8=; b=Y0PjglSf/ROD1YkGZC8N1fsdx9
+	u+0wH2PX0XiQiiAOCcB5GI8VjYwAPA4OOQLQYVgkMnqBkr8NFs3eWrhj+T/KUTghj9Yhpa7NGICtz
+	InqdpB8/eQZXg0xQ0u/NyHa/JZaK4UwI3JLZjQ4RFlpwdiLvFUT6JFHG44I80JRJrXDQ=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1v8zpM-0003lU-Sh;
-	Wed, 15 Oct 2025 11:37:57 +0000
+	id 1vEOzd-0005H8-MM;
+	Thu, 30 Oct 2025 09:30:53 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1v8zpL-0003lJ-69
+ (envelope-from <foo00@h08.hostsharing.net>) id 1vEOzb-0005H1-Mg
  for openipmi-developer@lists.sourceforge.net;
- Wed, 15 Oct 2025 11:37:56 +0000
+ Thu, 30 Oct 2025 09:30:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=GyADvYjKnQqyX4oYA1nEg/1fwJhYN8XvPFT/8EJ6yc4=; b=EdWc9ABppY3aYCyi/b8mIYRjnC
- rO+BSwjHQ8Og/gsFaY59biJ+eG4wcJePmG/nTESxLIC0dogsv58xfuFEtgeJW6rHchSSQqLQx0ebn
- F/BrK5YtHEVHtWhzAqiwHohsz9N7lFJuCUxKOzkekwQjRGIRhhjK6zZEdL9qd+TZECwI=;
+ bh=EMa7giXG5U4gdV8VYh//ekCYxzPkEbd4pBalXAab9mY=; b=MMYbvb3lwxrQmOop0xeJFYAHbR
+ 3YozxV8JIWPSE3K2/MDHB49UGDd8GciuwnCJ1UcL1jFR3hSHXE2CScpNjBPBVMcF463eKcWR1NRMd
+ NKZR+5UH7/paeGDEEx+voFypvSFQxeZj+J36j4OU4yblADi3N/jHA4Zy5WTC68wQyYYk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=GyADvYjKnQqyX4oYA1nEg/1fwJhYN8XvPFT/8EJ6yc4=; b=kBNtSe0j8WXqExAUHKth0//i2P
- EeEneggbqriDV3c0Yj/eco0N/nRkIBYOOprK2MA7p7Cm0ReKqNUGpcxeM4cgchmYj6iJ7ddeV26Sj
- e9Xr535hgD2bgbRuMT3RRR4y1dCSwAwOwbpVQlcj6YvVVSayiXJi0cdq23ygNgRff4ec=;
-Received: from mail-ot1-f44.google.com ([209.85.210.44])
+ bh=EMa7giXG5U4gdV8VYh//ekCYxzPkEbd4pBalXAab9mY=; b=FyaDMnjfbmpTRtgoHw+qvL5DPr
+ s15S0ZT7wL0axEOEOJOiSx+8vp+h9HNhkVNBuy3a2B0sicpTfNnysypwOyHIjc43UjEmAZDPhOj7N
+ 3Ur4KzWcdmQyTbK8WqdsEo/h2/BRsnzwyw8ZaH1s+HYH2vinmtfsKcw/I1ZSbGYg8lCE=;
+Received: from bmailout1.hostsharing.net ([83.223.95.100])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1v8zpL-0004ca-IH for openipmi-developer@lists.sourceforge.net;
- Wed, 15 Oct 2025 11:37:55 +0000
-Received: by mail-ot1-f44.google.com with SMTP id
- 46e09a7af769-7827025e548so2642798a34.2
- for <openipmi-developer@lists.sourceforge.net>;
- Wed, 15 Oct 2025 04:37:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1760528270; x=1761133070;
- darn=lists.sourceforge.net; 
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:from:to:cc:subject:date
- :message-id:reply-to;
- bh=GyADvYjKnQqyX4oYA1nEg/1fwJhYN8XvPFT/8EJ6yc4=;
- b=Isd1r59BFKTLMxEYcOeD9ltB+ojwY4WUmREZvukgTpwrXBiYJnrRqTFruFfKiM7qgX
- tOLowcRCmAUbne8zpmxTpoM9zDTKyjKT5D8/6c1EyQLrG39UeJh2B76+or3BcHPBtNsW
- BuWoCsV3BelayvAAiwDMkbggzG90rY7W4FeE92WmekqmiJhDzbDcU0FblE5yOFxDTZuQ
- eIv5T2USXEiTR57oUX6zAiXIN7htGYEfqai6d4qhhI8kSI2MgsicyasdIGhzVQPyEQzB
- S0+hUJ6YbijcvpB9XodY3tn+lg6/3zqVW++B3PmSsom/pqDkxuCEGOSy0P9AYONCfNue
- tYbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1760528270; x=1761133070;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=GyADvYjKnQqyX4oYA1nEg/1fwJhYN8XvPFT/8EJ6yc4=;
- b=esfvQCsFiu9pU7pbhO7IeL+MQzXTfdVou+GHsk0705PtTfTLgbAUXWNiPn+yi+2x8h
- sLk83VjESUHG9KnQphHvh7rgtj8giiW2Nw708bAzkBb3/J1RKhbUg6rcnH+g4t5qPaKa
- EnvTrskIzBhQ8FIgVOynj8WkprljVHIVFkpwmbqBUo+ml1mk1t2AQPD7bI0nul9Q3Mm2
- 6gq/OXucanV+adXS47mXVN9GkswB/jE4m32J1Q0UHQXsTKgZdbghaMKfoFpndS50iNh7
- u3EheLgFVrBabKfQie1jsRvdQjjs7cHlot/A2rS7EwVW6E+ISS+JpnPsgvKO6F+2ddGH
- GhEA==
-X-Forwarded-Encrypted: i=1;
- AJvYcCVKRJhRUpzIsEvmF2RrJ3LWt9bu+Z+66duiwvOaJc/bzQPAdsDFmeOC95z5w9Fn1JFeyr/38DtOSTH37jjzidRB8i8=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0YzcSQlPKZJE+X358HjOQjStF95BlUpRuL6+ovu2UV4DkIPxEgL0
- fHqp9VixJGjeb11KB2XlIW3kzS5aUkr9r/p3MAMARGSwxU/E6JPDGGk4ce7s5RtK5sM=
-X-Gm-Gg: ASbGncunfiowPnUQs2FtrktxQPrsMdRW1oG7kJpktJNe8St52kYCdlFa8lWvt9UrHkK
- E7pkm1KhBuVt/fERmP4Q23W4Z2czaj0Dz/T6NDbSY87fbi3PtjK39ww++jJ9qL4y3TQ4bQfZ9x/
- cKo1abQyLDCZrnMcbMGgIOTcdukUmRco42dubPkpOxCFe0vTkskgcr4uLJDvvuK7eKvvrZwnkJP
- 4TRFT8KaisEMH77rH2VPqTdIhvNvf2q8lCRr4Fv86JvUKZ2SOKpgRXj8lg4x/NrX3IWzVZcc/+r
- i23k8/kPumDSat+nGrFdWymvU6pVAJOGawKj/gc+y6lDzuozddwRn4XDls38WlVtkJ0w0SlJsi7
- vHOajgxH1lvlarm+1Ce90MIVeBpKA8nhUYfDfjlPr1ABE
-X-Google-Smtp-Source: AGHT+IF8ikLsunnofVE7oR/wbYs0vteDdLFTVIEJJlab2tBfktgzDPUgm0kamWs++bBcUapugbYm5Q==
-X-Received: by 2002:a05:6808:e83:b0:441:8f74:f31 with SMTP id
- 5614622812f47-4418f74263dmr9403478b6e.59.1760528269821; 
- Wed, 15 Oct 2025 04:37:49 -0700 (PDT)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:ad63:63fb:ee1c:2ee9])
- by smtp.gmail.com with ESMTPSA id
- 46e09a7af769-7c0f915efddsm5245179a34.34.2025.10.15.04.37.46
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 15 Oct 2025 04:37:48 -0700 (PDT)
-Date: Wed, 15 Oct 2025 06:37:43 -0500
-From: Corey Minyard <corey@minyard.net>
-To: Binbin Zhou <zhoubinbin@loongson.cn>
-Message-ID: <aO-Hh4i_NAh1O_Mm@mail.minyard.net>
-References: <20251015095556.3736330-1-zhoubinbin@loongson.cn>
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1vEOza-00027G-TY for openipmi-developer@lists.sourceforge.net;
+ Thu, 30 Oct 2025 09:30:51 +0000
+Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256
+ client-signature RSA-PSS (4096 bits) client-digest SHA256)
+ (Client CN "*.hostsharing.net", Issuer "RapidSSL TLS RSA CA G1" (verified OK))
+ by bmailout1.hostsharing.net (Postfix) with ESMTPS id CE5B42C07AA1;
+ Thu, 30 Oct 2025 10:13:57 +0100 (CET)
+Received: by h08.hostsharing.net (Postfix, from userid 100393)
+ id B882824B7; Thu, 30 Oct 2025 10:13:57 +0100 (CET)
+Date: Thu, 30 Oct 2025 10:13:57 +0100
+From: Lukas Wunner <lukas@wunner.de>
+To: Tony Hutter <hutter2@llnl.gov>
+Message-ID: <aQMsVUCBDF7ZUSK-@wunner.de>
+References: <d485bd74-e49d-4c89-b986-1b45c93e7975@llnl.gov>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251015095556.3736330-1-zhoubinbin@loongson.cn>
+In-Reply-To: <d485bd74-e49d-4c89-b986-1b45c93e7975@llnl.gov>
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
@@ -111,21 +72,18 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Oct 15, 2025 at 05:55:56PM +0800, Binbin Zhou wrote:
- > When merging the Loongson-2K BMC driver, temporarily removed the > addition
- of the IPMI driver entry in MAINTAINERS to avoid conflicts. > [...] 
+ Content preview:  On Wed, Oct 08, 2025 at 04:48:22PM -0700, Tony Hutter wrote:
+ > +++ b/Documentation/ABI/testing/sysfs-bus-pci > @@ -231, 6 +231,
+ 27 @@ Description:
+ > - scXX contains the device subclass; > - iXX contains [...] 
  Content analysis details:   (0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.44 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1v8zpL-0004ca-IH
-Subject: Re: [Openipmi-developer] [PATCH] MAINTAINERS: Add entry on
- Loongson-2K IPMI driver
+ 0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
+ domains are different
+X-Headers-End: 1vEOza-00027G-TY
+Subject: Re: [Openipmi-developer] [PATCH v6] Introduce Cray ClusterStor
+ E1000 NVMe slot LED driver
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -138,49 +96,170 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: Lee Jones <lee@kernel.org>, Corey Minyard <minyard@acm.org>,
- Binbin Zhou <zhoubb.aaron@gmail.com>, Huacai Chen <chenhuacai@kernel.org>,
- linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
- Huacai Chen <chenhuacai@loongson.cn>
+Cc: minyard@acm.org, alok.a.tiwari@oracle.com,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, corey@minyard.net,
+ Bjorn Helgaas <helgaas@kernel.org>, linux-pci@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, mariusz.tkaczyk@linux.intel.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Oct 15, 2025 at 05:55:56PM +0800, Binbin Zhou wrote:
-> When merging the Loongson-2K BMC driver, temporarily removed the
-> addition of the IPMI driver entry in MAINTAINERS to avoid conflicts.
-> This needs to be fixed as soon as possible.
-> 
-> Now, adding myself as maintainer for the Loongson-2K IPMI driver.
-
-Got it for next release, thanks.
-
--corey
-
-> 
-> Signed-off-by: Binbin Zhou <zhoubinbin@loongson.cn>
-> ---
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 46126ce2f968..053295599785 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -14660,6 +14660,7 @@ LOONGSON-2K Board Management Controller (BMC) DRIVER
->  M:	Binbin Zhou <zhoubinbin@loongson.cn>
->  M:	Chong Qiao <qiaochong@loongson.cn>
->  S:	Maintained
-> +F:	drivers/char/ipmi/ipmi_si_ls2k.c
->  F:	drivers/mfd/ls2k-bmc-core.c
+On Wed, Oct 08, 2025 at 04:48:22PM -0700, Tony Hutter wrote:
+> +++ b/Documentation/ABI/testing/sysfs-bus-pci
+> @@ -231,6 +231,27 @@ Description:
+>  		    - scXX contains the device subclass;
+>  		    - iXX contains the device class programming interface.
 >  
->  LOONGSON EDAC DRIVER
-> 
-> base-commit: d27fea27a307656f0b55d6b9ac24caa40c7e4181
-> -- 
-> 2.47.3
-> 
+> +What:		/sys/bus/pci/slots/.../attention
+> +Date:		February 2025
+
+Please update the "Date" timestamp to the month of submission to the list.
+
+> +Contact:	linux-pci@vger.kernel.org
+> +Description:
+> +		The attention attribute is used to read or write the attention
+> +		status for an enclosure slot.  This is often used to set the
+> +		slot LED value on a NVMe storage enclosure.
+> +
+> +		Common values:
+> +		0 = OFF
+> +		1 = ON
+> +		2 = blink (ampere, ibmphp, pciehp, rpaphp, shpchp)
+> +
+> +		Using the pciehp_craye1k extensions:
+> +		0 = fault LED OFF, locate LED OFF
+> +		1 = fault LED ON,  locate LED OFF
+> +		2 = fault LED OFF, locate LED ON
+> +		3 = fault LED ON,  locate LED ON
+
+An end user might not be able to understand all these driver names,
+so I'd omit "(ampere, ibmphp, pciehp, rpaphp, shpchp)",
+and replace "pciehp_craye1k" with "Cray ClusterStor E1000".
+
+> +++ b/drivers/pci/hotplug/pciehp_core.c
+> @@ -73,6 +73,13 @@ static int init_slot(struct controller *ctrl)
+>  		ops->get_attention_status = pciehp_get_raw_indicator_status;
+>  		ops->set_attention_status = pciehp_set_raw_indicator_status;
+>  	}
+> +#ifdef CONFIG_HOTPLUG_PCI_PCIE_CRAY_E1000
+> +	if (is_craye1k_slot(ctrl)) {
+> +		/* slots 1-24 on Cray E1000s are controlled differently */
+> +		ops->get_attention_status = craye1k_get_attention_status;
+> +		ops->set_attention_status = craye1k_set_attention_status;
+> +	}
+> +#endif
+
+Per section 21 of Documentation/process/coding-style.rst,
+please avoid the use of #ifdef and instead add an #else section
+to pciehp.h with an inline stub for is_craye1k_slot() which returns false
+and #define craye1k_{get,set}_attention_status to NULL.
+
+Do these hotplug slots on the Cray E1000 have the Attention Indicator
+Present bit set in the Slot Capabilities register?  If they do not,
+please use "if else" instead of "if".  Right now you're overwriting
+the default {get,set}_attention_status pointers, which only makes
+sense if ATTN_LED(ctrl) is true.
+
+When is craye1k_new_smi() called?  Is it guaranteed to be called
+before the first invocation of craye1k_{get,set}_attention_status()?
+
+I'm asking because craye1k_{get,set}_attention_status() do not
+contain any checks whether the craye1k_global struct has been
+populated.  You would need such checks if craye1k_new_smi() may
+run later than the "attention" attribute appearing in sysfs.
+
+Actually craye1k_new_smi() may fail, e.g. because of kzalloc()
+returning NULL, so I think you'll need additional checks in any case.
+However if craye1k_new_smi() is guaranteed to run before init_slot(),
+you could check for an uninitialized craye1k_global struct already in
+is_craye1k_slot().
+
+Note that just checking "craye1k_global == NULL" is insufficient as
+craye1k_new_smi() might run concurrently to
+craye1k_{get,set}_attention_status().
+
+I note that is_craye1k_slot() calls dmi_match(), so you should add
+"depends on DMI" to the Kconfig entry you're adding.
+
+> @@ -376,8 +383,16 @@ int __init pcie_hp_init(void)
+>  
+>  	retval = pcie_port_service_register(&hpdriver_portdrv);
+>  	pr_debug("pcie_port_service_register = %d\n", retval);
+> -	if (retval)
+> +	if (retval) {
+>  		pr_debug("Failure to register service\n");
+> +		return retval;
+> +	}
+> +
+> +#ifdef CONFIG_HOTPLUG_PCI_PCIE_CRAY_E1000
+> +	retval = craye1k_init();
+> +	if (retval)
+> +		pr_debug("Failure to register Cray E1000 extensions");
+> +#endif
+
+Another #ifdef that should be eliminated.
+
+You also need to annotate craye1k_init() with __init.
+
+> +++ b/drivers/pci/hotplug/pciehp_craye1k.c
+[...]
+> +#include <linux/debugfs.h>
+> +#include <linux/delay.h>
+> +#include <linux/errno.h>
+> +#include <linux/dmi.h>
+> +#include <linux/ipmi.h>
+> +#include <linux/module.h>
+> +#include <linux/pci.h>
+> +#include <linux/pci_hotplug.h>
+> +#include <linux/random.h>
+> +#include "pciehp.h"
+
+dmi.h isn't inserted in alphabetical order.
+
+> +	/* debugfs stats */
+> +	u64 check_primary;
+> +	u64 check_primary_failed;
+> +	u64 was_already_primary;
+> +	u64 was_not_already_primary;
+> +	u64 set_primary;
+> +	u64 set_initial_primary_failed;
+> +	u64 set_primary_failed;
+> +	u64 set_led_locate_failed;
+> +	u64 set_led_fault_failed;
+> +	u64 set_led_readback_failed;
+> +	u64 set_led_failed;
+> +	u64 get_led_failed;
+> +	u64 completion_timeout;
+> +	u64 wrong_msgid;
+> +	u64 request_failed;
+
+I'm wondering if having all this debug code in mainline is useful?
+Is the IPMI interface this brittle?  Was this just necessary
+for initial development and may not be useful going forward?
+
+> +static void craye1k_msg_handler(struct ipmi_recv_msg *msg, void *user_msg_data)
+> +{
+> +	struct craye1k *craye1k = user_msg_data;
+> +
+> +	if (msg->msgid != craye1k->tx_msg_id) {
+> +		craye1k->wrong_msgid++;
+> +		if (craye1k->print_errors) {
+> +			dev_warn_ratelimited(craye1k->dev, "rx msgid %d != %d",
+> +					     (int)msg->msgid,
+> +					     (int)craye1k->tx_msg_id);
+
+Why use casts instead of %ld in the format string?
+
+> +static void craye1k_smi_gone(int iface)
+> +{
+> +	pr_warn("craye1k: Got unexpected smi_gone, iface=%d", iface);
+> +}
+
+Why not kfree() the craye1k struct here, tear down debugfs etc?
+
+Thanks,
+
+Lukas
 
 
 _______________________________________________
