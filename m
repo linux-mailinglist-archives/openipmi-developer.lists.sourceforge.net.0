@@ -2,37 +2,37 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id EE34AC48D89
-	for <lists+openipmi-developer@lfdr.de>; Mon, 10 Nov 2025 20:03:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9D73AC48A93
+	for <lists+openipmi-developer@lfdr.de>; Mon, 10 Nov 2025 19:48:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XotZK7AuYnX+Me0baoLbVZQuTdTNm/AlDsu06GVMZXo=; b=VEL+tWaEL9pjnEUscrcAUIKSFz
-	9EyJ3MDKB7P2WRRX5C59VHQdV+YIDCT4YxyaN/P/LbDefb280YSc9BLyrKAHrD3knDZhcKkc/EyWn
-	tD/qqjHDzESKsUJlcLJiEM1Gyx47PdASknIUtT7tznqICnaIDVE5BkHVuxOMvrRXVRkE=;
+	bh=sXfTrxgWIe6F2/4VBA+n1QESaas8ez8aDYFXHUpC3Ls=; b=WRz4hwwASS9PqRtw2HNHFJrfRk
+	zWAlt/DUkxfKklMuWhNLdvEi2G4aJGhc0GF/IY4KTRK5AW+FWcaXquTdqMgbdJvMSrRXhMzaXfNwW
+	n4gqwX13uoZBNm9TBbRg8knLFtqNOI781hvu3TAWe0nrA2G7W+213DuyvjTG6HdCJp5w=;
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vIXAb-0007zz-IU;
-	Mon, 10 Nov 2025 19:03:17 +0000
+	id 1vIWvv-0007Yf-AV;
+	Mon, 10 Nov 2025 18:48:07 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vIXAa-0007zq-1T for openipmi-developer@lists.sourceforge.net;
- Mon, 10 Nov 2025 19:03:16 +0000
+ id 1vIWvk-0007Xz-KO for openipmi-developer@lists.sourceforge.net;
+ Mon, 10 Nov 2025 18:47:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=3zOvIfKnKvUP8qi8Z/y9jterh7JNN1WDHTSs0hx1am8=; b=Or7TDyh1qGXl5DJpSmx0BxIr01
- ugD76jAUxdJu2FqNq33HmSLxg32rsQFeqeWipDG/VZ+1wlCrVSWghFzBQZg9t2Zx5IAFtoujrTTSM
- AxF+7QbJTl7+ucmqUW2YNc7UNws74YWWqw+735NONuPpdvn+RranCm73caPoXA2m2gZs=;
+ bh=BmhmneHN1JPoXedmJW7NDfLTP9E1AX6jddhXfmE1LuI=; b=IoXbgNFEpncaRsMD1kHWjECUTR
+ MMqB0/Qg2iicwsAzHy70tgy39N6ZbGUUInmwkqfzIxT69ch4LXDv7/zM2ney50B3/YVTjvCs3iCTo
+ Nzfk10KOyWLL/z1hcC0eY8Rw645D0iRt27/Psg4qDYBKXgmbDwwfRxx2JqKFpCHP5+Gc=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=3zOvIfKnKvUP8qi8Z/y9jterh7JNN1WDHTSs0hx1am8=; b=nArqGk6fQ28pgh476nA9FQzIOM
- ip89ExFNsSginPYzpmvAKHeRF+nGx7pm8+n722g0pEKDTwIzelcQw0TGZyP3/GfxSPAxaAfCUxloG
- vD02CStB0XuKQaDVvUGbtQ9GWqx0ZUkHZDbmHSul5KdfZ7bHTn02Y0JcyHjiSsT//nok=;
-Received: from mgamail.intel.com ([192.198.163.7])
+ bh=BmhmneHN1JPoXedmJW7NDfLTP9E1AX6jddhXfmE1LuI=; b=D4N88HIq9+J+JhBhnzFWH4wS6X
+ 4OT/8ZXge5wJVH5UGpdmNqNiCLnKrwRJQn9MiT/aq3JKcctga74bkbU4fwRmgcbbuEapjGcIf0DWM
+ 0ICopmrZqxyZbq/Lz65C5q6/eiUXp1DPTlSxrubZoRhMNS6k/P85+o3FL+vBMza17U7Y=;
+Received: from mgamail.intel.com ([198.175.65.17])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vIXAZ-0003ea-FD for openipmi-developer@lists.sourceforge.net;
- Mon, 10 Nov 2025 19:03:15 +0000
+ id 1vIWvh-0002qK-Dd for openipmi-developer@lists.sourceforge.net;
+ Mon, 10 Nov 2025 18:47:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1762801395; x=1794337395;
+ t=1762800474; x=1794336474;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=Kew62E3E6IXuZlcG7gu+P9XzNY1zD9FK9bnTsI2boF4=;
- b=mSEOdtJHbnbc9cFfVOt18lQW4maeXxPGIRJa+MbNv4Iotweex+yy51G6
- AAPUKLs0khUxxxKA/jzkjEoXnzZFwLIunbfybQr1g70N9ClWyBmKDOlG4
- pfZIccbG2/0gItGYR4Oihw2XEF4f8Qs1Yjg3b4qN8Q3F/v+FUF7ZYkcAs
- lU3inSs3BTJs5WlHoGgcYIKqsWW0hY3Nw36SUrKaHy/sJR0wPI8JXv/Ol
- my8LdDMyDcXwl5nZ85+LrJ3QnQa0U7OIWUiKslJl0hCWmvxonIYw+k/wv
- nDa953Jk1x4msrqrhu+3dyQ40znvhOAj+7st2i61NP7i+w9krw9EFrNyr Q==;
-X-CSE-ConnectionGUID: Rx0lUsj+QLiL6UdJrLgcew==
-X-CSE-MsgGUID: /EBxwq/LQrqjQklRea+z5w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="90327147"
-X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="90327147"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
- by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 10 Nov 2025 10:47:38 -0800
-X-CSE-ConnectionGUID: tjBTfSXPSK+R85GBxnBx7Q==
-X-CSE-MsgGUID: icFeQ/OWQnuNNObR45nQtA==
+ bh=fCt0uZJtXQzZViSDNcneyMtrnn/y5yDZ8tsLO9qgG3A=;
+ b=HOlTzOVR/Jh3EHGYxAj+DHV6rWdZlWd4aQeIXAFH3XHPaog1HEF4k2tY
+ JLIWQBigxvyS7RErzcZASCeupOSYl/JdKSB/gjIaMdsEWYDohbCX6Gmi+
+ 2ZyZ7JC5UMrQzpEpbOKmKp8RHhHebA1KQdw5kHevxZXwlKGtl5iOFntkP
+ o00epiqNmAuAz22yntdPpztZqdKal8KRGp4CciCmOaU/GVVDHFC1P1TRf
+ v0U3yzEWSOy352lpv8YFXddKyqNlmlQf+YDYCuRN1fOexs+BlVoxNUSpr
+ ooLBig/AuQ9oLuUADrQrPll/uaYnxlqKtif6YdObXGuNYrLoVJNcQvEV2 w==;
+X-CSE-ConnectionGUID: M844HepOQwK8EGVgRZhKQg==
+X-CSE-MsgGUID: q3gJfbCIScO9NXuA7ZRZug==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="64786347"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="64786347"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+ by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 10 Nov 2025 10:47:48 -0800
+X-CSE-ConnectionGUID: vLwpzXxWTlqMkVe0jU7QSA==
+X-CSE-MsgGUID: vqdaBx3wRd2oCOgUpZsMtg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="193749559"
+X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="189190196"
 Received: from black.igk.intel.com ([10.91.253.5])
- by fmviesa004.fm.intel.com with ESMTP; 10 Nov 2025 10:47:29 -0800
+ by fmviesa009.fm.intel.com with ESMTP; 10 Nov 2025 10:47:39 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id EEA2B96; Mon, 10 Nov 2025 19:47:28 +0100 (CET)
+ id 0116B97; Mon, 10 Nov 2025 19:47:28 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -106,38 +106,33 @@ To: Corey Minyard <corey@minyard.net>,
  linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
  linux-staging@lists.linux.dev, ceph-devel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-Date: Mon, 10 Nov 2025 19:40:20 +0100
-Message-ID: <20251110184727.666591-2-andriy.shevchenko@linux.intel.com>
+Date: Mon, 10 Nov 2025 19:40:21 +0100
+Message-ID: <20251110184727.666591-3-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
 References: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-X-Spam-Score: 0.0 (/)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: A handful drivers want to print a content of the struct
- timespec64
- in a format of %lld:%09ld. In order to make their lives easier,
- add the respecting
- specifier directly to the printf() implementation. 
- Content analysis details:   (0.0 points, 5.0 required)
+ Content preview:  Use %ptSp instead of open coded variants to print content
+ of struct timespec64 in human readable format. Signed-off-by: Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com> --- sound/core/seq/seq_queue.c | 2 +-
+ sound/core/seq/seq_timer.c | 6 +++--- 2 files changed, 4 insertions(+), 4
+ deletions(-) 
+ Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
- See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URI: intel.com]
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vIXAZ-0003ea-FD
-Subject: [Openipmi-developer] [PATCH v1 01/23] lib/vsprintf: Add specifier
- for printing struct timespec64
+X-Headers-End: 1vIWvh-0002qK-Dd
+Subject: [Openipmi-developer] [PATCH v1 02/23] ALSA: seq: Switch to use %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -190,121 +185,52 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-A handful drivers want to print a content of the struct timespec64
-in a format of %lld:%09ld. In order to make their lives easier, add
-the respecting specifier directly to the printf() implementation.
+Use %ptSp instead of open coded variants to print content of
+struct timespec64 in human readable format.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- Documentation/core-api/printk-formats.rst | 11 ++++++++--
- lib/tests/printf_kunit.c                  |  4 ++++
- lib/vsprintf.c                            | 25 +++++++++++++++++++++++
- 3 files changed, 38 insertions(+), 2 deletions(-)
+ sound/core/seq/seq_queue.c | 2 +-
+ sound/core/seq/seq_timer.c | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/core-api/printk-formats.rst b/Documentation/core-api/printk-formats.rst
-index 7f2f11b48286..6fdb417f5140 100644
---- a/Documentation/core-api/printk-formats.rst
-+++ b/Documentation/core-api/printk-formats.rst
-@@ -547,11 +547,13 @@ Time and date
- 	%pt[RT]s		YYYY-mm-dd HH:MM:SS
- 	%pt[RT]d		YYYY-mm-dd
- 	%pt[RT]t		HH:MM:SS
--	%pt[RT][dt][r][s]
-+	%ptSp			<seconds>.<nanoseconds>
-+	%pt[RST][dt][r][s]
- 
- For printing date and time as represented by::
- 
--	R  struct rtc_time structure
-+	R  content of struct rtc_time
-+	S  content of struct timespec64
- 	T  time64_t type
- 
- in human readable format.
-@@ -563,6 +565,11 @@ The %pt[RT]s (space) will override ISO 8601 separator by using ' ' (space)
- instead of 'T' (Capital T) between date and time. It won't have any effect
- when date or time is omitted.
- 
-+The %ptSp is equivalent to %lld.%09ld for the content of the struct timespec64.
-+When the other specifiers given, it becomes the respective equivalent of
-+%ptT[dt][r][s].%09ld. In other words, the seconds are being printed in the
-+human readable format followed by dot and nanoseconds.
-+
- Passed by reference.
- 
- struct clk
-diff --git a/lib/tests/printf_kunit.c b/lib/tests/printf_kunit.c
-index bc54cca2d7a6..7617e5b8b02c 100644
---- a/lib/tests/printf_kunit.c
-+++ b/lib/tests/printf_kunit.c
-@@ -504,6 +504,7 @@ time_and_date(struct kunit *kunittest)
- 	};
- 	/* 2019-01-04T15:32:23 */
- 	time64_t t = 1546615943;
-+	struct timespec64 ts = { .tv_sec = t, .tv_nsec = 11235813 };
- 
- 	test("(%pt?)", "%pt", &tm);
- 	test("2018-11-26T05:35:43", "%ptR", &tm);
-@@ -522,6 +523,9 @@ time_and_date(struct kunit *kunittest)
- 	test("0119-00-04 15:32:23", "%ptTsr", &t);
- 	test("15:32:23|2019-01-04", "%ptTts|%ptTds", &t, &t);
- 	test("15:32:23|0119-00-04", "%ptTtrs|%ptTdrs", &t, &t);
-+
-+	test("2019-01-04T15:32:23.011235813", "%ptS", &ts);
-+	test("1546615943.011235813", "%ptSp", &ts);
- }
- 
- static void
-diff --git a/lib/vsprintf.c b/lib/vsprintf.c
-index 3f99834fd788..f29eb6368891 100644
---- a/lib/vsprintf.c
-+++ b/lib/vsprintf.c
-@@ -1989,6 +1989,28 @@ char *time64_str(char *buf, char *end, const time64_t time,
- 	return rtc_str(buf, end, &rtc_time, spec, fmt);
- }
- 
-+static noinline_for_stack
-+char *timespec64_str(char *buf, char *end, const struct timespec64 *ts,
-+                     struct printf_spec spec, const char *fmt)
-+{
-+	static const struct printf_spec default_dec09_spec = {
-+		.base = 10,
-+		.field_width = 9,
-+		.precision = -1,
-+		.flags = ZEROPAD,
-+	};
-+
-+	if (fmt[2] == 'p')
-+		buf = number(buf, end, ts->tv_sec, default_dec_spec);
-+	else
-+		buf = time64_str(buf, end, ts->tv_sec, spec, fmt);
-+	if (buf < end)
-+		*buf = '.';
-+	buf++;
-+
-+	return number(buf, end, ts->tv_nsec, default_dec09_spec);
-+}
-+
- static noinline_for_stack
- char *time_and_date(char *buf, char *end, void *ptr, struct printf_spec spec,
- 		    const char *fmt)
-@@ -1999,6 +2021,8 @@ char *time_and_date(char *buf, char *end, void *ptr, struct printf_spec spec,
- 	switch (fmt[1]) {
- 	case 'R':
- 		return rtc_str(buf, end, (const struct rtc_time *)ptr, spec, fmt);
-+	case 'S':
-+		return timespec64_str(buf, end, (const struct timespec64 *)ptr, spec, fmt);
- 	case 'T':
- 		return time64_str(buf, end, *(const time64_t *)ptr, spec, fmt);
- 	default:
-@@ -2464,6 +2488,7 @@ early_param("no_hash_pointers", no_hash_pointers_enable);
-  * - 'g' For block_device name (gendisk + partition number)
-  * - 't[RT][dt][r][s]' For time and date as represented by:
-  *      R    struct rtc_time
-+ *      S    struct timespec64
-  *      T    time64_t
-  * - 'C' For a clock, it prints the name (Common Clock Framework) or address
-  *       (legacy clock framework) of the clock
+diff --git a/sound/core/seq/seq_queue.c b/sound/core/seq/seq_queue.c
+index f5c0e401c8ae..f6e86cbf38bc 100644
+--- a/sound/core/seq/seq_queue.c
++++ b/sound/core/seq/seq_queue.c
+@@ -699,7 +699,7 @@ void snd_seq_info_queues_read(struct snd_info_entry *entry,
+ 		snd_iprintf(buffer, "current tempo      : %d\n", tmr->tempo);
+ 		snd_iprintf(buffer, "tempo base         : %d ns\n", tmr->tempo_base);
+ 		snd_iprintf(buffer, "current BPM        : %d\n", bpm);
+-		snd_iprintf(buffer, "current time       : %d.%09d s\n", tmr->cur_time.tv_sec, tmr->cur_time.tv_nsec);
++		snd_iprintf(buffer, "current time       : %ptSp s\n", &tmr->cur_time);
+ 		snd_iprintf(buffer, "current tick       : %d\n", tmr->tick.cur_tick);
+ 		snd_iprintf(buffer, "\n");
+ 	}
+diff --git a/sound/core/seq/seq_timer.c b/sound/core/seq/seq_timer.c
+index 29b018a212fc..06074d822bae 100644
+--- a/sound/core/seq/seq_timer.c
++++ b/sound/core/seq/seq_timer.c
+@@ -442,7 +442,7 @@ void snd_seq_info_timer_read(struct snd_info_entry *entry,
+ 	int idx;
+ 	struct snd_seq_timer *tmr;
+ 	struct snd_timer_instance *ti;
+-	unsigned long resolution;
++	struct timespec64 resolution;
+ 	
+ 	for (idx = 0; idx < SNDRV_SEQ_MAX_QUEUES; idx++) {
+ 		struct snd_seq_queue *q __free(snd_seq_queue) = queueptr(idx);
+@@ -457,8 +457,8 @@ void snd_seq_info_timer_read(struct snd_info_entry *entry,
+ 			if (!ti)
+ 				break;
+ 			snd_iprintf(buffer, "Timer for queue %i : %s\n", q->queue, ti->timer->name);
+-			resolution = snd_timer_resolution(ti) * tmr->ticks;
+-			snd_iprintf(buffer, "  Period time : %lu.%09lu\n", resolution / 1000000000, resolution % 1000000000);
++			resolution = ns_to_timespec64(snd_timer_resolution(ti) * tmr->ticks);
++			snd_iprintf(buffer, "  Period time : %ptSp\n", &resolution);
+ 			snd_iprintf(buffer, "  Skew : %u / %u\n", tmr->skew, tmr->skew_base);
+ 		}
+  	}
 -- 
 2.50.1
 
