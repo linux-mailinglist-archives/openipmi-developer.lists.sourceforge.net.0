@@ -2,37 +2,37 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BEFA1C48DBB
-	for <lists+openipmi-developer@lfdr.de>; Mon, 10 Nov 2025 20:04:08 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 76C50C48DB8
+	for <lists+openipmi-developer@lfdr.de>; Mon, 10 Nov 2025 20:04:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VoIlK4CMbtCuNHuXKVPJryHFx9ReQ+gHXxvpfjkXpR0=; b=YAbXK7Tfa6LPLJIVWigBoGbwcS
-	8kOtdLBVEKr2Pt2vNPjOdpqPqwQ4VXq5mdJo2bLRHpFjamztRqheNM6lBTwIGt6E/omRTXvoxyy3E
-	oYU1icatXB5+WlXrkJHJQluuZT2KHB9Plic2hGdh0PYBFWO1H4j9aCnbDrbH2zvZ9f5w=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=lWBcphZ3beh8CQ3nGkhYcWHanUXSX/nFy2Ive5kKxWU=; b=WRE+EqxGaiHUnWoD87/19IFIp6
+	+fJqFkj4NOUGsp7Pw9pbYYBUeARylcHeNGhSOCfNtQelBWVvdNcns7jtGe2FIEqvkZCTTDakKHIfp
+	3PPZwoLcXk6xV6t24BK/CA6/tud163HSjGsyzIlmw0zu5x7bSPKgfxoOlmgHq7pkQuoU=;
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vIXBF-00022B-Tz;
+	id 1vIXBF-00081e-7A;
 	Mon, 10 Nov 2025 19:03:57 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vIXBC-000222-P4 for openipmi-developer@lists.sourceforge.net;
- Mon, 10 Nov 2025 19:03:54 +0000
+ id 1vIXBD-00081U-76 for openipmi-developer@lists.sourceforge.net;
+ Mon, 10 Nov 2025 19:03:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=wFi4hoK8ddHcHUFts79JgjLA0b0i/1Hu69fJjNxlfRA=; b=hALGfvrdTLksc5ggYxu9ZQ91fJ
- FGLFMZUoPx0SNdY6DZP+fmwMiAR8w3qPDkRvrQUkwFEGXo9OkzH/yiODFdUpnMDBE4bJor2IDj+Jv
- aBTqLKpTsI3xuBLZ4PHwGpUvdEbvf8sFv3GjYwS5aG4g2cEtlup9/ryH9C5k+2E2XtpM=;
+ bh=OvmYSBh0xfVyD3MKuPUStsx7AajkhiugI0GpIDs1lBA=; b=VdnRSh3fEauX+Wbc31ob7ovQb3
+ Iosl7Wbu2UIiJ1NpnCD5RVs86AOvRi7VYWwIXQNi21fLIa3Is6rQufwery/BUGCCZObGfIDtoNrux
+ dWlF/SYmOtIUvgbnSXt9oUGeet3VQEIvfPqEMurADW/WpCN2wPdOKwiGEGQCUsgLeWwA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=wFi4hoK8ddHcHUFts79JgjLA0b0i/1Hu69fJjNxlfRA=; b=PfNZh6gmachDkq1kkyiRaP2qet
- BlnjW87+ad6r+5keAQDBpkVWleCVGhlVCLWBqHA7YaqxLKnqP2VfnzgljEJwxMg9+oOT7cTRFL2qD
- TTy7yT/3Ou4ar6CovWbBCYPOnPqxdxj/1FlKCVcUvjmoQ5V02JwOw13YOyZ8gSegw+3c=;
+ bh=OvmYSBh0xfVyD3MKuPUStsx7AajkhiugI0GpIDs1lBA=; b=G9HvckN7L2AUdk6shMJPbz29be
+ m0CvpQHd+WPsFZtDxD/k+RNx/o6VUiorFK0cqknrF6n/WgxEbLd2qQR1XZvafYQpfVDpw3FKiWMDk
+ 95TtcG/8DVw8z5zytMXaKrUffvY3QS7s87NVU9LnwAO3aJ+WpO1nt58MZYJTN2GobSnw=;
 Received: from mgamail.intel.com ([192.198.163.19])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vIXBC-0003gh-CW for openipmi-developer@lists.sourceforge.net;
- Mon, 10 Nov 2025 19:03:54 +0000
+ id 1vIXBC-0003gh-PH for openipmi-developer@lists.sourceforge.net;
+ Mon, 10 Nov 2025 19:03:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
  t=1762801435; x=1794337435;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=Owa/uZSyQflLahGS6CmSwDqgbO1CL5jfKyID5Cl9frQ=;
- b=g925cXZmwtB/OqzPNe8ewA07j/Ys76a/LScWA4aDb6nAHFQ5AWxkomVy
- ziksoXpwER9s0fWgL4ktMoSIZ1Q+G0FY0aDaqruUuae7zwTchZwdUOJhY
- OHMQ2nF1hh0gSgAEbzrXIDnagYaaVj0mC7WZ4kVyrgX83eMmKYcLVrIXU
- Z+mJLCHaY1QvMsJj+YrXN0+a3T20xvIZjm8mhyGk6AWKkmK0nJgbIsGlP
- tTBw2RIPmhy8suQf51uXWgRvST6ia3yNXDb8j9M0iHSMj00JeWGdcyBPS
- V3M2Xw+/AQ4MOKKLGt18OELK5ojPTU2Uopjef5NpdKyDpQi6dT3C0j3Wj Q==;
-X-CSE-ConnectionGUID: iMb9pu2cQKyK+y9WCFgVLg==
-X-CSE-MsgGUID: t38XPGxFRtadMM6btZBIIQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="63861727"
-X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="63861727"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+ bh=A5irvzi0m0e4oJb0NFNZM1AgnebZZ4FvmhneqXXMsfY=;
+ b=AGPX8IUSGyOcI3cbp2y2+ZUH+qoBApN4qnzx+SffmGxQnqlTXS3M5h5T
+ g4ue48xeHHiajyT8gT19ImwET53c0qzrpqC2eqmjhYtVHNgo341qGVRtm
+ s+iTLFF1zOEI3J5/LBmczjAOY1wWJBEx0NsM+h2U2DYCSbyPbibARp1V3
+ OFwBu2VFuuX5KGgyMLWUXnLy7e5CwpMpcXutoxBugGWiG9j2zK8tzE0GY
+ HLXcikjpFS7jhmJQ6by/vRFnwiRgrrjlz4+iRqWQVjoA/26qxh8pQ6Lq2
+ rzUjlpipX26VKL35ngWynwkNDt9TA3Cvf0iMBeOIO8C1scKM2dteAUNET g==;
+X-CSE-ConnectionGUID: F/u4t9kzRliGHlfcH0/fIA==
+X-CSE-MsgGUID: WjMPYL2AT9q8tFU53fXnTw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="63861729"
+X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="63861729"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 10 Nov 2025 10:47:57 -0800
-X-CSE-ConnectionGUID: 2eJVkzqZS9eMe6nzc5hX5g==
-X-CSE-MsgGUID: eXHDXNSIQoOeoIXPu177HQ==
+ 10 Nov 2025 10:47:58 -0800
+X-CSE-ConnectionGUID: IbVxk6lrRy6vvOzUHLOBGg==
+X-CSE-MsgGUID: 3cH2l3wUQWCPg1NmGkue4g==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="189190257"
+X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="192851956"
 Received: from black.igk.intel.com ([10.91.253.5])
- by fmviesa009.fm.intel.com with ESMTP; 10 Nov 2025 10:47:49 -0800
+ by orviesa003.jf.intel.com with ESMTP; 10 Nov 2025 10:47:49 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id 356449F; Mon, 10 Nov 2025 19:47:29 +0100 (CET)
+ id 3C100A0; Mon, 10 Nov 2025 19:47:29 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -106,15 +106,15 @@ To: Corey Minyard <corey@minyard.net>,
  linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
  linux-staging@lists.linux.dev, ceph-devel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-Date: Mon, 10 Nov 2025 19:40:29 +0100
-Message-ID: <20251110184727.666591-11-andriy.shevchenko@linux.intel.com>
+Date: Mon, 10 Nov 2025 19:40:30 +0100
+Message-ID: <20251110184727.666591-12-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
 References: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -122,17 +122,17 @@ X-Spam-Report: Spam detection software,
  Content preview:  Use %ptSp instead of open coded variants to print content
  of struct timespec64 in human readable format. Signed-off-by: Andy Shevchenko
  <andriy.shevchenko@linux.intel.com> ---
- drivers/net/ethernet/intel/e1000e/ptp.c
+ drivers/net/ethernet/intel/igb/igb_ptp.c
  | 7 ++----- 1 file changed, 2 insertions(+), 5 deletions(-) 
  Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vIXBC-0003gh-CW
-Subject: [Openipmi-developer] [PATCH v1 10/23] e1000e: Switch to use %ptSp
+X-Headers-End: 1vIXBC-0003gh-PH
+Subject: [Openipmi-developer] [PATCH v1 11/23] igb: Switch to use %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -190,30 +190,30 @@ struct timespec64 in human readable format.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/net/ethernet/intel/e1000e/ptp.c | 7 ++-----
+ drivers/net/ethernet/intel/igb/igb_ptp.c | 7 ++-----
  1 file changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/e1000e/ptp.c b/drivers/net/ethernet/intel/e1000e/ptp.c
-index ea3c3eb2ef20..ec39e35f3857 100644
---- a/drivers/net/ethernet/intel/e1000e/ptp.c
-+++ b/drivers/net/ethernet/intel/e1000e/ptp.c
-@@ -229,14 +229,11 @@ static void e1000e_systim_overflow_work(struct work_struct *work)
- 						     systim_overflow_work.work);
- 	struct e1000_hw *hw = &adapter->hw;
+diff --git a/drivers/net/ethernet/intel/igb/igb_ptp.c b/drivers/net/ethernet/intel/igb/igb_ptp.c
+index a7876882aeaf..bd85d02ecadd 100644
+--- a/drivers/net/ethernet/intel/igb/igb_ptp.c
++++ b/drivers/net/ethernet/intel/igb/igb_ptp.c
+@@ -840,14 +840,11 @@ static void igb_ptp_overflow_check(struct work_struct *work)
+ 	struct igb_adapter *igb =
+ 		container_of(work, struct igb_adapter, ptp_overflow_work.work);
  	struct timespec64 ts;
 -	u64 ns;
  
  	/* Update the timecounter */
--	ns = timecounter_read(&adapter->tc);
-+	ts = ns_to_timespec64(timecounter_read(&adapter->tc));
+-	ns = timecounter_read(&igb->tc);
++	ts = ns_to_timespec64(timecounter_read(&igb->tc));
  
 -	ts = ns_to_timespec64(ns);
--	e_dbg("SYSTIM overflow check at %lld.%09lu\n",
--	      (long long) ts.tv_sec, ts.tv_nsec);
-+	e_dbg("SYSTIM overflow check at %ptSp\n", &ts);
+-	pr_debug("igb overflow check at %lld.%09lu\n",
+-		 (long long) ts.tv_sec, ts.tv_nsec);
++	pr_debug("igb overflow check at %ptSp\n", &ts);
  
- 	schedule_delayed_work(&adapter->systim_overflow_work,
- 			      E1000_SYSTIM_OVERFLOW_PERIOD);
+ 	schedule_delayed_work(&igb->ptp_overflow_work,
+ 			      IGB_SYSTIM_OVERFLOW_PERIOD);
 -- 
 2.50.1
 
