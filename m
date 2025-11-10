@@ -2,27 +2,27 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A6A79C48A94
-	for <lists+openipmi-developer@lfdr.de>; Mon, 10 Nov 2025 19:48:17 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id EE0E2C48A8B
+	for <lists+openipmi-developer@lfdr.de>; Mon, 10 Nov 2025 19:48:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oy/GFIxYNcBuT6AcaQyFrh1nLtDX2LtZqWtImi2ez/s=; b=GuyP/QH/P5tZ9VDPFdG8aakPFZ
-	e/KRCCvyShUyKaM0X9aPl9w0Qjgu3TxPn3qAPPpe22l+hqbJG1yHkUnV/QR4bOU/fUSXglRbNmWZg
-	Ninh6M7Lw/GWhUojwGtTtqwWDh5XnIJ5acfYvHeamn4rHjuHsaAb5gR68MSWhfjbD0P0=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=EjVeAmtOJGoNBVGDPqyKacouB0F2mm/csPzObYMUrDY=; b=NN8vOIMKAuPYo5K6UGWdj9umLN
+	4qb3yYr5TqP1vEcRuBky7eHjWNdH5Al3gCnaPgPmt7d5GZwcSnI/jCU5zn2vH4w9uaoveGfvLGkTb
+	7chfGPolDgDGRFctnitSl/aR48RmL+91V9pGqVkw8u2RKhV7umFYsngmJ+6/CxLrE0HE=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vIWvv-0007Yr-N8;
-	Mon, 10 Nov 2025 18:48:07 +0000
+	id 1vIWvt-0001cC-MH;
+	Mon, 10 Nov 2025 18:48:05 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vIWvs-0007YS-1H for openipmi-developer@lists.sourceforge.net;
+ id 1vIWvs-0001bu-19 for openipmi-developer@lists.sourceforge.net;
  Mon, 10 Nov 2025 18:48:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
@@ -30,9 +30,9 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=wvXE1YQbUXmnk2SXL3Nt32HHjh8bsLglRm8kPDbc+B4=; b=bHQ5ZLyHxHb+UE/gaXTJ99ltMj
- NEIPCo+s2tLLtP5w05NYFkjusRUUlvRRR7mGIO6tSGGgmhHkEkc2oZTrkLpFn0Gamgp7nsyxLwPFs
- e+B6H2U0pxV+pmbTQLVNFOt+7Kgs0PNoqa/988yZgN+5QHknRX/QOH3eWsi7rgDKzqD4=;
+ bh=zvXdhZBFgSsrbnu1it8GmXQ8wgyfeHUtjFpsZvgVb+Q=; b=cw6kzJInrB1Knfe5oSNFXI7Uqs
+ hkvTvZ7egr6RPWhS4Grey59J1Z98QyozrhTlML8lWhfem823fLKTqwN+QOjMqSoKbhdqpZ1yXwpxc
+ HbfTf8GS7KbSyFkrb9peCohp6sq7VNCiqREWNgtR5bG+il2h9FSONuq8+w9k/fU9+30E=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=wvXE1YQbUXmnk2SXL3Nt32HHjh8bsLglRm8kPDbc+B4=; b=Rz8sIbyxJZtuq4cYCcSQGgjqYP
- IvGjoC8YQiz6tigv9WtfJZD4fYy8VzIvbct6nXQOENYsjI3Gwkj08jg4NureHLfywSWpt31Q6AC4A
- Zt1YNOAIQXObzi+7uaVp2BJMqERUNodB2NtyeJgbnYr2659p2Bo9J+dRQzMqigvn93Cg=;
-Received: from mgamail.intel.com ([198.175.65.18])
+ bh=zvXdhZBFgSsrbnu1it8GmXQ8wgyfeHUtjFpsZvgVb+Q=; b=CPtYRrP1lZycR/Ic7Jdb4J+su+
+ i/nTJhf7BV0g5YrLp5qWf9nE/J7CuORgkH0QUPilnZTDxM1Xtb/SQPkfavI4o01IDMziiOYulpKhp
+ jApdp4LjyKsxegexRyFFVakq0F+3IyqAY+TDarINvokz9NqiA3twVeUbT2tBfySgdRUQ=;
+Received: from mgamail.intel.com ([198.175.65.11])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vIWvq-0002qm-1D for openipmi-developer@lists.sourceforge.net;
- Mon, 10 Nov 2025 18:48:02 +0000
+ id 1vIWvn-0002qV-4B for openipmi-developer@lists.sourceforge.net;
+ Mon, 10 Nov 2025 18:47:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1762800482; x=1794336482;
+ t=1762800479; x=1794336479;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=I9iY7lWtdcI82SbW3jxFgfzqyuy05arUSY4fM8KaZz8=;
- b=X0DsAaPrfIcXT/xoTU6AWFyor5Lp7+Y8JpjkZmZjFqGIZgiqHMkYJtIu
- 0tMTX5dSW284Kpj977GmVdEU4iSytpE4Org0zABwVlGmTvDpu/kuMEeED
- ZEy+/o/klMP9Eo9TxxHl4HBzuNjiBnsfQa+UcfxDTLpPA1RCa4lALuxcj
- vjrN4R8D2wy+Dbw7Tumuf2fT9/i6TMQM1nkzXTifLcWVSjPyueTfGkceD
- ILS7dymwda2SyEOMm7jJKebNa9L14EaGKkDX54C16y6mVpCygSamwoUaB
- ZAP673Tq1JNvJc+Im1PC3hyGusK5ee6Vxjz2Cn+3KazdFrLSgwaWPMKuz w==;
-X-CSE-ConnectionGUID: odqJ6kr8TBiKroXwbR1XnQ==
-X-CSE-MsgGUID: HNq0PDL0TRqkj+BcjAW7gQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="64897581"
-X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="64897581"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
- by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 10 Nov 2025 10:47:56 -0800
-X-CSE-ConnectionGUID: XMv8GPTSQgyrg/C7cjgYBQ==
-X-CSE-MsgGUID: 0l3jCKJNT96CGISaIatOPQ==
+ bh=8XH/dmNsy+8sS7KLHCIcz4zx96HpBx338pMYBUQvBRU=;
+ b=gHkQRxwMQXstBw15E21M2td2318dCB7dZZu0BZPneXLS2g8WmAAwgTIv
+ Gl8M/90GyGsskKgvb3dIrxCPSHENRnt0Si8MdOuBlsZFcL5dGMDo+tg3I
+ 3OrGLCRGLlb4tR4ZgXwhMzmiHt5NnwcCeAi1uvINzqRBfP0qA64GUFU/j
+ z+KFogN4NVIZPdsV5CtvpKpTKuJiWQOTZYafN4qScwiG7IPYQQZYvv25K
+ X7/j+toiC4YowkLyZ1KnHVc5I1+EQdZqcgcW4puL+HLZxZg8iEpWcUsHO
+ zF27yesYwKwRLvPxLt0K6ZwEbW4707QvXppIZLWOSAghZiL95hnqEUhrA g==;
+X-CSE-ConnectionGUID: ZpfcDERuROac93b1vR/w+w==
+X-CSE-MsgGUID: 4O15LTFWTVuMMNeXiRIQ/w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="75150028"
+X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="75150028"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+ by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 10 Nov 2025 10:47:49 -0800
+X-CSE-ConnectionGUID: JnsCIzIbTD6U+fRpMXoVGQ==
+X-CSE-MsgGUID: 2Z/hmY9IQIi7K40ob140Qw==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="226005217"
+X-IronPort-AV: E=Sophos;i="6.19,294,1754982000"; d="scan'208";a="192851949"
 Received: from black.igk.intel.com ([10.91.253.5])
- by orviesa001.jf.intel.com with ESMTP; 10 Nov 2025 10:47:39 -0800
+ by orviesa003.jf.intel.com with ESMTP; 10 Nov 2025 10:47:40 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id 07AD198; Mon, 10 Nov 2025 19:47:29 +0100 (CET)
+ id 0DF1599; Mon, 10 Nov 2025 19:47:29 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -106,8 +106,8 @@ To: Corey Minyard <corey@minyard.net>,
  linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
  linux-staging@lists.linux.dev, ceph-devel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-Date: Mon, 10 Nov 2025 19:40:22 +0100
-Message-ID: <20251110184727.666591-4-andriy.shevchenko@linux.intel.com>
+Date: Mon, 10 Nov 2025 19:40:23 +0100
+Message-ID: <20251110184727.666591-5-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
 References: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
@@ -121,9 +121,8 @@ X-Spam-Report: Spam detection software,
  the administrator of that system for details.
  Content preview:  Use %ptSp instead of open coded variants to print content
  of struct timespec64 in human readable format. Signed-off-by: Andy Shevchenko
- <andriy.shevchenko@linux.intel.com> --- fs/ceph/dir.c | 5 ++---
- fs/ceph/inode.c
- | 47 +++++++++++++++ fs/ceph/xattr.c | 6 ++---- 3 files c [...] 
+ <andriy.shevchenko@linux.intel.com> --- net/ceph/messenger_v2.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-) 
  Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -131,8 +130,8 @@ X-Spam-Report: Spam detection software,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vIWvq-0002qm-1D
-Subject: [Openipmi-developer] [PATCH v1 03/23] ceph: Switch to use %ptSp
+X-Headers-End: 1vIWvn-0002qV-4B
+Subject: [Openipmi-developer] [PATCH v1 04/23] libceph: Switch to use %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -190,161 +189,33 @@ struct timespec64 in human readable format.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- fs/ceph/dir.c   |  5 ++---
- fs/ceph/inode.c | 47 +++++++++++++++--------------------------------
- fs/ceph/xattr.c |  6 ++----
- 3 files changed, 19 insertions(+), 39 deletions(-)
+ net/ceph/messenger_v2.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/fs/ceph/dir.c b/fs/ceph/dir.c
-index d18c0eaef9b7..bf50c6e7a029 100644
---- a/fs/ceph/dir.c
-+++ b/fs/ceph/dir.c
-@@ -2155,7 +2155,7 @@ static ssize_t ceph_read_dir(struct file *file, char __user *buf, size_t size,
- 				" rfiles:   %20lld\n"
- 				" rsubdirs: %20lld\n"
- 				"rbytes:    %20lld\n"
--				"rctime:    %10lld.%09ld\n",
-+				"rctime:    %ptSp\n",
- 				ci->i_files + ci->i_subdirs,
- 				ci->i_files,
- 				ci->i_subdirs,
-@@ -2163,8 +2163,7 @@ static ssize_t ceph_read_dir(struct file *file, char __user *buf, size_t size,
- 				ci->i_rfiles,
- 				ci->i_rsubdirs,
- 				ci->i_rbytes,
--				ci->i_rctime.tv_sec,
--				ci->i_rctime.tv_nsec);
-+				&ci->i_rctime);
- 	}
+diff --git a/net/ceph/messenger_v2.c b/net/ceph/messenger_v2.c
+index 9e39378eda00..6e676e2d4ba0 100644
+--- a/net/ceph/messenger_v2.c
++++ b/net/ceph/messenger_v2.c
+@@ -1535,8 +1535,7 @@ static int prepare_keepalive2(struct ceph_connection *con)
+ 	struct timespec64 now;
  
- 	if (*ppos >= dfi->dir_info_len)
-diff --git a/fs/ceph/inode.c b/fs/ceph/inode.c
-index 37d3a2477c17..6db8951d79e0 100644
---- a/fs/ceph/inode.c
-+++ b/fs/ceph/inode.c
-@@ -879,7 +879,9 @@ void ceph_fill_file_time(struct inode *inode, int issued,
- {
- 	struct ceph_client *cl = ceph_inode_to_client(inode);
- 	struct ceph_inode_info *ci = ceph_inode(inode);
-+	struct timespec64 iatime = inode_get_atime(inode);
- 	struct timespec64 ictime = inode_get_ctime(inode);
-+	struct timespec64 imtime = inode_get_mtime(inode);
- 	int warn = 0;
+ 	ktime_get_real_ts64(&now);
+-	dout("%s con %p timestamp %lld.%09ld\n", __func__, con, now.tv_sec,
+-	     now.tv_nsec);
++	dout("%s con %p timestamp %ptSp\n", __func__, con, &now);
  
- 	if (issued & (CEPH_CAP_FILE_EXCL|
-@@ -889,39 +891,26 @@ void ceph_fill_file_time(struct inode *inode, int issued,
- 		      CEPH_CAP_XATTR_EXCL)) {
- 		if (ci->i_version == 0 ||
- 		    timespec64_compare(ctime, &ictime) > 0) {
--			doutc(cl, "ctime %lld.%09ld -> %lld.%09ld inc w/ cap\n",
--			     ictime.tv_sec, ictime.tv_nsec,
--			     ctime->tv_sec, ctime->tv_nsec);
-+			doutc(cl, "ctime %ptSp -> %ptSp inc w/ cap\n", &ictime, ctime);
- 			inode_set_ctime_to_ts(inode, *ctime);
- 		}
- 		if (ci->i_version == 0 ||
- 		    ceph_seq_cmp(time_warp_seq, ci->i_time_warp_seq) > 0) {
- 			/* the MDS did a utimes() */
--			doutc(cl, "mtime %lld.%09ld -> %lld.%09ld tw %d -> %d\n",
--			     inode_get_mtime_sec(inode),
--			     inode_get_mtime_nsec(inode),
--			     mtime->tv_sec, mtime->tv_nsec,
-+			doutc(cl, "mtime %ptSp -> %ptSp tw %d -> %d\n", &imtime, mtime,
- 			     ci->i_time_warp_seq, (int)time_warp_seq);
+ 	ceph_encode_timespec64(ts, &now);
  
- 			inode_set_mtime_to_ts(inode, *mtime);
- 			inode_set_atime_to_ts(inode, *atime);
- 			ci->i_time_warp_seq = time_warp_seq;
- 		} else if (time_warp_seq == ci->i_time_warp_seq) {
--			struct timespec64	ts;
--
- 			/* nobody did utimes(); take the max */
--			ts = inode_get_mtime(inode);
--			if (timespec64_compare(mtime, &ts) > 0) {
--				doutc(cl, "mtime %lld.%09ld -> %lld.%09ld inc\n",
--				     ts.tv_sec, ts.tv_nsec,
--				     mtime->tv_sec, mtime->tv_nsec);
-+			if (timespec64_compare(mtime, &imtime) > 0) {
-+				doutc(cl, "mtime %ptSp -> %ptSp inc\n", &imtime, mtime);
- 				inode_set_mtime_to_ts(inode, *mtime);
- 			}
--			ts = inode_get_atime(inode);
--			if (timespec64_compare(atime, &ts) > 0) {
--				doutc(cl, "atime %lld.%09ld -> %lld.%09ld inc\n",
--				     ts.tv_sec, ts.tv_nsec,
--				     atime->tv_sec, atime->tv_nsec);
-+			if (timespec64_compare(atime, &iatime) > 0) {
-+				doutc(cl, "atime %ptSp -> %ptSp inc\n", &iatime, atime);
- 				inode_set_atime_to_ts(inode, *atime);
- 			}
- 		} else if (issued & CEPH_CAP_FILE_EXCL) {
-@@ -2703,10 +2692,8 @@ int __ceph_setattr(struct mnt_idmap *idmap, struct inode *inode,
- 	if (ia_valid & ATTR_ATIME) {
- 		struct timespec64 atime = inode_get_atime(inode);
+@@ -2729,8 +2728,7 @@ static int process_keepalive2_ack(struct ceph_connection *con,
+ 	ceph_decode_need(&p, end, sizeof(struct ceph_timespec), bad);
+ 	ceph_decode_timespec64(&con->last_keepalive_ack, p);
  
--		doutc(cl, "%p %llx.%llx atime %lld.%09ld -> %lld.%09ld\n",
--		      inode, ceph_vinop(inode),
--		      atime.tv_sec, atime.tv_nsec,
--		      attr->ia_atime.tv_sec, attr->ia_atime.tv_nsec);
-+		doutc(cl, "%p %llx.%llx atime %ptSp -> %ptSp\n",
-+		      inode, ceph_vinop(inode), &atime, &attr->ia_atime);
- 		if (!do_sync && (issued & CEPH_CAP_FILE_EXCL)) {
- 			ci->i_time_warp_seq++;
- 			inode_set_atime_to_ts(inode, attr->ia_atime);
-@@ -2780,10 +2767,8 @@ int __ceph_setattr(struct mnt_idmap *idmap, struct inode *inode,
- 	if (ia_valid & ATTR_MTIME) {
- 		struct timespec64 mtime = inode_get_mtime(inode);
+-	dout("%s con %p timestamp %lld.%09ld\n", __func__, con,
+-	     con->last_keepalive_ack.tv_sec, con->last_keepalive_ack.tv_nsec);
++	dout("%s con %p timestamp %ptSp\n", __func__, con, &con->last_keepalive_ack);
  
--		doutc(cl, "%p %llx.%llx mtime %lld.%09ld -> %lld.%09ld\n",
--		      inode, ceph_vinop(inode),
--		      mtime.tv_sec, mtime.tv_nsec,
--		      attr->ia_mtime.tv_sec, attr->ia_mtime.tv_nsec);
-+		doutc(cl, "%p %llx.%llx mtime %ptSp -> %ptSp\n",
-+		      inode, ceph_vinop(inode), &mtime, &attr->ia_mtime);
- 		if (!do_sync && (issued & CEPH_CAP_FILE_EXCL)) {
- 			ci->i_time_warp_seq++;
- 			inode_set_mtime_to_ts(inode, attr->ia_mtime);
-@@ -2804,13 +2789,11 @@ int __ceph_setattr(struct mnt_idmap *idmap, struct inode *inode,
+ 	return 0;
  
- 	/* these do nothing */
- 	if (ia_valid & ATTR_CTIME) {
-+		struct timespec64 ictime = inode_get_ctime(inode);
- 		bool only = (ia_valid & (ATTR_SIZE|ATTR_MTIME|ATTR_ATIME|
- 					 ATTR_MODE|ATTR_UID|ATTR_GID)) == 0;
--		doutc(cl, "%p %llx.%llx ctime %lld.%09ld -> %lld.%09ld (%s)\n",
--		      inode, ceph_vinop(inode),
--		      inode_get_ctime_sec(inode),
--		      inode_get_ctime_nsec(inode),
--		      attr->ia_ctime.tv_sec, attr->ia_ctime.tv_nsec,
-+		doutc(cl, "%p %llx.%llx ctime %ptSp -> %ptSp (%s)\n",
-+		      inode, ceph_vinop(inode), &ictime, &attr->ia_ctime,
- 		      only ? "ctime only" : "ignored");
- 		if (only) {
- 			/*
-diff --git a/fs/ceph/xattr.c b/fs/ceph/xattr.c
-index 537165db4519..ad1f30bea175 100644
---- a/fs/ceph/xattr.c
-+++ b/fs/ceph/xattr.c
-@@ -249,8 +249,7 @@ static ssize_t ceph_vxattrcb_dir_rbytes(struct ceph_inode_info *ci, char *val,
- static ssize_t ceph_vxattrcb_dir_rctime(struct ceph_inode_info *ci, char *val,
- 					size_t size)
- {
--	return ceph_fmt_xattr(val, size, "%lld.%09ld", ci->i_rctime.tv_sec,
--				ci->i_rctime.tv_nsec);
-+	return ceph_fmt_xattr(val, size, "%ptSp", &ci->i_rctime);
- }
- 
- /* dir pin */
-@@ -307,8 +306,7 @@ static bool ceph_vxattrcb_snap_btime_exists(struct ceph_inode_info *ci)
- static ssize_t ceph_vxattrcb_snap_btime(struct ceph_inode_info *ci, char *val,
- 					size_t size)
- {
--	return ceph_fmt_xattr(val, size, "%lld.%09ld", ci->i_snap_btime.tv_sec,
--				ci->i_snap_btime.tv_nsec);
-+	return ceph_fmt_xattr(val, size, "%ptSp", &ci->i_snap_btime);
- }
- 
- static ssize_t ceph_vxattrcb_cluster_fsid(struct ceph_inode_info *ci,
 -- 
 2.50.1
 
