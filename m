@@ -2,37 +2,37 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 39F2CC4DAF5
-	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Nov 2025 13:28:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 86B7CC4DB1B
+	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Nov 2025 13:28:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRrnllRyUoumYwhFcGtWPmYuLow9m+gyg3TfQyG5VnM=; b=Ph6YehwSe7AVSx/oDWfvYRrQbw
-	vOHOMb/JG47V2/EUnA0XQ9r5TjIUiGhZ8r6oUXWNa7GqY3pMcBh79u5vF28uCUMEOgR5yxbfHWPVy
-	Fz7aVTbFHJP0lsh30ccQzqEeChcSclCMYp42nSKNdi++sgzPgd9tbvWPcJcpZLlMUbog=;
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=3q7yd4wMrgsAc9Hb1HRZOpYOFd6zItfU3inx/irUqzc=; b=OMaT2wO+iB3MN7Pg2UMOrQgA2B
+	QvdyjDi9RVsWZVMEm+2baH4gtBT7fKkSbs137KL7cWF+IetSCl9h9jIrNPb6ttIvDLdwTkU4nfsrB
+	Ci6C0b+rxRFyFMMhFOfnz18xapIkqzWBOk2YkmqfFXm3efK+Jm94zINsmf3BFYrISQzw=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vInTe-0005gF-VR;
-	Tue, 11 Nov 2025 12:28:03 +0000
+	id 1vInTl-0006xG-9g;
+	Tue, 11 Nov 2025 12:28:09 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vInTa-0005fl-No for openipmi-developer@lists.sourceforge.net;
- Tue, 11 Nov 2025 12:27:59 +0000
+ id 1vInTi-0006x2-TY for openipmi-developer@lists.sourceforge.net;
+ Tue, 11 Nov 2025 12:28:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=K3iIOwjiWMymf60BZffD+9E/XL5WhkHBkPnRWDokEjg=; b=KZx3ItGFBPapNZTcqT0wDYGBP0
- QodSi0lJtW3G+OQxvFRA7NWzbg34GBRHctNJ507dQBX7fVJwxeQd+NrgN7ieZPtje+eComQYfbz4l
- ArQwZRbo+tUjREF0sipne+inr00pI9Y4PzmTvZqc5RpmcP8ra93ER2w3hGrj9chgC1pk=;
+ bh=o72IIuYiDD380WOtn6WlmYYiTrpSLcgpIZ4ZT1R5+NY=; b=UB1YipJtjXSPBYfXhBCpGMI/Sk
+ cxgXL5jfWJG/NcizbXIDI5vk7+sy1GJEI4fS9lTsmhxUlc+oAxW1ITfAGLC256BeZliBIYnR1CTWj
+ y09PFZeujcXCWn6NCb06Oq7WRjvCmFXiKL5hjKajNDIBfQujyQP/SZyZEhu7sJckFgMU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=K3iIOwjiWMymf60BZffD+9E/XL5WhkHBkPnRWDokEjg=; b=CTsj+OpR/xL6N/aesf24RBs7nS
- WomdRaw6evdRND2haqmUDyg/0n9wouFzNCaMmpoK4nElYwI+vTra453IfJJpnQafZYJPu8i/Na2tS
- E3STOIJPzZudJ/4bl7LJjuwwy+sDPPp7hBJw6nNIhq/O10peHBcXkeOzrdhigkfqSw44=;
-Received: from mgamail.intel.com ([192.198.163.8])
+ bh=o72IIuYiDD380WOtn6WlmYYiTrpSLcgpIZ4ZT1R5+NY=; b=eEEkvPNkQpos2R8MvFuwcLX36m
+ Rza0p2j3LyAQBa0DPfGJsN6MIIpbWYuQRdmjpPzKGBJIVF6CLiPftm7PgQ8+X0cVt2FXefNcjWfR9
+ 715AfqcBrV+/ElDp2LKvt6FVCL2m8njBYu7X+0gaMM+kWy0VG+69LuL5tzUmI+6+43DA=;
+Received: from mgamail.intel.com ([192.198.163.9])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vInTb-00059m-4O for openipmi-developer@lists.sourceforge.net;
- Tue, 11 Nov 2025 12:27:59 +0000
+ id 1vInTi-0005AZ-Gc for openipmi-developer@lists.sourceforge.net;
+ Tue, 11 Nov 2025 12:28:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1762864079; x=1794400079;
+ t=1762864086; x=1794400086;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=Re9XzxeVgaRpFu9Nr8p7rXjuLRXS6TBbrXT9/XQ7Zd0=;
- b=mtsRfepytMkxtZXDLBd0ApPb7D6f6zR5SY7LzfcMXWshEuue/JOI3srV
- Hi7aI9EB0bIIEdeVSeyHuA4pMNxGF0QiWMTFwOvYrm1eo52q68f9vZOUO
- 3HpogNEf4BxuEVnvRtZskmzc4HlfznIZ6cJULZGOKPHggqmmabPw7GusF
- lCn1Sj77sK8t4ixs4Fni2GhPa/B10ffbnMTcpivrgSyUPeHdQnpkJBkM1
- OYhSAuy+CsX0HDvkMKsM7cszVd7e/a4Ufk5ceza8tJroZTaA5Lgyla4hh
- 1jc4JQ39sV+S6P+R9x5bdjyX+0uQCtlzKEdoziOaHTuTdN6HbgsxxQlvU Q==;
-X-CSE-ConnectionGUID: fDO5HbFCS1acrPl9s39cRA==
-X-CSE-MsgGUID: zJJmvFpfSVmenJrz8WH3ng==
-X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="82553007"
-X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="82553007"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
- by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 Nov 2025 04:27:57 -0800
-X-CSE-ConnectionGUID: +vGE22wxRqyUsxAtV1Rd4A==
-X-CSE-MsgGUID: DlcUK5isRVWX1VUmvXRrPw==
+ bh=EefPNFQBUNuGlR0DgULcxn8v9QseDyeQnp72XVg7OAg=;
+ b=e+bMfyB8eCxrAyza4q2DTjIbSwLaoQ4RcsHKfd+KNBAJzO9M0RJzGA7W
+ k8FUWWG7JA7Q+YY8POiERsG7e1XYMkjTtMfhWe5D83Of8zQQ7gIhldn55
+ NfjzOy7FD4Z4KYPYt1uNfGnGZkwt8YwB8msMo+kKs+/bT+xkD3hVZdyGj
+ +ztRa1/DVchswaCRZom0QodspTUCB7lYC1gu74VOLV9NgoDiEZWTNK+w9
+ cegMkniodotSKsPDKDZ9z2YIAjPDbLZtxTn3oJj7b1a5ZhCCY0yaT28lS
+ 9EeSk9If6WT6MDKFtN7FlVSXQ2kYhGDefsU57Fg56yj5v4uE9ElqXEQvM g==;
+X-CSE-ConnectionGUID: tHYis+J6Qgq9zCz/rkYV8w==
+X-CSE-MsgGUID: mMgnaVfNQBuqk+DidHelFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="75606943"
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="75606943"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+ by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 11 Nov 2025 04:28:03 -0800
+X-CSE-ConnectionGUID: 3kTDYZbdSGuh8Y2wW057ug==
+X-CSE-MsgGUID: 0+0RXBJqS5e5h/JXqx5zIg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="212343300"
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="188592912"
 Received: from black.igk.intel.com ([10.91.253.5])
- by fmviesa002.fm.intel.com with ESMTP; 11 Nov 2025 04:27:49 -0800
+ by fmviesa007.fm.intel.com with ESMTP; 11 Nov 2025 04:27:55 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id F237E9C; Tue, 11 Nov 2025 13:27:37 +0100 (CET)
+ id 03F3C9D; Tue, 11 Nov 2025 13:27:38 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -107,33 +107,37 @@ To: Corey Minyard <corey@minyard.net>,
  linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
  ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Date: Tue, 11 Nov 2025 13:20:06 +0100
-Message-ID: <20251111122735.880607-7-andriy.shevchenko@linux.intel.com>
+Date: Tue, 11 Nov 2025 13:20:07 +0100
+Message-ID: <20251111122735.880607-8-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
 References: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-X-Spam-Score: -0.0 (/)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  Content preview:  Use %ptSp instead of open coded variants to print content
  of struct timespec64 in human readable format. Signed-off-by: Andy Shevchenko
- <andriy.shevchenko@linux.intel.com> ---
- drivers/gpu/drm/msm/disp/msm_disp_snapshot_util.c
- | 3 +-- drivers/gpu/drm/msm/msm_gpu.c | 3 +-- 2 files changed, 2 insertions(+),
- [...] Content analysis details:   (-0.0 points, 5.0 required)
+ <andriy.shevchenko@linux.intel.com> --- drivers/gpu/drm/drm_vblank.c | 6
+ ++---- 1 file changed, 2 insertions(+), 4 deletions(-) 
+ Content analysis details:   (0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to DNSWL
+ was blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#DnsBlocklists-dnsbl-block
+ for more information. [192.198.163.9 listed in list.dnswl.org]
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vInTb-00059m-4O
-Subject: [Openipmi-developer] [PATCH v2 06/21] drm/msm: Switch to use %ptSp
+X-Headers-End: 1vInTi-0005AZ-Gc
+Subject: [Openipmi-developer] [PATCH v2 07/21] drm/vblank: Switch to use
+ %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -190,38 +194,26 @@ struct timespec64 in human readable format.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/gpu/drm/msm/disp/msm_disp_snapshot_util.c | 3 +--
- drivers/gpu/drm/msm/msm_gpu.c                     | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/drm_vblank.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/msm/disp/msm_disp_snapshot_util.c b/drivers/gpu/drm/msm/disp/msm_disp_snapshot_util.c
-index 071bcdea80f7..19b470968f4d 100644
---- a/drivers/gpu/drm/msm/disp/msm_disp_snapshot_util.c
-+++ b/drivers/gpu/drm/msm/disp/msm_disp_snapshot_util.c
-@@ -82,8 +82,7 @@ void msm_disp_state_print(struct msm_disp_state *state, struct drm_printer *p)
- 	drm_printf(p, "kernel: " UTS_RELEASE "\n");
- 	drm_printf(p, "module: " KBUILD_MODNAME "\n");
- 	drm_printf(p, "dpu devcoredump\n");
--	drm_printf(p, "time: %lld.%09ld\n",
--		state->time.tv_sec, state->time.tv_nsec);
-+	drm_printf(p, "time: %ptSp\n", &state->time);
+diff --git a/drivers/gpu/drm/drm_vblank.c b/drivers/gpu/drm/drm_vblank.c
+index 32d013c5c8fc..5c14140cd0c2 100644
+--- a/drivers/gpu/drm/drm_vblank.c
++++ b/drivers/gpu/drm/drm_vblank.c
+@@ -806,10 +806,8 @@ drm_crtc_vblank_helper_get_vblank_timestamp_internal(
+ 	ts_vblank_time = ktime_to_timespec64(*vblank_time);
  
- 	list_for_each_entry_safe(block, tmp, &state->blocks, node) {
- 		drm_printf(p, "====================%s================\n", block->name);
-diff --git a/drivers/gpu/drm/msm/msm_gpu.c b/drivers/gpu/drm/msm/msm_gpu.c
-index 17759abc46d7..a4251afe4541 100644
---- a/drivers/gpu/drm/msm/msm_gpu.c
-+++ b/drivers/gpu/drm/msm/msm_gpu.c
-@@ -197,8 +197,7 @@ static ssize_t msm_gpu_devcoredump_read(char *buffer, loff_t offset,
- 	drm_printf(&p, "---\n");
- 	drm_printf(&p, "kernel: " UTS_RELEASE "\n");
- 	drm_printf(&p, "module: " KBUILD_MODNAME "\n");
--	drm_printf(&p, "time: %lld.%09ld\n",
--		state->time.tv_sec, state->time.tv_nsec);
-+	drm_printf(&p, "time: %ptSp\n", &state->time);
- 	if (state->comm)
- 		drm_printf(&p, "comm: %s\n", state->comm);
- 	if (state->cmd)
+ 	drm_dbg_vbl(dev,
+-		    "crtc %u : v p(%d,%d)@ %lld.%06ld -> %lld.%06ld [e %d us, %d rep]\n",
+-		    pipe, hpos, vpos,
+-		    (u64)ts_etime.tv_sec, ts_etime.tv_nsec / 1000,
+-		    (u64)ts_vblank_time.tv_sec, ts_vblank_time.tv_nsec / 1000,
++		    "crtc %u : v p(%d,%d)@ %ptSp -> %ptSp [e %d us, %d rep]\n",
++		    pipe, hpos, vpos, &ts_etime, &ts_vblank_time,
+ 		    duration_ns / 1000, i);
+ 
+ 	return true;
 -- 
 2.50.1
 
