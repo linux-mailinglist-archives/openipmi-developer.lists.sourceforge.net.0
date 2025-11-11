@@ -2,151 +2,135 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 27FFCC4BC80
-	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Nov 2025 07:57:25 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 05670C4DAD9
+	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Nov 2025 13:28:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:MIME-Version:References:In-Reply-To:To:From:Message-ID:Date:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2MB8DYMMc1MQO0YtbMH+gAOg++YDldvZvxDVmvwEZlg=; b=Fm35YNvAIebxHUCCgxKRU5Xili
-	vfOmAUuvWjqMTjKiyaNjBE9LxXfdeqjwQZnmSdcQyDOcs4tv/ierzHc+++8GiTRwI+mFpK55QjvVB
-	s54J3qApbIHpozQP4U7SIEyAEoeMTTTTlOYVsGeAWlIOyeDVlEHQBpOtkx9JsUxLunwE=;
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	Subject:MIME-Version:Message-ID:Date:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Wzd+az3BgHrEbswZRrKr6QBde/zBXxqvKkaO7k67lRc=; b=e2LMg4gK5m0Gl5YTZUOTRgHA22
+	KYxjYApT/2K5nsz/Oe0a4fxHBqQH5mguCXspwjMjWSHnbsUBGXEm79h583jnT3xksbHtLppusjyYl
+	6DXPf2Wam5lzTAGp63DuoKrncL+CSD53tgyJdHzAMHYwKpL+roeZcERnNvA2kLZhxyX8=;
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vIiJW-0008F4-Qs;
-	Tue, 11 Nov 2025 06:57:14 +0000
+	id 1vInTb-0006Jj-Dt;
+	Tue, 11 Nov 2025 12:27:59 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tiwai@suse.de>) id 1vIiJV-0008Ey-UF
- for openipmi-developer@lists.sourceforge.net;
- Tue, 11 Nov 2025 06:57:13 +0000
+ (envelope-from <andriy.shevchenko@linux.intel.com>)
+ id 1vInTa-0006Ja-Ew for openipmi-developer@lists.sourceforge.net;
+ Tue, 11 Nov 2025 12:27:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Type:MIME-Version:References:In-Reply-To:
- Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=fnn8buj3dz2cAu1lwnMV3wmGOQAis/X/NnrYyJhRgpI=; b=mll1dxJnL54Xu0VKZ/MJOCIzq0
- jauu3fnzioodRNUJzVfqZrE9AKhVe9ovL6Gx1DOG7mhPyycKGhjycMhjZbNgSBczOKVN0EfvzDGLw
- JIk24ivxhDxNhnGEAqIoL7fp9x5QIPTcGWigDwKC0Ct2v4r2FETBGGTOPACJqaZPOBms=;
+ bh=IxgNK7cpKzhk04ZUdWlPPhqPh9nRnmjF/U1FYbaQYhI=; b=lQ698KEXOvPw9kWWVZRtMENCZw
+ SSEEVBu5n7aT+ReF7j+IV1dFTLXJs+usYaExTANvbcuI6mTbwsghFFuiCW3dCuqqg9LCkEYtO+s3g
+ q83fQF6YLN7euNjea02QOrFz1hj422OQuK9+bJOTNFKvfX1GFb0QWXEhacgDFU0UMIoU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
- Message-ID:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=fnn8buj3dz2cAu1lwnMV3wmGOQAis/X/NnrYyJhRgpI=; b=CUXXeLuykn0B4VIVEdDeRb9NE2
- Ic8VUPNIpSssXXtIwZhQ3HC7sqw9NP8AvMhm3YCjciuN6wUekf+lXo7r13b4jwU4v0M+Oj7OdFf8v
- p/NsN43kx6nJr0fvUkf7n/2KGEreEb2gogyagemJav0KccdPWDy3P3tMd4bnyWZ7mUCA=;
-Received: from smtp-out1.suse.de ([195.135.223.130])
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
+ Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=IxgNK7cpKzhk04ZUdWlPPhqPh9nRnmjF/U1FYbaQYhI=; b=K
+ DDuNBmKSeKZMBfP5OyjCpWazP+ZURPkdfOEOE0keoL8VqDrhiFpBege6qWay60VnBlPt4OTlg+TWf
+ Vf3Ph03X6Ql6+nPho7PcZ2JlMLlxb6dNUOPxB2Q+RiYZMXLm2uO5NOqqC7JFNsKKYiDWUl6R67Txn
+ mzV4suKi8nNHwMmk=;
+Received: from mgamail.intel.com ([192.198.163.8])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1vIiJV-0001J1-CQ for openipmi-developer@lists.sourceforge.net;
- Tue, 11 Nov 2025 06:57:13 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-out1.suse.de (Postfix) with ESMTPS id 003E121D96;
- Tue, 11 Nov 2025 06:42:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1762843347; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=fnn8buj3dz2cAu1lwnMV3wmGOQAis/X/NnrYyJhRgpI=;
- b=MJJifpxj0d+JjXgZOzmxMDpQDTSyIadrJYsNIbJl+ULZfRSkA1F3QRigpspAqsE+66Rhp4
- Shn7meUxG5KGJZOHhOahRAQKGy6Nb5TLhqjOSRo1AsBLy8kaYN8yBZmHfsJ+Bw3No+qv6Y
- 5wW5dT7W11nmHzpKpr6zOoTnHE6LBoQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1762843347;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=fnn8buj3dz2cAu1lwnMV3wmGOQAis/X/NnrYyJhRgpI=;
- b=XOVf1gy9U5gZVwTjF3TZLqMUlzKAS6MC5EfTBJRYyS+0eMhaSrKs4ZKyZxOlsKibNkjCP/
- 7jvcMdxbfbH3qxAQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
- t=1762843347; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=fnn8buj3dz2cAu1lwnMV3wmGOQAis/X/NnrYyJhRgpI=;
- b=MJJifpxj0d+JjXgZOzmxMDpQDTSyIadrJYsNIbJl+ULZfRSkA1F3QRigpspAqsE+66Rhp4
- Shn7meUxG5KGJZOHhOahRAQKGy6Nb5TLhqjOSRo1AsBLy8kaYN8yBZmHfsJ+Bw3No+qv6Y
- 5wW5dT7W11nmHzpKpr6zOoTnHE6LBoQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
- s=susede2_ed25519; t=1762843347;
- h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=fnn8buj3dz2cAu1lwnMV3wmGOQAis/X/NnrYyJhRgpI=;
- b=XOVf1gy9U5gZVwTjF3TZLqMUlzKAS6MC5EfTBJRYyS+0eMhaSrKs4ZKyZxOlsKibNkjCP/
- 7jvcMdxbfbH3qxAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
- (No client certificate requested)
- by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EAC3E14805;
- Tue, 11 Nov 2025 06:42:24 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
- by imap1.dmz-prg2.suse.org with ESMTPSA id OZMhONDaEmkhSgAAD6G6ig
- (envelope-from <tiwai@suse.de>); Tue, 11 Nov 2025 06:42:24 +0000
-Date: Tue, 11 Nov 2025 07:42:24 +0100
-Message-ID: <87jyzx2hpr.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-In-Reply-To: <20251110184727.666591-3-andriy.shevchenko@linux.intel.com>
-References: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
- <20251110184727.666591-3-andriy.shevchenko@linux.intel.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-Spam-Level: 
-X-Spamd-Result: default: False [-1.80 / 50.00]; BAYES_HAM(-3.00)[100.00%];
- SUSPICIOUS_RECIPS(1.50)[]; MID_CONTAINS_FROM(1.00)[];
- NEURAL_HAM_LONG(-1.00)[-1.000];
- NEURAL_HAM_SHORT(-0.20)[-1.000]; MIME_GOOD(-0.10)[text/plain];
- TO_DN_SOME(0.00)[]; TAGGED_RCPT(0.00)[renesas];
- MIME_TRACE(0.00)[0:+]; FUZZY_RATELIMITED(0.00)[rspamd.com];
- RCVD_VIA_SMTP_AUTH(0.00)[]; ARC_NA(0.00)[];
- RCVD_TLS_ALL(0.00)[];
- DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
- FROM_HAS_DN(0.00)[];
- FREEMAIL_CC(0.00)[minyard.net,amd.com,treblig.org,suse.de,oss.qualcomm.com,intel.com,kernel.org,ideasonboard.com,linaro.org,wbinvd.org,gmail.com,oracle.com,cisco.com,schaufler-ca.com,goodmis.org,suse.com,ionos.com,vger.kernel.org,lists.sourceforge.net,lists.freedesktop.org,lists.linaro.org,lists.osuosl.org,lists.linux.dev,rasmusvillemoes.dk,chromium.org,lwn.net,padovan.org,ffwll.ch,linux.intel.com,linux.dev,poorly.run,somainline.org,lunn.ch,davemloft.net,google.com,redhat.com,enneenne.com,linux.ibm.com,HansenPartnership.com,linuxfoundation.org,efficios.com,linux-foundation.org,perex.cz];
- R_RATELIMIT(0.00)[to_ip_from(RLmdkd3ei8pyzuqshpsr74qwzu)];
- FROM_EQ_ENVFROM(0.00)[]; RCVD_COUNT_TWO(0.00)[2];
- TO_MATCH_ENVRCPT_SOME(0.00)[]; RCPT_COUNT_GT_50(0.00)[96];
- DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Flag: NO
-X-Spam-Score: -1.80
-X-Spam-Score: -0.2 (/)
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1vInTZ-00059m-Ql for openipmi-developer@lists.sourceforge.net;
+ Tue, 11 Nov 2025 12:27:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1762864077; x=1794400077;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=3ufDyGpQ90Lh9cbA3wPj1PEHCfZCVgCTqOeDqCrieZA=;
+ b=iK1C1ISUqBqKdRm08mTOuIXs/algZgZ4SfzV4ccyN8u+PAPNM+/1+Jbm
+ jCv1LVQc0Y4gizRVSi5NIhX9tLlxzpWDCKA5eiqc1xPOxt74/Kw+b5+t7
+ Kb7uNEKPEGoNJyVy46VJEAC2h0TpawPO0FlFo1qVeWEvevyNKR2B0UnO0
+ O6CqvDqbQyDynFdcNHwTV+xuFEWpsvvYjYD4vy8Or+qTxX4RMwqJuRMt9
+ L8H6p9F914KvfLJFVJuUONwFAuN3K64uEGtxpv7if4IIniCBv2PaimzR2
+ aHnWL1+Y+traNqF8wdFTVGlpVscjVfLgD9LjfpszZ6q0QWSSE8lvmcd3O Q==;
+X-CSE-ConnectionGUID: Womt69rEQ1ym6u+K2Ot4iw==
+X-CSE-MsgGUID: zkwlDYMNTt2Kj12vreV7Qg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="82552888"
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="82552888"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+ by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 11 Nov 2025 04:27:46 -0800
+X-CSE-ConnectionGUID: ZOKULRMJT7KTHajVhJ7ajg==
+X-CSE-MsgGUID: kkEFDbWaR6a5b9oyBE8QYQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="212343281"
+Received: from black.igk.intel.com ([10.91.253.5])
+ by fmviesa002.fm.intel.com with ESMTP; 11 Nov 2025 04:27:39 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+ id CC71996; Tue, 11 Nov 2025 13:27:37 +0100 (CET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Corey Minyard <corey@minyard.net>,
+ =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+ "Dr. David Alan Gilbert" <linux@treblig.org>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Vitaly Lifshits <vitaly.lifshits@intel.com>,
+ Manivannan Sadhasivam <mani@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+ Calvin Owens <calvin@wbinvd.org>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Sagi Maimon <maimon.sagi@gmail.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Karan Tilak Kumar <kartilak@cisco.com>,
+ Hans Verkuil <hverkuil+cisco@kernel.org>,
+ Casey Schaufler <casey@schaufler-ca.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Petr Mladek <pmladek@suse.com>,
+ Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>,
+ Max Kellermann <max.kellermann@ionos.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linaro-mm-sig@lists.linaro.org, amd-gfx@lists.freedesktop.org,
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-mmc@vger.kernel.org,
+ netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
+ linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
+ ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Date: Tue, 11 Nov 2025 13:20:00 +0100
+Message-ID: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
+MIME-Version: 1.0
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, 10 Nov 2025 19:40:21 +0100, Andy Shevchenko wrote:
- > > Use %ptSp instead of open coded variants to print content of > struct
- timespec64 in human readable format. > > Signed-off-by: Andy Shevch [...]
- Content analysis details:   (-0.2 points, 5.0 required)
+ Content preview:  Here is the third part of the unification time printing in
+ the kernel. This time for struct timespec64. The first patch brings a support
+ into printf() implementation (test cases and documentation upda [...] 
+ Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Headers-End: 1vIiJV-0001J1-CQ
-Subject: Re: [Openipmi-developer] [PATCH v1 02/23] ALSA: seq: Switch to use
- %ptSp
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1vInTZ-00059m-Ql
+Subject: [Openipmi-developer] [PATCH v2 00/21] treewide: Introduce %ptS for
+ struct timespec64 and convert users
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -159,104 +143,122 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, Takashi Iwai <tiwai@suse.de>,
- dri-devel@lists.freedesktop.org, Jaroslav Kysela <perex@perex.cz>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Krzysztof =?ISO-8859-2?Q?Wilczy=F1ski?= <kwilczynski@kernel.org>,
- Matthew Brost <matthew.brost@intel.com>,
- Max Kellermann <max.kellermann@ionos.com>, ceph-devel@vger.kernel.org,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Petr Mladek <pmladek@suse.com>, Lucas De Marchi <lucas.demarchi@intel.com>,
- linux-sound@vger.kernel.org, Stefan Haberland <sth@linux.ibm.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
- Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Dmitry Baryshkov <lumag@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- Sven Schnelle <svens@linux.ibm.com>, Alex Deucher <alexander.deucher@amd.com>,
- Vitaly Lifshits <vitaly.lifshits@intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Vladimir Oltean <olteanv@gmail.com>,
- freedreno@lists.freedesktop.org, Jan Hoeppner <hoeppner@linux.ibm.com>,
- linux-doc@vger.kernel.org, Gustavo Padovan <gustavo@padovan.org>,
+Cc: Andrew Lunn <andrew@lunn.ch>, Jan Hoeppner <hoeppner@linux.ibm.com>,
+ Gustavo Padovan <gustavo@padovan.org>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
  "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
  Eric Dumazet <edumazet@google.com>, Tony Nguyen <anthony.l.nguyen@intel.com>,
- Simona Vetter <simona@ffwll.ch>, linux-s390@vger.kernel.org,
- Calvin Owens <calvin@wbinvd.org>, Richard Cochran <richardcochran@gmail.com>,
- linux-media@vger.kernel.org, Kishon Vijay Abraham I <kishon@kernel.org>,
- Satish Kharat <satishkh@cisco.com>, Vasily Gorbik <gor@linux.ibm.com>,
- linux-arm-msm@vger.kernel.org, Maxime Ripard <mripard@kernel.org>,
- linaro-mm-sig@lists.linaro.org, Casey Schaufler <casey@schaufler-ca.com>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Christian =?ISO-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, linux-pci@vger.kernel.org,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- linux-trace-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>, linux-staging@lists.linux.dev,
- amd-gfx@lists.freedesktop.org, Karan Tilak Kumar <kartilak@cisco.com>,
- Ilya Dryomov <idryomov@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- Konrad Dybcio <konradybcio@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- Corey Minyard <corey@minyard.net>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- openipmi-developer@lists.sourceforge.net,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Rodolfo Giometti <giometti@enneenne.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>, linux-mmc@vger.kernel.org,
- Sesidhar Baddela <sebaddel@cisco.com>, Sagi Maimon <maimon.sagi@gmail.com>,
- Jonathan Lemon <jonathan.lemon@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Niklas Cassel <cassel@kernel.org>,
- David Airlie <airlied@gmail.com>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-scsi@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
- Jakub Kicinski <kuba@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Thomas =?ISO-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Manivannan Sadhasivam <mani@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>, David Airlie <airlied@gmail.com>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, Xiubo Li <xiubli@redhat.com>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Jakub Kicinski <kuba@kernel.org>, Ilya Dryomov <idryomov@gmail.com>,
+ Paolo Abeni <pabeni@redhat.com>, Konrad Dybcio <konradybcio@kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Masami Hiramatsu <mhiramat@kernel.org>,
+ =?UTF-8?q?Thomas=20Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Satish Kharat <satishkh@cisco.com>,
+ Vasily Gorbik <gor@linux.ibm.com>,
+ Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Lucas De Marchi <lucas.demarchi@intel.com>,
+ Richard Cochran <richardcochran@gmail.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Abhinav Kumar <abhinav.kumar@linux.dev>, Hans Verkuil <hverkuil@kernel.org>,
- Xiubo Li <xiubli@redhat.com>, intel-xe@lists.freedesktop.org,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, netdev@vger.kernel.org,
- Takashi Iwai <tiwai@suse.com>, Jessica Zhang <jesszhan0024@gmail.com>,
- "Dr. David Alan Gilbert" <linux@treblig.org>
+ Maxime Ripard <mripard@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Stefan Haberland <sth@linux.ibm.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Sean Paul <sean@poorly.run>,
+ Rodolfo Giometti <giometti@enneenne.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Sesidhar Baddela <sebaddel@cisco.com>, Jessica Zhang <jesszhan0024@gmail.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Jonathan Lemon <jonathan.lemon@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Mon, 10 Nov 2025 19:40:21 +0100,
-Andy Shevchenko wrote:
-> 
-> Use %ptSp instead of open coded variants to print content of
-> struct timespec64 in human readable format.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
->  sound/core/seq/seq_queue.c | 2 +-
->  sound/core/seq/seq_timer.c | 6 +++---
->  2 files changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/sound/core/seq/seq_queue.c b/sound/core/seq/seq_queue.c
-> index f5c0e401c8ae..f6e86cbf38bc 100644
-> --- a/sound/core/seq/seq_queue.c
-> +++ b/sound/core/seq/seq_queue.c
-> @@ -699,7 +699,7 @@ void snd_seq_info_queues_read(struct snd_info_entry *entry,
->  		snd_iprintf(buffer, "current tempo      : %d\n", tmr->tempo);
->  		snd_iprintf(buffer, "tempo base         : %d ns\n", tmr->tempo_base);
->  		snd_iprintf(buffer, "current BPM        : %d\n", bpm);
-> -		snd_iprintf(buffer, "current time       : %d.%09d s\n", tmr->cur_time.tv_sec, tmr->cur_time.tv_nsec);
-> +		snd_iprintf(buffer, "current time       : %ptSp s\n", &tmr->cur_time);
->  		snd_iprintf(buffer, "current tick       : %d\n", tmr->tick.cur_tick);
->  		snd_iprintf(buffer, "\n");
->  	}
+Here is the third part of the unification time printing in the kernel.
+This time for struct timespec64. The first patch brings a support
+into printf() implementation (test cases and documentation update
+included) followed by the treewide conversion of the current users.
 
-tmr->cur_time isn't struct timespec64, but it's struct
-tmr->snd_seq_real_time.
+The idea is to have one or a few biggest users included, the rest
+can be taken next release cycle on the subsystem basis, but I won't
+object if the respective maintainers already give their tags. Depending
+on the tags received it may go via dedicated subsystem or via PRINTK
+tree. Petr, what do you think?
 
+Note, not everything was compile-tested. Kunit test has been passed, though.
 
-thanks,
+Changelog v2:
+- dropped wrong patches (Hans, Takashi)
+- fixed most of the checkpatch warnings (fdo CI, media CI)
+- collected tags
 
-Takashi
+v1: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
+
+Andy Shevchenko (21):
+  lib/vsprintf: Add specifier for printing struct timespec64
+  ceph: Switch to use %ptSp
+  libceph: Switch to use %ptSp
+  dma-buf: Switch to use %ptSp
+  drm/amdgpu: Switch to use %ptSp
+  drm/msm: Switch to use %ptSp
+  drm/vblank: Switch to use %ptSp
+  drm/xe: Switch to use %ptSp
+  e1000e: Switch to use %ptSp
+  igb: Switch to use %ptSp
+  ipmi: Switch to use %ptSp
+  media: av7110: Switch to use %ptSp
+  mmc: mmc_test: Switch to use %ptSp
+  net: dsa: sja1105: Switch to use %ptSp
+  PCI: epf-test: Switch to use %ptSp
+  pps: Switch to use %ptSp
+  ptp: ocp: Switch to use %ptSp
+  s390/dasd: Switch to use %ptSp
+  scsi: fnic: Switch to use %ptS
+  scsi: snic: Switch to use %ptSp
+  tracing: Switch to use %ptSp
+
+ Documentation/core-api/printk-formats.rst     | 11 ++++-
+ drivers/char/ipmi/ipmi_si_intf.c              |  3 +-
+ drivers/char/ipmi/ipmi_ssif.c                 |  6 +--
+ drivers/dma-buf/sync_debug.c                  |  2 +-
+ .../gpu/drm/amd/amdgpu/amdgpu_dev_coredump.c  |  3 +-
+ drivers/gpu/drm/drm_vblank.c                  |  6 +--
+ .../gpu/drm/msm/disp/msm_disp_snapshot_util.c |  3 +-
+ drivers/gpu/drm/msm/msm_gpu.c                 |  3 +-
+ drivers/gpu/drm/xe/xe_devcoredump.c           |  4 +-
+ drivers/mmc/core/mmc_test.c                   | 20 +++-----
+ drivers/net/dsa/sja1105/sja1105_tas.c         |  8 ++-
+ drivers/net/ethernet/intel/e1000e/ptp.c       |  7 +--
+ drivers/net/ethernet/intel/igb/igb_ptp.c      |  7 +--
+ drivers/pci/endpoint/functions/pci-epf-test.c |  5 +-
+ drivers/pps/generators/pps_gen_parport.c      |  3 +-
+ drivers/pps/kapi.c                            |  3 +-
+ drivers/ptp/ptp_ocp.c                         | 13 ++---
+ drivers/s390/block/dasd.c                     |  3 +-
+ drivers/scsi/fnic/fnic_trace.c                | 46 ++++++++---------
+ drivers/scsi/snic/snic_debugfs.c              | 10 ++--
+ drivers/scsi/snic/snic_trc.c                  |  5 +-
+ drivers/staging/media/av7110/av7110.c         |  2 +-
+ fs/ceph/dir.c                                 |  5 +-
+ fs/ceph/inode.c                               | 49 ++++++-------------
+ fs/ceph/xattr.c                               |  6 +--
+ kernel/trace/trace_output.c                   |  6 +--
+ lib/tests/printf_kunit.c                      |  4 ++
+ lib/vsprintf.c                                | 25 ++++++++++
+ net/ceph/messenger_v2.c                       |  6 +--
+ 29 files changed, 126 insertions(+), 148 deletions(-)
+
+-- 
+2.50.1
+
 
 
 _______________________________________________
