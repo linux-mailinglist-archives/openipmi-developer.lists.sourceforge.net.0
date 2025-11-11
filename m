@@ -2,37 +2,37 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A1858C4DB2E
-	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Nov 2025 13:28:17 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id F3ACCC4DB43
+	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Nov 2025 13:28:19 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zJUlUnbGBYXi9R5zZtvoswX8C0avyaX3ASzHrZft1UM=; b=Jdw0yi0HM3sOygFMzpEpv8o5yX
-	/ykdAYLIbRfio5T0O8ZlnuQDFXCHf/cvXxdGZ5V/yiUFTzwgGnkCtVO9XSV5LOu/ls0GOTbzZ2pFI
-	+6ZzLkM/GooI+uVeM3hxxgnoa8+AJAfaO/+rZzlrZ5Hst4ep2fOSzuIBavaPBN+IAmzs=;
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=nYNhShfS4euL6Y1Fwfl7SJTMjFVKDy+mH+KeBmHd1Dg=; b=UqFjH8W47j9eggvFWdGQCboEK8
+	tHeFJRuR7Pq5dg1iwAVI5fbMvVnWh0SYtVAbsrLdG3jfXPg+Wsp9G0w0YIUO57IdESUiZFffaK5+L
+	eRfaHCiZP3K1SQ94R+7PCgvKR4qyGBPdsyJRPx+BBQXt+KttAmX08TiWzgF0W3jpZhAE=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vInTn-0005hI-Dv;
-	Tue, 11 Nov 2025 12:28:12 +0000
+	id 1vInTq-0006y7-Ly;
+	Tue, 11 Nov 2025 12:28:14 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vInTj-0005gu-Pj for openipmi-developer@lists.sourceforge.net;
- Tue, 11 Nov 2025 12:28:08 +0000
+ id 1vInTm-0006xY-Ru for openipmi-developer@lists.sourceforge.net;
+ Tue, 11 Nov 2025 12:28:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=fB3vSFUuDz+Q3AKsurTBqbREB7p9/3PjSYMX28sunTY=; b=fGKPsP11cOMcQc+0yvJ6fAIf3k
- txQM9dteygDLIHBvVMyS2TR70lxdRqjqf1qe07FGoOXZtWJqYxErJeMN3BWlNVIjMIT/5b5YabmU4
- MGfWRn1/0ntiypleDTd8lj8183qUusU5h4i5EBvUeAcp/Aw9H7SFwFj++h6PFOXBcdek=;
+ bh=Ox3zoOLFWy5JaDxIDeyCO8/KhRCydmvNBf8yrADzjwo=; b=KRKgMLp1Exqw2Eap7DZ8G0Ki5g
+ x9gtMiLsrpJS2tRLSSBm9hwzq2qWhLhcffJCOIEBBnB/s0xVUUM9sYLAeiKYePmqfNzX1iQH6cOeB
+ db9snmXR99xlINDoy6TMstLGo0JkSPzlVcYhssa+R2T+0abxCimC3Su2R1dwG4vgVxzo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=fB3vSFUuDz+Q3AKsurTBqbREB7p9/3PjSYMX28sunTY=; b=ePUNlZKkKtneCAsNKm5rsEL0vU
- YA4Ix9mjM3xZbzJQYiano8IlkmcOiCzmaGW272N6oExPpk3Xac6aI1wpNgJeVnIedTzFwdH8SJ+j1
- /Z6U09bbZRuN4mczJ/NZCBQAVFJXcDzggxYUpqODk2mMPnEIY3GjsefcEGnH2tIIObyk=;
-Received: from mgamail.intel.com ([192.198.163.9])
+ bh=Ox3zoOLFWy5JaDxIDeyCO8/KhRCydmvNBf8yrADzjwo=; b=iHV+S3AayOApVty9KDESP0ycxP
+ DfEtA/5x+OKfuJfNkiQ7UGRoGh8CXtlVuenoKxIXN4n27UHnEjsDO80Ig7Y2lv0ChP8+PuEl7hQFx
+ mOkL2loDTwiUdKrr0Vh4Edv6COLIkyhc45X21dfZxvZF0F55pAhYPhvNsdbN9sOL0+MY=;
+Received: from mgamail.intel.com ([192.198.163.8])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vInTk-0005AZ-40 for openipmi-developer@lists.sourceforge.net;
- Tue, 11 Nov 2025 12:28:08 +0000
+ id 1vInTm-0005Ad-Eh for openipmi-developer@lists.sourceforge.net;
+ Tue, 11 Nov 2025 12:28:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1762864088; x=1794400088;
+ t=1762864090; x=1794400090;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=e8WeGxOtZtcbZrMvs9n+wJZzGptxfxh9oxsAvrP2sMQ=;
- b=SU6Sy+CHPkEnhB5+AQMey4bbuAwrjV6dBGAgbXLObNQ0nyINoxYk21qJ
- 6Rt01X874ClybQZKXH/3j0fsYqMp7qcMZ5wstoLnbrJQ4+YgN+uIuoCY7
- uKXEnsI54YBvgyUzigGJ0sxO6dDQhPGzHRHgmjPYhAUTrk5wTUIqo05z/
- 0A3H2gk66wh62bS7bOvsNKXHi70CWdVaA9O+VmnalB2a3Ep/SAc3qHhcF
- hT0tbbTHKSuG18ZZ/53P2Cqg9WUna/lMcqUlcQ3et/fS1PYZlw4htJhgi
- NQB440Kf4kHUllN76SGhwzWADJKsRXpattYPCuAGZFLBhUdwnS+5HAZBq g==;
-X-CSE-ConnectionGUID: fyivE2f9R5mwZMFjIiZgwg==
-X-CSE-MsgGUID: YwFtNvD3RT2BN3tVICTzgg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="75607057"
-X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="75607057"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
- by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ bh=o4N7T+qVK77oOwqrK9kudMEIR18gnJzq4LSbPHl39rw=;
+ b=mdL0ARtnPsQOTMycbVV+7Ptl1RojzuFvVStCz94hwG0NkPoTy/H974Q1
+ OPv5chFIpR+zn4zrAE9fB3YA6Drp9JUUFisftwgI3tIRttQhaFgmPl59Y
+ mULBMkna7zC7IUkffbhdhgaZOhsbLF7E+GRUHa25cQXyy63IhWKtDKkrZ
+ vb9BXYICaxhJ6JlcA0tEtj2fXAC8HXAkNeJ8bHL1OhzzJIG2B6upjvnh0
+ 7EGbVzyNSLTF5xp6pK+xujrlvBOeSIWzyBnIdJ20dZdVWuPQZeIV0NUtR
+ 9juQ805drzUaSsmnPA6ZBUQzDuD8APDWrXFgxSlC/ZyerwDPnjoU+RTP+ g==;
+X-CSE-ConnectionGUID: ineUWMtIScCuzx8L3rzruw==
+X-CSE-MsgGUID: Ufb8vqzSRXepR9MUya/8nQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="82553171"
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="82553171"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+ by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
  11 Nov 2025 04:28:06 -0800
-X-CSE-ConnectionGUID: YHDSoTq9Rr+aZdtO+8m67w==
-X-CSE-MsgGUID: KCI6LE1SS0+Hf144PvkzVA==
+X-CSE-ConnectionGUID: Hn85aRXLRIiDkJXShcu/eg==
+X-CSE-MsgGUID: m86TCvpNRS+dWjQns2H6LA==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="188592922"
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="212343325"
 Received: from black.igk.intel.com ([10.91.253.5])
- by fmviesa007.fm.intel.com with ESMTP; 11 Nov 2025 04:27:58 -0800
+ by fmviesa002.fm.intel.com with ESMTP; 11 Nov 2025 04:27:58 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id 30E48A4; Tue, 11 Nov 2025 13:27:38 +0100 (CET)
+ id 37AEBA5; Tue, 11 Nov 2025 13:27:38 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -107,33 +107,35 @@ To: Corey Minyard <corey@minyard.net>,
  linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
  ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Date: Tue, 11 Nov 2025 13:20:14 +0100
-Message-ID: <20251111122735.880607-15-andriy.shevchenko@linux.intel.com>
+Date: Tue, 11 Nov 2025 13:20:15 +0100
+Message-ID: <20251111122735.880607-16-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
 References: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  Content preview:  Use %ptSp instead of open coded variants to print content
- of struct timespec64 in human readable format. Signed-off-by: Andy Shevchenko
- <andriy.shevchenko@linux.intel.com> --- drivers/net/dsa/sja1105/sja1105_tas.c
- | 8 +++----- 1 file changed, 3 insertions(+), 5 deletions(-) 
+ of struct timespec64 in human readable format. Acked-by: Bjorn Helgaas
+ <bhelgaas@google.com>
+ Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com> ---
+ drivers/pci/endpoint/functions/pci-epf-test.c
+ | 5 ++--- 1 file changed, 2 insertion [...] 
  Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vInTk-0005AZ-40
-Subject: [Openipmi-developer] [PATCH v2 14/21] net: dsa: sja1105: Switch to
- use %ptSp
+X-Headers-End: 1vInTm-0005Ad-Eh
+Subject: [Openipmi-developer] [PATCH v2 15/21] PCI: epf-test: Switch to use
+ %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -188,37 +190,28 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 Use %ptSp instead of open coded variants to print content of
 struct timespec64 in human readable format.
 
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/net/dsa/sja1105/sja1105_tas.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ drivers/pci/endpoint/functions/pci-epf-test.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/dsa/sja1105/sja1105_tas.c b/drivers/net/dsa/sja1105/sja1105_tas.c
-index d7818710bc02..d5949d2c3e71 100644
---- a/drivers/net/dsa/sja1105/sja1105_tas.c
-+++ b/drivers/net/dsa/sja1105/sja1105_tas.c
-@@ -775,9 +775,8 @@ static void sja1105_tas_state_machine(struct work_struct *work)
- 		base_time_ts = ns_to_timespec64(base_time);
- 		now_ts = ns_to_timespec64(now);
+diff --git a/drivers/pci/endpoint/functions/pci-epf-test.c b/drivers/pci/endpoint/functions/pci-epf-test.c
+index b05e8db575c3..debd235253c5 100644
+--- a/drivers/pci/endpoint/functions/pci-epf-test.c
++++ b/drivers/pci/endpoint/functions/pci-epf-test.c
+@@ -331,9 +331,8 @@ static void pci_epf_test_print_rate(struct pci_epf_test *epf_test,
+ 		rate = div64_u64(size * NSEC_PER_SEC, ns * 1000);
  
--		dev_dbg(ds->dev, "OPER base time %lld.%09ld (now %lld.%09ld)\n",
--			base_time_ts.tv_sec, base_time_ts.tv_nsec,
--			now_ts.tv_sec, now_ts.tv_nsec);
-+		dev_dbg(ds->dev, "OPER base time %ptSp (now %ptSp)\n",
-+			&base_time_ts, &now_ts);
+ 	dev_info(&epf_test->epf->dev,
+-		 "%s => Size: %llu B, DMA: %s, Time: %llu.%09u s, Rate: %llu KB/s\n",
+-		 op, size, dma ? "YES" : "NO",
+-		 (u64)ts.tv_sec, (u32)ts.tv_nsec, rate);
++		 "%s => Size: %llu B, DMA: %s, Time: %ptSp s, Rate: %llu KB/s\n",
++		 op, size, dma ? "YES" : "NO", &ts, rate);
+ }
  
- 		break;
- 
-@@ -798,8 +797,7 @@ static void sja1105_tas_state_machine(struct work_struct *work)
- 		if (now < tas_data->oper_base_time) {
- 			/* TAS has not started yet */
- 			diff = ns_to_timespec64(tas_data->oper_base_time - now);
--			dev_dbg(ds->dev, "time to start: [%lld.%09ld]",
--				diff.tv_sec, diff.tv_nsec);
-+			dev_dbg(ds->dev, "time to start: [%ptSp]", &diff);
- 			break;
- 		}
- 
+ static void pci_epf_test_copy(struct pci_epf_test *epf_test,
 -- 
 2.50.1
 
