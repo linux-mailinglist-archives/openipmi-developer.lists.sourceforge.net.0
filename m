@@ -2,7 +2,7 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A59E8C4DB66
+	by mail.lfdr.de (Postfix) with ESMTPS id BD3B3C4DB67
 	for <lists+openipmi-developer@lfdr.de>; Tue, 11 Nov 2025 13:28:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
@@ -10,29 +10,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=htIR9ubviLbUzJS+En2gBYxQXGt60/n9zK2QQrvshNw=; b=T6q+VqQzM/syNYCf1BxpGMC2F3
-	sNIMwKrYNqrdi9pW4e9YsacuDAngMLsfnrNEuzl8AqeZwOIrlbO9AmWsiHc0u66mbsUGcKrQPyS9f
-	H6rKREb+7EsIO3SdZWzXqOyclZZtcrcYJmFkd7P28SuzXtpjiI2qOt9f/J/h8CeNuWRc=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=/rvagi4esGY1Tw0pJCbjRPf9gywpwd0xxCcyeuadPWg=; b=VXnkCgrUQavf+G0OXvGcg0d5zg
+	3l8TfNhT+DOu8UmgbkcBB1SixGv3x7bsqG15vyO6+IJGIq7hXYVbFerzLSJngWXB7VVyKEhjl7MKg
+	fkEThiExx/1sll6eZR8YxThfCozakNwHh2f6Ou0yNWQpqJ+3qZG9enzKgeoPKafVs0s4=;
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vInTs-0006M1-Hd;
-	Tue, 11 Nov 2025 12:28:16 +0000
+	id 1vInTu-0003R0-8Y;
+	Tue, 11 Nov 2025 12:28:18 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vInTn-0006LL-9q for openipmi-developer@lists.sourceforge.net;
- Tue, 11 Nov 2025 12:28:11 +0000
+ id 1vInTo-0003Pf-B9 for openipmi-developer@lists.sourceforge.net;
+ Tue, 11 Nov 2025 12:28:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ZJK7EUKtWb/K14K6xBz+ZfVIZqt+v2JhoVBrNDoNasg=; b=Ft5KUu9pJ7nkFCOmI0HVpLAYq/
- DygEmTFXG6TlYTCeujwpu2D9znaYsVvDi3TbBsqkq+ctVx5dsHv4SYIe0zcmAzdaSUzpmmXLJ1suj
- +sa6ozMdHBhrIsSYgSA7rK6QUGVwOTMVmJ61CwE8+8BqB3q3ZVkx4JpYZoqNVWdbpSWE=;
+ bh=FQfO/dHUT8H9AOfSYNXpwXKL8bDmxr6R3xHM72+WK9w=; b=I7ihiBQ+4XMg674uGoQ2bnH/+Z
+ GkxmlbS04XAjwYFaCG6/YDKvoXwx81cv2iIdSwTSoCHYSdkDVx1SyrP3ZidVe63pr75qGH+vpbn/h
+ hLWaKa5jnO5gKfDocP1DTYdyGRX5zCbLuBznqp+dT20ju3PBMdcAKb1TxuZu/1NIxb/E=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=ZJK7EUKtWb/K14K6xBz+ZfVIZqt+v2JhoVBrNDoNasg=; b=k1OJn26W4Yf5GRiONFK8Rfe/ZN
- Lrkfc5GfQ4aPUpcSHLoUxK81GtE2EJmIn4zjlIlLoBw07tswz58X1XmTls56L2StT/DQl7ZsQLQhp
- IO2MroE24D/bT3DsbktLZVzUis0roHvgmKTtdDbZZo91cTjkSELxG1JsOxizpNdTQP4A=;
-Received: from mgamail.intel.com ([192.198.163.8])
+ bh=FQfO/dHUT8H9AOfSYNXpwXKL8bDmxr6R3xHM72+WK9w=; b=D3pdmrejukP1SjtPdeaF3zJMaz
+ waTy7jZaJ6CPo6RGm/tZmbQY9wvqaF4LECUtTPsTSSkWmpf9A7NfqbFasD+69X3+ceyxZdhLpRuJ7
+ jZ83O0NuoKcEbl8PxzpOWNR3EK3vwZIlXu8B7I+sIZgolGOj7WkY5MLnyX3nncGdwZco=;
+Received: from mgamail.intel.com ([192.198.163.9])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vInTm-0005Ad-SM for openipmi-developer@lists.sourceforge.net;
- Tue, 11 Nov 2025 12:28:11 +0000
+ id 1vInTn-0005AZ-S8 for openipmi-developer@lists.sourceforge.net;
+ Tue, 11 Nov 2025 12:28:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1762864091; x=1794400091;
+ t=1762864092; x=1794400092;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=9P5AC3KVHcn4TcLoSKblVZwstZQ28owfF1NSWgu0v6M=;
- b=EplBlZeDTTLaucpaNxPUOsDhQke/MFANtVfRHfVAv61GwFbcvzDcUF7R
- C/VfvvDlcTMjT3Ivapg2W/aKDDckBdBG8li2/0xB11JS2mXbeabFLIPdq
- uHyovbSLffusuEci1fWScRc12Ui3/UatSMxWfiZUcco14tK+5xw1s4M7F
- hdingu0Z14II8aIqqWltiibAlA56KyGc9Fm6LymHwQ9VIM1w1MkV49HRS
- HqxbfAZCvjQtw4k23+8dYT6b0D8dUwD/MsraB+HPjpBBhGVJC9kLtvp0t
- n7LXkJjrp/Q8Q4AN64C48QHsRcoAPh3lA3zpUfirfZLkYsvR/MRHsaGfK w==;
-X-CSE-ConnectionGUID: V0ATEv7hQGSeWtlS61i4Sw==
-X-CSE-MsgGUID: wDUPfZOVSm2UaNmtoCsG0A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="82553211"
-X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="82553211"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
- by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 Nov 2025 04:28:06 -0800
-X-CSE-ConnectionGUID: C4sha4TYQL6Ra9K6KrIJ/w==
-X-CSE-MsgGUID: nOZ6GvmYRmiuO92CznfCzw==
+ bh=GOmlU8+AxY4qiyUG0euFaX4L/EDMDObrk8lwMAMh1Z8=;
+ b=jMgLc2WBxSHMoXM371XSE3aFEPn7AZEqM+QEh9zObSDBv1NHJKMasdak
+ SKkx7C9Cc+RJG8Q63pgqaWjLHt+sf4GLQJQ64C7uGIk0Zg2Rg7NbvJBDq
+ fmxlOIe/Q5tpl2FtGTfW0nGAU1QpiPjgopZprS0Xml2JqfbyfEs8TbmBi
+ Tk3ZMDFCQZNB33zYUqT/ExaXieZPkxnEFyWnZo8Y2uV9ZK2bknK6eGfej
+ nzHvJUVLjB3rZXv5O2359ayjaSAj6bjY2I3ejHajamdug3dyaHoIp6KoI
+ hjAdyWkdRdjHbFScsnn1Xoa9quJliBMoFV9XGVe/0RepaKE+B7GLY7MQP g==;
+X-CSE-ConnectionGUID: lkEZVMHwRgq/KMhp2Rkd0g==
+X-CSE-MsgGUID: T995TAP4Rn2x2zHEmX/nZg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11609"; a="75607159"
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="75607159"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+ by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 11 Nov 2025 04:28:11 -0800
+X-CSE-ConnectionGUID: yia3IgRZTfCq+ASYpaMpdQ==
+X-CSE-MsgGUID: GuUz5Yd9Su+K/4bCpbkVwg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="212343329"
+X-IronPort-AV: E=Sophos;i="6.19,296,1754982000"; d="scan'208";a="188592928"
 Received: from black.igk.intel.com ([10.91.253.5])
- by fmviesa002.fm.intel.com with ESMTP; 11 Nov 2025 04:27:59 -0800
+ by fmviesa007.fm.intel.com with ESMTP; 11 Nov 2025 04:28:04 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id 3E4F2A6; Tue, 11 Nov 2025 13:27:38 +0100 (CET)
+ id 44FE2A7; Tue, 11 Nov 2025 13:27:38 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -107,8 +107,8 @@ To: Corey Minyard <corey@minyard.net>,
  linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
  ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Date: Tue, 11 Nov 2025 13:20:16 +0100
-Message-ID: <20251111122735.880607-17-andriy.shevchenko@linux.intel.com>
+Date: Tue, 11 Nov 2025 13:20:17 +0100
+Message-ID: <20251111122735.880607-18-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
 References: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
@@ -121,11 +121,11 @@ X-Spam-Report: Spam detection software,
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  Content preview:  Use %ptSp instead of open coded variants to print content
- of struct timespec64 in human readable format. Acked-by: Rodolfo Giometti
- <giometti@enneenne.com> Signed-off-by: Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>
- --- drivers/pps/generators/pps_gen_parport.c | 3 +-- drivers/pps/kapi.c |
- 3 +-- 2 [...] 
+ of struct timespec64 in human readable format. While at it, fix wrong use
+ of %ptT against struct timespec64. It's kinda lucky that it worked just
+ because
+ the first member there 64-bit and it's of time64_t type. Now with %ptS it
+ may be used correct [...] 
  Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -133,8 +133,8 @@ X-Spam-Report: Spam detection software,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vInTm-0005Ad-SM
-Subject: [Openipmi-developer] [PATCH v2 16/21] pps: Switch to use %ptSp
+X-Headers-End: 1vInTn-0005AZ-S8
+Subject: [Openipmi-developer] [PATCH v2 17/21] ptp: ocp: Switch to use %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -189,41 +189,48 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 Use %ptSp instead of open coded variants to print content of
 struct timespec64 in human readable format.
 
-Acked-by: Rodolfo Giometti <giometti@enneenne.com>
+While at it, fix wrong use of %ptT against struct timespec64.
+It's kinda lucky that it worked just because the first member
+there 64-bit and it's of time64_t type. Now with %ptS it may
+be used correctly.
+
+Acked-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/pps/generators/pps_gen_parport.c | 3 +--
- drivers/pps/kapi.c                       | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ drivers/ptp/ptp_ocp.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/pps/generators/pps_gen_parport.c b/drivers/pps/generators/pps_gen_parport.c
-index f5eeb4dd01ad..05bbf8d30ef1 100644
---- a/drivers/pps/generators/pps_gen_parport.c
-+++ b/drivers/pps/generators/pps_gen_parport.c
-@@ -80,8 +80,7 @@ static enum hrtimer_restart hrtimer_event(struct hrtimer *timer)
- 	/* check if we are late */
- 	if (expire_time.tv_sec != ts1.tv_sec || ts1.tv_nsec > lim) {
- 		local_irq_restore(flags);
--		pr_err("we are late this time %lld.%09ld\n",
--				(s64)ts1.tv_sec, ts1.tv_nsec);
-+		pr_err("we are late this time %ptSp\n", &ts1);
- 		goto done;
- 	}
+diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+index eeebe4d149f7..21a8109fae34 100644
+--- a/drivers/ptp/ptp_ocp.c
++++ b/drivers/ptp/ptp_ocp.c
+@@ -4293,11 +4293,9 @@ ptp_ocp_summary_show(struct seq_file *s, void *data)
+ 		ns += (s64)bp->utc_tai_offset * NSEC_PER_SEC;
+ 		sys_ts = ns_to_timespec64(ns);
  
-diff --git a/drivers/pps/kapi.c b/drivers/pps/kapi.c
-index e9389876229e..6985c34de2ce 100644
---- a/drivers/pps/kapi.c
-+++ b/drivers/pps/kapi.c
-@@ -163,8 +163,7 @@ void pps_event(struct pps_device *pps, struct pps_event_time *ts, int event,
- 	/* check event type */
- 	BUG_ON((event & (PPS_CAPTUREASSERT | PPS_CAPTURECLEAR)) == 0);
+-		seq_printf(s, "%7s: %lld.%ld == %ptT TAI\n", "PHC",
+-			   ts.tv_sec, ts.tv_nsec, &ts);
+-		seq_printf(s, "%7s: %lld.%ld == %ptT UTC offset %d\n", "SYS",
+-			   sys_ts.tv_sec, sys_ts.tv_nsec, &sys_ts,
+-			   bp->utc_tai_offset);
++		seq_printf(s, "%7s: %ptSp == %ptS TAI\n", "PHC", &ts, &ts);
++		seq_printf(s, "%7s: %ptSp == %ptS UTC offset %d\n", "SYS",
++			   &sys_ts, &sys_ts, bp->utc_tai_offset);
+ 		seq_printf(s, "%7s: PHC:SYS offset: %lld  window: %lld\n", "",
+ 			   timespec64_to_ns(&ts) - ns,
+ 			   post_ns - pre_ns);
+@@ -4505,9 +4503,8 @@ ptp_ocp_phc_info(struct ptp_ocp *bp)
+ 		 ptp_clock_index(bp->ptp));
  
--	dev_dbg(&pps->dev, "PPS event at %lld.%09ld\n",
--			(s64)ts->ts_real.tv_sec, ts->ts_real.tv_nsec);
-+	dev_dbg(&pps->dev, "PPS event at %ptSp\n", &ts->ts_real);
+ 	if (!ptp_ocp_gettimex(&bp->ptp_info, &ts, NULL))
+-		dev_info(&bp->pdev->dev, "Time: %lld.%ld, %s\n",
+-			 ts.tv_sec, ts.tv_nsec,
+-			 bp->sync ? "in-sync" : "UNSYNCED");
++		dev_info(&bp->pdev->dev, "Time: %ptSp, %s\n",
++			 &ts, bp->sync ? "in-sync" : "UNSYNCED");
+ }
  
- 	timespec_to_pps_ktime(&ts_real, ts->ts_real);
- 
+ static void
 -- 
 2.50.1
 
