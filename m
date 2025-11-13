@@ -2,37 +2,37 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C068CC582D7
-	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:03:35 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 48AD9C582DA
+	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:03:37 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uxb9cz6tuWFoeE+WowIJShYOQSy6ZT3HGOj7H9oQPdk=; b=JLECfsHUDl13drwVRVQ7WAeLhf
-	EK9Zcd54TnjWRvwGpqrR02A1uCCUAT6vfM/kYmprwBQntA/GX6qsOcXkyjjViX7+iTYTRlaWTyyHB
-	pJ90VruOgydvi8Tnq2DqO4/CmEJzA6OuGoULQityo1QFSUe93SITXRD0mGCQVmjlGVl0=;
-Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
-	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=2/at17HptzHOAiHdvq9O/y2/990S9HnxRo6argKm1vY=; b=Jc9Kbt+LE6RDCvJEeGoAB/KGNX
+	RHDxBAzx3SK2bXYiHsUwshysvQ75AKs5Rnv4lz+gEY3eW3lFSuijQOPLbl17SF4c3Ooo2odPvGYKA
+	7tZauzqxkdec5pTD+tbNQgePAVWpMbgQ3xtSK2RGgebB8guY8ciN22C8NwQWnmKc1jHU=;
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vJYrC-0002Wk-Dt;
-	Thu, 13 Nov 2025 15:03:30 +0000
+	id 1vJYrD-0001jN-To;
+	Thu, 13 Nov 2025 15:03:31 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vJYrB-0002Wa-8z for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 15:03:29 +0000
+ id 1vJYrC-0001jD-Oh for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:03:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=BSwxvWhvMwrpXR9kO8jPhQc+4MnpGo44XTF8/qGci0s=; b=T5c4wgJJGEsE9I5pexOf0rVnw8
- JrgAZgNdvI7E6CfhX7xgnG1Iw2L4SoHuNQ8mGn6xstDJoxqfdy2EQkziXnXqxH1zdKgLNysDvmYeS
- wV4oD6J73b9rzanhigTP+c7SVb3Dqj5j8aWNH91qbVMQN9/g26BIRRE0GmH4OntB3yIU=;
+ bh=l4gYiulCa7qD0i+nEi7FzdJ+G2jaW/qO+7PuZSEx3js=; b=QlDoTdbQoPrf+jXEywKVdmk4n4
+ CFqO8pqBZh/mjmZ1A4W6NWl7QU6dskQF4OjszsJQLWMGPHAbRf+A8sxoU436Y+JIb31vEVJCCdWwk
+ xRn8fIcW29HkDSAMbl6VO/R4uhX/DEwj+td/SsfrrwrE7TnQDUR+wPKtfgZguLu7USqY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=BSwxvWhvMwrpXR9kO8jPhQc+4MnpGo44XTF8/qGci0s=; b=L0XO357yl2AFaVnCVhV8HxH5yp
- 8TamG4uTRdP3nXVOF8Nxb0P+4xJCWKGZZSBKeGcKabe3gNQYom70Akkvff9o3pmCRmHwYUkbWEuy1
- 8qfgm85wx6eURf2As4j/HczspSwWlpki3eZscZQuzs4Yt3h89HCeeNP2xpY9vw61TdDc=;
+ bh=l4gYiulCa7qD0i+nEi7FzdJ+G2jaW/qO+7PuZSEx3js=; b=BJlkXl41gbXKbdisTihK4S+y1V
+ NPl237vkXsgqY4jGWF5NnQlzCA9mVauIVcEoaL6ChmqjWXb5fl7Ti/OMXKGavIFNUxTswX7PAu442
+ W+cpvz4VCpRnvtKmc0x70vw6Na7jnPOftCbbaSVVNZPOXozJPGe7euLTH47YLVanAYzk=;
 Received: from mgamail.intel.com ([198.175.65.21])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vJYrA-0000Ml-LJ for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 15:03:29 +0000
+ id 1vJYrB-0000Ml-Se for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:03:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1763046209; x=1794582209;
+ t=1763046210; x=1794582210;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=rml3ckj6WdvqCWJSsraCv9TD4b9UeGEJUCuDsF2dQ+c=;
- b=hEfsw36uEf9qAFbZaB5dlLLNf1DJHO/47m1rFzZQo4fsdUTiKemCJUsz
- ml4oyvdbfAMFPAfE3EE+fC7AV6hr03/YXC2n8xdYpK5IGMUwrTpdkaBVp
- FDyJVDpnHkrZYLNJWZn7oMRxjrS+ntul8ttSiybyPjlp1h9XXkWIUk72L
- G0aQxjJf13KGnZSZLMZv7TXGzOn1owvU6A/CW4+G7Nyw8KnITrES+5g7v
- DNALWB4aBDDvdkKMii7o0FieHtxQa7T2QsCuk3pt6TeXhBdlr9tuipwIc
- S3hc4/ZixlZfwNgRRuUZ0KMchPvGXHJ8cYC9EzawdY9X5osL9kF1THeLq g==;
-X-CSE-ConnectionGUID: lKfVbY7hRsuK2bSuwyOkRQ==
-X-CSE-MsgGUID: UGjL7v+9Qh2hgp5AvyFDsQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65054680"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="65054680"
+ bh=mKCfGvyzNhw96Cnh7FIRHLBI440Q6rRaNHGoDV+QYYs=;
+ b=LGvAmprBlgkwOk7FY37WoqvssD3Cb924mv3l12bzyhZjCKPETOniEcKV
+ DzQzI8+/6+pL8w3kHpo6F+Wlk06XZsP6VTOvfEpm1kjJ/f2WwqWLK9vmT
+ H82zuIJsUgVJkD4gqZP77SkdOhUzPF6/2rZkuHJh4SoX0rTH2k2h4Sy4B
+ N6dDcpsNhyIkGa8JyoaMIo2jMHEkubNOVfrjBa4ugyoSBUEDxz3jds8Za
+ kdzdS523GTJUCbJGCydswb3et3KjDTAlsotT/2fpDwomdnlcA4CC5lX11
+ UFrp6zu0FvtIKMQ7Qbh3n2g0oasDnVX+MIQXf2GO0RHTC7UjeuigjzqV8 g==;
+X-CSE-ConnectionGUID: m67wNGlEQpiLeGwPdvjFmA==
+X-CSE-MsgGUID: HPOkErHRSu6n6fh7X5H/hw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65054738"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="65054738"
 Received: from fmviesa001.fm.intel.com ([10.60.135.141])
  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 13 Nov 2025 07:03:02 -0800
-X-CSE-ConnectionGUID: Lk6390cSTuy1iyCSEXsOKw==
-X-CSE-MsgGUID: zFe0AInXSZ2BK9lh5MsEcA==
+ 13 Nov 2025 07:03:03 -0800
+X-CSE-ConnectionGUID: yKzzlJzzQWapQitGWcT/+Q==
+X-CSE-MsgGUID: xLZAMTLNQZqO3A74MNxPAA==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="220325210"
+X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="220325230"
 Received: from black.igk.intel.com ([10.91.253.5])
- by fmviesa001.fm.intel.com with ESMTP; 13 Nov 2025 07:02:52 -0800
+ by fmviesa001.fm.intel.com with ESMTP; 13 Nov 2025 07:02:54 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id 7B381A9; Thu, 13 Nov 2025 16:02:19 +0100 (CET)
+ id 81C62AA; Thu, 13 Nov 2025 16:02:19 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -108,15 +108,15 @@ To: Corey Minyard <corey@minyard.net>,
  linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
  ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Date: Thu, 13 Nov 2025 15:32:33 +0100
-Message-ID: <20251113150217.3030010-20-andriy.shevchenko@linux.intel.com>
+Date: Thu, 13 Nov 2025 15:32:34 +0100
+Message-ID: <20251113150217.3030010-21-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
 References: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -125,16 +125,16 @@ X-Spam-Report: Spam detection software,
  of struct timespec64 in human readable format. Reviewed-by: Martin K. Petersen
  <martin.petersen@oracle.com> Signed-off-by: Andy Shevchenko
  <andriy.shevchenko@linux.intel.com>
- --- drivers/scsi/fnic/fnic_trace.c | 52 ++++++++++++++ [...] 
- Content analysis details:   (-0.0 points, 5.0 required)
+ --- drivers/scsi/snic/snic_debugfs.c | 10 ++++------ drivers/scsi/snic/s
+ [...] Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vJYrA-0000Ml-LJ
-Subject: [Openipmi-developer] [PATCH v3 19/21] scsi: fnic: Switch to use
+X-Headers-End: 1vJYrB-0000Ml-Se
+Subject: [Openipmi-developer] [PATCH v3 20/21] scsi: snic: Switch to use
  %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -193,115 +193,54 @@ struct timespec64 in human readable format.
 Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/scsi/fnic/fnic_trace.c | 52 ++++++++++++++--------------------
- 1 file changed, 22 insertions(+), 30 deletions(-)
+ drivers/scsi/snic/snic_debugfs.c | 10 ++++------
+ drivers/scsi/snic/snic_trc.c     |  5 ++---
+ 2 files changed, 6 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/scsi/fnic/fnic_trace.c b/drivers/scsi/fnic/fnic_trace.c
-index cdc6b12b1ec2..0a849a195a8e 100644
---- a/drivers/scsi/fnic/fnic_trace.c
-+++ b/drivers/scsi/fnic/fnic_trace.c
-@@ -138,9 +138,8 @@ int fnic_get_trace_data(fnic_dbgfs_t *fnic_dbgfs_prt)
- 			 */
- 			len += scnprintf(fnic_dbgfs_prt->buffer + len,
- 				  (trace_max_pages * PAGE_SIZE * 3) - len,
--				  "%16llu.%09lu %-50s %8x %8x %16llx %16llx "
--				  "%16llx %16llx %16llx\n", (u64)val.tv_sec,
--				  val.tv_nsec, str, tbp->host_no, tbp->tag,
-+				  "%ptSp %-50s %8x %8x %16llx %16llx %16llx %16llx %16llx\n",
-+				  &val, str, tbp->host_no, tbp->tag,
- 				  tbp->data[0], tbp->data[1], tbp->data[2],
- 				  tbp->data[3], tbp->data[4]);
- 			rd_idx++;
-@@ -180,9 +179,8 @@ int fnic_get_trace_data(fnic_dbgfs_t *fnic_dbgfs_prt)
- 			 */
- 			len += scnprintf(fnic_dbgfs_prt->buffer + len,
- 				  (trace_max_pages * PAGE_SIZE * 3) - len,
--				  "%16llu.%09lu %-50s %8x %8x %16llx %16llx "
--				  "%16llx %16llx %16llx\n", (u64)val.tv_sec,
--				  val.tv_nsec, str, tbp->host_no, tbp->tag,
-+				  "%ptSp %-50s %8x %8x %16llx %16llx %16llx %16llx %16llx\n",
-+				  &val, str, tbp->host_no, tbp->tag,
- 				  tbp->data[0], tbp->data[1], tbp->data[2],
- 				  tbp->data[3], tbp->data[4]);
- 			rd_idx++;
-@@ -215,30 +213,26 @@ int fnic_get_stats_data(struct stats_debug_info *debug,
- {
- 	int len = 0;
- 	int buf_size = debug->buf_size;
--	struct timespec64 val1, val2;
-+	struct timespec64 val, val1, val2;
- 	int i = 0;
+diff --git a/drivers/scsi/snic/snic_debugfs.c b/drivers/scsi/snic/snic_debugfs.c
+index 9dd975b36b5b..edf3e5ef28a6 100644
+--- a/drivers/scsi/snic/snic_debugfs.c
++++ b/drivers/scsi/snic/snic_debugfs.c
+@@ -282,8 +282,8 @@ snic_stats_show(struct seq_file *sfp, void *data)
+ 	jiffies_to_timespec64(stats->misc.last_ack_time, &last_ack_tms);
  
--	ktime_get_real_ts64(&val1);
-+	ktime_get_real_ts64(&val);
- 	len = scnprintf(debug->debug_buffer + len, buf_size - len,
- 		"------------------------------------------\n"
- 		 "\t\tTime\n"
- 		"------------------------------------------\n");
+ 	seq_printf(sfp,
+-		   "Last ISR Time               : %llu (%8llu.%09lu)\n"
+-		   "Last Ack Time               : %llu (%8llu.%09lu)\n"
++		   "Last ISR Time               : %llu (%ptSp)\n"
++		   "Last Ack Time               : %llu (%ptSp)\n"
+ 		   "Ack ISRs                    : %llu\n"
+ 		   "IO Cmpl ISRs                : %llu\n"
+ 		   "Err Notify ISRs             : %llu\n"
+@@ -298,10 +298,8 @@ snic_stats_show(struct seq_file *sfp, void *data)
+ 		   "Queue Ramp Down             : %lld\n"
+ 		   "Queue Last Queue Depth      : %lld\n"
+ 		   "Target Not Ready            : %lld\n",
+-		   (u64) stats->misc.last_isr_time,
+-		   last_isr_tms.tv_sec, last_isr_tms.tv_nsec,
+-		   (u64)stats->misc.last_ack_time,
+-		   last_ack_tms.tv_sec, last_ack_tms.tv_nsec,
++		   (u64) stats->misc.last_isr_time, &last_isr_tms,
++		   (u64) stats->misc.last_ack_time, &last_ack_tms,
+ 		   (u64) atomic64_read(&stats->misc.ack_isr_cnt),
+ 		   (u64) atomic64_read(&stats->misc.cmpl_isr_cnt),
+ 		   (u64) atomic64_read(&stats->misc.errnotify_isr_cnt),
+diff --git a/drivers/scsi/snic/snic_trc.c b/drivers/scsi/snic/snic_trc.c
+index c2e5ab7e976c..6bad1ea9a6a7 100644
+--- a/drivers/scsi/snic/snic_trc.c
++++ b/drivers/scsi/snic/snic_trc.c
+@@ -56,9 +56,8 @@ snic_fmt_trc_data(struct snic_trc_data *td, char *buf, int buf_sz)
+ 	jiffies_to_timespec64(td->ts, &tmspec);
  
-+	val1 = timespec64_sub(val, stats->stats_timestamps.last_reset_time);
-+	val2 = timespec64_sub(val, stats->stats_timestamps.last_read_time);
- 	len += scnprintf(debug->debug_buffer + len, buf_size - len,
--		"Current time :          [%lld:%ld]\n"
--		"Last stats reset time:  [%lld:%09ld]\n"
--		"Last stats read time:   [%lld:%ld]\n"
--		"delta since last reset: [%lld:%ld]\n"
--		"delta since last read:  [%lld:%ld]\n",
--	(s64)val1.tv_sec, val1.tv_nsec,
--	(s64)stats->stats_timestamps.last_reset_time.tv_sec,
--	stats->stats_timestamps.last_reset_time.tv_nsec,
--	(s64)stats->stats_timestamps.last_read_time.tv_sec,
--	stats->stats_timestamps.last_read_time.tv_nsec,
--	(s64)timespec64_sub(val1, stats->stats_timestamps.last_reset_time).tv_sec,
--	timespec64_sub(val1, stats->stats_timestamps.last_reset_time).tv_nsec,
--	(s64)timespec64_sub(val1, stats->stats_timestamps.last_read_time).tv_sec,
--	timespec64_sub(val1, stats->stats_timestamps.last_read_time).tv_nsec);
-+			 "Current time :          [%ptSp]\n"
-+			 "Last stats reset time:  [%ptSp]\n"
-+			 "Last stats read time:   [%ptSp]\n"
-+			 "delta since last reset: [%ptSp]\n"
-+			 "delta since last read:  [%ptSp]\n",
-+			 &val,
-+			 &stats->stats_timestamps.last_reset_time, &val1,
-+			 &stats->stats_timestamps.last_read_time, &val2);
- 
- 	stats->stats_timestamps.last_read_time = val1;
- 
-@@ -416,8 +410,8 @@ int fnic_get_stats_data(struct stats_debug_info *debug,
- 	jiffies_to_timespec64(stats->misc_stats.last_ack_time, &val2);
- 
- 	len += scnprintf(debug->debug_buffer + len, buf_size - len,
--		  "Last ISR time: %llu (%8llu.%09lu)\n"
--		  "Last ACK time: %llu (%8llu.%09lu)\n"
-+		  "Last ISR time: %llu (%ptSp)\n"
-+		  "Last ACK time: %llu (%ptSp)\n"
- 		  "Max ISR jiffies: %llu\n"
- 		  "Max ISR time (ms) (0 denotes < 1 ms): %llu\n"
- 		  "Corr. work done: %llu\n"
-@@ -437,10 +431,8 @@ int fnic_get_stats_data(struct stats_debug_info *debug,
- 		  "Number of rport not ready: %lld\n"
- 		 "Number of receive frame errors: %lld\n"
- 		 "Port speed (in Mbps): %lld\n",
--		  (u64)stats->misc_stats.last_isr_time,
--		  (s64)val1.tv_sec, val1.tv_nsec,
--		  (u64)stats->misc_stats.last_ack_time,
--		  (s64)val2.tv_sec, val2.tv_nsec,
-+		  (u64)stats->misc_stats.last_isr_time, &val1,
-+		  (u64)stats->misc_stats.last_ack_time, &val2,
- 		  (u64)atomic64_read(&stats->misc_stats.max_isr_jiffies),
- 		  (u64)atomic64_read(&stats->misc_stats.max_isr_time_ms),
- 		  (u64)atomic64_read(&stats->misc_stats.corr_work_done),
-@@ -857,8 +849,8 @@ void copy_and_format_trace_data(struct fc_trace_hdr *tdata,
- 	len = *orig_len;
- 
- 	len += scnprintf(fnic_dbgfs_prt->buffer + len, max_size - len,
--			 "%ptTs.%09lu ns%8x       %c%8x\t",
--			 &tdata->time_stamp.tv_sec, tdata->time_stamp.tv_nsec,
-+			 "%ptSs ns%8x       %c%8x\t",
-+			 &tdata->time_stamp,
- 			 tdata->host_no, tdata->frame_type, tdata->frame_len);
- 
- 	fc_trace = (char *)FC_TRACE_ADDRESS(tdata);
+ 	len += snprintf(buf, buf_sz,
+-			"%llu.%09lu %-25s %3d %4x %16llx %16llx %16llx %16llx %16llx\n",
+-			tmspec.tv_sec,
+-			tmspec.tv_nsec,
++			"%ptSp %-25s %3d %4x %16llx %16llx %16llx %16llx %16llx\n",
++			&tmspec,
+ 			td->fn,
+ 			td->hno,
+ 			td->tag,
 -- 
 2.50.1
 
