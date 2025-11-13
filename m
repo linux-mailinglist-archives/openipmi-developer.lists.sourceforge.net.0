@@ -2,79 +2,79 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 15E5CC58229
-	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:02:59 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B7E03C58211
+	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:02:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:MIME-Version:Message-ID:Date:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NdIpu+7CmiH3fu06VmiICcv0MNBDSvId8p9XHpZwhT4=; b=RoVkg0SH/cR+MYtHsV/9L7sWEh
-	gVuN74CHdwhach0nN4x0dNYi/5zs1QzOpctGUxwYz313X37XnLWM8KfSnv2QuZqNsA6bkfD/3SzWs
-	33ggTKZZgV/TQaENtdhe9at1A9kD6wPAcGzzv8LZK0xymOZ8vEokgY/60Wcjbv3tnyO0=;
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Inripz6fe+k+2WaIpf+VSSEj6d+zBkG3xS7bA4oEhZM=; b=O85n+RNmhkFIGp58nDrfDD3TV6
+	ee9732VlVicu8B1ZTTsIkmMX6Wbyf/Nirs2rKcsCinwYe+h8FUVp+oPDYhydfKL6nYCyZswBf8iI6
+	2h5jtII8iUF0xtmLwNzgG3e3fzbgXvBQoiGB7zhQYxIsi9HiorOslHY7vmKLxnDAqBtQ=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vJYqa-0001G3-TS;
-	Thu, 13 Nov 2025 15:02:53 +0000
+	id 1vJYqP-0002Sh-FJ;
+	Thu, 13 Nov 2025 15:02:41 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vJYqZ-0001Fv-V5 for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 15:02:52 +0000
+ id 1vJYqO-0002Sb-5n for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:02:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=hneNONZd1HvZhi/JfKicAY2T4nF3G+uaKTakyKDxHDM=; b=IwkvXc1jUJO1bvBVZX9bAaLtAE
- BreVOFNK6UM8I5Q+yR0yarpgrsNMqTmQYHMg3hg5fBg5nnjq57D+6+Pw15e1H7P71AV4tKwTmYLFF
- TBQcuX+2WuhI/RkmR4522Mec0FUcscSFgEr9j7qcJaWdUnl/tUPSdBzIfE5bExUJo9HM=;
+ bh=dLP5aWhyRhreY029+HN6ha2AjrCbuEsFism7S28zM0Q=; b=X0b4AZd4aEcs9yaeF/fVVahHUF
+ Wu1qynqqLGdD+UYfegYyw6ILSOWBmZ+fIjpT5yzVvqA9Jz/3gs73luXHoiAEonA1n9eLOLXpUNWAe
+ m3y+jwCo0G6QU0vdrKP7Vkg5uZzSqWipUjnzs3HLD6qpd+fN5+BgzmPzW2yWAujK68Ig=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
- Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
- :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
- References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
- List-Owner:List-Archive; bh=hneNONZd1HvZhi/JfKicAY2T4nF3G+uaKTakyKDxHDM=; b=N
- habqQUuhhmiWuiVeOZF//7ocE685a6TGoGRavB6AyXv3I1HqoqC0/hu1BCVJdUWkIrnXACnXn86rg
- KVDu2GrA9lisBHm9ETOSVGG0YHrdAqHJqcjFiWZLxjXXz8RaXGCQMnr8vovAQ6/A64HMW4uWj9v1/
- 4QlhXB+qHSqvgsxQ=;
-Received: from mgamail.intel.com ([198.175.65.21])
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=dLP5aWhyRhreY029+HN6ha2AjrCbuEsFism7S28zM0Q=; b=FFrR+60A7r++KsVLdr1g+drtnE
+ 3ZPBquOwIo56f+Cu2uHrAEx1pHktaZe9rwPcmjty4nV46Mf6czX9y7egNfTkBrMOO54yEj9qCmJ9y
+ CfPZ+TB2B+nILgEzeOStw0Osf068iQ18F/dSUpsrGDcFclUvU7L2rmRV9x9PSEHwsJeM=;
+Received: from mgamail.intel.com ([192.198.163.12])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vJYqZ-0000Jf-W6 for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 15:02:52 +0000
+ id 1vJYqN-0000Iw-Jb for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:02:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1763046172; x=1794582172;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=vx0/Sdb0miwmSnREMEy30Z2f25MQbxHWNPqxk4mpfZk=;
- b=PPfb1mhlhr8UWdUE5cTfYXNIIQTGKlE/CkSkQj3rU6x0yJAdrqnJLnLM
- 56aFtkWzPavHwPh0i8AdPQQyhMMS9/YQmeuL0MP9gT67jCDF+dr841GOW
- eL24tgXCBIJsm3Z1rJdqlgT9J+EUg/pUz8nkUtjvs2BQg/h9OpkI7zxJ3
- EEeMZnHxd7JfTRGjjK+q6CU0wCcL1IDa6XQHMU9glt/xKAc7InaPAARpA
- 6G1zdwFLBiFvrNdRnhDW8vXtQp7/2B/A5+7Vvkx011Ls3ua1Nw1CcrGVH
- xm1K+7gHk6LSlVIDV+v3IYIfjHohVgRAk3MGdTX4AexU3rExl/YwV6j/3 w==;
-X-CSE-ConnectionGUID: TwZEioCUQLmeZ1/qkFmcMw==
-X-CSE-MsgGUID: 1IQMBE3MS6ucq2FiuYQgPw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65054028"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="65054028"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
- by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 13 Nov 2025 07:02:41 -0800
-X-CSE-ConnectionGUID: LWhFLovNRgWDoJiNm0HUow==
-X-CSE-MsgGUID: nE6QdQs7Rjq7/OOgIgzs2g==
+ t=1763046160; x=1794582160;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=2B46NT1dSQc4u95Gk/QrFTNjX7VR1jBDUh9ZV8b1ovg=;
+ b=EguJP4MDYYAjBDJ7b9xciiUoLafSCjSUCpRNlEa3Zw7Q5AyWPv+ISnT0
+ iqJk00/ykFoa6EGm0ps83rfzSV4GzdaCxrdWqC4i5WcUP2NzZ9X4X+1YM
+ /EyW6SwF7lJMKFkH1RZpky7YeXSKyQ1ml37dbbFjf/igdMzI5HowMeSP7
+ ZXC1SIBfXPNTWL3y77+frVHZq2i8p2Ib6eLrKhs3jbZr29DUl7/G9AfTj
+ Y8ps+ncR5GKm+xPZRX23A+vKy7iLiiRLasVTSR0DOSLAwpb6rIxmPNCCL
+ 0G9TbrbQtj27TTBgAatNmJMsgGvGSNohkC7Pz8W1r78/vMnDH0e1GRA7X Q==;
+X-CSE-ConnectionGUID: AbEPFBD8RCaQTDAQV0KutA==
+X-CSE-MsgGUID: zH0oXyzwR8WWq+U2XOAVfg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11612"; a="68991456"
+X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="68991456"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+ by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 13 Nov 2025 07:02:29 -0800
+X-CSE-ConnectionGUID: Vz8xRacFQwaRx7eYs36+8g==
+X-CSE-MsgGUID: H/6qh459QiuQ7G0yqQYVsA==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="220324615"
+X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="188810179"
 Received: from black.igk.intel.com ([10.91.253.5])
- by fmviesa001.fm.intel.com with ESMTP; 13 Nov 2025 07:02:20 -0800
+ by orviesa010.jf.intel.com with ESMTP; 13 Nov 2025 07:02:19 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id 008C496; Thu, 13 Nov 2025 16:02:18 +0100 (CET)
+ id 05CA197; Thu, 13 Nov 2025 16:02:19 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -108,9 +108,11 @@ To: Corey Minyard <corey@minyard.net>,
  linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
  ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Date: Thu, 13 Nov 2025 15:32:14 +0100
-Message-ID: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
+Date: Thu, 13 Nov 2025 15:32:15 +0100
+Message-ID: <20251113150217.3030010-2-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
+References: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
@@ -119,9 +121,11 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Here is the third part of the unification time printing in
- the kernel. This time for struct timespec64. The first patch brings a support
- into printf() implementation (test cases and documentation upda [...] 
+ Content preview: A handful drivers want to print a content of the struct
+ timespec64
+ in a format of %lld:%09ld. In order to make their lives easier,
+ add the respecting
+ specifier directly to the printf() implementation. 
  Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -129,9 +133,9 @@ X-Spam-Report: Spam detection software,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vJYqZ-0000Jf-W6
-Subject: [Openipmi-developer] [PATCH v3 00/21] treewide: Introduce %ptS for
- struct timespec64 and convert users
+X-Headers-End: 1vJYqN-0000Iw-Jb
+Subject: [Openipmi-developer] [PATCH v3 01/21] lib/vsprintf: Add specifier
+ for printing struct timespec64
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -183,87 +187,126 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Here is the third part of the unification time printing in the kernel.
-This time for struct timespec64. The first patch brings a support
-into printf() implementation (test cases and documentation update
-included) followed by the treewide conversion of the current users.
+A handful drivers want to print a content of the struct timespec64
+in a format of %lld:%09ld. In order to make their lives easier, add
+the respecting specifier directly to the printf() implementation.
 
-Petr, we got like more than a half being Acked, I think if you are okay
-with this, the patches that have been tagged can be applied.
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ Documentation/core-api/printk-formats.rst | 11 +++++++--
+ lib/tests/printf_kunit.c                  |  4 ++++
+ lib/vsprintf.c                            | 28 ++++++++++++++++++++++-
+ 3 files changed, 40 insertions(+), 3 deletions(-)
 
-Note, not everything was compile-tested. Kunit test has been passed, though.
-
-Changelog v3:
-- fixed a compilation issue with fnic (LKP), also satisfied checkpatch
-- collected more tags
-
-Petr, I have not renamed 'p' to 'n' due to much of rework and
-noise introduction for the changes that has been reviewed.
-However, I addressed the documentation issues.
-
-v2: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
-
-Changelog v2:
-- dropped wrong patches (Hans, Takashi)
-- fixed most of the checkpatch warnings (fdo CI, media CI)
-- collected tags
-
-v1: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
-
-Andy Shevchenko (21):
-  lib/vsprintf: Add specifier for printing struct timespec64
-  ceph: Switch to use %ptSp
-  libceph: Switch to use %ptSp
-  dma-buf: Switch to use %ptSp
-  drm/amdgpu: Switch to use %ptSp
-  drm/msm: Switch to use %ptSp
-  drm/vblank: Switch to use %ptSp
-  drm/xe: Switch to use %ptSp
-  e1000e: Switch to use %ptSp
-  igb: Switch to use %ptSp
-  ipmi: Switch to use %ptSp
-  media: av7110: Switch to use %ptSp
-  mmc: mmc_test: Switch to use %ptSp
-  net: dsa: sja1105: Switch to use %ptSp
-  PCI: epf-test: Switch to use %ptSp
-  pps: Switch to use %ptSp
-  ptp: ocp: Switch to use %ptSp
-  s390/dasd: Switch to use %ptSp
-  scsi: fnic: Switch to use %ptSp
-  scsi: snic: Switch to use %ptSp
-  tracing: Switch to use %ptSp
-
- Documentation/core-api/printk-formats.rst     | 11 +++-
- drivers/char/ipmi/ipmi_si_intf.c              |  3 +-
- drivers/char/ipmi/ipmi_ssif.c                 |  6 +--
- drivers/dma-buf/sync_debug.c                  |  2 +-
- .../gpu/drm/amd/amdgpu/amdgpu_dev_coredump.c  |  3 +-
- drivers/gpu/drm/drm_vblank.c                  |  6 +--
- .../gpu/drm/msm/disp/msm_disp_snapshot_util.c |  3 +-
- drivers/gpu/drm/msm/msm_gpu.c                 |  3 +-
- drivers/gpu/drm/xe/xe_devcoredump.c           |  4 +-
- drivers/mmc/core/mmc_test.c                   | 20 +++----
- drivers/net/dsa/sja1105/sja1105_tas.c         |  8 ++-
- drivers/net/ethernet/intel/e1000e/ptp.c       |  7 +--
- drivers/net/ethernet/intel/igb/igb_ptp.c      |  7 +--
- drivers/pci/endpoint/functions/pci-epf-test.c |  5 +-
- drivers/pps/generators/pps_gen_parport.c      |  3 +-
- drivers/pps/kapi.c                            |  3 +-
- drivers/ptp/ptp_ocp.c                         | 13 ++---
- drivers/s390/block/dasd.c                     |  3 +-
- drivers/scsi/fnic/fnic_trace.c                | 52 ++++++++-----------
- drivers/scsi/snic/snic_debugfs.c              | 10 ++--
- drivers/scsi/snic/snic_trc.c                  |  5 +-
- drivers/staging/media/av7110/av7110.c         |  2 +-
- fs/ceph/dir.c                                 |  5 +-
- fs/ceph/inode.c                               | 49 ++++++-----------
- fs/ceph/xattr.c                               |  6 +--
- kernel/trace/trace_output.c                   |  6 +--
- lib/tests/printf_kunit.c                      |  4 ++
- lib/vsprintf.c                                | 28 +++++++++-
- net/ceph/messenger_v2.c                       |  6 +--
- 29 files changed, 130 insertions(+), 153 deletions(-)
-
+diff --git a/Documentation/core-api/printk-formats.rst b/Documentation/core-api/printk-formats.rst
+index 7f2f11b48286..c0b1b6089307 100644
+--- a/Documentation/core-api/printk-formats.rst
++++ b/Documentation/core-api/printk-formats.rst
+@@ -547,11 +547,13 @@ Time and date
+ 	%pt[RT]s		YYYY-mm-dd HH:MM:SS
+ 	%pt[RT]d		YYYY-mm-dd
+ 	%pt[RT]t		HH:MM:SS
+-	%pt[RT][dt][r][s]
++	%ptSp			<seconds>.<nanoseconds>
++	%pt[RST][dt][r][s]
+ 
+ For printing date and time as represented by::
+ 
+-	R  struct rtc_time structure
++	R  content of struct rtc_time
++	S  content of struct timespec64
+ 	T  time64_t type
+ 
+ in human readable format.
+@@ -563,6 +565,11 @@ The %pt[RT]s (space) will override ISO 8601 separator by using ' ' (space)
+ instead of 'T' (Capital T) between date and time. It won't have any effect
+ when date or time is omitted.
+ 
++The %ptSp is equivalent to %lld.%09ld for the content of the struct timespec64.
++When the other specifiers are given, it becomes the respective equivalent of
++%ptT[dt][r][s].%09ld. In other words, the seconds are being printed in
++the human readable format followed by a dot and nanoseconds.
++
+ Passed by reference.
+ 
+ struct clk
+diff --git a/lib/tests/printf_kunit.c b/lib/tests/printf_kunit.c
+index bc54cca2d7a6..7617e5b8b02c 100644
+--- a/lib/tests/printf_kunit.c
++++ b/lib/tests/printf_kunit.c
+@@ -504,6 +504,7 @@ time_and_date(struct kunit *kunittest)
+ 	};
+ 	/* 2019-01-04T15:32:23 */
+ 	time64_t t = 1546615943;
++	struct timespec64 ts = { .tv_sec = t, .tv_nsec = 11235813 };
+ 
+ 	test("(%pt?)", "%pt", &tm);
+ 	test("2018-11-26T05:35:43", "%ptR", &tm);
+@@ -522,6 +523,9 @@ time_and_date(struct kunit *kunittest)
+ 	test("0119-00-04 15:32:23", "%ptTsr", &t);
+ 	test("15:32:23|2019-01-04", "%ptTts|%ptTds", &t, &t);
+ 	test("15:32:23|0119-00-04", "%ptTtrs|%ptTdrs", &t, &t);
++
++	test("2019-01-04T15:32:23.011235813", "%ptS", &ts);
++	test("1546615943.011235813", "%ptSp", &ts);
+ }
+ 
+ static void
+diff --git a/lib/vsprintf.c b/lib/vsprintf.c
+index 11dbf1023391..51a88b3f5b52 100644
+--- a/lib/vsprintf.c
++++ b/lib/vsprintf.c
+@@ -1983,6 +1983,28 @@ char *time64_str(char *buf, char *end, const time64_t time,
+ 	return rtc_str(buf, end, &rtc_time, spec, fmt);
+ }
+ 
++static noinline_for_stack
++char *timespec64_str(char *buf, char *end, const struct timespec64 *ts,
++		     struct printf_spec spec, const char *fmt)
++{
++	static const struct printf_spec default_dec09_spec = {
++		.base = 10,
++		.field_width = 9,
++		.precision = -1,
++		.flags = ZEROPAD,
++	};
++
++	if (fmt[2] == 'p')
++		buf = number(buf, end, ts->tv_sec, default_dec_spec);
++	else
++		buf = time64_str(buf, end, ts->tv_sec, spec, fmt);
++	if (buf < end)
++		*buf = '.';
++	buf++;
++
++	return number(buf, end, ts->tv_nsec, default_dec09_spec);
++}
++
+ static noinline_for_stack
+ char *time_and_date(char *buf, char *end, void *ptr, struct printf_spec spec,
+ 		    const char *fmt)
+@@ -1993,6 +2015,8 @@ char *time_and_date(char *buf, char *end, void *ptr, struct printf_spec spec,
+ 	switch (fmt[1]) {
+ 	case 'R':
+ 		return rtc_str(buf, end, (const struct rtc_time *)ptr, spec, fmt);
++	case 'S':
++		return timespec64_str(buf, end, (const struct timespec64 *)ptr, spec, fmt);
+ 	case 'T':
+ 		return time64_str(buf, end, *(const time64_t *)ptr, spec, fmt);
+ 	default:
+@@ -2456,9 +2480,11 @@ early_param("no_hash_pointers", no_hash_pointers_enable);
+  * - 'd[234]' For a dentry name (optionally 2-4 last components)
+  * - 'D[234]' Same as 'd' but for a struct file
+  * - 'g' For block_device name (gendisk + partition number)
+- * - 't[RT][dt][r][s]' For time and date as represented by:
++ * - 't[RST][dt][r][s]' For time and date as represented by:
+  *      R    struct rtc_time
++ *      S    struct timespec64
+  *      T    time64_t
++ * - 'tSp' For time represented by struct timespec64 printed as <seconds>.<nanoseconds>
+  * - 'C' For a clock, it prints the name (Common Clock Framework) or address
+  *       (legacy clock framework) of the clock
+  * - 'G' For flags to be printed as a collection of symbolic strings that would
 -- 
 2.50.1
 
