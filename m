@@ -2,27 +2,27 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6E6DDC582C2
-	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:03:28 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1FEE9C582A9
+	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:03:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V8ym8iR1CSFWnhhAOY5IKcFjN9NuzOLHPIWExEsEjvk=; b=MvNXW1gfD1LaOhB2NVfxumZ73T
-	C/vNEEfN/748U29r3F+Oc+Y3JN5z0RdQbPMf9yQ1Kt2bcneD1dLDOkppA8U9yzIoQyRTgE1UKLtWW
-	zVduiONysi0GotbB2ijcnl/FujeKtAuM0XOEEaW3DLrRjR3v6E4ZlSi3luQZx3DFbzww=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=wK33K67ewsLcufxOh5Az9MKnMA8oYNf+xZ0leAfEf9o=; b=T3AEbYJl/xGpkpBehFKy0fas3S
+	F1mbl594UaC0h23ei4y9pfFxNW9hR5xPxCaT4qA1TtV9QMRxaVlYGWNlERttkQU9Y5z6YtNppdIv6
+	08ssgb8XhqfZs/zvYrPU9bz5v5TOmXdWZyuVgMTZZqnSMYN0oSn4JErzSWZENDwkuOlo=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vJYr5-0000Be-74;
-	Thu, 13 Nov 2025 15:03:23 +0000
+	id 1vJYqz-0001Ir-Uf;
+	Thu, 13 Nov 2025 15:03:18 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vJYqr-0000AZ-7Z for openipmi-developer@lists.sourceforge.net;
+ id 1vJYqq-0001I3-Et for openipmi-developer@lists.sourceforge.net;
  Thu, 13 Nov 2025 15:03:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
@@ -30,9 +30,9 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=t68BDsiEQtTArdaXToXrVl/YWKANcd0lrB3ne8lj/Wo=; b=PcXDaO3xUfbpRLA7ZBTKsUk9NJ
- f34XhtIQvffBS52XwMWwc69Mqv63TkH7sbeZY/WKkb6a3H0NG0/uYurgXZ8BdC6kopAJ6XLXCaWI8
- P2fpn36SKROUs2BFlte84bIdWv3+ucHOXqrj1Rz450PJ5eZkTaeuhtgLNXmVDNGra71Y=;
+ bh=ibdDRswrgU7gTmNNUXMTJe+L1TaVz4CeMhOvoKC6jfc=; b=PKRBv9nejYNMEmbKEaXxy4cXkG
+ 03XrQGCBhCZxOE2o90N/TnQWNhVtr3OP/eA6YDBSPckmGg0wsaosXpfDz4oPzFXWr1/h9vZYcEYQF
+ 3OVukRKmeQv3cIEL01Vi/l/QblsOF8zOmlB1Ts+BfguAsfNfS2tX5DX2CzUQbjrsZrtM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=t68BDsiEQtTArdaXToXrVl/YWKANcd0lrB3ne8lj/Wo=; b=SjXV+b6pyKZWpCjIuHf2ejwXk6
- oDTyKrvADiK+wxo9fbqYDdF5kKlmvHVfalVsPwtF4YPJC2FA2Nplovlv74g0whf8f8IXGJEe1+3aO
- PPrAfgxqlBfSMmxyACS8fIxxSetxFpG288VyQNHxnJahW6onZDN1Uhrz33kaXqR8u+do=;
+ bh=ibdDRswrgU7gTmNNUXMTJe+L1TaVz4CeMhOvoKC6jfc=; b=Flk11oW3OKRg1ZPO6DP0aYPLTw
+ c3wCBz+57MjWW5rYyeKvxjufJvnFP+c5pEi/yb/r0lr5WekFEA1WGzpHIpUAWWCbWpID7ie/Fnx4Q
+ c39BQBAPw6Pml4OSq5Gu7LCAp6q819fVBUGuutN46RN8VmUAvoPAcwIF133GpyUO+6BQ=;
 Received: from mgamail.intel.com ([198.175.65.21])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vJYql-0000Jf-LO for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 15:03:04 +0000
+ id 1vJYqn-0000Jf-Og for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:03:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1763046184; x=1794582184;
+ t=1763046186; x=1794582186;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=+wzhaFxSnGOIgXfPGWXmMsmYdpSBfK5IjZcpII7NT9c=;
- b=Yygv49dr7PBWa+mVbOyy9QETTngJUYC0S1E1/8VjuKOolbO/MSME0B8d
- r2MMwkFLhjkWLVW5mpK6EE3UA4u1HK0S2Dyo32J/NfqzydcXAdKu1jO39
- 4n8IVZwCW4ElRNpBAcMyHSGn9Ezvy8SfOBgOiLDhX2jIGHJRvdS4PE8uR
- lkePYEheiYZHsmQj5HmEerMQdg2wtmt0hmLr113pYcjHvGvUy1ictE8vM
- 9EYvGBxnLL9BVwdsxlXP+7rSkbFGNP0vdwRe6I3cOljzQ7ox0T6CKbo6l
- fOAlEiPSmlsVjkMatD05yZbpAdnySIwmQm+yFHkzfsCGQQUQqbo4kudHv Q==;
-X-CSE-ConnectionGUID: ee2/A0ccRB+s4FdVGSzQqg==
-X-CSE-MsgGUID: ZkXbRjVkRO6ROMumS0VUgw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65054404"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="65054404"
+ bh=VVg62TqQIJ7Evijsdq8qdbXdEeiYTcr6am16uCHXNkE=;
+ b=GKIkRdJF/lnnUtrANaYqzAFoks28V6fm5fpRB0HywTXVUnew9ph+DiDU
+ Gl0QIedgH4++QElkKWmHRleHVGaQ+LKdrsm1nm95M4Kfy4RjTI7JbvG0P
+ 6wIkCXyUAgmkemRzX8JgAbX3qCGpdsLyk3xxTpXsJL93OnPZsqsq10lEx
+ Bt4hBIw3NggrLdsJCtZk7C8v8dxyotcIl50sh3ABzJXRLXQmxQwwqbdid
+ FIKnEvotDVIJcWIzXBbPfENE7XHWQvnZB66ROFGKvnZOtLT7QqBSPiU5t
+ 6uT6YW9jW7p8hjDF/zwrfjiMbHVkk1YiYCEXE3eOUy9mcrePNq68os1kw Q==;
+X-CSE-ConnectionGUID: T7YSWgvkSPe8ofjjFLm45A==
+X-CSE-MsgGUID: ZSlhMqbTTimepuSWZjYCWg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65054452"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="65054452"
 Received: from fmviesa001.fm.intel.com ([10.60.135.141])
  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 13 Nov 2025 07:02:55 -0800
-X-CSE-ConnectionGUID: 2CGxfRHHRFSF6KrA3ZFyKA==
-X-CSE-MsgGUID: NKL+10FBQ76Ij4qV5CJgZA==
+ 13 Nov 2025 07:02:56 -0800
+X-CSE-ConnectionGUID: JYWYU7QLT9C4XjxLiDOJvg==
+X-CSE-MsgGUID: nn8IkTNTRWuP0CZXVoFHhg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="220325069"
+X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="220325080"
 Received: from black.igk.intel.com ([10.91.253.5])
- by fmviesa001.fm.intel.com with ESMTP; 13 Nov 2025 07:02:42 -0800
+ by fmviesa001.fm.intel.com with ESMTP; 13 Nov 2025 07:02:43 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id 4DAEBA2; Thu, 13 Nov 2025 16:02:19 +0100 (CET)
+ id 53E72A3; Thu, 13 Nov 2025 16:02:19 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -108,25 +108,23 @@ To: Corey Minyard <corey@minyard.net>,
  linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
  ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Date: Thu, 13 Nov 2025 15:32:26 +0100
-Message-ID: <20251113150217.3030010-13-andriy.shevchenko@linux.intel.com>
+Date: Thu, 13 Nov 2025 15:32:27 +0100
+Message-ID: <20251113150217.3030010-14-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
 References: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  Content preview:  Use %ptSp instead of open coded variants to print content
- of struct timespec64 in human readable format. Acked-by: Hans Verkuil
- <hverkuil+cisco@kernel.org>
- Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com> ---
- drivers/staging/media/av7110/av7110.c
- | 2 +- 1 file changed, 1 insertion(+), 1 [...] 
+ of struct timespec64 in human readable format. Signed-off-by: Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com> --- drivers/mmc/core/mmc_test.c | 20
+ ++++++++ 1 file changed, 8 insertions(+), 12 deletions(-) 
  Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -134,8 +132,8 @@ X-Spam-Report: Spam detection software,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vJYql-0000Jf-LO
-Subject: [Openipmi-developer] [PATCH v3 12/21] media: av7110: Switch to use
+X-Headers-End: 1vJYqn-0000Jf-Og
+Subject: [Openipmi-developer] [PATCH v3 13/21] mmc: mmc_test: Switch to use
  %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -191,24 +189,48 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 Use %ptSp instead of open coded variants to print content of
 struct timespec64 in human readable format.
 
-Acked-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/staging/media/av7110/av7110.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/mmc/core/mmc_test.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/staging/media/av7110/av7110.c b/drivers/staging/media/av7110/av7110.c
-index bc9a2a40afcb..602342d1174f 100644
---- a/drivers/staging/media/av7110/av7110.c
-+++ b/drivers/staging/media/av7110/av7110.c
-@@ -321,7 +321,7 @@ static inline void print_time(char *s)
- 	struct timespec64 ts;
+diff --git a/drivers/mmc/core/mmc_test.c b/drivers/mmc/core/mmc_test.c
+index a74089df4547..01d1e62c2ce7 100644
+--- a/drivers/mmc/core/mmc_test.c
++++ b/drivers/mmc/core/mmc_test.c
+@@ -586,14 +586,11 @@ static void mmc_test_print_avg_rate(struct mmc_test_card *test, uint64_t bytes,
+ 	rate = mmc_test_rate(tot, &ts);
+ 	iops = mmc_test_rate(count * 100, &ts); /* I/O ops per sec x 100 */
  
- 	ktime_get_real_ts64(&ts);
--	pr_info("%s(): %lld.%09ld\n", s, (s64)ts.tv_sec, ts.tv_nsec);
-+	pr_info("%s(): %ptSp\n", s, &ts);
- #endif
+-	pr_info("%s: Transfer of %u x %u sectors (%u x %u%s KiB) took "
+-			 "%llu.%09u seconds (%u kB/s, %u KiB/s, "
+-			 "%u.%02u IOPS, sg_len %d)\n",
+-			 mmc_hostname(test->card->host), count, sectors, count,
+-			 sectors >> 1, (sectors & 1 ? ".5" : ""),
+-			 (u64)ts.tv_sec, (u32)ts.tv_nsec,
+-			 rate / 1000, rate / 1024, iops / 100, iops % 100,
+-			 test->area.sg_len);
++	pr_info("%s: Transfer of %u x %u sectors (%u x %u%s KiB) took %ptSp seconds (%u kB/s, %u KiB/s, %u.%02u IOPS, sg_len %d)\n",
++		mmc_hostname(test->card->host), count, sectors, count,
++		sectors >> 1, (sectors & 1 ? ".5" : ""), &ts,
++		rate / 1000, rate / 1024, iops / 100, iops % 100,
++		test->area.sg_len);
+ 
+ 	mmc_test_save_transfer_result(test, count, sectors, ts, rate, iops);
  }
+@@ -3074,10 +3071,9 @@ static int mtf_test_show(struct seq_file *sf, void *data)
+ 		seq_printf(sf, "Test %d: %d\n", gr->testcase + 1, gr->result);
+ 
+ 		list_for_each_entry(tr, &gr->tr_lst, link) {
+-			seq_printf(sf, "%u %d %llu.%09u %u %u.%02u\n",
+-				tr->count, tr->sectors,
+-				(u64)tr->ts.tv_sec, (u32)tr->ts.tv_nsec,
+-				tr->rate, tr->iops / 100, tr->iops % 100);
++			seq_printf(sf, "%u %d %ptSp %u %u.%02u\n",
++				   tr->count, tr->sectors, &tr->ts, tr->rate,
++				   tr->iops / 100, tr->iops % 100);
+ 		}
+ 	}
  
 -- 
 2.50.1
