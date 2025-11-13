@@ -2,37 +2,37 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7E03C58211
-	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:02:54 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 507F9C58242
+	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:03:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Inripz6fe+k+2WaIpf+VSSEj6d+zBkG3xS7bA4oEhZM=; b=O85n+RNmhkFIGp58nDrfDD3TV6
-	ee9732VlVicu8B1ZTTsIkmMX6Wbyf/Nirs2rKcsCinwYe+h8FUVp+oPDYhydfKL6nYCyZswBf8iI6
-	2h5jtII8iUF0xtmLwNzgG3e3fzbgXvBQoiGB7zhQYxIsi9HiorOslHY7vmKLxnDAqBtQ=;
+	bh=nWrnV+ht6edRJEl2AVeRf/jS9LSen5L1OEYLlFOeJ/I=; b=IQdmDjSPG8GOuxSAs2GDfzFj6G
+	5BMnA0/k+5AP1T2tC8rVcecJfM5GIof5K+i8lZKb1XHEnxweBHePRBxeBbPypG/Kf0wLIQou44xI7
+	sNi2/MfUlqUvR1IdpumBo2EFweQ5PHayryqVFi1ypPDEO30xTI6+mfy4TG31l+he9pqw=;
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vJYqP-0002Sh-FJ;
-	Thu, 13 Nov 2025 15:02:41 +0000
+	id 1vJYqc-0002TP-Q5;
+	Thu, 13 Nov 2025 15:02:54 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vJYqO-0002Sb-5n for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 15:02:40 +0000
+ id 1vJYqb-0002TE-EE for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:02:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=dLP5aWhyRhreY029+HN6ha2AjrCbuEsFism7S28zM0Q=; b=X0b4AZd4aEcs9yaeF/fVVahHUF
- Wu1qynqqLGdD+UYfegYyw6ILSOWBmZ+fIjpT5yzVvqA9Jz/3gs73luXHoiAEonA1n9eLOLXpUNWAe
- m3y+jwCo0G6QU0vdrKP7Vkg5uZzSqWipUjnzs3HLD6qpd+fN5+BgzmPzW2yWAujK68Ig=;
+ bh=CT492DISbffbDVzCNEhDrCYUt+BW7al+qim6HTV/YVo=; b=ajrs/Fe7UQ6J4eDVo0iqJR3ZbU
+ Ic4X/mBejAj4PB9fJkOlv+vePXw4fyDKl69MUBc/DQQcN91Q35LWK+6aHiQ5D39s17nL0wavUjOGZ
+ N/BY6800asS/fV0KH+zDsiAbnk2iyWyIRaVA8PJTtBvXc5Cqg8beVKQ/V7cCFSYXtIm0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
@@ -40,41 +40,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=dLP5aWhyRhreY029+HN6ha2AjrCbuEsFism7S28zM0Q=; b=FFrR+60A7r++KsVLdr1g+drtnE
- 3ZPBquOwIo56f+Cu2uHrAEx1pHktaZe9rwPcmjty4nV46Mf6czX9y7egNfTkBrMOO54yEj9qCmJ9y
- CfPZ+TB2B+nILgEzeOStw0Osf068iQ18F/dSUpsrGDcFclUvU7L2rmRV9x9PSEHwsJeM=;
-Received: from mgamail.intel.com ([192.198.163.12])
+ bh=CT492DISbffbDVzCNEhDrCYUt+BW7al+qim6HTV/YVo=; b=N2zkuokBYW8sSIHGsujR8JNn3x
+ RESE9WLALTSUAWmz0XHcfMw+dOdkTXKzSOOLP92rQG50Tw50qINbrByMBTJ03NfpaRpQia80CwqdC
+ fLaP5V+6scAVE7IHdPA6kP+WMqH6iep5/JBdCWcdCtJZhh/BixvH5BqQtpmWJyM0OtcQ=;
+Received: from mgamail.intel.com ([198.175.65.21])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vJYqN-0000Iw-Jb for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 15:02:40 +0000
+ id 1vJYqa-0000Jf-PF for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:02:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1763046160; x=1794582160;
+ t=1763046173; x=1794582173;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=2B46NT1dSQc4u95Gk/QrFTNjX7VR1jBDUh9ZV8b1ovg=;
- b=EguJP4MDYYAjBDJ7b9xciiUoLafSCjSUCpRNlEa3Zw7Q5AyWPv+ISnT0
- iqJk00/ykFoa6EGm0ps83rfzSV4GzdaCxrdWqC4i5WcUP2NzZ9X4X+1YM
- /EyW6SwF7lJMKFkH1RZpky7YeXSKyQ1ml37dbbFjf/igdMzI5HowMeSP7
- ZXC1SIBfXPNTWL3y77+frVHZq2i8p2Ib6eLrKhs3jbZr29DUl7/G9AfTj
- Y8ps+ncR5GKm+xPZRX23A+vKy7iLiiRLasVTSR0DOSLAwpb6rIxmPNCCL
- 0G9TbrbQtj27TTBgAatNmJMsgGvGSNohkC7Pz8W1r78/vMnDH0e1GRA7X Q==;
-X-CSE-ConnectionGUID: AbEPFBD8RCaQTDAQV0KutA==
-X-CSE-MsgGUID: zH0oXyzwR8WWq+U2XOAVfg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11612"; a="68991456"
-X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="68991456"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
- by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 13 Nov 2025 07:02:29 -0800
-X-CSE-ConnectionGUID: Vz8xRacFQwaRx7eYs36+8g==
-X-CSE-MsgGUID: H/6qh459QiuQ7G0yqQYVsA==
+ bh=+UQGsnSg1BaEGnQW/GmmVLAGeLaVWJuQCcCUScfVp7s=;
+ b=iL3wCQPwW8Zo4TEYQnT3bxtn3P63nAPveNmg21Ksxr1qD6uuljmA47ux
+ VVgi4VJ2MVYYMbT1/SwqkZ9g5ECNdvWXMnmvv5trgHdRmRanKyHZ9RE6c
+ WNDpJhzru1isXZxUIPFZ6Njqo28Nakn61gw4dmdhipkHlCyQH1sDkiwRR
+ WXqe48ezTPV4FS8E0mIv4iwu0Z9CL8OwKnevf3EUWO9j8Iwy4serkZ9f4
+ LI5Tkv7fWOVwfUN6KkqXf71Yo2cWG1j9YLVMdDg1lQuU6cCKDslW9lOCr
+ Ijw3yd5KVo+8XC/344VqYko4lwQqLobMUTllOPheLAPY3IPxy3rW4Rbp8 g==;
+X-CSE-ConnectionGUID: BEevDJc1TGKpEvI6T6yeYg==
+X-CSE-MsgGUID: F4wGWq7AR+mrmwcV0Rtq4w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65054123"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="65054123"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+ by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 13 Nov 2025 07:02:43 -0800
+X-CSE-ConnectionGUID: Gh81ul90S4eaqrN4Ccmlxg==
+X-CSE-MsgGUID: fLgdc4n6TQqGiy/oFGdUSA==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="188810179"
+X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="220324829"
 Received: from black.igk.intel.com ([10.91.253.5])
- by orviesa010.jf.intel.com with ESMTP; 13 Nov 2025 07:02:19 -0800
+ by fmviesa001.fm.intel.com with ESMTP; 13 Nov 2025 07:02:29 -0800
 Received: by black.igk.intel.com (Postfix, from userid 1003)
- id 05CA197; Thu, 13 Nov 2025 16:02:19 +0100 (CET)
+ id 0D0C998; Thu, 13 Nov 2025 16:02:19 +0100 (CET)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Corey Minyard <corey@minyard.net>,
  =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
@@ -108,8 +108,8 @@ To: Corey Minyard <corey@minyard.net>,
  linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
  linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
  ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Date: Thu, 13 Nov 2025 15:32:15 +0100
-Message-ID: <20251113150217.3030010-2-andriy.shevchenko@linux.intel.com>
+Date: Thu, 13 Nov 2025 15:32:16 +0100
+Message-ID: <20251113150217.3030010-3-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
 References: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
@@ -121,11 +121,11 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: A handful drivers want to print a content of the struct
- timespec64
- in a format of %lld:%09ld. In order to make their lives easier,
- add the respecting
- specifier directly to the printf() implementation. 
+ Content preview:  Use %ptSp instead of open coded variants to print content
+ of struct timespec64 in human readable format. Reviewed-by: Viacheslav Dubeyko
+ <Slava.Dubeyko@ibm.com> Signed-off-by: Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>
+ --- fs/ceph/dir.c | 5 ++--- fs/ceph/inode.c | 49 ++++++++++++++++ [...] 
  Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -133,9 +133,8 @@ X-Spam-Report: Spam detection software,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vJYqN-0000Iw-Jb
-Subject: [Openipmi-developer] [PATCH v3 01/21] lib/vsprintf: Add specifier
- for printing struct timespec64
+X-Headers-End: 1vJYqa-0000Jf-PF
+Subject: [Openipmi-developer] [PATCH v3 02/21] ceph: Switch to use %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -187,126 +186,168 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-A handful drivers want to print a content of the struct timespec64
-in a format of %lld:%09ld. In order to make their lives easier, add
-the respecting specifier directly to the printf() implementation.
+Use %ptSp instead of open coded variants to print content of
+struct timespec64 in human readable format.
 
+Reviewed-by: Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- Documentation/core-api/printk-formats.rst | 11 +++++++--
- lib/tests/printf_kunit.c                  |  4 ++++
- lib/vsprintf.c                            | 28 ++++++++++++++++++++++-
- 3 files changed, 40 insertions(+), 3 deletions(-)
+ fs/ceph/dir.c   |  5 ++---
+ fs/ceph/inode.c | 49 ++++++++++++++++---------------------------------
+ fs/ceph/xattr.c |  6 ++----
+ 3 files changed, 20 insertions(+), 40 deletions(-)
 
-diff --git a/Documentation/core-api/printk-formats.rst b/Documentation/core-api/printk-formats.rst
-index 7f2f11b48286..c0b1b6089307 100644
---- a/Documentation/core-api/printk-formats.rst
-+++ b/Documentation/core-api/printk-formats.rst
-@@ -547,11 +547,13 @@ Time and date
- 	%pt[RT]s		YYYY-mm-dd HH:MM:SS
- 	%pt[RT]d		YYYY-mm-dd
- 	%pt[RT]t		HH:MM:SS
--	%pt[RT][dt][r][s]
-+	%ptSp			<seconds>.<nanoseconds>
-+	%pt[RST][dt][r][s]
+diff --git a/fs/ceph/dir.c b/fs/ceph/dir.c
+index d18c0eaef9b7..bf50c6e7a029 100644
+--- a/fs/ceph/dir.c
++++ b/fs/ceph/dir.c
+@@ -2155,7 +2155,7 @@ static ssize_t ceph_read_dir(struct file *file, char __user *buf, size_t size,
+ 				" rfiles:   %20lld\n"
+ 				" rsubdirs: %20lld\n"
+ 				"rbytes:    %20lld\n"
+-				"rctime:    %10lld.%09ld\n",
++				"rctime:    %ptSp\n",
+ 				ci->i_files + ci->i_subdirs,
+ 				ci->i_files,
+ 				ci->i_subdirs,
+@@ -2163,8 +2163,7 @@ static ssize_t ceph_read_dir(struct file *file, char __user *buf, size_t size,
+ 				ci->i_rfiles,
+ 				ci->i_rsubdirs,
+ 				ci->i_rbytes,
+-				ci->i_rctime.tv_sec,
+-				ci->i_rctime.tv_nsec);
++				&ci->i_rctime);
+ 	}
  
- For printing date and time as represented by::
+ 	if (*ppos >= dfi->dir_info_len)
+diff --git a/fs/ceph/inode.c b/fs/ceph/inode.c
+index 37d3a2477c17..a596cb53f1ac 100644
+--- a/fs/ceph/inode.c
++++ b/fs/ceph/inode.c
+@@ -879,7 +879,9 @@ void ceph_fill_file_time(struct inode *inode, int issued,
+ {
+ 	struct ceph_client *cl = ceph_inode_to_client(inode);
+ 	struct ceph_inode_info *ci = ceph_inode(inode);
++	struct timespec64 iatime = inode_get_atime(inode);
+ 	struct timespec64 ictime = inode_get_ctime(inode);
++	struct timespec64 imtime = inode_get_mtime(inode);
+ 	int warn = 0;
  
--	R  struct rtc_time structure
-+	R  content of struct rtc_time
-+	S  content of struct timespec64
- 	T  time64_t type
+ 	if (issued & (CEPH_CAP_FILE_EXCL|
+@@ -889,39 +891,26 @@ void ceph_fill_file_time(struct inode *inode, int issued,
+ 		      CEPH_CAP_XATTR_EXCL)) {
+ 		if (ci->i_version == 0 ||
+ 		    timespec64_compare(ctime, &ictime) > 0) {
+-			doutc(cl, "ctime %lld.%09ld -> %lld.%09ld inc w/ cap\n",
+-			     ictime.tv_sec, ictime.tv_nsec,
+-			     ctime->tv_sec, ctime->tv_nsec);
++			doutc(cl, "ctime %ptSp -> %ptSp inc w/ cap\n", &ictime, ctime);
+ 			inode_set_ctime_to_ts(inode, *ctime);
+ 		}
+ 		if (ci->i_version == 0 ||
+ 		    ceph_seq_cmp(time_warp_seq, ci->i_time_warp_seq) > 0) {
+ 			/* the MDS did a utimes() */
+-			doutc(cl, "mtime %lld.%09ld -> %lld.%09ld tw %d -> %d\n",
+-			     inode_get_mtime_sec(inode),
+-			     inode_get_mtime_nsec(inode),
+-			     mtime->tv_sec, mtime->tv_nsec,
+-			     ci->i_time_warp_seq, (int)time_warp_seq);
++			doutc(cl, "mtime %ptSp -> %ptSp tw %d -> %d\n", &imtime, mtime,
++			      ci->i_time_warp_seq, (int)time_warp_seq);
  
- in human readable format.
-@@ -563,6 +565,11 @@ The %pt[RT]s (space) will override ISO 8601 separator by using ' ' (space)
- instead of 'T' (Capital T) between date and time. It won't have any effect
- when date or time is omitted.
+ 			inode_set_mtime_to_ts(inode, *mtime);
+ 			inode_set_atime_to_ts(inode, *atime);
+ 			ci->i_time_warp_seq = time_warp_seq;
+ 		} else if (time_warp_seq == ci->i_time_warp_seq) {
+-			struct timespec64	ts;
+-
+ 			/* nobody did utimes(); take the max */
+-			ts = inode_get_mtime(inode);
+-			if (timespec64_compare(mtime, &ts) > 0) {
+-				doutc(cl, "mtime %lld.%09ld -> %lld.%09ld inc\n",
+-				     ts.tv_sec, ts.tv_nsec,
+-				     mtime->tv_sec, mtime->tv_nsec);
++			if (timespec64_compare(mtime, &imtime) > 0) {
++				doutc(cl, "mtime %ptSp -> %ptSp inc\n", &imtime, mtime);
+ 				inode_set_mtime_to_ts(inode, *mtime);
+ 			}
+-			ts = inode_get_atime(inode);
+-			if (timespec64_compare(atime, &ts) > 0) {
+-				doutc(cl, "atime %lld.%09ld -> %lld.%09ld inc\n",
+-				     ts.tv_sec, ts.tv_nsec,
+-				     atime->tv_sec, atime->tv_nsec);
++			if (timespec64_compare(atime, &iatime) > 0) {
++				doutc(cl, "atime %ptSp -> %ptSp inc\n", &iatime, atime);
+ 				inode_set_atime_to_ts(inode, *atime);
+ 			}
+ 		} else if (issued & CEPH_CAP_FILE_EXCL) {
+@@ -2703,10 +2692,8 @@ int __ceph_setattr(struct mnt_idmap *idmap, struct inode *inode,
+ 	if (ia_valid & ATTR_ATIME) {
+ 		struct timespec64 atime = inode_get_atime(inode);
  
-+The %ptSp is equivalent to %lld.%09ld for the content of the struct timespec64.
-+When the other specifiers are given, it becomes the respective equivalent of
-+%ptT[dt][r][s].%09ld. In other words, the seconds are being printed in
-+the human readable format followed by a dot and nanoseconds.
-+
- Passed by reference.
+-		doutc(cl, "%p %llx.%llx atime %lld.%09ld -> %lld.%09ld\n",
+-		      inode, ceph_vinop(inode),
+-		      atime.tv_sec, atime.tv_nsec,
+-		      attr->ia_atime.tv_sec, attr->ia_atime.tv_nsec);
++		doutc(cl, "%p %llx.%llx atime %ptSp -> %ptSp\n",
++		      inode, ceph_vinop(inode), &atime, &attr->ia_atime);
+ 		if (!do_sync && (issued & CEPH_CAP_FILE_EXCL)) {
+ 			ci->i_time_warp_seq++;
+ 			inode_set_atime_to_ts(inode, attr->ia_atime);
+@@ -2780,10 +2767,8 @@ int __ceph_setattr(struct mnt_idmap *idmap, struct inode *inode,
+ 	if (ia_valid & ATTR_MTIME) {
+ 		struct timespec64 mtime = inode_get_mtime(inode);
  
- struct clk
-diff --git a/lib/tests/printf_kunit.c b/lib/tests/printf_kunit.c
-index bc54cca2d7a6..7617e5b8b02c 100644
---- a/lib/tests/printf_kunit.c
-+++ b/lib/tests/printf_kunit.c
-@@ -504,6 +504,7 @@ time_and_date(struct kunit *kunittest)
- 	};
- 	/* 2019-01-04T15:32:23 */
- 	time64_t t = 1546615943;
-+	struct timespec64 ts = { .tv_sec = t, .tv_nsec = 11235813 };
+-		doutc(cl, "%p %llx.%llx mtime %lld.%09ld -> %lld.%09ld\n",
+-		      inode, ceph_vinop(inode),
+-		      mtime.tv_sec, mtime.tv_nsec,
+-		      attr->ia_mtime.tv_sec, attr->ia_mtime.tv_nsec);
++		doutc(cl, "%p %llx.%llx mtime %ptSp -> %ptSp\n",
++		      inode, ceph_vinop(inode), &mtime, &attr->ia_mtime);
+ 		if (!do_sync && (issued & CEPH_CAP_FILE_EXCL)) {
+ 			ci->i_time_warp_seq++;
+ 			inode_set_mtime_to_ts(inode, attr->ia_mtime);
+@@ -2804,13 +2789,11 @@ int __ceph_setattr(struct mnt_idmap *idmap, struct inode *inode,
  
- 	test("(%pt?)", "%pt", &tm);
- 	test("2018-11-26T05:35:43", "%ptR", &tm);
-@@ -522,6 +523,9 @@ time_and_date(struct kunit *kunittest)
- 	test("0119-00-04 15:32:23", "%ptTsr", &t);
- 	test("15:32:23|2019-01-04", "%ptTts|%ptTds", &t, &t);
- 	test("15:32:23|0119-00-04", "%ptTtrs|%ptTdrs", &t, &t);
-+
-+	test("2019-01-04T15:32:23.011235813", "%ptS", &ts);
-+	test("1546615943.011235813", "%ptSp", &ts);
+ 	/* these do nothing */
+ 	if (ia_valid & ATTR_CTIME) {
++		struct timespec64 ictime = inode_get_ctime(inode);
+ 		bool only = (ia_valid & (ATTR_SIZE|ATTR_MTIME|ATTR_ATIME|
+ 					 ATTR_MODE|ATTR_UID|ATTR_GID)) == 0;
+-		doutc(cl, "%p %llx.%llx ctime %lld.%09ld -> %lld.%09ld (%s)\n",
+-		      inode, ceph_vinop(inode),
+-		      inode_get_ctime_sec(inode),
+-		      inode_get_ctime_nsec(inode),
+-		      attr->ia_ctime.tv_sec, attr->ia_ctime.tv_nsec,
++		doutc(cl, "%p %llx.%llx ctime %ptSp -> %ptSp (%s)\n",
++		      inode, ceph_vinop(inode), &ictime, &attr->ia_ctime,
+ 		      only ? "ctime only" : "ignored");
+ 		if (only) {
+ 			/*
+diff --git a/fs/ceph/xattr.c b/fs/ceph/xattr.c
+index 537165db4519..ad1f30bea175 100644
+--- a/fs/ceph/xattr.c
++++ b/fs/ceph/xattr.c
+@@ -249,8 +249,7 @@ static ssize_t ceph_vxattrcb_dir_rbytes(struct ceph_inode_info *ci, char *val,
+ static ssize_t ceph_vxattrcb_dir_rctime(struct ceph_inode_info *ci, char *val,
+ 					size_t size)
+ {
+-	return ceph_fmt_xattr(val, size, "%lld.%09ld", ci->i_rctime.tv_sec,
+-				ci->i_rctime.tv_nsec);
++	return ceph_fmt_xattr(val, size, "%ptSp", &ci->i_rctime);
  }
  
- static void
-diff --git a/lib/vsprintf.c b/lib/vsprintf.c
-index 11dbf1023391..51a88b3f5b52 100644
---- a/lib/vsprintf.c
-+++ b/lib/vsprintf.c
-@@ -1983,6 +1983,28 @@ char *time64_str(char *buf, char *end, const time64_t time,
- 	return rtc_str(buf, end, &rtc_time, spec, fmt);
+ /* dir pin */
+@@ -307,8 +306,7 @@ static bool ceph_vxattrcb_snap_btime_exists(struct ceph_inode_info *ci)
+ static ssize_t ceph_vxattrcb_snap_btime(struct ceph_inode_info *ci, char *val,
+ 					size_t size)
+ {
+-	return ceph_fmt_xattr(val, size, "%lld.%09ld", ci->i_snap_btime.tv_sec,
+-				ci->i_snap_btime.tv_nsec);
++	return ceph_fmt_xattr(val, size, "%ptSp", &ci->i_snap_btime);
  }
  
-+static noinline_for_stack
-+char *timespec64_str(char *buf, char *end, const struct timespec64 *ts,
-+		     struct printf_spec spec, const char *fmt)
-+{
-+	static const struct printf_spec default_dec09_spec = {
-+		.base = 10,
-+		.field_width = 9,
-+		.precision = -1,
-+		.flags = ZEROPAD,
-+	};
-+
-+	if (fmt[2] == 'p')
-+		buf = number(buf, end, ts->tv_sec, default_dec_spec);
-+	else
-+		buf = time64_str(buf, end, ts->tv_sec, spec, fmt);
-+	if (buf < end)
-+		*buf = '.';
-+	buf++;
-+
-+	return number(buf, end, ts->tv_nsec, default_dec09_spec);
-+}
-+
- static noinline_for_stack
- char *time_and_date(char *buf, char *end, void *ptr, struct printf_spec spec,
- 		    const char *fmt)
-@@ -1993,6 +2015,8 @@ char *time_and_date(char *buf, char *end, void *ptr, struct printf_spec spec,
- 	switch (fmt[1]) {
- 	case 'R':
- 		return rtc_str(buf, end, (const struct rtc_time *)ptr, spec, fmt);
-+	case 'S':
-+		return timespec64_str(buf, end, (const struct timespec64 *)ptr, spec, fmt);
- 	case 'T':
- 		return time64_str(buf, end, *(const time64_t *)ptr, spec, fmt);
- 	default:
-@@ -2456,9 +2480,11 @@ early_param("no_hash_pointers", no_hash_pointers_enable);
-  * - 'd[234]' For a dentry name (optionally 2-4 last components)
-  * - 'D[234]' Same as 'd' but for a struct file
-  * - 'g' For block_device name (gendisk + partition number)
-- * - 't[RT][dt][r][s]' For time and date as represented by:
-+ * - 't[RST][dt][r][s]' For time and date as represented by:
-  *      R    struct rtc_time
-+ *      S    struct timespec64
-  *      T    time64_t
-+ * - 'tSp' For time represented by struct timespec64 printed as <seconds>.<nanoseconds>
-  * - 'C' For a clock, it prints the name (Common Clock Framework) or address
-  *       (legacy clock framework) of the clock
-  * - 'G' For flags to be printed as a collection of symbolic strings that would
+ static ssize_t ceph_vxattrcb_cluster_fsid(struct ceph_inode_info *ci,
 -- 
 2.50.1
 
