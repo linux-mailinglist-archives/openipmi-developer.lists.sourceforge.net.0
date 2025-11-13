@@ -2,139 +2,136 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0B4C9C55B48
-	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 05:51:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 15E5CC58229
+	for <lists+openipmi-developer@lfdr.de>; Thu, 13 Nov 2025 16:02:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azbgoijs4XGww1XZihlTBCG5vW8Q3NQ9OHCRLqF8XuI=; b=MbHM5w7mca1WF+1ijKIMd5C2pR
-	zYOxk8XA1R1VUUQr9IKaCKGLBk4p1qoOShmiTHNFf+przXGwcyCQPbcxCpM0AD27LLHpv4f8QWZrt
-	7tSHfTxv3Rzj76OCJoXFg+2tdshF2a28dght6Z9KYn9fIVH14UUWWyQXSR9qGDi/fOxo=;
+	Subject:MIME-Version:Message-ID:Date:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NdIpu+7CmiH3fu06VmiICcv0MNBDSvId8p9XHpZwhT4=; b=RoVkg0SH/cR+MYtHsV/9L7sWEh
+	gVuN74CHdwhach0nN4x0dNYi/5zs1QzOpctGUxwYz313X37XnLWM8KfSnv2QuZqNsA6bkfD/3SzWs
+	33ggTKZZgV/TQaENtdhe9at1A9kD6wPAcGzzv8LZK0xymOZ8vEokgY/60Wcjbv3tnyO0=;
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vJPJ8-0002vI-9V;
-	Thu, 13 Nov 2025 04:51:43 +0000
+	id 1vJYqa-0001G3-TS;
+	Thu, 13 Nov 2025 15:02:53 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <lkp@intel.com>) id 1vJPJ6-0002v3-Rd
- for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 04:51:41 +0000
+ (envelope-from <andriy.shevchenko@linux.intel.com>)
+ id 1vJYqZ-0001Fv-V5 for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:02:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=9YyAbp7jZdIM8iDLfPsROODidy8NAAEwgM+IJwW960w=; b=K8uAr1UOCEHG/xviS0iqFCn6aG
- WI5K+bu2+iIMr8pgMn+5vNv3csJG/FPCnJxuHO/ZzXwqofD389N1w6btnVOhFTM0vBpvMMGZ3jW3j
- nPNwpDHfSrofuP6WEPPpaLxUpY16FNqr5hSaKu3n/mOeKLswnGJ4259NjqYJfjFHQxJY=;
+ bh=hneNONZd1HvZhi/JfKicAY2T4nF3G+uaKTakyKDxHDM=; b=IwkvXc1jUJO1bvBVZX9bAaLtAE
+ BreVOFNK6UM8I5Q+yR0yarpgrsNMqTmQYHMg3hg5fBg5nnjq57D+6+Pw15e1H7P71AV4tKwTmYLFF
+ TBQcuX+2WuhI/RkmR4522Mec0FUcscSFgEr9j7qcJaWdUnl/tUPSdBzIfE5bExUJo9HM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=9YyAbp7jZdIM8iDLfPsROODidy8NAAEwgM+IJwW960w=; b=HdEGaPBHdkUkoxwZASm2IiwwCx
- 1y22v+pNRTlvnWGxnFc4Gn9Bp1+wsHi3XsySB8ze8ckmxTEdrSTits4XYwNzad52pdBG6qY6hw0mq
- Gq6Xy29wrLeaBSh2lwH7iMpcmbx3FgsEYUt6sNbdPW+o8G96XKkZcloxZUieEle0trL4=;
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
+ Subject:Cc:To:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=hneNONZd1HvZhi/JfKicAY2T4nF3G+uaKTakyKDxHDM=; b=N
+ habqQUuhhmiWuiVeOZF//7ocE685a6TGoGRavB6AyXv3I1HqoqC0/hu1BCVJdUWkIrnXACnXn86rg
+ KVDu2GrA9lisBHm9ETOSVGG0YHrdAqHJqcjFiWZLxjXXz8RaXGCQMnr8vovAQ6/A64HMW4uWj9v1/
+ 4QlhXB+qHSqvgsxQ=;
 Received: from mgamail.intel.com ([198.175.65.21])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vJPJ6-00010C-2y for openipmi-developer@lists.sourceforge.net;
- Thu, 13 Nov 2025 04:51:41 +0000
+ id 1vJYqZ-0000Jf-W6 for openipmi-developer@lists.sourceforge.net;
+ Thu, 13 Nov 2025 15:02:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1763009500; x=1794545500;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:in-reply-to;
- bh=qq9EYIVJ3Tncasnn1UTSERO1iZT9ZPhsPZrFE8rSO+g=;
- b=FcQ0W8poI41thMIoT9GcX1lIKK+2NJFbuV1T74wUKfYRnJ0shjpBmTVi
- X+9MFBJQKPLNzQ0zG3DOUccQ7yqEiFv4kWr6NIWG/MKy73vvW1+E2ONuU
- Jn3a7dB0n8sw8yNBYaMeXjXLe6MesZ39FvR25oHnuJyNP61g+JliRW9CO
- 4kM19kRYiwGHVJxXTFO6d9XE9Cij6lN5AI52KELAU+qJS/zgcR+uwFRW4
- lueYf5I7+8mxxQw8iWGFDIhnjOVzZweFww3Kw8fZVT5znBOXT1efddjsV
- VznDEJIfbhV41JIt9OHs/Dxuh3NqW1z2KYqRADxO2X/1wRCT2EHTHJEQj A==;
-X-CSE-ConnectionGUID: vJK8EuOwQUWQx5VsqhocvQ==
-X-CSE-MsgGUID: IZOJFmsGRLKSt3QL9cXgQQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65008650"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="65008650"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
+ t=1763046172; x=1794582172;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=vx0/Sdb0miwmSnREMEy30Z2f25MQbxHWNPqxk4mpfZk=;
+ b=PPfb1mhlhr8UWdUE5cTfYXNIIQTGKlE/CkSkQj3rU6x0yJAdrqnJLnLM
+ 56aFtkWzPavHwPh0i8AdPQQyhMMS9/YQmeuL0MP9gT67jCDF+dr841GOW
+ eL24tgXCBIJsm3Z1rJdqlgT9J+EUg/pUz8nkUtjvs2BQg/h9OpkI7zxJ3
+ EEeMZnHxd7JfTRGjjK+q6CU0wCcL1IDa6XQHMU9glt/xKAc7InaPAARpA
+ 6G1zdwFLBiFvrNdRnhDW8vXtQp7/2B/A5+7Vvkx011Ls3ua1Nw1CcrGVH
+ xm1K+7gHk6LSlVIDV+v3IYIfjHohVgRAk3MGdTX4AexU3rExl/YwV6j/3 w==;
+X-CSE-ConnectionGUID: TwZEioCUQLmeZ1/qkFmcMw==
+X-CSE-MsgGUID: 1IQMBE3MS6ucq2FiuYQgPw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65054028"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; d="scan'208";a="65054028"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 12 Nov 2025 20:51:28 -0800
-X-CSE-ConnectionGUID: EyZILhKdS5u4MltFhc7Aiw==
-X-CSE-MsgGUID: upuRXUuxTLyWjRI+sgT0Og==
+ 13 Nov 2025 07:02:41 -0800
+X-CSE-ConnectionGUID: LWhFLovNRgWDoJiNm0HUow==
+X-CSE-MsgGUID: nE6QdQs7Rjq7/OOgIgzs2g==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,301,1754982000"; d="scan'208";a="194586243"
-Received: from lkp-server01.sh.intel.com (HELO 7b01c990427b) ([10.239.97.150])
- by orviesa005.jf.intel.com with ESMTP; 12 Nov 2025 20:51:22 -0800
-Received: from kbuild by 7b01c990427b with local (Exim 4.96)
- (envelope-from <lkp@intel.com>) id 1vJPIk-0004tL-3A;
- Thu, 13 Nov 2025 04:51:18 +0000
-Date: Thu, 13 Nov 2025 12:51:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Corey Minyard <corey@minyard.net>,
- Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+X-IronPort-AV: E=Sophos;i="6.19,302,1754982000"; d="scan'208";a="220324615"
+Received: from black.igk.intel.com ([10.91.253.5])
+ by fmviesa001.fm.intel.com with ESMTP; 13 Nov 2025 07:02:20 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+ id 008C496; Thu, 13 Nov 2025 16:02:18 +0100 (CET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Corey Minyard <corey@minyard.net>,
+ =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
  "Dr. David Alan Gilbert" <linux@treblig.org>,
  Alex Deucher <alexander.deucher@amd.com>,
  Thomas Zimmermann <tzimmermann@suse.de>,
- Dmitry Baryshkov <lumag@kernel.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
  Rob Clark <robin.clark@oss.qualcomm.com>,
  Matthew Brost <matthew.brost@intel.com>,
  Ulf Hansson <ulf.hansson@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
  Vitaly Lifshits <vitaly.lifshits@intel.com>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Niklas Cassel <cassel@kernel.org>, Calvin Owens <calvin@wbinvd.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Niklas Cassel <cassel@kernel.org>,
+ Calvin Owens <calvin@wbinvd.org>,
  Vadim Fedorenko <vadim.fedorenko@linux.dev>,
  Sagi Maimon <maimon.sagi@gmail.com>,
  "Martin K. Petersen" <martin.petersen@oracle.com>,
- Karan Tilak Kumar <kartilak@cisco.com>, Hans Verkuil <hverkuil@xs4all.nl>,
+ Karan Tilak Kumar <kartilak@cisco.com>,
+ Hans Verkuil <hverkuil+cisco@kernel.org>,
  Casey Schaufler <casey@schaufler-ca.com>,
  Steven Rostedt <rostedt@goodmis.org>, Petr Mladek <pmladek@suse.com>,
  Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>,
- Max Kellermann <max.kellermann@ionos.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- openipmi-developer@lists.sourceforge.net,
+ Max Kellermann <max.kellermann@ionos.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
  linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linaro-mm-sig@lists.linaro.org
-Message-ID: <202511130449.Q1mCZRpT-lkp@intel.com>
-References: <20251111122735.880607-20-andriy.shevchenko@linux.intel.com>
+ linaro-mm-sig@lists.linaro.org, amd-gfx@lists.freedesktop.org,
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-mmc@vger.kernel.org,
+ netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
+ linux-pci@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, linux-staging@lists.linux.dev,
+ ceph-devel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Date: Thu, 13 Nov 2025 15:32:14 +0100
+Message-ID: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251111122735.880607-20-andriy.shevchenko@linux.intel.com>
-X-Spam-Score: -0.2 (/)
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  Hi Andy,
- kernel test robot noticed the following build errors:
- [auto build test ERROR on ceph-client/testing] [also build test ERROR on
- ceph-client/for-linus cminyard-ipmi/for-next mkp-scsi/for-next
- jejb-scsi/for-next
- linus/master v6.18-rc5 next-20251112] [If you [...] 
- Content analysis details:   (-0.2 points, 5.0 required)
+ Content preview:  Here is the third part of the unification time printing in
+ the kernel. This time for struct timespec64. The first patch brings a support
+ into printf() implementation (test cases and documentation upda [...] 
+ Content analysis details:   (-0.0 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vJPJ6-00010C-2y
-Subject: Re: [Openipmi-developer] [PATCH v2 19/21] scsi: fnic: Switch to use
- %ptS
+X-Headers-End: 1vJYqZ-0000Jf-W6
+Subject: [Openipmi-developer] [PATCH v3 00/21] treewide: Introduce %ptS for
+ struct timespec64 and convert users
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -147,315 +144,129 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
+Cc: Andrew Lunn <andrew@lunn.ch>, Jan Hoeppner <hoeppner@linux.ibm.com>,
+ Gustavo Padovan <gustavo@padovan.org>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Eric Dumazet <edumazet@google.com>, Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>, David Airlie <airlied@gmail.com>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, Xiubo Li <xiubli@redhat.com>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Jakub Kicinski <kuba@kernel.org>, Ilya Dryomov <idryomov@gmail.com>,
+ Paolo Abeni <pabeni@redhat.com>, Konrad Dybcio <konradybcio@kernel.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Masami Hiramatsu <mhiramat@kernel.org>,
+ =?UTF-8?q?Thomas=20Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Satish Kharat <satishkh@cisco.com>,
+ Vasily Gorbik <gor@linux.ibm.com>,
+ Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Lucas De Marchi <lucas.demarchi@intel.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Stefan Haberland <sth@linux.ibm.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Sean Paul <sean@poorly.run>,
+ Rodolfo Giometti <giometti@enneenne.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Sesidhar Baddela <sebaddel@cisco.com>, Jessica Zhang <jesszhan0024@gmail.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Jonathan Lemon <jonathan.lemon@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-Hi Andy,
+Here is the third part of the unification time printing in the kernel.
+This time for struct timespec64. The first patch brings a support
+into printf() implementation (test cases and documentation update
+included) followed by the treewide conversion of the current users.
 
-kernel test robot noticed the following build errors:
+Petr, we got like more than a half being Acked, I think if you are okay
+with this, the patches that have been tagged can be applied.
 
-[auto build test ERROR on ceph-client/testing]
-[also build test ERROR on ceph-client/for-linus cminyard-ipmi/for-next mkp-scsi/for-next jejb-scsi/for-next linus/master v6.18-rc5 next-20251112]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Note, not everything was compile-tested. Kunit test has been passed, though.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Shevchenko/lib-vsprintf-Add-specifier-for-printing-struct-timespec64/20251111-203105
-base:   https://github.com/ceph/ceph-client.git testing
-patch link:    https://lore.kernel.org/r/20251111122735.880607-20-andriy.shevchenko%40linux.intel.com
-patch subject: [PATCH v2 19/21] scsi: fnic: Switch to use %ptS
-config: x86_64-kexec (https://download.01.org/0day-ci/archive/20251113/202511130449.Q1mCZRpT-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251113/202511130449.Q1mCZRpT-lkp@intel.com/reproduce)
+Changelog v3:
+- fixed a compilation issue with fnic (LKP), also satisfied checkpatch
+- collected more tags
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202511130449.Q1mCZRpT-lkp@intel.com/
+Petr, I have not renamed 'p' to 'n' due to much of rework and
+noise introduction for the changes that has been reviewed.
+However, I addressed the documentation issues.
 
-All errors (new ones prefixed by >>):
+v2: <20251111122735.880607-1-andriy.shevchenko@linux.intel.com>
 
->> drivers/scsi/fnic/fnic_trace.c:234:2: error: cannot take the address of an rvalue of type 'struct timespec64'
-     234 |         &timespec64_sub(val1, stats->stats_timestamps.last_reset_time),
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/scsi/fnic/fnic_trace.c:235:2: error: cannot take the address of an rvalue of type 'struct timespec64'
-     235 |         &timespec64_sub(val1, stats->stats_timestamps.last_read_time));
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   2 errors generated.
+Changelog v2:
+- dropped wrong patches (Hans, Takashi)
+- fixed most of the checkpatch warnings (fdo CI, media CI)
+- collected tags
 
+v1: <20251110184727.666591-1-andriy.shevchenko@linux.intel.com>
 
-vim +234 drivers/scsi/fnic/fnic_trace.c
+Andy Shevchenko (21):
+  lib/vsprintf: Add specifier for printing struct timespec64
+  ceph: Switch to use %ptSp
+  libceph: Switch to use %ptSp
+  dma-buf: Switch to use %ptSp
+  drm/amdgpu: Switch to use %ptSp
+  drm/msm: Switch to use %ptSp
+  drm/vblank: Switch to use %ptSp
+  drm/xe: Switch to use %ptSp
+  e1000e: Switch to use %ptSp
+  igb: Switch to use %ptSp
+  ipmi: Switch to use %ptSp
+  media: av7110: Switch to use %ptSp
+  mmc: mmc_test: Switch to use %ptSp
+  net: dsa: sja1105: Switch to use %ptSp
+  PCI: epf-test: Switch to use %ptSp
+  pps: Switch to use %ptSp
+  ptp: ocp: Switch to use %ptSp
+  s390/dasd: Switch to use %ptSp
+  scsi: fnic: Switch to use %ptSp
+  scsi: snic: Switch to use %ptSp
+  tracing: Switch to use %ptSp
 
-   198	
-   199	/*
-   200	 * fnic_get_stats_data - Copy fnic stats buffer to a memory file
-   201	 * @fnic_dbgfs_t: pointer to debugfs fnic stats buffer
-   202	 *
-   203	 * Description:
-   204	 * This routine gathers the fnic stats debugfs data from the fnic_stats struct
-   205	 * and dumps it to stats_debug_info.
-   206	 *
-   207	 * Return Value:
-   208	 * This routine returns the amount of bytes that were dumped into
-   209	 * stats_debug_info
-   210	 */
-   211	int fnic_get_stats_data(struct stats_debug_info *debug,
-   212				struct fnic_stats *stats)
-   213	{
-   214		int len = 0;
-   215		int buf_size = debug->buf_size;
-   216		struct timespec64 val1, val2;
-   217		int i = 0;
-   218	
-   219		ktime_get_real_ts64(&val1);
-   220		len = scnprintf(debug->debug_buffer + len, buf_size - len,
-   221			"------------------------------------------\n"
-   222			 "\t\tTime\n"
-   223			"------------------------------------------\n");
-   224	
-   225		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   226			"Current time :          [%ptSp]\n"
-   227			"Last stats reset time:  [%ptSp]\n"
-   228			"Last stats read time:   [%ptSp]\n"
-   229			"delta since last reset: [%ptSp]\n"
-   230			"delta since last read:  [%ptSp]\n",
-   231		&val1,
-   232		&stats->stats_timestamps.last_reset_time,
-   233		&stats->stats_timestamps.last_read_time,
- > 234		&timespec64_sub(val1, stats->stats_timestamps.last_reset_time),
-   235		&timespec64_sub(val1, stats->stats_timestamps.last_read_time));
-   236	
-   237		stats->stats_timestamps.last_read_time = val1;
-   238	
-   239		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   240			  "------------------------------------------\n"
-   241			  "\t\tIO Statistics\n"
-   242			  "------------------------------------------\n");
-   243		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   244			  "Number of Active IOs: %lld\nMaximum Active IOs: %lld\n"
-   245			  "Number of IOs: %lld\nNumber of IO Completions: %lld\n"
-   246			  "Number of IO Failures: %lld\nNumber of IO NOT Found: %lld\n"
-   247			  "Number of Memory alloc Failures: %lld\n"
-   248			  "Number of IOREQ Null: %lld\n"
-   249			  "Number of SCSI cmd pointer Null: %lld\n"
-   250	
-   251			  "\nIO completion times: \n"
-   252			  "            < 10 ms : %lld\n"
-   253			  "     10 ms - 100 ms : %lld\n"
-   254			  "    100 ms - 500 ms : %lld\n"
-   255			  "    500 ms -   5 sec: %lld\n"
-   256			  "     5 sec -  10 sec: %lld\n"
-   257			  "    10 sec -  30 sec: %lld\n"
-   258			  "            > 30 sec: %lld\n",
-   259			  (u64)atomic64_read(&stats->io_stats.active_ios),
-   260			  (u64)atomic64_read(&stats->io_stats.max_active_ios),
-   261			  (u64)atomic64_read(&stats->io_stats.num_ios),
-   262			  (u64)atomic64_read(&stats->io_stats.io_completions),
-   263			  (u64)atomic64_read(&stats->io_stats.io_failures),
-   264			  (u64)atomic64_read(&stats->io_stats.io_not_found),
-   265			  (u64)atomic64_read(&stats->io_stats.alloc_failures),
-   266			  (u64)atomic64_read(&stats->io_stats.ioreq_null),
-   267			  (u64)atomic64_read(&stats->io_stats.sc_null),
-   268			  (u64)atomic64_read(&stats->io_stats.io_btw_0_to_10_msec),
-   269			  (u64)atomic64_read(&stats->io_stats.io_btw_10_to_100_msec),
-   270			  (u64)atomic64_read(&stats->io_stats.io_btw_100_to_500_msec),
-   271			  (u64)atomic64_read(&stats->io_stats.io_btw_500_to_5000_msec),
-   272			  (u64)atomic64_read(&stats->io_stats.io_btw_5000_to_10000_msec),
-   273			  (u64)atomic64_read(&stats->io_stats.io_btw_10000_to_30000_msec),
-   274			  (u64)atomic64_read(&stats->io_stats.io_greater_than_30000_msec));
-   275	
-   276		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   277				"------------------------------------------\n"
-   278				"\t\tIO Queues and cumulative IOs\n"
-   279				"------------------------------------------\n");
-   280	
-   281		for (i = 0; i < FNIC_MQ_MAX_QUEUES; i++) {
-   282			len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   283					"Q:%d -> %lld\n", i, (u64)atomic64_read(&stats->io_stats.ios[i]));
-   284		}
-   285	
-   286		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   287			  "\nCurrent Max IO time : %lld\n",
-   288			  (u64)atomic64_read(&stats->io_stats.current_max_io_time));
-   289	
-   290		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   291			  "\n------------------------------------------\n"
-   292			  "\t\tAbort Statistics\n"
-   293			  "------------------------------------------\n");
-   294	
-   295		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   296			  "Number of Aborts: %lld\n"
-   297			  "Number of Abort Failures: %lld\n"
-   298			  "Number of Abort Driver Timeouts: %lld\n"
-   299			  "Number of Abort FW Timeouts: %lld\n"
-   300			  "Number of Abort IO NOT Found: %lld\n"
-   301	
-   302			  "Abort issued times: \n"
-   303			  "            < 6 sec : %lld\n"
-   304			  "     6 sec - 20 sec : %lld\n"
-   305			  "    20 sec - 30 sec : %lld\n"
-   306			  "    30 sec - 40 sec : %lld\n"
-   307			  "    40 sec - 50 sec : %lld\n"
-   308			  "    50 sec - 60 sec : %lld\n"
-   309			  "            > 60 sec: %lld\n",
-   310	
-   311			  (u64)atomic64_read(&stats->abts_stats.aborts),
-   312			  (u64)atomic64_read(&stats->abts_stats.abort_failures),
-   313			  (u64)atomic64_read(&stats->abts_stats.abort_drv_timeouts),
-   314			  (u64)atomic64_read(&stats->abts_stats.abort_fw_timeouts),
-   315			  (u64)atomic64_read(&stats->abts_stats.abort_io_not_found),
-   316			  (u64)atomic64_read(&stats->abts_stats.abort_issued_btw_0_to_6_sec),
-   317			  (u64)atomic64_read(&stats->abts_stats.abort_issued_btw_6_to_20_sec),
-   318			  (u64)atomic64_read(&stats->abts_stats.abort_issued_btw_20_to_30_sec),
-   319			  (u64)atomic64_read(&stats->abts_stats.abort_issued_btw_30_to_40_sec),
-   320			  (u64)atomic64_read(&stats->abts_stats.abort_issued_btw_40_to_50_sec),
-   321			  (u64)atomic64_read(&stats->abts_stats.abort_issued_btw_50_to_60_sec),
-   322			  (u64)atomic64_read(&stats->abts_stats.abort_issued_greater_than_60_sec));
-   323	
-   324		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   325			  "\n------------------------------------------\n"
-   326			  "\t\tTerminate Statistics\n"
-   327			  "------------------------------------------\n");
-   328	
-   329		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   330			  "Number of Terminates: %lld\n"
-   331			  "Maximum Terminates: %lld\n"
-   332			  "Number of Terminate Driver Timeouts: %lld\n"
-   333			  "Number of Terminate FW Timeouts: %lld\n"
-   334			  "Number of Terminate IO NOT Found: %lld\n"
-   335			  "Number of Terminate Failures: %lld\n",
-   336			  (u64)atomic64_read(&stats->term_stats.terminates),
-   337			  (u64)atomic64_read(&stats->term_stats.max_terminates),
-   338			  (u64)atomic64_read(&stats->term_stats.terminate_drv_timeouts),
-   339			  (u64)atomic64_read(&stats->term_stats.terminate_fw_timeouts),
-   340			  (u64)atomic64_read(&stats->term_stats.terminate_io_not_found),
-   341			  (u64)atomic64_read(&stats->term_stats.terminate_failures));
-   342	
-   343		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   344			  "\n------------------------------------------\n"
-   345			  "\t\tReset Statistics\n"
-   346			  "------------------------------------------\n");
-   347	
-   348		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   349			  "Number of Device Resets: %lld\n"
-   350			  "Number of Device Reset Failures: %lld\n"
-   351			  "Number of Device Reset Aborts: %lld\n"
-   352			  "Number of Device Reset Timeouts: %lld\n"
-   353			  "Number of Device Reset Terminates: %lld\n"
-   354			  "Number of FW Resets: %lld\n"
-   355			  "Number of FW Reset Completions: %lld\n"
-   356			  "Number of FW Reset Failures: %lld\n"
-   357			  "Number of Fnic Reset: %lld\n"
-   358			  "Number of Fnic Reset Completions: %lld\n"
-   359			  "Number of Fnic Reset Failures: %lld\n",
-   360			  (u64)atomic64_read(&stats->reset_stats.device_resets),
-   361			  (u64)atomic64_read(&stats->reset_stats.device_reset_failures),
-   362			  (u64)atomic64_read(&stats->reset_stats.device_reset_aborts),
-   363			  (u64)atomic64_read(&stats->reset_stats.device_reset_timeouts),
-   364			  (u64)atomic64_read(
-   365				  &stats->reset_stats.device_reset_terminates),
-   366			  (u64)atomic64_read(&stats->reset_stats.fw_resets),
-   367			  (u64)atomic64_read(&stats->reset_stats.fw_reset_completions),
-   368			  (u64)atomic64_read(&stats->reset_stats.fw_reset_failures),
-   369			  (u64)atomic64_read(&stats->reset_stats.fnic_resets),
-   370			  (u64)atomic64_read(
-   371				  &stats->reset_stats.fnic_reset_completions),
-   372			  (u64)atomic64_read(&stats->reset_stats.fnic_reset_failures));
-   373	
-   374		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   375			  "\n------------------------------------------\n"
-   376			  "\t\tFirmware Statistics\n"
-   377			  "------------------------------------------\n");
-   378	
-   379		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   380			  "Number of Active FW Requests %lld\n"
-   381			  "Maximum FW Requests: %lld\n"
-   382			  "Number of FW out of resources: %lld\n"
-   383			  "Number of FW IO errors: %lld\n",
-   384			  (u64)atomic64_read(&stats->fw_stats.active_fw_reqs),
-   385			  (u64)atomic64_read(&stats->fw_stats.max_fw_reqs),
-   386			  (u64)atomic64_read(&stats->fw_stats.fw_out_of_resources),
-   387			  (u64)atomic64_read(&stats->fw_stats.io_fw_errs));
-   388	
-   389		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   390			  "\n------------------------------------------\n"
-   391			  "\t\tVlan Discovery Statistics\n"
-   392			  "------------------------------------------\n");
-   393	
-   394		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   395			  "Number of Vlan Discovery Requests Sent %lld\n"
-   396			  "Vlan Response Received with no FCF VLAN ID: %lld\n"
-   397			  "No solicitations recvd after vlan set, expiry count: %lld\n"
-   398			  "Flogi rejects count: %lld\n",
-   399			  (u64)atomic64_read(&stats->vlan_stats.vlan_disc_reqs),
-   400			  (u64)atomic64_read(&stats->vlan_stats.resp_withno_vlanID),
-   401			  (u64)atomic64_read(&stats->vlan_stats.sol_expiry_count),
-   402			  (u64)atomic64_read(&stats->vlan_stats.flogi_rejects));
-   403	
-   404		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   405			  "\n------------------------------------------\n"
-   406			  "\t\tOther Important Statistics\n"
-   407			  "------------------------------------------\n");
-   408	
-   409		jiffies_to_timespec64(stats->misc_stats.last_isr_time, &val1);
-   410		jiffies_to_timespec64(stats->misc_stats.last_ack_time, &val2);
-   411	
-   412		len += scnprintf(debug->debug_buffer + len, buf_size - len,
-   413			  "Last ISR time: %llu (%ptSp)\n"
-   414			  "Last ACK time: %llu (%ptSp)\n"
-   415			  "Max ISR jiffies: %llu\n"
-   416			  "Max ISR time (ms) (0 denotes < 1 ms): %llu\n"
-   417			  "Corr. work done: %llu\n"
-   418			  "Number of ISRs: %lld\n"
-   419			  "Maximum CQ Entries: %lld\n"
-   420			  "Number of ACK index out of range: %lld\n"
-   421			  "Number of data count mismatch: %lld\n"
-   422			  "Number of FCPIO Timeouts: %lld\n"
-   423			  "Number of FCPIO Aborted: %lld\n"
-   424			  "Number of SGL Invalid: %lld\n"
-   425			  "Number of Copy WQ Alloc Failures for ABTs: %lld\n"
-   426			  "Number of Copy WQ Alloc Failures for Device Reset: %lld\n"
-   427			  "Number of Copy WQ Alloc Failures for IOs: %lld\n"
-   428			  "Number of no icmnd itmf Completions: %lld\n"
-   429			  "Number of Check Conditions encountered: %lld\n"
-   430			  "Number of QUEUE Fulls: %lld\n"
-   431			  "Number of rport not ready: %lld\n"
-   432			 "Number of receive frame errors: %lld\n"
-   433			 "Port speed (in Mbps): %lld\n",
-   434			  (u64)stats->misc_stats.last_isr_time,
-   435			  &val1,
-   436			  (u64)stats->misc_stats.last_ack_time,
-   437			  &val2,
-   438			  (u64)atomic64_read(&stats->misc_stats.max_isr_jiffies),
-   439			  (u64)atomic64_read(&stats->misc_stats.max_isr_time_ms),
-   440			  (u64)atomic64_read(&stats->misc_stats.corr_work_done),
-   441			  (u64)atomic64_read(&stats->misc_stats.isr_count),
-   442			  (u64)atomic64_read(&stats->misc_stats.max_cq_entries),
-   443			  (u64)atomic64_read(&stats->misc_stats.ack_index_out_of_range),
-   444			  (u64)atomic64_read(&stats->misc_stats.data_count_mismatch),
-   445			  (u64)atomic64_read(&stats->misc_stats.fcpio_timeout),
-   446			  (u64)atomic64_read(&stats->misc_stats.fcpio_aborted),
-   447			  (u64)atomic64_read(&stats->misc_stats.sgl_invalid),
-   448			  (u64)atomic64_read(
-   449				  &stats->misc_stats.abts_cpwq_alloc_failures),
-   450			  (u64)atomic64_read(
-   451				  &stats->misc_stats.devrst_cpwq_alloc_failures),
-   452			  (u64)atomic64_read(&stats->misc_stats.io_cpwq_alloc_failures),
-   453			  (u64)atomic64_read(&stats->misc_stats.no_icmnd_itmf_cmpls),
-   454			  (u64)atomic64_read(&stats->misc_stats.check_condition),
-   455			  (u64)atomic64_read(&stats->misc_stats.queue_fulls),
-   456			  (u64)atomic64_read(&stats->misc_stats.tport_not_ready),
-   457			  (u64)atomic64_read(&stats->misc_stats.frame_errors),
-   458			  (u64)atomic64_read(&stats->misc_stats.port_speed_in_mbps));
-   459	
-   460		return len;
-   461	
+ Documentation/core-api/printk-formats.rst     | 11 +++-
+ drivers/char/ipmi/ipmi_si_intf.c              |  3 +-
+ drivers/char/ipmi/ipmi_ssif.c                 |  6 +--
+ drivers/dma-buf/sync_debug.c                  |  2 +-
+ .../gpu/drm/amd/amdgpu/amdgpu_dev_coredump.c  |  3 +-
+ drivers/gpu/drm/drm_vblank.c                  |  6 +--
+ .../gpu/drm/msm/disp/msm_disp_snapshot_util.c |  3 +-
+ drivers/gpu/drm/msm/msm_gpu.c                 |  3 +-
+ drivers/gpu/drm/xe/xe_devcoredump.c           |  4 +-
+ drivers/mmc/core/mmc_test.c                   | 20 +++----
+ drivers/net/dsa/sja1105/sja1105_tas.c         |  8 ++-
+ drivers/net/ethernet/intel/e1000e/ptp.c       |  7 +--
+ drivers/net/ethernet/intel/igb/igb_ptp.c      |  7 +--
+ drivers/pci/endpoint/functions/pci-epf-test.c |  5 +-
+ drivers/pps/generators/pps_gen_parport.c      |  3 +-
+ drivers/pps/kapi.c                            |  3 +-
+ drivers/ptp/ptp_ocp.c                         | 13 ++---
+ drivers/s390/block/dasd.c                     |  3 +-
+ drivers/scsi/fnic/fnic_trace.c                | 52 ++++++++-----------
+ drivers/scsi/snic/snic_debugfs.c              | 10 ++--
+ drivers/scsi/snic/snic_trc.c                  |  5 +-
+ drivers/staging/media/av7110/av7110.c         |  2 +-
+ fs/ceph/dir.c                                 |  5 +-
+ fs/ceph/inode.c                               | 49 ++++++-----------
+ fs/ceph/xattr.c                               |  6 +--
+ kernel/trace/trace_output.c                   |  6 +--
+ lib/tests/printf_kunit.c                      |  4 ++
+ lib/vsprintf.c                                | 28 +++++++++-
+ net/ceph/messenger_v2.c                       |  6 +--
+ 29 files changed, 130 insertions(+), 153 deletions(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.50.1
+
 
 
 _______________________________________________
