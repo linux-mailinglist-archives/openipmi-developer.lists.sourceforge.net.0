@@ -2,37 +2,37 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6F0C9C6DFA5
-	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Nov 2025 11:27:30 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9E6A0C6EBD5
+	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Nov 2025 14:11:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vMhPtS8Ozzjwv4XTYiN6SzYhWVrR2m3d+ZOWJ1mdliU=; b=Qowh4QT8h72glAQSou9/BTPyN3
-	MHaqM1sxTHQ1QLWgPks+c85REynJtjegz1vkTXiBgt95ER7npm6h2UFMe58juyLAWbeKrw4JlBRLn
-	KR1AgNN92SLhIzzOqs6M3OiDDtiSo5jQMi7emdLkvmPNZ/rGnJr27uZki9ZX4GfPkSkQ=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:References:
+	Message-ID:To:Date:Sender:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2MbNPDgWLiACiSYl0JQlItE1T5hJC6ltFydijP2FHD8=; b=Y8o7qFqFD7JbN8fDPfrScDpStk
+	/iE0YZkmpFx6u2qcbIbVUL1tZMuBnojsZVk0JHlgf9LlCpToH6f2IS5nQMxYXw9mk6FUff403bzsk
+	O6wcVuZmvN7QPd0s+ms9MVImX2d0TC9GTmkBYPdItl/WPa8Z2wO94Hbmcq9YGYMchooo=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vLfPE-0001Hk-I0;
-	Wed, 19 Nov 2025 10:27:20 +0000
+	id 1vLhy7-0008DF-VD;
+	Wed, 19 Nov 2025 13:11:31 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vLfPD-0001Hb-08 for openipmi-developer@lists.sourceforge.net;
- Wed, 19 Nov 2025 10:27:19 +0000
+ (envelope-from <pmladek@suse.com>) id 1vLhy6-0008D8-DI
+ for openipmi-developer@lists.sourceforge.net;
+ Wed, 19 Nov 2025 13:11:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=S5WY+lURmUw0HR9k8yrpqOUBVS/BrDvLbJrZD1jEg78=; b=kOlOPM4AWvQ6u/hog1YnsK33ga
- kc/HihwC/LDkWmu0fmEIF+Su8oHqlogcGtxca1GKzfLdCjdkdUgWEX6vrrI9svIjsz2NRhq+VVtQv
- H9C2Pd3XbqCFhi48PjA3MQBoyLLELZzEynFv0uWTByH/IS2A1oeTqhfFDHzvAztMgk1c=;
+ bh=2hIjgqXWXn3Sbfto+9OWapsp1QwhUBtS+kZIjBq+Tlw=; b=a6QO/jZo5lEkY22yorpn5p/BFN
+ dM00nUVbIyp1NAOOG83YWZWsmS7u7bsJETlKOZmdjWluQ/OTx4HNpUbS1opw16g08428xyf0kQqRb
+ wLBDOPzV8f++JorIEhp+in/SfRPt83jUfZj2NBfFWH5hfqybDSd9rZXZJd9bRpZxh0PE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -40,73 +40,94 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=S5WY+lURmUw0HR9k8yrpqOUBVS/BrDvLbJrZD1jEg78=; b=eNe82TA9ahRgH2lVeg9J1f11rJ
- iD41GHELHjBaKrEd0cohX2sTiAUZd3tst//b7cM/ECHYlJYIWLUXtVFO9uppXwCK/dknzO+IGojXK
- OQF4IKWYrdA4z3TEbP0PRr2R86kb5C+IJOCcgSPCN5hRCc+4dz46gsxb9vaaalli7rX8=;
-Received: from mgamail.intel.com ([198.175.65.20])
+ bh=2hIjgqXWXn3Sbfto+9OWapsp1QwhUBtS+kZIjBq+Tlw=; b=UtbrI4Z0wkYTRHEPugQjlf0xNU
+ AWFDuj/7gjx2SOTbwrRVpP+tew0SlkDgxCJPTxrNm3GeQ8NIB+hoYNMxEUPmG+tPMZPt93wocwwAH
+ hEiLbmGnaTxfMNbes0QSs7cQ4FZ7pTuds9fUWOxpymrOW2Mdl8kMPpWUKJkuiepsikgk=;
+Received: from mail-ej1-f50.google.com ([209.85.218.50])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vLfPC-0003xs-4E for openipmi-developer@lists.sourceforge.net;
- Wed, 19 Nov 2025 10:27:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1763548038; x=1795084038;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:in-reply-to;
- bh=jmw9bhTP6DqEEo8SaI642JH1s3dFqQGzetmEw8f3+f0=;
- b=Q7wnZ5uZcylfTX7Pryhow5wlmkpGU/by7wRhkM24+yWK5y5HgkvOj/g+
- 3wpfNMQvI73f18HCBwXd3+xDl1sN3xNq0TfcwJm45a6vUxFrhOq+9S/Gk
- Jb/T4kqanT/RCd445Mt7YM4SHz9uV3mayTGtZU55cMm7PejtSbWb2DfKb
- qKXfWhyj2GiYw4HH4iMvfUS2Yogg1n9g1BeTBfOyjC5ncbkbeL61XD2AG
- IsAEM06sFGDvZkqCGr0DlF9G04865kTlaLPyWOZmZkM/qQTlkV2TkzXr0
- 8S1CBP/mKbFQYNNFwdpbu74fBRt7dkeiwYXoOonOvx5etIzqQMn+SOtLr g==;
-X-CSE-ConnectionGUID: xfTVL+s8TKKPrMwZO3TNQg==
-X-CSE-MsgGUID: QV3aKlG3RN6TvEhTiYfU6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11617"; a="65286202"
-X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; d="scan'208";a="65286202"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
- by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Nov 2025 02:27:12 -0800
-X-CSE-ConnectionGUID: BabbyDhyQAOE+ZtEsTT7/g==
-X-CSE-MsgGUID: bIH3DAOlTZmt1WuzGTp/dQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; d="scan'208";a="195322765"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost)
- ([10.245.245.245])
- by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Nov 2025 02:26:53 -0800
-Date: Wed, 19 Nov 2025 12:26:51 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Petr Mladek <pmladek@suse.com>
-Message-ID: <aR2bazZn8m4EMHdW@smile.fi.intel.com>
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1vLhy5-0005uC-RY for openipmi-developer@lists.sourceforge.net;
+ Wed, 19 Nov 2025 13:11:30 +0000
+Received: by mail-ej1-f50.google.com with SMTP id
+ a640c23a62f3a-b737cd03d46so616247466b.0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Wed, 19 Nov 2025 05:11:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=suse.com; s=google; t=1763557878; x=1764162678; darn=lists.sourceforge.net; 
+ h=in-reply-to:content-disposition:mime-version:references:message-id
+ :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+ bh=2hIjgqXWXn3Sbfto+9OWapsp1QwhUBtS+kZIjBq+Tlw=;
+ b=cMY07q/7CjGddBE8sDA6XMECmSh6TT1kkDWcUdo+cfdP2Kv1d/v79JMDMWJIdcF05z
+ Tcc2h3hiyQqQuXs+zCH8Hru604pPN0HlyIOYdO3cEi8Y2YREWpAgHKHzDmtCvhhyGDL2
+ Q3hd4bj3CMXIJSGWKL4GhXL21digbL2HmHSlI9E0g0dbyAz3uw3c+Vjvc3GHRA36k3Qo
+ jdA2yNj1rdPaHF0j38vOGwkz/1vHn4BYlc6tXO2x0Vo+xPavMNMazK7nekxoqTylkEcG
+ Syd97eQnHQwVlr8wkPZKdbmPAlwCIINYyMv9Bvz3L0QZkfLPBFH1qdJVG2vWxJxQv51d
+ 6CiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1763557878; x=1764162678;
+ h=in-reply-to:content-disposition:mime-version:references:message-id
+ :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=2hIjgqXWXn3Sbfto+9OWapsp1QwhUBtS+kZIjBq+Tlw=;
+ b=vwDJzSTf077l0iVk/Q55rRvRLs9mFV1dzq6HA8jFcVu1oNFc0vlPMx4fwE2djA1ZuQ
+ /PIeZK4DZgLCsXQSuIjC1j1+g0H3L9cMPPF0UqIgnOS5HH+Da8C3k0NvSbhXLcb7sQeB
+ t83L29JuahPUW1aieNIppI4vgioXSqx86da2EdKDhingwGWmU2qVKrW8tkUOk21hNUTe
+ wUcQ4bbMZ3OlluWwad1qLs0kst3N9CREEu/IpUyv9iUbMgXx164AG9ZqzfufrIjkNfhN
+ 2iS7rWdjcGydVQ6cqKNnEu3ASrNA0L+VGvs64E+Dg/RMAIZbRsN28FlFXlNKKiGvRaeD
+ c2dA==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCUFkUrobw7hXFINIX8R2Y1D1XskmM7olMjekUMf7JtaERTbKcDZSHBbV4ReMQ36zbliPZNtbYTVvtpopzAgu5J9qF8=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YyNPW8MkAzLZPiyMateYjkVat2esIC0crCB2PUqI275KtiqV4fs
+ 0msjl2PzduKmqAg15zJWc/aqzuIjO1hko+VjWozROlrm5GnwFYUHifPW/A13m6VOTPY=
+X-Gm-Gg: ASbGncu0jAZYV5YtUZng7A1DCTFacDUVx4Bb6UDoZj+vemfIgTOyRyLSoGHh1N5nd2s
+ o6sm//KQD7aciEMSgUSl/yMq7aIUTOChj31ksYTjKHl0jLQ6ChEi4Z9hHeAqISv9xGG+qHzjYYR
+ kfKYYpLXKta8H3nA7fOPAolW+AtKXDJxJwu1vQvCjgnfKylJQoPmYiil/1o4q0jtgnkMmmj+bi9
+ ysCBlJgsNKCkmr6KxqiFf/uXFlhIhZYbErTauCRYsX8Gt3t26v2W6F7afuKCLTy48FYr9CTeRE1
+ T8JzomUqsZuhw5SrYk3vVrdvEi3BjGMrh3Bjg5Ru6jQZmbTa+oKqn2aiXSaIDtE74Wa6zIhwo7X
+ 6oqJ2kAYv8CzoB7Cvo5BEXyP2uek7rYwIbk5wnSkyJxHvSjcsDlVEpNrVupuaWvjiMVMjyzJBgn
+ 0Id2jfTO0WI/U4Bg==
+X-Google-Smtp-Source: AGHT+IHh/9HSY9QxYY7JWRlsHkQE77dEey/TQadLHho4kIFH9l0Cnuj5X98H1aD+vZkw9c2t87Tcgg==
+X-Received: by 2002:a17:907:96a7:b0:b6d:50f7:a805 with SMTP id
+ a640c23a62f3a-b7367c02586mr2099815666b.59.1763557878059; 
+ Wed, 19 Nov 2025 05:11:18 -0800 (PST)
+Received: from pathway.suse.cz ([176.114.240.130])
+ by smtp.gmail.com with ESMTPSA id
+ 4fb4d7f45d1cf-6433a3d8775sm15093392a12.5.2025.11.19.05.11.14
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 19 Nov 2025 05:11:17 -0800 (PST)
+Date: Wed, 19 Nov 2025 14:11:12 +0100
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Message-ID: <aR3B8ECx9W6F0BV_@pathway.suse.cz>
 References: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
- <20251113150217.3030010-20-andriy.shevchenko@linux.intel.com>
- <aR2XAYWTEgMZu_Mx@pathway.suse.cz>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aR2XAYWTEgMZu_Mx@pathway.suse.cz>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-Spam-Score: -0.0 (/)
+In-Reply-To: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Nov 19, 2025 at 11:08:01AM +0100, Petr Mladek wrote:
- > On Thu 2025-11-13 15:32:33, Andy Shevchenko wrote: > > Use %ptSp instead
- of open coded variants to print content of > > struct timespec64 [...] 
- Content analysis details:   (-0.0 points, 5.0 required)
+ Content preview:  On Thu 2025-11-13 15:32:14, Andy Shevchenko wrote: > Here
+ is the third part of the unification time printing in the kernel. > This time
+ for struct timespec64. The first patch brings a support > into p [...] 
+ Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vLfPC-0003xs-4E
-Subject: Re: [Openipmi-developer] [PATCH v3 19/21] scsi: fnic: Switch to use
- %ptSp
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.218.50 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1vLhy5-0005uC-RY
+Subject: Re: [Openipmi-developer] [PATCH v3 00/21] treewide: Introduce %ptS
+ for struct timespec64 and convert users
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -119,6 +140,9 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
+From: Petr Mladek via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Petr Mladek <pmladek@suse.com>
 Cc: Andrew Lunn <andrew@lunn.ch>, dri-devel@lists.freedesktop.org,
  Marijn Suijten <marijn.suijten@somainline.org>,
  Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -184,131 +208,34 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Nov 19, 2025 at 11:08:01AM +0100, Petr Mladek wrote:
-> On Thu 2025-11-13 15:32:33, Andy Shevchenko wrote:
-> > Use %ptSp instead of open coded variants to print content of
-> > struct timespec64 in human readable format.
+On Thu 2025-11-13 15:32:14, Andy Shevchenko wrote:
+> Here is the third part of the unification time printing in the kernel.
+> This time for struct timespec64. The first patch brings a support
+> into printf() implementation (test cases and documentation update
+> included) followed by the treewide conversion of the current users.
 > 
-> I was about to commit the changes into printk/linux.git and
-> found a mistake during the final double check, see below.
+> Petr, we got like more than a half being Acked, I think if you are okay
+> with this, the patches that have been tagged can be applied.
 > 
-> > diff --git a/drivers/scsi/fnic/fnic_trace.c b/drivers/scsi/fnic/fnic_trace.c
-> > index cdc6b12b1ec2..0a849a195a8e 100644
-> > --- a/drivers/scsi/fnic/fnic_trace.c
-> > +++ b/drivers/scsi/fnic/fnic_trace.c
-> > @@ -215,30 +213,26 @@ int fnic_get_stats_data(struct stats_debug_info *debug,
-> >  {
-> >  	int len = 0;
-> >  	int buf_size = debug->buf_size;
-> > -	struct timespec64 val1, val2;
-> > +	struct timespec64 val, val1, val2;
-> >  	int i = 0;
-> >  
-> > -	ktime_get_real_ts64(&val1);
-> > +	ktime_get_real_ts64(&val);
-> >  	len = scnprintf(debug->debug_buffer + len, buf_size - len,
-> >  		"------------------------------------------\n"
-> >  		 "\t\tTime\n"
-> >  		"------------------------------------------\n");
-> >  
-> > +	val1 = timespec64_sub(val, stats->stats_timestamps.last_reset_time);
-> > +	val2 = timespec64_sub(val, stats->stats_timestamps.last_read_time);
-> >  	len += scnprintf(debug->debug_buffer + len, buf_size - len,
-> > -		"Current time :          [%lld:%ld]\n"
-> > -		"Last stats reset time:  [%lld:%09ld]\n"
-> > -		"Last stats read time:   [%lld:%ld]\n"
-> > -		"delta since last reset: [%lld:%ld]\n"
-> > -		"delta since last read:  [%lld:%ld]\n",
-> > -	(s64)val1.tv_sec, val1.tv_nsec,
-> > -	(s64)stats->stats_timestamps.last_reset_time.tv_sec,
-> > -	stats->stats_timestamps.last_reset_time.tv_nsec,
-> > -	(s64)stats->stats_timestamps.last_read_time.tv_sec,
-> > -	stats->stats_timestamps.last_read_time.tv_nsec,
-> > -	(s64)timespec64_sub(val1, stats->stats_timestamps.last_reset_time).tv_sec,
-> > -	timespec64_sub(val1, stats->stats_timestamps.last_reset_time).tv_nsec,
-> > -	(s64)timespec64_sub(val1, stats->stats_timestamps.last_read_time).tv_sec,
-> > -	timespec64_sub(val1, stats->stats_timestamps.last_read_time).tv_nsec);
-> > +			 "Current time :          [%ptSp]\n"
-> > +			 "Last stats reset time:  [%ptSp]\n"
-> > +			 "Last stats read time:   [%ptSp]\n"
-> > +			 "delta since last reset: [%ptSp]\n"
-> > +			 "delta since last read:  [%ptSp]\n",
-> 
-> Both delta times are printed at the end.
-> 
-> > +			 &val,
-> > +			 &stats->stats_timestamps.last_reset_time, &val1,
-> > +			 &stats->stats_timestamps.last_read_time, &val2);
-> 
-> I think that this should be:
-> 
-> 			 &stats->stats_timestamps.last_reset_time,
-> 			 &stats->stats_timestamps.last_read_time,
-> 			 &val1, &val2);
-> 
-> >  	stats->stats_timestamps.last_read_time = val1;
-> 
-> The original code stored the current time in "val1". This should be:
-> 
-> 	stats->stats_timestamps.last_read_time = val;
-> 
-> > @@ -416,8 +410,8 @@ int fnic_get_stats_data(struct stats_debug_info *debug,
-> >  	jiffies_to_timespec64(stats->misc_stats.last_ack_time, &val2);
-> 
-> Just for record. Another values are stored into @val1 and @val2 at
-> this point.
-> 
-> >  	len += scnprintf(debug->debug_buffer + len, buf_size - len,
-> > -		  "Last ISR time: %llu (%8llu.%09lu)\n"
-> > -		  "Last ACK time: %llu (%8llu.%09lu)\n"
-> > +		  "Last ISR time: %llu (%ptSp)\n"
-> > +		  "Last ACK time: %llu (%ptSp)\n"
-> >  		  "Max ISR jiffies: %llu\n"
-> >  		  "Max ISR time (ms) (0 denotes < 1 ms): %llu\n"
-> >  		  "Corr. work done: %llu\n"
-> > @@ -437,10 +431,8 @@ int fnic_get_stats_data(struct stats_debug_info *debug,
-> >  		  "Number of rport not ready: %lld\n"
-> >  		 "Number of receive frame errors: %lld\n"
-> >  		 "Port speed (in Mbps): %lld\n",
-> > -		  (u64)stats->misc_stats.last_isr_time,
-> > -		  (s64)val1.tv_sec, val1.tv_nsec,
-> > -		  (u64)stats->misc_stats.last_ack_time,
-> > -		  (s64)val2.tv_sec, val2.tv_nsec,
-> > +		  (u64)stats->misc_stats.last_isr_time, &val1,
-> > +		  (u64)stats->misc_stats.last_ack_time, &val2,
-> 
-> So, this is correct!
-> 
-> >  		  (u64)atomic64_read(&stats->misc_stats.max_isr_jiffies),
-> >  		  (u64)atomic64_read(&stats->misc_stats.max_isr_time_ms),
-> >  		  (u64)atomic64_read(&stats->misc_stats.corr_work_done),
-> 
-> 
-> Now, I think that there is no need to resend the entire huge patchset.
-> 
-> I could either fix this when comitting or commit the rest and
-> you could send only this patch for review.
+> Note, not everything was compile-tested. Kunit test has been passed, though.
 
-Thank you for the thoroughly done review, I changed that patch between the
-versions and the problem is that for printf() specifiers (extensions) we do not
-have an automatic type checking. We starve for a GCC plugin for that, yeah...
+JFYI, the patchset has been committed into printk/linux.git,
+branch for-6.19-vsprintf-timespec64.
 
-In any case, if you fold your changes in, I will appreciate that!
-Otherwise it's also fine with me to send a patch separately later on.
+Note, that I have:
 
-> PS: All other patches look good. Well, nobody acked 7th patch yet.
->     But I think that the change is pretty straightforward and
->     we could do it even without an ack.
+   + fixed the 19th patch as proposed, see
+     https://lore.kernel.org/all/aR2XAYWTEgMZu_Mx@pathway.suse.cz/
 
-This is my understanding as well. It changes the output, but that output is
-debug anyway. So I don't expect breakage of anything we have an obligation
-to keep working.
+   + reviewed all patches but I triple checked 7th patch which
+     did not have any ack yet. And I added my Reviewed-by tag
+     there. ;-)
 
--- 
-With Best Regards,
-Andy Shevchenko
+   + I tried build with allyesconfig. It succeeded. I am not 100%
+     sure that it built all modified sources but...
 
-
+Best Regards,
+Petr
 
 
 _______________________________________________
