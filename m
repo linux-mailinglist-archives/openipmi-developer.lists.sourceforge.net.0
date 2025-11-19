@@ -2,114 +2,100 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1EFEBC6F7E0
-	for <lists+openipmi-developer@lfdr.de>; Wed, 19 Nov 2025 16:01:15 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8773EC79F00
+	for <lists+openipmi-developer@lfdr.de>; Fri, 21 Nov 2025 15:05:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXokUxXDV2xbgnjfZ3cj57vT4pdK2CiKvDV+IKy9DQA=; b=alLV2X/StWrYWHRNMeg5Z33YcB
-	v5G79THAE8nHDY/ycneY+IUVc2EgUBbVLvBJWmwojn7VJ9cmLL0+iKPSHwnTnIDJ7DNbbB5UfITJw
-	fjygp0hX7ri8As57H7WMiSJF1l2cNyHiCceAUj9zfN3YQlLhxWbrm4vACxlRZKuFs2hw=;
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:References:
+	Message-ID:To:Date:Sender:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NDeH6iNW8D61McWM1cV5WSOajpIMutO0GEFQMMPq9zg=; b=J9XcTTzdcn4aRtORdZuoMxNP5U
+	ZQIyN1oRXe9sEVJknEeWIaorHiuurIrrUW1Fh/t6qsk44b3sc/05kFuH2aVCVdMpX8jQ5Hfk3nvV3
+	a7oQZO5dUr1Z84DmntLqK6MCa+q+lcf2zm8szr67LKx0/f0mdVWi/NIdZmU9Rg9dA1fE=;
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vLjg7-0002rC-Ka;
-	Wed, 19 Nov 2025 15:01:03 +0000
+	id 1vMRlB-0000ti-Ed;
+	Fri, 21 Nov 2025 14:05:13 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <andriy.shevchenko@linux.intel.com>)
- id 1vLjg4-0002qm-Uh for openipmi-developer@lists.sourceforge.net;
- Wed, 19 Nov 2025 15:01:01 +0000
+ (envelope-from <mani@kernel.org>) id 1vLkRn-0003vt-4b
+ for openipmi-developer@lists.sourceforge.net;
+ Wed, 19 Nov 2025 15:50:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=c96dm6jnr/FKAQIIIFhX4mHsAPLlyTLFSBPsyojdYmM=; b=hHP7hMj5k8aoJm1mi/d7aITSkF
- cWP/DMubY+blJGd8JHkhC7504KDe2zsfOeqCweYeR8/4h6374XuuQOJdeGP6jTduMZrfLaMl2vrDl
- gfYOLWGX2V8cyCCKfC973cLPuxCGVp8xXUYLPD3qwmaimzHRh36IGconvWpbOnMf2a6o=;
+ bh=7O2g4846tq8kls7gP/YINxKDtYAFAKXKCZMK3zQST6I=; b=Uea74wMFz2pJ2i1HNkOiC4mbbv
+ IV7mw52AhN1hTq1f72O6pyJXhIB0izM3yA9aRINjCdCpeUCLQLXvVpqt9vfLyR6CCWIZ4P3C6jYe4
+ vO5uoBzaIPBFzu5Doe8d3tngQL6VT09BFXcTRRBcxEnjOJju4SkFbkn6OAeeA5wYbSkM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
- :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=c96dm6jnr/FKAQIIIFhX4mHsAPLlyTLFSBPsyojdYmM=; b=lMKzdvxGNXdiy5J8CEp4KAwvDC
- 2uPG71N0qylNnDjEoRgdyi06/3UFMCbPGqA7eZPI0smgrcDK8uu3GHcJcc7/x4vBKp90HHfMdtr1A
- cVN2xZEJ5G72MG1Tx3hzVl/OolVDsjJYNTXF7nhGa/VUOAkVTjVScqTYdt5TeLET/1NE=;
-Received: from mgamail.intel.com ([192.198.163.7])
+ bh=7O2g4846tq8kls7gP/YINxKDtYAFAKXKCZMK3zQST6I=; b=PXoApyFJ3TjtZE6eHfcAoU71l2
+ zbsL0zlGvZ4Q0c2Xy92zA7nHoFiLsoBA2/tpK0T6tiC94BpvVnaDHsH9jGsrs8DL8b6QhIq3GGb8J
+ DuWqWHG/ylApzFWHarijJWi/r2J7P0GqMQYBLp2i/V4tntHOfDxyqonPQoboPJo5RnLI=;
+Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vLjg4-0003LB-Bo for openipmi-developer@lists.sourceforge.net;
- Wed, 19 Nov 2025 15:01:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1763564460; x=1795100460;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:in-reply-to;
- bh=6VLOKmDo4WviGUhM4qQZA7IzCWHn1ZvDUbxiE4MHVTw=;
- b=HkQPKJ09/No1sRV9YE23MwbUa/6/LJijX24O8WIxSR3FTKukUc60fBNi
- MKsNPYV+PNGU0O5RS7buyDKWnv1GK1e0CftlGxdah5DJ1pME5buIITtlm
- kac8ygcUFYttJf4It5rt8HpjQJ0KIVkNsggedVRVinZ2hY4HjPHEjq0+r
- VGGqssWDF4w5QzOYL0SUDCAhGvp8Qv8deO5voOJ+2A6AxC25le31Ujdbf
- JAJFNc4QEA/qCxNh7Iks8IJYWwiMtR1qSr0o0pBsYNdBCnfvqQt9F556p
- wXM+q+l6arhkRRwhzSXJsVBocY5fz9yq7tS3OB4ZrjodWEr3cywx+7JHB g==;
-X-CSE-ConnectionGUID: zjPdjFuISvqpjcSvnG5uqg==
-X-CSE-MsgGUID: Rc96jR3tTLSvWM43aEmh6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11618"; a="91085421"
-X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; d="scan'208";a="91085421"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
- by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Nov 2025 06:59:36 -0800
-X-CSE-ConnectionGUID: 1p6r6x9uS5u32zRd1eVaZg==
-X-CSE-MsgGUID: voIFHWIqQSaE97KThetVqA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,315,1754982000"; d="scan'208";a="191329073"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost)
- ([10.245.245.245])
- by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Nov 2025 06:59:30 -0800
-Date: Wed, 19 Nov 2025 16:59:28 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Petr Mladek <pmladek@suse.com>
-Message-ID: <aR3bUMvPCqZr5utj@smile.fi.intel.com>
+ id 1vLkRm-0006Ai-De for openipmi-developer@lists.sourceforge.net;
+ Wed, 19 Nov 2025 15:50:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+ by sea.source.kernel.org (Postfix) with ESMTP id C5CD641848;
+ Wed, 19 Nov 2025 15:50:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3A51C2BCB0;
+ Wed, 19 Nov 2025 15:49:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1763567407;
+ bh=mtl+IHM/JXtrCO8ISnitiGZcya/g9fsTYHXlgtCEzjQ=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=Laj4zYxhFW+Cyz8oEoGr4IEUQkfwUMdLv7HRG6pEmMXhq+vvRB62wNZAYyCBhwMgW
+ ydZ26okaryoinvEE8tIJbLlJoY1/cMOVAl5gZWnUjbENpW2a9mfRw+vAlvoqjU3euP
+ pbkZQ00ScKclvx/Fc7+VWCtde1BoO4ZllGxuhaaQ6oHWiJx30xfmdUGu2l8xqahHsp
+ T+hG+IPeCO3xnQsYkJ7VatBdtqrEHMzKKg55/4DdSBYnYup2E2b5/XfowD8zPoAvGV
+ SUjpmYocHoRKpWNGz1Ow4h6dPUUWYAJv0jrXiCMFF0CA6h8rz5TtzNJHhRm6MSXZFU
+ PqBSfmBBhtEiA==
+Date: Wed, 19 Nov 2025 21:19:25 +0530
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Message-ID: <wuyn4v625xw4n2jm4eiullfrprmjiw4aiwo4zudcp4ppd2yeva@s7vzfoinnavt>
 References: <20251113150217.3030010-1-andriy.shevchenko@linux.intel.com>
- <aR3B8ECx9W6F0BV_@pathway.suse.cz>
+ <20251113150217.3030010-16-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aR3B8ECx9W6F0BV_@pathway.suse.cz>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-Spam-Score: 0.0 (/)
+In-Reply-To: <20251113150217.3030010-16-andriy.shevchenko@linux.intel.com>
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Nov 19, 2025 at 02:11:12PM +0100, Petr Mladek wrote:
- > On Thu 2025-11-13 15:32:14, Andy Shevchenko wrote: > > Here is the third
- part of the unification time printing in the kernel. > > This ti [...] 
- Content analysis details:   (0.0 points, 5.0 required)
+ Content preview:  On Thu, Nov 13, 2025 at 03:32:29PM +0100, Andy Shevchenko
+ wrote: > Use %ptSp instead of open coded variants to print content of > struct
+ timespec64 in human readable format. > > Acked-by: Bjorn Helgaa [...] 
+ Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to DNSWL
- was blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#DnsBlocklists-dnsbl-block
- for more information. [192.198.163.7 listed in list.dnswl.org]
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vLjg4-0003LB-Bo
-Subject: Re: [Openipmi-developer] [PATCH v3 00/21] treewide: Introduce %ptS
- for struct timespec64 and convert users
+X-Headers-End: 1vLkRm-0006Ai-De
+X-Mailman-Approved-At: Fri, 21 Nov 2025 14:05:12 +0000
+Subject: Re: [Openipmi-developer] [PATCH v3 15/21] PCI: epf-test: Switch to
+ use %ptSp
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -122,59 +108,97 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Cc: linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, dri-devel@lists.freedesktop.org,
- openipmi-developer@lists.sourceforge.net, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- linux-staging@lists.linux.dev, amd-gfx@lists.freedesktop.org,
- intel-wired-lan@lists.osuosl.org, linux-trace-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>,
- linaro-mm-sig@lists.linaro.org, ceph-devel@vger.kernel.org,
- intel-xe@lists.freedesktop.org, netdev@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org,
- Sergey Senozhatsky <senozhatsky@chromium.org>, linux-media@vger.kernel.org,
- freedreno@lists.freedesktop.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+From: Manivannan Sadhasivam via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, dri-devel@lists.freedesktop.org,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Max Kellermann <max.kellermann@ionos.com>, ceph-devel@vger.kernel.org,
+ Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Petr Mladek <pmladek@suse.com>, Lucas De Marchi <lucas.demarchi@intel.com>,
+ Hans Verkuil <hverkuil+cisco@kernel.org>, Stefan Haberland <sth@linux.ibm.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Dmitry Baryshkov <lumag@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Sven Schnelle <svens@linux.ibm.com>, Alex Deucher <alexander.deucher@amd.com>,
+ Vitaly Lifshits <vitaly.lifshits@intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Vladimir Oltean <olteanv@gmail.com>,
+ freedreno@lists.freedesktop.org, Jan Hoeppner <hoeppner@linux.ibm.com>,
+ linux-doc@vger.kernel.org, Gustavo Padovan <gustavo@padovan.org>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Eric Dumazet <edumazet@google.com>, Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Simona Vetter <simona@ffwll.ch>, linux-s390@vger.kernel.org,
+ Calvin Owens <calvin@wbinvd.org>, Richard Cochran <richardcochran@gmail.com>,
+ linux-media@vger.kernel.org, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Satish Kharat <satishkh@cisco.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ linux-arm-msm@vger.kernel.org, Maxime Ripard <mripard@kernel.org>,
+ linaro-mm-sig@lists.linaro.org, Casey Schaufler <casey@schaufler-ca.com>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, linux-pci@vger.kernel.org,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ linux-trace-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>, linux-staging@lists.linux.dev,
+ amd-gfx@lists.freedesktop.org, Karan Tilak Kumar <kartilak@cisco.com>,
+ Ilya Dryomov <idryomov@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
+ Konrad Dybcio <konradybcio@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ Corey Minyard <corey@minyard.net>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ openipmi-developer@lists.sourceforge.net,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Rodolfo Giometti <giometti@enneenne.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>, linux-mmc@vger.kernel.org,
+ Sesidhar Baddela <sebaddel@cisco.com>, Sagi Maimon <maimon.sagi@gmail.com>,
+ Jonathan Lemon <jonathan.lemon@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Niklas Cassel <cassel@kernel.org>,
+ David Airlie <airlied@gmail.com>, linux-scsi@vger.kernel.org,
+ intel-wired-lan@lists.osuosl.org, Jakub Kicinski <kuba@kernel.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Heiko Carstens <hca@linux.ibm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Abhinav Kumar <abhinav.kumar@linux.dev>, Xiubo Li <xiubli@redhat.com>,
+ intel-xe@lists.freedesktop.org,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, netdev@vger.kernel.org,
+ Jessica Zhang <jesszhan0024@gmail.com>,
+ "Dr. David Alan Gilbert" <linux@treblig.org>,
+ Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Nov 19, 2025 at 02:11:12PM +0100, Petr Mladek wrote:
-> On Thu 2025-11-13 15:32:14, Andy Shevchenko wrote:
-> > Here is the third part of the unification time printing in the kernel.
-> > This time for struct timespec64. The first patch brings a support
-> > into printf() implementation (test cases and documentation update
-> > included) followed by the treewide conversion of the current users.
-> > 
-> > Petr, we got like more than a half being Acked, I think if you are okay
-> > with this, the patches that have been tagged can be applied.
-> > 
-> > Note, not everything was compile-tested. Kunit test has been passed, though.
-> 
-> JFYI, the patchset has been committed into printk/linux.git,
-> branch for-6.19-vsprintf-timespec64.
-> 
-> Note, that I have:
-> 
->    + fixed the 19th patch as proposed, see
->      https://lore.kernel.org/all/aR2XAYWTEgMZu_Mx@pathway.suse.cz/
-> 
->    + reviewed all patches but I triple checked 7th patch which
->      did not have any ack yet. And I added my Reviewed-by tag
->      there. ;-)
-> 
->    + I tried build with allyesconfig. It succeeded. I am not 100%
->      sure that it built all modified sources but...
-
-Thank you!
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+T24gVGh1LCBOb3YgMTMsIDIwMjUgYXQgMDM6MzI6MjlQTSArMDEwMCwgQW5keSBTaGV2Y2hlbmtv
+IHdyb3RlOgo+IFVzZSAlcHRTcCBpbnN0ZWFkIG9mIG9wZW4gY29kZWQgdmFyaWFudHMgdG8gcHJp
+bnQgY29udGVudCBvZgo+IHN0cnVjdCB0aW1lc3BlYzY0IGluIGh1bWFuIHJlYWRhYmxlIGZvcm1h
+dC4KPiAKPiBBY2tlZC1ieTogQmpvcm4gSGVsZ2FhcyA8YmhlbGdhYXNAZ29vZ2xlLmNvbT4KPiBT
+aWduZWQtb2ZmLWJ5OiBBbmR5IFNoZXZjaGVua28gPGFuZHJpeS5zaGV2Y2hlbmtvQGxpbnV4Lmlu
+dGVsLmNvbT4KCkFja2VkLWJ5OiBNYW5pdmFubmFuIFNhZGhhc2l2YW0gPG1hbmlAa2VybmVsLm9y
+Zz4KCi0gTWFuaQoKPiAtLS0KPiAgZHJpdmVycy9wY2kvZW5kcG9pbnQvZnVuY3Rpb25zL3BjaS1l
+cGYtdGVzdC5jIHwgNSArKy0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAz
+IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BjaS9lbmRwb2ludC9mdW5j
+dGlvbnMvcGNpLWVwZi10ZXN0LmMgYi9kcml2ZXJzL3BjaS9lbmRwb2ludC9mdW5jdGlvbnMvcGNp
+LWVwZi10ZXN0LmMKPiBpbmRleCBiMDVlOGRiNTc1YzMuLmRlYmQyMzUyNTNjNSAxMDA2NDQKPiAt
+LS0gYS9kcml2ZXJzL3BjaS9lbmRwb2ludC9mdW5jdGlvbnMvcGNpLWVwZi10ZXN0LmMKPiArKysg
+Yi9kcml2ZXJzL3BjaS9lbmRwb2ludC9mdW5jdGlvbnMvcGNpLWVwZi10ZXN0LmMKPiBAQCAtMzMx
+LDkgKzMzMSw4IEBAIHN0YXRpYyB2b2lkIHBjaV9lcGZfdGVzdF9wcmludF9yYXRlKHN0cnVjdCBw
+Y2lfZXBmX3Rlc3QgKmVwZl90ZXN0LAo+ICAJCXJhdGUgPSBkaXY2NF91NjQoc2l6ZSAqIE5TRUNf
+UEVSX1NFQywgbnMgKiAxMDAwKTsKPiAgCj4gIAlkZXZfaW5mbygmZXBmX3Rlc3QtPmVwZi0+ZGV2
+LAo+IC0JCSAiJXMgPT4gU2l6ZTogJWxsdSBCLCBETUE6ICVzLCBUaW1lOiAlbGx1LiUwOXUgcywg
+UmF0ZTogJWxsdSBLQi9zXG4iLAo+IC0JCSBvcCwgc2l6ZSwgZG1hID8gIllFUyIgOiAiTk8iLAo+
+IC0JCSAodTY0KXRzLnR2X3NlYywgKHUzMil0cy50dl9uc2VjLCByYXRlKTsKPiArCQkgIiVzID0+
+IFNpemU6ICVsbHUgQiwgRE1BOiAlcywgVGltZTogJXB0U3AgcywgUmF0ZTogJWxsdSBLQi9zXG4i
+LAo+ICsJCSBvcCwgc2l6ZSwgZG1hID8gIllFUyIgOiAiTk8iLCAmdHMsIHJhdGUpOwo+ICB9Cj4g
+IAo+ICBzdGF0aWMgdm9pZCBwY2lfZXBmX3Rlc3RfY29weShzdHJ1Y3QgcGNpX2VwZl90ZXN0ICpl
+cGZfdGVzdCwKPiAtLSAKPiAyLjUwLjEKPiAKCi0tIArgrq7grqPgrr/grrXgrqPgr43grqPgrqng
+r40g4K6a4K6k4K6+4K6a4K6/4K614K6u4K+NCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApPcGVu
+aXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291cmNl
+Zm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
