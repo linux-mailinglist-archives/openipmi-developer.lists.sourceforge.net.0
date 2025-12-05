@@ -2,71 +2,106 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1C793CA6ACA
-	for <lists+openipmi-developer@lfdr.de>; Fri, 05 Dec 2025 09:18:57 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A7EEACA7B50
+	for <lists+openipmi-developer@lfdr.de>; Fri, 05 Dec 2025 14:13:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:Mime-Version:Date:Message-Id:In-Reply-To:
-	References:To:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8HSfiMD2jEkmHsV6jw1q92zFCcp392NiKppyitK7qc=; b=i2C8u5r6luiw9P7cV/lRb5lp7m
-	l/YYvk+rPI95Ddh8iZOFV2YzTcdH5XlVauhkDWazwjPueGcFVic06rulthdDw5zMBMsQxqt4DYnVG
-	IOT9Eb3P8T0qLhoKmzwHWnL/9pZ6k0lIbrVCPuAStTQLIIPaOKnegJxvOGe+k7Xy7Op4=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
+	List-Id:Subject:MIME-Version:Message-ID:To:From:Date:Sender:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bH6PpIricD+RU3Vnv4Cr0lpK5RE3gaqCBAaOjebEHqw=; b=EWxrTIBoXKn15disqZMUkNh9/v
+	0efHV3ErRyyqUO9PVOfC2MD9NBPrd4SLiWOzKqBWQU7G+GqR9OwN7pC601xhe4a5h1w4PT/zD9Ydf
+	DmmcYX+58qYqtqS6Zl89IeQCdHwz2yFUUc6OqsT+uI4qralDl5KXrkE/GtYjSXZ+O3Hk=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vRR1U-0002Ys-Cn;
-	Fri, 05 Dec 2025 08:18:40 +0000
+	id 1vRVcr-00074p-F2;
+	Fri, 05 Dec 2025 13:13:33 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <guojinhui.liam@bytedance.com>) id 1vRR1I-0002Ua-Ew
+ (envelope-from <corey@minyard.net>) id 1vRVcq-00074i-Hp
  for openipmi-developer@lists.sourceforge.net;
- Fri, 05 Dec 2025 08:18:28 +0000
+ Fri, 05 Dec 2025 13:13:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Mime-Version:Date:Subject:Content-Type:Message-Id:
- From:In-Reply-To:References:Content-Transfer-Encoding:Cc:To:Sender:Reply-To:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Cn8Adhn8cguQubUpTmAvmczsPfC3Ffk2GV6iZZrLE1U=; b=dSJE0AE7lLhfkXs8tkmtmq1flw
- pUNTTihSdaVnbvXVcSkk/6dB9qT02WiL7LTYwu4G2ZCtWNywx7Ie258QlLH0fliahauvKWgLnIxdf
- sFvHCLUxG6C+TIamX/Q8PcFNXdclugFb21FbZOvGO2PIRZPNFXpnqQWatQ/FKDO2/Hm8=;
+ bh=ykZn5PedbM64427wmw5x0MYmZ3320hr62ydC099Sr5Q=; b=jJ6699YnpQRWlj7F0XrX2Hr8MA
+ bLmENtzWc9TYpCuc/Qmhi6QparfCyS+Oh5z9ChwVTjL6sJk4B6cbgkma+BTrz2EKqhTGDxRiss9Pt
+ IKikY+/vcDRII4L8zUSwR+nM9IjAn3QsxWXkMBdg8LqgSxdg0nyzNkqAG0lDuUtFy8iA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Mime-Version:Date:Subject:Content-Type:Message-Id:From:In-Reply-To:
- References:Content-Transfer-Encoding:Cc:To:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=Cn8Adhn8cguQubUpTmAvmczsPfC3Ffk2GV6iZZrLE1U=; b=NY9ewtwhZB+TEalvrE34hFM31k
- IKeNgukceJNVPHj+vdGOWW3OT2gabxDrHI9Rs8J1P8Jm4NbVsphGlqrxNSfHE6HQpLYOU90hWdJzg
- Kyh77Qy48Iwm6lhhwFEM6rZq1pZlJft1oQwuQ7xj1GcnJw876fzAB+m9D8+ZIWuNu5Hg=;
-Received: from sg-1-100.ptr.blmpb.com ([118.26.132.100])
+ h=Content-Type:MIME-Version:Reply-To:Message-ID:Subject:Cc:To:From:Date:
+ Sender:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=ykZn5PedbM64427wmw5x0MYmZ3320hr62ydC099Sr5Q=; b=A
+ 1JKCc4fVXzKv3EaBwAqB9Je3MusFATg++CNjTOFk7YzwbduFigKN3fqXjOZI8I0i/mwXMJBKp9mIj
+ qZVLyxXD4beeLv1vibm6wtBF47OCq1nV6u93mcPsxOcfR/Gj1Miom+EC7M6+H7n6jPVXDgCfr+xdG
+ +4jMBHSxCdxye58I=;
+Received: from mail-qk1-f178.google.com ([209.85.222.178])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1vRR1H-00063y-AU for openipmi-developer@lists.sourceforge.net;
- Fri, 05 Dec 2025 08:18:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1764921674; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=Cn8Adhn8cguQubUpTmAvmczsPfC3Ffk2GV6iZZrLE1U=;
- b=RnVXKwAI6dHAn3JDO2b23H6wF22Ly9Ys/M3DUyNIRHhAKJBifOl3MUGSx2C4alVMi7W1/h
- 78TpbCFurCATgFxdsFUqjDjkfm0NF1Xaanl10wcgR4B6Azy7TRo6ONpcdNDH3WpsW1TRij
- lbUrmIrq+RJSmfGAla1peJ9jgkNcuG8kGgXKxQzIE3FsG8v4jOepcgtywEQtYzIvABZ+F+
- Gw67NQ7Md1yRMXU/USiUDYhZBsU0tgHSFTQMZg95ZX3NVFz5uix/lyoi+YcNT1a+Lxvrsd
- u4nFKg21Wo577yIATu9iK9qimRjioBKriR89zYrKdt/7DqTrYRvxvZnIBsNn8A==
-To: <corey@minyard.net>
-X-Original-From: Jinhui Guo <guojinhui.liam@bytedance.com>
-References: <aN_vFKhMi0tDT2rK@mail.minyard.net>
-In-Reply-To: <aN_vFKhMi0tDT2rK@mail.minyard.net>
-X-Mailer: git-send-email 2.17.1
-Message-Id: <20251205080102.1039-1-guojinhui.liam@bytedance.com>
-X-Lms-Return-Path: <lba+269329148+39e6f6+lists.sourceforge.net+guojinhui.liam@bytedance.com>
-Date: Fri,  5 Dec 2025 16:01:02 +0800
-Mime-Version: 1.0
+ id 1vRVcq-0007qS-1E for openipmi-developer@lists.sourceforge.net;
+ Fri, 05 Dec 2025 13:13:32 +0000
+Received: by mail-qk1-f178.google.com with SMTP id
+ af79cd13be357-8b2dcdde65bso309983885a.0
+ for <openipmi-developer@lists.sourceforge.net>;
+ Fri, 05 Dec 2025 05:13:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=minyard.net; s=google; t=1764940406; x=1765545206; darn=lists.sourceforge.net;
+ h=content-disposition:mime-version:reply-to:message-id:subject:cc:to
+ :from:date:from:to:cc:subject:date:message-id:reply-to;
+ bh=ykZn5PedbM64427wmw5x0MYmZ3320hr62ydC099Sr5Q=;
+ b=RHoaWjDbWhxsyL0E0uYJcnMHpiZwmNpN2TJXz7Xjtj77HCjmkk2HoUkOG0R8g0KaCy
+ I74cy3cLU2haacqPSPM9OtH0JcNLNHsM7zA5rl5rHGLkLxQSln/rWgc5Ulj+OFXW4DWl
+ SPlzZa6J7Nok25LrXKs/ZMV2y7/ltHvtCsz6+qPcNfNzGW05mXcwLSfyJ9QZ7/YEnHob
+ ymhsMq0TPtu12Tfaxb/CXHR3lRQ34Tyj4NDt3f6EIRykmsTZvZK16KkzW2iN41Yv3RMO
+ GTRgoOcUCqoevPlpPPh0+l45EymSUVNYWVxhabbRwSdDEjvgFGUz2vMgEy0U8TRh6VDJ
+ CdWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1764940406; x=1765545206;
+ h=content-disposition:mime-version:reply-to:message-id:subject:cc:to
+ :from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=ykZn5PedbM64427wmw5x0MYmZ3320hr62ydC099Sr5Q=;
+ b=j38x4jo72VG/tnUndwC2d0S4ME7JJF0deWAmy9yrsqDhc7wLNtejeo1j3lUV6QT38d
+ 4tzN1mpLVfaNkCBut8QPCzSqpD26Ryxv4/uMGqN3IhyqUCkp9s1VBVYhWW/Fe5NiqGwr
+ +c92MHgmJIs/KgdRjlZhCfYPA2iT+NNAN2ADnuWdtmn8uDeMOmHcxNncIZSIqAvBsmo/
+ J8J5BCWFTbaQdbZLW/FhFdQW9u4NZ+sPBQ9Ouuxbjg++nrnS3FZ5mSZrk2Aljpk9adSI
+ 63ezZGXJAMfIRz8d78CiitckDZRoojM4psZoDFVW9Cdf1tJC5INUYmNpbv1ObmTG5ZRG
+ Pbcg==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCUhJyKi6oP+F2jah2Ytghzlttdtx/fBxa/LSzyZ/MgftOjFlObdcJanK2RdfF9TlU1hzbwuDR2WsmEUYbJp4R42mdo=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YwwwgXTkThcoG8pKhvw6+7SAS1IXSUxATuN0q0v+Ucp6/55E3wi
+ 8ENN61UDu6naDxJobuMEVoVjq2P17ByaGjHZDiAPDqqtQcrb5Se6jTxeit+oUwJVyBmsYCeAwpb
+ RSgc8
+X-Gm-Gg: ASbGnctQHagxCuQwbgwyy6qqT7xP4UbWutboKKoqgxT+Y6gLCN7/lDsQjRnm3zVF/lz
+ drZqafQeT1KOKB4ikBIr+KSKZvI6K03H9NAt8iz12KGdQCWdJMOsIgB5Au5VOicw5Cck9/0bTbU
+ OEMCTdANxAuayI18DtZybyziC7qJZPQm3xi4bnT8JlCOYRiwQhgRjMli3ZAIjYuQM6UDWQ3H16O
+ aG+a9f03zCpXoS/3MJQAhtvXEw4dtebbvb/e/XdjZBkqUOBDmt5Sz2NLaHBjaOczsOfqkA966pb
+ v2Mk3tOCrRK4VDLenUYfb3B54BT8JUn+i9h7b1yqwIxhPmo/0NBoe8z+HPoNs1IBq8kRqSAO13V
+ QLMSRlh1C+j+v9Sv73WDmmEN1gA1DGCmoLUnTs08h6tahCeCwlMH4+bZ+gQHYiVo4rS9t0ZU1e+
+ XLQsI3Er/ht2Kvyw==
+X-Google-Smtp-Source: AGHT+IEu/hcj28Ny3x+GLKVbEImQqAA7KUM9oMVjtVf/w8zjv7RERky/CeGW9JQ6e2pFy79r7hGIuA==
+X-Received: by 2002:a05:6830:4489:b0:7c5:2dbf:4a7d with SMTP id
+ 46e09a7af769-7c958cdfb99mr4473157a34.31.1764939900602; 
+ Fri, 05 Dec 2025 05:05:00 -0800 (PST)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:28e7:17ef:849f:8533])
+ by smtp.gmail.com with ESMTPSA id
+ 46e09a7af769-7c95a93f050sm3974063a34.12.2025.12.05.05.04.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 05 Dec 2025 05:05:00 -0800 (PST)
+Date: Fri, 5 Dec 2025 07:04:53 -0600
+From: Corey Minyard <corey@minyard.net>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <aTLYdRkTJ7ZCyP79@mail.minyard.net>
+MIME-Version: 1.0
+Content-Disposition: inline
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
@@ -74,9 +109,11 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Fri, Oct 3, 2025 at 10:43:16AM -0500, Corey Minyard wrote:
- > On Tue, Sep 30, 2025 at 03:42:36PM +0800, Jinhui Guo wrote: > > The command
- "ipmi -b -t" would occasionally fail: > > #ipmitool -b 6 -t [...] 
+ Content preview: The following changes since commit
+ 9b332cece987ee1790b2ed4c989e28162fa47860:
+ Merge tag 'nfsd-6.18-1' of
+ git://git.kernel.org/pub/scm/linux/kernel/git/cel/linux
+ (2025-10-14 09:28:12 -0700) are available in the Git repository at: 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -87,9 +124,10 @@ X-Spam-Report: Spam detection software,
  domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1vRR1H-00063y-AU
-Subject: Re: [Openipmi-developer] [PATCH v2 0/3] ipmi: Close the race
- between __scan_channels() and deliver_response()
+ 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.222.178 listed in wl.mailspike.net]
+X-Headers-End: 1vRVcq-0007qS-1E
+Subject: [Openipmi-developer] [GIT PULL] IPMI bug fixes for 6.19
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -102,56 +140,60 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Jinhui Guo via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Jinhui Guo <guojinhui.liam@bytedance.com>
-Cc: openipmi-developer@lists.sourceforge.net, guojinhui.liam@bytedance.com,
- linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: corey@minyard.net
+Cc: openipmi-developer@lists.sourceforge.net,
+ linux-kernel <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-T24gRnJpLCBPY3QgMywgMjAyNSBhdCAxMDo0MzoxNkFNIC0wNTAwLCBDb3JleSBNaW55YXJkIHdy
-b3RlOgo+IE9uIFR1ZSwgU2VwIDMwLCAyMDI1IGF0IDAzOjQyOjM2UE0gKzA4MDAsIEppbmh1aSBH
-dW8gd3JvdGU6Cj4gPiBUaGUgY29tbWFuZCAiaXBtaSAtYiAtdCIgd291bGQgb2NjYXNpb25hbGx5
-IGZhaWw6Cj4gPiAgICNpcG1pdG9vbCAtYiA2IC10IDB4MmMgcmF3IDB4NiAweDAxCj4gPiAgIFVu
-YWJsZSB0byBzZW5kIGNvbW1hbmQ6IEludmFsaWQgYXJndW1lbnQKPiA+ICAgVW5hYmxlIHRvIHNl
-bmQgUkFXIGNvbW1hbmQgKGNoYW5uZWw9MHg2IG5ldGZuPTB4NiBsdW49MHgwIGNtZD0weDEpCj4g
-PiAKPiA+IFRoZSByYWNlIHdpbmRvdyBiZXR3ZWVuIF9fc2Nhbl9jaGFubmVscygpIGFuZCBkZWxp
-dmVyX3Jlc3BvbnNlKCkgY2F1c2VzCj4gPiB0aGUgcGFyYW1ldGVycyBvZiBzb21lIGNoYW5uZWxz
-IHRvIGJlIHNldCB0byAwLgo+ID4gCj4gPiBGaXggdGhlIHJhY2UgYmV0d2VlbiBfX3NjYW5fY2hh
-bm5lbHMoKSBhbmQgZGVsaXZlcl9yZXNwb25zZSgpIHdpdGggdGhlCj4gPiBmb2xsb3dpbmcgY2hh
-bmdlcy4KPiA+IAo+ID4gMS4gT25seSBhc3NpZ24gaW50Zi0+Y2hhbm5lbF9saXN0ID0gaW50Zi0+
-d2NoYW5uZWxzIGFuZCBzZXQKPiA+ICAgIGludGYtPmNoYW5uZWxzX3JlYWR5ID0gdHJ1ZSBpbiBj
-aGFubmVsX2hhbmRsZXIoKSBhZnRlciBhbGwgY2hhbm5lbHNfcmVhZHkKPiA+ICAgIGhhdmUgYmVl
-biBzdWNjZXNzZnVsbHkgc2Nhbm5lZCBvciBhZnRlciBmYWlsaW5nIHRvIHNlbmQgdGhlIElQTUkK
-PiA+ICAgIHJlcXVlc3QuCj4gPiAyLiBjaGFubmVsX2hhbmRsZXIoKSBzZXRzIGludGYtPmNoYW5u
-ZWxzX3JlYWR5IHRvIHRydWUgYnV0IG5vIG9uZSBjbGVhcnMKPiA+ICAgIGl0LCBwcmV2ZW50aW5n
-IF9fc2Nhbl9jaGFubmVscygpIGZyb20gcmVzY2FubmluZyBjaGFubmVscy4gV2hlbiB0aGUgQk1D
-Cj4gPiAgICBmaXJtd2FyZSBjaGFuZ2VzIGEgcmVzY2FuIGlzIHJlcXVpcmVkLiBBbGxvdyBpdCBi
-eSBjbGVhcmluZyB0aGUgZmxhZwo+ID4gICAgYmVmb3JlIHN0YXJ0aW5nIGEgbmV3IHNjYW4uCj4g
-PiAzLiBDaGFubmVscyByZW1haW4gc3RhdGljIHVubGVzcyB0aGUgQk1DIGZpcm13YXJlIGNoYW5n
-ZXMuIFNraXAgY2hhbm5lbAo+ID4gICAgcmVzY2FuIHdoZW4gbm8gQk1DIGZpcm13YXJlIHVwZGF0
-ZSBoYXMgb2NjdXJyZWQuCj4gPiAKPiA+IAo+ID4gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2FsbC8yMDI1MDkyOTA4MTYwMi4xOTAxLTEtZ3VvamluaHVpLmxpYW1AYnl0ZWRhbmNlLmNvbS8K
-PiA+IAo+ID4gQ2hhbmdlbG9nIGluIHYxIC0+IHYyIChzdWdnZXN0ZWQgYnkgY29yZXkpOgo+ID4g
-IC0gU3BsaXQgdGhlIGZpeCBpbnRvIHRocmVlIGluZGVwZW5kZW50IHBhdGNoZXMsIGVhY2ggYWRk
-cmVzc2luZyBhCj4gPiAgICBzZXBhcmF0ZSBpc3N1ZS4KPiA+ICAtIENsZWFyIGludGYtPmNoYW5u
-ZWxzX3JlYWR5IG9ubHkgd2hlbiB0aGUgQk1DIGZpcm13YXJlIGNoYW5nZXMuCj4gPiAKPiA+IEpp
-bmh1aSBHdW8gKDMpOgo+ID4gICBpcG1pOiBGaXggdGhlIHJhY2UgYmV0d2VlbiBfX3NjYW5fY2hh
-bm5lbHMoKSBhbmQgZGVsaXZlcl9yZXNwb25zZSgpCj4gPiAgIGlwbWk6IEZpeCBfX3NjYW5fY2hh
-bm5lbHMoKSBmYWlsaW5nIHRvIHJlc2NhbiBjaGFubmVscwo+ID4gICBpcG1pOiBTa2lwIGNoYW5u
-ZWwgc2NhbiBpZiBjaGFubmVscyBhcmUgYWxyZWFkeSBtYXJrZWQgcmVhZHkKCj4gSSBoYXZlIHRo
-ZXNlIHF1ZXVlZCBmb3IgNi4xOC4gIEkgbmVlZCB0byByZS1yZXZpZXcgdGhlbTsgdGhhdCB3aWxs
-Cj4gcHJvYmFibHkgaGFwcGVuIGxhdGVyIGluIHRoZSBjeWNsZTsgSSBjYW4ndCBwdXQgdGhlbSBp
-biB1bnRpbCA2LjE3LXJjMQo+IHJlbGVhc2VzLgoKPiBUaGFua3MsCgo+IC1jb3JleQoKSGksIGNv
-cmV5CgpGcmllbmRseSBwaW5nIOKAlCBwbGVhc2UgbGV0IG1lIGtub3cgaWYgeW91IG5lZWQgYW55
-dGhpbmcgZWxzZSAocmViYXNlLCBtb3JlIHJldmlldywKdGVzdCByZXN1bHRzKSBhbmQgSeKAmWxs
-IGJlIGhhcHB5IHRvIHRha2UgY2FyZSBvZiBpdC4KClRoYW5rcyBmb3IgeW91ciB0aW1lLCBhbmQg
-c29ycnkgZm9yIHRoZSBub2lzZS4KCkJlc3QgcmVnYXJkcywKSmluaHVpCgo+ID4gCj4gPiAgZHJp
-dmVycy9jaGFyL2lwbWkvaXBtaV9tc2doYW5kbGVyLmMgfCAyNCArKysrKysrKysrKysrKysrKy0t
-LS0tLS0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMTcgaW5zZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMo
-LSkKPiA+IAo+ID4gLS0gCj4gPiAyLjIwLjEKPiA+CgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KT3BlbmlwbWktZGV2ZWxvcGVyIG1haWxpbmcgbGlzdApP
-cGVuaXBtaS1kZXZlbG9wZXJAbGlzdHMuc291cmNlZm9yZ2UubmV0Cmh0dHBzOi8vbGlzdHMuc291
-cmNlZm9yZ2UubmV0L2xpc3RzL2xpc3RpbmZvL29wZW5pcG1pLWRldmVsb3Blcgo=
+The following changes since commit 9b332cece987ee1790b2ed4c989e28162fa47860:
+
+  Merge tag 'nfsd-6.18-1' of git://git.kernel.org/pub/scm/linux/kernel/git/cel/linux (2025-10-14 09:28:12 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/cminyard/linux-ipmi.git tags/for-linus-6.19-1
+
+for you to fetch changes up to 35bcedc1a7938da808f54510d8bc7d90cebb6278:
+
+  MAINTAINERS: Add entry on Loongson-2K IPMI driver (2025-10-15 06:37:22 -0500)
+
+----------------------------------------------------------------
+Minor IPMI fixes
+
+Some device tree cleanups and a maintainer add.
+
+Fix a race when handling channel updates that could result in errors
+being reported to the user in some cases.
+
+----------------------------------------------------------------
+Binbin Zhou (1):
+      MAINTAINERS: Add entry on Loongson-2K IPMI driver
+
+Jinhui Guo (3):
+      ipmi: Fix the race between __scan_channels() and deliver_response()
+      ipmi: Fix __scan_channels() failing to rescan channels
+      ipmi: Skip channel scan if channels are already marked ready
+
+Rob Herring (Arm) (2):
+      dt-bindings: ipmi: Convert nuvoton,npcm750-kcs-bmc to DT schema
+      dt-bindings: ipmi: Convert aspeed,ast2400-ibt-bmc to DT schema
+
+ .../bindings/ipmi/aspeed,ast2400-ibt-bmc.txt       | 28 -----------
+ .../bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml      | 44 +++++++++++++++++
+ .../devicetree/bindings/ipmi/npcm7xx-kcs-bmc.txt   | 40 ----------------
+ .../bindings/ipmi/nuvoton,npcm750-kcs-bmc.yaml     | 55 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ drivers/char/ipmi/ipmi_msghandler.c                | 24 +++++++---
+ 6 files changed, 117 insertions(+), 75 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
+ create mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
+ delete mode 100644 Documentation/devicetree/bindings/ipmi/npcm7xx-kcs-bmc.txt
+ create mode 100644 Documentation/devicetree/bindings/ipmi/nuvoton,npcm750-kcs-bmc.yaml
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
