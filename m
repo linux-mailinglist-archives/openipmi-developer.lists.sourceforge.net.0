@@ -2,71 +2,71 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C95F0CB1D2F
-	for <lists+openipmi-developer@lfdr.de>; Wed, 10 Dec 2025 04:50:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4C456CB1D3B
+	for <lists+openipmi-developer@lfdr.de>; Wed, 10 Dec 2025 04:50:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Subject:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:To:Sender:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZdE2pk1eTIT/4csZ77mo1RSpuj3kNcHPyGMjrtODjI4=; b=j39jWv17QXWLVEA34ii0+cyFgV
-	aHtoAHEIfvEKlUqNpYelgk96EqTNBSqSG1dVeHWe+blzf1QHkBaj4u31bRFA3FjnMxi+Uw6OPApF/
-	6sGwNVFoaNTaP8guBHMueIr67Kdb04kxWpzhcpMNL+1xV+ATZCLBid4WFAQmjy5PxdI0=;
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=eFAgCf+Nm98yZSbKc5VOyhykdeZiKkrqqJCNksx2y2I=; b=jekcdG9VYz0TtNfwZJWtQLZR7d
+	DqiO8yKgyTFlnhm8u1Odo1FjQo6B7OvuZMqVNfx+0rvsA2fkfIBGydckakq/8WqZXgzIfY7RFkDrx
+	gZYyo2duuds1Na5b28dWfg5ZLV6BROeccuoJez7yrGHcwlTtBlN1DpMCkvBFVXL5/n3U=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vTBD1-0004v2-9l;
-	Wed, 10 Dec 2025 03:49:48 +0000
+	id 1vTBDU-0008Dk-6q;
+	Wed, 10 Dec 2025 03:50:16 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <sashal@kernel.org>) id 1vTBCz-0004um-U9
+ (envelope-from <sashal@kernel.org>) id 1vTBDS-0008Dd-L6
  for openipmi-developer@lists.sourceforge.net;
- Wed, 10 Dec 2025 03:49:46 +0000
+ Wed, 10 Dec 2025 03:50:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
+ :References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=y25TG8Ownc/DGLDjfwIrZ5EyA/Jr2nq11nSHTsRLQ1A=; b=eD7yYlxPpo9o1S/BrR1gk3Z/YT
- gIOBUl7S9LRe44J9n06mNAbntXNFSx2rGU6Z1B7k3Ikk9r/wvCjPqikQh0QRusVhQOuW9agjm1PsT
- g2BJGATzWZ1O++qa0cGVJ+FJVn/3PckIXXnhmCvqAQGnRnZ6evMqSkDTWGNIbkRNYbf4=;
+ bh=ayKdmY5vztl0zqIEddMxgUvxbX6qp79Pyx7IXWuMkMg=; b=fy7q4iNT2G1crvt4707cFjE15N
+ V2ojlcb9QccseoymrWKcAXvYZMLmdoKnCP8oaTWspTmXQnjo5GTQGNLH2S6zr9r3y2+rvOUW6jUAq
+ bP4AqCFoBvr9KZaW1t0T8Q4k7M5Vr8uf2ySWuVZs/YoTxYrSxzqK5h1eB4mcuCFAMGMU=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
+ In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=y25TG8Ownc/DGLDjfwIrZ5EyA/Jr2nq11nSHTsRLQ1A=; b=bK/vWY7a/VLMcnIWbVyQqzLhIW
- 7XX5Cr7zMj0IOEOI3dBKM+byBUDsVcqn7CT1SI0XMjX+h6/UGGKTj/RdIlV+jCXvEJUfl/y7tYa+b
- jN04hB4yQ1sZF0t/CKyLbAv86duD0GqeOc2OnLnXow3IaQPOJ+reMt03JufTFZ/kWatE=;
-Received: from sea.source.kernel.org ([172.234.252.31])
+ bh=ayKdmY5vztl0zqIEddMxgUvxbX6qp79Pyx7IXWuMkMg=; b=Hel22ZJS9GHZoOdSRrikigl/4v
+ IqM9CtV3ZVAaUkrYn3GO1x63lQl5K8SE03mLxJTIdLQ4oSv5GVz7QHNL8xkUqn7P9roQKVo4L1w3Q
+ rAh4lYpblxAjc+NuO7Ezz2i3ctBHl/FoUHD86KZC0BU7rpXt6pLWaUYAj0z/ZomzV2/Y=;
+Received: from tor.source.kernel.org ([172.105.4.254])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vTBCz-0002lS-VC for openipmi-developer@lists.sourceforge.net;
- Wed, 10 Dec 2025 03:49:46 +0000
+ id 1vTBDR-0002mn-KO for openipmi-developer@lists.sourceforge.net;
+ Wed, 10 Dec 2025 03:50:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by sea.source.kernel.org (Postfix) with ESMTP id 9552642B32;
- Wed, 10 Dec 2025 03:49:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D9C9C16AAE;
- Wed, 10 Dec 2025 03:49:39 +0000 (UTC)
+ by tor.source.kernel.org (Postfix) with ESMTP id E26C060144;
+ Wed, 10 Dec 2025 03:50:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 930B7C4CEF1;
+ Wed, 10 Dec 2025 03:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1765338580;
- bh=Alrl3JLu37A805PoxAA6JkIgTa1/iH8zV6XBFvcIWyI=;
+ s=k20201202; t=1765338602;
+ bh=OHfnrpfgygon8ZVld9NZYNgWEsAt15xFUVwowXAjx0Q=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=CYo/ck9gav4BngyhivwEVGww50hmNF99oU25Xk9MKvwG3ftngM9mGh4auSW8bpXQz
- a6cY55Sj8PDQAXf1q/BzB8XMrRGTJYFqzfCBnuNn04cUbLLhGTWlYKKMghyHcMsc5o
- 6fSibfJd8M3wDKEG+6i10XciPnHJsWx0kIfMVmQFVFssLsIVb+nday7azIR/yXxD8H
- c8RdVp9jHtnkYcU4VQ4Y33qYMMRLsHqOIRI0JkWUtHIlGJhcMDW4edEEyJ38PuflUa
- q40zNB9fmpzcemHPAGcAMeTgoHgsHoDNobXBQOfePBfHllisd/QjPKUWETejLJSq1x
- e6/jC2/It62Nw==
+ b=q2trdG7GOCV+xQ0BMuf+avVIvytjb5QdtEeLOFpwczGlCRD+p0frIbs9veQwHnYN2
+ GrErt4I2oF8eYce1BRlNWnfvSlGq7HeN7Paik/uJGza1OyG9Df7LEoaQIKLifIaLZ3
+ rethaVcxpBF7nQYz2zOt9XhkTBODuaFeEl1pfJ+H6yJVanU3fLw+mobz+CxwOIm8c8
+ NnOgQrpAK+xv/DRp6xYLmWYgiQj8r11Gxp3iOW9XffZU1bFgXYS9mlCJyJsGPoMJk0
+ ApV6nNVVwtH77Ty5zsS9CJjG5RPoXF7Vk3sv7uooZlwJqM9aGhko+zJvqpfNplIMQG
+ lSVrS3mtoGavg==
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Date: Tue,  9 Dec 2025 22:48:52 -0500
-Message-ID: <20251210034915.2268617-11-sashal@kernel.org>
+Date: Tue,  9 Dec 2025 22:49:01 -0500
+Message-ID: <20251210034915.2268617-20-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251210034915.2268617-1-sashal@kernel.org>
 References: <20251210034915.2268617-1-sashal@kernel.org>
@@ -74,32 +74,33 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18
-X-Spam-Score: -0.2 (/)
+X-Spam-Score: 0.8 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
  Content preview:  From: Jinhui Guo <guojinhui.liam@bytedance.com> [ Upstream
- commit 6bd30d8fc523fb880b4be548e8501bc0fe8f42d4 ] channel_handler() sets
- intf->channels_ready to true but never clears it, so __scan_channels() skips
- any rescan. When the BMC firmware changes a rescan is required. Allow it
- by clearing the flag before [...] 
- Content analysis details:   (-0.2 points, 5.0 required)
+ commit 936750fdba4c45e13bbd17f261bb140dd55f5e93 ] The race window between
+ __scan_channels() and deliver_response() causes the parameters of some
+ channels to be set to 0. 
+ Content analysis details:   (0.8 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
+ 1.0 RCVD_IN_UCE2           RBL: IP Subnet Listed in UCEPROTECT Level 2
+ [172.105.4.254 listed in dnsbl-2.uceprotect.net]
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vTBCz-0002lS-VC
-Subject: [Openipmi-developer] [PATCH AUTOSEL 6.18-5.10] ipmi: Fix
- __scan_channels() failing to rescan channels
+X-Headers-End: 1vTBDR-0002mn-KO
+Subject: [Openipmi-developer] [PATCH AUTOSEL 6.18-5.10] ipmi: Fix the race
+ between __scan_channels() and deliver_response()
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -118,229 +119,133 @@ Reply-To: Sasha Levin <sashal@kernel.org>
 Cc: Corey Minyard <corey@minyard.net>, Sasha Levin <sashal@kernel.org>,
  openipmi-developer@lists.sourceforge.net,
  Jinhui Guo <guojinhui.liam@bytedance.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-From: Jinhui Guo <guojinhui.liam@bytedance.com>
-
-[ Upstream commit 6bd30d8fc523fb880b4be548e8501bc0fe8f42d4 ]
-
-channel_handler() sets intf->channels_ready to true but never
-clears it, so __scan_channels() skips any rescan. When the BMC
-firmware changes a rescan is required. Allow it by clearing
-the flag before starting a new scan.
-
-Signed-off-by: Jinhui Guo <guojinhui.liam@bytedance.com>
-Message-ID: <20250930074239.2353-3-guojinhui.liam@bytedance.com>
-Signed-off-by: Corey Minyard <corey@minyard.net>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-LLM Generated explanations, may be completely bogus:
-
-## Analysis of IPMI Channel Rescan Fix
-
-### 1. COMMIT MESSAGE ANALYSIS
-
-**Subject:** "ipmi: Fix __scan_channels() failing to rescan channels" -
-clear bug fix indication.
-
-**Problem described:**
-- `channel_handler()` sets `intf->channels_ready = true` but never
-  clears it
-- This causes `__scan_channels()` to skip rescans
-- When BMC firmware changes, a rescan is required but doesn't happen
-
-**Tags check:**
-- No "Cc: stable@vger.kernel.org" tag
-- No "Fixes:" tag
-- Signed off by IPMI maintainer Corey Minyard
-
-### 2. CODE CHANGE ANALYSIS
-
-The fix adds a `bool rescan` parameter to `__scan_channels()`:
-
-```c
-static int __scan_channels(struct ipmi_smi *intf,
-                           struct ipmi_device_id *id,
-                           bool rescan)
-{
-    if (rescan) {
-        /* Clear channels_ready to force channels rescan. */
-        intf->channels_ready = false;
-    }
-    ...
-}
-```
-
-**Call site updates:**
-- `ipmi_add_smi()`: `__scan_channels(intf, &id, false)` - initial scan
-- `__bmc_get_device_id()` after BMC re-registration:
-  `__scan_channels(intf, &id, false)` - fresh state
-- `__bmc_get_device_id()` when version info changes:
-  `__scan_channels(intf, &bmc->fetch_id, true)` - rescan needed
-
-**Bug mechanism:** When BMC firmware changes and `__bmc_get_device_id()`
-detects version info differences, it calls `__scan_channels()` to update
-channel information. However, since `channels_ready` was already set
-`true` from the initial scan, the rescan logic is skipped, leaving stale
-channel information.
-
-### 3. CLASSIFICATION
-
-- **Type:** Bug fix (not a feature)
-- **Category:** Functional bug in existing driver logic
-- **Security:** No security implications
-
-### 4. SCOPE AND RISK ASSESSMENT
-
-**Scope:**
-- 1 file changed: `drivers/char/ipmi/ipmi_msghandler.c`
-- ~15 lines of actual changes (mostly parameter additions)
-- Localized to the `__scan_channels()` function and its callers
-
-**Risk:** LOW
-- The logic is simple and obvious: clear a boolean flag before
-  rescanning
-- No complex interactions or side effects
-- The differentiation between initial scan (`false`) and rescan (`true`)
-  is well-reasoned
-
-### 5. USER IMPACT
-
-**Affected users:**
-- Servers with IPMI/BMC interfaces (common in enterprise/datacenter
-  environments)
-- Users who update BMC firmware while the system is running
-
-**Impact without fix:**
-- After BMC firmware updates, IPMI channel information becomes stale
-- System management through IPMI may malfunction
-- Users must reboot to get correct channel information
-
-**Severity:** Medium - affects functionality, not crashes or data
-corruption
-
-### 6. STABILITY INDICATORS
-
-- Signed off by IPMI subsystem maintainer
-- The fix logic is straightforward and verifiable by inspection
-- No complex algorithmic changes
-
-### 7. DEPENDENCY CHECK
-
-- Self-contained fix with no dependencies on other commits
-- `ipmi_msghandler.c` exists in all stable trees (mature driver)
-- The affected functions (`__scan_channels`, `channel_handler`) exist in
-  stable kernels
-
-### Risk vs Benefit Assessment
-
-**Benefits:**
-- Fixes real-world bug: BMC firmware updates are common maintenance
-  operations
-- Small, surgical fix with minimal code changes
-- IPMI is critical for server management in enterprise environments
-
-**Risks:**
-- Very low - the change is obviously correct
-- Adding a parameter and clearing a flag is straightforward
-- No behavioral changes to working code paths (initial scan unchanged)
-
-### Concerns
-
-1. **No Fixes: tag** - Cannot determine when bug was introduced, making
-   it harder to know which stable versions need it
-2. **No explicit Cc: stable** - Author didn't request backport
-3. **Specific scenario** - Only affects systems where BMC firmware
-   changes at runtime
-
-### Conclusion
-
-This commit fixes a legitimate functional bug where IPMI channel
-rescanning fails after BMC firmware changes. The fix is:
-- **Obviously correct**: Clear a "ready" flag before rescanning
-- **Small and contained**: ~15 lines in one file
-- **Fixes a real bug**: Users who update BMC firmware encounter this
-- **Low risk**: Simple boolean flag manipulation
-
-While it lacks explicit stable tags, the fix is valuable for enterprise
-users who rely on IPMI for server management. The change is minimal, the
-logic is clear, and it restores expected functionality without
-introducing new features.
-
-**YES**
-
- drivers/char/ipmi/ipmi_msghandler.c | 18 +++++++++++++-----
- 1 file changed, 13 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-index d3f84deee4513..0a886399f9daf 100644
---- a/drivers/char/ipmi/ipmi_msghandler.c
-+++ b/drivers/char/ipmi/ipmi_msghandler.c
-@@ -599,7 +599,8 @@ static void __ipmi_bmc_unregister(struct ipmi_smi *intf);
- static int __ipmi_bmc_register(struct ipmi_smi *intf,
- 			       struct ipmi_device_id *id,
- 			       bool guid_set, guid_t *guid, int intf_num);
--static int __scan_channels(struct ipmi_smi *intf, struct ipmi_device_id *id);
-+static int __scan_channels(struct ipmi_smi *intf,
-+				struct ipmi_device_id *id, bool rescan);
- 
- static void free_ipmi_user(struct kref *ref)
- {
-@@ -2668,7 +2669,7 @@ static int __bmc_get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc,
- 		if (__ipmi_bmc_register(intf, &id, guid_set, &guid, intf_num))
- 			need_waiter(intf); /* Retry later on an error. */
- 		else
--			__scan_channels(intf, &id);
-+			__scan_channels(intf, &id, false);
- 
- 
- 		if (!intf_set) {
-@@ -2688,7 +2689,7 @@ static int __bmc_get_device_id(struct ipmi_smi *intf, struct bmc_device *bmc,
- 		goto out_noprocessing;
- 	} else if (memcmp(&bmc->fetch_id, &bmc->id, sizeof(bmc->id)))
- 		/* Version info changes, scan the channels again. */
--		__scan_channels(intf, &bmc->fetch_id);
-+		__scan_channels(intf, &bmc->fetch_id, true);
- 
- 	bmc->dyn_id_expiry = jiffies + IPMI_DYN_DEV_ID_EXPIRY;
- 
-@@ -3438,10 +3439,17 @@ channel_handler(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
- /*
-  * Must be holding intf->bmc_reg_mutex to call this.
-  */
--static int __scan_channels(struct ipmi_smi *intf, struct ipmi_device_id *id)
-+static int __scan_channels(struct ipmi_smi *intf,
-+				struct ipmi_device_id *id,
-+				bool rescan)
- {
- 	int rv;
- 
-+	if (rescan) {
-+		/* Clear channels_ready to force channels rescan. */
-+		intf->channels_ready = false;
-+	}
-+
- 	if (ipmi_version_major(id) > 1
- 			|| (ipmi_version_major(id) == 1
- 			    && ipmi_version_minor(id) >= 5)) {
-@@ -3656,7 +3664,7 @@ int ipmi_add_smi(struct module         *owner,
- 	}
- 
- 	mutex_lock(&intf->bmc_reg_mutex);
--	rv = __scan_channels(intf, &id);
-+	rv = __scan_channels(intf, &id, false);
- 	mutex_unlock(&intf->bmc_reg_mutex);
- 	if (rv)
- 		goto out_err_bmc_reg;
--- 
-2.51.0
-
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+RnJvbTogSmluaHVpIEd1byA8Z3VvamluaHVpLmxpYW1AYnl0ZWRhbmNlLmNvbT4KClsgVXBzdHJl
+YW0gY29tbWl0IDkzNjc1MGZkYmE0YzQ1ZTEzYmJkMTdmMjYxYmIxNDBkZDU1ZjVlOTMgXQoKVGhl
+IHJhY2Ugd2luZG93IGJldHdlZW4gX19zY2FuX2NoYW5uZWxzKCkgYW5kIGRlbGl2ZXJfcmVzcG9u
+c2UoKSBjYXVzZXMKdGhlIHBhcmFtZXRlcnMgb2Ygc29tZSBjaGFubmVscyB0byBiZSBzZXQgdG8g
+MC4KCjEuW0NQVUFdIF9fc2Nhbl9jaGFubmVscygpIGlzc3VlcyBhbiBJUE1JIHJlcXVlc3QgYW5k
+IHdhaXRzIHdpdGgKICAgICAgICAgd2FpdF9ldmVudCgpIHVudGlsIGFsbCBjaGFubmVscyBoYXZl
+IGJlZW4gc2Nhbm5lZC4KICAgICAgICAgd2FpdF9ldmVudCgpIGludGVybmFsbHkgY2FsbHMgbWln
+aHRfc2xlZXAoKSwgd2hpY2ggbWlnaHQKICAgICAgICAgeWllbGQgdGhlIENQVS4gKE1vcmVvdmVy
+LCBhbiBpbnRlcnJ1cHQgY2FuIHByZWVtcHQKICAgICAgICAgd2FpdF9ldmVudCgpIGFuZCBmb3Jj
+ZSB0aGUgdGFzayB0byB5aWVsZCB0aGUgQ1BVLikKMi5bQ1BVQl0gZGVsaXZlcl9yZXNwb25zZSgp
+IGlzIGludm9rZWQgd2hlbiB0aGUgQ1BVIHJlY2VpdmVzIHRoZQogICAgICAgICBJUE1JIHJlc3Bv
+bnNlLiBBZnRlciBwcm9jZXNzaW5nIGEgSVBNSSByZXNwb25zZSwKICAgICAgICAgZGVsaXZlcl9y
+ZXNwb25zZSgpIGRpcmVjdGx5IGFzc2lnbnMgaW50Zi0+d2NoYW5uZWxzIHRvCiAgICAgICAgIGlu
+dGYtPmNoYW5uZWxfbGlzdCBhbmQgc2V0cyBpbnRmLT5jaGFubmVsc19yZWFkeSB0byB0cnVlLgog
+ICAgICAgICBIb3dldmVyLCBub3QgYWxsIGNoYW5uZWxzIGFyZSBhY3R1YWxseSByZWFkeSBmb3Ig
+dXNlLgozLltDUFVBXSBTaW5jZSBpbnRmLT5jaGFubmVsc19yZWFkeSBpcyBhbHJlYWR5IHRydWUs
+IHdhaXRfZXZlbnQoKQogICAgICAgICBuZXZlciBlbnRlcnMgX193YWl0X2V2ZW50KCkuIF9fc2Nh
+bl9jaGFubmVscygpIGltbWVkaWF0ZWx5CiAgICAgICAgIGNsZWFycyBpbnRmLT5udWxsX3VzZXJf
+aGFuZGxlciBhbmQgZXhpdHMuCjQuW0NQVUJdIE9uY2UgaW50Zi0+bnVsbF91c2VyX2hhbmRsZXIg
+aXMgc2V0IHRvIE5VTEwsIGRlbGl2ZXJfcmVzcG9uc2UoKQogICAgICAgICBpZ25vcmVzIGZ1cnRo
+ZXIgSVBNSSByZXNwb25zZXMsIGxlYXZpbmcgdGhlIHJlbWFpbmluZwoJIGNoYW5uZWxzIHplcm8t
+aW5pdGlhbGl6ZWQgYW5kIHVudXNhYmxlLgoKQ1BVQSAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgQ1BVQgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICAtLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLQpfX3NjYW5fY2hhbm5lbHMoKQogaW50Zi0+bnVsbF91c2VyX2hhbmRsZXIK
+ICAgICAgID0gY2hhbm5lbF9oYW5kbGVyOwogc2VuZF9jaGFubmVsX2luZm9fY21kKGludGYsCiAg
+ICAgICAwKTsKIHdhaXRfZXZlbnQoaW50Zi0+d2FpdHEsCiAgICAgICBpbnRmLT5jaGFubmVsc19y
+ZWFkeSk7CiAgZG8gewogICBtaWdodF9zbGVlcCgpOwogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBkZWxpdmVyX3Jlc3BvbnNlKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIGNoYW5uZWxfaGFuZGxlcigpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+aW50Zi0+Y2hhbm5lbF9saXN0ID0KCQkJCSAgICAgICAgIGludGYtPndjaGFubmVscyArIHNldDsK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpbnRmLT5jaGFubmVsc19yZWFkeSA9
+IHRydWU7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2VuZF9jaGFubmVsX2lu
+Zm9fY21kKGludGYsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50
+Zi0+Y3Vycl9jaGFubmVsKTsKICAgaWYgKGNvbmRpdGlvbikKICAgIGJyZWFrOwogICBfX3dhaXRf
+ZXZlbnQod3FfaGVhZCwKICAgICAgICAgIGNvbmRpdGlvbik7CiAgfSB3aGlsZSgwKQogaW50Zi0+
+bnVsbF91c2VyX2hhbmRsZXIKICAgICAgID0gTlVMTDsKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgZGVsaXZlcl9yZXNwb25zZSgpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBpZiAoIW1zZy0+dXNlcikKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBp
+ZiAoaW50Zi0+bnVsbF91c2VyX2hhbmRsZXIpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHJ2ID0gLUVJTlZBTDsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJl
+dHVybiBydjsKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAgLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0KCkZpeCB0aGUgcmFjZSBiZXR3ZWVuIF9fc2Nhbl9jaGFubmVscygpIGFu
+ZCBkZWxpdmVyX3Jlc3BvbnNlKCkgYnkKZGVmZXJyaW5nIGJvdGggdGhlIGFzc2lnbm1lbnQgaW50
+Zi0+Y2hhbm5lbF9saXN0ID0gaW50Zi0+d2NoYW5uZWxzCmFuZCB0aGUgZmxhZyBpbnRmLT5jaGFu
+bmVsc19yZWFkeSA9IHRydWUgdW50aWwgYWxsIGNoYW5uZWxzIGhhdmUKYmVlbiBzdWNjZXNzZnVs
+bHkgc2Nhbm5lZCBvciB1bnRpbCB0aGUgSVBNSSByZXF1ZXN0IGhhcyBmYWlsZWQuCgpTaWduZWQt
+b2ZmLWJ5OiBKaW5odWkgR3VvIDxndW9qaW5odWkubGlhbUBieXRlZGFuY2UuY29tPgpNZXNzYWdl
+LUlEOiA8MjAyNTA5MzAwNzQyMzkuMjM1My0yLWd1b2ppbmh1aS5saWFtQGJ5dGVkYW5jZS5jb20+
+ClNpZ25lZC1vZmYtYnk6IENvcmV5IE1pbnlhcmQgPGNvcmV5QG1pbnlhcmQubmV0PgpTaWduZWQt
+b2ZmLWJ5OiBTYXNoYSBMZXZpbiA8c2FzaGFsQGtlcm5lbC5vcmc+Ci0tLQoKTExNIEdlbmVyYXRl
+ZCBleHBsYW5hdGlvbnMsIG1heSBiZSBjb21wbGV0ZWx5IGJvZ3VzOgoKIyMgU3VtbWFyeSBBbmFs
+eXNpcwoKIyMjIDEuIEJVRyBNRUNIQU5JU00KClRoaXMgY29tbWl0IGZpeGVzIGEgKipyYWNlIGNv
+bmRpdGlvbioqIGJldHdlZW4gdHdvIElQTUkgZnVuY3Rpb25zOgoKLSBgX19zY2FuX2NoYW5uZWxz
+KClgOiBJbml0aWF0ZXMgY2hhbm5lbCBzY2FubmluZywgc2V0cwogIGBudWxsX3VzZXJfaGFuZGxl
+ciA9IGNoYW5uZWxfaGFuZGxlcmAsIHRoZW4gd2FpdHMgZm9yIGBjaGFubmVsc19yZWFkeWAKLSBg
+Y2hhbm5lbF9oYW5kbGVyKClgIChjYWxsZWQgdmlhIGBkZWxpdmVyX3Jlc3BvbnNlKClgKTogUHJv
+Y2Vzc2VzIElQTUkKICByZXNwb25zZXMgZm9yIGVhY2ggY2hhbm5lbAoKKipUaGUgQnVnKiogKGlu
+dHJvZHVjZWQgaW4gY29tbWl0IDMxYjBiMDczMGFkMmEgZnJvbSBTZXB0ZW1iZXIgMjAxNyk6CgpJ
+biBgY2hhbm5lbF9oYW5kbGVyKClgLCBhZnRlciBwcm9jZXNzaW5nIGNoYW5uZWwgTidzIHJlc3Bv
+bnNlICh3aGVyZSBOIDwKSVBNSV9NQVhfQ0hBTk5FTFMtMSk6CjEuIExpbmVzIDM0MjAtMzQyMSBz
+ZXQgYGNoYW5uZWxzX3JlYWR5ID0gdHJ1ZWAgKipwcmVtYXR1cmVseSoqCjIuIFRoZW4gc2VuZHMg
+cmVxdWVzdCBmb3IgY2hhbm5lbCBOKzEKMy4gYF9fc2Nhbl9jaGFubmVscygpYCBtYXkgc2VlIGBj
+aGFubmVsc19yZWFkeSA9PSB0cnVlYCBhbmQgZXhpdCB0aGUKICAgd2FpdCBsb29wIGVhcmx5CjQu
+IGBfX3NjYW5fY2hhbm5lbHMoKWAgc2V0cyBgbnVsbF91c2VyX2hhbmRsZXIgPSBOVUxMYAo1LiBS
+ZXNwb25zZXMgZm9yIGNoYW5uZWxzIE4rMSwgTisyLCBldGMuIGFycml2ZSBidXQgYXJlICoqZGlz
+Y2FyZGVkKioKICAgYmVjYXVzZSBgbnVsbF91c2VyX2hhbmRsZXJgIGlzIE5VTEwKNi4gUmVtYWlu
+aW5nIGNoYW5uZWxzIGFyZSAqKnplcm8taW5pdGlhbGl6ZWQgYW5kIHVudXNhYmxlKioKCiMjIyAy
+LiBUSEUgRklYCgpUaGUgZml4IHNpbXBseSAqKnJlbW92ZXMgMiBsaW5lcyoqIHRoYXQgcHJlbWF0
+dXJlbHkgc2V0IGBjaGFubmVsc19yZWFkeQo9IHRydWVgIGluIHRoZSBgZWxzZWAgYnJhbmNoLiBB
+ZnRlciB0aGUgZml4LCBgY2hhbm5lbHNfcmVhZHkgPSB0cnVlYCBpcwpvbmx5IHNldCB3aGVuOgot
+IEFsbCBjaGFubmVscyBoYXZlIGJlZW4gc2Nhbm5lZCAoYGN1cnJfY2hhbm5lbCA+PSBJUE1JX01B
+WF9DSEFOTkVMU2ApLAogIE9SCi0gQW4gZXJyb3Igb2NjdXJzIChgcnYgIT0gMGApCgojIyMgMy4g
+Q0xBU1NJRklDQVRJT04KCnwgQ3JpdGVyaWEgfCBBc3Nlc3NtZW50IHwKfC0tLS0tLS0tLS18LS0t
+LS0tLS0tLS0tfAp8IEJ1ZyB0eXBlIHwgUmFjZSBjb25kaXRpb24gY2F1c2luZyBkYXRhIGNvcnJ1
+cHRpb24gKHplcm8taW5pdCBjaGFubmVscykKfAp8IEltcGFjdCB8IElQTUkgY2hhbm5lbHMgYmVj
+b21lIHVudXNhYmxlIG9uIGFmZmVjdGVkIHN5c3RlbXMgfAp8IFNpemUgfCAyIGxpbmVzIHJlbW92
+ZWQgLSBtaW5pbWFsIGFuZCBzdXJnaWNhbCB8CnwgUmlzayB8IFZlcnkgTE9XIC0gb25seSByZW1v
+dmVzIHByZW1hdHVyZSBhc3NpZ25tZW50cyB8CnwgU3Vic3lzdGVtIHwgSVBNSSAtIHVzZWQgZm9y
+IHNlcnZlciBtYW5hZ2VtZW50IHwKCiMjIyA0LiBTVEFCTEUgQkFDS1BPUlQgQ1JJVEVSSUEKCnwg
+Q3JpdGVyaW9uIHwgU3RhdHVzIHwKfC0tLS0tLS0tLS0tfC0tLS0tLS0tfAp8IE9idmlvdXNseSBj
+b3JyZWN0IHwg4pyFIFllcyAtIHNpbXBseSBkZWxheXMgc2V0dGluZyBmbGFnIHVudGlsIHRoZSBy
+aWdodAp0aW1lIHwKfCBGaXhlcyByZWFsIGJ1ZyB8IOKchSBZZXMgLSByYWNlIGNhdXNlcyBjaGFu
+bmVscyB0byBiZSB6ZXJvLWluaXRpYWxpemVkIHwKfCBVc2VyIGltcGFjdGluZyB8IOKchSBZZXMg
+LSBhZmZlY3RzIElQTUkgaGFyZHdhcmUgbWFuYWdlbWVudCB8CnwgU21hbGwgYW5kIGNvbnRhaW5l
+ZCB8IOKchSBZZXMgLSAyIGxpbmVzIGluIHNpbmdsZSBmaWxlIHwKfCBObyBuZXcgZmVhdHVyZXMg
+fCDinIUgQ29ycmVjdCAtIHB1cmUgYnVnIGZpeCB8CnwgTm8gQVBJIGNoYW5nZXMgfCDinIUgQ29y
+cmVjdCAtIGludGVybmFsIGNoYW5nZSBvbmx5IHwKCiMjIyA1LiBTSUdOQUxTCgoqKlBvc2l0aXZl
+IHNpZ25hbHM6KioKLSBGaXhlcyBhIHJlYWwgcmFjZSBjb25kaXRpb24gd2l0aCBjbGVhciBjYXVz
+ZSBhbmQgZWZmZWN0Ci0gTWluaW1hbCwgc3VyZ2ljYWwgZml4ICgyIGxpbmVzIHJlbW92ZWQpCi0g
+QnVnIGhhcyBleGlzdGVkIHNpbmNlIDIwMTcgKDMxYjBiMDczMGFkMmEpIC0gYWZmZWN0cyBhbGwg
+Y3VycmVudCBMVFMKICBrZXJuZWxzCi0gSVBNSSBtYWludGFpbmVyIChDb3JleSBNaW55YXJkKSBz
+aWduZWQgb2ZmCi0gRGV0YWlsZWQgY29tbWl0IG1lc3NhZ2UgZXhwbGFpbnMgdGhlIHJhY2Ugd2l0
+aCBDUFUgdGltaW5nIGRpYWdyYW0KCioqTWlzc2luZyBzaWduYWxzOioqCi0gTm8gZXhwbGljaXQg
+YENjOiBzdGFibGVAdmdlci5rZXJuZWwub3JnYCB0YWcKLSBObyBleHBsaWNpdCBgRml4ZXM6IDMx
+YjBiMDczMGFkMmFgIHRhZyAodGhvdWdoIGl0IHNob3VsZCBoYXZlIG9uZSkKLSBObyBUZXN0ZWQt
+YnkvUmV2aWV3ZWQtYnkgdGFncwoKIyMjIDYuIFJJU0sgdnMgQkVORUZJVAoKLSAqKkJlbmVmaXQq
+KjogRml4ZXMgYSByYWNlIGNvbmRpdGlvbiB0aGF0IG1ha2VzIElQTUkgY2hhbm5lbHMgdW51c2Fi
+bGUKICBvbiBzZXJ2ZXJzCi0gKipSaXNrKio6IEV4dHJlbWVseSBsb3cgLSB0aGUgZml4IG9ubHkg
+cmVtb3ZlcyBjb2RlIHRoYXQgcmFuIGF0IHRoZQogIHdyb25nIHRpbWU7IHRoZSBjb3JyZWN0IGNv
+ZGUgcGF0aHMgZm9yIHNldHRpbmcgYGNoYW5uZWxzX3JlYWR5YCBhcmUKICB1bnRvdWNoZWQKLSAq
+KkFmZmVjdGVkIHVzZXJzKio6IFNlcnZlci9kYXRhIGNlbnRlciB1c2VycyByZWx5aW5nIG9uIElQ
+TUkgZm9yCiAgaGFyZHdhcmUgbWFuYWdlbWVudAoKIyMjIDcuIERFUEVOREVOQ0lFUwoKVGhlIGZp
+eCBpcyBzdGFuZGFsb25lIGFuZCBkb2Vzbid0IGRlcGVuZCBvbiBvdGhlciBjb21taXRzLiBUaGUg
+YWZmZWN0ZWQKY29kZSBoYXMgZXhpc3RlZCB1bmNoYW5nZWQgc2luY2UgMjAxNywgc28gaXQgc2hv
+dWxkIGFwcGx5IGNsZWFubHkgdG8gYWxsCmFjdGl2ZSBzdGFibGUga2VybmVscy4KCiMjIyBDT05D
+TFVTSU9OCgpUaGlzIGlzIGEgY2xlYXIgYmFja3BvcnQgY2FuZGlkYXRlLiBUaGUgY29tbWl0IGZp
+eGVzIGEgcmVhbCByYWNlCmNvbmRpdGlvbiB0aGF0IGNhdXNlcyBJUE1JIGNoYW5uZWxzIHRvIGJl
+Y29tZSB1bnVzYWJsZS4gVGhlIGZpeCBpcwptaW5pbWFsICgyIGxpbmVzIHJlbW92ZWQpLCBvYnZp
+b3VzbHkgY29ycmVjdCAoc2ltcGx5IGRlbGF5cyBhIGZsYWcgdW50aWwKdGhlIHJpZ2h0IHRpbWUp
+LCBhbmQgY2FycmllcyB2aXJ0dWFsbHkgbm8gcmVncmVzc2lvbiByaXNrLiBJUE1JIGlzCmNyaXRp
+Y2FsIGluZnJhc3RydWN0dXJlIGZvciBzZXJ2ZXIgbWFuYWdlbWVudCwgbWFraW5nIHRoaXMgZml4
+IGltcG9ydGFudApmb3Igc3RhYmxlIHVzZXJzLgoKKipZRVMqKgoKIGRyaXZlcnMvY2hhci9pcG1p
+L2lwbWlfbXNnaGFuZGxlci5jIHwgMiAtLQogMSBmaWxlIGNoYW5nZWQsIDIgZGVsZXRpb25zKC0p
+CgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9tc2doYW5kbGVyLmMgYi9kcml2
+ZXJzL2NoYXIvaXBtaS9pcG1pX21zZ2hhbmRsZXIuYwppbmRleCAzNzAwYWI0ZWJhM2U3Li5kM2Y4
+NGRlZWU0NTEzIDEwMDY0NAotLS0gYS9kcml2ZXJzL2NoYXIvaXBtaS9pcG1pX21zZ2hhbmRsZXIu
+YworKysgYi9kcml2ZXJzL2NoYXIvaXBtaS9pcG1pX21zZ2hhbmRsZXIuYwpAQCAtMzQxNyw4ICsz
+NDE3LDYgQEAgY2hhbm5lbF9oYW5kbGVyKHN0cnVjdCBpcG1pX3NtaSAqaW50Ziwgc3RydWN0IGlw
+bWlfcmVjdl9tc2cgKm1zZykKIAkJCWludGYtPmNoYW5uZWxzX3JlYWR5ID0gdHJ1ZTsKIAkJCXdh
+a2VfdXAoJmludGYtPndhaXRxKTsKIAkJfSBlbHNlIHsKLQkJCWludGYtPmNoYW5uZWxfbGlzdCA9
+IGludGYtPndjaGFubmVscyArIHNldDsKLQkJCWludGYtPmNoYW5uZWxzX3JlYWR5ID0gdHJ1ZTsK
+IAkJCXJ2ID0gc2VuZF9jaGFubmVsX2luZm9fY21kKGludGYsIGludGYtPmN1cnJfY2hhbm5lbCk7
+CiAJCX0KIAotLSAKMi41MS4wCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2
+ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5l
+dC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
