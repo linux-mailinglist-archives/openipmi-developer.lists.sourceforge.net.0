@@ -2,133 +2,121 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 X-Original-To: lists+openipmi-developer@lfdr.de
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5A9F4CDDDDD
-	for <lists+openipmi-developer@lfdr.de>; Thu, 25 Dec 2025 15:54:30 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id ECABFCE579D
+	for <lists+openipmi-developer@lfdr.de>; Sun, 28 Dec 2025 22:38:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6opEhgwoRBKi9TiD6Fop5y1DjIgX00Nhqjc3+xeLLBU=; b=UblVWgrKIzAVUG8s8AV1yY0Tkl
-	8plD4VSJnTFw5mVSejO6o3JDJE7AlRhH2dEAH7E/HMThfFBxJz49moPlsqqxnpgjVhicwGjccf5U0
-	D2NfMEYBKAleeoLDWNDwjUfxA8IBYV3gz0roDwHncYzrPp00YMO1KJRXaOQyVOcBXtHw=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:To:Message-ID:Date:From:MIME-Version:Sender:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=de7bRxSqZVsTtboMa8BZWoe3Jvu+cqRIDPrBPVrBr3E=; b=e3GtEpju9mznhnJrFKWLFaryYg
+	8MCw2ULTvtEz+hJFiczcC9pN4+EWFNsNyxhWG4CN10hY/2N06x3vr9ON4LJbt3ys8bXe54+ZQFh0K
+	K7VG8qUVtVVjtNM5SZbUVwUlx+9+tXPw/7eDQCbqbp3xhcPvWz/MgN10JiHjs5TOLp2w=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vYmjK-0001qV-TA;
-	Thu, 25 Dec 2025 14:54:18 +0000
+	id 1vZyT1-0006sw-Co;
+	Sun, 28 Dec 2025 21:38:23 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1vYmjJ-0001qP-Nm
+ (envelope-from <michallinuxstuff@gmail.com>) id 1vZyT0-0006so-5H
  for openipmi-developer@lists.sourceforge.net;
- Thu, 25 Dec 2025 14:54:17 +0000
+ Sun, 28 Dec 2025 21:38:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:To:Subject:Message-ID:Date:From:
+ MIME-Version:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=FyjGbxSEKFRKSdOhl1fCBfFEUUx7tM9xVkea9Y3mrL4=; b=QQHf3SOIPQ5KiZcL9meR7XUQhX
- K9Jq/RWgyY3PZAgMmm4aEefKEiLMA17ClvjlWc+T8ftGdIKTLKeO7D3cFT3MtTjn4XCNVOiLPKxSP
- JQVD7k3gU07bWDPjtLDRHdO/ak5wXtSWbR5PN3STNn/hjp2W5Cp5aLpDN5R1KaXFJJfs=;
+ bh=sCV1yx6IDJ8WiN+KkH78mORpP+eg+Sgq1oaLpV/Cp74=; b=ERySCHEV3EGolJoJzf0HOYkRpF
+ HMO/iw6dLMHmKgIIZoIWhEeoXoeGGuBKidDAIdEIZ+XiccJv4USuJ10akobW2k1nB87LW+TA0R7ah
+ 9TamcY7XnBkshKnQh8UpLFNUhv1EjKO2/kBNgJdRGjuceTB0rnDUziaJ8lkNDZtUb/2Q=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=FyjGbxSEKFRKSdOhl1fCBfFEUUx7tM9xVkea9Y3mrL4=; b=Gt4hf/6QHDkdJHiejam0XizCDe
- PIOPL/0vGN7oKYOs5k4R6FM+I6Ap4C2Hmtjx9nvIuY+WyNyWUwDOhoEpyJ+rzscRPlFRsCCI2LUG7
- 7ZY4ey7lhWGZhfxU0QFKuWjgkMdm0yP8BFzdULT+Km6anMdIPS9J+Vi4QLOdkPhMOGMc=;
-Received: from mail-qk1-f169.google.com ([209.85.222.169])
+ h=Content-Type:To:Subject:Message-ID:Date:From:MIME-Version:Sender:Reply-To
+ :Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=sCV1yx6IDJ8WiN+KkH78mORpP+eg+Sgq1oaLpV/Cp74=; b=g
+ n+FPnNE2dPdh/KidzUQ+wz3cK8XcpX9ysQZ9llKn+vF6WFCFmxvF7obww8SU93APXTvE4Xajyr474
+ LkAHUyBidWK+Hk6jirsfpo2atd4h05v/51vsPPA+Hia3C17RkdT5WjUBFudk1SBbSLvvd1bdjAqQa
+ odFAqgwe7yel34o8=;
+Received: from mail-ed1-f43.google.com ([209.85.208.43])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1vYmjJ-0004vt-62 for openipmi-developer@lists.sourceforge.net;
- Thu, 25 Dec 2025 14:54:17 +0000
-Received: by mail-qk1-f169.google.com with SMTP id
- af79cd13be357-8b602811a01so738041285a.2
+ id 1vZySz-0001k9-KR for openipmi-developer@lists.sourceforge.net;
+ Sun, 28 Dec 2025 21:38:22 +0000
+Received: by mail-ed1-f43.google.com with SMTP id
+ 4fb4d7f45d1cf-64e48264e56so2522386a12.1
  for <openipmi-developer@lists.sourceforge.net>;
- Thu, 25 Dec 2025 06:54:17 -0800 (PST)
+ Sun, 28 Dec 2025 13:38:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard.net; s=google; t=1766674446; x=1767279246; darn=lists.sourceforge.net;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:from:to:cc:subject:date
- :message-id:reply-to;
- bh=FyjGbxSEKFRKSdOhl1fCBfFEUUx7tM9xVkea9Y3mrL4=;
- b=XjbzvDINeo7qi+or5NgzNfsmcGKt/mcW/KdB84mFCfk+ICb3p0cWRn2a4hPYw5vCsu
- P2zMNXWp8LAsbARdHPH0LEClMc+mUlPdAhLhTMmU/l6QedxcjMOiKDDnd7ItTaAcTqP3
- LIuGlW6rjJQovk/bvkztpVNBpf6FbipZnCZatK7ixaa5p+2WnKUftNkJIHAT5Z7QguuA
- kremPSAe7TZhRaGXHg0z0aBbP9FmBIoKXYVCqG7jEyYkJPztCiv/d27oHke0i8aZ1TMk
- +Y859cfOCRukISFmn4SMoR9MuhZwwg9v+6DJaRyUrFl8a3oqDfHDolU/5ehmeeCcc4nW
- iNyQ==
+ d=gmail.com; s=20230601; t=1766957895; x=1767562695; darn=lists.sourceforge.net;
+ h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+ :date:message-id:reply-to;
+ bh=sCV1yx6IDJ8WiN+KkH78mORpP+eg+Sgq1oaLpV/Cp74=;
+ b=XKZ2HUZ+HUWcd/Yw/BfWp2mlt9Zbj4sHIZ3/q/XCLUqvzR567U/Aavt21GVOf4INid
+ oMm5ApDUoRM65gJWv8qDbetkpcDKYpDJI+9Ho5Mg3cLtMaSp35Vu2egkhwxeambel+er
+ Ng3YnlrUdAL307C7PRlZxjuA6qJjJ/eEk3BUnyhGWMaoHkaVxeZYkwG2BYc8itko/iic
+ udJoFgPLgVxmGrsGa2LiTSQ8K1KKyO5HYjiJHsOHVgALO4L9lKd2J4xbgvq43IOx6v9Z
+ nXDeWBSO3tGcmgr+gxOclVjc0G+bZu6/QJz1ocSQeqdNd9AAfnvFXL8f4q9ijv9TiiSv
+ tlWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1766674446; x=1767279246;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
- :to:cc:subject:date:message-id:reply-to;
- bh=FyjGbxSEKFRKSdOhl1fCBfFEUUx7tM9xVkea9Y3mrL4=;
- b=ChIWImiJp3Z8NIWCXTvbnBNudWEXmlm2fKSoPIKecWtu/CVlgvmSHyWPmLSeh/V/H5
- 9eRleqeVCGoCgoxY+hhNldOVpb0ZNJCK87SqM+1snvsxHwXanV6QaLY9Yu16xqRTTBKZ
- rsUXRXXBnb8bFrl7MFywt434BpHvKp2bMvDReSAYzeP+61r0IEG0cl/xxOqTZqXTWgBa
- 7SOdCmuB71UZmTPX7mWMutWzhLjV43TYXCbE8aKP43krfSR2Z8RSsrWD8sDgIaFLYhZO
- 03c4LlG0N0L8zSJaGuhys/14i2dCXnydEh/cu7Ccj2ygRpPM4+Jef8IMzy43+fEV7JxH
- b7AA==
-X-Forwarded-Encrypted: i=1;
- AJvYcCVAb+e94PAblyTP7lFIFIvgc9eXYEyKxfaKs1P1NkehKUpg3MTJAAewW/17C2YlgdiE/3fFZqDqoAaBdtvAsH1Bg6U=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yy2ruui6ysgsUEE+yy4zwS7m7Nrghm6pH1L0qIRwmR/A4PhQGXP
- MJ9yiF3+Il9eH1Pek366zgEhQ5Wt/ajeaw24+EQlvI/FuMaGIvNzbHaYZ31Aw8yBu4G4cpiVL4I
- aKEy8jYg=
-X-Gm-Gg: AY/fxX4RlaEnxPcvBT1GXwmRXFXJG0WmfIr72yYOEWfCbSQQOhKethAvAy1lNFv48IP
- 7wWf9zZAfpX6aKPG0SE3oM1mV6Yos8QLtRe10t23H+9IJmD7Qmdar1SEflKuy8vT5WkdRuViBxG
- bkSaLgjxv4k0K1q+17BYRTb6q6UYEpuhPhmNKi9DjJBO6zIFsVTEqdhkRyCP0nFBV7d7F7JkaWo
- Vfvg97OYhx1mAgOGfVjHsvXpm3UKgvMhQxam8v7hzvOrVZat49e+l92gkN6mTuThUa/AXEGv6QC
- 3zqRiGkJcebIqf5VadL9JIP5hoJotddaLv6EJBH2KdAEZPSfgI4JSMYrDzjQhzencdQdXHzEw06
- uTilw4swtux2jNcEhZOJDT8R2n+C3tTpuHXZlUZqdkYfKXuyxSdbuXl1phgeOgkOQXzIW/o2N+H
- z3MlZNO7pyOeAb
-X-Google-Smtp-Source: AGHT+IHq/HII7KN4ZM4/mdYV9j3XHwJ87+/D/0t+YfkekNTNAMJ+pP5SEsQB0rX1lXZ5FKBnLzw3DQ==
-X-Received: by 2002:a05:6808:1b25:b0:455:f286:707e with SMTP id
- 5614622812f47-457b21bcde4mr9211923b6e.63.1766674094990; 
- Thu, 25 Dec 2025 06:48:14 -0800 (PST)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:f542:2e3e:ddd:4ad5])
- by smtp.gmail.com with ESMTPSA id
- 5614622812f47-457b3cc114fsm9786352b6e.11.2025.12.25.06.48.13
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 25 Dec 2025 06:48:14 -0800 (PST)
-Date: Thu, 25 Dec 2025 08:48:08 -0600
-From: Corey Minyard <corey@minyard.net>
-To: Marco Crivellari <marco.crivellari@suse.com>
-Message-ID: <aU1OqA1b9URni1-k@mail.minyard.net>
-References: <20251224161301.135382-1-marco.crivellari@suse.com>
+ d=1e100.net; s=20230601; t=1766957895; x=1767562695;
+ h=to:subject:message-id:date:from:mime-version:x-gm-gg
+ :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=sCV1yx6IDJ8WiN+KkH78mORpP+eg+Sgq1oaLpV/Cp74=;
+ b=lPmUdNh3b/LQtFjvM+dEOMkp6pcNsU6cKLNVeLSOHls1o0S1ecicVk7+7pyDY6VsXM
+ mF72U33nnkitvFnQ6BD73UU/uQwN+rkuNYTBD5+vHQsoOBFRcEHMCEp3woWLdW0IXr0l
+ uknY5vSHvuQpOdQphoob0+bz+RFpqIPZfAv428gnMnxZ66yClIh/R2kx2c3x5VbWOb37
+ 5/+8YxKOLdfk+STJWE5tPQIhhcRo7oR34mkvSJrLyIs/X+gI79J1a6tO2OEKDt3dh3Y0
+ FUUti4c+n2/yixrIbUb68soLeNmyxDq/wiI02SpPh5lmBf50Iu3PZhLgSztSXhr5i5kh
+ kidw==
+X-Gm-Message-State: AOJu0YwGy551w4LHqouqyDqlkSroJGVq99EJbFml2+syKugosoOxWo05
+ 7WWSCOu7z4/MawH0YOn4JzjP64U4WA5ik+qXJWY9sPAgEM3MUnqTwVTM0JCAGQnjw5WLqWMUb5B
+ 42GV9qOylcir6gUZ02btAtovpIMDy5RsThrmHoYoNnQ==
+X-Gm-Gg: AY/fxX4Q7saqtxLdfAjw37E0JaK3B0b+UZT8OunMLGLEXAy1Teh5QmV5DWnCY8y9fDa
+ lNzSlSuAppyGPnwo7nIlZcWaEeX1UvQcV8O7AWGOWetrQjvKwIRke9ux2V6E7J1X+eJR+8ALIbJ
+ krPzHqwT/a629dEXnTx9rI4v97VjmOipyZnhrbXlC6HxsSTKOlxw/Nn+nWENcW53W/nWIk2RnZV
+ jhUlduMkCGnzt2UqboJ19Y4MLn8XkBAmlwX8Ieh4IfKr+8WCvn7vYf9OlTS5EOIFivzsQ==
+X-Google-Smtp-Source: AGHT+IF7Q0pVjm2OptiC8VYxNcY0JJMX1nbBxKRiuNTXfTpkPM+vN5j+zLOUPFlOjZb4InH64FiesQjHkCGV3S2wDSc=
+X-Received: by 2002:a17:907:1b0f:b0:b73:42df:29a with SMTP id
+ a640c23a62f3a-b8037253c2emr2636983266b.59.1766957894734; Sun, 28 Dec 2025
+ 13:38:14 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20251224161301.135382-1-marco.crivellari@suse.com>
+From: Michal Berger <michallinuxstuff@gmail.com>
+Date: Sun, 28 Dec 2025 22:38:03 +0100
+X-Gm-Features: AQt7F2qpUKlH55h7qwQ8WetQa_6yQ48bWRa_N1mj-hECWiOpg8n7v4H8tw2GQhI
+Message-ID: <CACosJgzCym0fGOh4_itgnV5Dk+vOqk=Xy+dtvbmCGcpKCFY5XA@mail.gmail.com>
+To: openipmi-developer@lists.sourceforge.net
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Wed, Dec 24, 2025 at 05:13:01PM +0100, Marco Crivellari
- wrote: > This patch continues the effort to refactor workqueue APIs, which
- has begun > with the changes introducing new workqueues and a new [...] 
+ Content preview:  Right now channel number is being unconditionally included
+ in the Generator ID field. However, as per the SEL Event Records it should
+ remain 0h depending on what medium/interface the event msg is rece [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.169 listed in wl.mailspike.net]
-X-Headers-End: 1vYmjJ-0004vt-62
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: Replace use of system_wq
- with system_percpu_wq
+ domain
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ [michallinuxstuff(at)gmail.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.208.43 listed in wl.mailspike.net]
+X-Headers-End: 1vZySz-0001k9-KR
+Subject: [Openipmi-developer] [PATCH] lanserv/bmc_sensor: Adjust Generator ID
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -141,100 +129,101 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: Michal Hocko <mhocko@suse.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Lai Jiangshan <jiangshanlai@gmail.com>, linux-kernel@vger.kernel.org,
- Tejun Heo <tj@kernel.org>, openipmi-developer@lists.sourceforge.net,
- Frederic Weisbecker <frederic@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 
-On Wed, Dec 24, 2025 at 05:13:01PM +0100, Marco Crivellari wrote:
-> This patch continues the effort to refactor workqueue APIs, which has begun
-> with the changes introducing new workqueues and a new alloc_workqueue flag:
-> 
->    commit 128ea9f6ccfb ("workqueue: Add system_percpu_wq and system_dfl_wq")
->    commit 930c2ea566af ("workqueue: Add new WQ_PERCPU flag")
-> 
-> The point of the refactoring is to eventually alter the default behavior of
-> workqueues to become unbound by default so that their workload placement is
-> optimized by the scheduler.
-> 
-> Before that to happen after a careful review and conversion of each individual
-> case, workqueue users must be converted to the better named new workqueues with
-> no intended behaviour changes:
-> 
->    system_wq -> system_percpu_wq
->    system_unbound_wq -> system_dfl_wq
-> 
-> This way the old obsolete workqueues (system_wq, system_unbound_wq) can be
-> removed in the future.
+Right now channel number is being unconditionally included in the
+Generator ID field. However, as per the SEL Event Records it should
+remain 0h depending on what medium/interface the event msg is
+received over.
 
-This looks good to me.
+So have this:
 
-Acked-by: Corey Minyard <corey@minyard.net>
+# ipmitool sel list
+ SEL has no entries
+ # ipmitool event 1
+ Sending SAMPLE event: Temperature - Upper Critical - Going High
+ # ipmitool sel get 0x1 | grep "Generator ID"
+  Generator ID          : 0041
 
-> 
-> Suggested-by: Tejun Heo <tj@kernel.org>
-> Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
-> ---
->  drivers/char/ipmi/ipmi_msghandler.c | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
-> index 3f48fc6ab596..ebdc8f683981 100644
-> --- a/drivers/char/ipmi/ipmi_msghandler.c
-> +++ b/drivers/char/ipmi/ipmi_msghandler.c
-> @@ -973,7 +973,7 @@ static int deliver_response(struct ipmi_smi *intf, struct ipmi_recv_msg *msg)
->  		mutex_lock(&intf->user_msgs_mutex);
->  		list_add_tail(&msg->link, &intf->user_msgs);
->  		mutex_unlock(&intf->user_msgs_mutex);
-> -		queue_work(system_wq, &intf->smi_work);
-> +		queue_work(system_percpu_wq, &intf->smi_work);
->  	}
->  
->  	return rv;
-> @@ -4935,7 +4935,7 @@ void ipmi_smi_msg_received(struct ipmi_smi *intf,
->  	if (run_to_completion)
->  		smi_work(&intf->smi_work);
->  	else
-> -		queue_work(system_wq, &intf->smi_work);
-> +		queue_work(system_percpu_wq, &intf->smi_work);
->  }
->  EXPORT_SYMBOL(ipmi_smi_msg_received);
->  
-> @@ -4945,7 +4945,7 @@ void ipmi_smi_watchdog_pretimeout(struct ipmi_smi *intf)
->  		return;
->  
->  	atomic_set(&intf->watchdog_pretimeouts_to_deliver, 1);
-> -	queue_work(system_wq, &intf->smi_work);
-> +	queue_work(system_percpu_wq, &intf->smi_work);
->  }
->  EXPORT_SYMBOL(ipmi_smi_watchdog_pretimeout);
->  
-> @@ -5115,7 +5115,7 @@ static bool ipmi_timeout_handler(struct ipmi_smi *intf,
->  				       flags);
->  	}
->  
-> -	queue_work(system_wq, &intf->smi_work);
-> +	queue_work(system_percpu_wq, &intf->smi_work);
->  
->  	return need_timer;
->  }
-> @@ -5171,7 +5171,7 @@ static void ipmi_timeout(struct timer_list *unused)
->  	if (atomic_read(&stop_operation))
->  		return;
->  
-> -	queue_work(system_wq, &ipmi_timer_work);
-> +	queue_work(system_percpu_wq, &ipmi_timer_work);
->  }
->  
->  static void need_waiter(struct ipmi_smi *intf)
-> -- 
-> 2.52.0
-> 
+Instead of:
+
+ # ipmitool event 1
+ Sending SAMPLE event: Temperature - Upper Critical - Going High
+ # ipmitool sel get 0x2 | grep "Generator ID"
+  Generator ID          : f041
+
+As we are at it adjust the msg length of the platform event - as per the
+Table 29-4, Platform Event (Event Message) Command, the 8 bytes is
+a msg length dedicated for the System Interface which must include
+the Generator ID. Case in point, when the event is sent over the
+LAN channel, ipmi_sim rejects it due to invalid length of the
+request (e.g. ipmitool does not include the extra software ID in the
+event data hence sending only 7 bytes):
+
+ $ ipmitool -Ilanplus -Hlocalhost -p4242 -UXXXXX -PXXXXX event 1
+ Sending SAMPLE event: Temperature - Upper Critical - Going High
+ Platform Event Message command failed: Request data length invalid
+
+Signed-off-by: Michal Berger <michallinuxstuff@gmail.com>
+---
+lanserv/bmc_sensor.c | 22 +++++++++++++++++++++-
+1 file changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/lanserv/bmc_sensor.c b/lanserv/bmc_sensor.c
+index be6c537f..cc21bf9c 100644
+--- a/lanserv/bmc_sensor.c
++++ b/lanserv/bmc_sensor.c
+@@ -58,6 +58,7 @@
+#include <sys/stat.h>
+#include <fcntl.h>
+
++#include <OpenIPMI/ipmi_mc.h>
+#include <OpenIPMI/ipmi_err.h>
+#include <OpenIPMI/ipmi_msgbits.h>
+#include <OpenIPMI/ipmi_bits.h>
+@@ -113,16 +114,35 @@ handle_platform_event(lmc_data_t    *mc,
+                     void          *cb_data)
+{
+    unsigned char sel_data[13];
++    uint8_t msg_length = 7; // IPMB MESSAGING
+
+-    if (check_msg_length(msg, 8, rdata, rdata_len))
++    if (msg->orig_channel->channel_num == 15 ||
++               msg->orig_channel->medium_type == IPMI_CHANNEL_MEDIUM_SYS_INTF)
++       msg_length = 8; // SYSTEM INTERFACE MESSAGING
++
++    if (check_msg_length(msg, msg_length, rdata, rdata_len))
+       return;
+
+    sel_data[0] = 0;
+    sel_data[1] = 0;
+    sel_data[2] = 0;
+    sel_data[3] = 0;
++    /*
++       From Table 32-1, SEL Event Records:
++         Byte 1
++           [7:1] - 7-bit I2C . Slave Address, or 7-bit system software ID
++           [0] 0b = ID is IPMB Slave Address
++               1b = system software ID
++         Byte 2
++          [7:4] - Channel number. Channel that event message was
+received over. 0h if the
++                  event message was received via the system
+interface, primary IPMB, or
++                  internally generated by the BMC.
++    */
+    sel_data[4] = msg->data[0];
+    sel_data[5] = msg->orig_channel->channel_num << 4;
++    if (msg->orig_channel->channel_num == 15 ||
++               msg->orig_channel->medium_type == IPMI_CHANNEL_MEDIUM_SYS_INTF)
++       sel_data[5] = 0;
+    sel_data[6] = msg->data[1];
+    sel_data[7] = msg->data[2];
+    sel_data[8] = msg->data[3];
+--
+2.43.0
 
 
 _______________________________________________
