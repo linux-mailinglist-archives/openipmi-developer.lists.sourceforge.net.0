@@ -2,42 +2,42 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id YNizNmPOeGmNtQEAu9opvQ
+	id 4FQ/LMTOeGmNtQEAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Tue, 27 Jan 2026 15:40:35 +0100
+	for <lists+openipmi-developer@lfdr.de>; Tue, 27 Jan 2026 15:42:12 +0100
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2078695DC7
-	for <lists+openipmi-developer@lfdr.de>; Tue, 27 Jan 2026 15:40:35 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0615895E3A
+	for <lists+openipmi-developer@lfdr.de>; Tue, 27 Jan 2026 15:42:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYj3mlzZuluryFQ4Al5Ukd1rSROlL7IdMZLwVRph6LU=; b=Rqm4dTG6EZhKVtK08+efkGcxx5
-	oVMBJGiIVByC9OeN5LpIk6IiwBOtbJBvV04gqMhtXaTDXpaqGQyMZkKTejFOZZwWTEL+nQkR26xEU
-	Q7nj+Q6u4mIiDRYmcODrGdWkshr5r8D6m7AKXo0Z2dK7vDNHPEtvmy4jD954BK08zArQ=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=PcaurAl//QlnN21jqvVyEvyleRYB3Wy3JtV40mgBN3Y=; b=MZSY9iB73eSH0TVnee8MMvcIfi
+	Tgtnm+on8gKoHJXoI0tct4edr/nkCC6ZukPEjGun6Yppgq+Yu5rM85f5C96rg1D1o5VciDNqvSV04
+	y8U7akDvC0XnwLmY4MlK6j+59VE/IXkEmKYJTVOKOsuUslCPnnxzZ8G16gKVUvuZaBDk=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vkkF0-0000fN-MA;
-	Tue, 27 Jan 2026 14:40:26 +0000
+	id 1vkkGb-0003qB-8A;
+	Tue, 27 Jan 2026 14:42:05 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <leitao@debian.org>) id 1vkkEz-0000fG-92
+ (envelope-from <leitao@debian.org>) id 1vkkGZ-0003q5-Qg
  for openipmi-developer@lists.sourceforge.net;
- Tue, 27 Jan 2026 14:40:25 +0000
+ Tue, 27 Jan 2026 14:42:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
  Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=sSCRTJkHjV6hfRcqDI9HgGinn8gN2MRzlQFI0aQb7Yk=; b=keIFv3n9+ryryqR06eAAwk4u+x
- np9IaPYVD2iwUf8JIZzFgrpp/VZGcWgiofkhY0rhw6T/M6uZjcEq30nKz6aL9NnQwf72wOGBLASeI
- dt7dSpG1XWbcQjTSJmqlIpZIDJN2e2f4oTtUj0ecDUY4NkpuV5+SlMOp2LaHHbO7i/Lw=;
+ bh=zsBRO4+fp1yefoYsEvfEeQFyQqvbsFnILehglhch05w=; b=KVKMnEGmLsylEtJhFj/Oq35RLr
+ tqgnfVXE6MDfXzKCCcx0PTQEXBWePfeuwJ0c/AK8QqUprqOXjbie9HdHZCOMOMvi9K8hwjqhkCuVF
+ wB8/xAwXM+XROEeA7FI/kyjW4rkhaw+gwmxaZWwNzZdP5hSQUWx5w9FI7/l+Rklpyw8E=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
@@ -45,39 +45,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=sSCRTJkHjV6hfRcqDI9HgGinn8gN2MRzlQFI0aQb7Yk=; b=AFV/GXYV+sQoFXNdyCmskMacd4
- /M8vDJ/JSKe2dQrY0dAb29p2GKyHEAtvM5PMwmp0IVoBapCDyqqM0qFo/fSKQUR/ZceAvGU6icscE
- yXQEuzZ+vRU+/4S7sKwCUlsFm0b3IpwuecaczteIFjAqXcNWQ6GRjHDtbesjfmL4392w=;
+ bh=zsBRO4+fp1yefoYsEvfEeQFyQqvbsFnILehglhch05w=; b=Sml+NjV6voWUnUvzlKTqSiK5lR
+ gOzZux3rHFp9nV2oBDphqsWHb+NL6G8HG908Ih9I1CzjwNPgnIzsA0MP9zW24XdI0dxmcys66X44F
+ dZV5XlifYmbS1lberE7kK6KekOw6Syr4ys/dDuXa4PW94yPleuOt3VEhf5xtTfJIZASE=;
 Received: from stravinsky.debian.org ([82.195.75.108])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1vkkEy-0007XV-TK for openipmi-developer@lists.sourceforge.net;
- Tue, 27 Jan 2026 14:40:25 +0000
+ id 1vkkGZ-0007cA-CC for openipmi-developer@lists.sourceforge.net;
+ Tue, 27 Jan 2026 14:42:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org; 
  s=smtpauto.stravinsky;
  h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
  References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=sSCRTJkHjV6hfRcqDI9HgGinn8gN2MRzlQFI0aQb7Yk=; b=SAbTimthHgOBBaPpbxBm3SiA4h
- SZ8CdhLnrmsnxaq2OCezRH5uphD9RhS2q8RYMus2eYqStH4BUF9P8KE1agn2oMB48ZKIcXbqAQV9P
- Zies7tGHssbJg0CeKSSzVi9nsT6ksCIBUlG7CfKAThi8HLKCPL2kguGaYCgGfCnvhiGsilMF6NEs+
- j2jpa8kT4x/1GrjB4xsRzaj6cCH1NS/88Wz7ZzAwGNK7h+FutLGQ7VJUmMx3geV4dkONRlUxq6g/G
- B3YlCtdv44S4+k6iaTWUp/tPk7dgNHy3UkiFCeZoFqqtFzeTn0ZFkPoF3I1lavB85MAucsEvmILDv
- hNGbqIvQ==;
+ bh=zsBRO4+fp1yefoYsEvfEeQFyQqvbsFnILehglhch05w=; b=K/dNVEaqMpiZ5RPMCkWKJvFxY5
+ phfjZHxJbGujYCnFYDe9KQfAcG+6mFeCLqSJfRyAtLA7qhLRlVV5iqgRs4dwpA4KdHyA49CP/RNwZ
+ mB/CM7SjBQYGvkJkrJ114gjdaDFTXsfHpHtvx10mF7E0T+EmHR0ACUI6Fs7fjFr7KrMKJ2TUqxKm3
+ wVjt+6cPqN0sRBf4AKbzx6ZZ0VjIf8ahiSqLdiBrwfjSkveVngAn8ozLF0W3g+wPKJVXmT06nx/Bz
+ tfCzD345/K1d3hl+tUsE9MzgDRTUAm6t9SV12hlTVz+M5oNBB+Jr/ysMoHHr6kVW76+lac7lKlqqp
+ usvr3Kpg==;
 Received: from authenticated user by stravinsky.debian.org with esmtpsa
  (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
  (Exim 4.94.2) (envelope-from <leitao@debian.org>)
- id 1vkkEi-00H3iR-TZ; Tue, 27 Jan 2026 14:40:09 +0000
-Date: Tue, 27 Jan 2026 06:40:04 -0800
+ id 1vkkGP-00H3ke-4M; Tue, 27 Jan 2026 14:41:53 +0000
+Date: Tue, 27 Jan 2026 06:41:48 -0800
 From: Breno Leitao <leitao@debian.org>
 To: Corey Minyard <corey@minyard.net>
-Message-ID: <aXjOK6ff9Va2hiNU@gmail.com>
+Message-ID: <aXjOT9e11GSrMHiy@gmail.com>
 References: <20260127-ipmi-v1-0-ba5cc90f516f@debian.org>
  <20260127135917.1597762-1-corey@minyard.net>
- <20260127135917.1597762-2-corey@minyard.net>
+ <20260127135917.1597762-3-corey@minyard.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20260127135917.1597762-2-corey@minyard.net>
+In-Reply-To: <20260127135917.1597762-3-corey@minyard.net>
 X-Debian-User: leitao
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
@@ -86,10 +86,10 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Tue, Jan 27, 2026 at 07:54:39AM -0600,
+ Content preview:  On Tue, Jan 27, 2026 at 07:54:40AM -0600,
  Corey Minyard wrote:
- > The analysis from Breno: > > When the SMI sender returns an error, smi_work()
- delivers an error > response but then jumps back to resta [...] 
+ > It made things hard to read, move the check to a function. > > Signed-off-by:
+ Corey Minyard <corey@minyard.net> > --- > drivers/char/ip [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -102,9 +102,9 @@ X-Spam-Report: Spam detection software,
  not necessarily valid
  0.0 UNPARSEABLE_RELAY Informational: message has unparseable relay lines
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1vkkEy-0007XV-TK
-Subject: Re: [Openipmi-developer] [PATCH 1/2] ipmi: Fix use-after-free and
- list corruption on sender error
+X-Headers-End: 1vkkGZ-0007cA-CC
+Subject: Re: [Openipmi-developer] [PATCH 2/2] ipmi: Consolidate the run to
+ completion checking for xmit msgs lock
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -128,21 +128,21 @@ Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 X-Rspamd-Server: lfdr
 X-Spamd-Result: default: False [0.79 / 15.00];
 	SUSPICIOUS_RECIPS(1.50)[];
-	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MAILLIST(-0.20)[mailman];
-	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
+	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
+	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7:c];
 	MIME_GOOD(-0.10)[text/plain];
 	HAS_LIST_UNSUB(-0.01)[];
 	RCVD_COUNT_THREE(0.00)[4];
-	DKIM_MIXED(0.00)[];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
+	DKIM_MIXED(0.00)[];
 	DMARC_NA(0.00)[debian.org];
-	FORGED_SENDER(0.00)[leitao@debian.org,openipmi-developer-bounces@lists.sourceforge.net];
+	ARC_NA(0.00)[];
 	RCVD_TLS_LAST(0.00)[];
 	TO_DN_SOME(0.00)[];
 	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:kernel-team@meta.com,m:llvm@lists.linux.dev,m:nick.desaulniers+lkml@gmail.com,m:linux-kernel@vger.kernel.org,m:nathan@kernel.org,m:morbo@google.com,m:justinstitt@google.com,m:openipmi-developer@lists.sourceforge.net,m:nickdesaulniers@gmail.com,s:lists@lfdr.de];
 	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
+	FORGED_SENDER(0.00)[leitao@debian.org,openipmi-developer-bounces@lists.sourceforge.net];
 	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
 	FROM_HAS_DN(0.00)[];
 	FREEMAIL_CC(0.00)[meta.com,lists.linux.dev,gmail.com,vger.kernel.org,kernel.org,google.com,lists.sourceforge.net];
@@ -158,46 +158,45 @@ X-Spamd-Result: default: False [0.79 / 15.00];
 	TAGGED_RCPT(0.00)[openipmi-developer,lkml];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
 	MISSING_XM_UA(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[minyard.net:email]
-X-Rspamd-Queue-Id: 2078695DC7
+	DBL_BLOCKED_OPENRESOLVER(0.00)[minyard.net:email,lists.sourceforge.net:dkim,lists.sourceforge.net:helo,lists.sourceforge.net:rdns]
+X-Rspamd-Queue-Id: 0615895E3A
 X-Rspamd-Action: no action
 
-On Tue, Jan 27, 2026 at 07:54:39AM -0600, Corey Minyard wrote:
-> The analysis from Breno:
+On Tue, Jan 27, 2026 at 07:54:40AM -0600, Corey Minyard wrote:
+> It made things hard to read, move the check to a function.
 > 
-> When the SMI sender returns an error, smi_work() delivers an error
-> response but then jumps back to restart without cleaning up properly:
-> 
-> 1. intf->curr_msg is not cleared, so no new message is pulled
-> 2. newmsg still points to the message, causing sender() to be called
->    again with the same message
-> 3. If sender() fails again, deliver_err_response() is called with
->    the same recv_msg that was already queued for delivery
-> 
-> This causes list_add corruption ("list_add double add") because the
-> recv_msg is added to the user_msgs list twice. Subsequently, the
-> corrupted list leads to use-after-free when the memory is freed and
-> reused, and eventually a NULL pointer dereference when accessing
-> recv_msg->done.
-> 
-> The buggy sequence:
-> 
->   sender() fails
->     -> deliver_err_response(recv_msg)  // recv_msg queued for delivery
->     -> goto restart                    // curr_msg not cleared!
->   sender() fails again (same message!)
->     -> deliver_err_response(recv_msg)  // tries to queue same recv_msg
->     -> LIST CORRUPTION
-> 
-> Fix this by freeing the message and setting it to NULL on a send error.
-> Also, always free the newmsg on a send error, otherwise it will leak.
-> 
-> Reported-by: Breno Leitao <leitao@debian.org>
-> Fixes: 9cf93a8fa9513 ("ipmi: Allow an SMI sender to return an error")
 > Signed-off-by: Corey Minyard <corey@minyard.net>
+> ---
+>  drivers/char/ipmi/ipmi_msghandler.c | 40 ++++++++++++++++-------------
+>  1 file changed, 22 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+> index a590a67294e2..030828cdb778 100644
+> --- a/drivers/char/ipmi/ipmi_msghandler.c
+> +++ b/drivers/char/ipmi/ipmi_msghandler.c
+> @@ -602,6 +602,20 @@ static int __ipmi_bmc_register(struct ipmi_smi *intf,
+>  static int __scan_channels(struct ipmi_smi *intf,
+>  				struct ipmi_device_id *id, bool rescan);
+>  
+> +static void ipmi_lock_xmit_msgs(struct ipmi_smi *intf, int run_to_completion,
+> +				unsigned long *flags)
+> +{
+> +	if (!run_to_completion)
+> +		spin_lock_irqsave(&intf->xmit_msgs_lock, *flags);
+> +}
 
-Reviewed-by: Breno Leitao <leitao@debian.org>
+I usually see the opposite construction in most cases. Something like:
 
+	static void ipmi_lock_xmit_msgs(struct ipmi_smi *intf, int run_to_completion,
+					unsigned long *flags)
+	{
+		if (run_to_completion)
+			return;
+
+		spin_lock_irqsave(&intf->xmit_msgs_lock, *flags);
+	}
+
+Thanks for doing this, this looks way better!
 --breno
 
 
