@@ -2,100 +2,97 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id YOKCMJKap2ksigAAu9opvQ
+	id oFloOVTNp2m6jwAAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Wed, 04 Mar 2026 03:36:02 +0100
+	for <lists+openipmi-developer@lfdr.de>; Wed, 04 Mar 2026 07:12:36 +0100
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B3121F9E9A
-	for <lists+openipmi-developer@lfdr.de>; Wed, 04 Mar 2026 03:36:01 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2908B1FB06C
+	for <lists+openipmi-developer@lfdr.de>; Wed, 04 Mar 2026 07:12:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:Message-Id:Date:In-Reply-To:References:
-	Mime-Version:To:Sender:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=heFCdU5gk3bFe91OOGutRepi//FKr6Lye9NTSaGd+YE=; b=XpBW82tw8LhGdceivfglsCLkin
-	9o8nga5YrYZkugit0Iev/qzYaLaqUbmFpmkVFLtkCyWoQOiG+7n0wNWMzpNvtD9ngavMwKpiPAjuC
-	orKSDQlQmuC8z97IJxVbcq+gyutqll3UpAscVeFLpM0xBI7yzJSQFJSDBl57C38C0iJo=;
-Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
-	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	List-Unsubscribe:List-Id:Subject:In-Reply-To:Date:Mime-Version:To:References:
+	Message-Id:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I+wMX/IXqYQQ2Vu4BmU8Xeg+4HSbJuggjeAysIyffzs=; b=Nkgy4W4osmbXJNzAZ9IFB3tFRY
+	XxyKjNACjx8OLemGNL88dHjtVID2K4oTZv2hYlRoS4Q3tO7vcYx9kukUcp0V5IQrhiaTtj2kgtAZR
+	CqUx1Ip82114wNkrQk1XoapPe9Vdu5d3taXw7NfgpJ+Ijj2OsCOT+Yf8dt++nRweCSkk=;
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vxc5X-0000bd-09;
-	Wed, 04 Mar 2026 02:35:51 +0000
+	id 1vxfT7-0001NY-Tv;
+	Wed, 04 Mar 2026 06:12:25 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhangjian.3032@bytedance.com>) id 1vxc5V-0000bO-Hz
+ (envelope-from <zhangjian.3032@bytedance.com>) id 1vxfT5-0001NS-Ok
  for openipmi-developer@lists.sourceforge.net;
- Wed, 04 Mar 2026 02:35:50 +0000
+ Wed, 04 Mar 2026 06:12:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Message-Id:Date:From:In-Reply-To:Subject:
- Content-Transfer-Encoding:References:Mime-Version:Cc:To:Content-Type:Sender:
+ d=sourceforge.net; s=x; h=In-Reply-To:Date:Subject:Cc:Mime-Version:To:
+ Content-Type:Content-Transfer-Encoding:From:References:Message-Id:Sender:
  Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
  :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=2QRBYwYeKGYOX0A+C3w0+/dKAh7UOTvzYv4Spo6o19s=; b=ZuVnyk5FYz/POeoYbcAIuKB7m1
- OiOfdX3LE/p3kmCO+OzUD9z/e2gmIiDwEdnrLKrBr8vMWVFXkR8K1BnRGGk2Zz9IuR4mcahljDAi3
- F0rDiI1obN+IJAjmEp5NRbRcqTgD2p1yIQM5Pz68tHn9YsSuTKi53/7m3tsr200/7i2w=;
+ bh=Ab7WnWu68rjRJfhCnJkanSrG8td0p4c70/hPD17wSGw=; b=SI7OkReKUxWuw5CAiwyTM9n0wk
+ rVQEEnIfJtn8E9Mlws/Los6+RZL/HXQts6NGyKon/49gL29hHszV/u3hH+yc/9KhURvaThvjW/oIl
+ MYyJrOmzW807j+TQ5sDNMKep+4yHd5nKWxYaBPK1Pxy1gaYNAu4befsBOPyNoJNqw2Sk=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
- ;
- h=Message-Id:Date:From:In-Reply-To:Subject:Content-Transfer-Encoding:
- References:Mime-Version:Cc:To:Content-Type:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=2QRBYwYeKGYOX0A+C3w0+/dKAh7UOTvzYv4Spo6o19s=; b=N33LWGAVMgV6CJ/MB0UKjD68zp
- hZxu/wmIfn5JwRz2nc5wrdXX9RIS8Y2BrD0G4cuDB1f7U6BlhvgrL564b/DAp7IyWlhaX5JgJbgIi
- jDU/FjKzsdOF8D4Z7eeKJzvRIgJTrLsPoMITNMFagdw4oE0xsY2Kcc3eRhoI8zE0LBF4=;
-Received: from sg-1-103.ptr.blmpb.com ([118.26.132.103])
+ ; h=In-Reply-To:Date:Subject:Cc:Mime-Version:To:Content-Type:
+ Content-Transfer-Encoding:From:References:Message-Id:Sender:Reply-To:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=Ab7WnWu68rjRJfhCnJkanSrG8td0p4c70/hPD17wSGw=; b=TxOajOzav+yWpbkBO0ZrhqOz0D
+ P+3NQNQeQRXrjNUx2Ml2mFIA9J5ixesOEWuJBbLIZ2JySDizy3Br1NjMHbhlXHVfgLFyVdaHj0Tib
+ kXB8Vrn8rOo+o+PLFnCUX3w2S/ig8UbxLqiO5w1NHn8fsRr44GSGLQfwPMON0+3ZzEOA=;
+Received: from sg-1-104.ptr.blmpb.com ([118.26.132.104])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1vxc5V-0002cz-Jg for openipmi-developer@lists.sourceforge.net;
- Wed, 04 Mar 2026 02:35:50 +0000
+ id 1vxfT4-0004Qj-2V for openipmi-developer@lists.sourceforge.net;
+ Wed, 04 Mar 2026 06:12:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1772591738; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1772604721; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=2QRBYwYeKGYOX0A+C3w0+/dKAh7UOTvzYv4Spo6o19s=;
- b=L1vYTNlfY3emjteuz+E5c2IGz8Mk3aYlMK25aaN2U8DYKlm0OjxTBV6YK8RjKmG6yW5MrO
- mdB9AzupK5hz1s5Uuo0fc77kA/TqukRV7a8DqP/G2HigqKg0aY5neu8Dw56euROaRkgQRO
- LenGXcaWjavGO45dmrX19Se3a9ZfkPet5uCy1J4rdBCwRwx+lZYUjrWjKFRM57NsRKUSF7
- EqVCUsPCpf/lVAMefRdkeQTo2FUgrCpsJb80flb/AC3QceKr2kcXNHija8yBd4uFqTIIeQ
- uS06ar58czLlXv8gn+ovmLwljDl6Txw9aKI+mH8pCmjTCZFrzKiFR7Y7Cnh3tg==
-X-Original-From: ByteDance <zhangjian.3032@bytedance.com>
-To: <corey@minyard.net>
-Mime-Version: 1.0
+ bh=Ab7WnWu68rjRJfhCnJkanSrG8td0p4c70/hPD17wSGw=;
+ b=cyxISGYABqHkbi+7aYkGYXEKeux1AK0dprOH2moSdsO+B0CyQ4FvxR1AA/iSF+bRfTSZu0
+ PMP0pTu7wlATIA9zDilLUkv6zHhBh0p+4ouyJST/2w3o15iQG4v4t76oMptdv6nTHV/DLZ
+ QHo4jz5aa/PvPjtt4VoZW39NZNAyLMPzHw6MtkcPn2ZBH28zK7eWCvcCzlcDsVpQ/eta7H
+ lSlflMBoGPmuwEklU7bKsR1n7y7w/8karp+kDy78iRE/7JStgvA7kuyeXsdmTmLmKgUqQO
+ qJcYmoPB7QF5HX3u/mhhLBwKv9KVe5Ywli99krTC6FhxQjFgbS+KhwieFqyASQ==
+Message-Id: <2BCF1265-77C4-44A0-8D54-B34A21F0CAD8@bytedance.com>
+X-Lms-Return-Path: <lba+269a7cd2f+76245f+lists.sourceforge.net+zhangjian.3032@bytedance.com>
 References: <20260302061746.1579192-1-zhangjian.3032@bytedance.com>
  <aabnHaOxgqHOxFTl@mail.minyard.net>
-X-Lms-Return-Path: <lba+269a79a78+2fbfee+lists.sourceforge.net+zhangjian.3032@bytedance.com>
+ <FE0DB012-E8AF-4EFF-ADDB-F25870F9BC3E@bytedance.com>
 X-Mailer: Apple Mail (2.3776.700.51.11.4)
-In-Reply-To: <aabnHaOxgqHOxFTl@mail.minyard.net>
-Date: Wed, 4 Mar 2026 10:35:09 +0800
-Message-Id: <FE0DB012-E8AF-4EFF-ADDB-F25870F9BC3E@bytedance.com>
+To: <corey@minyard.net>
+Mime-Version: 1.0
+X-Original-From: ByteDance <zhangjian.3032@bytedance.com>
+Date: Wed, 4 Mar 2026 14:11:36 +0800
+In-Reply-To: <FE0DB012-E8AF-4EFF-ADDB-F25870F9BC3E@bytedance.com>
 X-Spam-Score: -0.2 (/)
-X-Spam-Report: Spam detection software, running on the system "sfi-spamd-1.hosts.colo.sdot.me",
+X-Spam-Report: Spam detection software,
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- 
- Content preview:  Thanks for the review! I’ll send the v2 patch. Jian. > 2026年3月3日
-    21:50，Corey Minyard <corey@minyard.net> 写道： > > On Mon, Mar 02, 2026
-    at 02:17:46PM +0800, Jian Zhang wrote: >> A valid IPMI over SSIF response
-    must contain at least three byt [...] 
- 
+ Content preview:  Hi Corey, Thanks for pointing out the multi-part handling.
+ After reviewing the source code in detail, I found that the following cases:
  Content analysis details:   (-0.2 points, 5.0 required)
- 
-  pts rule name              description
+ pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
-                             domain
-X-Headers-End: 1vxc5V-0002cz-Jg
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1vxfT4-0004Qj-2V
 Subject: Re: [Openipmi-developer] [RFC] ipmi: ipmi_ssif: require minimum
  response length
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -117,7 +114,7 @@ Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
-X-Rspamd-Queue-Id: 1B3121F9E9A
+X-Rspamd-Queue-Id: 2908B1FB06C
 X-Rspamd-Server: lfdr
 X-Spamd-Result: default: False [-8.01 / 15.00];
 	WHITELIST_DMARC(-7.00)[sourceforge.net:D:+];
@@ -156,37 +153,51 @@ X-Spamd-Result: default: False [-8.01 / 15.00];
 	TAGGED_RCPT(0.00)[openipmi-developer];
 	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,bytedance.com:-];
 	RCPT_COUNT_THREE(0.00)[3];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[bytedance.com:replyto,bytedance.com:email,bytedance.com:mid,lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
+	DBL_BLOCKED_OPENRESOLVER(0.00)[bytedance.com:replyto,bytedance.com:email,bytedance.com:mid,minyard.net:email,lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
 X-Rspamd-Action: no action
 
-VGhhbmtzIGZvciB0aGUgcmV2aWV3ISAgSeKAmWxsIHNlbmQgdGhlIHYyIHBhdGNoLgoKSmlhbi4K
-Cj4gMjAyNuW5tDPmnIgz5pelIDIxOjUw77yMQ29yZXkgTWlueWFyZCA8Y29yZXlAbWlueWFyZC5u
-ZXQ+IOWGmemBk++8mgo+IAo+IE9uIE1vbiwgTWFyIDAyLCAyMDI2IGF0IDAyOjE3OjQ2UE0gKzA4
-MDAsIEppYW4gWmhhbmcgd3JvdGU6Cj4+IEEgdmFsaWQgSVBNSSBvdmVyIFNTSUYgcmVzcG9uc2Ug
-bXVzdCBjb250YWluIGF0IGxlYXN0IHRocmVlIGJ5dGVzCj4+IChOZXRGbi9MVU4sIENvbW1hbmQg
-YW5kIENvbXBsZXRpb24gQ29kZSkuCj4+IAo+PiBTb21lIERNQS1vbmx5IEkyQyBjb250cm9sbGVy
-cyBtYXkgcmV0dXJuIHNob3J0IHJlYWRzIGluc3RlYWQgb2YgYQo+PiBwcm9wZXIgTkFDSyB3aGVu
-IHRoZSByZXNwb25zZSBpcyBub3QgcmVhZHkuIFRyZWF0IHN1Y2ggc2hvcnQgcmVhZHMKPj4gYXMg
-aW5jb21wbGV0ZSBhbmQgcmV0cnkgdW50aWwgYSBmdWxsIHJlc3BvbnNlIGlzIHJlY2VpdmVkLgo+
-IAo+IFdlbGwgdGhhdCdzIHVuZnJpZW5kbHkgb2YgdGhlbS4KPiAKPiBBbnl3YXksIEkgc2VlIHRo
-ZSBpc3N1ZS4gIEkgd291bGQgYXNrIGEgY291cGxlIG9mIHRoaW5nczoKPiAKPiBDYW4geW91IGFk
-ZCBhIGNvbW1lbnQgYmVmb3JlIHRoaXMgImlmIiBzdGF0ZW1lbnQgc28gcGVvcGxlIGluIHRoZSBm
-dXR1cmUKPiBrbm93IHdoeSBpdCdzIHRoaXMgd2F5PyAgT3RoZXJ3aXNlIGl0J3MgYSBiaXQgbXlz
-dGVyaW91cy4KPiAKPiBXb3VsZG4ndCB0aGUgaTJjX3NtYnVzX3JlYWRfYmxvY2tfZGF0YSgpIGlu
-IGlwbWlfc3NpZl90aHJlYWQoKSBoYXZlIHRoZQo+IHNhbWUgaXNzdWU/ICBXZSBzaG91bGQgZml4
-IGFsbCBvZiB0aGVzZSBpZiBzby4KPiAKPiBUaGFua3MsCj4gCj4gLWNvcmV5Cj4gCj4+IAo+PiBT
-aWduZWQtb2ZmLWJ5OiBKaWFuIFpoYW5nIDx6aGFuZ2ppYW4uMzAzMkBieXRlZGFuY2UuY29tPgo+
-PiAtLS0KPj4gZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMgfCAyICstCj4+IDEgZmlsZSBj
-aGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+PiAKPj4gZGlmZiAtLWdpdCBh
-L2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfc3NpZi5jIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9z
-c2lmLmMKPj4gaW5kZXggMzdhNWNiNWM1M2YxLi42NGVlOTM5YTdhNGIgMTAwNjQ0Cj4+IC0tLSBh
-L2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfc3NpZi5jCj4+ICsrKyBiL2RyaXZlcnMvY2hhci9pcG1p
-L2lwbWlfc3NpZi5jCj4+IEBAIC0xMzAwLDcgKzEzMDAsNyBAQCBzdGF0aWMgaW50IHJlYWRfcmVz
-cG9uc2Uoc3RydWN0IGkyY19jbGllbnQgKmNsaWVudCwgdW5zaWduZWQgY2hhciAqcmVzcCkKPj4g
-d2hpbGUgKHJldHJ5X2NudCA+IDApIHsKPj4gcmV0ID0gaTJjX3NtYnVzX3JlYWRfYmxvY2tfZGF0
-YShjbGllbnQsIFNTSUZfSVBNSV9SRVNQT05TRSwKPj4gcmVzcCk7Cj4+IC0gaWYgKHJldCA+IDAp
-Cj4+ICsgaWYgKHJldCA+PSAzKQo+PiBicmVhazsKPj4gbXNsZWVwKFNTSUZfTVNHX01TRUMpOwo+
-PiByZXRyeV9jbnQtLTsKPj4gLS0gCj4+IDIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QK
-T3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNv
-dXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
+SGkgQ29yZXksCgpUaGFua3MgZm9yIHBvaW50aW5nIG91dCB0aGUgbXVsdGktcGFydCBoYW5kbGlu
+Zy4KCkFmdGVyIHJldmlld2luZyB0aGUgc291cmNlIGNvZGUgaW4gZGV0YWlsLCBJIGZvdW5kIHRo
+YXQgdGhlIGZvbGxvd2luZyBjYXNlczoKCiAgICDigKIgTXVsdGktcGFydCBSZWFkIFN0YXJ0CiAg
+ICDigKIgTXVsdGktcGFydCBSZWFkIFJldHJ5CiAgICDigKIgTXVsdGktcGFydCBSZWFkIEVuZAoK
+YWxsIGFsbG93IGJ5dGUgbGVuZ3RocyBzbWFsbGVyIHRoYW4gMy4KCkFkZGl0aW9uYWxseSwgdGhl
+IElQTUkgc3BlY2lmaWNhdGlvbiBzdGF0ZXM6CmBgYApJZiB0aGVyZSBpcyBubyBkYXRhIGF2YWls
+YWJsZSwgdGhlIEJNQyB3aWxsIE5BQ0sgdGhlIHJlYWQgcG9ydGlvbiBvZiB0aGUgU01CdXMgdHJh
+bnNmZXIuCmBgYAoKR2l2ZW4gdGhpcywgbXkgcGF0Y2ggaXMgaW5jb3JyZWN0LiBJ4oCZbGwgd2l0
+aGRyYXcgaXQgYW5kIHdvcmsgb24gZml4aW5nIHRoZSBpc3N1ZSBwcm9wZXJseSBpbiB0aGUgQk1D
+IEnCskMgY29udHJvbGxlciBpbnN0ZWFkLgoKVGhhbmtzIGFnYWluIGZvciB0aGUgcmV2aWV3IGFu
+ZCB0aGUgaGVscGZ1bCBmZWVkYmFjay4KCkJlc3QgcmVnYXJkcywKSmlhbgoKCgoKPiAyMDI25bm0
+M+aciDTml6UgMTA6MzXvvIxCeXRlRGFuY2UgPHpoYW5namlhbi4zMDMyQGJ5dGVkYW5jZS5jb20+
+IOWGmemBk++8mgo+IAo+IFRoYW5rcyBmb3IgdGhlIHJldmlldyEgIEnigJlsbCBzZW5kIHRoZSB2
+MiBwYXRjaC4KPiAKPiBKaWFuLgo+IAo+PiAyMDI25bm0M+aciDPml6UgMjE6NTDvvIxDb3JleSBN
+aW55YXJkIDxjb3JleUBtaW55YXJkLm5ldD4g5YaZ6YGT77yaCj4+IAo+PiBPbiBNb24sIE1hciAw
+MiwgMjAyNiBhdCAwMjoxNzo0NlBNICswODAwLCBKaWFuIFpoYW5nIHdyb3RlOgo+Pj4gQSB2YWxp
+ZCBJUE1JIG92ZXIgU1NJRiByZXNwb25zZSBtdXN0IGNvbnRhaW4gYXQgbGVhc3QgdGhyZWUgYnl0
+ZXMKPj4+IChOZXRGbi9MVU4sIENvbW1hbmQgYW5kIENvbXBsZXRpb24gQ29kZSkuCj4+PiAKPj4+
+IFNvbWUgRE1BLW9ubHkgSTJDIGNvbnRyb2xsZXJzIG1heSByZXR1cm4gc2hvcnQgcmVhZHMgaW5z
+dGVhZCBvZiBhCj4+PiBwcm9wZXIgTkFDSyB3aGVuIHRoZSByZXNwb25zZSBpcyBub3QgcmVhZHku
+IFRyZWF0IHN1Y2ggc2hvcnQgcmVhZHMKPj4+IGFzIGluY29tcGxldGUgYW5kIHJldHJ5IHVudGls
+IGEgZnVsbCByZXNwb25zZSBpcyByZWNlaXZlZC4KPj4gCj4+IFdlbGwgdGhhdCdzIHVuZnJpZW5k
+bHkgb2YgdGhlbS4KPj4gCj4+IEFueXdheSwgSSBzZWUgdGhlIGlzc3VlLiAgSSB3b3VsZCBhc2sg
+YSBjb3VwbGUgb2YgdGhpbmdzOgo+PiAKPj4gQ2FuIHlvdSBhZGQgYSBjb21tZW50IGJlZm9yZSB0
+aGlzICJpZiIgc3RhdGVtZW50IHNvIHBlb3BsZSBpbiB0aGUgZnV0dXJlCj4+IGtub3cgd2h5IGl0
+J3MgdGhpcyB3YXk/ICBPdGhlcndpc2UgaXQncyBhIGJpdCBteXN0ZXJpb3VzLgo+PiAKPj4gV291
+bGRuJ3QgdGhlIGkyY19zbWJ1c19yZWFkX2Jsb2NrX2RhdGEoKSBpbiBpcG1pX3NzaWZfdGhyZWFk
+KCkgaGF2ZSB0aGUKPj4gc2FtZSBpc3N1ZT8gIFdlIHNob3VsZCBmaXggYWxsIG9mIHRoZXNlIGlm
+IHNvLgo+PiAKPj4gVGhhbmtzLAo+PiAKPj4gLWNvcmV5Cj4+IAo+Pj4gCj4+PiBTaWduZWQtb2Zm
+LWJ5OiBKaWFuIFpoYW5nIDx6aGFuZ2ppYW4uMzAzMkBieXRlZGFuY2UuY29tPgo+Pj4gLS0tCj4+
+PiBkcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NzaWYuYyB8IDIgKy0KPj4+IDEgZmlsZSBjaGFuZ2Vk
+LCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+Pj4gCj4+PiBkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMgYi9kcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NzaWYu
+Ywo+Pj4gaW5kZXggMzdhNWNiNWM1M2YxLi42NGVlOTM5YTdhNGIgMTAwNjQ0Cj4+PiAtLS0gYS9k
+cml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NzaWYuYwo+Pj4gKysrIGIvZHJpdmVycy9jaGFyL2lwbWkv
+aXBtaV9zc2lmLmMKPj4+IEBAIC0xMzAwLDcgKzEzMDAsNyBAQCBzdGF0aWMgaW50IHJlYWRfcmVz
+cG9uc2Uoc3RydWN0IGkyY19jbGllbnQgKmNsaWVudCwgdW5zaWduZWQgY2hhciAqcmVzcCkKPj4+
+IHdoaWxlIChyZXRyeV9jbnQgPiAwKSB7Cj4+PiByZXQgPSBpMmNfc21idXNfcmVhZF9ibG9ja19k
+YXRhKGNsaWVudCwgU1NJRl9JUE1JX1JFU1BPTlNFLAo+Pj4gcmVzcCk7Cj4+PiAtIGlmIChyZXQg
+PiAwKQo+Pj4gKyBpZiAocmV0ID49IDMpCj4+PiBicmVhazsKPj4+IG1zbGVlcChTU0lGX01TR19N
+U0VDKTsKPj4+IHJldHJ5X2NudC0tOwo+Pj4gLS0gCj4+PiAyLjIwLjEKPgoKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBt
+YWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRw
+czovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9w
+ZXIK
