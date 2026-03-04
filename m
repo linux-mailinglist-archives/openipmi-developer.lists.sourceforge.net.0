@@ -2,136 +2,100 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id 0LiELh3ppmnjZgAAu9opvQ
+	id YOKCMJKap2ksigAAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Tue, 03 Mar 2026 14:58:53 +0100
+	for <lists+openipmi-developer@lfdr.de>; Wed, 04 Mar 2026 03:36:02 +0100
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 140EC1F0E34
-	for <lists+openipmi-developer@lfdr.de>; Tue, 03 Mar 2026 14:58:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B3121F9E9A
+	for <lists+openipmi-developer@lfdr.de>; Wed, 04 Mar 2026 03:36:01 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O9U3MY/QCCRfP33VC/z54ISJqk2owMM9woweDpRT2Mk=; b=epbAhEo+H06sSo9orM76VItcjP
-	DTfQTrtahSWtMAoBXLOpCcv3QS/sr77mYdyqLTA2KCF/YI1u17DqVMhVct71qisxy7naqUU0sYomh
-	4Q4LgXtGwsuePNcmYiSzbPTdP8jTApgkc3fz283PXGeqhvOoJPezDkMWD5AfrieU5lHg=;
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:Message-Id:Date:In-Reply-To:References:
+	Mime-Version:To:Sender:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=heFCdU5gk3bFe91OOGutRepi//FKr6Lye9NTSaGd+YE=; b=XpBW82tw8LhGdceivfglsCLkin
+	9o8nga5YrYZkugit0Iev/qzYaLaqUbmFpmkVFLtkCyWoQOiG+7n0wNWMzpNvtD9ngavMwKpiPAjuC
+	orKSDQlQmuC8z97IJxVbcq+gyutqll3UpAscVeFLpM0xBI7yzJSQFJSDBl57C38C0iJo=;
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vxQGn-0004dQ-S3;
-	Tue, 03 Mar 2026 13:58:42 +0000
+	id 1vxc5X-0000bd-09;
+	Wed, 04 Mar 2026 02:35:51 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1vxQGm-0004dA-04
+ (envelope-from <zhangjian.3032@bytedance.com>) id 1vxc5V-0000bO-Hz
  for openipmi-developer@lists.sourceforge.net;
- Tue, 03 Mar 2026 13:58:40 +0000
+ Wed, 04 Mar 2026 02:35:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Message-Id:Date:From:In-Reply-To:Subject:
+ Content-Transfer-Encoding:References:Mime-Version:Cc:To:Content-Type:Sender:
+ Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+ :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mWCoaOzR9uBfvNEfHUBllWK2zOLetorqQBXT8p4iwp4=; b=MRicmHVnvR/G1T3i6NcZUh7ZIC
- bjIwgn2la4BFFt71oKB0PKmEOP2DrfIKfQcIGpWzs4ayGFNn53RSwIcETHWcdp592EATMVjGe2EfI
- foyXgnKeTByZMFu0Ksm6na4EebgVztNvhklxJl/w/QnB6FEF0NvFgoKL9u7hB7JyIeDg=;
+ bh=2QRBYwYeKGYOX0A+C3w0+/dKAh7UOTvzYv4Spo6o19s=; b=ZuVnyk5FYz/POeoYbcAIuKB7m1
+ OiOfdX3LE/p3kmCO+OzUD9z/e2gmIiDwEdnrLKrBr8vMWVFXkR8K1BnRGGk2Zz9IuR4mcahljDAi3
+ F0rDiI1obN+IJAjmEp5NRbRcqTgD2p1yIQM5Pz68tHn9YsSuTKi53/7m3tsr200/7i2w=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Message-Id:Date:From:In-Reply-To:Subject:Content-Transfer-Encoding:
+ References:Mime-Version:Cc:To:Content-Type:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=mWCoaOzR9uBfvNEfHUBllWK2zOLetorqQBXT8p4iwp4=; b=kqHOB3VLfJf+MwsatAa7jJAOmD
- LZx6KvYsn4Y1tl3RVQogbonSu2UGIg4g710CbDNTb5Oy7PPVv5etTJOV2F1wgvsqMwsJEvnyK6bOB
- W7DYZ6XcyRMiS3iTm0XU2oeHhYx13kHBh1cxLBjE+D1n6L1DBUZN1j78D66E9ErQq1pY=;
-Received: from mail-qk1-f174.google.com ([209.85.222.174])
+ bh=2QRBYwYeKGYOX0A+C3w0+/dKAh7UOTvzYv4Spo6o19s=; b=N33LWGAVMgV6CJ/MB0UKjD68zp
+ hZxu/wmIfn5JwRz2nc5wrdXX9RIS8Y2BrD0G4cuDB1f7U6BlhvgrL564b/DAp7IyWlhaX5JgJbgIi
+ jDU/FjKzsdOF8D4Z7eeKJzvRIgJTrLsPoMITNMFagdw4oE0xsY2Kcc3eRhoI8zE0LBF4=;
+Received: from sg-1-103.ptr.blmpb.com ([118.26.132.103])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1vxQGm-0006iP-AI for openipmi-developer@lists.sourceforge.net;
- Tue, 03 Mar 2026 13:58:40 +0000
-Received: by mail-qk1-f174.google.com with SMTP id
- af79cd13be357-8c7199e7f79so770168785a.0
- for <openipmi-developer@lists.sourceforge.net>;
- Tue, 03 Mar 2026 05:58:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard.net; s=google; t=1772546314; x=1773151114; darn=lists.sourceforge.net;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:from:to:cc:subject:date
- :message-id:reply-to;
- bh=mWCoaOzR9uBfvNEfHUBllWK2zOLetorqQBXT8p4iwp4=;
- b=eeSbnvttpKAFWjQWHAsqoZJtgMxn5KIWAKGHEw4RQHTrGpBRIgPMkDMijmnYjTrE93
- QXQxRtfrLQ7KfeyLb6Gz0+SynDhN6TX8EM0Ec6ndhllyrJPbLioaJ0WCJpcqMF3mIWRr
- 5YhUY+j3QXIj+WKw5bRHisMxPkSx4PFBNTBl1WkirIY1jrSdLRj3Px53NJmucvrhq6Ul
- o+s6hFklNeJEIapemSXsTzAIPt2TbHhTu6naE4PR3hobZrl2ihz1BNmsNKODtUzqhpZL
- VJYOtUiV0bgBXH7TsA19OtLvc8WgzWtZJQb6xgxL97TAoaC1MBn7HS/Mx/9/gXSCu340
- S+cA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1772546314; x=1773151114;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
- :to:cc:subject:date:message-id:reply-to;
- bh=mWCoaOzR9uBfvNEfHUBllWK2zOLetorqQBXT8p4iwp4=;
- b=D/1iiOxjZKZyUjavzt+EAlMnevheAOqE50GX4V+PiS/xPUitcwtbm14Wd7onWbBaVY
- 1W1NmeW0364jpn9QJDCilrlOR1o1Pa/1k9tNKqRqi+B3DRFiY9td3Id5XbOMOmcAV+Hi
- NLSucIZrrVLsOX4ayjyKxuema9XTBeuu7G0Ek1ZR3DmU4mXQlTzsUdVpuxqZ1cALpBFb
- 6sz3XGSL9uETSU7uwg3eN9KX+m+iBN5z4JbhZigL6fa4Cm+/GWyuT2xNU3LgCHrzbEqj
- dgBIy1ppSZ34pZyyVd/VzcjmjIuY9H6jrc37IZnPPzZ7766gteBwGx4YCHRRt82eNs+H
- mbiQ==
-X-Gm-Message-State: AOJu0YzFMYQx+iY/ktyHeAf6V6R/RRoUA2GWHpvD43Rp0vPHbf8XmfEo
- qWjronWlB1fiQyxUTn0Ub0Ac3ZTFgNjNK+fZZWSxRZl5hjK0eS+/F01aHa2qFRssEn9YthZGFmf
- JackVNxY=
-X-Gm-Gg: ATEYQzyjA8uaZOVob+id0mukR/Y9y6iJeU2K6mROTysjLnXYnl8S5/dvd7Hyl69zNNh
- kQJHWfnNkEHEonQvehpyb6VYGYYDqeIm2XAzLfolllzB1GGzPMb9fp23OF5bLVqRMBR4ThIXKvS
- mNaelSl6QOTxw/wntxtdcEOB9P2F+SI3jC7eJLaLOJb2od0aNx2BATSlAZvNNf4eH6PRpCX2SEf
- sR8JIYaNjmgPw6H+F6of02/BVh6YVepWqbc9Pt4APMVjJj8zKJ96b6YoVO9+VNW5Djvvn6mcJ+r
- XMvkvg+kUVJbhdqQNgFWgu8OiV+zSWZmxg4fZ0HL7InA1CXs4h2dgZBkRV50fkV8jeLGaDPLIU6
- zrkjF1733UgtTzLvHuarToeqW7QgvHCmqxLXbTzl6acdrC2LpNuXocPk8SajZOZ6SpPsZKEc0tk
- q9lxXtcFN7r7hTxqCL0hzZHtjt7D6uxy/BlJDJ9RMu/cHFbf7LJdpqb4unQxsFxWAym7brxPg9Z
- P+QkaZZsSKjg28=
-X-Received: by 2002:a05:6830:67ef:b0:7cf:e41d:f0b0 with SMTP id
- 46e09a7af769-7d591bd0edamr10444750a34.18.1772545825416; 
- Tue, 03 Mar 2026 05:50:25 -0800 (PST)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:af66:a009:e38d:97d9])
- by smtp.gmail.com with ESMTPSA id
- 586e51a60fabf-4160cf239e0sm15467040fac.1.2026.03.03.05.50.24
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 03 Mar 2026 05:50:24 -0800 (PST)
-Date: Tue, 3 Mar 2026 07:50:21 -0600
-From: Corey Minyard <corey@minyard.net>
-To: Jian Zhang <zhangjian.3032@bytedance.com>
-Message-ID: <aabnHaOxgqHOxFTl@mail.minyard.net>
+ id 1vxc5V-0002cz-Jg for openipmi-developer@lists.sourceforge.net;
+ Wed, 04 Mar 2026 02:35:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1772591738; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=2QRBYwYeKGYOX0A+C3w0+/dKAh7UOTvzYv4Spo6o19s=;
+ b=L1vYTNlfY3emjteuz+E5c2IGz8Mk3aYlMK25aaN2U8DYKlm0OjxTBV6YK8RjKmG6yW5MrO
+ mdB9AzupK5hz1s5Uuo0fc77kA/TqukRV7a8DqP/G2HigqKg0aY5neu8Dw56euROaRkgQRO
+ LenGXcaWjavGO45dmrX19Se3a9ZfkPet5uCy1J4rdBCwRwx+lZYUjrWjKFRM57NsRKUSF7
+ EqVCUsPCpf/lVAMefRdkeQTo2FUgrCpsJb80flb/AC3QceKr2kcXNHija8yBd4uFqTIIeQ
+ uS06ar58czLlXv8gn+ovmLwljDl6Txw9aKI+mH8pCmjTCZFrzKiFR7Y7Cnh3tg==
+X-Original-From: ByteDance <zhangjian.3032@bytedance.com>
+To: <corey@minyard.net>
+Mime-Version: 1.0
 References: <20260302061746.1579192-1-zhangjian.3032@bytedance.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20260302061746.1579192-1-zhangjian.3032@bytedance.com>
+ <aabnHaOxgqHOxFTl@mail.minyard.net>
+X-Lms-Return-Path: <lba+269a79a78+2fbfee+lists.sourceforge.net+zhangjian.3032@bytedance.com>
+X-Mailer: Apple Mail (2.3776.700.51.11.4)
+In-Reply-To: <aabnHaOxgqHOxFTl@mail.minyard.net>
+Date: Wed, 4 Mar 2026 10:35:09 +0800
+Message-Id: <FE0DB012-E8AF-4EFF-ADDB-F25870F9BC3E@bytedance.com>
 X-Spam-Score: -0.2 (/)
-X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
+X-Spam-Report: Spam detection software, running on the system "sfi-spamd-1.hosts.colo.sdot.me",
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, Mar 02, 2026 at 02:17:46PM +0800, Jian Zhang wrote:
- > A valid IPMI over SSIF response must contain at least three bytes >
- (NetFn/LUN, 
- Command and Completion Code). > > Some DMA-only I2C contro [...] 
+ 
+ Content preview:  Thanks for the review! I’ll send the v2 patch. Jian. > 2026年3月3日
+    21:50，Corey Minyard <corey@minyard.net> 写道： > > On Mon, Mar 02, 2026
+    at 02:17:46PM +0800, Jian Zhang wrote: >> A valid IPMI over SSIF response
+    must contain at least three byt [...] 
+ 
  Content analysis details:   (-0.2 points, 5.0 required)
- pts rule name              description
+ 
+  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.174 listed in wl.mailspike.net]
-X-Headers-End: 1vxQGm-0006iP-AI
+                             envelope-from domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+X-Headers-End: 1vxc5V-0002cz-Jg
 Subject: Re: [Openipmi-developer] [RFC] ipmi: ipmi_ssif: require minimum
  response length
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -146,99 +110,83 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
+From: ByteDance via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: ByteDance <zhangjian.3032@bytedance.com>
 Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
-X-Rspamd-Queue-Id: 140EC1F0E34
+X-Rspamd-Queue-Id: 1B3121F9E9A
 X-Rspamd-Server: lfdr
-X-Spamd-Result: default: False [-1.01 / 15.00];
+X-Spamd-Result: default: False [-8.01 / 15.00];
+	WHITELIST_DMARC(-7.00)[sourceforge.net:D:+];
+	MV_CASE(0.50)[];
+	DMARC_POLICY_ALLOW_WITH_FAILURES(-0.50)[];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
-	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
-	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MAILLIST(-0.20)[mailman];
+	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
+	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
 	MIME_GOOD(-0.10)[text/plain];
-	DMARC_POLICY_SOFTFAIL(0.10)[minyard.net : SPF not aligned (strict), DKIM not aligned (strict),none];
+	MIME_BASE64_TEXT(0.10)[];
 	HAS_LIST_UNSUB(-0.01)[];
-	RCVD_TLS_LAST(0.00)[];
-	FORGED_SENDER_MAILLIST(0.00)[];
-	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,minyard.net:s=google];
 	DKIM_MIXED(0.00)[];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
-	TO_DN_SOME(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:openipmi-developer@lists.sourceforge.net,m:linux-kernel@vger.kernel.org,s:lists@lfdr.de];
+	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	FORGED_SENDER_MAILLIST(0.00)[];
+	FORGED_RECIPIENTS_MAILLIST(0.00)[];
 	MIME_TRACE(0.00)[0:+];
 	ARC_NA(0.00)[];
-	FORGED_RECIPIENTS(0.00)[m:zhangjian.3032@bytedance.com,m:openipmi-developer@lists.sourceforge.net,m:linux-kernel@vger.kernel.org,s:lists@lfdr.de];
-	FORGED_SENDER(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
-	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
 	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
-	RCPT_COUNT_THREE(0.00)[3];
-	HAS_REPLYTO(0.00)[corey@minyard.net];
-	FORGED_SENDER_FORWARDING(0.00)[];
-	RCVD_COUNT_FIVE(0.00)[5];
-	PREVIOUSLY_DELIVERED(0.00)[openipmi-developer@lists.sourceforge.net];
-	REPLYTO_ADDR_EQ_FROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,minyard.net:-];
-	NEURAL_HAM(-0.00)[-1.000];
+	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
+	TO_DN_NONE(0.00)[];
 	FORGED_RECIPIENTS_FORWARDING(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
+	FORGED_SENDER_FORWARDING(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FROM_NEQ_ENVFROM(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,bytedance.com:s=2212171451];
+	NEURAL_HAM(-0.00)[-1.000];
 	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	HAS_REPLYTO(0.00)[zhangjian.3032@bytedance.com];
 	TAGGED_RCPT(0.00)[openipmi-developer];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[mail.minyard.net:mid,lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,bytedance.com:-];
+	RCPT_COUNT_THREE(0.00)[3];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[bytedance.com:replyto,bytedance.com:email,bytedance.com:mid,lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
 X-Rspamd-Action: no action
 
-On Mon, Mar 02, 2026 at 02:17:46PM +0800, Jian Zhang wrote:
-> A valid IPMI over SSIF response must contain at least three bytes
-> (NetFn/LUN, Command and Completion Code).
-> 
-> Some DMA-only I2C controllers may return short reads instead of a
-> proper NACK when the response is not ready. Treat such short reads
-> as incomplete and retry until a full response is received.
-
-Well that's unfriendly of them.
-
-Anyway, I see the issue.  I would ask a couple of things:
-
-Can you add a comment before this "if" statement so people in the future
-know why it's this way?  Otherwise it's a bit mysterious.
-
-Wouldn't the i2c_smbus_read_block_data() in ipmi_ssif_thread() have the
-same issue?  We should fix all of these if so.
-
-Thanks,
-
--corey
-
-> 
-> Signed-off-by: Jian Zhang <zhangjian.3032@bytedance.com>
-> ---
->  drivers/char/ipmi/ipmi_ssif.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-> index 37a5cb5c53f1..64ee939a7a4b 100644
-> --- a/drivers/char/ipmi/ipmi_ssif.c
-> +++ b/drivers/char/ipmi/ipmi_ssif.c
-> @@ -1300,7 +1300,7 @@ static int read_response(struct i2c_client *client, unsigned char *resp)
->  	while (retry_cnt > 0) {
->  		ret = i2c_smbus_read_block_data(client, SSIF_IPMI_RESPONSE,
->  						resp);
-> -		if (ret > 0)
-> +		if (ret >= 3)
->  			break;
->  		msleep(SSIF_MSG_MSEC);
->  		retry_cnt--;
-> -- 
-> 2.20.1
-
-
-_______________________________________________
-Openipmi-developer mailing list
-Openipmi-developer@lists.sourceforge.net
-https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+VGhhbmtzIGZvciB0aGUgcmV2aWV3ISAgSeKAmWxsIHNlbmQgdGhlIHYyIHBhdGNoLgoKSmlhbi4K
+Cj4gMjAyNuW5tDPmnIgz5pelIDIxOjUw77yMQ29yZXkgTWlueWFyZCA8Y29yZXlAbWlueWFyZC5u
+ZXQ+IOWGmemBk++8mgo+IAo+IE9uIE1vbiwgTWFyIDAyLCAyMDI2IGF0IDAyOjE3OjQ2UE0gKzA4
+MDAsIEppYW4gWmhhbmcgd3JvdGU6Cj4+IEEgdmFsaWQgSVBNSSBvdmVyIFNTSUYgcmVzcG9uc2Ug
+bXVzdCBjb250YWluIGF0IGxlYXN0IHRocmVlIGJ5dGVzCj4+IChOZXRGbi9MVU4sIENvbW1hbmQg
+YW5kIENvbXBsZXRpb24gQ29kZSkuCj4+IAo+PiBTb21lIERNQS1vbmx5IEkyQyBjb250cm9sbGVy
+cyBtYXkgcmV0dXJuIHNob3J0IHJlYWRzIGluc3RlYWQgb2YgYQo+PiBwcm9wZXIgTkFDSyB3aGVu
+IHRoZSByZXNwb25zZSBpcyBub3QgcmVhZHkuIFRyZWF0IHN1Y2ggc2hvcnQgcmVhZHMKPj4gYXMg
+aW5jb21wbGV0ZSBhbmQgcmV0cnkgdW50aWwgYSBmdWxsIHJlc3BvbnNlIGlzIHJlY2VpdmVkLgo+
+IAo+IFdlbGwgdGhhdCdzIHVuZnJpZW5kbHkgb2YgdGhlbS4KPiAKPiBBbnl3YXksIEkgc2VlIHRo
+ZSBpc3N1ZS4gIEkgd291bGQgYXNrIGEgY291cGxlIG9mIHRoaW5nczoKPiAKPiBDYW4geW91IGFk
+ZCBhIGNvbW1lbnQgYmVmb3JlIHRoaXMgImlmIiBzdGF0ZW1lbnQgc28gcGVvcGxlIGluIHRoZSBm
+dXR1cmUKPiBrbm93IHdoeSBpdCdzIHRoaXMgd2F5PyAgT3RoZXJ3aXNlIGl0J3MgYSBiaXQgbXlz
+dGVyaW91cy4KPiAKPiBXb3VsZG4ndCB0aGUgaTJjX3NtYnVzX3JlYWRfYmxvY2tfZGF0YSgpIGlu
+IGlwbWlfc3NpZl90aHJlYWQoKSBoYXZlIHRoZQo+IHNhbWUgaXNzdWU/ICBXZSBzaG91bGQgZml4
+IGFsbCBvZiB0aGVzZSBpZiBzby4KPiAKPiBUaGFua3MsCj4gCj4gLWNvcmV5Cj4gCj4+IAo+PiBT
+aWduZWQtb2ZmLWJ5OiBKaWFuIFpoYW5nIDx6aGFuZ2ppYW4uMzAzMkBieXRlZGFuY2UuY29tPgo+
+PiAtLS0KPj4gZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9zc2lmLmMgfCAyICstCj4+IDEgZmlsZSBj
+aGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+PiAKPj4gZGlmZiAtLWdpdCBh
+L2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfc3NpZi5jIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBtaV9z
+c2lmLmMKPj4gaW5kZXggMzdhNWNiNWM1M2YxLi42NGVlOTM5YTdhNGIgMTAwNjQ0Cj4+IC0tLSBh
+L2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfc3NpZi5jCj4+ICsrKyBiL2RyaXZlcnMvY2hhci9pcG1p
+L2lwbWlfc3NpZi5jCj4+IEBAIC0xMzAwLDcgKzEzMDAsNyBAQCBzdGF0aWMgaW50IHJlYWRfcmVz
+cG9uc2Uoc3RydWN0IGkyY19jbGllbnQgKmNsaWVudCwgdW5zaWduZWQgY2hhciAqcmVzcCkKPj4g
+d2hpbGUgKHJldHJ5X2NudCA+IDApIHsKPj4gcmV0ID0gaTJjX3NtYnVzX3JlYWRfYmxvY2tfZGF0
+YShjbGllbnQsIFNTSUZfSVBNSV9SRVNQT05TRSwKPj4gcmVzcCk7Cj4+IC0gaWYgKHJldCA+IDAp
+Cj4+ICsgaWYgKHJldCA+PSAzKQo+PiBicmVhazsKPj4gbXNsZWVwKFNTSUZfTVNHX01TRUMpOwo+
+PiByZXRyeV9jbnQtLTsKPj4gLS0gCj4+IDIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QK
+T3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNv
+dXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
