@@ -2,156 +2,123 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id 4PoBDy63qWlEDAEAu9opvQ
+	id WP9VKliermmqGwIAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Thu, 05 Mar 2026 18:02:38 +0100
+	for <lists+openipmi-developer@lfdr.de>; Mon, 09 Mar 2026 11:18:00 +0100
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 871D8215D23
-	for <lists+openipmi-developer@lfdr.de>; Thu, 05 Mar 2026 18:02:30 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id EA8D1236DEB
+	for <lists+openipmi-developer@lfdr.de>; Mon, 09 Mar 2026 11:17:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:To:Message-ID:Date:In-Reply-To:References:
-	MIME-Version:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gbi18M7kbzLq4UleHydQw0znJaPoWSZNd/ClV+XTj1g=; b=Vk7e3q7QZyo5oyLS2aVsC1LR6v
-	Tx5rIpElcTEy5l8DKwqA7mXb6fTRCXg1FU5Q9TiI1713DeWUmEUDZBZhE1wVoXQoeu6wnjnsnnEcM
-	bNsJ7P2CvNgcH3cb2iXScibMxP1rtgwsF+CZeXosFI8w4qt3Tjot+F0BJTEJqBGM6+1o=;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:To:Message-Id:MIME-Version:Date:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ifHwFhUibRlNfY8Gj/1Ba6cbl4DgmVsgLKn/GDVrYg0=; b=FWo6BprG2VDBwwOt/7XJgE4b8M
+	ln4hEPrcrjrlYpFaNQQUKcn8CWQNf1oMrZt/wQycDxkn9MdZ2ICCFnRgmEyQR+pV+MBH+fO2yWc2B
+	5KpLPxMR9wPg1BCj0RrMQRNAyite/kTth1kWjrwXZAWBjgN2peXYTcnCaItrv/0s5H74=;
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1vyC5e-0008Ei-6J;
-	Thu, 05 Mar 2026 17:02:22 +0000
+	id 1vzXgL-0007G3-04;
+	Mon, 09 Mar 2026 10:17:49 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <marco.crivellari@suse.com>) id 1vyC5c-0008Eb-HO
+ (envelope-from <leitao@debian.org>) id 1vzXgI-0007Fu-TS
  for openipmi-developer@lists.sourceforge.net;
- Thu, 05 Mar 2026 17:02:20 +0000
+ Mon, 09 Mar 2026 10:17:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:Cc:To:
- Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender:
- Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
- :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
+ Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=msRPIy5EH8OOR+52y6U76cZQDxdi+SOT13SLDpRneRE=; b=kEA0he0J5GsEBcKYwBDGNnMbuJ
- xj7XMZOxjOv9lTBpLRHWA4iwp+76G76gsb4K2ZUsZioGSdQaPAzuzsfgs7JW3DkP41ehZWvJjNpBq
- XQPMya10Ts2sBTUCxr7tpSSy0JDQ19wWBLGAmgaepEJA2dassnPTwQCwQSjPPK2hR6uw=;
+ bh=DrEYVGuudogEhHZtJ/Az32hXqOkfqaHHWKEnaGG5YC4=; b=FYVBGS+WW9DgzJZjlJ4+HR9vla
+ g5SBRHvwKie5aEpYWxNW1WTzSnSK4Gi18XNjWQi1WK/Hej4lyvxjOaDpdOh9mXozyllLvE+fJMVLn
+ msioQ2TBEoG4qzqFomoU8dtlb86IyUZuekLod27OTOc13T2unt9LEzqOa1X/4+8PezBw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From
- :In-Reply-To:References:MIME-Version:Sender:Reply-To:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=msRPIy5EH8OOR+52y6U76cZQDxdi+SOT13SLDpRneRE=; b=kuhr6ICmuuwAUYHyH0yRnqOi8w
- moaN+JSSe1qUWyoc9i9jePXSNg7a5Yq5CzzzT2sDvDIHoLNp7Jg7dd1pL+21rmCXJqvkNd2UpuaQA
- TupPLWqv4yWCe5WnzYum9UCl1YcOVC3WxJK0uFaW7Y7+sOuSxnSBKI8hPSaPwLKBT+uU=;
-Received: from mail-ed1-f48.google.com ([209.85.208.48])
+ h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+ Subject:Date:From:Sender:Reply-To:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=DrEYVGuudogEhHZtJ/Az32hXqOkfqaHHWKEnaGG5YC4=; b=j
+ 3vUbX1z3W0zZul57hk4cIFKst17qArmnk3mxFljc/Ivm9irz8+N8ta+FEjPpAacqws+90PEAgEiHO
+ X+CQLUZPnMjhK3AGFYZCW2xpBsIEDtuuadl7XLOmOtRd12ItpcxI6VhrQpjhLuJokikdATupGkQUE
+ Gw/A/G62SD0YqmlY=;
+Received: from stravinsky.debian.org ([82.195.75.108])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1vyC5c-0003qP-79 for openipmi-developer@lists.sourceforge.net;
- Thu, 05 Mar 2026 17:02:20 +0000
-Received: by mail-ed1-f48.google.com with SMTP id
- 4fb4d7f45d1cf-66151557d0cso1279832a12.3
- for <openipmi-developer@lists.sourceforge.net>;
- Thu, 05 Mar 2026 09:02:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1772730129; cv=none;
- d=google.com; s=arc-20240605;
- b=AaVPwXkzFjXdFvUGGr7hfugbjSxl4iSpYL+E0EvjTK1n70fgjRa4HfrqzqDs7NQcPe
- f/i9vhdROhUugNs1hKmBQA+hAZaxRlh7BgXTmR4QBgkF0HPqeQE7uVKiycPbw1NBKizc
- D1EtAUjYATEHrKJrECqG58gdMU0wS4J0AzzW+SxPJ3ocTYoohCMapTa/LX31sHGVLzAE
- rpA7oeABKe5NuKKso8yOoQ2Ei3Bl5kuDrYYxp2tYxaVREFI01R13sF+PT0jOJC7ufojo
- YZX4zAqohkwh8rXtMbczu+oq0njGvVeP+Wt/ORggIgXcECCVuk/ZCdjLoWpQC2Sl0Gar
- NqeA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com;
- s=arc-20240605; 
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:dkim-signature;
- bh=msRPIy5EH8OOR+52y6U76cZQDxdi+SOT13SLDpRneRE=;
- fh=IRFYG32JpDhrhEYOutz7rk9QQ7OpEI43TLdTY3T2WBY=;
- b=hPzGu2zcHIXCI9OE2efFzFb+eUgR+NjnOGip5+x3OFPaO4iLkCGEmAjQNMvfwyxlnh
- xM5hiH1WiYB5qfmG4QRFpIff+Mrwu7V97j2WbPcU0dS8VSdZKkmDjzV8ReO80+GIZLTW
- O/K77aZiKjIbC/Jas2l+EjKsE4cUNFTlBSo4/wDO68IdMsxeXZPt8V5Fgm2ZtQCNRX6f
- tQ2WeoZkXMc/xg4PLAmpv9Ab/u+tkqA3tcwLYsR5S2D3XUoTuIjwAI49DIoJYCD2q8Xn
- VtE7u9DafBZPkp6E7G9/1SrIwKVqRlJ8WL6e7vpvU9gy5+cwjKwmL9XF/xXfZF5qK+5W
- qpag==; darn=lists.sourceforge.net
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=suse.com; s=google; t=1772730129; x=1773334929; darn=lists.sourceforge.net; 
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:from:to:cc:subject:date
- :message-id:reply-to;
- bh=msRPIy5EH8OOR+52y6U76cZQDxdi+SOT13SLDpRneRE=;
- b=St2LVEDfOIQrFAy80LkHsyJmfZe1eNmDSBZwU0ZrDbP5RUBSEjEdBGKSoYGg0ZLoAo
- XrNqjLLFRpFx0d4SGEuojRFfVgO/43JlYFk7Q6WE60Igcr8Qi74g+MzoynuMIsG2fRjm
- f9WJxSXBZil1gtJV7rMOcwoXzfmkC5qhG0/3N8SosYR/R5F0rjUGeQHczogN+JEyJYnn
- 5quw2uhrsMAKUaOSF82MVfC175DnuulBjHhNtcNfzLqUD9H0ulX3otpjw5mhrncos9l9
- ymimPXjM8XlmWifGepFzcM0laQ7MuLijo269dX3wF0yUkE11UZXN7ZzkQTz6WorrTqCR
- EUsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1772730129; x=1773334929;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
- :to:cc:subject:date:message-id:reply-to;
- bh=msRPIy5EH8OOR+52y6U76cZQDxdi+SOT13SLDpRneRE=;
- b=mlmvUOpr8ctvS7reZGI6vLeY5G9iq+77OlED9UUGrsy0OEwB1iEcuFDFYyqKT+DuFA
- P6YDIEqyIckKChZ1Py5X38AG0lTWvtH3LIoUsrGo941gUh4qG1RSq9jx15bXCdoFYwnp
- xHdxyXsVAT/1cxbVSBsmwwPbgbxashPAffFBLY30LCZZB3SRcOVB5fpRZXXQAxjgClvc
- BYBA80GTz4OEjSooKcXM0V8J1CqGwBk64N8pj0hslXs0GHbd2viBIB883e7KoCxs2LQi
- Vvy6ttZuIfe2RJvHZS3phB6fi60Oz3cnZTm1NNXHnhbrlk0Km6+5jshaF6dp7d00Z0pS
- OKnw==
-X-Forwarded-Encrypted: i=1;
- AJvYcCUFchiCC6sYInqzS5eRE3ZbUt+FTnLwZ+/3ZHeSXtRfOcdsIaG/pO+CmL0MY98LwA1lBgryhMQAlOxpZ2Y1oXjuG7A=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0YyKiWMkIkLVrrDQLnj+vyEQb5E1lKqFAprgtWr+agMxkv8S+fmC
- f2YeB+G+zxLr8IrzImkVkDbxw2a0lwwOQyPuqenlqXciYVrHeJ5XDZueFHQEuxh6BY6maQrLDWS
- Hrv9DWfFTbUyVEegcrlMhJYfPqtjtbZ8fHCnVzC0/P3AqPnAlhPhh
-X-Gm-Gg: ATEYQzy8MGPZsixY+wpV/tzslBmHVdvDXBSJSz3RFE1wkOsCm40o8rfAlJnwDU3SBFT
- NXW9moVPzSX9Egm7YFI8j+uaswX1A5q8JgCnOcMtXPaclU7p5GHyexf3hnwVIaIIzP7chMTn6zw
- APi/Q8zJPLGvcSY5euO2jGE1RJOKdCNYr+9q1GqaEGKNBzkT/LX/fFFrOxPlvp4Y4aciPtzQ6/m
- HJnfsYYJRSEW2//S4ZDYlYdQphCkTFeQWXsf82NVlpKtopQQEvwJN2hQdvB2jfdXfElBoqlZtyE
- f/30wtg5G6NH3miT7gTvpU+Almdiyjbux3pcW5ct
-X-Received: by 2002:a05:6512:2c0d:b0:5a1:334e:1e82 with SMTP id
- 2adb3069b0e04-5a1334e2003mr991170e87.48.1772729766033; Thu, 05 Mar 2026
- 08:56:06 -0800 (PST)
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1vzXgI-0007Bm-Bd for openipmi-developer@lists.sourceforge.net;
+ Mon, 09 Mar 2026 10:17:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org; 
+ s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
+ Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+ Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+ bh=DrEYVGuudogEhHZtJ/Az32hXqOkfqaHHWKEnaGG5YC4=; b=dR6g7QigspSkR0JZHr+cRxhAv2
+ JnUroU/SbdsUSSlDEDMSN4hkkspIYdv40DXZ42KFFD0z+Z1YCKhpvwWCrbuwX6WxB9G47JwiM1FAD
+ /SDZNxjNoNmrWd9wXn953Lzz5X0darVK27BK6+mhAsBDRMK0TNn9MYKmKyDPh2iIpzodRqgUUm+r0
+ SLFgqUHeF1nTlH1qgLRt2TDRg14u9gEt4sNJL+VV7wLKB0rFweoXJFMtNlrTo2ibGogZgdbRunZLD
+ v05DnBm9tYK/Btiaaq1eAAxFv8NRr6jVvEnCwK+Z3GnfXYuhSmoYb/0TIYScVuuBcwrrj9MiI+e0K
+ fCQrknVg==;
+Received: from authenticated user by stravinsky.debian.org with esmtpsa
+ (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+ (Exim 4.94.2) (envelope-from <leitao@debian.org>)
+ id 1vzXg3-0029Du-Lg; Mon, 09 Mar 2026 10:17:32 +0000
+From: Breno Leitao <leitao@debian.org>
+Date: Mon, 09 Mar 2026 03:16:13 -0700
 MIME-Version: 1.0
-References: <20251224161301.135382-1-marco.crivellari@suse.com>
- <CAAofZF4OZOHzBuBTYKVsbRp16+1auj3AvT7s5GhmK=NAgrRpAg@mail.gmail.com>
- <aam1QHcbNrPvYUbX@mail.minyard.net>
-In-Reply-To: <aam1QHcbNrPvYUbX@mail.minyard.net>
-Date: Thu, 5 Mar 2026 17:55:54 +0100
-X-Gm-Features: AaiRm50b6gZM0airBo7exXvn6xjMrVnbzu9HHsAiOXhvXF27WVyL1CfszPNkXNE
-Message-ID: <CAAofZF6VT2__5-oa+W+-ODnuHT-x_dstqZQZ6SghbZBw+ossAQ@mail.gmail.com>
-To: corey@minyard.net
+Message-Id: <20260309-ipmi_stable-v1-1-be09c9686671@debian.org>
+X-B4-Tracking: v=1; b=H4sIAO2drmkC/yXMUQqDQAxF0a2E9+3AqCh2tlKKGI2a0lqZqBTEv
+ Zfq7+VydphEFUOgHVE2Nf1MCJQmhHZspkGcdgiEzGelz/3N6fzW2paGX+K4k5S5L6oiL5EQ5ii
+ 9fk/tjuvB4+q28lPa5U/hOH4M26szdwAAAA==
+X-Change-ID: 20260309-ipmi_stable-bde1bbf58536
+To: stable@kernel.org, Sasha Levin <sashal@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+X-Mailer: b4 0.15-dev-363b9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2667; i=leitao@debian.org;
+ h=from:subject:message-id; bh=RRSZISaBjsFC609Wiw9cIM591rHRlNy72ILWPcDiQoQ=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBprp44Bzhtgo2F8yIrnQCic9okRq6bX0+OSsxOw
+ b2av9GdvsqJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaa6eOAAKCRA1o5Of/Hh3
+ bZVeD/9fJV+zm8uE086rCRcqVndYw7inNb24WYntELsUbAI7lcWSN7xnOFypBP08qOz+91AlrSN
+ 3v5xukGmJUoW8npTpWbFw5DhGA8l/quddwL0h29gvx+ydjL3vOHmKWFfni/YsnVrrOuVAnoWv2e
+ q8pVGbf+VM75p4pocf27WK6ycbhJ8RMzn5qDFoyuaif8nmpCs/rUim/+gIzbJ9KpiBRk2BiWcsO
+ sfTXAq0DNjfS8G1QREvSMhxdG0CCqIFQN72KrlmNMSyHqV4yqQ0K55X7P5Oc0kZvzZD4wG7gmae
+ a5KL8VR2w70yyy/hWjSYcHz7fxIHFcV2AGh1FiwqG8oUIQbfHSR4mMXEqCSTG65LSyaGS6H50/e
+ qAiZtutwwnG+fh7oBuMgXGXyvgA74hQwgKgO3dBXOFhl/1+ws9NwQ5SkthLok52PvOrQFdiJSUK
+ QpBgCg+WR2kk47ce8dLYwJm6h8wFkBHW+tsQ5ReZhfA6oX58jaI7NIriQmSGDg3jfNeGiJAQ8+Q
+ ZQa/sXG79a1rJNRj/Bd/qVhijzkFn7ofWZeURuZlrvGs/Vp6wJVLKFRV88GSzQ0AffBrlmoYmVb
+ 66I8d952HZCxQL8PKSce08Akh2GKV2vhnEFHBwfaRc6YV3y5NSvXTPUiNvXrJ7SvJpL7cFrF4jy
+ WtzLpk8kBr2tLig==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+X-Debian-User: leitao
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Thu, Mar 5,
- 2026 at 5:54 PM Corey Minyard <corey@minyard.net>
- wrote: > > Ah, I thought you were putting it in your tree, so I just acked
- it. > > It's in my next tree now. Ah, no problem btw. Many thanks! 
+ Content preview:  From: Corey Minyard <corey@minyard.net> [ Upstream commit
+ f9323a44994c2ccd5e0d582bac6f2b2a662e5603 ] The analysis from Breno: 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 ARC_VALID              Message has a valid ARC signature
- 0.0 ARC_SIGNED             Message has a ARC signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.208.48 listed in wl.mailspike.net]
-X-Headers-End: 1vyC5c-0003qP-79
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: Replace use of system_wq
- with system_percpu_wq
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 UNPARSEABLE_RELAY Informational: message has unparseable relay lines
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
+X-Headers-End: 1vzXgI-0007Bm-Bd
+Subject: [Openipmi-developer] [PATCH stable] ipmi: Fix use-after-free and
+ list corruption on sender error
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -164,66 +131,127 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Marco Crivellari via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Marco Crivellari <marco.crivellari@suse.com>
-Cc: Michal Hocko <mhocko@suse.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Lai Jiangshan <jiangshanlai@gmail.com>, linux-kernel@vger.kernel.org,
- Tejun Heo <tj@kernel.org>, openipmi-developer@lists.sourceforge.net,
- Frederic Weisbecker <frederic@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Vlad Poenaru <thevlad@meta.com>, kernel-team@meta.com,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Corey Minyard <corey@minyard.net>, Breno Leitao <leitao@debian.org>,
+ openipmi-developer@lists.sourceforge.net
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
-X-Rspamd-Queue-Id: 871D8215D23
+X-Rspamd-Queue-Id: EA8D1236DEB
 X-Rspamd-Server: lfdr
-X-Spamd-Result: default: False [-7.51 / 15.00];
-	WHITELIST_DMARC(-7.00)[sourceforge.net:D:+];
-	ARC_REJECT(1.00)[signature check failed: fail, {[1] = sig:google.com:reject}];
-	DMARC_POLICY_ALLOW_WITH_FAILURES(-0.50)[];
+X-Spamd-Result: default: False [-1.11 / 15.00];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
+	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
 	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MAILLIST(-0.20)[mailman];
-	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
-	MIME_BASE64_TEXT(0.10)[];
 	MIME_GOOD(-0.10)[text/plain];
 	HAS_LIST_UNSUB(-0.01)[];
-	RCVD_TLS_LAST(0.00)[];
-	DKIM_MIXED(0.00)[];
-	RCVD_COUNT_THREE(0.00)[4];
-	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:mhocko@suse.com,m:bigeasy@linutronix.de,m:jiangshanlai@gmail.com,m:linux-kernel@vger.kernel.org,m:tj@kernel.org,m:openipmi-developer@lists.sourceforge.net,m:frederic@kernel.org,s:lists@lfdr.de];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,suse.com:-];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
+	DMARC_NA(0.00)[debian.org];
+	RCVD_COUNT_THREE(0.00)[4];
+	FORGED_RECIPIENTS(0.00)[m:stable@kernel.org,m:sashal@kernel.org,m:gregkh@linuxfoundation.org,m:thevlad@meta.com,m:kernel-team@meta.com,m:linux-kernel@vger.kernel.org,m:stable@vger.kernel.org,m:corey@minyard.net,m:leitao@debian.org,m:openipmi-developer@lists.sourceforge.net,s:lists@lfdr.de];
+	FORGED_SENDER(0.00)[leitao@debian.org,openipmi-developer-bounces@lists.sourceforge.net];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	MIME_TRACE(0.00)[0:+];
 	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
-	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,debian.org:s=smtpauto.stravinsky];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,debian.org:-];
 	FORGED_SENDER_MAILLIST(0.00)[];
-	FREEMAIL_CC(0.00)[suse.com,linutronix.de,gmail.com,vger.kernel.org,kernel.org,lists.sourceforge.net];
-	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
-	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
-	PREVIOUSLY_DELIVERED(0.00)[openipmi-developer@lists.sourceforge.net];
-	NEURAL_HAM(-0.00)[-1.000];
-	FORGED_RECIPIENTS_FORWARDING(0.00)[];
 	FORGED_SENDER_FORWARDING(0.00)[];
+	NEURAL_HAM(-0.00)[-0.954];
+	FROM_NEQ_ENVFROM(0.00)[leitao@debian.org,openipmi-developer-bounces@lists.sourceforge.net];
 	FROM_HAS_DN(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,suse.com:s=google];
-	RCPT_COUNT_SEVEN(0.00)[8];
-	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
-	HAS_REPLYTO(0.00)[marco.crivellari@suse.com];
-	TAGGED_RCPT(0.00)[openipmi-developer];
-	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
-	MISSING_XM_UA(0.00)[];
+	DKIM_MIXED(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FORGED_RECIPIENTS_FORWARDING(0.00)[];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[mail.gmail.com:mid,minyard.net:email,suse.com:replyto,lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
+	RCPT_COUNT_SEVEN(0.00)[10];
+	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	TAGGED_RCPT(0.00)[openipmi-developer];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
 X-Rspamd-Action: no action
 
-T24gVGh1LCBNYXIgNSwgMjAyNiBhdCA1OjU04oCvUE0gQ29yZXkgTWlueWFyZCA8Y29yZXlAbWlu
-eWFyZC5uZXQ+IHdyb3RlOgo+Cj4gQWgsIEkgdGhvdWdodCB5b3Ugd2VyZSBwdXR0aW5nIGl0IGlu
-IHlvdXIgdHJlZSwgc28gSSBqdXN0IGFja2VkIGl0Lgo+Cj4gSXQncyBpbiBteSBuZXh0IHRyZWUg
-bm93LgoKQWgsIG5vIHByb2JsZW0gYnR3LgoKTWFueSB0aGFua3MhCgotLSAKCk1hcmNvIENyaXZl
-bGxhcmkKCkwzIFN1cHBvcnQgRW5naW5lZXIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpPcGVuaXBtaS1kZXZlbG9wZXIgbWFpbGluZyBsaXN0Ck9wZW5p
-cG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQKaHR0cHM6Ly9saXN0cy5zb3VyY2Vm
-b3JnZS5uZXQvbGlzdHMvbGlzdGluZm8vb3BlbmlwbWktZGV2ZWxvcGVyCg==
+From: Corey Minyard <corey@minyard.net>
+
+[ Upstream commit f9323a44994c2ccd5e0d582bac6f2b2a662e5603 ]
+
+The analysis from Breno:
+
+When the SMI sender returns an error, smi_work() delivers an error
+response but then jumps back to restart without cleaning up properly:
+
+1. intf->curr_msg is not cleared, so no new message is pulled
+2. newmsg still points to the message, causing sender() to be called
+   again with the same message
+3. If sender() fails again, deliver_err_response() is called with
+   the same recv_msg that was already queued for delivery
+
+This causes list_add corruption ("list_add double add") because the
+recv_msg is added to the user_msgs list twice. Subsequently, the
+corrupted list leads to use-after-free when the memory is freed and
+reused, and eventually a NULL pointer dereference when accessing
+recv_msg->done.
+
+The buggy sequence:
+
+  sender() fails
+    -> deliver_err_response(recv_msg)  // recv_msg queued for delivery
+    -> goto restart                    // curr_msg not cleared!
+  sender() fails again (same message!)
+    -> deliver_err_response(recv_msg)  // tries to queue same recv_msg
+    -> LIST CORRUPTION
+
+Fix this by freeing the message and setting it to NULL on a send error.
+Also, always free the newmsg on a send error, otherwise it will leak.
+
+Reported-by: Breno Leitao <leitao@debian.org>
+Closes: https://lore.kernel.org/lkml/20260127-ipmi-v1-0-ba5cc90f516f@debian.org/
+Fixes: 9cf93a8fa9513 ("ipmi: Allow an SMI sender to return an error")
+Cc: stable@vger.kernel.org # 4.18
+Reviewed-by: Breno Leitao <leitao@debian.org>
+Signed-off-by: Corey Minyard <corey@minyard.net>
+Signed-off-by: Breno Leitao <leitao@debian.org>
+---
+ drivers/char/ipmi/ipmi_msghandler.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index 0a886399f9daf..5ed8e95589fb7 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -4848,8 +4848,15 @@ static void smi_work(struct work_struct *t)
+ 			if (newmsg->recv_msg)
+ 				deliver_err_response(intf,
+ 						     newmsg->recv_msg, cc);
+-			else
+-				ipmi_free_smi_msg(newmsg);
++			if (!run_to_completion)
++				spin_lock_irqsave(&intf->xmit_msgs_lock,
++						  flags);
++			intf->curr_msg = NULL;
++			if (!run_to_completion)
++				spin_unlock_irqrestore(&intf->xmit_msgs_lock,
++						       flags);
++			ipmi_free_smi_msg(newmsg);
++			newmsg = NULL;
+ 			goto restart;
+ 		}
+ 	}
+
+---
+base-commit: 6258e292d7463f96d0f06dff2a39093a54c9d16f
+change-id: 20260309-ipmi_stable-bde1bbf58536
+
+Best regards,
+--  
+Breno Leitao <leitao@debian.org>
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
