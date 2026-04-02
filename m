@@ -2,78 +2,78 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id eB9xC4NNzmmjmgYAu9opvQ
+	id eFzOII5NzmmjmgYAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Thu, 02 Apr 2026 13:05:39 +0200
+	for <lists+openipmi-developer@lfdr.de>; Thu, 02 Apr 2026 13:05:50 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id A608E38813D
-	for <lists+openipmi-developer@lfdr.de>; Thu, 02 Apr 2026 13:05:38 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D9C4C388145
+	for <lists+openipmi-developer@lfdr.de>; Thu, 02 Apr 2026 13:05:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:
 	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:Date:In-Reply-To:Mime-Version:To:References:
-	Message-Id:Sender:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Unsubscribe:List-Id:Subject:To:In-Reply-To:Mime-Version:Message-Id:Date:
+	References:Sender:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NA1avg8RD1/8perE0c3IYbUHW/XlC1ceXb2Mq56EQgM=; b=T1od2I1M094nh8hu4zF2lNCctb
-	tdvCsqsXqc9vBo3GmQSY//Q4OnZDpMHMOTpWyp+FonboSZjo5l33ZKLJOGnBueFr3knEIdmOhAhA+
-	eTnKcn1w1epgFsndaz291UBkj8C7StQr5W9OaTWjZjSK6ZOELbec4B0yTO7PpJ2zbKm0=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=b9P6UStjkJscMxYUeSzU3pePlfSQJClfhQkEziCLcoM=; b=ch+8N9PnZu7UXrMWV6QFeWtvQd
+	XoAbD94g1G5c1Pb1RHIazE8WyWAR/llk9XmRoZzsvrlUaZEI7IU+kzITTGVLBzoiWW0ZoHRKRWPE9
+	JFrpur9V/GLCurwGjn6Np1dcWe9E8EEFGwI9Kam7pSf0xx2fEnAUY2F269/j3NUN/WQo=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1w8Fre-000347-CN;
-	Thu, 02 Apr 2026 11:05:30 +0000
+	id 1w8Frq-0004zT-MI;
+	Thu, 02 Apr 2026 11:05:43 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <zhangjian.3032@bytedance.com>) id 1w8Frc-00033w-7o
+ (envelope-from <zhangjian.3032@bytedance.com>) id 1w8Frn-0004z7-Ef
  for openipmi-developer@lists.sourceforge.net;
- Thu, 02 Apr 2026 11:05:28 +0000
+ Thu, 02 Apr 2026 11:05:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Date:Subject:Content-Type:In-Reply-To:
- Content-Transfer-Encoding:Mime-Version:To:References:Message-Id:From:Sender:
- Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=9diGkaCXY5GzK1gQh6oj1jApe0ZVSKHlwC1rJQZX0yw=; b=gSSEyc3laJnq4x+rssNn0NfrTn
- u1ur4eAby5iUfBlHxszRZ2qDApkojW51DE7XBSi7CUW5V+UEfNVD7pRZ8X2pG8xmTrOdDRNC41WI1
- p77r8FsKlJHjYZN1ivcLuLA+/8iKpwuqjrkF4ryeHB5qjyRsZjwYSrmKJVR44eq0MNgM=;
+ d=sourceforge.net; s=x; h=To:Content-Type:In-Reply-To:Mime-Version:Message-Id
+ :Date:References:Subject:Content-Transfer-Encoding:From:Sender:Reply-To:Cc:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=aNDDZHCKWAnNKjO8KKBuxlbGcDHSEygC+igilt0a8B8=; b=eTJQSL+OwDWZB9s+hIMPiq0mFL
+ aTRHB2fpdcF9ZJosQciwlFJSHinJSDfmInMdjbXv0ESdncWOb4Qoyif6tt5APute1dJWPhEzGDYuX
+ 5G+fDS9tWFevl13Fx1tYIm7tGyEVfiyu18k7PUrhZk3dk+Ka6pi6QEd8bBlZZ2g+toic=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Date:Subject:Content-Type:In-Reply-To:Content-Transfer-Encoding:
- Mime-Version:To:References:Message-Id:From:Sender:Reply-To:Cc:Content-ID:
+ h=To:Content-Type:In-Reply-To:Mime-Version:Message-Id:Date:References:
+ Subject:Content-Transfer-Encoding:From:Sender:Reply-To:Cc:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=9diGkaCXY5GzK1gQh6oj1jApe0ZVSKHlwC1rJQZX0yw=; b=QRRzE8bvBoxer3MeChkglHRbmz
- RMk01JJMvddAPxfqLs8weWaqXfoiZfKF6VfcpiFw940nIjs7dbbshMBi/n90t5d+BCFvU63KHz8Us
- LwFZGb8TH3t9m5b7+NGq7CGv089alAuhK/GfzYpYShXMr0Z9LohzEnz5e0BtRAlhAwD8=;
-Received: from va-1-113.ptr.blmpb.com ([209.127.230.113])
+ bh=aNDDZHCKWAnNKjO8KKBuxlbGcDHSEygC+igilt0a8B8=; b=XbwdJ92JUyfpKrAjLoPJK+C6+J
+ ah/TmCOxQ8F7Ywg4dXxoFL07dhl/Rmi5YF7DYSrH7EEpGK3tQt6ufeFrOrdYsps6CFkvQb/AUWkDJ
+ erh9+wboCoxidvwe+RSsrCv/IbCyr2JP2CCTCZCBR6My2W9+30VnmGPlKtmK7SKVts9c=;
+Received: from va-1-111.ptr.blmpb.com ([209.127.230.111])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1w8Frb-0001rZ-IQ for openipmi-developer@lists.sourceforge.net;
- Thu, 02 Apr 2026 11:05:28 +0000
+ id 1w8Frn-0001tH-Dd for openipmi-developer@lists.sourceforge.net;
+ Thu, 02 Apr 2026 11:05:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1775127913; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1775127925; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=9diGkaCXY5GzK1gQh6oj1jApe0ZVSKHlwC1rJQZX0yw=;
- b=gCgq5Iq2LyJmVhaHL35+n4ThK8CqSrUZZXKrG+oq2DQgiol6WRrsaBhRL212XmRA1J3rjL
- QXMouB7f2ylgfRbt7jAVcUbPkR1TcLd+GJ7PchvKUgmcg6hdlTJ4HrdUgMV37ywjwqmR85
- N4DqgQSVHPXE1Q6l7UfzIRoNwBjKFyz82H20UyPiueq7c1QC8S0uYT1spl+6pAANLCmU2E
- dIQwuOA7/Lc+vXHD8PpG3L2aA69jGki5MTkiK85hGh0CHcoBm5tu83hO3/gSte5w77i4VH
- ROW4+d2LsW5/H8hfrKuRSgd1bhdehGUPdtg7KJovM/gujOOd8axsmwh1ksgnjg==
-Message-Id: <20260402110435.3589408-3-zhangjian.3032@bytedance.com>
+ bh=aNDDZHCKWAnNKjO8KKBuxlbGcDHSEygC+igilt0a8B8=;
+ b=lhLCgmSN9lyaQ5vuzRsuL9kreyVN8GY789gHD6uDupqrjYRSzNquEppsFp8nyAuVJ6p9xM
+ oCRHGWmAHeITW8v6/ErTRXmoxcO16nqRnTJ/jQ0SjDZiqsnVXdXYIgJMlkBhT8fUrnjqnP
+ qVH8SE/kJW+i5GYKnzsBpV0FSq59HqFqkgEcKDyvS+PEOK5L9lOwXdsbJVPZMF2rTaQEfH
+ 53kKl5+YZmtI+vzQ1Q+GYAAGSHSn1Eh+T+weKuu9mNO/CSc9Vi8oGF9UcEMoWsnc1XdGKj
+ Oa8iOEWdbuVQFJrvq3aJHx20EX7TANZ3PaJpg6/IAGZI741MOZW+8s8SuPk37w==
+X-Mailer: git-send-email 2.20.1
+X-Lms-Return-Path: <lba+269ce4d73+516025+lists.sourceforge.net+zhangjian.3032@bytedance.com>
+X-Original-From: Jian Zhang <zhangjian.3032@bytedance.com>
 References: <20260402110435.3589408-1-zhangjian.3032@bytedance.com>
+Date: Thu,  2 Apr 2026 19:04:34 +0800
+Message-Id: <20260402110435.3589408-4-zhangjian.3032@bytedance.com>
+Mime-Version: 1.0
+In-Reply-To: <20260402110435.3589408-1-zhangjian.3032@bytedance.com>
 To: "Corey Minyard" <corey@minyard.net>, 
  "Quan Nguyen" <quan@os.amperecomputing.com>, 
  <openipmi-developer@lists.sourceforge.net>, <linux-kernel@vger.kernel.org>
-X-Lms-Return-Path: <lba+269ce4d67+342252+lists.sourceforge.net+zhangjian.3032@bytedance.com>
-X-Mailer: git-send-email 2.20.1
-Mime-Version: 1.0
-In-Reply-To: <20260402110435.3589408-1-zhangjian.3032@bytedance.com>
-Date: Thu,  2 Apr 2026 19:04:33 +0800
-X-Original-From: Jian Zhang <zhangjian.3032@bytedance.com>
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
@@ -81,13 +81,12 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  A truncated response, caused by host power-off,
- or other conditions, 
- can lead to message desynchronization. Raw trace data (STOP loss scenario,
- add state transition comment): 1. T-1: Read response phase (SSIF_RES_SENDING)
- 8271.955342 WR_RCV [03] <- Read polling cmd 8271.955348 RD_REQ [04] <==
- SSIF_RES_SENDING
- <- start sending response 8271.955436 RD_PRO [b4] 8271.955527 RD [...] 
+ Content preview: Long-running tests indicate that this logging can
+ occasionally
+ disrupt timing and lead to request/response corruption. Irq handler need
+ to be executed as fast as possible, most I2C slave IRQ implementations are
+ byte-level, logging here can significantly affect transfer behavior and timing.
+ It is recommended to use dev [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -98,9 +97,9 @@ X-Spam-Report: Spam detection software,
  not necessarily valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
-X-Headers-End: 1w8Frb-0001rZ-IQ
-Subject: [Openipmi-developer] [PATCH 3/5] ipmi: ssif_bmc: fix message
- desynchronization after truncated response
+X-Headers-End: 1w8Frn-0001tH-Dd
+Subject: [Openipmi-developer] [PATCH 4/5] ipmi: ssif_bmc: change log level
+ to dbg in irq callback
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -133,15 +132,15 @@ X-Spamd-Result: default: False [-8.11 / 15.00];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
 	DKIM_MIXED(0.00)[];
 	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:quan@os.amperecomputing.com,m:openipmi-developer@lists.sourceforge.net,m:linux-kernel@vger.kernel.org,s:lists@lfdr.de];
-	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
 	ARC_NA(0.00)[];
+	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
 	FORGED_SENDER_MAILLIST(0.00)[];
 	RCVD_TLS_LAST(0.00)[];
 	TO_DN_SOME(0.00)[];
 	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
 	MIME_TRACE(0.00)[0:+];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,bytedance.com:-];
+	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
 	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,bytedance.com:s=2212171451];
 	FORGED_RECIPIENTS_FORWARDING(0.00)[];
 	NEURAL_HAM(-0.00)[-1.000];
@@ -154,84 +153,111 @@ X-Spamd-Result: default: False [-8.11 / 15.00];
 	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
 	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
 	HAS_REPLYTO(0.00)[zhangjian.3032@bytedance.com];
-	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,bytedance.com:-];
 	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:dkim,bytedance.com:email,bytedance.com:replyto,bytedance.com:mid]
-X-Rspamd-Queue-Id: A608E38813D
+X-Rspamd-Queue-Id: D9C4C388145
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
-A truncated response, caused by host power-off, or other conditions,
-can lead to message desynchronization.
+Long-running tests indicate that this logging can occasionally disrupt
+timing and lead to request/response corruption.
 
-Raw trace data (STOP loss scenario, add state transition comment):
-
-1. T-1: Read response phase (SSIF_RES_SENDING)
-8271.955342  WR_RCV [03]                          <- Read polling cmd
-8271.955348  RD_REQ [04]  <== SSIF_RES_SENDING    <- start sending response
-8271.955436  RD_PRO [b4]
-8271.955527  RD_PRO [00]
-8271.955618  RD_PRO [c1]
-8271.955707  RD_PRO [00]
-8271.955814  RD_PRO [ad]  <== SSIF_RES_SENDING     <- last byte
-	<- !! STOP lost (truncated response)
-
-2. T: New Write request arrives, BMC still in SSIF_RES_SENDING
-8271.967973  WR_REQ []    <== SSIF_RES_SENDING >> SSIF_ABORTING  <- log: unexpected WR_REQ in RES_SENDING
-8271.968447  WR_RCV [02]  <== SSIF_ABORTING  <- do nothing
-8271.968452  WR_RCV [02]  <== SSIF_ABORTING  <- do nothing
-8271.968454  WR_RCV [18]  <== SSIF_ABORTING  <- do nothing
-8271.968456  WR_RCV [01]  <== SSIF_ABORTING  <- do nothing
-8271.968458  WR_RCV [66]  <== SSIF_ABORTING  <- do nothing
-8271.978714  STOP []      <== SSIF_ABORTING >> SSIF_READY  <- log: unexpected SLAVE STOP in state=SSIF_ABORTING
-
-3. T+1: Next Read polling, treated as a fresh transaction
-8271.979125  WR_REQ []    <== SSIF_READY >> SSIF_START
-8271.979326  WR_RCV [03]  <== SSIF_START >> SSIF_SMBUS_CMD        <- smbus_cmd=0x03
-8271.979331  RD_REQ [04]  <== SSIF_RES_SENDING      <- sending response
-8271.979427  RD_PRO [b4]                            <- !! this is T's stale response -> desynchronization
-
-When in SSIF_ABORTING state, a newly arrived command should still be
-handled to avoid dropping the request or causing message
-desynchronization.
+Irq handler need to be executed as fast as possible,
+most I2C slave IRQ implementations are byte-level, logging here
+can significantly affect transfer behavior and timing. It is recommended
+to use dev_dbg() for these messages.
 
 Fixes: dd2bc5cc9e25 ("ipmi: ssif_bmc: Add SSIF BMC driver")
 Signed-off-by: Jian Zhang <zhangjian.3032@bytedance.com>
 ---
- drivers/char/ipmi/ssif_bmc.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/char/ipmi/ssif_bmc.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
-index 4037615ace12..d0543be0af80 100644
+index d0543be0af80..691e95a67f94 100644
 --- a/drivers/char/ipmi/ssif_bmc.c
 +++ b/drivers/char/ipmi/ssif_bmc.c
-@@ -458,6 +458,15 @@ static bool supported_write_cmd(u8 cmd)
- 	return false;
- }
+@@ -569,7 +569,7 @@ static void process_request_part(struct ssif_bmc_ctx *ssif_bmc)
+ 		len = ssif_bmc->request.len + part->length;
+ 		/* Do the bound check here, not allow the request len exceed 254 bytes */
+ 		if (len > IPMI_SSIF_PAYLOAD_MAX) {
+-			dev_warn(&ssif_bmc->client->dev,
++			dev_dbg(&ssif_bmc->client->dev,
+ 				 "Warn: Request exceeded 254 bytes, aborting");
+ 			/* Request too long, aborting */
+ 			ssif_bmc->aborting =  true;
+@@ -615,7 +615,7 @@ static void on_read_requested_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
+ 	    ssif_bmc->state == SSIF_START ||
+ 	    ssif_bmc->state == SSIF_REQ_RECVING ||
+ 	    ssif_bmc->state == SSIF_RES_SENDING) {
+-		dev_warn(&ssif_bmc->client->dev,
++		dev_dbg(&ssif_bmc->client->dev,
+ 			 "Warn: %s unexpected READ REQUESTED in state=%s\n",
+ 			 __func__, state_to_string(ssif_bmc->state));
+ 		ssif_bmc->state = SSIF_ABORTING;
+@@ -624,7 +624,7 @@ static void on_read_requested_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
  
-+static bool supported_write_start_cmd(u8 cmd)
-+{
-+	if (cmd == SSIF_IPMI_SINGLEPART_WRITE ||
-+	    cmd == SSIF_IPMI_MULTIPART_WRITE_START)
-+		return true;
-+
-+	return false;
-+}
-+
- /* Process the IPMI response that will be read by master */
- static void handle_read_processed(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
+ 	} else if (ssif_bmc->state == SSIF_SMBUS_CMD) {
+ 		if (!supported_read_cmd(ssif_bmc->part_buf.smbus_cmd)) {
+-			dev_warn(&ssif_bmc->client->dev, "Warn: Unknown SMBus read command=0x%x",
++			dev_dbg(&ssif_bmc->client->dev, "Warn: Unknown SMBus read command=0x%x",
+ 				 ssif_bmc->part_buf.smbus_cmd);
+ 			ssif_bmc->aborting = true;
+ 		}
+@@ -659,7 +659,7 @@ static void on_read_processed_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
+ 	    ssif_bmc->state == SSIF_START ||
+ 	    ssif_bmc->state == SSIF_REQ_RECVING ||
+ 	    ssif_bmc->state == SSIF_SMBUS_CMD) {
+-		dev_warn(&ssif_bmc->client->dev,
++		dev_dbg(&ssif_bmc->client->dev,
+ 			 "Warn: %s unexpected READ PROCESSED in state=%s\n",
+ 			 __func__, state_to_string(ssif_bmc->state));
+ 		ssif_bmc->state = SSIF_ABORTING;
+@@ -684,7 +684,7 @@ static void on_write_requested_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
+ 	} else if (ssif_bmc->state == SSIF_START ||
+ 		   ssif_bmc->state == SSIF_REQ_RECVING ||
+ 		   ssif_bmc->state == SSIF_RES_SENDING) {
+-		dev_warn(&ssif_bmc->client->dev,
++		dev_dbg(&ssif_bmc->client->dev,
+ 			 "Warn: %s unexpected WRITE REQUEST in state=%s\n",
+ 			 __func__, state_to_string(ssif_bmc->state));
+ 		ssif_bmc->state = SSIF_ABORTING;
+@@ -699,7 +699,7 @@ static void on_write_received_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
  {
-@@ -709,6 +718,11 @@ static void on_write_received_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
- 			ssif_bmc->state = SSIF_ABORTING;
- 		else
- 			ssif_bmc->state = SSIF_REQ_RECVING;
-+	} else if (ssif_bmc->state == SSIF_ABORTING) {
-+		if (supported_write_start_cmd(*val)) {
-+			ssif_bmc->state = SSIF_SMBUS_CMD;
-+			ssif_bmc->aborting = false;
-+		}
+ 	if (ssif_bmc->state == SSIF_READY ||
+ 	    ssif_bmc->state == SSIF_RES_SENDING) {
+-		dev_warn(&ssif_bmc->client->dev,
++		dev_dbg(&ssif_bmc->client->dev,
+ 			 "Warn: %s unexpected WRITE RECEIVED in state=%s\n",
+ 			 __func__, state_to_string(ssif_bmc->state));
+ 		ssif_bmc->state = SSIF_ABORTING;
+@@ -709,7 +709,7 @@ static void on_write_received_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
+ 
+ 	} else if (ssif_bmc->state == SSIF_SMBUS_CMD) {
+ 		if (!supported_write_cmd(ssif_bmc->part_buf.smbus_cmd)) {
+-			dev_warn(&ssif_bmc->client->dev, "Warn: Unknown SMBus write command=0x%x",
++			dev_dbg(&ssif_bmc->client->dev, "Warn: Unknown SMBus write command=0x%x",
+ 				 ssif_bmc->part_buf.smbus_cmd);
+ 			ssif_bmc->aborting = true;
+ 		}
+@@ -738,7 +738,7 @@ static void on_stop_event(struct ssif_bmc_ctx *ssif_bmc, u8 *val)
+ 	    ssif_bmc->state == SSIF_START ||
+ 	    ssif_bmc->state == SSIF_SMBUS_CMD ||
+ 	    ssif_bmc->state == SSIF_ABORTING) {
+-		dev_warn(&ssif_bmc->client->dev,
++		dev_dbg(&ssif_bmc->client->dev,
+ 			 "Warn: %s unexpected SLAVE STOP in state=%s\n",
+ 			 __func__, state_to_string(ssif_bmc->state));
+ 		ssif_bmc->state = SSIF_READY;
+@@ -805,7 +805,7 @@ static int ssif_bmc_cb(struct i2c_client *client, enum i2c_slave_event event, u8
+ 		break;
+ 
+ 	default:
+-		dev_warn(&ssif_bmc->client->dev, "Warn: Unknown i2c slave event\n");
++		dev_dbg(&ssif_bmc->client->dev, "Warn: Unknown i2c slave event\n");
+ 		break;
  	}
  
- 	/* This is response sending state */
 -- 
 2.20.1
 
