@@ -2,144 +2,106 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id oCCmEWzPz2m50gYAu9opvQ
+	id sJwAEk7Rz2mY0wYAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Fri, 03 Apr 2026 16:32:12 +0200
+	for <lists+openipmi-developer@lfdr.de>; Fri, 03 Apr 2026 16:40:14 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B754395444
-	for <lists+openipmi-developer@lfdr.de>; Fri, 03 Apr 2026 16:32:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 341593954FD
+	for <lists+openipmi-developer@lfdr.de>; Fri, 03 Apr 2026 16:40:13 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARsTWhIJpAF/TCbLp2a8p8E734y6isxCtHZZ188SYNU=; b=iFpPBxPXtllCPAhhdsbXk/Rdqk
-	tUirW46evFX2gU1oXTnT+LnQ949jg0GZXMwsVMnpe4+KXIjoE20zbF7c0wE9c4m+b44hhdAAfWgDg
-	V0IzC13sEJOL4L4MIML/a+M7MuStf+yXVsxa66owWzJkZT9NtQIX+1/6BS7jd0Tvoi1E=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:Mime-Version:Message-Id:To:Date:Sender:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c2soelB/JOEvCd+CuH9/wzx7jtiLuqb5gACeoL7lSLE=; b=GD7aOPmLVd1jhC4lTUMwY0GxfE
+	92c6NrkNbbX9Uy3zxiNWJXdJRiFBBb5JImi8S+G1Xmi/wCTnVmaHW6qwzY/pwPurMUGDTXMXI+nuT
+	l/s4NTKoveT68kezQn6RqE5V+HlITrRfuXIBsLt48rqWOJlSJN6eHlmx5+YnUl9tRCpk=;
+Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
+	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1w8fZ5-0007Rf-Gj;
-	Fri, 03 Apr 2026 14:32:03 +0000
+	id 1w8fgq-0000zD-Lf;
+	Fri, 03 Apr 2026 14:40:04 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1w8fZ4-0007RZ-23
+ (envelope-from <zhangjian.3032@bytedance.com>) id 1w8fgp-0000z6-0P
  for openipmi-developer@lists.sourceforge.net;
- Fri, 03 Apr 2026 14:32:02 +0000
+ Fri, 03 Apr 2026 14:40:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
- MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Mime-Version:Message-Id:
+ To:Content-Type:Date:Subject:From:Sender:Reply-To:Cc:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=jcGkuJjxqLYxz5jslzQh2JyJsh0sOUQ/qFetPtnPzfw=; b=cpgeKvuTNkjZ5gdcnTXcsUrOyI
- h/XCQmYVdbS3tXuoWV7lML0fsXmYO7aBqC4YVLRlEHNkVe9JfpsYedEps/xXztdU5AfVvq+wqnhg/
- xIu5QBjp+RDNiG3FpoOcGOvdl9vyemEPy430gtzLloSiy4fvPcnG2dku6cP9fwRGWW2g=;
+ bh=WeWFHMJP/ifPKvlryHbLdeuOdUll0VsF59IwstwHYTw=; b=btYZD72MAVvBF9TN7SiduS69R8
+ 6yDsy7CRy1kiyOlNcMfS8xE0yB1KD4yMj4CJJwK8Dq3zpaCNehiUZ5Ly2aZDbho+QN/ZwzHoLmZRL
+ ZutfKINJdrL0W5MjPbv07rCyT9NYGoc7q6PwLEI6KcYYgTwSyF3CpY47bHv0mR2wE92I=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=jcGkuJjxqLYxz5jslzQh2JyJsh0sOUQ/qFetPtnPzfw=; b=gROywEK0cd9CmYcsRYuk+PLWkQ
- Z5HpDIPaKAre7qpSXQ2O0AcsujYX0LJQwLeHsFkyDweKz0PQdXX46SXFSd4wS9PIoclkV/iHNsX4e
- EcPTRSJkvNopFN8pjL/+RjmFvTpBs4+7YWWKsWFQGGpKfUwileiFa7dm9hiuj8GBjMCs=;
-Received: from mail-oa1-f52.google.com ([209.85.160.52])
+ h=Content-Transfer-Encoding:Mime-Version:Message-Id:To:Content-Type:Date:
+ Subject:From:Sender:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=WeWFHMJP/ifPKvlryHbLdeuOdUll0VsF59IwstwHYTw=; b=c
+ jFP+1i/5mAqanHHQjysisucc1xa3zW5uqjNOaklrmlZQBcDESgp/IaOFUoDxK/i7HSJn7BCMagOCM
+ mOVRz2O4DDTVyuYGVBvi9JvFdKr8wgNsdSrSKWZiu4+16OLk7bi7jhyKdlg2oABKWvNFfw1vRu6m3
+ 2vz834Fj9mzFqizE=;
+Received: from va-1-111.ptr.blmpb.com ([209.127.230.111])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1w8fZ2-0000uK-Nh for openipmi-developer@lists.sourceforge.net;
- Fri, 03 Apr 2026 14:32:01 +0000
-Received: by mail-oa1-f52.google.com with SMTP id
- 586e51a60fabf-40f1ffba6a0so1375010fac.0
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 03 Apr 2026 07:32:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard.net; s=google; t=1775226715; x=1775831515; darn=lists.sourceforge.net;
- h=in-reply-to:content-transfer-encoding:content-disposition
- :mime-version:references:reply-to:message-id:subject:cc:to:from:date
- :from:to:cc:subject:date:message-id:reply-to;
- bh=jcGkuJjxqLYxz5jslzQh2JyJsh0sOUQ/qFetPtnPzfw=;
- b=cisQbiUE+zM6FI2rb9CoIhzDy4Ul1khkekXbcZnYqEHwfdV/tbLtvFAZwfUU0roQUe
- 6Ym7Ujz8dbDjvDe8GGhc2yN+E9iZ6iYRIyJdQD7HYCHtyEyMh25WDdhR0PDmCJsfiQGS
- SYKyFjZHpUtN7uCxNo7o1pcKApunDgr1GlvyaHKSD5tmv8yUm4g/1yVenHAhGdvmhwKI
- pSGVr0hKvWCYQ0dxLjCX0LQfTk66JfmJC39HuVZi0ZnkjAx/1q0fGiLZm/piS+M5Mfdm
- z2nDh5k+1JDeJtnlRMEc5Qgf9coboIfBrJO439ekb+AxyGtltz9gIPFubTpEdQGTQfpK
- jVGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20251104; t=1775226715; x=1775831515;
- h=in-reply-to:content-transfer-encoding:content-disposition
- :mime-version:references:reply-to:message-id:subject:cc:to:from:date
- :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=jcGkuJjxqLYxz5jslzQh2JyJsh0sOUQ/qFetPtnPzfw=;
- b=pRmDD2ATN5Lj0sVvrqMqF8ElfC0lyFcViieHzFSjQf2Pt4O7f4uqPpVuBqyOo5kuK9
- 3DkLLpyJLPbk5iqdUoyideJn8bzXjU5b8xT9YfVV9u/jck9jIv686xc1nrYbgM7Y0l6t
- k0nQN7UPAASmSnUijSKLX8zM4q0JPVJHwp+vsy28PwRCMvcoO6aSPFKfCOu2KaAZzZPL
- jydDORf6PjwuUMIReXrNKddvg8utCarPRvr1ilnEKPwaiI8U12uQGHjQJMzb102Rd5xi
- nHBSNi2vU6p69X3CmDBIG1QadtJGH8I3+VzNMR7aFahMv0zAW6n6NkLuFX2GxVZ6h3zP
- B5TA==
-X-Forwarded-Encrypted: i=1;
- AJvYcCUQoGwMM/sNX6prxEtk1SoCt87rjAmlUJuZFm3d/iUfwtlSN/h/3+PKmS2/wiZtI/NipCCkGkIxUiQ6L93nV7RO72k=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0YyGzkt1Cl3nT7hIb6p/zjj6qGut4O1rPcFVwBcRwcsu3z5i/6b/
- +GQfpEX3imx92yninNHIIV4vb91Xi0Lma3iDAGD6Y5fRC5SIATbbMtdXTRjr2v/6zGc=
-X-Gm-Gg: AeBDievkit8STJuY8QxBAWP8OgBSTkSpRFLjgq9qiJEhUcELYpn9hd8ajKSX5+OSklJ
- +Qpx+PFPwAgtrb/SlxaU2OS6aQbUG5hPBGRCuC4kFMFz62SHEsD/PZ9AIhzglwQ52Zjna3/7VmM
- C8ggj5xoF7MyYz8S4yJ165T1KGWI9hYqQekGZ6bCC+VO52wMhNoJOPkAQsRzXkhGAwhrVgejE0L
- A9HGdbDEBRagowwswxp27ALtmaKnvHdp75HHfpr8qK6+CD5OoonUK1jRVPR765y8fn8D/2DFFnI
- NpKMDxZpeFcSV2nzqt9NNv2Xjvsevyr+JwyijYEBkTkc1LLbXQ8/Feh2QNOCSsaeCyX1Ac3cZnr
- xWCBosGYbX3nNQ79kb4/bBleT4QIFwFcMz0meMe1Pcjgr6kIpoq/mkMrNS5clt3S8KX9aHOHZoq
- WyaP5EL+alu/Xta1vZdGoF0uMP7ngsyb57fpmsdc/bcD2Ttj1BS3FkXisk7VxZki1v4nZjBiCdr
- C5jYC7LGJ+YlzQ=
-X-Received: by 2002:a05:6870:158a:b0:41c:3fbf:431 with SMTP id
- 586e51a60fabf-4230fd9aeb7mr1647183fac.17.1775226714818; 
- Fri, 03 Apr 2026 07:31:54 -0700 (PDT)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:67f7:eb47:a398:6ff2])
- by smtp.gmail.com with ESMTPSA id
- 586e51a60fabf-422eb3ce790sm4727553fac.16.2026.04.03.07.31.53
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 03 Apr 2026 07:31:54 -0700 (PDT)
-Date: Fri, 3 Apr 2026 09:31:49 -0500
-From: Corey Minyard <corey@minyard.net>
-To: Jian Zhang <zhangjian.3032@bytedance.com>
-Message-ID: <ac_PVV3iM4xQSwbX@mail.minyard.net>
-References: <20260403090603.3988423-1-zhangjian.3032@bytedance.com>
- <20260403090603.3988423-5-zhangjian.3032@bytedance.com>
- <ac-9MfTjR1rdo4Sf@mail.minyard.net>
- <AB598DB6-939C-4E88-A217-D2AD16AF66B2@bytedance.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <AB598DB6-939C-4E88-A217-D2AD16AF66B2@bytedance.com>
+ id 1w8fgn-0001Kt-Nr for openipmi-developer@lists.sourceforge.net;
+ Fri, 03 Apr 2026 14:40:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1775227191; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=WeWFHMJP/ifPKvlryHbLdeuOdUll0VsF59IwstwHYTw=;
+ b=hcW6zgip0No6ABZ3apL+rcMRpNwufO4VufxifPNhVFjD1SsT/8l7mDvNUgsAS7KnDcMiFF
+ bg5Pwx053nNNVs+YquEmKLBbOmP71QwLIlNSKClQ8U9nvsjqRFSDEsXntUButRu4zh3mix
+ /9Y1Q11AcJVuNCqbDQx4rxfaiuopjMB6TY3xVQtALmXmVqLPVVfMT9WgOKq6zbPiD9uXiz
+ jAghw4TgPveDR1oNsJ50r044YGlPAbNRsvznwPyrrboSvMlgKZA7tSEDvK4ECUb3NrB55m
+ uj/winMTjpDb/AmhFp7GzkwVO6X6wAkFKe0Xp5bPu64c83g96y92xH01+U9sJg==
+Date: Fri,  3 Apr 2026 22:39:38 +0800
+X-Lms-Return-Path: <lba+269cfd136+55451a+lists.sourceforge.net+zhangjian.3032@bytedance.com>
+X-Original-From: Jian Zhang <zhangjian.3032@bytedance.com>
+To: "Corey Minyard" <corey@minyard.net>, 
+ "Quan Nguyen" <quan@os.amperecomputing.com>, 
+ <openipmi-developer@lists.sourceforge.net>, <linux-kernel@vger.kernel.org>
+Message-Id: <20260403143939.434017-1-zhangjian.3032@bytedance.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.20.1
 X-Spam-Score: -0.2 (/)
-X-Spam-Report: Spam detection software, running on the system "sfi-spamd-2.hosts.colo.sdot.me",
+X-Spam-Report: Spam detection software,
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- 
- Content preview:  On Fri, Apr 03, 2026 at 10:12:45PM +0800, Jian Zhang wrote:
-    > > 2026年4月3日 21:14，Corey Minyard <corey@minyard.net> 写道： >
-    > > > On Fri, Apr 03, 2026 at 05:06:02PM +0800, Jian Zhang wrote: [...] 
- 
+ Content preview:  Add some unit test for state machine when in SSIF_ABORTING
+ state. Fixes: dd2bc5cc9e25 ("ipmi: ssif_bmc: Add SSIF BMC driver")
+ Signed-off-by:
+ Jian Zhang <zhangjian.3032@bytedance.com> --- v3: remove
+ ssif_bmc_test_restart_after_invalid_length, 
+ and depends remove `=y` [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
- 
-  pts rule name              description
+ pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 0.0 URIBL_BLOCKED ADMINISTRATOR NOTICE: The query to URIBL was blocked.
+ See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+ for more information. [URI: bytedance.com]
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
-                             domain
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
-  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
-                             [209.85.160.52 listed in wl.mailspike.net]
-  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1w8fZ2-0000uK-Nh
-Subject: Re: [Openipmi-developer] [PATCH v2 5/5] ipmi: ssif_bmc: add unit
- test for state machine
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+X-Headers-End: 1w8fgn-0001Kt-Nr
+Subject: [Openipmi-developer] [PATCH v3 5/5] ipmi: ssif_bmc: add unit test
+ for state machine
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -152,392 +114,479 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: openipmi-developer@lists.sourceforge.net,
- Quan Nguyen <quan@os.amperecomputing.com>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Jian Zhang via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Jian Zhang <zhangjian.3032@bytedance.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
-X-Spamd-Result: default: False [-0.91 / 15.00];
+X-Spamd-Result: default: False [-8.11 / 15.00];
+	WHITELIST_DMARC(-7.00)[sourceforge.net:D:+];
+	MV_CASE(0.50)[];
+	DMARC_POLICY_ALLOW_WITH_FAILURES(-0.50)[];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
+	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MAILLIST(-0.20)[mailman];
 	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
-	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
-	MIME_BASE64_TEXT(0.10)[];
 	MIME_GOOD(-0.10)[text/plain];
-	DMARC_POLICY_SOFTFAIL(0.10)[minyard.net : SPF not aligned (strict), DKIM not aligned (strict),none];
 	HAS_LIST_UNSUB(-0.01)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:quan@os.amperecomputing.com,m:openipmi-developer@lists.sourceforge.net,m:linux-kernel@vger.kernel.org,s:lists@lfdr.de];
+	DKIM_MIXED(0.00)[];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
+	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	ARC_NA(0.00)[];
 	FORGED_SENDER_MAILLIST(0.00)[];
 	RCVD_TLS_LAST(0.00)[];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,minyard.net:s=google];
-	DKIM_MIXED(0.00)[];
-	FORGED_SENDER(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
-	FORGED_RECIPIENTS(0.00)[m:zhangjian.3032@bytedance.com,m:openipmi-developer@lists.sourceforge.net,m:quan@os.amperecomputing.com,m:linux-kernel@vger.kernel.org,s:lists@lfdr.de];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
 	TO_DN_SOME(0.00)[];
 	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	MIME_TRACE(0.00)[0:+];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,minyard.net:-];
-	RCPT_COUNT_THREE(0.00)[4];
-	HAS_REPLYTO(0.00)[corey@minyard.net];
-	FORGED_SENDER_FORWARDING(0.00)[];
-	RCVD_COUNT_FIVE(0.00)[5];
-	PREVIOUSLY_DELIVERED(0.00)[openipmi-developer@lists.sourceforge.net];
-	REPLYTO_ADDR_EQ_FROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
 	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
-	NEURAL_HAM(-0.00)[-1.000];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,bytedance.com:s=2212171451];
 	FORGED_RECIPIENTS_FORWARDING(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
-	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	NEURAL_HAM(-0.00)[-1.000];
+	FORGED_SENDER_FORWARDING(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FROM_NEQ_ENVFROM(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
 	TAGGED_RCPT(0.00)[openipmi-developer];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[amperecomputing.com:email,lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:dkim]
-X-Rspamd-Queue-Id: 2B754395444
+	RCPT_COUNT_THREE(0.00)[4];
+	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
+	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	HAS_REPLYTO(0.00)[zhangjian.3032@bytedance.com];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,bytedance.com:-];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[amperecomputing.com:email,lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:dkim,bytedance.com:email,bytedance.com:replyto,bytedance.com:mid]
+X-Rspamd-Queue-Id: 341593954FD
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
-T24gRnJpLCBBcHIgMDMsIDIwMjYgYXQgMTA6MTI6NDVQTSArMDgwMCwgSmlhbiBaaGFuZyB3cm90
-ZToKPiA+IDIwMjblubQ05pyIM+aXpSAyMToxNO+8jENvcmV5IE1pbnlhcmQgPGNvcmV5QG1pbnlh
-cmQubmV0PiDlhpnpgZPvvJoKPiA+IAo+ID4gT24gRnJpLCBBcHIgMDMsIDIwMjYgYXQgMDU6MDY6
-MDJQTSArMDgwMCwgSmlhbiBaaGFuZyB3cm90ZToKPiA+PiBBZGQgc29tZSB1bml0IHRlc3QgZm9y
-IHN0YXRlIG1hY2hpbmUgd2hlbiBpbiBTU0lGX0FCT1JUSU5HIHN0YXRlLgo+ID4+IAo+ID4+IEZp
-eGVzOiBkZDJiYzVjYzllMjUgKCJpcG1pOiBzc2lmX2JtYzogQWRkIFNTSUYgQk1DIGRyaXZlciIp
-Cj4gPj4gU2lnbmVkLW9mZi1ieTogSmlhbiBaaGFuZyA8emhhbmdqaWFuLjMwMzJAYnl0ZWRhbmNl
-LmNvbT4KPiA+PiAtLS0KPiA+PiB2MjogcmVtb3ZlIHVuZGVmaW5lZCBzeW1ib2wgcmVzcG9uc2Vf
-aW5fc2VuZAo+ID4+IAo+ID4+IGRyaXZlcnMvY2hhci9pcG1pL0tjb25maWcgICAgfCAgMTAgKwo+
-ID4+IGRyaXZlcnMvY2hhci9pcG1pL3NzaWZfYm1jLmMgfCA0MDEgKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysKPiA+PiAyIGZpbGVzIGNoYW5nZWQsIDQxMSBpbnNlcnRpb25zKCsp
-Cj4gPj4gCj4gPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcgYi9kcml2
-ZXJzL2NoYXIvaXBtaS9LY29uZmlnCj4gPj4gaW5kZXggOTJiZWQyNjZkMDdjLi43MDk4MjBmODAy
-NjYgMTAwNjQ0Cj4gPj4gLS0tIGEvZHJpdmVycy9jaGFyL2lwbWkvS2NvbmZpZwo+ID4+ICsrKyBi
-L2RyaXZlcnMvY2hhci9pcG1pL0tjb25maWcKPiA+PiBAQCAtMTg3LDYgKzE4NywxNiBAQCBjb25m
-aWcgU1NJRl9JUE1JX0JNQwo+ID4+ICAgVGhlIGRyaXZlciBpbXBsZW1lbnRzIHRoZSBCTUMgc2lk
-ZSBvZiB0aGUgU01CdXMgc3lzdGVtCj4gPj4gICBpbnRlcmZhY2UgKFNTSUYpLgo+ID4+IAo+ID4+
-ICtjb25maWcgU1NJRl9JUE1JX0JNQ19LVU5JVF9URVNUCj4gPj4gKyBib29sICJLVW5pdCB0ZXN0
-cyBmb3IgU1NJRiBJUE1JIEJNQyBkcml2ZXIiIGlmICFLVU5JVF9BTExfVEVTVFMKPiA+PiArIGRl
-cGVuZHMgb24gS1VOSVQ9eQo+ID4+ICsgZGVwZW5kcyBvbiBTU0lGX0lQTUlfQk1DPXkKPiA+IAo+
-ID4gQW55IHJlYXNvbiBmb3IgdGhlICI9eSIgaW4gdGhlIGFib3ZlIHR3bz8KPiA+IAo+ID4gSXQn
-cyBiZXN0IHRvIHJlbW92ZSB0aGVtIGlmIHRoZXkgYXJlIG5vdCBuZWVkZWQgc28gaXQgY2FuIHdv
-cmsgaW4gYQo+ID4gbW9kdWxlLiAgSSBjYW4gbWFrZSB0aGF0IGNoYW5nZSwgdGhlcmUncyBubyBu
-ZWVkIGZvciBhIG5ldyBzZXJpZXMgZm9yCj4gPiB0aGF0Lgo+IAo+IE5vdGhpbmcgc3BlY2lhbCBh
-bmQgYWdyZWUsIFRoYW5rcy4KPiBUaGVyZeKAmXMgb25lIG1vcmUgdGhpbmcgdGhhdCBuZWVkcyBh
-ZGp1c3RtZW50IGFzIHdlbGwuIAo+IFNvcnJ5IGFib3V0IHRoYXTigJRJIHBpY2tlZCBpdCBmcm9t
-IGRldi02LjEgd2l0aG91dCB0ZXN0aW5nIChhdCB0aGUgdGltZSB0aGVyZSB3YXMgYSBidWlsZCBl
-cnJvciwgc28gSSBkaWRu4oCZdCBydW4gdGhlIHVuaXQgdGVzdHMpLiAKPiBUaGUgdGVzdCDigJxz
-c2lmX2JtY190ZXN0X3Jlc3RhcnRfYWZ0ZXJfaW52YWxpZF9sZW5ndGjigJ0gYWxzbyBuZWVkcyB0
-byBiZSByZW1vdmVkLiBJIGRvIGhhdmUgYSBsb2NhbCBwYXRjaCByZWdhcmRpbmcgdGhlIGxlbmd0
-aCBsaW1pdGF0aW9uLAo+ICBidXQgaXQgc3RpbGwgbmVlZHMgdGhvcm91Z2ggdGVzdGluZy4gU29y
-cnkgYWdhaW4sIEnigJltIG5vdCB2ZXJ5IGZhbWlsaWFyIHdpdGggaXQgeWV0LCBJ4oCZbGwgcGF5
-IG1vcmUgYXR0ZW50aW9uIGluIHRoZSBmdXR1cmUhCgpJbiB0aGF0IGNhc2UsIGNhbiB5b3UgcmUt
-c2VuZCBqdXN0IHBhdGNoIDU/CgpUaGFua3MsCgotY29yZXkKCj4gCj4gLSBKaWFuCj4gPiAKPiA+
-IE9oLCBhbmQgSSBmb3Jnb3QgdG8gc2F5IGluIHRoZSByZXBseSBvbiB0aGUgZmlyc3QgY2hhbmdl
-LCB0aGFua3MgUXVhbgo+ID4gZm9yIHJldmlld2luZyB0aGVzZS4KPiA+IAo+ID4gLWNvcmV5Cj4g
-PiAKPiA+PiArIGRlZmF1bHQgS1VOSVRfQUxMX1RFU1RTCj4gPj4gKyBoZWxwCj4gPj4gKyAgIFRo
-aXMgb3B0aW9uIGJ1aWxkcyB1bml0IHRlc3RzIHRoYXQgZXhlcmNpc2UgdGhlIFNTSUYgQk1DIHN0
-YXRlCj4gPj4gKyAgIG1hY2hpbmUsIGluY2x1ZGluZyByZXF1ZXN0IGhhbmRsaW5nLCByZXNwb25z
-ZSB0cmFuc21pc3Npb24sCj4gPj4gKyAgIGFuZCBlcnJvciBwYXRocyBzdWNoIGFzIGFib3J0ZWQg
-b3IgdHJ1bmNhdGVkIHRyYW5zZmVycy4KPiA+PiArCj4gPj4gY29uZmlnIElQTUJfREVWSUNFX0lO
-VEVSRkFDRQo+ID4+IHRyaXN0YXRlICdJUE1CIEludGVyZmFjZSBoYW5kbGVyJwo+ID4+IGRlcGVu
-ZHMgb24gSTJDCj4gPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2hhci9pcG1pL3NzaWZfYm1jLmMg
-Yi9kcml2ZXJzL2NoYXIvaXBtaS9zc2lmX2JtYy5jCj4gPj4gaW5kZXggNjQ2YTFlOWZmYmI3Li43
-MjY2MjYxMjZjZWEgMTAwNjQ0Cj4gPj4gLS0tIGEvZHJpdmVycy9jaGFyL2lwbWkvc3NpZl9ibWMu
-Ywo+ID4+ICsrKyBiL2RyaXZlcnMvY2hhci9pcG1pL3NzaWZfYm1jLmMKPiA+PiBAQCAtMTgsNiAr
-MTgsOSBAQAo+ID4+ICNpbmNsdWRlIDxsaW51eC90aW1lci5oPgo+ID4+ICNpbmNsdWRlIDxsaW51
-eC9qaWZmaWVzLmg+Cj4gPj4gI2luY2x1ZGUgPGxpbnV4L2lwbWlfc3NpZl9ibWMuaD4KPiA+PiAr
-I2lmIElTX0VOQUJMRUQoQ09ORklHX1NTSUZfSVBNSV9CTUNfS1VOSVRfVEVTVCkKPiA+PiArI2lu
-Y2x1ZGUgPGt1bml0L3Rlc3QuaD4KPiA+PiArI2VuZGlmCj4gPj4gCj4gPj4gI2RlZmluZSBERVZJ
-Q0VfTkFNRSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgImlwbWktc3NpZi1ob3N0Igo+ID4+
-IAo+ID4+IEBAIC04ODYsNiArODg5LDQwNCBAQCBzdGF0aWMgc3RydWN0IGkyY19kcml2ZXIgc3Np
-Zl9ibWNfZHJpdmVyID0gewo+ID4+IC5pZF90YWJsZSAgICAgICA9IHNzaWZfYm1jX2lkLAo+ID4+
-IH07Cj4gPj4gCj4gPj4gKyNpZiBJU19FTkFCTEVEKENPTkZJR19TU0lGX0lQTUlfQk1DX0tVTklU
-X1RFU1QpCj4gPj4gK3N0cnVjdCBzc2lmX2JtY190ZXN0X2N0eCB7Cj4gPj4gKyBzdHJ1Y3Qgc3Np
-Zl9ibWNfY3R4IHNzaWZfYm1jOwo+ID4+ICsgc3RydWN0IGkyY19jbGllbnQgY2xpZW50Owo+ID4+
-ICsgc3RydWN0IGkyY19hZGFwdGVyIGFkYXB0ZXI7Cj4gPj4gKyBzdHJ1Y3QgaTJjX2FsZ29yaXRo
-bSBhbGdvOwo+ID4+ICt9Owo+ID4+ICsKPiA+PiArc3RhdGljIGludCBzc2lmX2JtY190ZXN0X2lu
-aXQoc3RydWN0IGt1bml0ICp0ZXN0KQo+ID4+ICt7Cj4gPj4gKyBzdHJ1Y3Qgc3NpZl9ibWNfdGVz
-dF9jdHggKnRlc3RfY3R4Owo+ID4+ICsKPiA+PiArIHRlc3RfY3R4ID0ga3VuaXRfa3phbGxvYyh0
-ZXN0LCBzaXplb2YoKnRlc3RfY3R4KSwgR0ZQX0tFUk5FTCk7Cj4gPj4gKyBpZiAoIXRlc3RfY3R4
-KQo+ID4+ICsgcmV0dXJuIC1FTk9NRU07Cj4gPj4gKwo+ID4+ICsgdGVzdF9jdHgtPmFkYXB0ZXIu
-YWxnbyA9ICZ0ZXN0X2N0eC0+YWxnbzsKPiA+PiArIHRlc3RfY3R4LT5jbGllbnQuYWRkciA9IDB4
-MjA7Cj4gPj4gKyB0ZXN0X2N0eC0+Y2xpZW50LmFkYXB0ZXIgPSAmdGVzdF9jdHgtPmFkYXB0ZXI7
-Cj4gPj4gKwo+ID4+ICsgc3Bpbl9sb2NrX2luaXQoJnRlc3RfY3R4LT5zc2lmX2JtYy5sb2NrKTsK
-PiA+PiArIGluaXRfd2FpdHF1ZXVlX2hlYWQoJnRlc3RfY3R4LT5zc2lmX2JtYy53YWl0X3F1ZXVl
-KTsKPiA+PiArIHRlc3RfY3R4LT5zc2lmX2JtYy5jbGllbnQgPSAmdGVzdF9jdHgtPmNsaWVudDsK
-PiA+PiArIGkyY19zZXRfY2xpZW50ZGF0YSgmdGVzdF9jdHgtPmNsaWVudCwgJnRlc3RfY3R4LT5z
-c2lmX2JtYyk7Cj4gPj4gKwo+ID4+ICsgdGVzdC0+cHJpdiA9IHRlc3RfY3R4Owo+ID4+ICsKPiA+
-PiArIHJldHVybiAwOwo+ID4+ICt9Cj4gPj4gKwo+ID4+ICtzdGF0aWMgdm9pZCBzc2lmX2JtY190
-ZXN0X2V4aXQoc3RydWN0IGt1bml0ICp0ZXN0KQo+ID4+ICt7Cj4gPj4gKyBzdHJ1Y3Qgc3NpZl9i
-bWNfdGVzdF9jdHggKnRlc3RfY3R4ID0gdGVzdC0+cHJpdjsKPiA+PiArCj4gPj4gKyBpZiAodGVz
-dF9jdHgtPnNzaWZfYm1jLnJlc3BvbnNlX3RpbWVyX2luaXRlZCkKPiA+PiArIHRpbWVyX2RlbGV0
-ZV9zeW5jKCZ0ZXN0X2N0eC0+c3NpZl9ibWMucmVzcG9uc2VfdGltZXIpOwo+ID4+ICt9Cj4gPj4g
-Kwo+ID4+ICtzdGF0aWMgaW50IHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50X3ZhbChzdHJ1Y3Qgc3Np
-Zl9ibWNfdGVzdF9jdHggKnRlc3RfY3R4LAo+ID4+ICsgICAgICAgIGVudW0gaTJjX3NsYXZlX2V2
-ZW50IGV2ZW50LAo+ID4+ICsgICAgICAgIHU4ICp2YWx1ZSkKPiA+PiArewo+ID4+ICsgcmV0dXJu
-IHNzaWZfYm1jX2NiKCZ0ZXN0X2N0eC0+Y2xpZW50LCBldmVudCwgdmFsdWUpOwo+ID4+ICt9Cj4g
-Pj4gKwo+ID4+ICtzdGF0aWMgaW50IHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHN0cnVjdCBzc2lm
-X2JtY190ZXN0X2N0eCAqdGVzdF9jdHgsCj4gPj4gKyAgICBlbnVtIGkyY19zbGF2ZV9ldmVudCBl
-dmVudCwgdTggdmFsdWUpCj4gPj4gK3sKPiA+PiArIHJldHVybiBzc2lmX2JtY190ZXN0X3J1bl9l
-dmVudF92YWwodGVzdF9jdHgsIGV2ZW50LCAmdmFsdWUpOwo+ID4+ICt9Cj4gPj4gKwo+ID4+ICtz
-dGF0aWMgdm9pZCBzc2lmX2JtY190ZXN0X3NpbmdsZXBhcnRfcmVxKHN0cnVjdCBrdW5pdCAqdGVz
-dCkKPiA+PiArewo+ID4+ICsgc3RydWN0IHNzaWZfYm1jX3Rlc3RfY3R4ICp0ZXN0X2N0eCA9IHRl
-c3QtPnByaXY7Cj4gPj4gKyBzdHJ1Y3Qgc3NpZl9ibWNfY3R4ICpzc2lmX2JtYyA9ICZ0ZXN0X2N0
-eC0+c3NpZl9ibWM7Cj4gPj4gKwo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9j
-dHgsIEkyQ19TTEFWRV9XUklURV9SRVFVRVNURUQsCj4gPj4gKyBHRVRfOEJJVF9BRERSKHRlc3Rf
-Y3R4LT5jbGllbnQuYWRkcikpOwo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9j
-dHgsIEkyQ19TTEFWRV9XUklURV9SRUNFSVZFRCwKPiA+PiArIFNTSUZfSVBNSV9TSU5HTEVQQVJU
-X1dSSVRFKTsKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xB
-VkVfV1JJVEVfUkVDRUlWRUQsIDIpOwo+ID4+ICsKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2
-ZW50KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVDRUlWRUQsIDB4YWEpOwo+ID4+ICsKPiA+
-PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVD
-RUlWRUQsIDB4NTUpOwo+ID4+ICsgS1VOSVRfRVhQRUNUX0VRKHRlc3QsCj4gPj4gKyBzc2lmX2Jt
-Y190ZXN0X3J1bl9ldmVudCh0ZXN0X2N0eCwgSTJDX1NMQVZFX1NUT1AsIDApLCAtRUJVU1kpOwo+
-ID4+ICsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LCBzc2lmX2JtYy0+c3RhdGUsIFNTSUZf
-UkVBRFkpOwo+ID4+ICsgS1VOSVRfRVhQRUNUX1RSVUUodGVzdCwgc3NpZl9ibWMtPnJlcXVlc3Rf
-YXZhaWxhYmxlKTsKPiA+PiArIEtVTklUX0VYUEVDVF9UUlVFKHRlc3QsIHNzaWZfYm1jLT5idXN5
-KTsKPiA+PiArIEtVTklUX0VYUEVDVF9GQUxTRSh0ZXN0LCBzc2lmX2JtYy0+YWJvcnRpbmcpOwo+
-ID4+ICsgS1VOSVRfRVhQRUNUX0VRKHRlc3QsIHNzaWZfYm1jLT5yZXF1ZXN0LmxlbiwgMik7Cj4g
-Pj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgc3NpZl9ibWMtPnJlcXVlc3QucGF5bG9hZFswXSwg
-MHhhYSk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgc3NpZl9ibWMtPnJlcXVlc3QucGF5
-bG9hZFsxXSwgMHg1NSk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfVFJVRSh0ZXN0LCBzc2lmX2JtYy0+
-cmVzcG9uc2VfdGltZXJfaW5pdGVkKTsKPiA+PiArfQo+ID4+ICsKPiA+PiArc3RhdGljIHZvaWQg
-c3NpZl9ibWNfdGVzdF9yZXN0YXJ0X3dyaXRlX3dpdGhvdXRfc3RvcChzdHJ1Y3Qga3VuaXQgKnRl
-c3QpCj4gPj4gK3sKPiA+PiArIHN0cnVjdCBzc2lmX2JtY190ZXN0X2N0eCAqdGVzdF9jdHggPSB0
-ZXN0LT5wcml2Owo+ID4+ICsgc3RydWN0IHNzaWZfYm1jX2N0eCAqc3NpZl9ibWMgPSAmdGVzdF9j
-dHgtPnNzaWZfYm1jOwo+ID4+ICsKPiA+PiArIEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsg
-c3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRVFVRVNU
-RUQsCj4gPj4gKyBHRVRfOEJJVF9BRERSKHRlc3RfY3R4LT5jbGllbnQuYWRkcikpLCAwKTsKPiA+
-PiArIEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQo
-dGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRUNFSVZFRCwKPiA+PiArIFNTSUZfSVBNSV9TSU5H
-TEVQQVJUX1dSSVRFKSwgMCk7Cj4gPj4gKyBLVU5JVF9BU1NFUlRfRVEodGVzdCwKPiA+PiArIHNz
-aWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVDRUlWRUQs
-IDIpLCAwKTsKPiA+PiArIEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVz
-dF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRUNFSVZFRCwgMHhkZSksIDAp
-Owo+ID4+ICsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LCBzc2lmX2JtYy0+c3RhdGUsIFNT
-SUZfUkVRX1JFQ1ZJTkcpOwo+ID4+ICsKPiA+PiArIC8qIFdyaXRlIHRyYW5zYWN0aW9uLCB3aXRo
-b3V0IHN0b3AsIGFuZCBuZXcgcmVxdWVzdCBjb21pbmcgKi8KPiA+PiArIHNzaWZfYm1jX3Rlc3Rf
-c2luZ2xlcGFydF9yZXEodGVzdCk7Cj4gPj4gK30KPiA+PiArCj4gPj4gKwo+ID4+ICtzdGF0aWMg
-dm9pZCBzc2lmX2JtY190ZXN0X3Jlc3RhcnRfYWZ0ZXJfaW52YWxpZF9jb21tYW5kKHN0cnVjdCBr
-dW5pdCAqdGVzdCkKPiA+PiArewo+ID4+ICsgc3RydWN0IHNzaWZfYm1jX3Rlc3RfY3R4ICp0ZXN0
-X2N0eCA9IHRlc3QtPnByaXY7Cj4gPj4gKyBzdHJ1Y3Qgc3NpZl9ibWNfY3R4ICpzc2lmX2JtYyA9
-ICZ0ZXN0X2N0eC0+c3NpZl9ibWM7Cj4gPj4gKwo+ID4+ICsgS1VOSVRfQVNTRVJUX0VRKHRlc3Qs
-Cj4gPj4gKyBzc2lmX2JtY190ZXN0X3J1bl9ldmVudCh0ZXN0X2N0eCwgSTJDX1NMQVZFX1dSSVRF
-X1JFUVVFU1RFRCwKPiA+PiArIEdFVF84QklUX0FERFIodGVzdF9jdHgtPmNsaWVudC5hZGRyKSks
-IDApOwo+ID4+ICsgS1VOSVRfQVNTRVJUX0VRKHRlc3QsCj4gPj4gKyBzc2lmX2JtY190ZXN0X3J1
-bl9ldmVudCh0ZXN0X2N0eCwgSTJDX1NMQVZFX1dSSVRFX1JFQ0VJVkVELCAweGZmKSwgMCk7Cj4g
-Pj4gKyBLVU5JVF9BU1NFUlRfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50
-KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVDRUlWRUQsIDEpLCAwKTsKPiA+PiArCj4gPj4g
-KyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgc3NpZl9ibWMtPnN0YXRlLCBTU0lGX0FCT1JUSU5HKTsK
-PiA+PiArIEtVTklUX0VYUEVDVF9UUlVFKHRlc3QsIHNzaWZfYm1jLT5hYm9ydGluZyk7Cj4gPj4g
-Kwo+ID4+ICsgLyogQWZ0ZXIgQW4gSW52YWxpZCBDb21tYW5kLCBleHBlY3QgY291bGQgaGFuZGxl
-IG5ldyByZXF1ZXN0ICovCj4gPj4gKyBzc2lmX2JtY190ZXN0X3NpbmdsZXBhcnRfcmVxKHRlc3Qp
-Owo+ID4+ICt9Cj4gPj4gKwo+ID4+ICtzdGF0aWMgdm9pZCBzc2lmX2JtY190ZXN0X3Jlc3RhcnRf
-YWZ0ZXJfaW52YWxpZF9sZW5ndGgoc3RydWN0IGt1bml0ICp0ZXN0KQo+ID4+ICt7Cj4gPj4gKyBz
-dHJ1Y3Qgc3NpZl9ibWNfdGVzdF9jdHggKnRlc3RfY3R4ID0gdGVzdC0+cHJpdjsKPiA+PiArIHN0
-cnVjdCBzc2lmX2JtY19jdHggKnNzaWZfYm1jID0gJnRlc3RfY3R4LT5zc2lmX2JtYzsKPiA+PiAr
-IGludCBpOwo+ID4+ICsKPiA+PiArIEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9i
-bWNfdGVzdF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRVFVRVNURUQsCj4g
-Pj4gKyBHRVRfOEJJVF9BRERSKHRlc3RfY3R4LT5jbGllbnQuYWRkcikpLCAwKTsKPiA+PiArIEtV
-TklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9j
-dHgsIEkyQ19TTEFWRV9XUklURV9SRUNFSVZFRCwKPiA+PiArIFNTSUZfSVBNSV9TSU5HTEVQQVJU
-X1dSSVRFKSwgMCk7Cj4gPj4gKyBLVU5JVF9BU1NFUlRfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1j
-X3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVDRUlWRUQsCj4gPj4g
-KyBNQVhfUEFZTE9BRF9QRVJfVFJBTlNBQ1RJT04gKyAxKSwgMCk7Cj4gPj4gKwo+ID4+ICsgZm9y
-IChpID0gMDsgaSA8IE1BWF9QQVlMT0FEX1BFUl9UUkFOU0FDVElPTiArIDE7IGkrKykKPiA+PiAr
-IEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVz
-dF9jdHgsCj4gPj4gKyBJMkNfU0xBVkVfV1JJVEVfUkVDRUlWRUQsIGkpLCAwKTsKPiA+PiArCj4g
-Pj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50
-KHRlc3RfY3R4LCBJMkNfU0xBVkVfU1RPUCwgMCksIDApOwo+ID4+ICsgS1VOSVRfRVhQRUNUX1RS
-VUUodGVzdCwgc3NpZl9ibWMtPmFib3J0aW5nKTsKPiA+PiArIEtVTklUX0VYUEVDVF9GQUxTRSh0
-ZXN0LCBzc2lmX2JtYy0+cmVxdWVzdF9hdmFpbGFibGUpOwo+ID4+ICsgS1VOSVRfRVhQRUNUX0VR
-KHRlc3QsIHNzaWZfYm1jLT5zdGF0ZSwgU1NJRl9SRVFfUkVDVklORyk7Cj4gPj4gKwo+ID4+ICsg
-c3NpZl9ibWNfdGVzdF9zaW5nbGVwYXJ0X3JlcSh0ZXN0KTsKPiA+PiArfQo+ID4+ICsKPiA+PiAr
-c3RhdGljIHZvaWQgc3NpZl9ibWNfdGVzdF9zaW5nbGVwYXJ0X3JlYWRfcmVzcG9uc2VfY29tcGxl
-dGlvbihzdHJ1Y3Qga3VuaXQgKnRlc3QpCj4gPj4gK3sKPiA+PiArIHN0cnVjdCBzc2lmX2JtY190
-ZXN0X2N0eCAqdGVzdF9jdHggPSB0ZXN0LT5wcml2Owo+ID4+ICsgc3RydWN0IHNzaWZfYm1jX2N0
-eCAqc3NpZl9ibWMgPSAmdGVzdF9jdHgtPnNzaWZfYm1jOwo+ID4+ICsgdTggdmFsdWU7Cj4gPj4g
-Kwo+ID4+ICsgc3NpZl9ibWMtPnN0YXRlID0gU1NJRl9TTUJVU19DTUQ7Cj4gPj4gKyBzc2lmX2Jt
-Yy0+cGFydF9idWYuc21idXNfY21kID0gU1NJRl9JUE1JX1NJTkdMRVBBUlRfUkVBRDsKPiA+PiAr
-IHNzaWZfYm1jLT5yZXNwb25zZS5sZW4gPSAyOwo+ID4+ICsgc3NpZl9ibWMtPnJlc3BvbnNlLnBh
-eWxvYWRbMF0gPSAweDExOwo+ID4+ICsgc3NpZl9ibWMtPnJlc3BvbnNlLnBheWxvYWRbMV0gPSAw
-eDIyOwo+ID4+ICsgc3NpZl9ibWMtPnJlc3BvbnNlX2luX3Byb2dyZXNzID0gdHJ1ZTsKPiA+PiAr
-IHNzaWZfYm1jLT5pc19zaW5nbGVwYXJ0X3JlYWQgPSB0cnVlOwo+ID4+ICsgc3NpZl9ibWMtPnBl
-Y19zdXBwb3J0ID0gdHJ1ZTsKPiA+PiArCj4gPj4gKyB2YWx1ZSA9IDA7Cj4gPj4gKyBLVU5JVF9B
-U1NFUlRfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50X3ZhbCh0ZXN0X2N0
-eCwgSTJDX1NMQVZFX1JFQURfUkVRVUVTVEVELAo+ID4+ICsgICAgICZ2YWx1ZSksIDApOwo+ID4+
-ICsgS1VOSVRfRVhQRUNUX0VRKHRlc3QsIHZhbHVlLCAyKTsKPiA+PiArIEtVTklUX0VYUEVDVF9F
-USh0ZXN0LCBzc2lmX2JtYy0+c3RhdGUsIFNTSUZfUkVTX1NFTkRJTkcpOwo+ID4+ICsKPiA+PiAr
-IHZhbHVlID0gMDsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNf
-dGVzdF9ydW5fZXZlbnRfdmFsKHRlc3RfY3R4LCBJMkNfU0xBVkVfUkVBRF9QUk9DRVNTRUQsCj4g
-Pj4gKyAgICAgJnZhbHVlKSwgMCk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgdmFsdWUs
-IDB4MTEpOwo+ID4+ICsKPiA+PiArIHZhbHVlID0gMDsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0
-ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnRfdmFsKHRlc3RfY3R4LCBJMkNfU0xB
-VkVfUkVBRF9QUk9DRVNTRUQsCj4gPj4gKyAgICAgJnZhbHVlKSwgMCk7Cj4gPj4gKyBLVU5JVF9F
-WFBFQ1RfRVEodGVzdCwgdmFsdWUsIDB4MjIpOwo+ID4+ICsKPiA+PiArIHZhbHVlID0gMDsKPiA+
-PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnRf
-dmFsKHRlc3RfY3R4LCBJMkNfU0xBVkVfUkVBRF9QUk9DRVNTRUQsCj4gPj4gKyAgICAgJnZhbHVl
-KSwgMCk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgdmFsdWUsIHNzaWZfYm1jLT5wYXJ0
-X2J1Zi5wZWMpOwo+ID4+ICsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LAo+ID4+ICsgc3Np
-Zl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9TVE9QLCAwKSwgMCk7Cj4g
-Pj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgc3NpZl9ibWMtPnN0YXRlLCBTU0lGX1JFQURZKTsK
-PiA+PiArIEtVTklUX0VYUEVDVF9GQUxTRSh0ZXN0LCBzc2lmX2JtYy0+cmVzcG9uc2VfaW5fcHJv
-Z3Jlc3MpOwo+ID4+ICsgS1VOSVRfRVhQRUNUX0VRKHRlc3QsIHNzaWZfYm1jLT5yZXNwb25zZS5s
-ZW4sIDApOwo+ID4+ICt9Cj4gPj4gKwo+ID4+ICtzdGF0aWMgdm9pZCBzc2lmX2JtY190ZXN0X3N0
-b3BfZHVyaW5nX3N0YXJ0X2Rpc2NhcmRzX3BhcnRpYWxfcmVxdWVzdChzdHJ1Y3Qga3VuaXQgKnRl
-c3QpCj4gPj4gK3sKPiA+PiArIHN0cnVjdCBzc2lmX2JtY190ZXN0X2N0eCAqdGVzdF9jdHggPSB0
-ZXN0LT5wcml2Owo+ID4+ICsgc3RydWN0IHNzaWZfYm1jX2N0eCAqc3NpZl9ibWMgPSAmdGVzdF9j
-dHgtPnNzaWZfYm1jOwo+ID4+ICsKPiA+PiArIEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsg
-c3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRVFVRVNU
-RUQsCj4gPj4gKyBHRVRfOEJJVF9BRERSKHRlc3RfY3R4LT5jbGllbnQuYWRkcikpLCAwKTsKPiA+
-PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LCBzc2lmX2JtYy0+c3RhdGUsIFNTSUZfU1RBUlQpOwo+
-ID4+ICsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9y
-dW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9TVE9QLCAwKSwgMCk7Cj4gPj4gKyBLVU5JVF9F
-WFBFQ1RfRVEodGVzdCwgc3NpZl9ibWMtPnN0YXRlLCBTU0lGX1JFQURZKTsKPiA+PiArIEtVTklU
-X0VYUEVDVF9GQUxTRSh0ZXN0LCBzc2lmX2JtYy0+cmVxdWVzdF9hdmFpbGFibGUpOwo+ID4+ICsg
-S1VOSVRfRVhQRUNUX0VRKHRlc3QsIHNzaWZfYm1jLT5tc2dfaWR4LCAwKTsKPiA+PiArCj4gPj4g
-KyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRl
-c3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVRVUVTVEVELAo+ID4+ICsgR0VUXzhCSVRfQUREUih0
-ZXN0X2N0eC0+Y2xpZW50LmFkZHIpKSwgMCk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwK
-PiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVf
-UkVDRUlWRUQsCj4gPj4gKyBTU0lGX0lQTUlfU0lOR0xFUEFSVF9XUklURSksIDApOwo+ID4+ICsg
-S1VOSVRfRVhQRUNUX0VRKHRlc3QsCj4gPj4gKyBzc2lmX2JtY190ZXN0X3J1bl9ldmVudCh0ZXN0
-X2N0eCwgSTJDX1NMQVZFX1dSSVRFX1JFQ0VJVkVELCAxKSwgMCk7Cj4gPj4gKyBLVU5JVF9FWFBF
-Q1RfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNf
-U0xBVkVfV1JJVEVfUkVDRUlWRUQsIDB4NzcpLCAwKTsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0
-ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9T
-VE9QLCAwKSwgLUVCVVNZKTsKPiA+PiArCj4gPj4gKyBLVU5JVF9FWFBFQ1RfVFJVRSh0ZXN0LCBz
-c2lmX2JtYy0+cmVxdWVzdF9hdmFpbGFibGUpOwo+ID4+ICsgS1VOSVRfRVhQRUNUX0VRKHRlc3Qs
-IHNzaWZfYm1jLT5yZXF1ZXN0LmxlbiwgMSk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwg
-c3NpZl9ibWMtPnJlcXVlc3QucGF5bG9hZFswXSwgMHg3Nyk7Cj4gPj4gK30KPiA+PiArCj4gPj4g
-K3N0YXRpYyB2b2lkIHNzaWZfYm1jX3Rlc3RfcmVhZF9pbnRlcnJ1cHRzX3BhcnRpYWxfd3JpdGUo
-c3RydWN0IGt1bml0ICp0ZXN0KQo+ID4+ICt7Cj4gPj4gKyBzdHJ1Y3Qgc3NpZl9ibWNfdGVzdF9j
-dHggKnRlc3RfY3R4ID0gdGVzdC0+cHJpdjsKPiA+PiArIHN0cnVjdCBzc2lmX2JtY19jdHggKnNz
-aWZfYm1jID0gJnRlc3RfY3R4LT5zc2lmX2JtYzsKPiA+PiArIHU4IHZhbHVlID0gMHhmZjsKPiA+
-PiArCj4gPj4gKyBLVU5JVF9BU1NFUlRfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVu
-X2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVRVUVTVEVELAo+ID4+ICsgR0VUXzhC
-SVRfQUREUih0ZXN0X2N0eC0+Y2xpZW50LmFkZHIpKSwgMCk7Cj4gPj4gKyBLVU5JVF9BU1NFUlRf
-RVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xB
-VkVfV1JJVEVfUkVDRUlWRUQsCj4gPj4gKyBTU0lGX0lQTUlfU0lOR0xFUEFSVF9XUklURSksIDAp
-Owo+ID4+ICsgS1VOSVRfQVNTRVJUX0VRKHRlc3QsCj4gPj4gKyBzc2lmX2JtY190ZXN0X3J1bl9l
-dmVudCh0ZXN0X2N0eCwgSTJDX1NMQVZFX1dSSVRFX1JFQ0VJVkVELCAyKSwgMCk7Cj4gPj4gKyBL
-VU5JVF9BU1NFUlRfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3Rf
-Y3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVDRUlWRUQsIDB4YWIpLCAwKTsKPiA+PiArCj4gPj4gKyBL
-VU5JVF9FWFBFQ1RfRVEodGVzdCwgc3NpZl9ibWMtPnN0YXRlLCBTU0lGX1JFUV9SRUNWSU5HKTsK
-PiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZl
-bnRfdmFsKHRlc3RfY3R4LCBJMkNfU0xBVkVfUkVBRF9SRVFVRVNURUQsCj4gPj4gKyAgICAgJnZh
-bHVlKSwgMCk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgdmFsdWUsIDApOwo+ID4+ICsg
-S1VOSVRfRVhQRUNUX0VRKHRlc3QsIHNzaWZfYm1jLT5zdGF0ZSwgU1NJRl9BQk9SVElORyk7Cj4g
-Pj4gKwo+ID4+ICsgS1VOSVRfRVhQRUNUX0VRKHRlc3QsCj4gPj4gKyBzc2lmX2JtY190ZXN0X3J1
-bl9ldmVudCh0ZXN0X2N0eCwgSTJDX1NMQVZFX1NUT1AsIDApLCAwKTsKPiA+PiArIEtVTklUX0VY
-UEVDVF9FUSh0ZXN0LCBzc2lmX2JtYy0+c3RhdGUsIFNTSUZfUkVBRFkpOwo+ID4+ICsgS1VOSVRf
-RVhQRUNUX0ZBTFNFKHRlc3QsIHNzaWZfYm1jLT5yZXF1ZXN0X2F2YWlsYWJsZSk7Cj4gPj4gKyBL
-VU5JVF9FWFBFQ1RfRVEodGVzdCwgc3NpZl9ibWMtPnJlcXVlc3QubGVuLCAwKTsKPiA+PiArCj4g
-Pj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50
-KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVRVUVTVEVELAo+ID4+ICsgR0VUXzhCSVRfQURE
-Uih0ZXN0X2N0eC0+Y2xpZW50LmFkZHIpKSwgMCk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVz
-dCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJ
-VEVfUkVDRUlWRUQsCj4gPj4gKyBTU0lGX0lQTUlfU0lOR0xFUEFSVF9XUklURSksIDApOwo+ID4+
-ICsgS1VOSVRfRVhQRUNUX0VRKHRlc3QsCj4gPj4gKyBzc2lmX2JtY190ZXN0X3J1bl9ldmVudCh0
-ZXN0X2N0eCwgSTJDX1NMQVZFX1dSSVRFX1JFQ0VJVkVELCAxKSwgMCk7Cj4gPj4gKyBLVU5JVF9F
-WFBFQ1RfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJ
-MkNfU0xBVkVfV1JJVEVfUkVDRUlWRUQsIDB4Y2QpLCAwKTsKPiA+PiArIEtVTklUX0VYUEVDVF9F
-USh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFW
-RV9TVE9QLCAwKSwgLUVCVVNZKTsKPiA+PiArCj4gPj4gKyBLVU5JVF9FWFBFQ1RfVFJVRSh0ZXN0
-LCBzc2lmX2JtYy0+cmVxdWVzdF9hdmFpbGFibGUpOwo+ID4+ICsgS1VOSVRfRVhQRUNUX0VRKHRl
-c3QsIHNzaWZfYm1jLT5yZXF1ZXN0LmxlbiwgMSk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVz
-dCwgc3NpZl9ibWMtPnJlcXVlc3QucGF5bG9hZFswXSwgMHhjZCk7Cj4gPj4gK30KPiA+PiArCj4g
-Pj4gK3N0YXRpYyB2b2lkIHNzaWZfYm1jX3Rlc3Rfd3JpdGVfaW50ZXJydXB0c19yZXNwb25zZV9z
-ZW5kKHN0cnVjdCBrdW5pdCAqdGVzdCkKPiA+PiArewo+ID4+ICsgc3RydWN0IHNzaWZfYm1jX3Rl
-c3RfY3R4ICp0ZXN0X2N0eCA9IHRlc3QtPnByaXY7Cj4gPj4gKyBzdHJ1Y3Qgc3NpZl9ibWNfY3R4
-ICpzc2lmX2JtYyA9ICZ0ZXN0X2N0eC0+c3NpZl9ibWM7Cj4gPj4gKyB1OCB2YWx1ZSA9IDA7Cj4g
-Pj4gKwo+ID4+ICsgc3NpZl9ibWMtPnN0YXRlID0gU1NJRl9TTUJVU19DTUQ7Cj4gPj4gKyBzc2lm
-X2JtYy0+cGFydF9idWYuc21idXNfY21kID0gU1NJRl9JUE1JX1NJTkdMRVBBUlRfUkVBRDsKPiA+
-PiArIHNzaWZfYm1jLT5yZXNwb25zZS5sZW4gPSAxOwo+ID4+ICsgc3NpZl9ibWMtPnJlc3BvbnNl
-LnBheWxvYWRbMF0gPSAweDY2Owo+ID4+ICsgc3NpZl9ibWMtPnJlc3BvbnNlX2luX3Byb2dyZXNz
-ID0gdHJ1ZTsKPiA+PiArIHNzaWZfYm1jLT5pc19zaW5nbGVwYXJ0X3JlYWQgPSB0cnVlOwo+ID4+
-ICsKPiA+PiArIEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5f
-ZXZlbnRfdmFsKHRlc3RfY3R4LCBJMkNfU0xBVkVfUkVBRF9SRVFVRVNURUQsCj4gPj4gKyAgICAg
-JnZhbHVlKSwgMCk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgc3NpZl9ibWMtPnN0YXRl
-LCBTU0lGX1JFU19TRU5ESU5HKTsKPiA+PiArCj4gPj4gKyAvKiBSRUFEX1JFUVVFU1RFRCB0cmFu
-c2FjdGlvbiAqLwo+ID4+ICsgc3NpZl9ibWNfdGVzdF9zaW5nbGVwYXJ0X3JlcSh0ZXN0KTsKPiA+
-PiArfQo+ID4+ICsKPiA+PiArc3RhdGljIHZvaWQgc3NpZl9ibWNfdGVzdF93cml0ZV9pbnRlcnJ1
-cHRzX3Jlc3BvbnNlX3NlbmRpbmcoc3RydWN0IGt1bml0ICp0ZXN0KQo+ID4+ICt7Cj4gPj4gKyBz
-dHJ1Y3Qgc3NpZl9ibWNfdGVzdF9jdHggKnRlc3RfY3R4ID0gdGVzdC0+cHJpdjsKPiA+PiArIHN0
-cnVjdCBzc2lmX2JtY19jdHggKnNzaWZfYm1jID0gJnRlc3RfY3R4LT5zc2lmX2JtYzsKPiA+PiAr
-IHU4IHZhbHVlID0gMDsKPiA+PiArCj4gPj4gKyBzc2lmX2JtYy0+c3RhdGUgPSBTU0lGX1NNQlVT
-X0NNRDsKPiA+PiArIHNzaWZfYm1jLT5wYXJ0X2J1Zi5zbWJ1c19jbWQgPSBTU0lGX0lQTUlfU0lO
-R0xFUEFSVF9SRUFEOwo+ID4+ICsgc3NpZl9ibWMtPnJlc3BvbnNlLmxlbiA9IDE7Cj4gPj4gKyBz
-c2lmX2JtYy0+cmVzcG9uc2UucGF5bG9hZFswXSA9IDB4NjY7Cj4gPj4gKyBzc2lmX2JtYy0+cmVz
-cG9uc2VfaW5fcHJvZ3Jlc3MgPSB0cnVlOwo+ID4+ICsgc3NpZl9ibWMtPmlzX3NpbmdsZXBhcnRf
-cmVhZCA9IHRydWU7Cj4gPj4gKwo+ID4+ICsgS1VOSVRfQVNTRVJUX0VRKHRlc3QsCj4gPj4gKyBz
-c2lmX2JtY190ZXN0X3J1bl9ldmVudF92YWwodGVzdF9jdHgsIEkyQ19TTEFWRV9SRUFEX1JFUVVF
-U1RFRCwKPiA+PiArICAgICAmdmFsdWUpLCAwKTsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0
-LCBzc2lmX2JtYy0+c3RhdGUsIFNTSUZfUkVTX1NFTkRJTkcpOwo+ID4+ICsKPiA+PiArIEtVTklU
-X0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnRfdmFsKHRlc3Rf
-Y3R4LCBJMkNfU0xBVkVfUkVBRF9QUk9DRVNTRUQsCj4gPj4gKyAgICAgJnZhbHVlKSwgMCk7Cj4g
-Pj4gKyBLVU5JVF9FWFBFQ1RfRVEodGVzdCwgdmFsdWUsIDB4NjYpOwo+ID4+ICsKPiA+PiArIC8q
-IFJFQURfUkVRVUVTVEVEIHRyYW5zYWN0aW9uICovCj4gPj4gKyBzc2lmX2JtY190ZXN0X3Npbmds
-ZXBhcnRfcmVxKHRlc3QpOwo+ID4+ICt9Cj4gPj4gKwo+ID4+ICtzdGF0aWMgdm9pZCBzc2lmX2Jt
-Y190ZXN0X3RpbWVvdXRfaW50ZXJydXB0X2FsbG93c19yZXRyeShzdHJ1Y3Qga3VuaXQgKnRlc3Qp
-Cj4gPj4gK3sKPiA+PiArIHN0cnVjdCBzc2lmX2JtY190ZXN0X2N0eCAqdGVzdF9jdHggPSB0ZXN0
-LT5wcml2Owo+ID4+ICsgc3RydWN0IHNzaWZfYm1jX2N0eCAqc3NpZl9ibWMgPSAmdGVzdF9jdHgt
-PnNzaWZfYm1jOwo+ID4+ICsKPiA+PiArIEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3Np
-Zl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRVFVRVNURUQs
-Cj4gPj4gKyBHRVRfOEJJVF9BRERSKHRlc3RfY3R4LT5jbGllbnQuYWRkcikpLCAwKTsKPiA+PiAr
-IEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVz
-dF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRUNFSVZFRCwKPiA+PiArIFNTSUZfSVBNSV9TSU5HTEVQ
-QVJUX1dSSVRFKSwgMCk7Cj4gPj4gKyBLVU5JVF9BU1NFUlRfRVEodGVzdCwKPiA+PiArIHNzaWZf
-Ym1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJMkNfU0xBVkVfV1JJVEVfUkVDRUlWRUQsIDEp
-LCAwKTsKPiA+PiArIEtVTklUX0FTU0VSVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9y
-dW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRUNFSVZFRCwgMHgyMSksIDApOwo+
-ID4+ICsgS1VOSVRfQVNTRVJUX0VRKHRlc3QsCj4gPj4gKyBzc2lmX2JtY190ZXN0X3J1bl9ldmVu
-dCh0ZXN0X2N0eCwgSTJDX1NMQVZFX1NUT1AsIDApLCAtRUJVU1kpOwo+ID4+ICsKPiA+PiArIEtV
-TklUX0FTU0VSVF9UUlVFKHRlc3QsIHRpbWVyX3BlbmRpbmcoJnNzaWZfYm1jLT5yZXNwb25zZV90
-aW1lcikpOwo+ID4+ICsgdGltZXJfZGVsZXRlX3N5bmMoJnNzaWZfYm1jLT5yZXNwb25zZV90aW1l
-cik7Cj4gPj4gKyByZXNwb25zZV90aW1lb3V0KCZzc2lmX2JtYy0+cmVzcG9uc2VfdGltZXIpOwo+
-ID4+ICsKPiA+PiArIEtVTklUX0VYUEVDVF9GQUxTRSh0ZXN0LCBzc2lmX2JtYy0+YnVzeSk7Cj4g
-Pj4gKyBLVU5JVF9FWFBFQ1RfVFJVRSh0ZXN0LCBzc2lmX2JtYy0+YWJvcnRpbmcpOwo+ID4+ICsg
-S1VOSVRfRVhQRUNUX0ZBTFNFKHRlc3QsIHNzaWZfYm1jLT5yZXNwb25zZV90aW1lcl9pbml0ZWQp
-Owo+ID4+ICsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVz
-dF9ydW5fZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRVFVRVNURUQsCj4gPj4gKyBH
-RVRfOEJJVF9BRERSKHRlc3RfY3R4LT5jbGllbnQuYWRkcikpLCAwKTsKPiA+PiArIEtVTklUX0VY
-UEVDVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5fZXZlbnQodGVzdF9jdHgsIEky
-Q19TTEFWRV9XUklURV9SRUNFSVZFRCwKPiA+PiArIFNTSUZfSVBNSV9TSU5HTEVQQVJUX1dSSVRF
-KSwgMCk7Cj4gPj4gKyBLVU5JVF9FWFBFQ1RfRkFMU0UodGVzdCwgc3NpZl9ibWMtPmFib3J0aW5n
-KTsKPiA+PiArIEtVTklUX0VYUEVDVF9FUSh0ZXN0LAo+ID4+ICsgc3NpZl9ibWNfdGVzdF9ydW5f
-ZXZlbnQodGVzdF9jdHgsIEkyQ19TTEFWRV9XUklURV9SRUNFSVZFRCwgMSksIDApOwo+ID4+ICsg
-S1VOSVRfRVhQRUNUX0VRKHRlc3QsCj4gPj4gKyBzc2lmX2JtY190ZXN0X3J1bl9ldmVudCh0ZXN0
-X2N0eCwgSTJDX1NMQVZFX1dSSVRFX1JFQ0VJVkVELCAweDIyKSwgMCk7Cj4gPj4gKyBLVU5JVF9F
-WFBFQ1RfRVEodGVzdCwKPiA+PiArIHNzaWZfYm1jX3Rlc3RfcnVuX2V2ZW50KHRlc3RfY3R4LCBJ
-MkNfU0xBVkVfU1RPUCwgMCksIC1FQlVTWSk7Cj4gPj4gKwo+ID4+ICsgS1VOSVRfRVhQRUNUX1RS
-VUUodGVzdCwgc3NpZl9ibWMtPnJlcXVlc3RfYXZhaWxhYmxlKTsKPiA+PiArIEtVTklUX0VYUEVD
-VF9FUSh0ZXN0LCBzc2lmX2JtYy0+cmVxdWVzdC5sZW4sIDEpOwo+ID4+ICsgS1VOSVRfRVhQRUNU
-X0VRKHRlc3QsIHNzaWZfYm1jLT5yZXF1ZXN0LnBheWxvYWRbMF0sIDB4MjIpOwo+ID4+ICt9Cj4g
-Pj4gKwo+ID4+ICtzdGF0aWMgc3RydWN0IGt1bml0X2Nhc2Ugc3NpZl9ibWNfdGVzdF9jYXNlc1td
-ID0gewo+ID4+ICsgS1VOSVRfQ0FTRShzc2lmX2JtY190ZXN0X3NpbmdsZXBhcnRfcmVxKSwKPiA+
-PiArIEtVTklUX0NBU0Uoc3NpZl9ibWNfdGVzdF9yZXN0YXJ0X3dyaXRlX3dpdGhvdXRfc3RvcCks
-Cj4gPj4gKyBLVU5JVF9DQVNFKHNzaWZfYm1jX3Rlc3RfcmVzdGFydF9hZnRlcl9pbnZhbGlkX2Nv
-bW1hbmQpLAo+ID4+ICsgS1VOSVRfQ0FTRShzc2lmX2JtY190ZXN0X3Jlc3RhcnRfYWZ0ZXJfaW52
-YWxpZF9sZW5ndGgpLAo+ID4+ICsgS1VOSVRfQ0FTRShzc2lmX2JtY190ZXN0X3NpbmdsZXBhcnRf
-cmVhZF9yZXNwb25zZV9jb21wbGV0aW9uKSwKPiA+PiArIEtVTklUX0NBU0Uoc3NpZl9ibWNfdGVz
-dF9zdG9wX2R1cmluZ19zdGFydF9kaXNjYXJkc19wYXJ0aWFsX3JlcXVlc3QpLAo+ID4+ICsgS1VO
-SVRfQ0FTRShzc2lmX2JtY190ZXN0X3JlYWRfaW50ZXJydXB0c19wYXJ0aWFsX3dyaXRlKSwKPiA+
-PiArIEtVTklUX0NBU0Uoc3NpZl9ibWNfdGVzdF93cml0ZV9pbnRlcnJ1cHRzX3Jlc3BvbnNlX3Nl
-bmQpLAo+ID4+ICsgS1VOSVRfQ0FTRShzc2lmX2JtY190ZXN0X3dyaXRlX2ludGVycnVwdHNfcmVz
-cG9uc2Vfc2VuZGluZyksCj4gPj4gKyBLVU5JVF9DQVNFKHNzaWZfYm1jX3Rlc3RfdGltZW91dF9p
-bnRlcnJ1cHRfYWxsb3dzX3JldHJ5KSwKPiA+PiArIHt9Cj4gPj4gK307Cj4gPj4gKwo+ID4+ICtz
-dGF0aWMgc3RydWN0IGt1bml0X3N1aXRlIHNzaWZfYm1jX3Rlc3Rfc3VpdGUgPSB7Cj4gPj4gKyAu
-bmFtZSA9ICJzc2lmX2JtY190ZXN0IiwKPiA+PiArIC5pbml0ID0gc3NpZl9ibWNfdGVzdF9pbml0
-LAo+ID4+ICsgLmV4aXQgPSBzc2lmX2JtY190ZXN0X2V4aXQsCj4gPj4gKyAudGVzdF9jYXNlcyA9
-IHNzaWZfYm1jX3Rlc3RfY2FzZXMsCj4gPj4gK307Cj4gPj4gKwo+ID4+ICtrdW5pdF90ZXN0X3N1
-aXRlKHNzaWZfYm1jX3Rlc3Rfc3VpdGUpOwo+ID4+ICsjZW5kaWYKPiA+PiArCj4gPj4gbW9kdWxl
-X2kyY19kcml2ZXIoc3NpZl9ibWNfZHJpdmVyKTsKPiA+PiAKPiA+PiBNT0RVTEVfQVVUSE9SKCJR
-dWFuIE5ndXllbiA8cXVhbkBvcy5hbXBlcmVjb21wdXRpbmcuY29tPiIpOwo+ID4+IC0tIAo+ID4+
-IDIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Ck9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3Rz
-LnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0
-aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
+Add some unit test for state machine when in SSIF_ABORTING state.
+
+Fixes: dd2bc5cc9e25 ("ipmi: ssif_bmc: Add SSIF BMC driver")
+Signed-off-by: Jian Zhang <zhangjian.3032@bytedance.com>
+---
+v3: remove ssif_bmc_test_restart_after_invalid_length, and depends remove `=y`
+v2: remove undefined symbol response_in_send
+
+ drivers/char/ipmi/Kconfig    |  10 +
+ drivers/char/ipmi/ssif_bmc.c | 370 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 380 insertions(+)
+
+diff --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig
+index 92bed266d07c..72559f6050eb 100644
+--- a/drivers/char/ipmi/Kconfig
++++ b/drivers/char/ipmi/Kconfig
+@@ -187,6 +187,16 @@ config SSIF_IPMI_BMC
+ 	  The driver implements the BMC side of the SMBus system
+ 	  interface (SSIF).
+ 
++config SSIF_IPMI_BMC_KUNIT_TEST
++	bool "KUnit tests for SSIF IPMI BMC driver" if !KUNIT_ALL_TESTS
++	depends on KUNIT
++	depends on SSIF_IPMI_BMC
++	default KUNIT_ALL_TESTS
++	help
++	  This option builds unit tests that exercise the SSIF BMC state
++	  machine, including request handling, response transmission,
++	  and error paths such as aborted or truncated transfers.
++
+ config IPMB_DEVICE_INTERFACE
+ 	tristate 'IPMB Interface handler'
+ 	depends on I2C
+diff --git a/drivers/char/ipmi/ssif_bmc.c b/drivers/char/ipmi/ssif_bmc.c
+index 646a1e9ffbb7..1df0e9284ad9 100644
+--- a/drivers/char/ipmi/ssif_bmc.c
++++ b/drivers/char/ipmi/ssif_bmc.c
+@@ -18,6 +18,9 @@
+ #include <linux/timer.h>
+ #include <linux/jiffies.h>
+ #include <linux/ipmi_ssif_bmc.h>
++#if IS_ENABLED(CONFIG_SSIF_IPMI_BMC_KUNIT_TEST)
++#include <kunit/test.h>
++#endif
+ 
+ #define DEVICE_NAME                             "ipmi-ssif-host"
+ 
+@@ -886,6 +889,373 @@ static struct i2c_driver ssif_bmc_driver = {
+ 	.id_table       = ssif_bmc_id,
+ };
+ 
++#if IS_ENABLED(CONFIG_SSIF_IPMI_BMC_KUNIT_TEST)
++struct ssif_bmc_test_ctx {
++	struct ssif_bmc_ctx ssif_bmc;
++	struct i2c_client client;
++	struct i2c_adapter adapter;
++	struct i2c_algorithm algo;
++};
++
++static int ssif_bmc_test_init(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx;
++
++	test_ctx = kunit_kzalloc(test, sizeof(*test_ctx), GFP_KERNEL);
++	if (!test_ctx)
++		return -ENOMEM;
++
++	test_ctx->adapter.algo = &test_ctx->algo;
++	test_ctx->client.addr = 0x20;
++	test_ctx->client.adapter = &test_ctx->adapter;
++
++	spin_lock_init(&test_ctx->ssif_bmc.lock);
++	init_waitqueue_head(&test_ctx->ssif_bmc.wait_queue);
++	test_ctx->ssif_bmc.client = &test_ctx->client;
++	i2c_set_clientdata(&test_ctx->client, &test_ctx->ssif_bmc);
++
++	test->priv = test_ctx;
++
++	return 0;
++}
++
++static void ssif_bmc_test_exit(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++
++	if (test_ctx->ssif_bmc.response_timer_inited)
++		timer_delete_sync(&test_ctx->ssif_bmc.response_timer);
++}
++
++static int ssif_bmc_test_run_event_val(struct ssif_bmc_test_ctx *test_ctx,
++					       enum i2c_slave_event event,
++					       u8 *value)
++{
++	return ssif_bmc_cb(&test_ctx->client, event, value);
++}
++
++static int ssif_bmc_test_run_event(struct ssif_bmc_test_ctx *test_ctx,
++					   enum i2c_slave_event event, u8 value)
++{
++	return ssif_bmc_test_run_event_val(test_ctx, event, &value);
++}
++
++static void ssif_bmc_test_singlepart_req(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++
++	ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++				GET_8BIT_ADDR(test_ctx->client.addr));
++	ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED,
++				SSIF_IPMI_SINGLEPART_WRITE);
++	ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 2);
++
++	ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0xaa);
++
++	ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0x55);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_STOP, 0), -EBUSY);
++
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_READY);
++	KUNIT_EXPECT_TRUE(test, ssif_bmc->request_available);
++	KUNIT_EXPECT_TRUE(test, ssif_bmc->busy);
++	KUNIT_EXPECT_FALSE(test, ssif_bmc->aborting);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.len, 2);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.payload[0], 0xaa);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.payload[1], 0x55);
++	KUNIT_EXPECT_TRUE(test, ssif_bmc->response_timer_inited);
++}
++
++static void ssif_bmc_test_restart_write_without_stop(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++						GET_8BIT_ADDR(test_ctx->client.addr)), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED,
++						SSIF_IPMI_SINGLEPART_WRITE), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 2), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0xde), 0);
++
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_REQ_RECVING);
++
++	/* Write transaction, without stop, and new request coming */
++	ssif_bmc_test_singlepart_req(test);
++}
++
++
++static void ssif_bmc_test_restart_after_invalid_command(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++						GET_8BIT_ADDR(test_ctx->client.addr)), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0xff), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 1), 0);
++
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_ABORTING);
++	KUNIT_EXPECT_TRUE(test, ssif_bmc->aborting);
++
++	/* After An Invalid Command, expect could handle new request */
++	ssif_bmc_test_singlepart_req(test);
++}
++
++static void ssif_bmc_test_singlepart_read_response_completion(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++	u8 value;
++
++	ssif_bmc->state = SSIF_SMBUS_CMD;
++	ssif_bmc->part_buf.smbus_cmd = SSIF_IPMI_SINGLEPART_READ;
++	ssif_bmc->response.len = 2;
++	ssif_bmc->response.payload[0] = 0x11;
++	ssif_bmc->response.payload[1] = 0x22;
++	ssif_bmc->response_in_progress = true;
++	ssif_bmc->is_singlepart_read = true;
++	ssif_bmc->pec_support = true;
++
++	value = 0;
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event_val(test_ctx, I2C_SLAVE_READ_REQUESTED,
++						    &value), 0);
++	KUNIT_EXPECT_EQ(test, value, 2);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_RES_SENDING);
++
++	value = 0;
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event_val(test_ctx, I2C_SLAVE_READ_PROCESSED,
++						    &value), 0);
++	KUNIT_EXPECT_EQ(test, value, 0x11);
++
++	value = 0;
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event_val(test_ctx, I2C_SLAVE_READ_PROCESSED,
++						    &value), 0);
++	KUNIT_EXPECT_EQ(test, value, 0x22);
++
++	value = 0;
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event_val(test_ctx, I2C_SLAVE_READ_PROCESSED,
++						    &value), 0);
++	KUNIT_EXPECT_EQ(test, value, ssif_bmc->part_buf.pec);
++
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_STOP, 0), 0);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_READY);
++	KUNIT_EXPECT_FALSE(test, ssif_bmc->response_in_progress);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->response.len, 0);
++}
++
++static void ssif_bmc_test_stop_during_start_discards_partial_request(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++						GET_8BIT_ADDR(test_ctx->client.addr)), 0);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_START);
++
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_STOP, 0), 0);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_READY);
++	KUNIT_EXPECT_FALSE(test, ssif_bmc->request_available);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->msg_idx, 0);
++
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++						GET_8BIT_ADDR(test_ctx->client.addr)), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED,
++						SSIF_IPMI_SINGLEPART_WRITE), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 1), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0x77), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_STOP, 0), -EBUSY);
++
++	KUNIT_EXPECT_TRUE(test, ssif_bmc->request_available);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.len, 1);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.payload[0], 0x77);
++}
++
++static void ssif_bmc_test_read_interrupts_partial_write(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++	u8 value = 0xff;
++
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++						GET_8BIT_ADDR(test_ctx->client.addr)), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED,
++						SSIF_IPMI_SINGLEPART_WRITE), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 2), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0xab), 0);
++
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_REQ_RECVING);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event_val(test_ctx, I2C_SLAVE_READ_REQUESTED,
++						    &value), 0);
++	KUNIT_EXPECT_EQ(test, value, 0);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_ABORTING);
++
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_STOP, 0), 0);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_READY);
++	KUNIT_EXPECT_FALSE(test, ssif_bmc->request_available);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.len, 0);
++
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++						GET_8BIT_ADDR(test_ctx->client.addr)), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED,
++						SSIF_IPMI_SINGLEPART_WRITE), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 1), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0xcd), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_STOP, 0), -EBUSY);
++
++	KUNIT_EXPECT_TRUE(test, ssif_bmc->request_available);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.len, 1);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.payload[0], 0xcd);
++}
++
++static void ssif_bmc_test_write_interrupts_response_send(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++	u8 value = 0;
++
++	ssif_bmc->state = SSIF_SMBUS_CMD;
++	ssif_bmc->part_buf.smbus_cmd = SSIF_IPMI_SINGLEPART_READ;
++	ssif_bmc->response.len = 1;
++	ssif_bmc->response.payload[0] = 0x66;
++	ssif_bmc->response_in_progress = true;
++	ssif_bmc->is_singlepart_read = true;
++
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event_val(test_ctx, I2C_SLAVE_READ_REQUESTED,
++						    &value), 0);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_RES_SENDING);
++
++	/* READ_REQUESTED transaction */
++	ssif_bmc_test_singlepart_req(test);
++}
++
++static void ssif_bmc_test_write_interrupts_response_sending(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++	u8 value = 0;
++
++	ssif_bmc->state = SSIF_SMBUS_CMD;
++	ssif_bmc->part_buf.smbus_cmd = SSIF_IPMI_SINGLEPART_READ;
++	ssif_bmc->response.len = 1;
++	ssif_bmc->response.payload[0] = 0x66;
++	ssif_bmc->response_in_progress = true;
++	ssif_bmc->is_singlepart_read = true;
++
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event_val(test_ctx, I2C_SLAVE_READ_REQUESTED,
++						    &value), 0);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->state, SSIF_RES_SENDING);
++
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event_val(test_ctx, I2C_SLAVE_READ_PROCESSED,
++						    &value), 0);
++	KUNIT_EXPECT_EQ(test, value, 0x66);
++
++	/* READ_REQUESTED transaction */
++	ssif_bmc_test_singlepart_req(test);
++}
++
++static void ssif_bmc_test_timeout_interrupt_allows_retry(struct kunit *test)
++{
++	struct ssif_bmc_test_ctx *test_ctx = test->priv;
++	struct ssif_bmc_ctx *ssif_bmc = &test_ctx->ssif_bmc;
++
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++						GET_8BIT_ADDR(test_ctx->client.addr)), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED,
++						SSIF_IPMI_SINGLEPART_WRITE), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 1), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0x21), 0);
++	KUNIT_ASSERT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_STOP, 0), -EBUSY);
++
++	KUNIT_ASSERT_TRUE(test, timer_pending(&ssif_bmc->response_timer));
++	timer_delete_sync(&ssif_bmc->response_timer);
++	response_timeout(&ssif_bmc->response_timer);
++
++	KUNIT_EXPECT_FALSE(test, ssif_bmc->busy);
++	KUNIT_EXPECT_TRUE(test, ssif_bmc->aborting);
++	KUNIT_EXPECT_FALSE(test, ssif_bmc->response_timer_inited);
++
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_REQUESTED,
++						GET_8BIT_ADDR(test_ctx->client.addr)), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED,
++						SSIF_IPMI_SINGLEPART_WRITE), 0);
++	KUNIT_EXPECT_FALSE(test, ssif_bmc->aborting);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 1), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_WRITE_RECEIVED, 0x22), 0);
++	KUNIT_EXPECT_EQ(test,
++			ssif_bmc_test_run_event(test_ctx, I2C_SLAVE_STOP, 0), -EBUSY);
++
++	KUNIT_EXPECT_TRUE(test, ssif_bmc->request_available);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.len, 1);
++	KUNIT_EXPECT_EQ(test, ssif_bmc->request.payload[0], 0x22);
++}
++
++static struct kunit_case ssif_bmc_test_cases[] = {
++	KUNIT_CASE(ssif_bmc_test_singlepart_req),
++	KUNIT_CASE(ssif_bmc_test_restart_write_without_stop),
++	KUNIT_CASE(ssif_bmc_test_restart_after_invalid_command),
++	KUNIT_CASE(ssif_bmc_test_singlepart_read_response_completion),
++	KUNIT_CASE(ssif_bmc_test_stop_during_start_discards_partial_request),
++	KUNIT_CASE(ssif_bmc_test_read_interrupts_partial_write),
++	KUNIT_CASE(ssif_bmc_test_write_interrupts_response_send),
++	KUNIT_CASE(ssif_bmc_test_write_interrupts_response_sending),
++	KUNIT_CASE(ssif_bmc_test_timeout_interrupt_allows_retry),
++	{}
++};
++
++static struct kunit_suite ssif_bmc_test_suite = {
++	.name = "ssif_bmc_test",
++	.init = ssif_bmc_test_init,
++	.exit = ssif_bmc_test_exit,
++	.test_cases = ssif_bmc_test_cases,
++};
++
++kunit_test_suite(ssif_bmc_test_suite);
++#endif
++
+ module_i2c_driver(ssif_bmc_driver);
+ 
+ MODULE_AUTHOR("Quan Nguyen <quan@os.amperecomputing.com>");
+-- 
+2.20.1
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
