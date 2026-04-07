@@ -2,112 +2,124 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id WK2eLklE1WnY3wcAu9opvQ
+	id sDOuLER91Wlv6wcAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Tue, 07 Apr 2026 19:52:09 +0200
+	for <lists+openipmi-developer@lfdr.de>; Tue, 07 Apr 2026 23:55:16 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 588DE3B2995
-	for <lists+openipmi-developer@lfdr.de>; Tue, 07 Apr 2026 19:52:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D9E9B3B529C
+	for <lists+openipmi-developer@lfdr.de>; Tue, 07 Apr 2026 23:55:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:To:Sender:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IhG40y2lq/uhzqzLfUWGNGIy+7iinShQyhEu9X6GANM=; b=gJbJo6++Guqj6XH+YohPGnxGDL
-	q4tlJOHbOd6Ll1wSH9kVqCOkjpZx6O1wyP14aZWPJDzjrk292tbqY6vOj0GISPGGVN3VmuTpqgEF5
-	BoqCmA5AkdfnPV64NCAIAEW/nCsBoKvyv+vJNTiHv3yDq/EYzg7/lTkPZNj/tkWJs2pk=;
+	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
+	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
+	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VvLc00+7Xz7+x1W1lvtqoP6/wou5Lta1dpJhH1/7esk=; b=UIO20wANT6pP4NnBzRTT5GD0Qw
+	wVa5sCXscVUrmQpI5VDDv1dMfVvq7p5rP2aEJ+Qp2by7GOLnx21mEQACcfuOmGIBGWmOBsGfDKhpz
+	tpSVrINPxqgYK3vzMsCDmNeGxfbwyDyyoImi8jS5IK5hBkCLxi1T2mwLPvDTy72CkvqI=;
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1wAAaj-00051N-IW;
-	Tue, 07 Apr 2026 17:51:58 +0000
+	id 1wAENw-00080M-1J;
+	Tue, 07 Apr 2026 21:55:00 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <tcamuso@redhat.com>) id 1wAAaZ-00050I-T3
+ (envelope-from <corey@minyard.net>) id 1wAENv-00080D-4P
  for openipmi-developer@lists.sourceforge.net;
- Tue, 07 Apr 2026 17:51:48 +0000
+ Tue, 07 Apr 2026 21:54:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=content-type:Content-Transfer-Encoding:MIME-Version
- :References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=5ASjBu3QvMlzkMJwSBe8z5P/+CHNBllSdP3WKPgRQhY=; b=Oa1aOlWYw5XgYpZpLmLwQkuQi6
- cnNnLKMqgkpVgVLwCoUcU6RbUrQxv1PUnIpwxdnkM29bZvd3VcVVoUK2GYP7cEY6i3qQb4uhsMewq
- HUXLRWSJkGVIaSuEWaX+8FPMHYvu+CNksYDHm/RcYfoBPZgJT+eZXrkUaYKsXw2bveTU=;
+ bh=TI4j+R7vZ7D2UHMNo8VEOjHd1KyU4QozG4yX67r0d0Y=; b=nPwVO9shSJieMRmjrGQ90PfQRa
+ X8nc4Yq0lPaO+OunlvScrPKPx+Xghg21/Be5/CsaT94WHyU94YFgD3LuS07SDJFfhaRFzf5VGLtEW
+ wLWAu5B7CkId6pn5pkvOY/z+jl66jwTQrtJlpYFCZ3QecSxeYM1FEERqDyG49tr/OssY=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=content-type:Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=5ASjBu3QvMlzkMJwSBe8z5P/+CHNBllSdP3WKPgRQhY=; b=N3WkLX0wrP44xohdi1zfi9x9ME
- d7EkUTEo2QmP5cSgBZeCwWXQG7cT9ufoZsNykRW3Xc5ANPvrTRtkEDwBfXTDUQGddsazhhVcIdf33
- 3uzdeyQLndVqyQnXWikilN/hWtdk7UTRE2AQaXG/L83jVbSh7vF5+1eFXvlvrMW/zLSs=;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+ bh=TI4j+R7vZ7D2UHMNo8VEOjHd1KyU4QozG4yX67r0d0Y=; b=mrMj3lUC5pJR2kkSv6iv72Mm6s
+ iJ2W7/B04CJjQOSamAZ2NvYRNIAnbCOCf4CjS0c4b7FBrHAcDwzdwTXvuz8Xc6GbF3mqp15OEuHAz
+ WTnjRwWSWBQ0FrBBxIfAarRDfuR8aADB64u4PUIpU/E1V1WJy+A0w29PwwbGzxD8bUuY=;
+Received: from mail-ot1-f52.google.com ([209.85.210.52])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1wAAaa-0000HJ-0E for openipmi-developer@lists.sourceforge.net;
- Tue, 07 Apr 2026 17:51:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1775584301;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=5ASjBu3QvMlzkMJwSBe8z5P/+CHNBllSdP3WKPgRQhY=;
- b=MP+B4/vG4SQZ52+/C+FFqGUX+F1QJMdWbJVUI2+AfqgGFIGVdDgCG4jxOzolAjpvyjRjSO
- PdG3XihjZqkVNO8+CGjywh+CyMTxVCPuwIYwKX5qsQCDKrlEMXWJxj9Zjan++yDBtjfR3u
- Z4Jtt04UP/PK6hinGXu6EkWdboxMkLU=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-582-KSZ3tVLoOqaMA4JWU3LfDA-1; Tue,
- 07 Apr 2026 13:51:38 -0400
-X-MC-Unique: KSZ3tVLoOqaMA4JWU3LfDA-1
-X-Mimecast-MFC-AGG-ID: KSZ3tVLoOqaMA4JWU3LfDA_1775584297
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com
- (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS
- id 9E0021956058; Tue,  7 Apr 2026 17:51:37 +0000 (UTC)
-Received: from hp-dl380pgen9-07.khw.eng.rdu2.dc.redhat.com
- (hp-dl380pgen9-07.khw.eng.rdu2.dc.redhat.com [10.6.10.143])
- by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP
- id 14661300019F; Tue,  7 Apr 2026 17:51:36 +0000 (UTC)
-To: openipmi-developer@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org
-Date: Tue,  7 Apr 2026 13:51:34 -0400
-Message-ID: <20260407175134.3367345-3-tcamuso@redhat.com>
-In-Reply-To: <20260407175134.3367345-1-tcamuso@redhat.com>
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1wAENv-0003XJ-D3 for openipmi-developer@lists.sourceforge.net;
+ Tue, 07 Apr 2026 21:54:59 +0000
+Received: by mail-ot1-f52.google.com with SMTP id
+ 46e09a7af769-7dbb6c072f1so4559066a34.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Tue, 07 Apr 2026 14:54:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=minyard.net; s=google; t=1775598889; x=1776203689; darn=lists.sourceforge.net;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=TI4j+R7vZ7D2UHMNo8VEOjHd1KyU4QozG4yX67r0d0Y=;
+ b=Hx7c2k53xrbiQPjILkA3ChYwUMhpc4Ny9XPCdoKXwhxgCMNA9YDfjIh6004zE5UvqT
+ Z3FqR74lZkau73arCPSxzr9uvdPfUXmbX7KYg1Z9BG2THhWsZoQ2vM6esbYsqHJmOmpg
+ PDB4mPSJ7xNB5G7yxrPE0lJDSR9c4bLJWvTe3EAMeRMLzOxX1Xb0Zwqam4XG4I+73h5X
+ Dnsdy2HwCTwao4DHt3zDIc45nC6C8jgyrZ0yzPtODbSp3AnSUfRdFlfFN+1IuHxoKWed
+ 2KK6ZJgH1hpxLVqamHuwOh/OBApiPqyKi9C0L0Vj2fUywuB2JVto0ZvjB9v/ySDTQS/s
+ HktA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20251104; t=1775598889; x=1776203689;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+ :to:cc:subject:date:message-id:reply-to;
+ bh=TI4j+R7vZ7D2UHMNo8VEOjHd1KyU4QozG4yX67r0d0Y=;
+ b=kQpqwOVL2gDi5GxOki7BtAxJQfOgLb+klL8Ts7UzzpYY7uucmKJ9zfy3si8tgvZd2U
+ DgCaDw4B6aBd0OWrBT9xeWaBPmVRC6q1FoxPkiash+d2bazE6MzhY2WOI/Dp2/Xlyjze
+ BL4brtWpBrErIUBJXTWKESsPw4DSzP3M2Cy5BTmBiw1n5Kf6369gfdl1n58nxGWl5MVm
+ RCXDs8pXIkEtGdw+dEayYx9PXuyYBf28uQbMLpFKcEZBYjm93u9r3/4fNjN0bb6yZPEG
+ vee7LUptGc2zzlUsiIxze5PusqEroIQyJJ0Ik+MDtOrgMwXGu4YB95vAN/7bPaH15abz
+ gCuQ==
+X-Gm-Message-State: AOJu0YxivkFB5MYZ7oEt3Vm2wcSoP9O6OlIHYxN7wLE6/+xmxugzEse+
+ umXD8kjZ67VobBAp45Ftc0MkrTUwes4gaerKtU36+ZPLax6m37NPJyYx/KS4hrUnxD0=
+X-Gm-Gg: AeBDies6isRv7BOYFZWKRbckCYkt7azZYjPutSw8vjwaEZi9COi8iEkxPIaQNkkz9cB
+ 0gF+stzgkWhWUdb/mTCoYyGvWajetQCxxcgquPpXYHjJtAcoSwPuKgOBMzw3mOah7lzE9E2Uvq4
+ jKxdVz6BcXzrggEd8xKxVVYKDpgnBJrTW1J7MTORuGx6+mUg7zDX68rEpkAQFNDdcgoBggJ2Snk
+ MTZ0zIxHsbCVnXPblNVDahU/xELk2+p72TPJRKu0NxUuHs0VYsYBfGPuugrGrX8fmD0/SwmaJ0B
+ vXx/JKUne3MLNt705LpcuzQIU5aLlTCe55EAQnOtxNmfacfaWGZj3xvhMaL3oimH2zqmDghMlmB
+ IhpWlzbKmJQ5HazBVhacSzLVWGBt7iQzi83fjecjk9Prsa1gVIa1pX8l7DkZQzr2VDuZxJv2rxQ
+ 3qiCLN0W/Kx9mxGcjUvja4Jhl2EUxk6mhI/6jz+MFU05Zqpze7PHvnHhpF1nXze93fGGMTbd5Ey
+ b3Jyyx2DGCiY7Y=
+X-Received: by 2002:a05:6830:d19:b0:7d7:cea3:6d89 with SMTP id
+ 46e09a7af769-7dbb6f248ecmr13998650a34.4.1775598888596; 
+ Tue, 07 Apr 2026 14:54:48 -0700 (PDT)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:b3d9:38af:c282:fdde])
+ by smtp.gmail.com with ESMTPSA id
+ 46e09a7af769-7dbfc1cb79esm1633373a34.15.2026.04.07.14.54.47
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 07 Apr 2026 14:54:48 -0700 (PDT)
+Date: Tue, 7 Apr 2026 16:54:44 -0500
+From: Corey Minyard <corey@minyard.net>
+To: Tony Camuso <tcamuso@redhat.com>
+Message-ID: <adV9JLnpTfDpEtAu@mail.minyard.net>
 References: <20260407175134.3367345-1-tcamuso@redhat.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Mimecast-MFC-PROC-ID: qVd9mfo_YfP5zKM6wYeEvK_2E6GEgGvlfXfcV5Gex0U_1775584297
-X-Mimecast-Originator: redhat.com
-X-Spam-Score: -0.7 (/)
+Content-Disposition: inline
+In-Reply-To: <20260407175134.3367345-1-tcamuso@redhat.com>
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: Update the IPMI watchdog BMC reset documentation to describe
- the current behavior: when the BMC resets while the watchdog is active, the
- driver detects the communication failure and initiates an order [...] 
- Content analysis details:   (-0.7 points, 5.0 required)
+ Content preview:  On Tue, Apr 07, 2026 at 01:51:32PM -0400, Tony Camuso wrote:
+ > When the BMC resets while the IPMI watchdog is active, the driver has >
+ three failure modes depending on timing: > > 1. list_add double a [...] 
+ Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to DNSWL
- was blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#DnsBlocklists-dnsbl-block
- for more information. [170.10.133.124 listed in list.dnswl.org]
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
@@ -115,12 +127,12 @@ X-Spam-Report: Spam detection software,
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [170.10.133.124 listed in wl.mailspike.net]
- -0.5 DKIMWL_WL_HIGH         DKIMwl.org - High trust sender
-X-Headers-End: 1wAAaa-0000HJ-0E
-Subject: [Openipmi-developer] [PATCH 2/2] Documentation: ipmi: Update BMC
- reset behavior for watchdog
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.52 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1wAENv-0003XJ-D3
+Subject: Re: [Openipmi-developer] [PATCH 0/2] ipmi:watchdog: Fix panic,
+ D-state hang, and lost protection on BMC reset
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -133,140 +145,148 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Tony Camuso via Openipmi-developer
- <openipmi-developer@lists.sourceforge.net>
-Reply-To: Tony Camuso <tcamuso@redhat.com>
-Cc: minyard@acm.org, tcamuso@redhat.com
+Reply-To: corey@minyard.net
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ minyard@acm.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
-X-Spamd-Result: default: False [-8.61 / 15.00];
-	WHITELIST_DMARC(-7.00)[sourceforge.net:D:+];
-	DMARC_POLICY_ALLOW_WITH_FAILURES(-0.50)[];
+X-Spamd-Result: default: False [-1.01 / 15.00];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
-	MAILLIST(-0.20)[mailman];
+	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
 	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
-	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7:c];
+	MAILLIST(-0.20)[mailman];
 	MIME_GOOD(-0.10)[text/plain];
+	DMARC_POLICY_SOFTFAIL(0.10)[minyard.net : SPF not aligned (strict), DKIM not aligned (strict),none];
 	HAS_LIST_UNSUB(-0.01)[];
-	FORGED_RECIPIENTS_MAILLIST(0.00)[];
-	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	RECEIVED_HELO_LOCALHOST(0.00)[];
 	DKIM_MIXED(0.00)[];
-	FORGED_SENDER_MAILLIST(0.00)[];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,redhat.com:s=mimecast20190719];
-	MIME_TRACE(0.00)[0:+];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,minyard.net:s=google];
 	ARC_NA(0.00)[];
-	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
-	RCPT_COUNT_THREE(0.00)[4];
+	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	FORGED_RECIPIENTS(0.00)[m:tcamuso@redhat.com,m:openipmi-developer@lists.sourceforge.net,m:linux-kernel@vger.kernel.org,m:minyard@acm.org,s:lists@lfdr.de];
+	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	FORGED_SENDER(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
+	RECEIVED_HELO_LOCALHOST(0.00)[];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,minyard.net:-];
+	MIME_TRACE(0.00)[0:+];
 	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
-	RCVD_COUNT_FIVE(0.00)[6];
-	TO_DN_NONE(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
-	FROM_HAS_DN(0.00)[];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,redhat.com:-];
-	NEURAL_HAM(-0.00)[-1.000];
-	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
-	TAGGED_RCPT(0.00)[openipmi-developer];
-	HAS_REPLYTO(0.00)[tcamuso@redhat.com];
 	MISSING_XM_UA(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:dkim]
-X-Rspamd-Queue-Id: 588DE3B2995
+	FORGED_SENDER_MAILLIST(0.00)[];
+	FORGED_SENDER_FORWARDING(0.00)[];
+	RCVD_COUNT_FIVE(0.00)[5];
+	REPLYTO_ADDR_EQ_FROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FROM_NEQ_ENVFROM(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
+	RCPT_COUNT_THREE(0.00)[4];
+	PREVIOUSLY_DELIVERED(0.00)[openipmi-developer@lists.sourceforge.net];
+	MID_RHS_MATCH_FROMTLD(0.00)[];
+	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	NEURAL_HAM(-0.00)[-1.000];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FORGED_RECIPIENTS_FORWARDING(0.00)[];
+	TAGGED_RCPT(0.00)[openipmi-developer];
+	HAS_REPLYTO(0.00)[corey@minyard.net]
+X-Rspamd-Queue-Id: D9E9B3B529C
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
-Update the IPMI watchdog BMC reset documentation to describe the
-current behavior: when the BMC resets while the watchdog is active,
-the driver detects the communication failure and initiates an orderly
-system reboot rather than attempting to retry and recover.
+On Tue, Apr 07, 2026 at 01:51:32PM -0400, Tony Camuso wrote:
+> When the BMC resets while the IPMI watchdog is active, the driver has
+> three failure modes depending on timing:
+> 
+>  1. list_add double add panic -- the watchdog daemon retries while the
+>     static smi_msg/recv_msg structures are still queued in the IPMI
+>     layer from the previous (unanswered) request.
 
-Document the panic and hang prevention mechanisms, BMC failure
-detection via completion code classification in the message handler,
-the bmc_reset_shutdown guard that prevents further IPMI operations
-during shutdown, and the late response handling for the msg_in_flight
-flag.
+I'm trying to make sense of this.  Are you sure this didn't start
+happening after you added a timeout on the wait_for_completion()?
+Otherwise it would never return, the mutex would be held, and no new
+message could be added.
 
-Signed-off-by: Tony Camuso <tcamuso@redhat.com>
----
- Documentation/driver-api/ipmi.rst | 61 +++++++++++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+Just timing out in wait_for_completion() there could cause all kinds of
+bad things to happen.
 
-diff --git a/Documentation/driver-api/ipmi.rst b/Documentation/driver-api/ipmi.rst
-index f52ab2df2569..dbdc1440d16e 100644
---- a/Documentation/driver-api/ipmi.rst
-+++ b/Documentation/driver-api/ipmi.rst
-@@ -734,6 +734,67 @@ device to close it, or the timer will not stop.  This is a new semantic
- for the driver, but makes it consistent with the rest of the watchdog
- drivers in Linux.
- 
-+BMC Reset Behavior
-+------------------
-+
-+When the BMC (Baseboard Management Controller) resets while the IPMI
-+watchdog is active, the hardware watchdog timer state on the BMC is
-+lost.  The driver detects this condition and initiates a clean system
-+reboot rather than leaving the system running without watchdog
-+protection.
-+
-+The driver handles BMC resets as follows:
-+
-+1. **Panic prevention:** The static message structures (``smi_msg`` and
-+   ``recv_msg``) are guarded by an ``msg_in_flight`` atomic flag.  If a
-+   previous message is still queued in the IPMI layer, new operations
-+   return ``-EBUSY`` instead of reusing the structures (which would cause
-+   a ``list_add`` corruption BUG).
-+
-+2. **Hang prevention:** ``wait_for_completion_timeout()`` with a 5-second
-+   timeout replaces the indefinite ``wait_for_completion()`` in both
-+   ``__ipmi_heartbeat()`` and ``_ipmi_set_timeout()``.  This prevents
-+   tasks from blocking in D state when the BMC is unresponsive.
-+
-+3. **BMC failure detection:** When ``ipmi_wdog_msg_handler()`` receives
-+   a non-zero completion code while the watchdog is active, it sets the
-+   ``bmc_reset_shutdown`` flag and calls ``orderly_reboot()``.  Error
-+   classification distinguishes three categories:
-+
-+   - ``TIMER_NOT_INIT`` (0x80): the BMC lost the watchdog timer state.
-+   - Vendor-specific codes (0x81-0xBE): BMC-specific error responses.
-+   - Standard IPMI completion codes (0xC0+): general BMC errors.
-+
-+   All produce a critical-level log message::
-+
-+     IPMI Watchdog: BMC error: watchdog timer not initialized (0x80 on cmd 0x22)
-+     IPMI Watchdog: BMC communication lost with watchdog active, initiating system reboot
-+
-+4. **Clean shutdown:** Once ``bmc_reset_shutdown`` is set, all BMC
-+   communication paths (``_ipmi_set_timeout()``, ``__ipmi_heartbeat()``,
-+   ``wdog_reboot_handler()``) return immediately without attempting
-+   further IPMI operations.  This prevents panics, stack traces, and
-+   hangs during the reboot sequence.
-+
-+5. **Late response handling:** The ``msg_in_flight`` flag is cleared in
-+   ``ipmi_wdog_msg_handler()`` after the message is freed.  This handles
-+   late responses arriving after a completion timeout, ensuring the flag
-+   does not remain set permanently.
-+
-+The system reboot after a BMC reset is the expected and correct
-+behavior.  The hardware watchdog timer lives on the BMC, and when
-+that timer state is lost, the system must be restarted to restore
-+watchdog protection.
-+
-+Administrators performing supervised BMC maintenance (firmware updates,
-+manual resets) should disarm the watchdog before the operation::
-+
-+  systemctl stop watchdog
-+
-+And restart it after the BMC has fully recovered::
-+
-+  systemctl start watchdog
-+
- 
- Panic Timeouts
- --------------
--- 
-2.53.0
+> 
+>  2. D-state hang -- wait_for_completion() blocks indefinitely because
+>     the BMC never delivers a response.
 
+This is an issue.  The lower level driver is *always* supposed to return
+a failure.  Something else needs to be fixed.
+
+I have seen several creative ways in which BMCs "fail to respond" that
+have confused the lower level drivers.  If my guess is correct, there's
+a bug in the low level driver that's causing it to not time out the
+message.
+
+If we don't fix this, it will cause other issues outside the watchdog.
+
+> 
+>  3. Silent loss of watchdog protection -- the BMC returns a non-zero
+>     completion code, the driver's internal state becomes inconsistent,
+>     writes to /dev/watchdog return -EINVAL, and the daemon gives up.
+>     The system continues running without hardware watchdog coverage.
+
+Again, are you sure this didn't start happening after you added the
+timeout?
+
+> 
+> All three stem from the same root cause: the static message structures
+> and unbounded completion waits were never designed for a BMC that
+> disappears mid-transaction.
+
+All that is supposed to be protected by a mutex.  That mutex is claimed
+on all IPMI watchdog operations, and it shouldn't be released until all
+resources have been freed.  Anything that violates that is asking for
+trouble.
+
+You don't mention the lower level interface (KCS, BT, SMIC, SSIF) but I
+think we need to start looking there.
+
+It may be that the timeouts on the watchdog messages need to be
+adjusted.  The whole IPMI driver was designed on the presumption that
+the BMC would go away for only a short period of time (5-10 seconds) and
+not permanantly.  That has slowly been fixed over time, but things might
+need to be adjusted in the watchdog.
+
+-corey
+
+> 
+> This has been independently reported by Kenta Akagi on a Dell PowerEdge
+> R640 running 6.18.7, also triggered by a BMC reset with the watchdog
+> active:
+> 
+>   https://sourceforge.net/p/openipmi/mailman/message/59292850/
+> 
+> The fix takes a simple, deterministic approach: detect the failure via
+> BMC error response, guard against structure reuse (msg_in_flight) and
+> indefinite waits (completion timeout), then initiate orderly_reboot()
+> when the watchdog is active.  This produces the same outcome the
+> hardware watchdog would have -- a system reset -- but through a
+> controlled path with clear logging and no panics or hangs.
+> 
+> If the watchdog is stopped when the BMC resets, no reboot occurs and
+> the system continues normally.
+> 
+> Tested on Dell PowerEdge R640 with kernel 5.14 (RHEL 9) and verified
+> against mainline (both patches apply cleanly).
+> 
+> Corey Minyard's recent fix for list corruption in smi_work()
+> (ipmi_msghandler.c) addresses a related but separate code path.  The
+> watchdog driver's own static structure reuse requires this fix.
+> 
+> Tony Camuso (2):
+>   ipmi:watchdog: Reboot cleanly on BMC reset
+>   Documentation: ipmi: Update BMC reset behavior for watchdog
+> 
+>  Documentation/driver-api/ipmi.rst |  61 ++++++++++++++++++
+>  drivers/char/ipmi/ipmi_watchdog.c | 101 ++++++++++++++++++++++++------
+>  2 files changed, 144 insertions(+), 18 deletions(-)
+> 
+> -- 
+> 2.53.0
+> 
 
 
 _______________________________________________
