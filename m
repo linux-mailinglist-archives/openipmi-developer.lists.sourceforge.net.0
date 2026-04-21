@@ -2,147 +2,142 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id ABE6I3ps5mkJwQEAu9opvQ
+	id gM+LC5IC52kX2wEAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Mon, 20 Apr 2026 20:12:10 +0200
+	for <lists+openipmi-developer@lfdr.de>; Tue, 21 Apr 2026 06:52:34 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id C713A4328F6
-	for <lists+openipmi-developer@lfdr.de>; Mon, 20 Apr 2026 20:12:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 55BF24364ED
+	for <lists+openipmi-developer@lfdr.de>; Tue, 21 Apr 2026 06:52:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0lyc/Cvz34lPJKC/jCNwWCp0m/h2zWNgirW2t2FC4k=; b=ZLFW5PsWQqWvILHm9bbhGwtUdn
-	ly4cgh2FgD2NNbZ21iYt2YTVLHHt/InVjg8JwUhn7SCLTeQIP04d3GH6t0k27LhxbCxZtZUsNpS/8
-	K/eqptorhuA0/MtXGzsBl8OyTH4jWV8Caxkl4dXjHiC3q2S8CePp17IBifrR/rlXCs60=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:MIME-Version:Message-ID:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w06nplPnj4ZaAC1MEck6XGyRzVKnUX9JU3cxEATxnPA=; b=WQefOSGJoS/18aV2M46AKH2SNa
+	E7I6jAlYLlRAfzZH7IajDZHsrThFo62RI9aIH6wa5Yod5p7XQpCoBgF3af7fSI5HXBVuL6Cy1ogO1
+	TzXuR0vlS7ZND51BGHM8PKhIhWoG3XOs66Hn/l+8ypycBzYIg+nfUsEcNveUKZxBngs4=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1wEt6F-0006kV-NS;
-	Mon, 20 Apr 2026 18:11:59 +0000
+	id 1wF35y-0003KX-QV;
+	Tue, 21 Apr 2026 04:52:23 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1wEt62-0006k5-AM
+ (envelope-from <error27@gmail.com>) id 1wF35x-0003KR-Rx
  for openipmi-developer@lists.sourceforge.net;
- Mon, 20 Apr 2026 18:11:46 +0000
+ Tue, 21 Apr 2026 04:52:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:To:From:Date:Sender:Cc:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+ From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=NZqklhuDF1k0Dbjjx4jNSxPWDEioxX8SCeAanRedit4=; b=ISUc2NM4Zcp/wAObayNZhVMcBM
- 7x2wBe4CQBzdE8nSohPn+u2/bPUicFG/nfbhznHxsmM7V4AZ+uQRdkGYX+EcqDCoEhSuthJ3CvtGv
- Cx7dUAPwtvEqoKgbxVkE15Y5mHIL1cdoMygpNabBpXy7zMRiJjWk/iV3B3Fz0U6ZpUfs=;
+ bh=B5r87axgijbpGiNp6Mg7ux3ckd8E7GgL0yrr2g24VEA=; b=NafpsI+HHwX/tu0F4Hutt8YhDX
+ Q17R+/9hG7c6p9dVdHoneN18SlKuww7oXqDezDKp7PusWTToDNAwofR/oydJs/8IfxlMkcIkOhu8d
+ 7E+RMcK1gZ5kYx2hABidqp6CqizX9c4ZANQc4uisocUuPPhMQy7YqZyTgwswAZB3Wlng=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:To:From:Date:Sender:Cc:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=NZqklhuDF1k0Dbjjx4jNSxPWDEioxX8SCeAanRedit4=; b=MzTjJBgnEXDe3kb8h/lyeDtuX2
- vMeyMpI6jVX6a0vlJ+fZ1i6G++4uGVwK9nMTIvvbCWACRWm2ueGTeLf8zKvnZKCVhGY4Sjr71GawZ
- E/jory98yxEJtxIOD8mHK/xBK9LUVfPR5e+/ltvFCotzRebTyo+WFoRnbFBxIPNcNh6Q=;
-Received: from mail-ot1-f44.google.com ([209.85.210.44])
+ h=Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Sender:
+ Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+ :Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+ References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:
+ List-Owner:List-Archive; bh=B5r87axgijbpGiNp6Mg7ux3ckd8E7GgL0yrr2g24VEA=; b=O
+ qEiV2XJnVBvj/pbGRbaaJoLKFgzS5jurDyaZ0M0vGOqqQr2caUgKFCwM9q5vSAPEL9OHABXtnW3DX
+ 7kqRw2vwRbjZzDnsJ3aDO83MeofSTFc7qzCiP84KHzqwc6v9Z/t/mBU71fX88xaRImfA9MhRqMv9G
+ Uxo1H80mv/iE3pxE=;
+Received: from mail-wr1-f47.google.com ([209.85.221.47])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1wEt5r-0002Ai-5K for openipmi-developer@lists.sourceforge.net;
- Mon, 20 Apr 2026 18:11:36 +0000
-Received: by mail-ot1-f44.google.com with SMTP id
- 46e09a7af769-7dbe07d3ec3so1685770a34.0
+ id 1wF35y-0003Vr-7K for openipmi-developer@lists.sourceforge.net;
+ Tue, 21 Apr 2026 04:52:22 +0000
+Received: by mail-wr1-f47.google.com with SMTP id
+ ffacd0b85a97d-43d73352cf2so3182941f8f.1
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 20 Apr 2026 11:11:35 -0700 (PDT)
+ Mon, 20 Apr 2026 21:52:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard.net; s=google; t=1776708689; x=1777313489; darn=lists.sourceforge.net;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:to:from:date:from:to:cc:subject:date:message-id
- :reply-to; bh=NZqklhuDF1k0Dbjjx4jNSxPWDEioxX8SCeAanRedit4=;
- b=eeBKp9SPYWw7cQOXm3wRQxZH2fq0+C/PXuRlMJR7w5nxQJqyrUlSKIxtBwb1cD5akL
- ql3hvLvhppwAEIodJdDiiLXMpU99Z8lbMzcJqHD20+KF3C6p7jSJS2CYk2Pum7HP9YVk
- wYIvlBLQEAmgBLVDqZRu43J9/bzQ+CBckVfo6+YKmA0PCee2Xv/9/gphEfnBb/UqZi98
- Kz1ErH54LUMBuUlZgWmneZGDGBujjzbgzsEdhrikmd0t7R0kuRQSOwYSuQoPPqjdBVfy
- HRSXN7MYxMG1RSkA7TAwPILkj8Y/ArdWp6lALnzG/c2Ki4ULBa9NPisiepXYhKNnj8L2
- mhIQ==
+ d=gmail.com; s=20251104; t=1776747136; x=1777351936; darn=lists.sourceforge.net;
+ h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+ :from:to:cc:subject:date:message-id:reply-to;
+ bh=B5r87axgijbpGiNp6Mg7ux3ckd8E7GgL0yrr2g24VEA=;
+ b=hmBAyNpMlmtTLKTpuSxE/TkEOOzJLpFhBdCTOMd+PJp075AlsQHKmiCWyUFB4oxHPy
+ p3Ylp+Dp4w2h7VdTIvbRBhsWCyw47GFIQaIW0aIko7X+c+MK3EOghDOfhUHgQPB1hlfE
+ Wj06c1izCuxnKKzanXNiVQl72O6YgFKrYD2vD+JYF0TkiH8mcVtS+9AP3Sm4HZWTn15r
+ qoY8f939ABAJy08/dCyieeiJy3KDIBf3wj/TuQdTEihFNS4DxvHXpyy6n89ScMvSMEgS
+ Cx4EuOQIFnuiXYIpfMagV1QibIen4mWzxpbbuzGRJjTBDOE7byBzoLaeUvfNI3VCKJsD
+ /fXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20251104; t=1776708689; x=1777313489;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:to:from:date:x-gm-gg:x-gm-message-state:from:to
- :cc:subject:date:message-id:reply-to;
- bh=NZqklhuDF1k0Dbjjx4jNSxPWDEioxX8SCeAanRedit4=;
- b=OCDwMx81QqgUXyiNlyUR8dGzoXbt6wurI+X3LofcA70d9JdyIRNpM+3DnMDsXS9od9
- Kahkleko0y+waCZbqCCKFoFID9zo3jUF9KXCWht/fLy+osyEzRR8hVHu53tZqehZ9L+V
- Xl3MMnj7I7o2QYewtuGuPzJRmdkvqnqELoOHWsm3J9+oJgf2EvQCIGEEtdQ4+MMLDuB7
- 4LoQtKK2ZSF/A2qoE051ejgPYbwkjEkuM29B9bLhG/xNH89fkdmu3FBuoo/6NJorBU3Q
- An9JtyDZHx0kfw9HUxzChvhizyT4IEzHVB+7quCxZBFwUhAkEncfOIHz8tiU3V3oQPMF
- P/kQ==
-X-Forwarded-Encrypted: i=1;
- AFNElJ9jscyGSv4O9vyY+yeAUBsCwcbowYEhUrHaqtfVp+KckYI5RYD4AYgY13cdtA4HUXsb9BFbEPpNu6J61XeopW7HW9U=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yz6hB8ZPq/Xo9ObMlabGWCQmojq04wulUfyj5bGyDCCIdAwwYH0
- g6mtydwz6A+LcoihXjEU0y9nXr+bAQR9T7quFucsIOpqP1/5A0di3CqXJNb995BKqus=
-X-Gm-Gg: AeBDietkyJ1TrIQSbxf6CL/Migma87R5En890zFiS6xtMQwwuaw9kN0BfqNajtYzWdp
- FPwoVqPnINclseQsw/mP+gHRaA1b/Yv//x4B4nC/+i0cizk7SYvjqsbVGgPnhbBYcJ0YphQ9ttb
- FpwMWcQeTJKRm29AHHgnMWz0Ym+lLWtclOgNDWUvmTGQOuzpKv8DJ4f9zeyWcQH+mYLmcE9a1xP
- 673Ys6Yd+ckaOMTlkcW55IoYwtf8LOFODS8rtJ0+f/DCwpY4Sbr7EAbv41v8Rswt0Vswr95Ti8p
- P+bf1+bIpEXSr4qB99BvRsU3gybDm5w/fZsTsyBi/6xiarH3rsMV+7K5mjr4aw/KhIxPuAGe2ca
- BIe7iKpQfoQCFKCs6ezTwycIQdBXXq+TF5sgNHGmgmORHDxcAyZjJcOBtE3UOv9y4i01Tq9Ge6t
- XKeITiewk0HxK24ThQk8feFW0K+LxYXc76qnLWx7KZnbJVmJXTSvgz/2aQeBUTzILZySKS8P9WV
- 6/HpWEdCJhEHPwUFgIdLkS/WQ==
-X-Received: by 2002:a05:6830:3149:b0:7d9:f50f:968a with SMTP id
- 46e09a7af769-7dc951177a9mr8609038a34.5.1776708689404; 
- Mon, 20 Apr 2026 11:11:29 -0700 (PDT)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:d47a:597e:1b35:c35f])
- by smtp.gmail.com with ESMTPSA id
- 46e09a7af769-7dcc712b4easm2167871a34.23.2026.04.20.11.11.28
+ d=1e100.net; s=20251104; t=1776747136; x=1777351936;
+ h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+ :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=B5r87axgijbpGiNp6Mg7ux3ckd8E7GgL0yrr2g24VEA=;
+ b=HM5nVL0077Sr4tGZPwNPz+ku5nvWZfCXAGQvz5VJGJwXRRLtXa9PgJ44/MKbGoiq/M
+ UtkzPmzc86n5j07XbrTFVv9CH9B4SyXrxh0bBOx8vI2Nq/dl7Nx3/B4G+NyikeY1zObz
+ kQudaKnY92GtErXEOyoECgKSOy2VWBZqJbA7zi9Erw4806SuDkYtQuZLUjtyrtbZ74Wy
+ 41ej/FFaQOILfEJvGYKlHWY//fYL7e5dIO57hY5DwVcJh/e/6G0oNDzDiJa1t1hFv0g4
+ w5nhH5Nkkmmx0sqDHQlMXu2IdSveH8O7XESC0AbPRkkIcl/eFUrVY6zbe7Z7rZFh/io1
+ +Ikw==
+X-Gm-Message-State: AOJu0Yy4owKglwO7B+ER3RphhS140lf5Mnzp1Hl+AnSm5yOzMihWZ2mM
+ XcTKyQLTC3gNVa/D8mym9Ow/K2WY1q8Vmy0WGCJ4dCOvD2F/wVUZiwi3rSYHNpEE
+X-Gm-Gg: AeBDieuf3VfPmpXxPSLaCsC9sMMzodAIfXcobpIucWCJzCERqoHiY1olyzVODbxfq2Y
+ z2IDtdVYhQpjb/cnNSCHx1yi+NC2eODswTeaC9nWQeHU3uzn+XyVZ7uhvNx8iCs4jly+0KqPzj1
+ 6I0NLPRBOiqipqUaxLZlcf+j/YBUP0RHf/ERR/tTj+DHfXeV+DOw5/a7JN4lZXI+heMDmvMCA/L
+ ocFAsePIFKus/TxAv6YdaeLcy1TMiRUHIX+nk3cQneqzTTzL7IHD+rxPgiOlYT3b0sIKQm0xQdE
+ NTCEmcp091bUZxiQrRPKNA4q2+cBEUX0e0ydWbnWexORx/nsYzDL3iAtANlYi4jgIoq3CKqjm/M
+ UazdSJxJ5BLq5yilyEesCuf7kM2P4gi0CVwSwwLZrdaDdSy/RpWWwpL1XwFFb+lv9qt/ic13nIP
+ XDi4eX6GWN259Zgl+G/e6XAFZLEmwjUw==
+X-Received: by 2002:a05:6000:22c5:b0:43c:ef4f:79dc with SMTP id
+ ffacd0b85a97d-43fe3db9b0emr24822729f8f.8.1776747135390; 
+ Mon, 20 Apr 2026 21:52:15 -0700 (PDT)
+Received: from localhost ([196.207.164.177]) by smtp.gmail.com with ESMTPSA id
+ ffacd0b85a97d-43fe4cb1365sm35895971f8f.7.2026.04.20.21.52.13
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 20 Apr 2026 11:11:28 -0700 (PDT)
-Date: Mon, 20 Apr 2026 13:11:25 -0500
-From: Corey Minyard <corey@minyard.net>
-To: Matt Fleming <matt@readmodwrite.com>, Tony Camuso <tcamuso@redhat.com>,
- openipmi-developer@lists.sourceforge.net,
- linux-kernel@vger.kernel.org, kernel-team@cloudflare.com,
- Matt Fleming <mfleming@cloudflare.com>,
- Frederick Lawler <fred@cloudflare.com>
-Message-ID: <aeZsTQdBNBzvmNG2@mail.minyard.net>
-References: <20260415115930.3428942-1-matt@readmodwrite.com>
- <ad-BtS5b3qiowqb7@mail.minyard.net>
- <aeKwa4napKfBerJM@matt-Precision-5490>
- <aeLIE0Psdlvr9l7j@mail.minyard.net>
- <aeUsnI2nHAbtqoqt@matt-Precision-5490>
- <aeZVPUV_gPrgITJQ@mail.minyard.net>
+ Mon, 20 Apr 2026 21:52:14 -0700 (PDT)
+Date: Tue, 21 Apr 2026 07:52:11 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Corey Minyard <corey@minyard.net>
+Message-ID: <aecCe6Dwm7jBVYDq@stanley.mountain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aeZVPUV_gPrgITJQ@mail.minyard.net>
-X-Spam-Score: -0.2 (/)
+X-Spam-Score: 1.1 (+)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Mon, Apr 20, 2026 at 11:33:01AM -0500,
- Corey Minyard wrote:
- > On Sun, Apr 19, 2026 at 09:50:38PM +0100, Matt Fleming wrote: > > On Fri,
- Apr 17, 2026 at 06:53:55PM -0500, Corey Minyard wrote: > > > [...] 
- Content analysis details:   (-0.2 points, 5.0 required)
+ Content preview:  Hello Corey Minyard, Commit 75c486cb1bca ("ipmi:ssif: Clean
+ up kthread on errors") from Apr 13, 2026 (linux-next), leads to the following
+ Smatch static checker warning: drivers/char/ipmi/ipmi_ssif.c:1923 ssif_probe()
+ error: 'ssif_info->thread' dereferencing possible ERR_PTR() 
+ Content analysis details:   (1.1 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.44 listed in wl.mailspike.net]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1wEt5r-0002Ai-5K
-Subject: Re: [Openipmi-developer] [PATCH] ipmi: Add timeout to unconditional
- wait in __get_device_id()
+ domain
+ 0.0 FREEMAIL_FROM Sender email is commonly abused enduser mail provider
+ [error27(at)gmail.com]
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends in
+ digit [error27(at)gmail.com]
+ 1.0 RCVD_IN_UCE2           RBL: IP Subnet Listed in UCEPROTECT Level 2
+ [196.207.164.177 listed in dnsbl-2.uceprotect.net]
+ 0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to DNSWL
+ was blocked.  See
+ http://wiki.apache.org/spamassassin/DnsBlocklists#DnsBlocklists-dnsbl-block
+ for more information. [209.85.221.47 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.221.47 listed in wl.mailspike.net]
+X-Headers-End: 1wF35y-0003Vr-7K
+Subject: [Openipmi-developer] [bug report] ipmi:ssif: Clean up kthread on
+ errors
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -155,7 +150,7 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
+Cc: openipmi-developer@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
@@ -165,148 +160,128 @@ X-Spamd-Result: default: False [-1.01 / 15.00];
 	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MAILLIST(-0.20)[mailman];
 	MIME_GOOD(-0.10)[text/plain];
-	DMARC_POLICY_SOFTFAIL(0.10)[minyard.net : SPF not aligned (strict), DKIM not aligned (strict),none];
+	DMARC_POLICY_SOFTFAIL(0.10)[gmail.com : SPF not aligned (relaxed), DKIM not aligned (relaxed),none];
 	HAS_LIST_UNSUB(-0.01)[];
-	FORGED_SENDER_MAILLIST(0.00)[];
+	RCPT_COUNT_TWO(0.00)[2];
 	RCVD_TLS_LAST(0.00)[];
-	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
-	DKIM_MIXED(0.00)[];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,minyard.net:s=google];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MIME_TRACE(0.00)[0:+];
+	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:openipmi-developer@lists.sourceforge.net,s:lists@lfdr.de];
+	FORGED_SENDER(0.00)[error27@gmail.com,openipmi-developer-bounces@lists.sourceforge.net];
 	ARC_NA(0.00)[];
-	FORGED_RECIPIENTS(0.00)[m:matt@readmodwrite.com,m:tcamuso@redhat.com,m:openipmi-developer@lists.sourceforge.net,m:linux-kernel@vger.kernel.org,m:kernel-team@cloudflare.com,m:mfleming@cloudflare.com,m:fred@cloudflare.com,s:lists@lfdr.de];
-	FORGED_SENDER(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
-	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,minyard.net:-];
-	MISSING_XM_UA(0.00)[];
-	HAS_REPLYTO(0.00)[corey@minyard.net];
-	FORGED_SENDER_FORWARDING(0.00)[];
+	FREEMAIL_FROM(0.00)[gmail.com];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,gmail.com:s=20251104];
+	TO_DN_SOME(0.00)[];
+	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	MIME_TRACE(0.00)[0:+];
+	DKIM_MIXED(0.00)[];
+	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	FORGED_SENDER_MAILLIST(0.00)[];
 	RCVD_COUNT_FIVE(0.00)[5];
 	PREVIOUSLY_DELIVERED(0.00)[openipmi-developer@lists.sourceforge.net];
-	REPLYTO_ADDR_EQ_FROM(0.00)[];
+	FORGED_SENDER_FORWARDING(0.00)[];
 	FROM_HAS_DN(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
-	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	FROM_NEQ_ENVFROM(0.00)[error27@gmail.com,openipmi-developer-bounces@lists.sourceforge.net];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,gmail.com:-];
 	NEURAL_HAM(-0.00)[-0.999];
-	RCPT_COUNT_SEVEN(0.00)[7];
-	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FORGED_RECIPIENTS_FORWARDING(0.00)[];
 	TAGGED_RCPT(0.00)[openipmi-developer];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:dkim,lists.sourceforge.net:helo,lists.sourceforge.net:rdns,minyard.net:replyto,mail.minyard.net:mid]
-X-Rspamd-Queue-Id: C713A4328F6
+	MISSING_XM_UA(0.00)[];
+	FORGED_RECIPIENTS_FORWARDING(0.00)[];
+	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[stanley.mountain:mid]
+X-Rspamd-Queue-Id: 55BF24364ED
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
-On Mon, Apr 20, 2026 at 11:33:01AM -0500, Corey Minyard wrote:
-> On Sun, Apr 19, 2026 at 09:50:38PM +0100, Matt Fleming wrote:
-> > On Fri, Apr 17, 2026 at 06:53:55PM -0500, Corey Minyard wrote:
-> > > 
-> > > The EVENT_MSG_BUFFER_FULL flag only gets cleared when a unsuccessful
-> > > READ_EVENT_MSG_BUFFER command completes.  Getting data from the
-> > > BMC has higher priority than sending data to the BMC.
-> > > 
-> > > If the BMC continually reports success from READ_EVENT_MSG_BUFFER, then
-> > > that would certainly wedge the driver.  But it would have to continually
-> > > report success for that command, which would be strange as its supposed
-> > > to error out when the queue is empty.
-> >  
-> > That does indeed appear to be what's happening.
-> > 
-> > The implementation of intel-ipmi-oem's OpenBMC READ_EVENT_MSG_BUFFER
-> > handler does not fail when there is nothing to read,
-> > 
-> >   https://github.com/openbmc/intel-ipmi-oem/blob/master/src/bridgingcommands.cpp#L704
-> 
-> Actually, that is so clearly wrong that it's hard to imagine they made
-> this mistake.  Anyway, a defect needs to be filed against it.  It will
-> certainly break other software on other OSes.
-> 
-> I think I have an easy workaround, though I'm guessing.  I'm guessing
-> they are returning zero data bytes. There's no check on the size at that
-> point in the code (it's later).
-> 
-> Can you try the following patch?
+Hello Corey Minyard,
 
-Actually ignore that, I was thinking too much about the other stuff and
-didn't actually read my patch.
+Commit 75c486cb1bca ("ipmi:ssif: Clean up kthread on errors") from
+Apr 13, 2026 (linux-next), leads to the following Smatch static
+checker warning:
 
-Here's a working patch:
+	drivers/char/ipmi/ipmi_ssif.c:1923 ssif_probe()
+	error: 'ssif_info->thread' dereferencing possible ERR_PTR()
 
-diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-index 4a9e9de4d684..08c208cc64c5 100644
---- a/drivers/char/ipmi/ipmi_si_intf.c
-+++ b/drivers/char/ipmi/ipmi_si_intf.c
-@@ -630,7 +630,13 @@ static void handle_transaction_done(struct smi_info *smi_info)
-                 */
-                msg = smi_info->curr_msg;
-                smi_info->curr_msg = NULL;
--               if (msg->rsp[2] != 0) {
-+               /*
-+                * It appears some BMCs, with no event data, return no
-+                * data in the message and not a 0x80 error as the
-+                * spec says they should.  Shut down processing if
-+                * the data is not the right length.
-+                */
-+               if (msg->rsp[2] != 0 || msg->rsp_size != 19) {
-                        /* Error getting event, probably done. */
-                        msg->done(msg);
+drivers/char/ipmi/ipmi_ssif.c
+    1874         ssif_info->handlers.owner = THIS_MODULE;
+    1875         ssif_info->handlers.start_processing = ssif_start_processing;
+    1876         ssif_info->handlers.shutdown = shutdown_ssif;
+    1877         ssif_info->handlers.get_smi_info = get_smi_info;
+    1878         ssif_info->handlers.sender = sender;
+    1879         ssif_info->handlers.request_events = request_events;
+    1880         ssif_info->handlers.set_need_watch = ssif_set_need_watch;
+    1881 
+    1882         thread_num = ((i2c_adapter_id(ssif_info->client->adapter) << 8) |
+    1883                       ssif_info->client->addr);
+    1884         init_completion(&ssif_info->wake_thread);
+    1885         ssif_info->thread = kthread_run(ipmi_ssif_thread, ssif_info,
+    1886                                         "kssif%4.4x", thread_num);
+    1887         if (IS_ERR(ssif_info->thread)) {
+                            ^^^^^^^^^^^^^^^^^
 
+    1888                 rv = PTR_ERR(ssif_info->thread);
+    1889                 dev_notice(&ssif_info->client->dev,
+    1890                            "Could not start kernel thread: error %d\n",
+    1891                            rv);
+    1892                 goto out;
+    1893         }
+    1894 
+    1895         dev_set_drvdata(&ssif_info->client->dev, ssif_info);
+    1896         rv = device_add_group(&ssif_info->client->dev,
+    1897                               &ipmi_ssif_dev_attr_group);
+    1898         if (rv) {
+    1899                 dev_err(&ssif_info->client->dev,
+    1900                         "Unable to add device attributes: error %d\n",
+    1901                         rv);
+    1902                 goto out;
+    1903         }
+    1904 
+    1905         rv = ipmi_register_smi(&ssif_info->handlers,
+    1906                                ssif_info,
+    1907                                &ssif_info->client->dev,
+    1908                                slave_addr);
+    1909         if (rv) {
+    1910                 dev_err(&ssif_info->client->dev,
+    1911                         "Unable to register device: error %d\n", rv);
+    1912                 goto out_remove_attr;
+    1913         }
+    1914 
+    1915  out:
+    1916         if (rv) {
+    1917                 /*
+    1918                  * If ipmi_register_smi() starts the interface, it will
+    1919                  * call shutdown and that will free the thread and set
+    1920                  * it to NULL.  Otherwise it must be freed here.
+    1921                  */
+    1922                 if (ssif_info->thread) {
 
+if (!IS_ERR_OR_NULL(ssif_info->thread))
 
-> 
-> diff --git a/drivers/char/ipmi/ipmi_si_intf.c b/drivers/char/ipmi/ipmi_si_intf.c
-> index 4a9e9de4d684..cf8674a93af1 100644
-> --- a/drivers/char/ipmi/ipmi_si_intf.c
-> +++ b/drivers/char/ipmi/ipmi_si_intf.c
-> @@ -630,7 +630,13 @@ static void handle_transaction_done(struct smi_info *smi_info)
->                  */
->                 msg = smi_info->curr_msg;
->                 smi_info->curr_msg = NULL;
-> -               if (msg->rsp[2] != 0) {
-> +               /*
-> +                * It appears some BMCs, with no event data, return no
-> +                * data in the message and not a 0x80 error as the
-> +                * spec says they should.  Shut down processing if
-> +                * the data is not the right length.
-> +                */
-> +               if (msg->rsp[2] != 0 || smi_info->curr_msg->rsp_size != 19) {
->                         /* Error getting event, probably done. */
->                         msg->done(msg);
-> 
->  
-> With your approval on that, I'll send it to Linus after letting it sit
-> in the next tree for a bit.  Actually, I'll probably add it in any case,
-> as it's a good check to do.
-> 
-> > 
-> > > If it's really something like that, I could also look at adding limits
-> > > for those operations.
-> > 
-> > That would be great. Me and Fred would be happy to test out any patch.
-> > 
-> > I still think the original patch I sent is a worthwhile defense.
-> > 
-> > Our periodic monitoring scripts cause TASK_UNINTERRUPTIBLE tasks to
-> > block behind one another when we hit these kinds of issues in the IPMI
-> > code. Untangling that across thousands of machines can be time
-> > consuming and a more explicit EIO or ETIMEDOUT would help with triage.
-> 
-> Unfortunately, that might have other issues, similar to the ones the
-> people with the watchdog issue found.  I'll look at it a bit, but those
-> sorts of things would have to be scattered all over the code, not just
-> in that one place.  As you say, it would make debugging easier.
-> 
-> I think adding a counter to the number of operations occuring from a
-> single flag fetch would be a way to avoid this issue.  That's going to
-> take a little more time, but I'll definitely work on that.
-> 
-> Thanks,
-> 
-> -corey
+--> 1923                         kthread_stop(ssif_info->thread);
+    1924                         ssif_info->thread = NULL;
+    1925                 }
+    1926                 if (addr_info)
+    1927                         addr_info->client = NULL;
+    1928 
+    1929                 dev_err(&ssif_info->client->dev,
+    1930                         "Unable to start IPMI SSIF: %d\n", rv);
+    1931                 i2c_set_clientdata(client, NULL);
+    1932                 kfree(ssif_info);
+    1933         }
+    1934         kfree(resp);
+    1935         mutex_unlock(&ssif_infos_mutex);
+    1936         return rv;
+    1937 
+    1938 out_remove_attr:
+    1939         device_remove_group(&ssif_info->client->dev, &ipmi_ssif_dev_attr_group);
+    1940         dev_set_drvdata(&ssif_info->client->dev, NULL);
+    1941         goto out;
+    1942 }
+
+This email is a free service from the Smatch-CI project [smatch.sf.net].
+
+regards,
+dan carpenter
 
 
 _______________________________________________
