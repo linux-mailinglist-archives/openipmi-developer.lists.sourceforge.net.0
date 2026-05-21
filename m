@@ -2,113 +2,112 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id EBiBH9ATD2qOFAYAu9opvQ
+	id gAdrCNETD2qOFAYAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 16:16:48 +0200
+	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 16:16:49 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id BB44D5A70BD
-	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 16:16:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 337AD5A70C9
+	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 16:16:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Subject:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:To:Sender:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8X6Ia7FSrZT12baIec0YytsvbZkE2K5EM/ruB54465w=; b=BL+Y2+lN+UXMlRuQyR91qhTU39
-	VaXsEIuNQujnSjW5ObOVkfqx7cy/4mZ8ibbvkw8UOeIpaoyL/wOCNVX4+o9YX507IS6x8aBae8XEC
-	zAI2ywgJZHg0YIfjvmZsVmOXrmReZ0+heSWfGhQlaqKC4PvVJswe7PxoHwSTR8pODCUY=;
+	bh=9GV/kMshvllrf4DtexvVR5DqXMzr+LiX04AxLy99PJc=; b=ids/1GyuMnoqOhiWa0jIeAZ5b4
+	qtB0bzWEwGgRvfK1LgBJ1Sg/HUtJeeNWeK1BsQHT8WyMrI22gtkAdw/0VLsPn2goaCk3Hh6PlYxvZ
+	JKjcxX/lWiTwkn9yDv9Q1fcLTwqZEGCUfbih+6BhM6ZTDZ07qua8rzvHBJuijNNRT/GA=;
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1wQ4CW-0002hQ-00;
+	id 1wQ4CW-0002hg-LE;
 	Thu, 21 May 2026 14:16:40 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <kees@kernel.org>) id 1wQ3X0-0007S8-UP
+ (envelope-from <kees@kernel.org>) id 1wQ3X4-0007nt-Su
  for openipmi-developer@lists.sourceforge.net;
- Thu, 21 May 2026 13:33:47 +0000
+ Thu, 21 May 2026 13:33:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version
- :References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
+ In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=9DxkyjgrxD9LWinSna2ujdm04pqE2VVYzct98abjlWE=; b=knGn5VM++HTxXkBmJcn0lRWh6M
- vDJ7SBLhFmftkjMLWNZ0CFy2od8amfKCUulRiLTJAG7op2UN/3DtaeyW3ubGO56Vrgv9LSMHZyYhx
- VX3w9ngYtAVSu57r9u+6VkRY+4ksmq3dX5+gsQoPNeHKuh9+fjpyWybXHXe8u8urBRx4=;
+ bh=FjugSMshJLRzJ87g+DhKxRTzvS9KFi5IJoAY8Me8wZ4=; b=ficboHSCZFW2V+wghwJB4DJnRv
+ iYeTZ1zhhuALvm/Ag9w3ZfELiDzA2nwgIypxYJ+RQjwycmiHw5bb61U89p3cBs4Fn5zdyc5uUlPXX
+ pQLAsxddhDy/IrnGuqwxjPemqnvEsUlWOO84xeCVfwcaEZprR0AQvfDBXJUpMOHqo9C4=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
- In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
+ Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=9DxkyjgrxD9LWinSna2ujdm04pqE2VVYzct98abjlWE=; b=dJxQYObm1AQRabbbBCIw4Ly2lB
- tLkduP4S9Df4GXxDhr/PnODZJ3rjTBBgR64f4zSKx4xHuZKjMAOgvsz6/h2rTAehs7ec1AjtQlwvf
- dR3kpxuH5FPFDP1I65RIRgetqFinf/4J/Je+M0F2EqGqqJdXMyP2+86qpHbRKePaeezQ=;
+ bh=FjugSMshJLRzJ87g+DhKxRTzvS9KFi5IJoAY8Me8wZ4=; b=Vfz5SSyEV3P81DPjowbBtpsxBr
+ ZcJAyvAIp/IHQ7u1KAHYUcou6xa7wU7JWJVvbdg1kRD31nKBHo0e/eW8ETN32hGsEaYAUzz4lQLTc
+ b0RTz8MTMkX2ToGaCqUnmt88dOjr+S5t3IFSblHItdGtSjG1xY2FDi9g/2PQTucgERpU=;
 Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1wQ3Wy-0004PE-HE for openipmi-developer@lists.sourceforge.net;
- Thu, 21 May 2026 13:33:47 +0000
+ id 1wQ3Wz-0004PI-PW for openipmi-developer@lists.sourceforge.net;
+ Thu, 21 May 2026 13:33:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
- by sea.source.kernel.org (Postfix) with ESMTP id 49FE544644;
+ by sea.source.kernel.org (Postfix) with ESMTP id 59B0B44652;
  Thu, 21 May 2026 13:33:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0520E1F01567;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 208971F01566;
  Thu, 21 May 2026 13:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
  s=k20260515; t=1779370407;
- bh=9DxkyjgrxD9LWinSna2ujdm04pqE2VVYzct98abjlWE=;
+ bh=FjugSMshJLRzJ87g+DhKxRTzvS9KFi5IJoAY8Me8wZ4=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References;
- b=lLBu0VYv1DVOqqiDkn+zDGX6xIv/gVu34M1uPUGdN7rmbG/n9JKXvAO8PRNIOME0R
- FtA0rSletCu3HRLjvhAx+RubvjrPTSmol0lPEUginf3y5FRRR8GocUJjLx27hUfLyI
- NImEQHew3UjgMkSo9n+fGBIoBi3/9LfdXVekv3PwuKg0oTG1fvrFkXkMdUuEG1eZz+
- ObXQX0R5oQnmOcWg3mJprkFUBUufSGrKS1dHEDLMEfV0r/TCfFKsIVxugSqX1M6Aw/
- jeUk2cSX/+kzc1YG0egLBt3975yHP3KR9BAsWIhHsNktke684LZrzD2app3rClIjlW
- FWpisLKv3T/Uw==
+ b=Rjl/C7Ak/rWXoli6qausN/s7zIg/31jIrfAm6facv9zLoPhOVPhyOuBG7EQajOjH8
+ gHI8NTfdKj/QipDfHZDexmfs+GBKcJtnfArb6l4tmHPrCeAsjOBE753KMnwIWHIXT7
+ wiBrT5Ku1jWjtwhraZodt77LvIv28wxYiii9z7wXlGOyoetYfumYHpZHGLbsZLJVe5
+ KDbtLWtPhhUwgagBBqEz6FOrn6eAX0VhmBv9wChxmjDB5nqC7e5jljwlbZmMWnNvy7
+ 68MXwt8eNgaDmqQ5piZHn7iG6hYuYz1KCLxD6IXY1kiyNSlLQOoyZzCD8CHIqruzCF
+ J0Vq0H41abyQw==
 To: Luis Chamberlain <mcgrof@kernel.org>
-Date: Thu, 21 May 2026 06:33:21 -0700
-Message-Id: <20260521133326.2465264-8-kees@kernel.org>
+Date: Thu, 21 May 2026 06:33:22 -0700
+Message-Id: <20260521133326.2465264-9-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260521133315.work.845-kees@kernel.org>
 References: <20260521133315.work.845-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=25560; i=kees@kernel.org;
- h=from:subject; bh=TTC1GDQfQrqWftreUSf50GOjYvxNzKR7cl5zgIVjTkw=;
- b=owGbwMvMwCVmps19z/KJym7G02pJDFn8nIucV/i8mPOxqnfn5sfGt/4pbtvK8rDifpsIt19y0
- Z5JsaH/O0pZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACZSuIORYWPyAa/PBXInPlzv
- vLD8gTrnpr+/SkKXGMp8mjD1o2JWRzPDPwXeTYp/JXT37Iqff3iCtU+8lPr1Rb1ZCy3vvqkQ+3p
- pJx8A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=42083; i=kees@kernel.org;
+ h=from:subject; bh=p6f0uHBZ7Ncu865sVYf8FVQdp7qUibRMEgCp94LuIm4=;
+ b=owGbwMvMwCVmps19z/KJym7G02pJDFn8nIsbzeTTLszWqc6+lLCF+9/+6VJbp+llhKRF787jO
+ OTlPWdVRykLgxgXg6yYIkuQnXuci8fb9nD3uYowc1iZQIYwcHEKwER83Rh+MTusOaP4X4o1Qey6
+ jf2i5U7ztCMX7Du+/cBF/tobn72NtRn+aeySYRVfV97dNVsx+wO35KbMGT5b5aab/otLW/JBsXI
+ tIwA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp;
  fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: Convert the generic struct kernel_param_ops .get helpers in
- kernel/params.c directly to the seq_buf signature, drop their legacy "char
- *" form, and refresh prototypes in <linux/moduleparam.h>:
- param_get_byte/short/ushort/int/uint/long/ulong/ullong/hexint
- param_get_charp/bool/invbool/string param_array_get 
+ Content preview:  Using the following Coccinelle script,
+ convert struct kernel_param_ops
+ .get callbacks from "char *" to "struct seq_buf *" when the only write to
+ the buffer is via a final call of scnprintf(), snprintf [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1wQ3Wy-0004PE-HE
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+X-Headers-End: 1wQ3Wz-0004PI-PW
 X-Mailman-Approved-At: Thu, 21 May 2026 14:16:35 +0000
-Subject: [Openipmi-developer] [PATCH 08/11] params: Convert generic
- kernel_param_ops .get helpers to seq_buf
+Subject: [Openipmi-developer] [PATCH 09/11] treewide: Convert custom
+ kernel_param_ops .get callbacks to seq_buf via cocci
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -183,10 +182,10 @@ Cc: "Rafael J. Wysocki" <rafael@kernel.org>, dri-devel@lists.freedesktop.org,
  Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org,
  Paolo Bonzini <pbonzini@redhat.com>, Johannes Berg <johannes@sipsolutions.net>,
  linuxppc-dev@lists.ozlabs.org, linux-modules@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
-X-Spamd-Result: default: False [-6.01 / 15.00];
+X-Spamd-Result: default: False [-6.11 / 15.00];
 	WHITELIST_DMARC(-7.00)[sourceforge.net:D:+];
 	SUSPICIOUS_RECIPS(1.50)[];
 	MID_RHS_MATCH_TO(1.00)[];
@@ -196,481 +195,1157 @@ X-Spamd-Result: default: False [-6.01 / 15.00];
 	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MAILLIST(-0.20)[mailman];
 	MIME_GOOD(-0.10)[text/plain];
-	MIME_BASE64_TEXT(0.10)[];
 	HAS_LIST_UNSUB(-0.01)[];
-	RCVD_TLS_LAST(0.00)[];
-	REPLYTO_DOM_EQ_TO_DOM(0.00)[];
-	FORGED_SENDER_MAILLIST(0.00)[];
-	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
-	DKIM_MIXED(0.00)[];
-	FREEMAIL_CC(0.00)[kernel.org,lists.freedesktop.org,iscas.ac.cn,linux.intel.com,lists.one-eyed-alien.net,vger.kernel.org,acm.org,ziepe.ca,namei.org,googlegroups.com,ursulin.net,rowland.harvard.edu,lists.infradead.org,canonical.com,linuxfoundation.org,linux-foundation.org,arm.com,orcam.me.uk,HansenPartnership.com,ffwll.ch,linux.alibaba.com,paul-moore.com,cmu.edu,linux.ibm.com,akamai.com,google.com,gmail.com,redhat.com,ideasonboard.com,hallyn.com,suse.com,minyard.net,alien8.de,intel.com,lists.sourceforge.net,oracle.com,atomlin.com,infradead.org,zytor.com,nongnu.org,kvack.org,cambridgegreys.com,nod.at,lists.ubuntu.com,lists.linux.dev,suse.de,antgroup.com,sipsolutions.net,lists.ozlabs.org];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_HELO_LOCALHOST(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
 	FORGED_RECIPIENTS(0.00)[m:mcgrof@kernel.org,m:rafael@kernel.org,m:dri-devel@lists.freedesktop.org,m:pengpeng@iscas.ac.cn,m:srinivas.pandruvada@linux.intel.com,m:usb-storage@lists.one-eyed-alien.net,m:linux-arch@vger.kernel.org,m:bvanassche@acm.org,m:jgg@ziepe.ca,m:jmorris@namei.org,m:kasan-dev@googlegroups.com,m:tursulin@ursulin.net,m:linux-acpi@vger.kernel.org,m:stern@rowland.harvard.edu,m:linux-pm@vger.kernel.org,m:linux-um@lists.infradead.org,m:georgia.garcia@canonical.com,m:gregkh@linuxfoundation.org,m:linux-usb@vger.kernel.org,m:linux-kernel@vger.kernel.org,m:linux-fsdevel@vger.kernel.org,m:akpm@linux-foundation.org,m:linux-media@vger.kernel.org,m:lukasz.luba@arm.com,m:macro@orcam.me.uk,m:dave.hansen@linux.intel.com,m:James.Bottomley@HansenPartnership.com,m:simona@ffwll.ch,m:xuanzhuo@linux.alibaba.com,m:paul@paul-moore.com,m:leon@kernel.org,m:Frank.Li@kernel.org,m:somlo@cmu.edu,m:lenb@kernel.org,m:gor@linux.ibm.com,m:jani.nikula@linux.intel.com,m:jbaron@akamai.com,m:bhelgaas@go
  ogle.com,m:jim.cromie@gmail.com,m:seanjc@google.com,m:tglx@kernel.org,m:kees@kernel.org,m:linux-pci@vger.kernel.org,m:jasowang@redhat.com,m:joonas.lahtinen@linux.intel.com,m:laurent.pinchart@ideasonboard.com,m:david.e.box@linux.intel.com,m:jirislaby@kernel.org,m:linux-rdma@vger.kernel.org,m:samitolvanen@google.com,m:ilpo.jarvinen@linux.intel.com,m:serge@hallyn.com,m:elver@google.com,m:petr.pavlu@suse.com,m:intel-gfx@lists.freedesktop.org,m:corey@minyard.net,m:bp@alien8.de,m:rodrigo.vivi@intel.com,m:openipmi-developer@lists.sourceforge.net,m:mchehab@kernel.org,m:martin.petersen@oracle.com,m:atomlin@atomlin.com,m:hansg@kernel.org,m:kvm@vger.kernel.org,m:mst@redhat.com,m:peterz@infradead.org,m:hpa@zytor.com,m:qemu-devel@nongnu.org,m:linux-mm@kvack.org,m:glider@google.com,m:da.gomez@kernel.org,m:airlied@gmail.com,m:anton.ivanov@cambridgegreys.com,m:linux-scsi@vger.kernel.org,m:richard@nod.at,m:x86@kernel.org,m:linux-security-module@vger.kernel.org,m:eperezma@redhat.com,m:mingo@redhat.co
  m,m:linux-serial@vger.kernel.org,m:rui.zhang@intel.com,m:hca@linux.ibm.com,m:apparmor@lists.ubuntu.com,m:virtualization@lists.linux.dev,m:linux-hardening@vger.kernel.org,m:hare@suse.de,m:benjamin.berg@intel.com,m:daniel.lezcano@kernel.org,m:andriy.shevchenko@linux.intel.com,m:tiwei.btw@antgroup.com,m:dvyukov@google.com,m:john.johansen@canonical.com,m:netdev@vger.kernel.org,m:vkoul@kernel.org,m:dmaengine@vger.kernel.org,m:pbonzini@redhat.com,m:johannes@sipsolutions.net,m:linuxppc-dev@lists.ozlabs.org,m:linux-modules@vger.kernel.org,s:lists@lfdr.de];
+	DKIM_MIXED(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	REPLYTO_DOM_EQ_TO_DOM(0.00)[];
+	RECEIVED_HELO_LOCALHOST(0.00)[];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FORGED_SENDER_MAILLIST(0.00)[];
+	FREEMAIL_CC(0.00)[kernel.org,lists.freedesktop.org,iscas.ac.cn,linux.intel.com,lists.one-eyed-alien.net,vger.kernel.org,acm.org,ziepe.ca,namei.org,googlegroups.com,ursulin.net,rowland.harvard.edu,lists.infradead.org,canonical.com,linuxfoundation.org,linux-foundation.org,arm.com,orcam.me.uk,HansenPartnership.com,ffwll.ch,linux.alibaba.com,paul-moore.com,cmu.edu,linux.ibm.com,akamai.com,google.com,gmail.com,redhat.com,ideasonboard.com,hallyn.com,suse.com,minyard.net,alien8.de,intel.com,lists.sourceforge.net,oracle.com,atomlin.com,infradead.org,zytor.com,nongnu.org,kvack.org,cambridgegreys.com,nod.at,lists.ubuntu.com,lists.linux.dev,suse.de,antgroup.com,sipsolutions.net,lists.ozlabs.org];
+	MIME_TRACE(0.00)[0:+];
+	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,kernel.org:s=k20260515];
 	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,kernel.org:-];
-	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
+	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
 	RCVD_COUNT_FIVE(0.00)[5];
 	RCPT_COUNT_GT_50(0.00)[99];
-	NEURAL_HAM(-0.00)[-1.000];
 	FORGED_SENDER_FORWARDING(0.00)[];
 	FROM_HAS_DN(0.00)[];
 	FROM_NEQ_ENVFROM(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,kernel.org:s=k20260515];
-	FORGED_RECIPIENTS_FORWARDING(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
+	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
+	NEURAL_HAM(-0.00)[-1.000];
 	TAGGED_RCPT(0.00)[openipmi-developer];
 	HAS_REPLYTO(0.00)[kees@kernel.org];
-	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	FORGED_RECIPIENTS_FORWARDING(0.00)[];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
 	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
-X-Rspamd-Queue-Id: BB44D5A70BD
+X-Rspamd-Queue-Id: 337AD5A70C9
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
-Q29udmVydCB0aGUgZ2VuZXJpYyBzdHJ1Y3Qga2VybmVsX3BhcmFtX29wcyAuZ2V0IGhlbHBlcnMg
-aW4Ka2VybmVsL3BhcmFtcy5jIGRpcmVjdGx5IHRvIHRoZSBzZXFfYnVmIHNpZ25hdHVyZSwgZHJv
-cCB0aGVpciBsZWdhY3kKImNoYXIgKiIgZm9ybSwgYW5kIHJlZnJlc2ggcHJvdG90eXBlcyBpbiA8
-bGludXgvbW9kdWxlcGFyYW0uaD46CgogIHBhcmFtX2dldF9ieXRlL3Nob3J0L3VzaG9ydC9pbnQv
-dWludC9sb25nL3Vsb25nL3VsbG9uZy9oZXhpbnQKICBwYXJhbV9nZXRfY2hhcnAvYm9vbC9pbnZi
-b29sL3N0cmluZwogIHBhcmFtX2FycmF5X2dldAoKVGhlIFNUQU5EQVJEX1BBUkFNX0RFRigpIG1h
-Y3JvIGV4cGFuZHMgdG8gYSBzZXFfYnVmIGJvZHkgZm9yIGV2ZXJ5Cm51bWVyaWMgaGVscGVyLiBw
-YXJhbV9hcnJheV9nZXQoKSBub3cgd3JpdGVzIGVsZW1lbnQgb3V0cHV0IGRpcmVjdGx5CmludG8g
-dGhlIHBhcmVudCBzZXFfYnVmIHdoZW4gdGhlIGVsZW1lbnQgb3BzIHByb3ZpZGUgLmdldDsgaXQg
-b25seQphbGxvY2F0ZXMgdGhlIHBlci1jYWxsIFBBR0VfU0laRSBib3VuY2UgYnVmZmVyIHdoZW4g
-dGhlIGVsZW1lbnQgb3BzCnN0aWxsIHVzZSB0aGUgbGVnYWN5IC5nZXRfc3RyIHBhdGguIFRoZSBj
-b21tb24gInJld3JpdGUgdGhlIHByaW9yCmVsZW1lbnQncyB0cmFpbGluZyBuZXdsaW5lIGFzIGEg
-Y29tbWEiIHN0ZXAgbGl2ZXMgb3V0c2lkZSBib3RoCmJyYW5jaGVzIHNvIHRoZSB0d28gcGF0aHMg
-c2hhcmUgaXQuCgpUaGUgbm9uLWNvcmUgY2hhbmdlcyBpbiB0aGlzIGNvbW1pdCAoYXJjaC94ODYv
-a3ZtLCBtbS9rZmVuY2UsCmRyaXZlcnMvZG1hL2RtYXRlc3QsIHNlY3VyaXR5L2FwcGFybW9yKSBh
-cmUgdGhlIHNtYWxsIHNldCBvZiBjYWxsZXJzIHRoYXQKZGlyZWN0bHkgaW52b2tlIG9uZSBvZiB0
-aGUgY29udmVydGVkIGdlbmVyaWMgaGVscGVycyBmcm9tIHRoZWlyIG93biAuZ2V0CmNhbGxiYWNr
-IChlLmcuIGFuIGFwcGFybW9yIHdyYXBwZXIgdGhhdCBhZGRzIGEgY2FwYWJpbGl0eSBjaGVjayBh
-bmQgdGhlbgpkZWxlZ2F0ZXMgdG8gcGFyYW1fZ2V0X2Jvb2woKSkuIEJlY2F1c2UgdGhlIGhlbHBl
-cnMnIHNpZ25hdHVyZSBjaGFuZ2VzCmhlcmUsIHRoZXNlIHdyYXBwZXJzIG11c3QgbW92ZSBpbiBs
-b2Nrc3RlcC4gRWFjaCBvZiB0aGVtIGlzIHVwZGF0ZWQKdG8gdGFrZSAic3RydWN0IHNlcV9idWYg
-KiIgYW5kIHBhc3MgaXQgdGhyb3VnaDsgcGFyYW1fZ2V0X2RlYnVnKCkgaW4KYXBwYXJtb3IgYWxz
-byBwdWxscyBhYV9wcmludF9kZWJ1Z19wYXJhbXMoKSAoYW5kIGl0cyB2YWxfbWFza190b19zdHIo
-KQpoZWxwZXIsIGluIHNlY3VyaXR5L2FwcGFybW9yL2xpYi5jKSBvdmVyIHRvIHNlcV9idWYsIHNp
-bmNlIHRoYXQgaXMgdGhlCm9ubHkgY29uc3VtZXIuIE5vIG90aGVyIGJlaGF2aW91cmFsIGNoYW5n
-ZSBpcyBpbnRlbmRlZC4KCkN1c3RvbSAuZ2V0IGNhbGxiYWNrcyB0aGF0IGRvIG5vdCBkZWxlZ2F0
-ZSB0byBhIGdlbmVyaWMgaGVscGVyIChhbmQKdGhlcmVmb3JlIHN0aWxsIG1hdGNoIHRoZSAuZ2V0
-X3N0ciBzaWduYXR1cmUpIGFyZSByb3V0ZWQgYXV0b21hdGljYWxseQp0byB0aGUgLmdldF9zdHIg
-ZmllbGQgYnkgdGhlIERFRklORV9LRVJORUxfUEFSQU1fT1BTIF9HZW5lcmljIGRpc3BhdGNoZXIK
-YW5kIGFyZSBkZWxpYmVyYXRlbHkgbGVmdCBhbG9uZSBoZXJlLCB0byBiZSBjaGFuZ2VkIHNlcGFy
-YXRlbHkgd2l0aGluCnRoZWlyIHJlc3BlY3RpdmUgc3Vic3lzdGVtcy4KClNpZ25lZC1vZmYtYnk6
-IEtlZXMgQ29vayA8a2Vlc0BrZXJuZWwub3JnPgotLS0KIGluY2x1ZGUvbGludXgvbW9kdWxlcGFy
-YW0uaCAgICAgfCAyNiArKysrKy0tLS0tLQogc2VjdXJpdHkvYXBwYXJtb3IvaW5jbHVkZS9saWIu
-aCB8ICAzICstCiBtbS9rZmVuY2UvY29yZS5jICAgICAgICAgICAgICAgIHwgIDggKystLQogYXJj
-aC94ODYva3ZtL21tdS9tbXUuYyAgICAgICAgICB8IDE2ICsrKystLS0KIGFyY2gveDg2L2t2bS9z
-dm0vYXZpYy5jICAgICAgICAgfCAgOCArKy0tCiBkcml2ZXJzL2RtYS9kbWF0ZXN0LmMgICAgICAg
-ICAgIHwgMTQgKysrLS0tCiBrZXJuZWwvcGFyYW1zLmMgICAgICAgICAgICAgICAgIHwgODAgKysr
-KysrKysrKysrKysrKysrKystLS0tLS0tLS0tLS0tCiBzZWN1cml0eS9hcHBhcm1vci9saWIuYyAg
-ICAgICAgIHwgMjcgKysrKystLS0tLS0KIHNlY3VyaXR5L2FwcGFybW9yL2xzbS5jICAgICAgICAg
-fCAyNSArKysrKystLS0tLQogOSBmaWxlcyBjaGFuZ2VkLCAxMTQgaW5zZXJ0aW9ucygrKSwgOTMg
-ZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9tb2R1bGVwYXJhbS5oIGIv
-aW5jbHVkZS9saW51eC9tb2R1bGVwYXJhbS5oCmluZGV4IDc5NWJjN2M2NTRlZi4uMzhhY2I1YWVm
-NTZiIDEwMDY0NAotLS0gYS9pbmNsdWRlL2xpbnV4L21vZHVsZXBhcmFtLmgKKysrIGIvaW5jbHVk
-ZS9saW51eC9tb2R1bGVwYXJhbS5oCkBAIC01MDAsNjEgKzUwMCw2MSBAQCB2b2lkIG1vZHVsZV9k
-ZXN0cm95X3BhcmFtcyhjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICpwYXJhbXMsIHVuc2lnbmVk
-IGludCBudW0pOwogCiBleHRlcm4gY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbV9vcHMgcGFyYW1f
-b3BzX2J5dGU7CiBpbnQgcGFyYW1fc2V0X2J5dGUoY29uc3QgY2hhciAqdmFsLCBjb25zdCBzdHJ1
-Y3Qga2VybmVsX3BhcmFtICprcCk7Ci1pbnQgcGFyYW1fZ2V0X2J5dGUoY2hhciAqYnVmZmVyLCBj
-b25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CitpbnQgcGFyYW1fZ2V0X2J5dGUoc3RydWN0
-IHNlcV9idWYgKnMsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKICNkZWZpbmUgcGFy
-YW1fY2hlY2tfYnl0ZShuYW1lLCBwKSBfX3BhcmFtX2NoZWNrKG5hbWUsIHAsIHVuc2lnbmVkIGNo
-YXIpCiAKIGV4dGVybiBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtX29wcyBwYXJhbV9vcHNfc2hv
-cnQ7CiBpbnQgcGFyYW1fc2V0X3Nob3J0KGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtl
-cm5lbF9wYXJhbSAqa3ApOwotaW50IHBhcmFtX2dldF9zaG9ydChjaGFyICpidWZmZXIsIGNvbnN0
-IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKK2ludCBwYXJhbV9nZXRfc2hvcnQoc3RydWN0IHNl
-cV9idWYgKnMsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKICNkZWZpbmUgcGFyYW1f
-Y2hlY2tfc2hvcnQobmFtZSwgcCkgX19wYXJhbV9jaGVjayhuYW1lLCBwLCBzaG9ydCkKIAogZXh0
-ZXJuIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW1fb3BzIHBhcmFtX29wc191c2hvcnQ7CiBpbnQg
-cGFyYW1fc2V0X3VzaG9ydChjb25zdCBjaGFyICp2YWwsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFy
-YW0gKmtwKTsKLWludCBwYXJhbV9nZXRfdXNob3J0KGNoYXIgKmJ1ZmZlciwgY29uc3Qgc3RydWN0
-IGtlcm5lbF9wYXJhbSAqa3ApOworaW50IHBhcmFtX2dldF91c2hvcnQoc3RydWN0IHNlcV9idWYg
-KnMsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKICNkZWZpbmUgcGFyYW1fY2hlY2tf
-dXNob3J0KG5hbWUsIHApIF9fcGFyYW1fY2hlY2sobmFtZSwgcCwgdW5zaWduZWQgc2hvcnQpCiAK
-IGV4dGVybiBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtX29wcyBwYXJhbV9vcHNfaW50OwogaW50
-IHBhcmFtX3NldF9pbnQoY29uc3QgY2hhciAqdmFsLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFt
-ICprcCk7Ci1pbnQgcGFyYW1fZ2V0X2ludChjaGFyICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJu
-ZWxfcGFyYW0gKmtwKTsKK2ludCBwYXJhbV9nZXRfaW50KHN0cnVjdCBzZXFfYnVmICpzLCBjb25z
-dCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CiAjZGVmaW5lIHBhcmFtX2NoZWNrX2ludChuYW1l
-LCBwKSBfX3BhcmFtX2NoZWNrKG5hbWUsIHAsIGludCkKIAogZXh0ZXJuIGNvbnN0IHN0cnVjdCBr
-ZXJuZWxfcGFyYW1fb3BzIHBhcmFtX29wc191aW50OwogaW50IHBhcmFtX3NldF91aW50KGNvbnN0
-IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOwotaW50IHBhcmFtX2dl
-dF91aW50KGNoYXIgKmJ1ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOworaW50
-IHBhcmFtX2dldF91aW50KHN0cnVjdCBzZXFfYnVmICpzLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3Bh
-cmFtICprcCk7CiBpbnQgcGFyYW1fc2V0X3VpbnRfbWlubWF4KGNvbnN0IGNoYXIgKnZhbCwgY29u
-c3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3AsCiAJCXVuc2lnbmVkIGludCBtaW4sIHVuc2lnbmVk
-IGludCBtYXgpOwogI2RlZmluZSBwYXJhbV9jaGVja191aW50KG5hbWUsIHApIF9fcGFyYW1fY2hl
-Y2sobmFtZSwgcCwgdW5zaWduZWQgaW50KQogCiBleHRlcm4gY29uc3Qgc3RydWN0IGtlcm5lbF9w
-YXJhbV9vcHMgcGFyYW1fb3BzX2xvbmc7CiBpbnQgcGFyYW1fc2V0X2xvbmcoY29uc3QgY2hhciAq
-dmFsLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7Ci1pbnQgcGFyYW1fZ2V0X2xvbmco
-Y2hhciAqYnVmZmVyLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CitpbnQgcGFyYW1f
-Z2V0X2xvbmcoc3RydWN0IHNlcV9idWYgKnMsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtw
-KTsKICNkZWZpbmUgcGFyYW1fY2hlY2tfbG9uZyhuYW1lLCBwKSBfX3BhcmFtX2NoZWNrKG5hbWUs
-IHAsIGxvbmcpCiAKIGV4dGVybiBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtX29wcyBwYXJhbV9v
-cHNfdWxvbmc7CiBpbnQgcGFyYW1fc2V0X3Vsb25nKGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3Ry
-dWN0IGtlcm5lbF9wYXJhbSAqa3ApOwotaW50IHBhcmFtX2dldF91bG9uZyhjaGFyICpidWZmZXIs
-IGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKK2ludCBwYXJhbV9nZXRfdWxvbmcoc3Ry
-dWN0IHNlcV9idWYgKnMsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKICNkZWZpbmUg
-cGFyYW1fY2hlY2tfdWxvbmcobmFtZSwgcCkgX19wYXJhbV9jaGVjayhuYW1lLCBwLCB1bnNpZ25l
-ZCBsb25nKQogCiBleHRlcm4gY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbV9vcHMgcGFyYW1fb3Bz
-X3VsbG9uZzsKIGludCBwYXJhbV9zZXRfdWxsb25nKGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3Ry
-dWN0IGtlcm5lbF9wYXJhbSAqa3ApOwotaW50IHBhcmFtX2dldF91bGxvbmcoY2hhciAqYnVmZmVy
-LCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CitpbnQgcGFyYW1fZ2V0X3VsbG9uZyhz
-dHJ1Y3Qgc2VxX2J1ZiAqcywgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOwogI2RlZmlu
-ZSBwYXJhbV9jaGVja191bGxvbmcobmFtZSwgcCkgX19wYXJhbV9jaGVjayhuYW1lLCBwLCB1bnNp
-Z25lZCBsb25nIGxvbmcpCiAKIGV4dGVybiBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtX29wcyBw
-YXJhbV9vcHNfaGV4aW50OwogaW50IHBhcmFtX3NldF9oZXhpbnQoY29uc3QgY2hhciAqdmFsLCBj
-b25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7Ci1pbnQgcGFyYW1fZ2V0X2hleGludChjaGFy
-ICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKK2ludCBwYXJhbV9nZXRf
-aGV4aW50KHN0cnVjdCBzZXFfYnVmICpzLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7
-CiAjZGVmaW5lIHBhcmFtX2NoZWNrX2hleGludChuYW1lLCBwKSBwYXJhbV9jaGVja191aW50KG5h
-bWUsIHApCiAKIGV4dGVybiBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtX29wcyBwYXJhbV9vcHNf
-Y2hhcnA7CiBpbnQgcGFyYW1fc2V0X2NoYXJwKGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0
-IGtlcm5lbF9wYXJhbSAqa3ApOwotaW50IHBhcmFtX2dldF9jaGFycChjaGFyICpidWZmZXIsIGNv
-bnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKK2ludCBwYXJhbV9nZXRfY2hhcnAoc3RydWN0
-IHNlcV9idWYgKnMsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKIHZvaWQgcGFyYW1f
-ZnJlZV9jaGFycCh2b2lkICphcmcpOwogI2RlZmluZSBwYXJhbV9jaGVja19jaGFycChuYW1lLCBw
-KSBfX3BhcmFtX2NoZWNrKG5hbWUsIHAsIGNoYXIgKikKIAogLyogV2UgdXNlZCB0byBhbGxvdyBp
-bnQgYXMgd2VsbCBhcyBib29sLiAgV2UncmUgdGFraW5nIHRoYXQgYXdheSEgKi8KIGV4dGVybiBj
-b25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtX29wcyBwYXJhbV9vcHNfYm9vbDsKIGludCBwYXJhbV9z
-ZXRfYm9vbChjb25zdCBjaGFyICp2YWwsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsK
-LWludCBwYXJhbV9nZXRfYm9vbChjaGFyICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFy
-YW0gKmtwKTsKK2ludCBwYXJhbV9nZXRfYm9vbChzdHJ1Y3Qgc2VxX2J1ZiAqcywgY29uc3Qgc3Ry
-dWN0IGtlcm5lbF9wYXJhbSAqa3ApOwogI2RlZmluZSBwYXJhbV9jaGVja19ib29sKG5hbWUsIHAp
-IF9fcGFyYW1fY2hlY2sobmFtZSwgcCwgYm9vbCkKIAogZXh0ZXJuIGNvbnN0IHN0cnVjdCBrZXJu
-ZWxfcGFyYW1fb3BzIHBhcmFtX29wc19ib29sX2VuYWJsZV9vbmx5OwpAQCAtNTY0LDcgKzU2NCw3
-IEBAIGludCBwYXJhbV9zZXRfYm9vbF9lbmFibGVfb25seShjb25zdCBjaGFyICp2YWwsIGNvbnN0
-IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKIAogZXh0ZXJuIGNvbnN0IHN0cnVjdCBrZXJuZWxf
-cGFyYW1fb3BzIHBhcmFtX29wc19pbnZib29sOwogaW50IHBhcmFtX3NldF9pbnZib29sKGNvbnN0
-IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOwotaW50IHBhcmFtX2dl
-dF9pbnZib29sKGNoYXIgKmJ1ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOwor
-aW50IHBhcmFtX2dldF9pbnZib29sKHN0cnVjdCBzZXFfYnVmICpzLCBjb25zdCBzdHJ1Y3Qga2Vy
-bmVsX3BhcmFtICprcCk7CiAjZGVmaW5lIHBhcmFtX2NoZWNrX2ludmJvb2wobmFtZSwgcCkgX19w
-YXJhbV9jaGVjayhuYW1lLCBwLCBib29sKQogCiAvKiBBbiBpbnQsIHdoaWNoIGNhbiBvbmx5IGJl
-IHNldCBsaWtlIGEgYm9vbCAodGhvdWdoIGl0IHNob3dzIGFzIGFuIGludCkuICovCkBAIC02Nzcs
-NyArNjc3LDcgQEAgZXh0ZXJuIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW1fb3BzIHBhcmFtX2Fy
-cmF5X29wczsKIAogZXh0ZXJuIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW1fb3BzIHBhcmFtX29w
-c19zdHJpbmc7CiBpbnQgcGFyYW1fc2V0X2NvcHlzdHJpbmcoY29uc3QgY2hhciAqdmFsLCBjb25z
-dCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7Ci1pbnQgcGFyYW1fZ2V0X3N0cmluZyhjaGFyICpi
-dWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKK2ludCBwYXJhbV9nZXRfc3Ry
-aW5nKHN0cnVjdCBzZXFfYnVmICpzLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CiAK
-IC8qIGZvciBleHBvcnRpbmcgcGFyYW1ldGVycyBpbiAvc3lzL21vZHVsZS8uLi4vcGFyYW1ldGVy
-cyAqLwogCmRpZmYgLS1naXQgYS9zZWN1cml0eS9hcHBhcm1vci9pbmNsdWRlL2xpYi5oIGIvc2Vj
-dXJpdHkvYXBwYXJtb3IvaW5jbHVkZS9saWIuaAppbmRleCA4YzZjZTg0ODQ1NTIuLjk2NjA4MjA3
-NWU2MSAxMDA2NDQKLS0tIGEvc2VjdXJpdHkvYXBwYXJtb3IvaW5jbHVkZS9saWIuaAorKysgYi9z
-ZWN1cml0eS9hcHBhcm1vci9pbmNsdWRlL2xpYi5oCkBAIC0xMyw2ICsxMyw3IEBACiAjaW5jbHVk
-ZSA8bGludXgvc2xhYi5oPgogI2luY2x1ZGUgPGxpbnV4L2ZzLmg+CiAjaW5jbHVkZSA8bGludXgv
-bHNtX2hvb2tzLmg+CisjaW5jbHVkZSA8bGludXgvc2VxX2J1Zi5oPgogCiAjaW5jbHVkZSAibWF0
-Y2guaCIKIApAQCAtNzIsNyArNzMsNyBAQCBkbyB7CQkJCQkJCQkJXAogI2VuZGlmCiAKIGludCBh
-YV9wYXJzZV9kZWJ1Z19wYXJhbXMoY29uc3QgY2hhciAqc3RyKTsKLWludCBhYV9wcmludF9kZWJ1
-Z19wYXJhbXMoY2hhciAqYnVmZmVyKTsKK2ludCBhYV9wcmludF9kZWJ1Z19wYXJhbXMoc3RydWN0
-IHNlcV9idWYgKnMpOwogCiAjZGVmaW5lIEFBX0VSUk9SKGZtdCwgYXJncy4uLikJCQkJCQlcCiAJ
-cHJfZXJyX3JhdGVsaW1pdGVkKCJBcHBBcm1vcjogIiBmbXQsICMjYXJncykKZGlmZiAtLWdpdCBh
-L21tL2tmZW5jZS9jb3JlLmMgYi9tbS9rZmVuY2UvY29yZS5jCmluZGV4IGUxNDEwMmMwMTUyMC4u
-YmZhOTM2ZjA5OTc4IDEwMDY0NAotLS0gYS9tbS9rZmVuY2UvY29yZS5jCisrKyBiL21tL2tmZW5j
-ZS9jb3JlLmMKQEAgLTg0LDEwICs4NCwxMiBAQCBzdGF0aWMgaW50IHBhcmFtX3NldF9zYW1wbGVf
-aW50ZXJ2YWwoY29uc3QgY2hhciAqdmFsLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtCiAJcmV0
-dXJuIDA7CiB9CiAKLXN0YXRpYyBpbnQgcGFyYW1fZ2V0X3NhbXBsZV9pbnRlcnZhbChjaGFyICpi
-dWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQorc3RhdGljIGludCBwYXJhbV9n
-ZXRfc2FtcGxlX2ludGVydmFsKHN0cnVjdCBzZXFfYnVmICpidWZmZXIsIGNvbnN0IHN0cnVjdCBr
-ZXJuZWxfcGFyYW0gKmtwKQogewotCWlmICghUkVBRF9PTkNFKGtmZW5jZV9lbmFibGVkKSkKLQkJ
-cmV0dXJuIHNwcmludGYoYnVmZmVyLCAiMFxuIik7CisJaWYgKCFSRUFEX09OQ0Uoa2ZlbmNlX2Vu
-YWJsZWQpKSB7CisJCXNlcV9idWZfcHV0cyhidWZmZXIsICIwXG4iKTsKKwkJcmV0dXJuIDA7CisJ
-fQogCiAJcmV0dXJuIHBhcmFtX2dldF91bG9uZyhidWZmZXIsIGtwKTsKIH0KZGlmZiAtLWdpdCBh
-L2FyY2gveDg2L2t2bS9tbXUvbW11LmMgYi9hcmNoL3g4Ni9rdm0vbW11L21tdS5jCmluZGV4IDk5
-NjgxOGVlOWIwOS4uNWU5YTI2OTBkMzM1IDEwMDY0NAotLS0gYS9hcmNoL3g4Ni9rdm0vbW11L21t
-dS5jCisrKyBiL2FyY2gveDg2L2t2bS9tbXUvbW11LmMKQEAgLTcwLDcgKzcwLDcgQEAgc3RhdGlj
-IHVpbnQgX19yZWFkX21vc3RseSBueF9odWdlX3BhZ2VzX3JlY292ZXJ5X3JhdGlvID0gMDsKIHN0
-YXRpYyB1aW50IF9fcmVhZF9tb3N0bHkgbnhfaHVnZV9wYWdlc19yZWNvdmVyeV9yYXRpbyA9IDYw
-OwogI2VuZGlmCiAKLXN0YXRpYyBpbnQgZ2V0X254X2h1Z2VfcGFnZXMoY2hhciAqYnVmZmVyLCBj
-b25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CitzdGF0aWMgaW50IGdldF9ueF9odWdlX3Bh
-Z2VzKHN0cnVjdCBzZXFfYnVmICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtw
-KTsKIHN0YXRpYyBpbnQgc2V0X254X2h1Z2VfcGFnZXMoY29uc3QgY2hhciAqdmFsLCBjb25zdCBz
-dHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CiBzdGF0aWMgaW50IHNldF9ueF9odWdlX3BhZ2VzX3Jl
-Y292ZXJ5X3BhcmFtKGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAq
-a3ApOwogCkBAIC03NDkzLDE1ICs3NDkzLDE5IEBAIHN0YXRpYyB2b2lkIGt2bV93YWtlX254X3Jl
-Y292ZXJ5X3RocmVhZChzdHJ1Y3Qga3ZtICprdm0pCiAJCXZob3N0X3Rhc2tfd2FrZShueF90aHJl
-YWQpOwogfQogCi1zdGF0aWMgaW50IGdldF9ueF9odWdlX3BhZ2VzKGNoYXIgKmJ1ZmZlciwgY29u
-c3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApCitzdGF0aWMgaW50IGdldF9ueF9odWdlX3BhZ2Vz
-KHN0cnVjdCBzZXFfYnVmICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQog
-ewogCWludCB2YWwgPSAqKGludCAqKWtwLT5hcmc7CiAKLQlpZiAobnhfaHVnZXBhZ2VfbWl0aWdh
-dGlvbl9oYXJkX2Rpc2FibGVkKQotCQlyZXR1cm4gc3lzZnNfZW1pdChidWZmZXIsICJuZXZlclxu
-Iik7CisJaWYgKG54X2h1Z2VwYWdlX21pdGlnYXRpb25faGFyZF9kaXNhYmxlZCkgeworCQlzZXFf
-YnVmX3B1dHMoYnVmZmVyLCAibmV2ZXJcbiIpOworCQlyZXR1cm4gMDsKKwl9CiAKLQlpZiAodmFs
-ID09IC0xKQotCQlyZXR1cm4gc3lzZnNfZW1pdChidWZmZXIsICJhdXRvXG4iKTsKKwlpZiAodmFs
-ID09IC0xKSB7CisJCXNlcV9idWZfcHV0cyhidWZmZXIsICJhdXRvXG4iKTsKKwkJcmV0dXJuIDA7
-CisJfQogCiAJcmV0dXJuIHBhcmFtX2dldF9ib29sKGJ1ZmZlciwga3ApOwogfQpkaWZmIC0tZ2l0
-IGEvYXJjaC94ODYva3ZtL3N2bS9hdmljLmMgYi9hcmNoL3g4Ni9rdm0vc3ZtL2F2aWMuYwppbmRl
-eCA3OTA3ZjlhZGRmZjkuLjZjM2I0NjI2YzVjMSAxMDA2NDQKLS0tIGEvYXJjaC94ODYva3ZtL3N2
-bS9hdmljLmMKKysrIGIvYXJjaC94ODYva3ZtL3N2bS9hdmljLmMKQEAgLTc3LDEyICs3NywxNCBA
-QCBzdGF0aWMgaW50IGF2aWNfcGFyYW1fc2V0KGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0
-IGtlcm5lbF9wYXJhbSAqa3ApCiAJcmV0dXJuIHBhcmFtX3NldF9iaW50KHZhbCwga3ApOwogfQog
-Ci1zdGF0aWMgaW50IGF2aWNfcGFyYW1fZ2V0KGNoYXIgKmJ1ZmZlciwgY29uc3Qgc3RydWN0IGtl
-cm5lbF9wYXJhbSAqa3ApCitzdGF0aWMgaW50IGF2aWNfcGFyYW1fZ2V0KHN0cnVjdCBzZXFfYnVm
-ICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQogewogCWludCB2YWwgPSAq
-KGludCAqKWtwLT5hcmc7CiAKLQlpZiAodmFsID09IEFWSUNfQVVUT19NT0RFKQotCQlyZXR1cm4g
-c3lzZnNfZW1pdChidWZmZXIsICJOXG4iKTsKKwlpZiAodmFsID09IEFWSUNfQVVUT19NT0RFKSB7
-CisJCXNlcV9idWZfcHV0cyhidWZmZXIsICJOXG4iKTsKKwkJcmV0dXJuIDA7CisJfQogCiAJcmV0
-dXJuIHBhcmFtX2dldF9ib29sKGJ1ZmZlciwga3ApOwogfQpkaWZmIC0tZ2l0IGEvZHJpdmVycy9k
-bWEvZG1hdGVzdC5jIGIvZHJpdmVycy9kbWEvZG1hdGVzdC5jCmluZGV4IGE3YmRkYWRjYzUyZC4u
-ODI4Mjk4ZmFjYTE2IDEwMDY0NAotLS0gYS9kcml2ZXJzL2RtYS9kbWF0ZXN0LmMKKysrIGIvZHJp
-dmVycy9kbWEvZG1hdGVzdC5jCkBAIC0xNTMsMTQgKzE1MywxNCBAQCBzdGF0aWMgc3RydWN0IGRt
-YXRlc3RfaW5mbyB7CiB9OwogCiBzdGF0aWMgaW50IGRtYXRlc3RfcnVuX3NldChjb25zdCBjaGFy
-ICp2YWwsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKLXN0YXRpYyBpbnQgZG1hdGVz
-dF9ydW5fZ2V0KGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOworc3Rh
-dGljIGludCBkbWF0ZXN0X3J1bl9nZXQoc3RydWN0IHNlcV9idWYgKnZhbCwgY29uc3Qgc3RydWN0
-IGtlcm5lbF9wYXJhbSAqa3ApOwogc3RhdGljIERFRklORV9LRVJORUxfUEFSQU1fT1BTKHJ1bl9v
-cHMsIGRtYXRlc3RfcnVuX3NldCwgZG1hdGVzdF9ydW5fZ2V0KTsKIHN0YXRpYyBib29sIGRtYXRl
-c3RfcnVuOwogbW9kdWxlX3BhcmFtX2NiKHJ1biwgJnJ1bl9vcHMsICZkbWF0ZXN0X3J1biwgMDY0
-NCk7CiBNT0RVTEVfUEFSTV9ERVNDKHJ1biwgIlJ1biB0aGUgdGVzdCAoZGVmYXVsdDogZmFsc2Up
-Iik7CiAKIHN0YXRpYyBpbnQgZG1hdGVzdF9jaGFuX3NldChjb25zdCBjaGFyICp2YWwsIGNvbnN0
-IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKLXN0YXRpYyBpbnQgZG1hdGVzdF9jaGFuX2dldChj
-aGFyICp2YWwsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKK3N0YXRpYyBpbnQgZG1h
-dGVzdF9jaGFuX2dldChzdHJ1Y3Qgc2VxX2J1ZiAqdmFsLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3Bh
-cmFtICprcCk7CiBzdGF0aWMgREVGSU5FX0tFUk5FTF9QQVJBTV9PUFMobXVsdGlfY2hhbl9vcHMs
-IGRtYXRlc3RfY2hhbl9zZXQsCiAJCQkgICAgICAgZG1hdGVzdF9jaGFuX2dldCk7CiAKQEAgLTE3
-Miw3ICsxNzIsNyBAQCBzdGF0aWMgc3RydWN0IGtwYXJhbV9zdHJpbmcgbmV3Y2hhbl9rcHMgPSB7
-CiBtb2R1bGVfcGFyYW1fY2IoY2hhbm5lbCwgJm11bHRpX2NoYW5fb3BzLCAmbmV3Y2hhbl9rcHMs
-IDA2NDQpOwogTU9EVUxFX1BBUk1fREVTQyhjaGFubmVsLCAiQnVzIElEIG9mIHRoZSBjaGFubmVs
-IHRvIHRlc3QgKGRlZmF1bHQ6IGFueSkiKTsKIAotc3RhdGljIGludCBkbWF0ZXN0X3Rlc3RfbGlz
-dF9nZXQoY2hhciAqdmFsLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CitzdGF0aWMg
-aW50IGRtYXRlc3RfdGVzdF9saXN0X2dldChzdHJ1Y3Qgc2VxX2J1ZiAqdmFsLCBjb25zdCBzdHJ1
-Y3Qga2VybmVsX3BhcmFtICprcCk7CiBzdGF0aWMgREVGSU5FX0tFUk5FTF9QQVJBTV9PUFModGVz
-dF9saXN0X29wcywgTlVMTCwgZG1hdGVzdF90ZXN0X2xpc3RfZ2V0KTsKIG1vZHVsZV9wYXJhbV9j
-Yih0ZXN0X2xpc3QsICZ0ZXN0X2xpc3Rfb3BzLCBOVUxMLCAwNDQ0KTsKIE1PRFVMRV9QQVJNX0RF
-U0ModGVzdF9saXN0LCAiUHJpbnQgY3VycmVudCB0ZXN0IGxpc3QiKTsKQEAgLTI3NCw3ICsyNzQs
-NyBAQCBzdGF0aWMgYm9vbCBpc190aHJlYWRlZF90ZXN0X3BlbmRpbmcoc3RydWN0IGRtYXRlc3Rf
-aW5mbyAqaW5mbykKIAlyZXR1cm4gZmFsc2U7CiB9CiAKLXN0YXRpYyBpbnQgZG1hdGVzdF93YWl0
-X2dldChjaGFyICp2YWwsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQorc3RhdGljIGlu
-dCBkbWF0ZXN0X3dhaXRfZ2V0KHN0cnVjdCBzZXFfYnVmICp2YWwsIGNvbnN0IHN0cnVjdCBrZXJu
-ZWxfcGFyYW0gKmtwKQogewogCXN0cnVjdCBkbWF0ZXN0X2luZm8gKmluZm8gPSAmdGVzdF9pbmZv
-OwogCXN0cnVjdCBkbWF0ZXN0X3BhcmFtcyAqcGFyYW1zID0gJmluZm8tPnBhcmFtczsKQEAgLTEx
-NjQsNyArMTE2NCw3IEBAIHN0YXRpYyB2b2lkIHN0YXJ0X3RocmVhZGVkX3Rlc3RzKHN0cnVjdCBk
-bWF0ZXN0X2luZm8gKmluZm8pCiAJcnVuX3BlbmRpbmdfdGVzdHMoaW5mbyk7CiB9CiAKLXN0YXRp
-YyBpbnQgZG1hdGVzdF9ydW5fZ2V0KGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJh
-bSAqa3ApCitzdGF0aWMgaW50IGRtYXRlc3RfcnVuX2dldChzdHJ1Y3Qgc2VxX2J1ZiAqdmFsLCBj
-b25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCkKIHsKIAlzdHJ1Y3QgZG1hdGVzdF9pbmZvICpp
-bmZvID0gJnRlc3RfaW5mbzsKIApAQCAtMTI5Miw3ICsxMjkyLDcgQEAgc3RhdGljIGludCBkbWF0
-ZXN0X2NoYW5fc2V0KGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAq
-a3ApCiAJcmV0dXJuIHJldDsKIH0KIAotc3RhdGljIGludCBkbWF0ZXN0X2NoYW5fZ2V0KGNoYXIg
-KnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApCitzdGF0aWMgaW50IGRtYXRlc3Rf
-Y2hhbl9nZXQoc3RydWN0IHNlcV9idWYgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAq
-a3ApCiB7CiAJc3RydWN0IGRtYXRlc3RfaW5mbyAqaW5mbyA9ICZ0ZXN0X2luZm87CiAKQEAgLTEz
-MDYsNyArMTMwNiw3IEBAIHN0YXRpYyBpbnQgZG1hdGVzdF9jaGFuX2dldChjaGFyICp2YWwsIGNv
-bnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQogCXJldHVybiBwYXJhbV9nZXRfc3RyaW5nKHZh
-bCwga3ApOwogfQogCi1zdGF0aWMgaW50IGRtYXRlc3RfdGVzdF9saXN0X2dldChjaGFyICp2YWws
-IGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQorc3RhdGljIGludCBkbWF0ZXN0X3Rlc3Rf
-bGlzdF9nZXQoc3RydWN0IHNlcV9idWYgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAq
-a3ApCiB7CiAJc3RydWN0IGRtYXRlc3RfaW5mbyAqaW5mbyA9ICZ0ZXN0X2luZm87CiAJc3RydWN0
-IGRtYXRlc3RfY2hhbiAqZHRjOwpkaWZmIC0tZ2l0IGEva2VybmVsL3BhcmFtcy5jIGIva2VybmVs
-L3BhcmFtcy5jCmluZGV4IDRlZGEyZDIzZGRmMi4uMjVmMGM4ZDVkMTlmIDEwMDY0NAotLS0gYS9r
-ZXJuZWwvcGFyYW1zLmMKKysrIGIva2VybmVsL3BhcmFtcy5jCkBAIC0yMTIsMTUgKzIxMiwxNiBA
-QCBjaGFyICpwYXJzZV9hcmdzKGNvbnN0IGNoYXIgKmRvaW5nLAogfQogCiAvKiBMYXp5IGJhc3Rh
-cmQsIGVoPyAqLwotI2RlZmluZSBTVEFOREFSRF9QQVJBTV9ERUYobmFtZSwgdHlwZSwgZm9ybWF0
-LCBzdHJ0b2xmbikgICAgICAJCVwKKyNkZWZpbmUgU1RBTkRBUkRfUEFSQU1fREVGKG5hbWUsIHR5
-cGUsIGZvcm1hdCwgc3RydG9sZm4pCQlcCiAJaW50IHBhcmFtX3NldF8jI25hbWUoY29uc3QgY2hh
-ciAqdmFsLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCkgXAogCXsJCQkJCQkJCVwKIAkJ
-cmV0dXJuIHN0cnRvbGZuKHZhbCwgMCwgKHR5cGUgKilrcC0+YXJnKTsJCVwKIAl9CQkJCQkJCQlc
-Ci0JaW50IHBhcmFtX2dldF8jI25hbWUoY2hhciAqYnVmZmVyLCBjb25zdCBzdHJ1Y3Qga2VybmVs
-X3BhcmFtICprcCkgXAorCWludCBwYXJhbV9nZXRfIyNuYW1lKHN0cnVjdCBzZXFfYnVmICpzLAkJ
-CQlcCisJCQkgICAgIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQkJXAogCXsJCQkJCQkJ
-CVwKLQkJcmV0dXJuIHNjbnByaW50ZihidWZmZXIsIFBBR0VfU0laRSwgZm9ybWF0ICJcbiIsCVwK
-LQkJCQkqKCh0eXBlICopa3AtPmFyZykpOwkJCVwKKwkJc2VxX2J1Zl9wcmludGYocywgZm9ybWF0
-ICJcbiIsICooKHR5cGUgKilrcC0+YXJnKSk7CVwKKwkJcmV0dXJuIDA7CQkJCQkJXAogCX0JCQkJ
-CQkJCVwKIAlERUZJTkVfS0VSTkVMX1BBUkFNX09QUyhwYXJhbV9vcHNfIyNuYW1lLAkJCVwKIAkJ
-CQlwYXJhbV9zZXRfIyNuYW1lLCBwYXJhbV9nZXRfIyNuYW1lKTsJXApAQCAtMjg1LDkgKzI4Niwx
-MCBAQCBpbnQgcGFyYW1fc2V0X2NoYXJwKGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtl
-cm5lbF9wYXJhbSAqa3ApCiB9CiBFWFBPUlRfU1lNQk9MKHBhcmFtX3NldF9jaGFycCk7CiAKLWlu
-dCBwYXJhbV9nZXRfY2hhcnAoY2hhciAqYnVmZmVyLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFt
-ICprcCkKK2ludCBwYXJhbV9nZXRfY2hhcnAoc3RydWN0IHNlcV9idWYgKnMsIGNvbnN0IHN0cnVj
-dCBrZXJuZWxfcGFyYW0gKmtwKQogewotCXJldHVybiBzY25wcmludGYoYnVmZmVyLCBQQUdFX1NJ
-WkUsICIlc1xuIiwgKigoY2hhciAqKilrcC0+YXJnKSk7CisJc2VxX2J1Zl9wcmludGYocywgIiVz
-XG4iLCAqKChjaGFyICoqKWtwLT5hcmcpKTsKKwlyZXR1cm4gMDsKIH0KIEVYUE9SVF9TWU1CT0wo
-cGFyYW1fZ2V0X2NoYXJwKTsKIApAQCAtMzEyLDEwICszMTQsMTEgQEAgaW50IHBhcmFtX3NldF9i
-b29sKGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApCiB9CiBF
-WFBPUlRfU1lNQk9MKHBhcmFtX3NldF9ib29sKTsKIAotaW50IHBhcmFtX2dldF9ib29sKGNoYXIg
-KmJ1ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApCitpbnQgcGFyYW1fZ2V0X2Jv
-b2woc3RydWN0IHNlcV9idWYgKnMsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQogewog
-CS8qIFkgYW5kIE4gY2hvc2VuIGFzIGJlaW5nIHJlbGF0aXZlbHkgbm9uLWNvZGVyIGZyaWVuZGx5
-ICovCi0JcmV0dXJuIHNwcmludGYoYnVmZmVyLCAiJWNcbiIsICooYm9vbCAqKWtwLT5hcmcgPyAn
-WScgOiAnTicpOworCXNlcV9idWZfcHJpbnRmKHMsICIlY1xuIiwgKihib29sICopa3AtPmFyZyA/
-ICdZJyA6ICdOJyk7CisJcmV0dXJuIDA7CiB9CiBFWFBPUlRfU1lNQk9MKHBhcmFtX2dldF9ib29s
-KTsKIApAQCAtMzY1LDkgKzM2OCwxMCBAQCBpbnQgcGFyYW1fc2V0X2ludmJvb2woY29uc3QgY2hh
-ciAqdmFsLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCkKIH0KIEVYUE9SVF9TWU1CT0wo
-cGFyYW1fc2V0X2ludmJvb2wpOwogCi1pbnQgcGFyYW1fZ2V0X2ludmJvb2woY2hhciAqYnVmZmVy
-LCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCkKK2ludCBwYXJhbV9nZXRfaW52Ym9vbChz
-dHJ1Y3Qgc2VxX2J1ZiAqcywgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApCiB7Ci0JcmV0
-dXJuIHNwcmludGYoYnVmZmVyLCAiJWNcbiIsICgqKGJvb2wgKilrcC0+YXJnKSA/ICdOJyA6ICdZ
-Jyk7CisJc2VxX2J1Zl9wcmludGYocywgIiVjXG4iLCAoKihib29sICopa3AtPmFyZykgPyAnTicg
-OiAnWScpOworCXJldHVybiAwOwogfQogRVhQT1JUX1NZTUJPTChwYXJhbV9nZXRfaW52Ym9vbCk7
-CiAKQEAgLTQ1MywzNiArNDU3LDQ2IEBAIHN0YXRpYyBpbnQgcGFyYW1fYXJyYXlfc2V0KGNvbnN0
-IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApCiAJCQkgICBhcnItPm51
-bSA/OiAmdGVtcF9udW0pOwogfQogCi1zdGF0aWMgaW50IHBhcmFtX2FycmF5X2dldChjaGFyICpi
-dWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQorc3RhdGljIGludCBwYXJhbV9h
-cnJheV9nZXQoc3RydWN0IHNlcV9idWYgKnMsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtw
-KQogewotCWludCBpLCBvZmYsIHJldDsKLQljaGFyICplbGVtX2J1ZjsKIAljb25zdCBzdHJ1Y3Qg
-a3BhcmFtX2FycmF5ICphcnIgPSBrcC0+YXJyOwogCXN0cnVjdCBrZXJuZWxfcGFyYW0gcCA9ICpr
-cDsKKwljaGFyICplbGVtX2J1ZiA9IE5VTEw7CisJaW50IGksIHJldCA9IDA7CiAKLQllbGVtX2J1
-ZiA9IGttYWxsb2MoUEFHRV9TSVpFLCBHRlBfS0VSTkVMKTsKLQlpZiAoIWVsZW1fYnVmKQotCQly
-ZXR1cm4gLUVOT01FTTsKKwlmb3IgKGkgPSAwOyBpIDwgKGFyci0+bnVtID8gKmFyci0+bnVtIDog
-YXJyLT5tYXgpOyBpKyspIHsKKwkJc2l6ZV90IGJlZm9yZSA9IHMtPmxlbjsKIAotCWZvciAoaSA9
-IG9mZiA9IDA7IGkgPCAoYXJyLT5udW0gPyAqYXJyLT5udW0gOiBhcnItPm1heCk7IGkrKykgewog
-CQlwLmFyZyA9IGFyci0+ZWxlbSArIGFyci0+ZWxlbXNpemUgKiBpOwogCQljaGVja19rcGFyYW1f
-bG9ja2VkKHAubW9kKTsKLQkJcmV0ID0gYXJyLT5vcHMtPmdldF9zdHIoZWxlbV9idWYsICZwKTsK
-LQkJaWYgKHJldCA8IDApCi0JCQlnb3RvIG91dDsKLQkJcmV0ID0gbWluKHJldCwgKGludCkoUEFH
-RV9TSVpFIC0gMSAtIG9mZikpOwotCQlpZiAoIXJldCkKKworCQlpZiAoYXJyLT5vcHMtPmdldCkg
-eworCQkJcmV0ID0gYXJyLT5vcHMtPmdldChzLCAmcCk7CisJCQlpZiAocmV0IDwgMCkKKwkJCQln
-b3RvIG91dDsKKwkJfSBlbHNlIHsKKwkJCWlmICghZWxlbV9idWYpIHsKKwkJCQllbGVtX2J1ZiA9
-IGttYWxsb2MoUEFHRV9TSVpFLCBHRlBfS0VSTkVMKTsKKwkJCQlpZiAoIWVsZW1fYnVmKSB7CisJ
-CQkJCXJldCA9IC1FTk9NRU07CisJCQkJCWdvdG8gb3V0OworCQkJCX0KKwkJCX0KKwkJCXJldCA9
-IGFyci0+b3BzLT5nZXRfc3RyKGVsZW1fYnVmLCAmcCk7CisJCQlpZiAocmV0IDwgMCkKKwkJCQln
-b3RvIG91dDsKKwkJCXNlcV9idWZfcHV0bWVtKHMsIGVsZW1fYnVmLCByZXQpOworCQl9CisKKwkJ
-LyogTm90aGluZyBnb3Qgd3JpdHRlbiAoZS5nLiBvdmVyZmxvdykg4oCUIHN0b3AuICovCisJCWlm
-IChzLT5sZW4gPT0gYmVmb3JlKQogCQkJYnJlYWs7CisKIAkJLyogUmVwbGFjZSB0aGUgcHJldmlv
-dXMgZWxlbWVudCdzIHRyYWlsaW5nIG5ld2xpbmUgd2l0aCBhIGNvbW1hLiAqLwotCQlpZiAoaSkK
-LQkJCWJ1ZmZlcltvZmYgLSAxXSA9ICcsJzsKLQkJbWVtY3B5KGJ1ZmZlciArIG9mZiwgZWxlbV9i
-dWYsIHJldCk7Ci0JCW9mZiArPSByZXQ7Ci0JCWlmIChvZmYgPT0gUEFHRV9TSVpFIC0gMSkKLQkJ
-CWJyZWFrOworCQlpZiAoaSAmJiBzLT5idWZmZXJbYmVmb3JlIC0gMV0gPT0gJ1xuJykKKwkJCXMt
-PmJ1ZmZlcltiZWZvcmUgLSAxXSA9ICcsJzsKIAl9Ci0JYnVmZmVyW29mZl0gPSAnXDAnOwotCXJl
-dCA9IG9mZjsKKwlyZXQgPSAwOwogb3V0OgogCWtmcmVlKGVsZW1fYnVmKTsKIAlyZXR1cm4gcmV0
-OwpAQCAtNTE3LDEwICs1MzEsMTIgQEAgaW50IHBhcmFtX3NldF9jb3B5c3RyaW5nKGNvbnN0IGNo
-YXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApCiB9CiBFWFBPUlRfU1lNQk9M
-KHBhcmFtX3NldF9jb3B5c3RyaW5nKTsKIAotaW50IHBhcmFtX2dldF9zdHJpbmcoY2hhciAqYnVm
-ZmVyLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCkKK2ludCBwYXJhbV9nZXRfc3RyaW5n
-KHN0cnVjdCBzZXFfYnVmICpzLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCkKIHsKIAlj
-b25zdCBzdHJ1Y3Qga3BhcmFtX3N0cmluZyAqa3BzID0ga3AtPnN0cjsKLQlyZXR1cm4gc2NucHJp
-bnRmKGJ1ZmZlciwgUEFHRV9TSVpFLCAiJXNcbiIsIGtwcy0+c3RyaW5nKTsKKworCXNlcV9idWZf
-cHJpbnRmKHMsICIlc1xuIiwga3BzLT5zdHJpbmcpOworCXJldHVybiAwOwogfQogRVhQT1JUX1NZ
-TUJPTChwYXJhbV9nZXRfc3RyaW5nKTsKIApkaWZmIC0tZ2l0IGEvc2VjdXJpdHkvYXBwYXJtb3Iv
-bGliLmMgYi9zZWN1cml0eS9hcHBhcm1vci9saWIuYwppbmRleCBlNDFmZjU3Nzk4YjIuLmVlZjEz
-NmFkZDViNCAxMDA2NDQKLS0tIGEvc2VjdXJpdHkvYXBwYXJtb3IvbGliLmMKKysrIGIvc2VjdXJp
-dHkvYXBwYXJtb3IvbGliLmMKQEAgLTg1LDM3ICs4NSwzMiBAQCBpbnQgYWFfcGFyc2VfZGVidWdf
-cGFyYW1zKGNvbnN0IGNoYXIgKnN0cikKIAogLyoqCiAgKiB2YWxfbWFza190b19zdHIgLSBjb252
-ZXJ0IGEgcGVybSBtYXNrIHRvIGl0cyBzaG9ydCBzdHJpbmcKLSAqIEBzdHI6IGNoYXJhY3RlciBi
-dWZmZXIgdG8gc3RvcmUgc3RyaW5nIGluIChhdCBsZWFzdCAxMCBjaGFyYWN0ZXJzKQotICogQHNp
-emU6IHNpemUgb2YgdGhlIEBzdHIgYnVmZmVyCisgKiBAczogc2VxX2J1ZiB0byBzdG9yZSBzdHJp
-bmcgaW4KICAqIEB0YWJsZTogTlVMLXRlcm1pbmF0ZWQgY2hhcmFjdGVyIGJ1ZmZlciBvZiBwZXJt
-aXNzaW9uIGNoYXJhY3RlcnMgKE5PVCBOVUxMKQogICogQG1hc2s6IHBlcm1pc3Npb24gbWFzayB0
-byBjb252ZXJ0CiAgKi8KLXN0YXRpYyBpbnQgdmFsX21hc2tfdG9fc3RyKGNoYXIgKnN0ciwgc2l6
-ZV90IHNpemUsCi0JCQkgICBjb25zdCBzdHJ1Y3QgdmFsX3RhYmxlX2VudCAqdGFibGUsIHUzMiBt
-YXNrKQorc3RhdGljIHZvaWQgdmFsX21hc2tfdG9fc3RyKHN0cnVjdCBzZXFfYnVmICpzLAorCQkJ
-ICAgIGNvbnN0IHN0cnVjdCB2YWxfdGFibGVfZW50ICp0YWJsZSwgdTMyIG1hc2spCiB7CiAJY29u
-c3Qgc3RydWN0IHZhbF90YWJsZV9lbnQgKmVudDsKLQlpbnQgdG90YWwgPSAwOworCWJvb2wgZmly
-c3QgPSB0cnVlOwogCiAJZm9yIChlbnQgPSB0YWJsZTsgZW50LT5zdHI7IGVudCsrKSB7CiAJCWlm
-IChlbnQtPnZhbHVlICYmIChlbnQtPnZhbHVlICYgbWFzaykgPT0gZW50LT52YWx1ZSkgewotCQkJ
-aW50IGxlbiA9IHNjbnByaW50ZihzdHIsIHNpemUsICIlcyVzIiwgdG90YWwgPyAiLCIgOiAiIiwK
-LQkJCQkJICAgIGVudC0+c3RyKTsKLQkJCXNpemUgLT0gbGVuOwotCQkJc3RyICs9IGxlbjsKLQkJ
-CXRvdGFsICs9IGxlbjsKKwkJCXNlcV9idWZfcHJpbnRmKHMsICIlcyVzIiwgZmlyc3QgPyAiIiA6
-ICIsIiwgZW50LT5zdHIpOworCQkJZmlyc3QgPSBmYWxzZTsKIAkJCW1hc2sgJj0gfmVudC0+dmFs
-dWU7CiAJCX0KIAl9Ci0KLQlyZXR1cm4gdG90YWw7CiB9CiAKLWludCBhYV9wcmludF9kZWJ1Z19w
-YXJhbXMoY2hhciAqYnVmZmVyKQoraW50IGFhX3ByaW50X2RlYnVnX3BhcmFtcyhzdHJ1Y3Qgc2Vx
-X2J1ZiAqcykKIHsKIAlpZiAoIWFhX2dfZGVidWcpCi0JCXJldHVybiBzcHJpbnRmKGJ1ZmZlciwg
-Ik4iKTsKLQlyZXR1cm4gdmFsX21hc2tfdG9fc3RyKGJ1ZmZlciwgUEFHRV9TSVpFLCBkZWJ1Z192
-YWx1ZXNfdGFibGUsCi0JCQkgICAgICAgYWFfZ19kZWJ1Zyk7CisJCXNlcV9idWZfcHV0cyhzLCAi
-TiIpOworCWVsc2UKKwkJdmFsX21hc2tfdG9fc3RyKHMsIGRlYnVnX3ZhbHVlc190YWJsZSwgYWFf
-Z19kZWJ1Zyk7CisJcmV0dXJuIDA7CiB9CiAKIGJvb2wgYWFfcmVzaXplX3N0cl90YWJsZShzdHJ1
-Y3QgYWFfc3RyX3RhYmxlICp0LCBpbnQgbmV3c2l6ZSwgZ2ZwX3QgZ2ZwKQpkaWZmIC0tZ2l0IGEv
-c2VjdXJpdHkvYXBwYXJtb3IvbHNtLmMgYi9zZWN1cml0eS9hcHBhcm1vci9sc20uYwppbmRleCA4
-YTI1M2M3NDMzNjMuLmE2ODE1YjRiZDBkYSAxMDA2NDQKLS0tIGEvc2VjdXJpdHkvYXBwYXJtb3Iv
-bHNtLmMKKysrIGIvc2VjdXJpdHkvYXBwYXJtb3IvbHNtLmMKQEAgLTE2LDYgKzE2LDcgQEAKICNp
-bmNsdWRlIDxsaW51eC9uYW1laS5oPgogI2luY2x1ZGUgPGxpbnV4L3B0cmFjZS5oPgogI2luY2x1
-ZGUgPGxpbnV4L2N0eXBlLmg+CisjaW5jbHVkZSA8bGludXgvc2VxX2J1Zi5oPgogI2luY2x1ZGUg
-PGxpbnV4L3N5c2N0bC5oPgogI2luY2x1ZGUgPGxpbnV4L3N5c2ZzLmg+CiAjaW5jbHVkZSA8bGlu
-dXgvYXVkaXQuaD4KQEAgLTE3NjUsMjAgKzE3NjYsMjAgQEAgc3RhdGljIHN0cnVjdCBzZWN1cml0
-eV9ob29rX2xpc3QgYXBwYXJtb3JfaG9va3NbXSBfX3JvX2FmdGVyX2luaXQgPSB7CiAgKi8KIAog
-c3RhdGljIGludCBwYXJhbV9zZXRfYWFib29sKGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0
-IGtlcm5lbF9wYXJhbSAqa3ApOwotc3RhdGljIGludCBwYXJhbV9nZXRfYWFib29sKGNoYXIgKmJ1
-ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOworc3RhdGljIGludCBwYXJhbV9n
-ZXRfYWFib29sKHN0cnVjdCBzZXFfYnVmICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFy
-YW0gKmtwKTsKICNkZWZpbmUgcGFyYW1fY2hlY2tfYWFib29sIHBhcmFtX2NoZWNrX2Jvb2wKIHN0
-YXRpYyBERUZJTkVfS0VSTkVMX1BBUkFNX09QU19OT0FSRyhwYXJhbV9vcHNfYWFib29sLCBwYXJh
-bV9zZXRfYWFib29sLAogCQkJCSAgICAgcGFyYW1fZ2V0X2FhYm9vbCk7CiAKIHN0YXRpYyBpbnQg
-cGFyYW1fc2V0X2FhdWludChjb25zdCBjaGFyICp2YWwsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFy
-YW0gKmtwKTsKLXN0YXRpYyBpbnQgcGFyYW1fZ2V0X2FhdWludChjaGFyICpidWZmZXIsIGNvbnN0
-IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKK3N0YXRpYyBpbnQgcGFyYW1fZ2V0X2FhdWludChz
-dHJ1Y3Qgc2VxX2J1ZiAqYnVmZmVyLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CiAj
-ZGVmaW5lIHBhcmFtX2NoZWNrX2FhdWludCBwYXJhbV9jaGVja191aW50CiBzdGF0aWMgREVGSU5F
-X0tFUk5FTF9QQVJBTV9PUFMocGFyYW1fb3BzX2FhdWludCwgcGFyYW1fc2V0X2FhdWludCwKIAkJ
-CSAgICAgICBwYXJhbV9nZXRfYWF1aW50KTsKIAogc3RhdGljIGludCBwYXJhbV9zZXRfYWFjb21w
-cmVzc2lvbmxldmVsKGNvbnN0IGNoYXIgKnZhbCwKIAkJCQkJY29uc3Qgc3RydWN0IGtlcm5lbF9w
-YXJhbSAqa3ApOwotc3RhdGljIGludCBwYXJhbV9nZXRfYWFjb21wcmVzc2lvbmxldmVsKGNoYXIg
-KmJ1ZmZlciwKK3N0YXRpYyBpbnQgcGFyYW1fZ2V0X2FhY29tcHJlc3Npb25sZXZlbChzdHJ1Y3Qg
-c2VxX2J1ZiAqYnVmZmVyLAogCQkJCQljb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CiAj
-ZGVmaW5lIHBhcmFtX2NoZWNrX2FhY29tcHJlc3Npb25sZXZlbCBwYXJhbV9jaGVja19pbnQKIHN0
-YXRpYyBERUZJTkVfS0VSTkVMX1BBUkFNX09QUyhwYXJhbV9vcHNfYWFjb21wcmVzc2lvbmxldmVs
-LApAQCAtMTc4NiwxNCArMTc4NywxNCBAQCBzdGF0aWMgREVGSU5FX0tFUk5FTF9QQVJBTV9PUFMo
-cGFyYW1fb3BzX2FhY29tcHJlc3Npb25sZXZlbCwKIAkJCSAgICAgICBwYXJhbV9nZXRfYWFjb21w
-cmVzc2lvbmxldmVsKTsKIAogc3RhdGljIGludCBwYXJhbV9zZXRfYWFsb2NrcG9saWN5KGNvbnN0
-IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOwotc3RhdGljIGludCBw
-YXJhbV9nZXRfYWFsb2NrcG9saWN5KGNoYXIgKmJ1ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9w
-YXJhbSAqa3ApOworc3RhdGljIGludCBwYXJhbV9nZXRfYWFsb2NrcG9saWN5KHN0cnVjdCBzZXFf
-YnVmICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKICNkZWZpbmUgcGFy
-YW1fY2hlY2tfYWFsb2NrcG9saWN5IHBhcmFtX2NoZWNrX2Jvb2wKIHN0YXRpYyBERUZJTkVfS0VS
-TkVMX1BBUkFNX09QU19OT0FSRyhwYXJhbV9vcHNfYWFsb2NrcG9saWN5LAogCQkJCSAgICAgcGFy
-YW1fc2V0X2FhbG9ja3BvbGljeSwKIAkJCQkgICAgIHBhcmFtX2dldF9hYWxvY2twb2xpY3kpOwog
-CiBzdGF0aWMgaW50IHBhcmFtX3NldF9kZWJ1Zyhjb25zdCBjaGFyICp2YWwsIGNvbnN0IHN0cnVj
-dCBrZXJuZWxfcGFyYW0gKmtwKTsKLXN0YXRpYyBpbnQgcGFyYW1fZ2V0X2RlYnVnKGNoYXIgKmJ1
-ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOworc3RhdGljIGludCBwYXJhbV9n
-ZXRfZGVidWcoc3RydWN0IHNlcV9idWYgKmJ1ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJh
-bSAqa3ApOwogCiBzdGF0aWMgaW50IHBhcmFtX3NldF9hdWRpdChjb25zdCBjaGFyICp2YWwsIGNv
-bnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKTsKIHN0YXRpYyBpbnQgcGFyYW1fZ2V0X2F1ZGl0
-KGNoYXIgKmJ1ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApOwpAQCAtMTg2OCw3
-ICsxODY5LDcgQEAgbW9kdWxlX3BhcmFtX25hbWVkKHBhdGhfbWF4LCBhYV9nX3BhdGhfbWF4LCBh
-YXVpbnQsIFNfSVJVU1IpOwogYm9vbCBhYV9nX3BhcmFub2lkX2xvYWQgPSBJU19FTkFCTEVEKENP
-TkZJR19TRUNVUklUWV9BUFBBUk1PUl9QQVJBTk9JRF9MT0FEKTsKIG1vZHVsZV9wYXJhbV9uYW1l
-ZChwYXJhbm9pZF9sb2FkLCBhYV9nX3BhcmFub2lkX2xvYWQsIGFhYm9vbCwgU19JUlVHTyk7CiAK
-LXN0YXRpYyBpbnQgcGFyYW1fZ2V0X2FhaW50Ym9vbChjaGFyICpidWZmZXIsIGNvbnN0IHN0cnVj
-dCBrZXJuZWxfcGFyYW0gKmtwKTsKK3N0YXRpYyBpbnQgcGFyYW1fZ2V0X2FhaW50Ym9vbChzdHJ1
-Y3Qgc2VxX2J1ZiAqYnVmZmVyLCBjb25zdCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCk7CiBzdGF0
-aWMgaW50IHBhcmFtX3NldF9hYWludGJvb2woY29uc3QgY2hhciAqdmFsLCBjb25zdCBzdHJ1Y3Qg
-a2VybmVsX3BhcmFtICprcCk7CiAjZGVmaW5lIHBhcmFtX2NoZWNrX2FhaW50Ym9vbCBwYXJhbV9j
-aGVja19pbnQKIHN0YXRpYyBERUZJTkVfS0VSTkVMX1BBUkFNX09QUyhwYXJhbV9vcHNfYWFpbnRi
-b29sLCBwYXJhbV9zZXRfYWFpbnRib29sLApAQCAtMTg5OCw3ICsxODk5LDcgQEAgc3RhdGljIGlu
-dCBwYXJhbV9zZXRfYWFsb2NrcG9saWN5KGNvbnN0IGNoYXIgKnZhbCwgY29uc3Qgc3RydWN0IGtl
-cm5lbF9wYXJhbSAqa3AKIAlyZXR1cm4gcGFyYW1fc2V0X2Jvb2wodmFsLCBrcCk7CiB9CiAKLXN0
-YXRpYyBpbnQgcGFyYW1fZ2V0X2FhbG9ja3BvbGljeShjaGFyICpidWZmZXIsIGNvbnN0IHN0cnVj
-dCBrZXJuZWxfcGFyYW0gKmtwKQorc3RhdGljIGludCBwYXJhbV9nZXRfYWFsb2NrcG9saWN5KHN0
-cnVjdCBzZXFfYnVmICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQogewog
-CWlmICghYXBwYXJtb3JfZW5hYmxlZCkKIAkJcmV0dXJuIC1FSU5WQUw7CkBAIC0xOTE2LDcgKzE5
-MTcsNyBAQCBzdGF0aWMgaW50IHBhcmFtX3NldF9hYWJvb2woY29uc3QgY2hhciAqdmFsLCBjb25z
-dCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCkKIAlyZXR1cm4gcGFyYW1fc2V0X2Jvb2wodmFsLCBr
-cCk7CiB9CiAKLXN0YXRpYyBpbnQgcGFyYW1fZ2V0X2FhYm9vbChjaGFyICpidWZmZXIsIGNvbnN0
-IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQorc3RhdGljIGludCBwYXJhbV9nZXRfYWFib29sKHN0
-cnVjdCBzZXFfYnVmICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQogewog
-CWlmICghYXBwYXJtb3JfZW5hYmxlZCkKIAkJcmV0dXJuIC1FSU5WQUw7CkBAIC0xOTQyLDcgKzE5
-NDMsNyBAQCBzdGF0aWMgaW50IHBhcmFtX3NldF9hYXVpbnQoY29uc3QgY2hhciAqdmFsLCBjb25z
-dCBzdHJ1Y3Qga2VybmVsX3BhcmFtICprcCkKIAlyZXR1cm4gZXJyb3I7CiB9CiAKLXN0YXRpYyBp
-bnQgcGFyYW1fZ2V0X2FhdWludChjaGFyICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFy
-YW0gKmtwKQorc3RhdGljIGludCBwYXJhbV9nZXRfYWF1aW50KHN0cnVjdCBzZXFfYnVmICpidWZm
-ZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQogewogCWlmICghYXBwYXJtb3JfZW5h
-YmxlZCkKIAkJcmV0dXJuIC1FSU5WQUw7CkBAIC0xOTc4LDcgKzE5NzksNyBAQCBzdGF0aWMgaW50
-IHBhcmFtX3NldF9hYWludGJvb2woY29uc3QgY2hhciAqdmFsLCBjb25zdCBzdHJ1Y3Qga2VybmVs
-X3BhcmFtICprcCkKICAqIGRpc3BsYXkgaW4gdGhlIC9zeXMgZmlsZXN5c3RlbSwgd2hpbGUga2Vl
-cGluZyBpdCAiaW50IiBmb3IgdGhlIExTTQogICogaW5mcmFzdHJ1Y3R1cmUuCiAgKi8KLXN0YXRp
-YyBpbnQgcGFyYW1fZ2V0X2FhaW50Ym9vbChjaGFyICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJu
-ZWxfcGFyYW0gKmtwKQorc3RhdGljIGludCBwYXJhbV9nZXRfYWFpbnRib29sKHN0cnVjdCBzZXFf
-YnVmICpidWZmZXIsIGNvbnN0IHN0cnVjdCBrZXJuZWxfcGFyYW0gKmtwKQogewogCXN0cnVjdCBr
-ZXJuZWxfcGFyYW0ga3BfbG9jYWw7CiAJYm9vbCB2YWx1ZTsKQEAgLTIwMTEsNyArMjAxMiw3IEBA
-IHN0YXRpYyBpbnQgcGFyYW1fc2V0X2FhY29tcHJlc3Npb25sZXZlbChjb25zdCBjaGFyICp2YWws
-CiAJcmV0dXJuIGVycm9yOwogfQogCi1zdGF0aWMgaW50IHBhcmFtX2dldF9hYWNvbXByZXNzaW9u
-bGV2ZWwoY2hhciAqYnVmZmVyLAorc3RhdGljIGludCBwYXJhbV9nZXRfYWFjb21wcmVzc2lvbmxl
-dmVsKHN0cnVjdCBzZXFfYnVmICpidWZmZXIsCiAJCQkJCWNvbnN0IHN0cnVjdCBrZXJuZWxfcGFy
-YW0gKmtwKQogewogCWlmICghYXBwYXJtb3JfZW5hYmxlZCkKQEAgLTIwMjEsNyArMjAyMiw3IEBA
-IHN0YXRpYyBpbnQgcGFyYW1fZ2V0X2FhY29tcHJlc3Npb25sZXZlbChjaGFyICpidWZmZXIsCiAJ
-cmV0dXJuIHBhcmFtX2dldF9pbnQoYnVmZmVyLCBrcCk7CiB9CiAKLXN0YXRpYyBpbnQgcGFyYW1f
-Z2V0X2RlYnVnKGNoYXIgKmJ1ZmZlciwgY29uc3Qgc3RydWN0IGtlcm5lbF9wYXJhbSAqa3ApCitz
-dGF0aWMgaW50IHBhcmFtX2dldF9kZWJ1ZyhzdHJ1Y3Qgc2VxX2J1ZiAqYnVmZmVyLCBjb25zdCBz
-dHJ1Y3Qga2VybmVsX3BhcmFtICprcCkKIHsKIAlpZiAoIWFwcGFybW9yX2VuYWJsZWQpCiAJCXJl
-dHVybiAtRUlOVkFMOwotLSAKMi4zNC4xCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5nIGxpc3QKT3Blbmlw
-bWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xpc3RzLnNvdXJjZWZv
-cmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
+Using the following Coccinelle script, convert struct kernel_param_ops
+.get callbacks from "char *" to "struct seq_buf *" when the only write
+to the buffer is via a final call of scnprintf(), snprintf(), sprintf(),
+or sysfs_emit().
+
+Since seq_buf_printf() will return -1 on overflow, and struct
+kernel_param_ops .get callbacks are expected to truncate without error,
+we must ignore the return value from seq_buf_print() and always return 0
+(as the length is calculated in the common dispatcher code).
+
+@@
+identifier FN, BUF, KP;
+expression FMT;
+expression list ARGS;
+@@
+ int FN(
+-               char *BUF
++               struct seq_buf *BUF
+                , const struct kernel_param *KP)
+ {
+        ... when any
+(
+-       return scnprintf(BUF, PAGE_SIZE, FMT, ARGS);
+|
+-       return snprintf(BUF, PAGE_SIZE, FMT, ARGS);
+|
+-       return sprintf(BUF, FMT, ARGS);
+|
+-       return sysfs_emit(BUF, FMT, ARGS);
+)
++       seq_buf_printf(BUF, FMT, ARGS);
++       return 0;
+ }
+
+No struct kernel_param_ops initializations need changing since
+DEFINE_KERNEL_PARAM_OPS already routes the pointer to .get or .get_str
+via _Generic based on the function signature, so converted callbacks
+are automatically moved from the .get_str to the .get callback.
+
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+ arch/s390/kernel/perf_cpum_sf.c               |  6 ++-
+ arch/x86/kernel/msr.c                         |  5 +-
+ arch/x86/kvm/vmx/vmx.c                        | 18 ++++---
+ arch/x86/platform/uv/uv_nmi.c                 | 12 +++--
+ drivers/acpi/ec.c                             | 14 ++++--
+ drivers/acpi/sysfs.c                          |  6 ++-
+ drivers/block/ublk_drv.c                      |  5 +-
+ drivers/char/ipmi/ipmi_msghandler.c           |  6 ++-
+ drivers/firmware/qcom/qcom_scm.c              | 12 +++--
+ drivers/gpu/drm/drm_panic.c                   |  7 +--
+ drivers/infiniband/hw/hfi1/driver.c           |  7 +--
+ drivers/infiniband/ulp/srpt/ib_srpt.c         |  5 +-
+ drivers/input/misc/ati_remote2.c              | 10 ++--
+ drivers/input/mouse/psmouse-base.c            |  9 ++--
+ drivers/md/md.c                               |  5 +-
+ drivers/media/pci/tw686x/tw686x-core.c        |  6 ++-
+ drivers/nvme/host/multipath.c                 |  5 +-
+ drivers/power/supply/test_power.c             | 47 +++++++++++--------
+ drivers/target/target_core_user.c             | 12 +++--
+ .../processor_thermal_soc_slider.c            | 12 +++--
+ drivers/ufs/core/ufs-fault-injection.c        |  7 +--
+ drivers/vhost/scsi.c                          |  5 +-
+ fs/nfs/namespace.c                            |  6 ++-
+ fs/ocfs2/dlmfs/dlmfs.c                        |  5 +-
+ fs/overlayfs/copy_up.c                        |  5 +-
+ kernel/locking/locktorture.c                  |  6 ++-
+ kernel/rcu/tree.c                             |  6 ++-
+ kernel/workqueue.c                            |  6 ++-
+ lib/test_dynamic_debug.c                      |  6 ++-
+ mm/damon/lru_sort.c                           | 14 +++---
+ mm/damon/reclaim.c                            | 14 +++---
+ mm/damon/stat.c                               | 10 ++--
+ mm/memory_hotplug.c                           | 18 ++++---
+ net/ceph/ceph_common.c                        |  5 +-
+ net/sunrpc/auth.c                             |  6 ++-
+ net/sunrpc/svc.c                              |  5 +-
+ security/apparmor/lsm.c                       | 16 ++++---
+ 37 files changed, 218 insertions(+), 131 deletions(-)
+
+diff --git a/arch/s390/kernel/perf_cpum_sf.c b/arch/s390/kernel/perf_cpum_sf.c
+index 76119542562b..75b0d441d238 100644
+--- a/arch/s390/kernel/perf_cpum_sf.c
++++ b/arch/s390/kernel/perf_cpum_sf.c
+@@ -1991,11 +1991,13 @@ static int s390_pmu_sf_offline_cpu(unsigned int cpu)
+ 	return cpusf_pmu_setup(cpu, PMC_RELEASE);
+ }
+ 
+-static int param_get_sfb_size(char *buffer, const struct kernel_param *kp)
++static int param_get_sfb_size(struct seq_buf *buffer,
++			      const struct kernel_param *kp)
+ {
+ 	if (!cpum_sf_avail())
+ 		return -ENODEV;
+-	return sprintf(buffer, "%lu,%lu", CPUM_SF_MIN_SDB, CPUM_SF_MAX_SDB);
++	seq_buf_printf(buffer, "%lu,%lu", CPUM_SF_MIN_SDB, CPUM_SF_MAX_SDB);
++	return 0;
+ }
+ 
+ static int param_set_sfb_size(const char *val, const struct kernel_param *kp)
+diff --git a/arch/x86/kernel/msr.c b/arch/x86/kernel/msr.c
+index 5f4e1814dc4d..9f07f66c3cfc 100644
+--- a/arch/x86/kernel/msr.c
++++ b/arch/x86/kernel/msr.c
+@@ -309,7 +309,7 @@ static int set_allow_writes(const char *val, const struct kernel_param *cp)
+ 	return 0;
+ }
+ 
+-static int get_allow_writes(char *buf, const struct kernel_param *kp)
++static int get_allow_writes(struct seq_buf *buf, const struct kernel_param *kp)
+ {
+ 	const char *res;
+ 
+@@ -319,7 +319,8 @@ static int get_allow_writes(char *buf, const struct kernel_param *kp)
+ 	default: res = "default"; break;
+ 	}
+ 
+-	return sprintf(buf, "%s\n", res);
++	seq_buf_printf(buf, "%s\n", res);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(allow_writes_ops, set_allow_writes,
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 07f4c7209ac0..00317774a90b 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -368,12 +368,16 @@ static int vmentry_l1d_flush_set(const char *s, const struct kernel_param *kp)
+ 	return ret;
+ }
+ 
+-static int vmentry_l1d_flush_get(char *s, const struct kernel_param *kp)
++static int vmentry_l1d_flush_get(struct seq_buf *s,
++				 const struct kernel_param *kp)
+ {
+-	if (WARN_ON_ONCE(l1tf_vmx_mitigation >= ARRAY_SIZE(vmentry_l1d_param)))
+-		return sysfs_emit(s, "???\n");
++	if (WARN_ON_ONCE(l1tf_vmx_mitigation >= ARRAY_SIZE(vmentry_l1d_param))) {
++		seq_buf_printf(s, "???\n");
++		return 0;
++	}
+ 
+-	return sysfs_emit(s, "%s\n", vmentry_l1d_param[l1tf_vmx_mitigation].option);
++	seq_buf_printf(s, "%s\n", vmentry_l1d_param[l1tf_vmx_mitigation].option);
++	return 0;
+ }
+ 
+ /*
+@@ -459,9 +463,11 @@ static int vmentry_l1d_flush_set(const char *s, const struct kernel_param *kp)
+ 	pr_warn_once("Kernel compiled without mitigations, ignoring vmentry_l1d_flush\n");
+ 	return 0;
+ }
+-static int vmentry_l1d_flush_get(char *s, const struct kernel_param *kp)
++static int vmentry_l1d_flush_get(struct seq_buf *s,
++				 const struct kernel_param *kp)
+ {
+-	return sysfs_emit(s, "never\n");
++	seq_buf_printf(s, "never\n");
++	return 0;
+ }
+ #endif
+ 
+diff --git a/arch/x86/platform/uv/uv_nmi.c b/arch/x86/platform/uv/uv_nmi.c
+index a7ac80b5f8d9..c401369efe22 100644
+--- a/arch/x86/platform/uv/uv_nmi.c
++++ b/arch/x86/platform/uv/uv_nmi.c
+@@ -111,9 +111,11 @@ module_param_named(dump_loglevel, uv_nmi_loglevel, int, 0644);
+  * The following values show statistics on how perf events are affecting
+  * this system.
+  */
+-static int param_get_local64(char *buffer, const struct kernel_param *kp)
++static int param_get_local64(struct seq_buf *buffer,
++			     const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%lu\n", local64_read((local64_t *)kp->arg));
++	seq_buf_printf(buffer, "%lu\n", local64_read((local64_t *)kp->arg));
++	return 0;
+ }
+ 
+ static int param_set_local64(const char *val, const struct kernel_param *kp)
+@@ -207,9 +209,11 @@ static const char * const actions_desc[nmi_act_max] = {
+ 
+ static enum action_t uv_nmi_action = nmi_act_dump;
+ 
+-static int param_get_action(char *buffer, const struct kernel_param *kp)
++static int param_get_action(struct seq_buf *buffer,
++			    const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n", actions[uv_nmi_action]);
++	seq_buf_printf(buffer, "%s\n", actions[uv_nmi_action]);
++	return 0;
+ }
+ 
+ static int param_set_action(const char *val, const struct kernel_param *kp)
+diff --git a/drivers/acpi/ec.c b/drivers/acpi/ec.c
+index 45204538ed87..6478e5290faf 100644
+--- a/drivers/acpi/ec.c
++++ b/drivers/acpi/ec.c
+@@ -2236,18 +2236,22 @@ static int param_set_event_clearing(const char *val,
+ 	return result;
+ }
+ 
+-static int param_get_event_clearing(char *buffer,
++static int param_get_event_clearing(struct seq_buf *buffer,
+ 				    const struct kernel_param *kp)
+ {
+ 	switch (ec_event_clearing) {
+ 	case ACPI_EC_EVT_TIMING_STATUS:
+-		return sprintf(buffer, "status\n");
++		seq_buf_printf(buffer, "status\n");
++		return 0;
+ 	case ACPI_EC_EVT_TIMING_QUERY:
+-		return sprintf(buffer, "query\n");
++		seq_buf_printf(buffer, "query\n");
++		return 0;
+ 	case ACPI_EC_EVT_TIMING_EVENT:
+-		return sprintf(buffer, "event\n");
++		seq_buf_printf(buffer, "event\n");
++		return 0;
+ 	default:
+-		return sprintf(buffer, "invalid\n");
++		seq_buf_printf(buffer, "invalid\n");
++		return 0;
+ 	}
+ 	return 0;
+ }
+diff --git a/drivers/acpi/sysfs.c b/drivers/acpi/sysfs.c
+index 3d32a5280432..5247ed7e05cc 100644
+--- a/drivers/acpi/sysfs.c
++++ b/drivers/acpi/sysfs.c
+@@ -192,9 +192,11 @@ static int param_set_trace_method_name(const char *val,
+ 	return 0;
+ }
+ 
+-static int param_get_trace_method_name(char *buffer, const struct kernel_param *kp)
++static int param_get_trace_method_name(struct seq_buf *buffer,
++				       const struct kernel_param *kp)
+ {
+-	return sysfs_emit(buffer, "%s\n", acpi_gbl_trace_method_name);
++	seq_buf_printf(buffer, "%s\n", acpi_gbl_trace_method_name);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(param_ops_trace_method,
+diff --git a/drivers/block/ublk_drv.c b/drivers/block/ublk_drv.c
+index f7bf7ea2d088..ea35662381bf 100644
+--- a/drivers/block/ublk_drv.c
++++ b/drivers/block/ublk_drv.c
+@@ -5868,10 +5868,11 @@ static int ublk_set_max_unprivileged_ublks(const char *buf,
+ 	return param_set_uint_minmax(buf, kp, 0, UBLK_MAX_UBLKS);
+ }
+ 
+-static int ublk_get_max_unprivileged_ublks(char *buf,
++static int ublk_get_max_unprivileged_ublks(struct seq_buf *buf,
+ 					   const struct kernel_param *kp)
+ {
+-	return sysfs_emit(buf, "%u\n", unprivileged_ublks_max);
++	seq_buf_printf(buf, "%u\n", unprivileged_ublks_max);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(ublk_max_unprivileged_ublks_ops,
+diff --git a/drivers/char/ipmi/ipmi_msghandler.c b/drivers/char/ipmi/ipmi_msghandler.c
+index b5fed11707e8..45941605b88f 100644
+--- a/drivers/char/ipmi/ipmi_msghandler.c
++++ b/drivers/char/ipmi/ipmi_msghandler.c
+@@ -90,7 +90,8 @@ static int panic_op_write_handler(const char *val,
+ 	return 0;
+ }
+ 
+-static int panic_op_read_handler(char *buffer, const struct kernel_param *kp)
++static int panic_op_read_handler(struct seq_buf *buffer,
++				 const struct kernel_param *kp)
+ {
+ 	const char *event_str;
+ 
+@@ -99,7 +100,8 @@ static int panic_op_read_handler(char *buffer, const struct kernel_param *kp)
+ 	else
+ 		event_str = ipmi_panic_event_str[ipmi_send_panic_event];
+ 
+-	return sprintf(buffer, "%s\n", event_str);
++	seq_buf_printf(buffer, "%s\n", event_str);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(panic_op_ops, panic_op_write_handler,
+diff --git a/drivers/firmware/qcom/qcom_scm.c b/drivers/firmware/qcom/qcom_scm.c
+index ef57df53e087..1bdb497e354e 100644
+--- a/drivers/firmware/qcom/qcom_scm.c
++++ b/drivers/firmware/qcom/qcom_scm.c
+@@ -2694,12 +2694,16 @@ static irqreturn_t qcom_scm_irq_handler(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static int get_download_mode(char *buffer, const struct kernel_param *kp)
++static int get_download_mode(struct seq_buf *buffer,
++			     const struct kernel_param *kp)
+ {
+-	if (download_mode >= ARRAY_SIZE(download_mode_name))
+-		return sysfs_emit(buffer, "unknown mode\n");
++	if (download_mode >= ARRAY_SIZE(download_mode_name)) {
++		seq_buf_printf(buffer, "unknown mode\n");
++		return 0;
++	}
+ 
+-	return sysfs_emit(buffer, "%s\n", download_mode_name[download_mode]);
++	seq_buf_printf(buffer, "%s\n", download_mode_name[download_mode]);
++	return 0;
+ }
+ 
+ static int set_download_mode(const char *val, const struct kernel_param *kp)
+diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
+index c35d1adf2ce3..8b3b749284f0 100644
+--- a/drivers/gpu/drm/drm_panic.c
++++ b/drivers/gpu/drm/drm_panic.c
+@@ -841,10 +841,11 @@ static int drm_panic_type_set(const char *val, const struct kernel_param *kp)
+ 	return -EINVAL;
+ }
+ 
+-static int drm_panic_type_get(char *buffer, const struct kernel_param *kp)
++static int drm_panic_type_get(struct seq_buf *buffer,
++			      const struct kernel_param *kp)
+ {
+-	return scnprintf(buffer, PAGE_SIZE, "%s\n",
+-			 drm_panic_type_map[drm_panic_type]);
++	seq_buf_printf(buffer, "%s\n", drm_panic_type_map[drm_panic_type]);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(drm_panic_ops, drm_panic_type_set,
+diff --git a/drivers/infiniband/hw/hfi1/driver.c b/drivers/infiniband/hw/hfi1/driver.c
+index 5b9b0b38b419..3c3f8d4db99d 100644
+--- a/drivers/infiniband/hw/hfi1/driver.c
++++ b/drivers/infiniband/hw/hfi1/driver.c
+@@ -41,7 +41,7 @@ MODULE_PARM_DESC(cu, "Credit return units");
+ 
+ unsigned long hfi1_cap_mask = HFI1_CAP_MASK_DEFAULT;
+ static int hfi1_caps_set(const char *val, const struct kernel_param *kp);
+-static int hfi1_caps_get(char *buffer, const struct kernel_param *kp);
++static int hfi1_caps_get(struct seq_buf *buffer, const struct kernel_param *kp);
+ static DEFINE_KERNEL_PARAM_OPS(cap_ops, hfi1_caps_set, hfi1_caps_get);
+ module_param_cb(cap_mask, &cap_ops, &hfi1_cap_mask, S_IWUSR | S_IRUGO);
+ MODULE_PARM_DESC(cap_mask, "Bit mask of enabled/disabled HW features");
+@@ -101,14 +101,15 @@ static int hfi1_caps_set(const char *val, const struct kernel_param *kp)
+ 	return ret;
+ }
+ 
+-static int hfi1_caps_get(char *buffer, const struct kernel_param *kp)
++static int hfi1_caps_get(struct seq_buf *buffer, const struct kernel_param *kp)
+ {
+ 	unsigned long cap_mask = *(unsigned long *)kp->arg;
+ 
+ 	cap_mask &= ~HFI1_CAP_LOCKED_SMASK;
+ 	cap_mask |= ((cap_mask & HFI1_CAP_K2U) << HFI1_CAP_USER_SHIFT);
+ 
+-	return sysfs_emit(buffer, "0x%lx\n", cap_mask);
++	seq_buf_printf(buffer, "0x%lx\n", cap_mask);
++	return 0;
+ }
+ 
+ struct pci_dev *get_pci_dev(struct rvt_dev_info *rdi)
+diff --git a/drivers/infiniband/ulp/srpt/ib_srpt.c b/drivers/infiniband/ulp/srpt/ib_srpt.c
+index 9aec5d80117f..97c77d52a86a 100644
+--- a/drivers/infiniband/ulp/srpt/ib_srpt.c
++++ b/drivers/infiniband/ulp/srpt/ib_srpt.c
+@@ -86,9 +86,10 @@ static int srpt_set_u64_x(const char *buffer, const struct kernel_param *kp)
+ {
+ 	return kstrtou64(buffer, 16, (u64 *)kp->arg);
+ }
+-static int srpt_get_u64_x(char *buffer, const struct kernel_param *kp)
++static int srpt_get_u64_x(struct seq_buf *buffer, const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "0x%016llx\n", *(u64 *)kp->arg);
++	seq_buf_printf(buffer, "0x%016llx\n", *(u64 *)kp->arg);
++	return 0;
+ }
+ module_param_call(srpt_service_guid, srpt_set_u64_x, srpt_get_u64_x,
+ 		  &srpt_service_guid, 0444);
+diff --git a/drivers/input/misc/ati_remote2.c b/drivers/input/misc/ati_remote2.c
+index 8b4ef7e163d3..d101fe1c2c4c 100644
+--- a/drivers/input/misc/ati_remote2.c
++++ b/drivers/input/misc/ati_remote2.c
+@@ -63,12 +63,13 @@ static int ati_remote2_set_channel_mask(const char *val,
+ 	return ati_remote2_set_mask(val, kp, ATI_REMOTE2_MAX_CHANNEL_MASK);
+ }
+ 
+-static int ati_remote2_get_channel_mask(char *buffer,
++static int ati_remote2_get_channel_mask(struct seq_buf *buffer,
+ 					const struct kernel_param *kp)
+ {
+ 	pr_debug("%s()\n", __func__);
+ 
+-	return sprintf(buffer, "0x%04x\n", *(unsigned int *)kp->arg);
++	seq_buf_printf(buffer, "0x%04x\n", *(unsigned int *)kp->arg);
++	return 0;
+ }
+ 
+ static int ati_remote2_set_mode_mask(const char *val,
+@@ -79,12 +80,13 @@ static int ati_remote2_set_mode_mask(const char *val,
+ 	return ati_remote2_set_mask(val, kp, ATI_REMOTE2_MAX_MODE_MASK);
+ }
+ 
+-static int ati_remote2_get_mode_mask(char *buffer,
++static int ati_remote2_get_mode_mask(struct seq_buf *buffer,
+ 				     const struct kernel_param *kp)
+ {
+ 	pr_debug("%s()\n", __func__);
+ 
+-	return sprintf(buffer, "0x%02x\n", *(unsigned int *)kp->arg);
++	seq_buf_printf(buffer, "0x%02x\n", *(unsigned int *)kp->arg);
++	return 0;
+ }
+ 
+ static unsigned int channel_mask = ATI_REMOTE2_MAX_CHANNEL_MASK;
+diff --git a/drivers/input/mouse/psmouse-base.c b/drivers/input/mouse/psmouse-base.c
+index f9ebb1fd0b6f..39a9b87e69d1 100644
+--- a/drivers/input/mouse/psmouse-base.c
++++ b/drivers/input/mouse/psmouse-base.c
+@@ -44,7 +44,8 @@ MODULE_LICENSE("GPL");
+ 
+ static unsigned int psmouse_max_proto = PSMOUSE_AUTO;
+ static int psmouse_set_maxproto(const char *val, const struct kernel_param *);
+-static int psmouse_get_maxproto(char *buffer, const struct kernel_param *kp);
++static int psmouse_get_maxproto(struct seq_buf *buffer,
++				const struct kernel_param *kp);
+ static DEFINE_KERNEL_PARAM_OPS(param_ops_proto_abbrev, psmouse_set_maxproto,
+ 			       psmouse_get_maxproto);
+ #define param_check_proto_abbrev(name, p)	__param_check(name, p, unsigned int)
+@@ -1994,11 +1995,13 @@ static int psmouse_set_maxproto(const char *val, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int psmouse_get_maxproto(char *buffer, const struct kernel_param *kp)
++static int psmouse_get_maxproto(struct seq_buf *buffer,
++				const struct kernel_param *kp)
+ {
+ 	int type = *((unsigned int *)kp->arg);
+ 
+-	return sprintf(buffer, "%s\n", psmouse_protocol_by_type(type)->name);
++	seq_buf_printf(buffer, "%s\n", psmouse_protocol_by_type(type)->name);
++	return 0;
+ }
+ 
+ static int __init psmouse_init(void)
+diff --git a/drivers/md/md.c b/drivers/md/md.c
+index 8b568eee8743..ce3eb1396ad0 100644
+--- a/drivers/md/md.c
++++ b/drivers/md/md.c
+@@ -10989,9 +10989,10 @@ static __exit void md_exit(void)
+ subsys_initcall(md_init);
+ module_exit(md_exit)
+ 
+-static int get_ro(char *buffer, const struct kernel_param *kp)
++static int get_ro(struct seq_buf *buffer, const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%d\n", start_readonly);
++	seq_buf_printf(buffer, "%d\n", start_readonly);
++	return 0;
+ }
+ static int set_ro(const char *val, const struct kernel_param *kp)
+ {
+diff --git a/drivers/media/pci/tw686x/tw686x-core.c b/drivers/media/pci/tw686x/tw686x-core.c
+index a10e38221817..35a6ff8d77fc 100644
+--- a/drivers/media/pci/tw686x/tw686x-core.c
++++ b/drivers/media/pci/tw686x/tw686x-core.c
+@@ -69,9 +69,11 @@ static const char *dma_mode_name(unsigned int mode)
+ 	}
+ }
+ 
+-static int tw686x_dma_mode_get(char *buffer, const struct kernel_param *kp)
++static int tw686x_dma_mode_get(struct seq_buf *buffer,
++			       const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s", dma_mode_name(dma_mode));
++	seq_buf_printf(buffer, "%s", dma_mode_name(dma_mode));
++	return 0;
+ }
+ 
+ static int tw686x_dma_mode_set(const char *val, const struct kernel_param *kp)
+diff --git a/drivers/nvme/host/multipath.c b/drivers/nvme/host/multipath.c
+index f7362377e427..e0c87447074d 100644
+--- a/drivers/nvme/host/multipath.c
++++ b/drivers/nvme/host/multipath.c
+@@ -85,9 +85,10 @@ static int nvme_set_iopolicy(const char *val, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int nvme_get_iopolicy(char *buf, const struct kernel_param *kp)
++static int nvme_get_iopolicy(struct seq_buf *buf, const struct kernel_param *kp)
+ {
+-	return sprintf(buf, "%s\n", nvme_iopolicy_names[iopolicy]);
++	seq_buf_printf(buf, "%s\n", nvme_iopolicy_names[iopolicy]);
++	return 0;
+ }
+ 
+ module_param_call(iopolicy, nvme_set_iopolicy, nvme_get_iopolicy,
+diff --git a/drivers/power/supply/test_power.c b/drivers/power/supply/test_power.c
+index 0bf2bef3383a..9dcd588ab5c9 100644
+--- a/drivers/power/supply/test_power.c
++++ b/drivers/power/supply/test_power.c
+@@ -490,10 +490,12 @@ static int param_set_ac_online(const char *key, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int param_get_ac_online(char *buffer, const struct kernel_param *kp)
++static int param_get_ac_online(struct seq_buf *buffer,
++			       const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n",
+-			map_get_key(map_ac_online, ac_online, "unknown"));
++	seq_buf_printf(buffer, "%s\n",
++		       map_get_key(map_ac_online, ac_online, "unknown"));
++	return 0;
+ }
+ 
+ static int param_set_usb_online(const char *key, const struct kernel_param *kp)
+@@ -503,10 +505,12 @@ static int param_set_usb_online(const char *key, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int param_get_usb_online(char *buffer, const struct kernel_param *kp)
++static int param_get_usb_online(struct seq_buf *buffer,
++				const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n",
+-			map_get_key(map_ac_online, usb_online, "unknown"));
++	seq_buf_printf(buffer, "%s\n",
++		       map_get_key(map_ac_online, usb_online, "unknown"));
++	return 0;
+ }
+ 
+ static int param_set_battery_status(const char *key,
+@@ -517,10 +521,12 @@ static int param_set_battery_status(const char *key,
+ 	return 0;
+ }
+ 
+-static int param_get_battery_status(char *buffer, const struct kernel_param *kp)
++static int param_get_battery_status(struct seq_buf *buffer,
++				    const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n",
+-			map_get_key(map_ac_online, battery_status, "unknown"));
++	seq_buf_printf(buffer, "%s\n",
++		       map_get_key(map_ac_online, battery_status, "unknown"));
++	return 0;
+ }
+ 
+ static int param_set_battery_health(const char *key,
+@@ -531,10 +537,12 @@ static int param_set_battery_health(const char *key,
+ 	return 0;
+ }
+ 
+-static int param_get_battery_health(char *buffer, const struct kernel_param *kp)
++static int param_get_battery_health(struct seq_buf *buffer,
++				    const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n",
+-			map_get_key(map_ac_online, battery_health, "unknown"));
++	seq_buf_printf(buffer, "%s\n",
++		       map_get_key(map_ac_online, battery_health, "unknown"));
++	return 0;
+ }
+ 
+ static int param_set_battery_present(const char *key,
+@@ -545,11 +553,12 @@ static int param_set_battery_present(const char *key,
+ 	return 0;
+ }
+ 
+-static int param_get_battery_present(char *buffer,
++static int param_get_battery_present(struct seq_buf *buffer,
+ 					const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n",
+-			map_get_key(map_ac_online, battery_present, "unknown"));
++	seq_buf_printf(buffer, "%s\n",
++		       map_get_key(map_ac_online, battery_present, "unknown"));
++	return 0;
+ }
+ 
+ static int param_set_battery_technology(const char *key,
+@@ -561,12 +570,12 @@ static int param_set_battery_technology(const char *key,
+ 	return 0;
+ }
+ 
+-static int param_get_battery_technology(char *buffer,
++static int param_get_battery_technology(struct seq_buf *buffer,
+ 					const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n",
+-			map_get_key(map_ac_online, battery_technology,
+-					"unknown"));
++	seq_buf_printf(buffer, "%s\n",
++		       map_get_key(map_ac_online, battery_technology, "unknown"));
++	return 0;
+ }
+ 
+ static int param_set_battery_capacity(const char *key,
+diff --git a/drivers/target/target_core_user.c b/drivers/target/target_core_user.c
+index 676a12b44e88..5e8817a63726 100644
+--- a/drivers/target/target_core_user.c
++++ b/drivers/target/target_core_user.c
+@@ -249,10 +249,11 @@ static int tcmu_set_global_max_data_area(const char *str,
+ 	return 0;
+ }
+ 
+-static int tcmu_get_global_max_data_area(char *buffer,
++static int tcmu_get_global_max_data_area(struct seq_buf *buffer,
+ 					 const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%d\n", TCMU_PAGES_TO_MBS(tcmu_global_max_pages));
++	seq_buf_printf(buffer, "%d\n", TCMU_PAGES_TO_MBS(tcmu_global_max_pages));
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(tcmu_global_max_data_area_op,
+@@ -265,11 +266,12 @@ MODULE_PARM_DESC(global_max_data_area_mb,
+ 		 "Max MBs allowed to be allocated to all the tcmu device's "
+ 		 "data areas.");
+ 
+-static int tcmu_get_block_netlink(char *buffer,
++static int tcmu_get_block_netlink(struct seq_buf *buffer,
+ 				  const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n", tcmu_netlink_blocked ?
+-		       "blocked" : "unblocked");
++	seq_buf_printf(buffer, "%s\n",
++		       tcmu_netlink_blocked ? "blocked" : "unblocked");
++	return 0;
+ }
+ 
+ static int tcmu_set_block_netlink(const char *str,
+diff --git a/drivers/thermal/intel/int340x_thermal/processor_thermal_soc_slider.c b/drivers/thermal/intel/int340x_thermal/processor_thermal_soc_slider.c
+index 68275c3f2c9b..1a68721748d9 100644
+--- a/drivers/thermal/intel/int340x_thermal/processor_thermal_soc_slider.c
++++ b/drivers/thermal/intel/int340x_thermal/processor_thermal_soc_slider.c
+@@ -77,10 +77,12 @@ static int slider_def_balance_set(const char *arg, const struct kernel_param *kp
+ 	return ret;
+ }
+ 
+-static int slider_def_balance_get(char *buf, const struct kernel_param *kp)
++static int slider_def_balance_get(struct seq_buf *buf,
++				  const struct kernel_param *kp)
+ {
+ 	guard(mutex)(&slider_param_lock);
+-	return sysfs_emit(buf, "%02x\n", slider_values[SOC_POWER_SLIDER_BALANCE]);
++	seq_buf_printf(buf, "%02x\n", slider_values[SOC_POWER_SLIDER_BALANCE]);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(slider_def_balance_ops, slider_def_balance_set,
+@@ -109,10 +111,12 @@ static int slider_def_offset_set(const char *arg, const struct kernel_param *kp)
+ 	return ret;
+ }
+ 
+-static int slider_def_offset_get(char *buf, const struct kernel_param *kp)
++static int slider_def_offset_get(struct seq_buf *buf,
++				 const struct kernel_param *kp)
+ {
+ 	guard(mutex)(&slider_param_lock);
+-	return sysfs_emit(buf, "%02x\n", slider_offset);
++	seq_buf_printf(buf, "%02x\n", slider_offset);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(slider_offset_ops, slider_def_offset_set,
+diff --git a/drivers/ufs/core/ufs-fault-injection.c b/drivers/ufs/core/ufs-fault-injection.c
+index 7d2873da7dc5..88f348b41614 100644
+--- a/drivers/ufs/core/ufs-fault-injection.c
++++ b/drivers/ufs/core/ufs-fault-injection.c
+@@ -8,7 +8,7 @@
+ #include <ufs/ufshcd.h>
+ #include "ufs-fault-injection.h"
+ 
+-static int ufs_fault_get(char *buffer, const struct kernel_param *kp);
++static int ufs_fault_get(struct seq_buf *buffer, const struct kernel_param *kp);
+ static int ufs_fault_set(const char *val, const struct kernel_param *kp);
+ 
+ static DEFINE_KERNEL_PARAM_OPS(ufs_fault_ops, ufs_fault_set, ufs_fault_get);
+@@ -31,11 +31,12 @@ MODULE_PARM_DESC(timeout,
+ 	"Fault injection. timeout=<interval>,<probability>,<space>,<times>");
+ static DECLARE_FAULT_ATTR(ufs_timeout_attr);
+ 
+-static int ufs_fault_get(char *buffer, const struct kernel_param *kp)
++static int ufs_fault_get(struct seq_buf *buffer, const struct kernel_param *kp)
+ {
+ 	const char *fault_str = kp->arg;
+ 
+-	return sysfs_emit(buffer, "%s\n", fault_str);
++	seq_buf_printf(buffer, "%s\n", fault_str);
++	return 0;
+ }
+ 
+ static int ufs_fault_set(const char *val, const struct kernel_param *kp)
+diff --git a/drivers/vhost/scsi.c b/drivers/vhost/scsi.c
+index fd52f2213e27..23ca63ebf3d2 100644
+--- a/drivers/vhost/scsi.c
++++ b/drivers/vhost/scsi.c
+@@ -81,10 +81,11 @@ static int vhost_scsi_set_inline_sg_cnt(const char *buf,
+ }
+ #endif
+ 
+-static int vhost_scsi_get_inline_sg_cnt(char *buf,
++static int vhost_scsi_get_inline_sg_cnt(struct seq_buf *buf,
+ 					const struct kernel_param *kp)
+ {
+-	return sprintf(buf, "%u\n", vhost_scsi_inline_sg_cnt);
++	seq_buf_printf(buf, "%u\n", vhost_scsi_inline_sg_cnt);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(vhost_scsi_inline_sg_cnt_op,
+diff --git a/fs/nfs/namespace.c b/fs/nfs/namespace.c
+index f2fba60dc5ed..5b7debe5274b 100644
+--- a/fs/nfs/namespace.c
++++ b/fs/nfs/namespace.c
+@@ -358,7 +358,8 @@ static int param_set_nfs_timeout(const char *val, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int param_get_nfs_timeout(char *buffer, const struct kernel_param *kp)
++static int param_get_nfs_timeout(struct seq_buf *buffer,
++				 const struct kernel_param *kp)
+ {
+ 	long num = *((int *)kp->arg);
+ 
+@@ -369,7 +370,8 @@ static int param_get_nfs_timeout(char *buffer, const struct kernel_param *kp)
+ 			num = (num + (HZ - 1)) / HZ;
+ 	} else
+ 		num = -1;
+-	return sysfs_emit(buffer, "%li\n", num);
++	seq_buf_printf(buffer, "%li\n", num);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(param_ops_nfs_timeout, param_set_nfs_timeout,
+diff --git a/fs/ocfs2/dlmfs/dlmfs.c b/fs/ocfs2/dlmfs/dlmfs.c
+index 5821e33df78f..8fd759d31ff9 100644
+--- a/fs/ocfs2/dlmfs/dlmfs.c
++++ b/fs/ocfs2/dlmfs/dlmfs.c
+@@ -78,10 +78,11 @@ static int param_set_dlmfs_capabilities(const char *val,
+ 	printk(KERN_ERR "%s: readonly parameter\n", kp->name);
+ 	return -EINVAL;
+ }
+-static int param_get_dlmfs_capabilities(char *buffer,
++static int param_get_dlmfs_capabilities(struct seq_buf *buffer,
+ 					const struct kernel_param *kp)
+ {
+-	return sysfs_emit(buffer, DLMFS_CAPABILITIES);
++	seq_buf_printf(buffer, DLMFS_CAPABILITIES);
++	return 0;
+ }
+ module_param_call(capabilities, param_set_dlmfs_capabilities,
+ 		  param_get_dlmfs_capabilities, NULL, 0444);
+diff --git a/fs/overlayfs/copy_up.c b/fs/overlayfs/copy_up.c
+index 13cb60b52bd6..d9a21b813b4f 100644
+--- a/fs/overlayfs/copy_up.c
++++ b/fs/overlayfs/copy_up.c
+@@ -28,9 +28,10 @@ static int ovl_ccup_set(const char *buf, const struct kernel_param *param)
+ 	return 0;
+ }
+ 
+-static int ovl_ccup_get(char *buf, const struct kernel_param *param)
++static int ovl_ccup_get(struct seq_buf *buf, const struct kernel_param *param)
+ {
+-	return sprintf(buf, "N\n");
++	seq_buf_printf(buf, "N\n");
++	return 0;
+ }
+ 
+ module_param_call(check_copy_up, ovl_ccup_set, ovl_ccup_get, NULL, 0644);
+diff --git a/kernel/locking/locktorture.c b/kernel/locking/locktorture.c
+index 38ae3b596ef2..9c9b6dc25888 100644
+--- a/kernel/locking/locktorture.c
++++ b/kernel/locking/locktorture.c
+@@ -86,11 +86,13 @@ static int param_set_cpumask(const char *val, const struct kernel_param *kp)
+ }
+ 
+ // Output a cpumask kernel parameter.
+-static int param_get_cpumask(char *buffer, const struct kernel_param *kp)
++static int param_get_cpumask(struct seq_buf *buffer,
++			     const struct kernel_param *kp)
+ {
+ 	cpumask_var_t *cm_bind = kp->arg;
+ 
+-	return sprintf(buffer, "%*pbl", cpumask_pr_args(*cm_bind));
++	seq_buf_printf(buffer, "%*pbl", cpumask_pr_args(*cm_bind));
++	return 0;
+ }
+ 
+ static bool cpumask_nonempty(cpumask_var_t mask)
+diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
+index e675d7f1b4ee..ffbbb7d4ff2a 100644
+--- a/kernel/rcu/tree.c
++++ b/kernel/rcu/tree.c
+@@ -3970,9 +3970,11 @@ static int param_set_do_rcu_barrier(const char *val, const struct kernel_param *
+ /*
+  * Output the number of outstanding rcutree.do_rcu_barrier requests.
+  */
+-static int param_get_do_rcu_barrier(char *buffer, const struct kernel_param *kp)
++static int param_get_do_rcu_barrier(struct seq_buf *buffer,
++				    const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%d\n", atomic_read((atomic_t *)kp->arg));
++	seq_buf_printf(buffer, "%d\n", atomic_read((atomic_t *)kp->arg));
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(do_rcu_barrier_ops, param_set_do_rcu_barrier,
+diff --git a/kernel/workqueue.c b/kernel/workqueue.c
+index 42562b811d94..3fe338d2ca64 100644
+--- a/kernel/workqueue.c
++++ b/kernel/workqueue.c
+@@ -7157,9 +7157,11 @@ static int wq_affn_dfl_set(const char *val, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int wq_affn_dfl_get(char *buffer, const struct kernel_param *kp)
++static int wq_affn_dfl_get(struct seq_buf *buffer,
++			   const struct kernel_param *kp)
+ {
+-	return scnprintf(buffer, PAGE_SIZE, "%s\n", wq_affn_names[wq_affn_dfl]);
++	seq_buf_printf(buffer, "%s\n", wq_affn_names[wq_affn_dfl]);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(wq_affn_dfl_ops, wq_affn_dfl_set,
+diff --git a/lib/test_dynamic_debug.c b/lib/test_dynamic_debug.c
+index 30880b6c726a..70faf8ede76d 100644
+--- a/lib/test_dynamic_debug.c
++++ b/lib/test_dynamic_debug.c
+@@ -18,10 +18,12 @@ static int param_set_do_prints(const char *instr, const struct kernel_param *kp)
+ 	do_prints();
+ 	return 0;
+ }
+-static int param_get_do_prints(char *buffer, const struct kernel_param *kp)
++static int param_get_do_prints(struct seq_buf *buffer,
++			       const struct kernel_param *kp)
+ {
+ 	do_prints();
+-	return scnprintf(buffer, PAGE_SIZE, "did do_prints\n");
++	seq_buf_printf(buffer, "did do_prints\n");
++	return 0;
+ }
+ static DEFINE_KERNEL_PARAM_OPS(param_ops_do_prints, param_set_do_prints,
+ 			       param_get_do_prints);
+diff --git a/mm/damon/lru_sort.c b/mm/damon/lru_sort.c
+index 5feb93c5262e..84e607f76126 100644
+--- a/mm/damon/lru_sort.c
++++ b/mm/damon/lru_sort.c
+@@ -438,10 +438,11 @@ static int damon_lru_sort_enabled_store(const char *val,
+ 	return damon_lru_sort_turn(enabled);
+ }
+ 
+-static int damon_lru_sort_enabled_load(char *buffer,
+-		const struct kernel_param *kp)
++static int damon_lru_sort_enabled_load(struct seq_buf *buffer,
++				       const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%c\n", damon_lru_sort_enabled() ? 'Y' : 'N');
++	seq_buf_printf(buffer, "%c\n", damon_lru_sort_enabled() ? 'Y' : 'N');
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(enabled_param_ops, damon_lru_sort_enabled_store,
+@@ -461,8 +462,8 @@ static int damon_lru_sort_kdamond_pid_store(const char *val,
+ 	return 0;
+ }
+ 
+-static int damon_lru_sort_kdamond_pid_load(char *buffer,
+-		const struct kernel_param *kp)
++static int damon_lru_sort_kdamond_pid_load(struct seq_buf *buffer,
++					   const struct kernel_param *kp)
+ {
+ 	int kdamond_pid = -1;
+ 
+@@ -471,7 +472,8 @@ static int damon_lru_sort_kdamond_pid_load(char *buffer,
+ 		if (kdamond_pid < 0)
+ 			kdamond_pid = -1;
+ 	}
+-	return sprintf(buffer, "%d\n", kdamond_pid);
++	seq_buf_printf(buffer, "%d\n", kdamond_pid);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(kdamond_pid_param_ops,
+diff --git a/mm/damon/reclaim.c b/mm/damon/reclaim.c
+index 27e772b095fa..546bdf356a40 100644
+--- a/mm/damon/reclaim.c
++++ b/mm/damon/reclaim.c
+@@ -340,10 +340,11 @@ static int damon_reclaim_enabled_store(const char *val,
+ 	return damon_reclaim_turn(enabled);
+ }
+ 
+-static int damon_reclaim_enabled_load(char *buffer,
+-		const struct kernel_param *kp)
++static int damon_reclaim_enabled_load(struct seq_buf *buffer,
++				      const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%c\n", damon_reclaim_enabled() ? 'Y' : 'N');
++	seq_buf_printf(buffer, "%c\n", damon_reclaim_enabled() ? 'Y' : 'N');
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(enabled_param_ops, damon_reclaim_enabled_store,
+@@ -363,8 +364,8 @@ static int damon_reclaim_kdamond_pid_store(const char *val,
+ 	return 0;
+ }
+ 
+-static int damon_reclaim_kdamond_pid_load(char *buffer,
+-		const struct kernel_param *kp)
++static int damon_reclaim_kdamond_pid_load(struct seq_buf *buffer,
++					  const struct kernel_param *kp)
+ {
+ 	int kdamond_pid = -1;
+ 
+@@ -373,7 +374,8 @@ static int damon_reclaim_kdamond_pid_load(char *buffer,
+ 		if (kdamond_pid < 0)
+ 			kdamond_pid = -1;
+ 	}
+-	return sprintf(buffer, "%d\n", kdamond_pid);
++	seq_buf_printf(buffer, "%d\n", kdamond_pid);
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(kdamond_pid_param_ops,
+diff --git a/mm/damon/stat.c b/mm/damon/stat.c
+index 6eb548793802..70d6b477fc0b 100644
+--- a/mm/damon/stat.c
++++ b/mm/damon/stat.c
+@@ -19,8 +19,8 @@
+ static int damon_stat_enabled_store(
+ 		const char *val, const struct kernel_param *kp);
+ 
+-static int damon_stat_enabled_load(char *buffer,
+-		const struct kernel_param *kp);
++static int damon_stat_enabled_load(struct seq_buf *buffer,
++				   const struct kernel_param *kp);
+ 
+ static DEFINE_KERNEL_PARAM_OPS(enabled_param_ops, damon_stat_enabled_store,
+ 			       damon_stat_enabled_load);
+@@ -306,9 +306,11 @@ static int damon_stat_enabled_store(
+ 	return 0;
+ }
+ 
+-static int damon_stat_enabled_load(char *buffer, const struct kernel_param *kp)
++static int damon_stat_enabled_load(struct seq_buf *buffer,
++				   const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%c\n", damon_stat_enabled() ? 'Y' : 'N');
++	seq_buf_printf(buffer, "%c\n", damon_stat_enabled() ? 'Y' : 'N');
++	return 0;
+ }
+ 
+ static int __init damon_stat_init(void)
+diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
+index 42e0cf313281..887c18a193ac 100644
+--- a/mm/memory_hotplug.c
++++ b/mm/memory_hotplug.c
+@@ -100,13 +100,17 @@ static int set_memmap_mode(const char *val, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int get_memmap_mode(char *buffer, const struct kernel_param *kp)
++static int get_memmap_mode(struct seq_buf *buffer,
++			   const struct kernel_param *kp)
+ {
+ 	int mode = *((int *)kp->arg);
+ 
+-	if (mode == MEMMAP_ON_MEMORY_FORCE)
+-		return sprintf(buffer, "force\n");
+-	return sprintf(buffer, "%c\n", mode ? 'Y' : 'N');
++	if (mode == MEMMAP_ON_MEMORY_FORCE) {
++		seq_buf_printf(buffer, "force\n");
++		return 0;
++	}
++	seq_buf_printf(buffer, "%c\n", mode ? 'Y' : 'N');
++	return 0;
+ }
+ 
+ static DEFINE_KERNEL_PARAM_OPS(memmap_mode_ops, set_memmap_mode,
+@@ -147,9 +151,11 @@ static int set_online_policy(const char *val, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int get_online_policy(char *buffer, const struct kernel_param *kp)
++static int get_online_policy(struct seq_buf *buffer,
++			     const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "%s\n", online_policy_to_str[*((int *)kp->arg)]);
++	seq_buf_printf(buffer, "%s\n", online_policy_to_str[*((int *)kp->arg)]);
++	return 0;
+ }
+ 
+ /*
+diff --git a/net/ceph/ceph_common.c b/net/ceph/ceph_common.c
+index 633202a99e4a..583b11a2489c 100644
+--- a/net/ceph/ceph_common.c
++++ b/net/ceph/ceph_common.c
+@@ -47,10 +47,11 @@ bool libceph_compatible(void *data)
+ }
+ EXPORT_SYMBOL(libceph_compatible);
+ 
+-static int param_get_supported_features(char *buffer,
++static int param_get_supported_features(struct seq_buf *buffer,
+ 					const struct kernel_param *kp)
+ {
+-	return sprintf(buffer, "0x%llx", CEPH_FEATURES_SUPPORTED_DEFAULT);
++	seq_buf_printf(buffer, "0x%llx", CEPH_FEATURES_SUPPORTED_DEFAULT);
++	return 0;
+ }
+ static DEFINE_KERNEL_PARAM_OPS(param_ops_supported_features, NULL,
+ 			       param_get_supported_features);
+diff --git a/net/sunrpc/auth.c b/net/sunrpc/auth.c
+index 64a3e894fd4c..5a2b64dcf9e5 100644
+--- a/net/sunrpc/auth.c
++++ b/net/sunrpc/auth.c
+@@ -73,12 +73,14 @@ static int param_set_hashtbl_sz(const char *val, const struct kernel_param *kp)
+ 	return -EINVAL;
+ }
+ 
+-static int param_get_hashtbl_sz(char *buffer, const struct kernel_param *kp)
++static int param_get_hashtbl_sz(struct seq_buf *buffer,
++				const struct kernel_param *kp)
+ {
+ 	unsigned int nbits;
+ 
+ 	nbits = *(unsigned int *)kp->arg;
+-	return sprintf(buffer, "%u\n", 1U << nbits);
++	seq_buf_printf(buffer, "%u\n", 1U << nbits);
++	return 0;
+ }
+ 
+ #define param_check_hashtbl_sz(name, p) __param_check(name, p, unsigned int);
+diff --git a/net/sunrpc/svc.c b/net/sunrpc/svc.c
+index 576fa42e7abf..26b85077ecc8 100644
+--- a/net/sunrpc/svc.c
++++ b/net/sunrpc/svc.c
+@@ -148,7 +148,7 @@ sunrpc_get_pool_mode(char *buf, size_t size)
+ EXPORT_SYMBOL(sunrpc_get_pool_mode);
+ 
+ static int
+-param_get_pool_mode(char *buf, const struct kernel_param *kp)
++param_get_pool_mode(struct seq_buf *buf, const struct kernel_param *kp)
+ {
+ 	char str[16];
+ 	int len;
+@@ -162,7 +162,8 @@ param_get_pool_mode(char *buf, const struct kernel_param *kp)
+ 	str[len] = '\n';
+ 	str[len + 1] = '\0';
+ 
+-	return sysfs_emit(buf, "%s", str);
++	seq_buf_printf(buf, "%s", str);
++	return 0;
+ }
+ 
+ module_param_call(pool_mode, param_set_pool_mode, param_get_pool_mode,
+diff --git a/security/apparmor/lsm.c b/security/apparmor/lsm.c
+index a6815b4bd0da..748d08c57f60 100644
+--- a/security/apparmor/lsm.c
++++ b/security/apparmor/lsm.c
+@@ -1797,10 +1797,11 @@ static int param_set_debug(const char *val, const struct kernel_param *kp);
+ static int param_get_debug(struct seq_buf *buffer, const struct kernel_param *kp);
+ 
+ static int param_set_audit(const char *val, const struct kernel_param *kp);
+-static int param_get_audit(char *buffer, const struct kernel_param *kp);
++static int param_get_audit(struct seq_buf *buffer,
++			   const struct kernel_param *kp);
+ 
+ static int param_set_mode(const char *val, const struct kernel_param *kp);
+-static int param_get_mode(char *buffer, const struct kernel_param *kp);
++static int param_get_mode(struct seq_buf *buffer, const struct kernel_param *kp);
+ 
+ /* Flag values, also controllable via /sys/module/apparmor/parameters
+  * We define special types as we want to do additional mediation.
+@@ -2050,13 +2051,15 @@ static int param_set_debug(const char *val, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int param_get_audit(char *buffer, const struct kernel_param *kp)
++static int param_get_audit(struct seq_buf *buffer,
++			   const struct kernel_param *kp)
+ {
+ 	if (!apparmor_enabled)
+ 		return -EINVAL;
+ 	if (apparmor_initialized && !aa_current_policy_view_capable(NULL))
+ 		return -EPERM;
+-	return sysfs_emit(buffer, "%s\n", audit_mode_names[aa_g_audit]);
++	seq_buf_printf(buffer, "%s\n", audit_mode_names[aa_g_audit]);
++	return 0;
+ }
+ 
+ static int param_set_audit(const char *val, const struct kernel_param *kp)
+@@ -2078,13 +2081,14 @@ static int param_set_audit(const char *val, const struct kernel_param *kp)
+ 	return 0;
+ }
+ 
+-static int param_get_mode(char *buffer, const struct kernel_param *kp)
++static int param_get_mode(struct seq_buf *buffer, const struct kernel_param *kp)
+ {
+ 	if (!apparmor_enabled)
+ 		return -EINVAL;
+ 	if (apparmor_initialized && !aa_current_policy_view_capable(NULL))
+ 		return -EPERM;
+-	return sysfs_emit(buffer, "%s\n", aa_profile_mode_names[aa_g_profile_mode]);
++	seq_buf_printf(buffer, "%s\n", aa_profile_mode_names[aa_g_profile_mode]);
++	return 0;
+ }
+ 
+ static int param_set_mode(const char *val, const struct kernel_param *kp)
+-- 
+2.34.1
+
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
