@@ -2,42 +2,42 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id EEuaD+0kD2paGgYAu9opvQ
+	id GOg2KN0PD2qSEgYAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 17:29:49 +0200
+	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 15:59:57 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 89B265A85C6
-	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 17:29:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D98375A6A3B
+	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 15:59:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Subject:To:Message-ID:References:Mime-Version:
 	In-Reply-To:Date:Sender:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ufmbnJyYgvoWDAvhCR/ixWky6pUuOFe8Pu2MO66BNVg=; b=HKyDZ4oXYtdaVf0m1416Ah+Jwg
-	Px8EjN7v3p5p6lCmlWITWltLJn98/AiDep6h5tUngKgWkjK8ycEyy1vqW+T4vrFiEMG59Qp3YmdpH
-	FTB0/kR4GhpzGmQcmTt6QllZZTaaW5oBYfjiDWAZ5bnyZ+E+9EUY2fYPqMsC/A3898w4=;
+	bh=SjOcmC0cc4RsYnPs2MBivM6/Fe3PjwOVguWJv0qhb4k=; b=LqWXrywzM63gvsCVEbjOT3ycHU
+	pljVNWVfDuK3TDxbR7GirJzI9730CIn+IOW+lSYOq4EHS5vXTLT/cocZY9M9Vap8uCkpYn582dmjq
+	YCj5QOigpE0PvhcMLmgmUKTeVQUbWij02D54PdB3uOQivOO+lxDTk91uu25ogBVIi0yU=;
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1wQ5LA-0003p8-13;
-	Thu, 21 May 2026 15:29:40 +0000
+	id 1wQ3wB-0004Kd-QW;
+	Thu, 21 May 2026 13:59:48 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <3YAwPagYKAA05rn0wpt11tyr.p1z@flex--seanjc.bounces.google.com>)
- id 1wQ5L8-0003oq-5L for openipmi-developer@lists.sourceforge.net;
- Thu, 21 May 2026 15:29:38 +0000
+ (envelope-from <3xQ8PagYKAHgoaWjfYckkcha.Yki@flex--seanjc.bounces.google.com>)
+ id 1wQ3wA-0004KW-4S for openipmi-developer@lists.sourceforge.net;
+ Thu, 21 May 2026 13:59:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Type:Cc:To:From:Subject:Message-ID:
  References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
  Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
  Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
  List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Dnh9Qdh/Ek2SFmUD3YQQhAJ1lm8lFb5yTi3rkZyIV7s=; b=WzeMkAR9dmYJRado4QXX3F6TYr
- xEnUNv29hDuhFepRiFDHe/W/4GMLLvaD/vJ5lakcjaf1usjw0DRk6I9iC3+qPxytQ5Ejq0i3yArAq
- k+gHV9ISBIHLCaIQITDxVDihB/dXlKhPiIGN9JqMxZ+cAJkdl8yIJtKH8+szJ8AmKcrQ=;
+ bh=tqeEG6FXEKElqAGUt/Z2qfbIbuB++N7b4Fh1Zt6D5dk=; b=MI5CtSDjgPIEBMUYbkeTIXjyI/
+ 2WolNkk7xF8W6/4+xu7edu8TWsX6dwNC5GRfegoM0kfcPBstAuB/nzUJIUkO3bOjgTMx2VXcWWQ6h
+ wGHuBybWlv4a2brcJQJP1W50QEZwv5/JBRYEfnFnOEGqlTveJxbgD5QM2S0DFHlbacVA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
@@ -45,57 +45,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Dnh9Qdh/Ek2SFmUD3YQQhAJ1lm8lFb5yTi3rkZyIV7s=; b=KkGL5LU+dU58H7ejtUfkJNZh44
- WelYdZMUvXds3XtX+PYqG/xD9uvDixd53MdJidUFnZwYcEvWjl7YnjCttSmuWSordtxfqJL5IKrRX
- JF9BckVjUgRFacLt9RSp1qe3+RbaWWyp44LJyVRqmTILkpqvUsuHIK0eIqMcv/MfbgBE=;
-Received: from mail-ua1-f74.google.com ([209.85.222.74])
+ bh=tqeEG6FXEKElqAGUt/Z2qfbIbuB++N7b4Fh1Zt6D5dk=; b=Nw1xWhrJhmZd92l7Npc8WJhQQr
+ T6tTCioSh9TMQ+jF2nmlNtr/MBK955AoiQL79H3ZSbgIweVv7+uVzc+NLiskgHP6rSUkHJMJrHSBX
+ BOb9YxG5b6LXdcp9Ut7W81hAJujLaRlc5KwZVScbj6vhBUKY5hRA4zNxVM9QxtZeeLSY=;
+Received: from mail-pg1-f201.google.com ([209.85.215.201])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1wQ5L6-0003gw-ES for openipmi-developer@lists.sourceforge.net;
- Thu, 21 May 2026 15:29:38 +0000
-Received: by mail-ua1-f74.google.com with SMTP id
- a1e0cc1a2514c-956732444ffso11750344241.1
+ id 1wQ3w9-0006O6-2P for openipmi-developer@lists.sourceforge.net;
+ Thu, 21 May 2026 13:59:46 +0000
+Received: by mail-pg1-f201.google.com with SMTP id
+ 41be03b00d2f7-c829366cf25so9100260a12.0
  for <openipmi-developer@lists.sourceforge.net>;
- Thu, 21 May 2026 08:29:36 -0700 (PDT)
+ Thu, 21 May 2026 06:59:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=google.com; s=20251104; t=1779377366; x=1779982166;
+ d=google.com; s=20251104; t=1779371975; x=1779976775;
  darn=lists.sourceforge.net; 
  h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
  :date:from:to:cc:subject:date:message-id:reply-to;
- bh=Dnh9Qdh/Ek2SFmUD3YQQhAJ1lm8lFb5yTi3rkZyIV7s=;
- b=DpYfMVXa6aUZ+hSYV2C2WkUldpA2khC99ZjJ5gMH54DGSeJLhSmxZ6VkDFk40xz2x2
- ZPB6ihzLNRXza2VTOK2bOa6siLfeZq7f+z/S8Z2krKoyW1YzM8ssPKwlGY0zpaJfdZbV
- XZorjELH6PKQwCLtMtkdiAdsV6RG4V93BmQEzzlBKvB8v0ZyZjWbggyPnwjCqWItEkV5
- RiNyGsj4hKURFhKmIGO+QUv2/K14yZlolVwZjKL4CdqKiKx4pFMeHzsYdENJRRa+fyJs
- 1wwRske248HmyBNDEn1KOC2cl0baa/jJsOFO8JgYYL14fYpBKW6mxTmxKb/jyvGNAQVC
- 6Ufw==
+ bh=tqeEG6FXEKElqAGUt/Z2qfbIbuB++N7b4Fh1Zt6D5dk=;
+ b=jPSRfUEVVqIH7nMDcswbsEAiPs/OH1CV6njlNHNbz7d/unZn87t2yfaJFdHYIsK/q3
+ aZc1ZW1lZCkgL27oDH6l85baQErs8rSS7dH75UMVXlhYfYnvPa48SfhqRIQUWgXYkn7S
+ bnLKZAhPj7go0K/3gqwKU/c16hVqs/s7x9QjbSjBi5CbeujyaKCMAy26PK2vneky5+4x
+ TX1BtxQ/vl+FI0mCEmOaiCtV4BP9CBCWpzF/ja/DIn+Zcfh2kHncavLqy4GQoZSxYnb7
+ ulrXKBtJpVDX4/MTbbr2ZaY4OdtBRBHUtdRJGvLFc562/7kFw2DH8CAwFFFw0bpV2BeN
+ GkQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20251104; t=1779377366; x=1779982166;
+ d=1e100.net; s=20251104; t=1779371975; x=1779976775;
  h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
  :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
- bh=Dnh9Qdh/Ek2SFmUD3YQQhAJ1lm8lFb5yTi3rkZyIV7s=;
- b=j+ux88pOmHwGL98EjM/VD4PLRFGUvnu/ULGcp4RkNIsvB8r2IdYdT8hrVi9E2PYVfX
- AbpCZb6wMLMKedR/zNZ3ZputW5NYCScDrMY01tgI3d/w3REBW6riju6skdoS4pH1Fo4H
- AG5cJp/7zGbp4Ep4OyNF5I7hSza9N4AA6qP8vSRMrk6YIpJ/gLv1aDI+JUX7kd4CoLEH
- ImNQHg4mkqFUd7pAvZyJYNYhQG+heLAczZ6AjmOh5wveVb5+V4Nl02+ehG7d9OyMS4+u
- qraBohxl9h8HFN2FWIME3BMh3lVyNkgGzhOzF8Eshf6ga+OeDE6yvnDVl0dXG/3rDUdZ
- 4gdQ==
+ bh=tqeEG6FXEKElqAGUt/Z2qfbIbuB++N7b4Fh1Zt6D5dk=;
+ b=lPdcIUras+hn6O0b1FG414IklJEnP3OYluJXyA5EGlFoMNTaYc5BO4qB3sYvdr1kPo
+ y0Fe/5P4Juj/dZMYzXlCiqbyfLZkbluUPJLVrvM7xGydn6ABWR5GdDSOVgWUxy8tHk7d
+ 330txChdk9V/M2rWj8nGyegBNEptDaTrv46MZoQQcqDWYfe9U494C8+Bi0Deg5NKX+8/
+ KZkiivYycurqnvzDrF0cuhJr66jKtC+BY3+DRXYWSTGjv+fNV6ubHL7ls3+EHX08bWqT
+ eRTO9X0IsAGDKgqWYvalWJfX0BSJciolLhpTXC5HzlJpAK2qGfjYWxMBiL/RIdfy0XbA
+ BR0w==
 X-Forwarded-Encrypted: i=1;
- AFNElJ+Y9bvVrwOVuqr4BO0MN9RyqYrG17HyWvXLlGxR2liGrzVgDBSzLjk8TUSdkFH3Nfu0bZf6LyfCf2N3j7gY45wEJ44=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0Yw6fwvYLKFOcRW1nCb/KALZYUIhaL8cDFY2W9ewp0ZeSUxQFzAZ
- Jyc1TViGfokVv7iO0EJkSW6zUCS3cQ8Y4RqiwXVBcNBQuK1n3xQWpgF2siCKIXh3ex5dL5vbOdm
- V3kmv4A==
-X-Received: from pgvm13.prod.google.com ([2002:a65:62cd:0:b0:c85:1159:ffbd])
+ AFNElJ/lEaLNGDWUsv8b3hwuVZ7uA1Lt7lzRvgqtF4M5ysKIn6pD5SyL4SbxH/8+teJEaBq8F3roaQgyx/NORW267MtRZn0=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YzDqs9yibHW0qx5rF4yw91e5aNjCYDjQVjt+2KVgPHYdlr2hVOr
+ fDR55pImrA4YEXO8mUvVFNNXyeb5b0YSfnpfPcV8CqVfhSW9ejfOn1lheh6WG8/qFX3DfA1Avsb
+ tOfEvIA==
+X-Received: from pge1.prod.google.com ([2002:a05:6a02:2d01:b0:c79:83b3:cdf8])
  (user=seanjc job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:7491:b0:3a0:bc61:62e5
- with SMTP id adf61e73a8af0-3b30883a17bmr3700528637.44.1779371104725; Thu, 21
- May 2026 06:45:04 -0700 (PDT)
-Date: Thu, 21 May 2026 06:45:04 -0700
-In-Reply-To: <20260521133326.2465264-9-kees@kernel.org>
+ 2002:a05:6a20:431a:b0:39c:a78e:dba9
+ with SMTP id adf61e73a8af0-3b308ac1b14mr3725831637.40.1779371973881; Thu, 21
+ May 2026 06:59:33 -0700 (PDT)
+Date: Thu, 21 May 2026 06:59:33 -0700
+In-Reply-To: <20260521133326.2465264-4-kees@kernel.org>
 Mime-Version: 1.0
 References: <20260521133315.work.845-kees@kernel.org>
- <20260521133326.2465264-9-kees@kernel.org>
-Message-ID: <ag8MYC6pOZvvYHMp@google.com>
+ <20260521133326.2465264-4-kees@kernel.org>
+Message-ID: <ag8PxTTi5NxT51EW@google.com>
 To: Kees Cook <kees@kernel.org>
 X-Spam-Score: -7.6 (-------)
 X-Spam-Report: Spam detection software,
@@ -104,10 +104,9 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Thu, May 21, 2026,
- Kees Cook wrote: > diff --git a/arch/x86/kvm/vmx/vmx.c
- b/arch/x86/kvm/vmx/vmx.c > index 07f4c7209ac0..00317774a90b 100644 > ---
- a/arch/x86/kvm/vmx/vmx.c > +++ b/arch/x86/kvm/vmx/ [...] 
+ Content preview:  On Thu, May 21, 2026, Kees Cook wrote: > Using Coccinelle,
+ rewrite every struct kernel_param_ops initializer that > sets .get into a
+ DEFINE_KERNEL_PARAM_OPS-family macro invocation, > for example: > > [...]
  Content analysis details:   (-7.6 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -118,10 +117,10 @@ X-Spam-Report: Spam detection software,
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.222.74 listed in wl.mailspike.net]
-X-Headers-End: 1wQ5L6-0003gw-ES
-Subject: Re: [Openipmi-developer] [PATCH 09/11] treewide: Convert custom
- kernel_param_ops .get callbacks to seq_buf via cocci
+ [209.85.215.201 listed in wl.mailspike.net]
+X-Headers-End: 1wQ3w9-0006O6-2P
+Subject: Re: [Openipmi-developer] [PATCH 04/11] treewide: Convert struct
+ kernel_param_ops initializers to DEFINE_KERNEL_PARAM_OPS
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -205,7 +204,7 @@ X-Spamd-Result: default: False [-6.61 / 15.00];
 	DMARC_POLICY_ALLOW_WITH_FAILURES(-0.50)[];
 	MV_CASE(0.50)[];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
-	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7:c];
+	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
 	MAILLIST(-0.20)[mailman];
 	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MIME_GOOD(-0.10)[text/plain];
@@ -242,58 +241,28 @@ X-Spamd-Result: default: False [-6.61 / 15.00];
 	MISSING_XM_UA(0.00)[];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
 	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
-X-Rspamd-Queue-Id: 89B265A85C6
+X-Rspamd-Queue-Id: D98375A6A3B
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
 On Thu, May 21, 2026, Kees Cook wrote:
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index 07f4c7209ac0..00317774a90b 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -368,12 +368,16 @@ static int vmentry_l1d_flush_set(const char *s, const struct kernel_param *kp)
->  	return ret;
->  }
->  
-> -static int vmentry_l1d_flush_get(char *s, const struct kernel_param *kp)
-> +static int vmentry_l1d_flush_get(struct seq_buf *s,
-> +				 const struct kernel_param *kp)
->  {
-> -	if (WARN_ON_ONCE(l1tf_vmx_mitigation >= ARRAY_SIZE(vmentry_l1d_param)))
-> -		return sysfs_emit(s, "???\n");
-> +	if (WARN_ON_ONCE(l1tf_vmx_mitigation >= ARRAY_SIZE(vmentry_l1d_param))) {
-> +		seq_buf_printf(s, "???\n");
-> +		return 0;
-> +	}
->  
-> -	return sysfs_emit(s, "%s\n", vmentry_l1d_param[l1tf_vmx_mitigation].option);
-> +	seq_buf_printf(s, "%s\n", vmentry_l1d_param[l1tf_vmx_mitigation].option);
-> +	return 0;
+> Using Coccinelle, rewrite every struct kernel_param_ops initializer that
+> sets .get into a DEFINE_KERNEL_PARAM_OPS-family macro invocation,
+> for example:
+> 
+> @@
+> declarer name DEFINE_KERNEL_PARAM_OPS;
+> identifier OPS;
+> expression SET, GET;
+> @@
+> - const struct kernel_param_ops OPS = {
+> -       .set = SET,
+> -       .get = GET,
+> - };
+> + DEFINE_KERNEL_PARAM_OPS(OPS, SET, GET);
 
-For this one, can you manually change it to this?
-
-	if (WARN_ON_ONCE(l1tf_vmx_mitigation >= ARRAY_SIZE(vmentry_l1d_param)))
-		seq_buf_printf(s, "???\n");
-	else
-		seq_buf_printf(s, "%s\n", vmentry_l1d_param[l1tf_vmx_mitigation].option);
-	return 0;
-
->  }
->  
->  /*
-> @@ -459,9 +463,11 @@ static int vmentry_l1d_flush_set(const char *s, const struct kernel_param *kp)
->  	pr_warn_once("Kernel compiled without mitigations, ignoring vmentry_l1d_flush\n");
->  	return 0;
->  }
-> -static int vmentry_l1d_flush_get(char *s, const struct kernel_param *kp)
-> +static int vmentry_l1d_flush_get(struct seq_buf *s,
-> +				 const struct kernel_param *kp)
->  {
-> -	return sysfs_emit(s, "never\n");
-> +	seq_buf_printf(s, "never\n");
-> +	return 0;
->  }
->  #endif
+IMO, "OPS, GET, SET" is more intuitive, especially since that's the order used
+by DEFINE_SIMPLE_ATTRIBUTE and DEFINE_DEBUGFS_ATTRIBUTE.
 
 
 _______________________________________________
