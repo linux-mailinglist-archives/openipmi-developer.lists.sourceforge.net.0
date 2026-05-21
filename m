@@ -2,12 +2,12 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id aHbRNs8TD2otFAYAu9opvQ
+	id oC4+G88TD2otFAYAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
 	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 16:16:47 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79B2A5A70B1
+	by mail.lfdr.de (Postfix) with ESMTPS id 0BBE65A70A3
 	for <lists+openipmi-developer@lfdr.de>; Thu, 21 May 2026 16:16:47 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
@@ -15,29 +15,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Subject:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:To:Sender:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gELBdrGDTuNq1YF03P9crLMdZIDsMowx/dbadurS8Xg=; b=fZzGQx1FT4UlA+QJbNIO+UWWjM
-	WK4NZl1OyhAWNb9lJVceE76X20ZqhZ3GL+wdiu9VIRngwWdGpfWoGrLj6Jeo2Ugy7de9g8/LDSEBd
-	OQ5eJX0zZHW5nPabtl8C6lShDDAJq0M3g0xUDwN7kJ13h1m88WBW1Zs9RrOOMMp9rLuo=;
+	bh=j813BlEN2B39pPN0se4hPldMB9bjj2IH2Q73IYJEKhE=; b=i5JTuDB25a4EK7a/tI+tGEa2wM
+	IOWkzCWMPgI8dcn7QpsBFN/Cz/30jzmyA7yUA/PDJHYqlzXRVDl6QSFYdcdMukhRljlLUi4EDDPPB
+	qNgyOPlcF3EXqRVd0Wr0gAvuBFVH/wGLaRUTZww3/v1qF4RLFlYWA+WIi5X4Ds46a3b8=;
 Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
 	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1wQ4CV-0002hB-Kc;
-	Thu, 21 May 2026 14:16:39 +0000
+	id 1wQ4CU-0002gg-Ta;
+	Thu, 21 May 2026 14:16:38 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <kees@kernel.org>) id 1wQ3Wy-0001fc-Je
+ (envelope-from <kees@kernel.org>) id 1wQ3Wz-0007nO-86
  for openipmi-developer@lists.sourceforge.net;
- Thu, 21 May 2026 13:33:44 +0000
+ Thu, 21 May 2026 13:33:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
  In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Mj7DVCvMStdFPb34OrcUAAH1hWW4OYzU+C7hp9VpbjY=; b=TX7wWn4LJdCoxlRjxs8yWUmQZ3
- +Pu6ML8y7AbSbKxqSNM1swIVma9+Obpy9y02Z4aJ+oThPgbndwbCEyEqsWyJ6kaYZt4hVj9Nhf0mm
- vk3b/OMVypE5IqI8IMx6BbNU0Yccsjt9BY680z/xNmhgmTV+l+AE9ERnO8Q4QkPUhj9M=;
+ bh=Z+Ub2Rsd9ANQzKOVawxbbCdlC+pecLG/P/kzOLcGitU=; b=G82Nho9VtsGpcRWDeY0M+eNhtI
+ LT+7e+rPDJ7KJz4n6ouGV1e+vYmJQ8vtQTXN9kM1NTOhrzskiGrFMeIlRKpNzvHVSb/rBRMvu/nZT
+ jgwBnXMs08HTpIKBTXkNGXNjsL58Y0Pl8OuQw5RsdswRW2pm1tSy2LVayNYZiMUYIMCA=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
  h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:
@@ -45,73 +45,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=Mj7DVCvMStdFPb34OrcUAAH1hWW4OYzU+C7hp9VpbjY=; b=BZoiZ6r5SUMhkt6RR78u7amL3B
- YasoQdXTfI80vuRCjfPKqivaM3SZ+s2Oq6ytNOaNCtJN7RO+/Wo3CiPL46FqyIGtQzo1bPt0pcnOT
- 5LYoXc8BRnbbBzU5u1J9Ii5g706sNU+NQ1qaz7qE0UsfRPV93Ol47aHuFVQzqzCgs5Qg=;
+ bh=Z+Ub2Rsd9ANQzKOVawxbbCdlC+pecLG/P/kzOLcGitU=; b=drg/dMM0MSgD/FhIFOZKhfP+sU
+ qvXPk2V/m6ef4zJ6C/fcaaYM6chh/uSNDnuKex9GCEJR2tjaZzTDHM/EZlzTFbb8ckMo5wr3pLazD
+ 7fQ0F7ZyaYzF5WSR5IcMBPlik5zCwyhLa6wk8nQubU8zx0p36WDhQY8wFSUqO9oJaNbE=;
 Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1wQ3Wv-0004Ot-HI for openipmi-developer@lists.sourceforge.net;
- Thu, 21 May 2026 13:33:44 +0000
+ id 1wQ3Wt-0004Od-HE for openipmi-developer@lists.sourceforge.net;
+ Thu, 21 May 2026 13:33:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
- by sea.source.kernel.org (Postfix) with ESMTP id 2B203445E1;
+ by sea.source.kernel.org (Postfix) with ESMTP id 33DD644634;
  Thu, 21 May 2026 13:33:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38751F00A3E;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58EF1F00A3D;
  Thu, 21 May 2026 13:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
- s=k20260515; t=1779370406;
- bh=Mj7DVCvMStdFPb34OrcUAAH1hWW4OYzU+C7hp9VpbjY=;
+ s=k20260515; t=1779370407;
+ bh=Z+Ub2Rsd9ANQzKOVawxbbCdlC+pecLG/P/kzOLcGitU=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References;
- b=eL7P5sQOnRUqovuCINXrhkkCMFQg4gJz9lHl+mo5l/7tWzuLIYX1MykUtmft4cIo2
- M+FcdXMoQ4rswOfqo73Od6nx4/NZcLe4hChmGlU7e8EHcktUR9bbKkyMDXjIyfyf9B
- eV78dkZWgUFtYC1qxRKZKBtpzjNh1YNv+xYbvGb/59goFKFuu3NOIeGjgRpvSgtIPo
- 8ivmmDGfUlUajD9Xi2Zb0jv40IpLIkZ1zlVqLGUDtdGxm942GdK2191iVOUAdgY/d9
- LkEDqWs4BcK2jEMPeiyQHLfliXA1m2lVAX62EVolUfTIC9T8HiuTytz5hngxpheUFV
- LHEYk2tMnbFvw==
+ b=ZpoUzNBkBmEW2LjaiIoOOC4s+n979icMv2wlmoYSc25V3dGNAjG0gbL9a5wg2u47P
+ VMxYDF0mYXlyeJyFUXl8jiRf3bxPYJJCLvPOeZSAS7DGYujM6mps9FRxfnjPXWQxhX
+ xRaSPhmPxfOjP6QLUe/QgXf9nn4rloFvMFaamf2Q86gUDNKjRzgCW+SsEmbE7ZNswt
+ y17z+o7t1YKntzAEH8VfbQJr1zSboc8FGZbuD7YpeFtpKlorEPTAdUvz75ERJ5b83/
+ QUEgdBC7DVG7whLHuJRPnbclLcdfN+VSV+tx+pv1gVT/04XqXEZRewE4Hdv/XUfpxv
+ A6xTQa8PPiphg==
 To: Luis Chamberlain <mcgrof@kernel.org>
-Date: Thu, 21 May 2026 06:33:19 -0700
-Message-Id: <20260521133326.2465264-6-kees@kernel.org>
+Date: Thu, 21 May 2026 06:33:20 -0700
+Message-Id: <20260521133326.2465264-7-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260521133315.work.845-kees@kernel.org>
 References: <20260521133315.work.845-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3696; i=kees@kernel.org;
- h=from:subject; bh=T4N6FoAPN5e2cqvWSGS7oEs1xiLk99wdr1LKck0ur78=;
- b=owGbwMvMwCVmps19z/KJym7G02pJDFn8nIs2HH8iHuPEcem9X7HM2rJrS2LZVs8vP/M+reLdF
- K3trxtfdZSyMIhxMciKKbIE2bnHuXi8bQ93n6sIM4eVCWQIAxenAExEwZOR4alreLoXi13roV/i
- 9/tfrbvsVLZZb2L3Qh33TS8N1v2/U8fwT//2x1KTz9OUg91P7LvT39NrdVL4qeIHRzc9ZcnAHRc
- /cgAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3477; i=kees@kernel.org;
+ h=from:subject; bh=2lh9CsqKOjpmr9LD0n2okA9BehPWair2DlPnlZ1PFPc=;
+ b=owGbwMvMwCVmps19z/KJym7G02pJDFn8nIvObEzOv8f9Ny7fU3+K4MU31w3MLlQyBTD1ZzTfl
+ utOmiLfUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMJH4IkaGFVpms4oL+z/8iFoh
+ P+POhcufipWWltm+L/CUOcml8euoBcP/rN0OUi7qm2bpPqgPYTsts70rWLI43Obl45kHtE0r/7Q
+ yAAA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp;
  fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview: Add a new struct kernel_param_ops::get callback whose
- signature
- takes a struct seq_buf instead of a raw char buffer: int (*get)(struct seq_buf
- *sb, const struct kernel_param *kp); The previously-legacy .get field is
- now .get_str (char *buffer);
- .get is the new seq_buf-aware form. param_attr_show()
- prefers .get when set, otherwise falls back to .get_str. WARN_ON_ONCE() if
- both a [...] 
+ Content preview: Make the DEFINE_KERNEL_PARAM_OPS family route their _get
+ argument
+ to either .get (struct seq_buf *) or .get_str (char *) at compile time based
+ on the pointer's actual function signature. Two helper ma [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
-X-Headers-End: 1wQ3Wv-0004Ot-HI
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+X-Headers-End: 1wQ3Wt-0004Od-HE
 X-Mailman-Approved-At: Thu, 21 May 2026 14:16:34 +0000
-Subject: [Openipmi-developer] [PATCH 06/11] moduleparam: Add seq_buf-based
- .get callback alongside .get_str
+Subject: [Openipmi-developer] [PATCH 07/11] moduleparam: Route
+ DEFINE_KERNEL_PARAM_OPS get pointer via _Generic
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -231,111 +227,94 @@ X-Spamd-Result: default: False [-6.11 / 15.00];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
 	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
 	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo]
-X-Rspamd-Queue-Id: 79B2A5A70B1
+X-Rspamd-Queue-Id: 0BBE65A70A3
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
-Add a new struct kernel_param_ops::get callback whose signature
-takes a struct seq_buf instead of a raw char buffer:
+Make the DEFINE_KERNEL_PARAM_OPS family route their _get argument to
+either .get (struct seq_buf *) or .get_str (char *) at compile time
+based on the pointer's actual function signature. Two helper macros
+do the routing:
 
-  int (*get)(struct seq_buf *sb, const struct kernel_param *kp);
+  _KERNEL_PARAM_OPS_GET     - return the pointer if it has the seq_buf
+                              signature, otherwise NULL of that type
+  _KERNEL_PARAM_OPS_GET_STR - mirror image for the char * signature
 
-The previously-legacy .get field is now .get_str (char *buffer);
-.get is the new seq_buf-aware form.  param_attr_show() prefers .get
-when set, otherwise falls back to .get_str.  WARN_ON_ONCE() if both
-are set.  Return contract for .get:
+Both use _Generic; only the two valid function-pointer types are
+listed, so any third-party type is a compile error rather than
+silently falling through.
 
-  < 0 : errno propagated to userspace; seq_buf contents discarded
-  = 0 : success; length derived from seq_buf_used()
-  > 0 : forbidden; the dispatcher WARN_ON_ONCE()s and treats as 0
-
-The default policy on seq_buf_has_overflowed() is silent truncation,
-matching scnprintf()/sysfs_emit() behaviour.  Callbacks that want a
-specific overflow errno can check seq_buf_has_overflowed() and
-return their preferred error.
-
-No callbacks use .get yet; the legacy path is still the only one in use
-after this commit. A subsequent commit teaches DEFINE_KERNEL_PARAM_OPS
-to route initializers by type.
+Now a callback whose body has been migrated from char * to struct
+seq_buf * needs no change at its kernel_param_ops initialization site,
+because the macro picks up the new type automatically and assigns to
+the correct field.
 
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
- include/linux/moduleparam.h | 13 ++++++++++++-
- kernel/params.c             | 26 ++++++++++++++++++++++++--
- 2 files changed, 36 insertions(+), 3 deletions(-)
+ include/linux/moduleparam.h | 33 ++++++++++++++++++++++++++-------
+ 1 file changed, 26 insertions(+), 7 deletions(-)
 
 diff --git a/include/linux/moduleparam.h b/include/linux/moduleparam.h
-index f5f4148e2504..c52120f6ac28 100644
+index c52120f6ac28..795bc7c654ef 100644
 --- a/include/linux/moduleparam.h
 +++ b/include/linux/moduleparam.h
-@@ -7,6 +7,7 @@
- #include <linux/build_bug.h>
- #include <linux/compiler.h>
- #include <linux/init.h>
-+#include <linux/seq_buf.h>
- #include <linux/stringify.h>
- #include <linux/sysfs.h>
- #include <linux/types.h>
-@@ -62,7 +63,17 @@ struct kernel_param_ops {
- 	unsigned int flags;
- 	/* Returns 0, or -errno.  arg is in kp->arg. */
- 	int (*set)(const char *val, const struct kernel_param *kp);
--	/* Returns length written or -errno.  Buffer is 4k (ie. be short!) */
-+	/*
-+	 * Format the parameter's value into @s.  Return 0 on success
-+	 * (length derived from seq_buf_used()) or -errno on error.
-+	 * Exactly one of .get and .get_str should be set; the dispatcher
-+	 * WARNs and prefers .get if both are.
-+	 */
-+	int (*get)(struct seq_buf *s, const struct kernel_param *kp);
-+	/*
-+	 * Returns length written or -errno.  Buffer is 4k (ie. be short!).
-+	 * Deprecated: callbacks should implement .get instead.
-+	 */
- 	int (*get_str)(char *buffer, const struct kernel_param *kp);
- 	/* Optional function to free kp->arg when module unloaded. */
- 	void (*free)(void *arg);
-diff --git a/kernel/params.c b/kernel/params.c
-index 6852caea1785..4eda2d23ddf2 100644
---- a/kernel/params.c
-+++ b/kernel/params.c
-@@ -553,12 +553,34 @@ static ssize_t param_attr_show(const struct module_attribute *mattr,
- {
- 	int count;
- 	const struct param_attribute *attribute = to_param_attr(mattr);
-+	const struct kernel_param_ops *ops = attribute->param->ops;
- 
--	if (!attribute->param->ops->get_str)
-+	if (!ops->get && !ops->get_str)
- 		return -EPERM;
- 
-+	WARN_ON_ONCE(ops->get && ops->get_str);
+@@ -85,15 +85,32 @@ struct kernel_param_ops {
+  *
+  *   static DEFINE_KERNEL_PARAM_OPS(my_ops, my_set, my_get);
+  *
+- * Routing the @_set and @_get function pointers through the macro
+- * (rather than naming the struct fields at every call site) lets the
+- * field layout change in one place when callbacks are migrated to a
+- * new signature.
++ * @_get may be either of:
++ *   int (*)(struct seq_buf *, const struct kernel_param *) (seq_buf)
++ *   int (*)(char *, const struct kernel_param *)           (legacy)
++ *
++ * The macro uses _Generic to route the function pointer to the
++ * matching field (.get or .get_str) at compile time, leaving the
++ * other field NULL. Each helper matches the wrong prototype signature
++ * and returns NULL, falling through to the default branch otherwise;
++ * if @_get has neither expected signature the assignment to the
++ * fields gets a normal compile-time type-mismatch error.
+  */
++#define _KERNEL_PARAM_OPS_GET(_get)					\
++	_Generic((_get),						\
++	    int (*)(char *, const struct kernel_param *): NULL,		\
++	    default: (_get))
 +
- 	kernel_param_lock(mk->mod);
--	count = attribute->param->ops->get_str(buf, attribute->param);
-+	if (ops->get) {
-+		struct seq_buf s;
++#define _KERNEL_PARAM_OPS_GET_STR(_get)					\
++	_Generic((_get),						\
++	    int (*)(struct seq_buf *, const struct kernel_param *): NULL, \
++	    default: (_get))
 +
-+		seq_buf_init(&s, buf, PAGE_SIZE);
-+		count = ops->get(&s, attribute->param);
-+		if (count >= 0) {
-+			WARN_ON_ONCE(count > 0);
-+			count = seq_buf_used(&s);
-+			/* Make sure string is terminated. */
-+			seq_buf_str(&s);
-+			/*
-+			 * If overflowed, reduce count by 1 for trailing
-+			 * NUL byte.
-+			 */
-+			if (seq_buf_has_overflowed(&s))
-+				count--;
-+		}
-+	} else {
-+		count = ops->get_str(buf, attribute->param);
-+	}
- 	kernel_param_unlock(mk->mod);
- 	return count;
- }
+ #define DEFINE_KERNEL_PARAM_OPS(_name, _set, _get)			\
+ 	const struct kernel_param_ops _name = {				\
+ 		.set = (_set),						\
+-		.get_str = (_get),					\
++		.get = _KERNEL_PARAM_OPS_GET(_get),			\
++		.get_str = _KERNEL_PARAM_OPS_GET_STR(_get),		\
+ 	}
+ 
+ /* As DEFINE_KERNEL_PARAM_OPS, with KERNEL_PARAM_OPS_FL_NOARG set. */
+@@ -101,14 +118,16 @@ struct kernel_param_ops {
+ 	const struct kernel_param_ops _name = {				\
+ 		.flags = KERNEL_PARAM_OPS_FL_NOARG,			\
+ 		.set = (_set),						\
+-		.get_str = (_get),					\
++		.get = _KERNEL_PARAM_OPS_GET(_get),			\
++		.get_str = _KERNEL_PARAM_OPS_GET_STR(_get),		\
+ 	}
+ 
+ /* As DEFINE_KERNEL_PARAM_OPS, with an additional .free callback. */
+ #define DEFINE_KERNEL_PARAM_OPS_FREE(_name, _set, _get, _free)		\
+ 	const struct kernel_param_ops _name = {				\
+ 		.set = (_set),						\
+-		.get_str = (_get),					\
++		.get = _KERNEL_PARAM_OPS_GET(_get),			\
++		.get_str = _KERNEL_PARAM_OPS_GET_STR(_get),		\
+ 		.free = (_free),					\
+ 	}
+ 
 -- 
 2.34.1
 
