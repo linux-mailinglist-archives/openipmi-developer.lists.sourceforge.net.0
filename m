@@ -2,12 +2,12 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id WK0iGdB3FGokNgcAu9opvQ
+	id 8FPjGtB3FGq3NgcAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
 	for <lists+openipmi-developer@lfdr.de>; Mon, 25 May 2026 18:24:48 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id AD1795CCD5F
+	by mail.lfdr.de (Postfix) with ESMTPS id ADE2C5CCD60
 	for <lists+openipmi-developer@lfdr.de>; Mon, 25 May 2026 18:24:47 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
@@ -18,17 +18,17 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	bh=HzAxD84BhRswagguUoXkDBw30tzb1U9E5JL0Sj+Pr5U=; b=AkgAtknKwMgqcl1vZnQZnCrEud
 	8pi8hFuyyhxxEvPD2rs0F4f0xK2K+LUHb0zE6UhIJBOVXYYOJaL1jKlpRVpllNKJpNxn5wKhlkJJy
 	nwAGgxaCEbXDXwIwDVKT8FLdjeyn/DcGR/Fy5SWbP/7mq++caUNAtMoVVFIW3o7dVArg=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1wRY6b-0007r3-6H;
-	Mon, 25 May 2026 16:24:41 +0000
+	id 1wRY6Z-0001bN-8h;
+	Mon, 25 May 2026 16:24:40 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <petr.pavlu@suse.com>) id 1wRY6O-0007qm-Dd
+ (envelope-from <petr.pavlu@suse.com>) id 1wRY6J-0001Zz-HC
  for openipmi-developer@lists.sourceforge.net;
- Mon, 25 May 2026 16:24:28 +0000
+ Mon, 25 May 2026 16:24:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
  From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
@@ -51,50 +51,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
 Received: from mail-wr1-f54.google.com ([209.85.221.54])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1wRY6N-0002rj-BY for openipmi-developer@lists.sourceforge.net;
- Mon, 25 May 2026 16:24:28 +0000
+ id 1wRY6I-0002rH-3Q for openipmi-developer@lists.sourceforge.net;
+ Mon, 25 May 2026 16:24:24 +0000
 Received: by mail-wr1-f54.google.com with SMTP id
- ffacd0b85a97d-44a14580111so7325216f8f.0
+ ffacd0b85a97d-44b330c5cc6so7448764f8f.1
  for <openipmi-developer@lists.sourceforge.net>;
- Mon, 25 May 2026 09:24:27 -0700 (PDT)
+ Mon, 25 May 2026 09:24:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=suse.com; s=google; t=1779726261; x=1780331061; darn=lists.sourceforge.net; 
+ d=suse.com; s=google; t=1779726251; x=1780331051; darn=lists.sourceforge.net; 
  h=content-transfer-encoding:in-reply-to:from:content-language
  :references:cc:to:subject:user-agent:mime-version:date:message-id
  :from:to:cc:subject:date:message-id:reply-to;
  bh=WThGrJlj0+d9TTzzXLAp8aZigkvM5HszOOE/MfwSIgg=;
- b=Pte2dyWsw5hmOaN9UR81UV63MRJoW8hnEiHOjaEqEOo3VlZocuKTFbR9mmprTkIOBq
- PlSxmCHgjtmue43ovFQoTYDGMCsyhEw9YJu6ytsb/OLHDMg0XP9/PfrxJMOm5zYFyb84
- rrm7LNhV87ymYSA1jlwL7JkJeRlkvFAM0aCrhWM51eE8ngQsS50d5s61yKKx6oSsl4/G
- w/5Te8jl8R+XNuxkFKbZnsXlUHY28eVK0WIamw4mUHV5KHgvbP+kGNdgvA8P02BnCqN9
- gf7QrKvITLAz08fDHmPyia+++VELLmgoWTz5BGz8apPJtYSWCYCTzi8mv5Uxaomqkz46
- FEXw==
+ b=Y+tTRri7s8qa9cCvGxA+9Y6CRejtjFVUXbiq/Ze6xf+DFldUUOSq/L1ihPswjSu5Yp
+ pnR7oCDWQ0PP7ScG32VCmkJMKTyhy3va2QL9ey11YrG0xq1JlNuO4irJTguO9HbRFa1R
+ V8rs/a+6kQJU2PiHLJHaOJhB/N0GQhBXbt5rWXQ2SOKU/c5MlFRyneMi0XScY+eWxbBk
+ T5irebf7uaGua2DOWAEP37p/U+H2gMUblyiLr2VlM3nNg5RQQIhDf2kRQnMKbYNfsY9Y
+ hjd18TZtePNHAxfn2SfbiCY5gH0bVeZhjnHxu8DV1d2IAp1j3KOB9UVuSITIYVPdiiRN
+ iH+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20251104; t=1779726261; x=1780331061;
+ d=1e100.net; s=20251104; t=1779726251; x=1780331051;
  h=content-transfer-encoding:in-reply-to:from:content-language
  :references:cc:to:subject:user-agent:mime-version:date:message-id
  :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
  :reply-to;
  bh=WThGrJlj0+d9TTzzXLAp8aZigkvM5HszOOE/MfwSIgg=;
- b=geVo49k8d5cJ8YWGIBthuI/KCG8WED/JgQ0JWBtdSCLFEtt2monuTsM32boaIwSbYS
- b0Lb4d165osrj8VaZmu45vmPz+7nR6e9pix2HcQI+LcWJ/wklg3yM2bG7IDq7YFHXLa9
- w49eudI1D7d5lBkUKHq5Uyzq7x4HOIEXQ/t9cYJDCSuwyfwL8FGZdgrsMfrSZ9/BGkF5
- Id4Kl4lBcokN4yNHn1n7Er1u/hAMlQjjG/gGEcYTyRlDnHSO7f0onSgpZ5IJfgqJk04B
- 7XEt2+VqiSuPTOY1motVs6e0njbHxd2zfhgOOhqtvfb0EhehovWh7hgOe5Rm2Jn46JHG
- iHrg==
+ b=ha2GQSRVrHE+y1g0IABawUHNfkayPXkufUG/qtO5tw2Ar3ToWbjxBAXWayIVxNUssP
+ tyF5/hqELtLeU5ygHv0OLY7NJt32e19Kw3A8dzQnR5BpuLP2qwbvdEA9PwsVOQw5vnw5
+ LPpeBCrrXP7N6YcvONBxcU5Ohhozxrii7SpZ3o513RiXq7h5tYcfUW9G5d7YwYTliex4
+ 740Y8SgLEwrpSZ9m416ywt5fFF9mTB/ZaK5Z2W359hGsbZ15yFIudIISp7Mva4j94GXD
+ 3SugzJg14x8eyMPz4lhBjRgVDUJvaGNOisZlmdODyk3Flq5M11s5bv0yr4FkHHixX20F
+ BXDg==
 X-Forwarded-Encrypted: i=1;
- AFNElJ92RWq/PHrhJmXBFCqCRmOJUt/7POQ7Ne1R+i2j85VYjab2jU0zBulL5Y5O+ePvjj/LQ9Mjb7vDVu9GAcPorVRAFlM=@lists.sourceforge.net
-X-Gm-Message-State: AOJu0YzkTEXymD9XyFraZkSIqnL6PL0GbnzQaBtHBe0E8wq9kuqOQ7q5
- ukGWYWpx3tadwVYumg98WYdwdPaGnegRwEyCBbfFuwG+XyiGqNXe/bfL8KJq28b3Q0bKFx1QS/N
- 0OdUEWSnt8app
-X-Gm-Gg: Acq92OEypF/7vjdJ6+4jKusuqBJooyPF5qjsBUpI1Qn6rCNqT5leNqBzyz97vDR1rLs
- 4GbYcCKxc2H0ouEqgMyMtBvzSYUW6SvBko6Xija8I9lttSHfr89QoG1Df3QRKRvzHLQ7Vp7l996
- f0zP1EwD0APDlWQeb72gNCrALE5B7JZ9EECUi6Vkhl0sdWeyxON2Yn6+yQG+/iw82Ip0oHlRHev
- q7fBLUX++eYilEZvH1jo0CS49uKa6+woWWRcngpI/lUWG6rImWhIvHOSfxOVzY5SFl5n02oPRkF
- Q54NMfcdA3Sp8enVFrKuWEunL88CyoSRblpd4vT3RntI8f+22RiQmBb4NfvTYGpF6kJqIRWxcPu
- hO71sFv95cNjkdz9Un3zg8f/BPsW8ngAO+rkVUau4UbQqHh9Pd4bmoPxRtjr3SfN7ByrsMB81I3
- MB2GJdRfW0KMFDRlaxvPQIqvrcm9CSnAbMYHJuccMVd956RFhDNEaABj4f0Fj6kdpAG7nbRF4dN
- SRIZ6MOwp7z2ppxLob2rDYj1pzPXeKNLR+/GeTFsvilOYKfhitwStidm0JX7Rgtc2yvzg==
+ AFNElJ/50FcMud7gTX+ECd4xl9kEd61947JOgyotby385z/wnw2HQ9tdOEKFWyelzku4WyU8etQ06sC3u4JF6VL1gdCmc+s=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YwKjNB3C1X4xqtg/kIZR4lcAS6YGnRVeAwDoGOlwwRgGhF1h4x0
+ vmQZAsZkGXMHqKGw5ErU6g9wkGCqBeUm7EbZMkg/xZW7+KuH8al1iWkZ3IL7wZa/Mns=
+X-Gm-Gg: Acq92OGYD5YoJZFIKiq8wjL3yGZ4YAfrlQ4xg9SfC383vHfk2/PFWOIVdtZUjVYe5ja
+ LkBNU0eIlMkS1MMFmgdNrFRMy3mOSqQHlHTAJBnkUwHwUYNYtgQZkwG9Y9zkmMehizZcpOZ10NE
+ 6D/zItQJTPmLh4DNvwDtzhCT950GBLqAilwC9o+W2UYCli2Y8m9vwM68j+KPfYMHId0BOuSsQmD
+ JDGV8xsUH+MV8KnXl8uPQeaRCuYYmbXPQMexuB9BMdMM9p0wjTx4hQXhTpCZn920sepjjsKvrbg
+ 3p+LDzXUTwLe+ELETfdl8TM5MABOtqKH/XAwmonV5dNwbCzWkhjsL+9zhHUr8sSuHHy4YWfWY38
+ DC3u84NKeiLiQIghKFfRYBJhCMTnc8FEoOJLQLNZ4d9RRjBLvzB/WEnkOVmpAEjsLB14Z8LpPsq
+ 50kFxIJs32ubv6oA9f1IFZ5QhRHw1uwpN6SYCPS0Co+ednDh0vS2VcSFtYu8HMAy7R7MQO/C9FK
+ ii0WFCUE54sUdmK2Z43T9bZt4KNq7NOAVtBDxqdaVJM8Fkk0X3YrWNO6glnaK0+b0BU0Q==
 X-Received: by 2002:a05:6000:26cf:b0:45e:b215:12e9 with SMTP id
  ffacd0b85a97d-45eb368903emr24724531f8f.6.1779726250728; 
  Mon, 25 May 2026 09:24:10 -0700 (PDT)
@@ -116,7 +115,7 @@ Content-Language: en-US
 In-Reply-To: <20260521133326.2465264-7-kees@kernel.org>
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
@@ -128,16 +127,16 @@ X-Spam-Report: Spam detection software,
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.221.54 listed in wl.mailspike.net]
- -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
- domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1wRY6N-0002rj-BY
+ 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.221.54 listed in wl.mailspike.net]
+X-Headers-End: 1wRY6I-0002rH-3Q
 Subject: Re: [Openipmi-developer] [PATCH 07/11] moduleparam: Route
  DEFINE_KERNEL_PARAM_OPS get pointer via _Generic
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -259,7 +258,7 @@ X-Spamd-Result: default: False [-7.11 / 15.00];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
 	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
 	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:dkim,lists.sourceforge.net:rdns,lists.sourceforge.net:helo,suse.com:replyto,suse.com:mid,suse.com:email]
-X-Rspamd-Queue-Id: AD1795CCD5F
+X-Rspamd-Queue-Id: ADE2C5CCD60
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
