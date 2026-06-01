@@ -2,141 +2,103 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by lfdr with LMTP
-	id wBZWBXTGGWoIzAgAu9opvQ
+	id 2NiBItfkHWoPfwkAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Fri, 29 May 2026 19:01:40 +0200
+	for <lists+openipmi-developer@lfdr.de>; Mon, 01 Jun 2026 22:00:23 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 490A76060E0
-	for <lists+openipmi-developer@lfdr.de>; Fri, 29 May 2026 19:01:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B4580624DA0
+	for <lists+openipmi-developer@lfdr.de>; Mon, 01 Jun 2026 22:00:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mtTiyWs/1epI7gqDStAQbC0f7ZFh3tJ7NDLc0Vdtn2Y=; b=AbBtBPUEo1C6S0eq0HRTFceTN2
-	yXmLmPLX6SLFcQ97Cwva0keDTGzv/jHtzdvfw5zvJbqzJzGcIXJQB3FbEpt44cenbYthRrUPIG+Xh
-	kmnL9144ER4jd2G/GeBd25a9OfqaCkeQxj7geL/AGbsJ5+i/Qu6VeBJASa4YQZ6g89F0=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:In-Reply-To:MIME-Version:References:
+	Message-ID:To:Date:Sender:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jnrN5pseF24vsuLTpDU78fgn4Bw0drGpv3nZ9dU7Bqk=; b=CxNgKue2jtwRA0SdXb48a46eAY
+	ADgq+fyX9HCppK9UTqAF3LqafJTlXJhk9VZAcxg+e09cnHgZuhd/O7bC0cnUnaZGDCtZ/VSI4mTaN
+	KggqiBpzuFXrdxnOIkNRLkVg0oT1byxxRU4KeteSTrp8PzWZwo+xNYJLh2d0mZ/d7RZI=;
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1wT0aJ-0003RR-HN;
-	Fri, 29 May 2026 17:01:23 +0000
+	id 1wU8nx-0000NE-F9;
+	Mon, 01 Jun 2026 20:00:07 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1wT0aH-0003RK-GE
+ (envelope-from <kees@kernel.org>) id 1wU8nu-0000N5-2F
  for openipmi-developer@lists.sourceforge.net;
- Fri, 29 May 2026 17:01:21 +0000
+ Mon, 01 Jun 2026 20:00:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
- MIME-Version:References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gbpxmbYT7Ke6jfRem13FLNzIhR0XDA5ecbYjVCBoFgQ=; b=Nj2SXPYefID9IBLqGEeIlIwq0z
- jjRdjYj52fXMmRaUBm4GFjMaxobzqjwlKhkmY5fKOPWK+LGVmw5CnzI9r1keJpxLVo2ESaZIg7Kc3
- JdiuTOXnDTaIUjE4vRrxXEA6ipI3pLd7eSVOVoVmeFLsFKK+ChLONygJCT83THTseSQ8=;
+ bh=XNCn/hiuq2TSQD0/7268qMBjDGPldqx55TcTTgULBQo=; b=KVP0vkJHhdCxTfnMffjXQ3b+kY
+ BbTjlVhHu46CEPRUsAJmBEn+g/dbZDaAomscHCdM0E0qEsbjZV4nr7Iwn8sPJgbATvj3JuVFTrvps
+ aOOKL5v/86vaP0uDc3pSWvZ55IwMmVT3le57Ccb2uvEnqhjhNjU57LMo8XQOM1CwcUd0=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- References:Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To
+ :From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=gbpxmbYT7Ke6jfRem13FLNzIhR0XDA5ecbYjVCBoFgQ=; b=OCkZhU1hGEAtz521CfVtTp8H0V
- g5Szg007owCbfe9MEFBz3e3V7c2YEMnmuqCPKg6OBc8QFSXUHb8UguZgCUsjkgZy7glML6/VnPCPY
- En6mbIRwOf6bc0paFTIFRxEwB3wt5Bu+pjFApzPx+PcRiZiCY6cr26Qzjwtc+45d/mtI=;
-Received: from mail-ot1-f46.google.com ([209.85.210.46])
+ bh=XNCn/hiuq2TSQD0/7268qMBjDGPldqx55TcTTgULBQo=; b=l9f391GblE/SM16pykRQgsCPlw
+ 1pY6fZELbF4viO7Qkk/AVw2rmB2+j+nPjexpRRFMkPhAsO5Pv5AuGgN+OGMncJ1MrY/1uPB42ZpGm
+ gmnkYjyVtacojJ5L2o7nbXVbubYkXULfOp1rSQOKGew6Ko6QKv5CjTQMFEH8oPNUANPM=;
+Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1wT0aD-0001wn-Pf for openipmi-developer@lists.sourceforge.net;
- Fri, 29 May 2026 17:01:21 +0000
-Received: by mail-ot1-f46.google.com with SMTP id
- 46e09a7af769-7dcd17e19b6so7927378a34.1
- for <openipmi-developer@lists.sourceforge.net>;
- Fri, 29 May 2026 10:01:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard.net; s=google; t=1780074067; x=1780678867; darn=lists.sourceforge.net;
- h=in-reply-to:content-transfer-encoding:content-disposition
- :mime-version:references:reply-to:message-id:subject:cc:to:from:date
- :from:to:cc:subject:date:message-id:reply-to;
- bh=gbpxmbYT7Ke6jfRem13FLNzIhR0XDA5ecbYjVCBoFgQ=;
- b=UZWex/BXV2920whJ9074Ri8yZqyC0MpX4SIaUgZ62caHFjB9cU4F+V8XToByDyRNok
- q7GUi4+unYHoGEoRDKK3FnTsTW/mNhcQ7ct4flJ/p9JFAvT3d3crChi7H+tCUVys3Bhe
- iBEMx0dkhe1a9fF7t02SH8ONqFPeCXbwTvvuDZGIbcUxTK4TfgubqsK62BKJSNhW16Uj
- w43tUaewQlJZyhwDsILpTFpYkO6H6oaAcEj+lZp0RxxY2zWBww9Kq9clcA9Z1ADp/Irq
- ABBbecVeLqWJRexkDi7Au/BxiGe5hZUVCYotpHSm11WaWvewsOqaE6rAsXTC4o+VeHBK
- G6wA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20251104; t=1780074067; x=1780678867;
- h=in-reply-to:content-transfer-encoding:content-disposition
- :mime-version:references:reply-to:message-id:subject:cc:to:from:date
- :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=gbpxmbYT7Ke6jfRem13FLNzIhR0XDA5ecbYjVCBoFgQ=;
- b=ZWk4sCn5gEc/tWs7oyzxuMHzQ7MfSQJUNX9s9lWSeIppkXjlzRhGrqJ/8j0X5xNz+H
- XUKQImUGX72iuMzKZ3pKW/5RySmgtbD3RdCHWvgWZn/GSvBM0m0bzIGuVvYDnxywsGjd
- w6y3DtGM2QPTSETX85/r1b1ucZvqELEmgmXv758bL4OrxKa6UElZYidDQYK5+J7HWwe8
- tXPcQvmlbYHbJmC0OSY7kbIsrq1jrGi5iY8oc+aCLXtq/5e3H4wRMBsyouBRUV7ZEFsl
- Ij76LUdFaDXqJyRwkuw4pEBGS7a7JjkKemQ4tjoU+6PaQEPR5JGGLyChOuza3iq8IbJM
- 9q0g==
-X-Gm-Message-State: AOJu0Yx1833/W3ztCAYiOVtmGUjAGAnkhIsVGRRv/FE28mSwvncAElbb
- gJmVX3YLSnX386CjUGc62k87VJi7YlASEeuUYE2BMYymyct0j3PU+JYPBuCcpvq8qQ5IbRHArKq
- cLX0a
-X-Gm-Gg: Acq92OHv+Sp0E7HZiRVABFLkQJZzUC80Z20v/94kK58pNdK1o+mQm39xtQfFmn7OHHx
- Cr6qyIty+5WZUe1Vz+c+fGJycSRMbHJLVEGS+s0NVcxKcnj+eOtOv7bUkmmkQQwmAJ0q7wF9G1e
- UaXZkPnb2LPEzUzqw4W55ww/J0JPFg/eW0Q9Bi9IC41xuk1WeNwpeW27rxpdnTy+wvi8ZNWxxLy
- mzN4e0XUJjJxDHc3AJtMJiJCXUFik1gObhu6iY4MCSYQ3l9zDi9zdUYJxI32ywtsnXHRqULjmLB
- yoXFSXLL1kI/OWoghk6l/Gvyyu/dGWGcA0ZIhImMvjrR8sCH3mAJnLKfeXbq48y6U93ekvvtgjw
- HI4e4p3F5F2vCPZz4rEfk1GFXMtRPxfqm6L9vRtLtvxueR7BFhrcL1ya1Y5FzUm/+1Zd8nYm5dZ
- gERgWVEZjC42VYgsQD3YnACqFpQ+Kx/fNfuKasj/UX8/XyP5lBz7gyaZ21VbDfpHp3VspApR9Da
- +QaOuxX4YIvElWVZiNtr6Byaw==
-X-Received: by 2002:a05:6830:698e:b0:7dc:dd58:50c7 with SMTP id
- 46e09a7af769-7e6a1de8f9bmr444711a34.18.1780074067255; 
- Fri, 29 May 2026 10:01:07 -0700 (PDT)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:4686:1f25:6e63:122c])
- by smtp.gmail.com with ESMTPSA id
- 46e09a7af769-7e695d8d92bsm1797687a34.25.2026.05.29.10.01.06
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 29 May 2026 10:01:06 -0700 (PDT)
-Date: Fri, 29 May 2026 12:01:03 -0500
-From: Corey Minyard <corey@minyard.net>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
- <u.kleine-koenig@baylibre.com>
-Message-ID: <ahnGT7yytzIZn4ph@mail.minyard.net>
-References: <5966a65daf432613a58af373af79c9c4421b3985.1780052427.git.u.kleine-koenig@baylibre.com>
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1wU8no-0003xf-7h for openipmi-developer@lists.sourceforge.net;
+ Mon, 01 Jun 2026 20:00:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+ by sea.source.kernel.org (Postfix) with ESMTP id 4E93A40825;
+ Mon,  1 Jun 2026 19:59:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D6831F00893;
+ Mon,  1 Jun 2026 19:59:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+ s=k20260515; t=1780343990;
+ bh=XNCn/hiuq2TSQD0/7268qMBjDGPldqx55TcTTgULBQo=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To;
+ b=jPPf1HSEtTmrOkKgXG7yZ4L4yWlXriv9f4UInH3EUjfr7uRqEixqsswHEVJD66e/i
+ UYMnZm3AwHRFYgRV2ih8KtH9UMVsaXegF2blXd/AV6FabDLb+h4l5NmMOw9ZVrD++N
+ KcX2jHWXOHM02LWFJzDj4MfNwHTR6omd404TzjNZvpI6ZIAf59Yvhv/clTseKbIOtO
+ ETM1funcq4ukCXv67pvcGJzgYBqL/gNfgi123wCjIaYqeaTkJBGmaBAvvqiI5vVIDR
+ F9G7b/Sg9jjyGT7K98XQKfJ06MeRLxen4rImVcQChLpFwv+lALs23w52eL46/a7lq6
+ WVHwgppy+tSkw==
+Date: Mon, 1 Jun 2026 12:59:49 -0700
+To: Petr Pavlu <petr.pavlu@suse.com>
+Message-ID: <202606011259.CE6E74CE@keescook>
+References: <20260521133315.work.845-kees@kernel.org>
+ <88c5ca1d-eeda-4023-bc7a-397b92780db9@suse.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <5966a65daf432613a58af373af79c9c4421b3985.1780052427.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <88c5ca1d-eeda-4023-bc7a-397b92780db9@suse.com>
 X-Spam-Score: -0.2 (/)
-X-Spam-Report: Spam detection software, running on the system "sfi-spamd-1.hosts.colo.sdot.me",
+X-Spam-Report: Spam detection software,
+ running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- 
- Content preview:  On Fri, May 29, 2026 at 01:03:39PM +0200, Uwe Kleine-König
-    (The Capable Hub) wrote: > The driver explicitly set the .driver_data member
-    of struct > platform_device_id to zero without relying on that [...] 
- 
+ Content preview:  On Tue, May 26, 2026 at 08:53:06AM +0200, Petr Pavlu wrote:
+ > On 5/21/26 3:33 PM, Kees Cook wrote: > > Hi, > > > > I tried to trim the
+ CC list here, but it's still pretty huge... > > > > We've had a l [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
- 
-  pts rule name              description
+ pts rule name              description
  ---- ---------------------- --------------------------------------------------
-  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
-                             domain
- -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
-                             envelope-from domain
-  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
-                             [209.85.210.46 listed in wl.mailspike.net]
-  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
-X-Headers-End: 1wT0aD-0001wn-Pf
-Subject: Re: [Openipmi-developer] [PATCH v1] ipmi:ssif: Drop unused
- assignment of platform_device_id driver data
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
+X-Headers-End: 1wU8no-0003xf-7h
+Subject: Re: [Openipmi-developer] [PATCH 00/11] Convert moduleparams to
+ seq_buf
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -149,77 +111,155 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Kees Cook via Openipmi-developer
+ <openipmi-developer@lists.sourceforge.net>
+Reply-To: Kees Cook <kees@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, dri-devel@lists.freedesktop.org,
+ Pengpeng Hou <pengpeng@iscas.ac.cn>,
+ Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ linux-arch@vger.kernel.org, Bart Van Assche <bvanassche@acm.org>,
+ Jason Gunthorpe <jgg@ziepe.ca>, James Morris <jmorris@namei.org>,
+ kasan-dev@googlegroups.com, Tvrtko Ursulin <tursulin@ursulin.net>,
+ linux-acpi@vger.kernel.org, Alan Stern <stern@rowland.harvard.edu>,
+ linux-pm@vger.kernel.org, linux-um@lists.infradead.org,
+ Georgia Garcia <georgia.garcia@canonical.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Luis Chamberlain <mcgrof@kernel.org>,
+ linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-media@vger.kernel.org, Lukasz Luba <lukasz.luba@arm.com>,
+ "Maciej W. Rozycki" <macro@orcam.me.uk>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Simona Vetter <simona@ffwll.ch>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+ Paul Moore <paul@paul-moore.com>, Leon Romanovsky <leon@kernel.org>,
+ Frank Li <Frank.Li@kernel.org>, Gabriel Somlo <somlo@cmu.edu>,
+ Len Brown <lenb@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>, Jason Baron <jbaron@akamai.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Jim Cromie <jim.cromie@gmail.com>,
+ Sean Christopherson <seanjc@google.com>, Thomas Gleixner <tglx@kernel.org>,
+ usb-storage@lists.one-eyed-alien.net, linux-pci@vger.kernel.org,
+ Jason Wang <jasowang@redhat.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ "David E. Box" <david.e.box@linux.intel.com>,
+ Jiri Slaby <jirislaby@kernel.org>, linux-rdma@vger.kernel.org,
+ Sami Tolvanen <samitolvanen@google.com>,
+ Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ "Serge E. Hallyn" <serge@hallyn.com>, Marco Elver <elver@google.com>,
+ intel-gfx@lists.freedesktop.org, Corey Minyard <corey@minyard.net>,
+ Borislav Petkov <bp@alien8.de>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ openipmi-developer@lists.sourceforge.net,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Aaron Tomlin <atomlin@atomlin.com>, Hans de Goede <hansg@kernel.org>,
+ kvm@vger.kernel.org, "Michael S. Tsirkin" <mst@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ qemu-devel@nongnu.org, linux-mm@kvack.org,
+ Alexander Potapenko <glider@google.com>, Daniel Gomez <da.gomez@kernel.org>,
+ David Airlie <airlied@gmail.com>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, linux-scsi@vger.kernel.org,
+ Richard Weinberger <richard@nod.at>, x86@kernel.org,
+ linux-security-module@vger.kernel.org,
+ Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+ Ingo Molnar <mingo@redhat.com>, linux-serial@vger.kernel.org,
+ Zhang Rui <rui.zhang@intel.com>, Heiko Carstens <hca@linux.ibm.com>,
+ apparmor@lists.ubuntu.com, virtualization@lists.linux.dev,
+ linux-hardening@vger.kernel.org, Hannes Reinecke <hare@suse.de>,
+ Benjamin Berg <benjamin.berg@intel.com>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Tiwei Bie <tiwei.btw@antgroup.com>, Dmitry Vyukov <dvyukov@google.com>,
+ John Johansen <john.johansen@canonical.com>, netdev@vger.kernel.org,
+ Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org,
+ Paolo Bonzini <pbonzini@redhat.com>, Johannes Berg <johannes@sipsolutions.net>,
+ linuxppc-dev@lists.ozlabs.org, linux-modules@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
-X-Spamd-Result: default: False [-0.91 / 15.00];
+X-Spamd-Result: default: False [-6.61 / 15.00];
+	WHITELIST_DMARC(-7.00)[sourceforge.net:D:+];
+	SUSPICIOUS_RECIPS(1.50)[];
+	DMARC_POLICY_ALLOW_WITH_FAILURES(-0.50)[];
+	MID_RHS_NOT_FQDN(0.50)[];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
 	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
-	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MAILLIST(-0.20)[mailman];
-	MIME_BASE64_TEXT(0.10)[];
-	DMARC_POLICY_SOFTFAIL(0.10)[minyard.net : SPF not aligned (strict), DKIM not aligned (strict),none];
+	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MIME_GOOD(-0.10)[text/plain];
 	HAS_LIST_UNSUB(-0.01)[];
 	RCVD_TLS_LAST(0.00)[];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,minyard.net:s=google];
-	DKIM_MIXED(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_HELO_LOCALHOST(0.00)[];
-	ARC_NA(0.00)[];
-	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
-	FORGED_SENDER(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
-	FORGED_RECIPIENTS(0.00)[m:u.kleine-koenig@baylibre.com,m:openipmi-developer@lists.sourceforge.net,m:linux-kernel@vger.kernel.org,s:lists@lfdr.de];
-	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
 	MIME_TRACE(0.00)[0:+];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,minyard.net:-];
-	RCPT_COUNT_THREE(0.00)[3];
-	FORGED_SENDER_MAILLIST(0.00)[];
-	FORGED_SENDER_FORWARDING(0.00)[];
-	RCVD_COUNT_FIVE(0.00)[5];
-	PREVIOUSLY_DELIVERED(0.00)[openipmi-developer@lists.sourceforge.net];
-	REPLYTO_ADDR_EQ_FROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
+	TO_DN_SOME(0.00)[];
+	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
+	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	RECEIVED_HELO_LOCALHOST(0.00)[];
+	FORGED_RECIPIENTS(0.00)[m:petr.pavlu@suse.com,m:rafael@kernel.org,m:dri-devel@lists.freedesktop.org,m:pengpeng@iscas.ac.cn,m:srinivas.pandruvada@linux.intel.com,m:linux-arch@vger.kernel.org,m:bvanassche@acm.org,m:jgg@ziepe.ca,m:jmorris@namei.org,m:kasan-dev@googlegroups.com,m:tursulin@ursulin.net,m:linux-acpi@vger.kernel.org,m:stern@rowland.harvard.edu,m:linux-pm@vger.kernel.org,m:linux-um@lists.infradead.org,m:georgia.garcia@canonical.com,m:gregkh@linuxfoundation.org,m:linux-usb@vger.kernel.org,m:linux-kernel@vger.kernel.org,m:mcgrof@kernel.org,m:linux-fsdevel@vger.kernel.org,m:akpm@linux-foundation.org,m:linux-media@vger.kernel.org,m:lukasz.luba@arm.com,m:macro@orcam.me.uk,m:dave.hansen@linux.intel.com,m:James.Bottomley@hansenpartnership.com,m:simona@ffwll.ch,m:xuanzhuo@linux.alibaba.com,m:paul@paul-moore.com,m:leon@kernel.org,m:Frank.Li@kernel.org,m:somlo@cmu.edu,m:lenb@kernel.org,m:gor@linux.ibm.com,m:jani.nikula@linux.intel.com,m:jbaron@akamai.com,m:bhelgaas@google.com,m:jim.cr
+ omie@gmail.com,m:seanjc@google.com,m:tglx@kernel.org,m:usb-storage@lists.one-eyed-alien.net,m:linux-pci@vger.kernel.org,m:jasowang@redhat.com,m:joonas.lahtinen@linux.intel.com,m:laurent.pinchart@ideasonboard.com,m:david.e.box@linux.intel.com,m:jirislaby@kernel.org,m:linux-rdma@vger.kernel.org,m:samitolvanen@google.com,m:ilpo.jarvinen@linux.intel.com,m:serge@hallyn.com,m:elver@google.com,m:intel-gfx@lists.freedesktop.org,m:corey@minyard.net,m:bp@alien8.de,m:rodrigo.vivi@intel.com,m:openipmi-developer@lists.sourceforge.net,m:mchehab@kernel.org,m:martin.petersen@oracle.com,m:atomlin@atomlin.com,m:hansg@kernel.org,m:kvm@vger.kernel.org,m:mst@redhat.com,m:peterz@infradead.org,m:hpa@zytor.com,m:qemu-devel@nongnu.org,m:linux-mm@kvack.org,m:glider@google.com,m:da.gomez@kernel.org,m:airlied@gmail.com,m:anton.ivanov@cambridgegreys.com,m:linux-scsi@vger.kernel.org,m:richard@nod.at,m:x86@kernel.org,m:linux-security-module@vger.kernel.org,m:eperezma@redhat.com,m:mingo@redhat.com,m:linux-serial@v
+ ger.kernel.org,m:rui.zhang@intel.com,m:hca@linux.ibm.com,m:apparmor@lists.ubuntu.com,m:virtualization@lists.linux.dev,m:linux-hardening@vger.kernel.org,m:hare@suse.de,m:benjamin.berg@intel.com,m:daniel.lezcano@kernel.org,m:andriy.shevchenko@linux.intel.com,m:tiwei.btw@antgroup.com,m:dvyukov@google.com,m:john.johansen@canonical.com,m:netdev@vger.kernel.org,m:vkoul@kernel.org,m:dmaengine@vger.kernel.org,m:pbonzini@redhat.com,m:johannes@sipsolutions.net,m:linuxppc-dev@lists.ozlabs.org,m:linux-modules@vger.kernel.org,s:lists@lfdr.de];
+	ARC_NA(0.00)[];
+	DKIM_MIXED(0.00)[];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,kernel.org:s=k20260515];
+	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
 	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,kernel.org:-];
+	RCVD_COUNT_FIVE(0.00)[5];
+	RCPT_COUNT_GT_50(0.00)[98];
 	NEURAL_HAM(-0.00)[-1.000];
+	FORGED_SENDER_FORWARDING(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FROM_NEQ_ENVFROM(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	FREEMAIL_CC(0.00)[kernel.org,lists.freedesktop.org,iscas.ac.cn,linux.intel.com,vger.kernel.org,acm.org,ziepe.ca,namei.org,googlegroups.com,ursulin.net,rowland.harvard.edu,lists.infradead.org,canonical.com,linuxfoundation.org,linux-foundation.org,arm.com,orcam.me.uk,hansenpartnership.com,ffwll.ch,linux.alibaba.com,paul-moore.com,cmu.edu,linux.ibm.com,akamai.com,google.com,gmail.com,lists.one-eyed-alien.net,redhat.com,ideasonboard.com,hallyn.com,minyard.net,alien8.de,intel.com,lists.sourceforge.net,oracle.com,atomlin.com,infradead.org,zytor.com,nongnu.org,kvack.org,cambridgegreys.com,nod.at,lists.ubuntu.com,lists.linux.dev,suse.de,antgroup.com,sipsolutions.net,lists.ozlabs.org];
 	FORGED_RECIPIENTS_FORWARDING(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
-	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
-	TAGGED_RCPT(0.00)[openipmi-developer];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
-	HAS_REPLYTO(0.00)[corey@minyard.net]
-X-Rspamd-Queue-Id: 490A76060E0
+	FORGED_SENDER_MAILLIST(0.00)[];
+	TAGGED_RCPT(0.00)[openipmi-developer];
+	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	MISSING_XM_UA(0.00)[];
+	HAS_REPLYTO(0.00)[kees@kernel.org]
+X-Rspamd-Queue-Id: B4580624DA0
 X-Rspamd-Action: no action
 X-Rspamd-Server: lfdr
 
-T24gRnJpLCBNYXkgMjksIDIwMjYgYXQgMDE6MDM6MzlQTSArMDIwMCwgVXdlIEtsZWluZS1Lw7Zu
-aWcgKFRoZSBDYXBhYmxlIEh1Yikgd3JvdGU6Cj4gVGhlIGRyaXZlciBleHBsaWNpdGx5IHNldCB0
-aGUgLmRyaXZlcl9kYXRhIG1lbWJlciBvZiBzdHJ1Y3QKPiBwbGF0Zm9ybV9kZXZpY2VfaWQgdG8g
-emVybyB3aXRob3V0IHJlbHlpbmcgb24gdGhhdCB2YWx1ZS4gRHJvcCB0aGlzCj4gdW51c2VkIGFz
-c2lnbm1lbnRzLgo+IAo+IFdoaWxlIHRvdWNoaW5nIHRoaXMgYXJyYXkgdXNlIGEgbmFtZWQgaW5p
-dGlhbGl6ZXIgZm9yIGFzc2lnbmluZyAubmFtZS4KClN1cmUsIHRoaXMgaXMgZmluZSwgaXQncyBp
-biBteSBuZXh0IHRyZWUuCgotY29yZXkKCj4gCj4gU2lnbmVkLW9mZi1ieTogVXdlIEtsZWluZS1L
-w7ZuaWcgKFRoZSBDYXBhYmxlIEh1YikgPHUua2xlaW5lLWtvZW5pZ0BiYXlsaWJyZS5jb20+Cj4g
-LS0tCj4gSGVsbG8sCj4gCj4gdGhpcyBwYXRjaCBpcyBhIHByZXBhcmF0aW9uIGZvciBjaGFuZ2lu
-ZyBzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlX2lkCj4gc2VlIGUuZy4KPiBodHRwczovL2xvcmUua2Vy
-bmVsLm9yZy9hbGwvY292ZXIuMTc3OTg3ODAwNC5naXQudS5rbGVpbmUta29lbmlnQGJheWxpYnJl
-LmNvbS8KPiBmb3IgdGhlIGRldGFpbHMgYWJvdXQgdGhlIHF1ZXN0Lgo+IAo+IEJlc3QgcmVnYXJk
-cwo+IFV3ZQo+IAo+ICBkcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NzaWYuYyB8IDIgKy0KPiAgMSBm
-aWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4gCj4gZGlmZiAtLWdp
-dCBhL2RyaXZlcnMvY2hhci9pcG1pL2lwbWlfc3NpZi5jIGIvZHJpdmVycy9jaGFyL2lwbWkvaXBt
-aV9zc2lmLmMKPiBpbmRleCBhZGQwNDNiODEyZWEuLjA3ZjFkMjMyN2JiNyAxMDA2NDQKPiAtLS0g
-YS9kcml2ZXJzL2NoYXIvaXBtaS9pcG1pX3NzaWYuYwo+ICsrKyBiL2RyaXZlcnMvY2hhci9pcG1p
-L2lwbWlfc3NpZi5jCj4gQEAgLTIxMjcsNyArMjEyNyw3IEBAIHN0YXRpYyB2b2lkIHNzaWZfcGxh
-dGZvcm1fcmVtb3ZlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKmRldikKPiAgfQo+ICAKPiAgc3Rh
-dGljIGNvbnN0IHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2VfaWQgc3NpZl9wbGF0X2lkc1tdID0gewo+
-IC0gICAgeyAiZG1pLWlwbWktc3NpZiIsIDAgfSwKPiArICAgIHsgLm5hbWUgPSAiZG1pLWlwbWkt
-c3NpZiIgfSwKPiAgICAgIHsgfQo+ICB9Owo+ICBNT0RVTEVfREVWSUNFX1RBQkxFKHBsYXRmb3Jt
-LCBzc2lmX3BsYXRfaWRzKTsKPiAKPiBiYXNlLWNvbW1pdDogZjdhZjkxYWRjMjMwYWE5OWUyMzMz
-MGVjZjg1YmM5YmFkZDk3ODBhZAo+IC0tIAo+IDIuNDcuMwo+IAoKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCk9wZW5pcG1pLWRldmVsb3BlciBtYWlsaW5n
-IGxpc3QKT3BlbmlwbWktZGV2ZWxvcGVyQGxpc3RzLnNvdXJjZWZvcmdlLm5ldApodHRwczovL2xp
-c3RzLnNvdXJjZWZvcmdlLm5ldC9saXN0cy9saXN0aW5mby9vcGVuaXBtaS1kZXZlbG9wZXIK
+On Tue, May 26, 2026 at 08:53:06AM +0200, Petr Pavlu wrote:
+> On 5/21/26 3:33 PM, Kees Cook wrote:
+> > Hi,
+> > 
+> > I tried to trim the CC list here, but it's still pretty huge...
+> > 
+> > We've had a long-standing issue with "write to a string pointer" callbacks
+> > that don't bounds check the destination (and for which the bounds is
+> > also not part of the callback prototype, even if it is "known" to be
+> > PAGE_SIZE, which sysfs_emit() depends on). Both moduleparams and sysfs
+> > use this pattern. As a first step, and to test the migration method,
+> > migrate moduleparams first.
+> > 
+> > There are 2 "mechanical" treewide patches that are handled by Coccinelle:
+> > - treewide: Convert struct kernel_param_ops initializers to DEFINE_KERNEL_PARAM_OPS
+> > - treewide: Convert custom kernel_param_ops .get callbacks to seq_buf via cocci
+> > 
+> > The last treewide patch is manual, and may need to be broken up into
+> > per-subsystem patches, though I'd prefer to avoid this, as it would
+> > extend the migration from 1 relase to at least 2 releases. (1 to
+> > release the migration infrastructure, then 1 release to collect all the
+> > subsystem changes, and possibly 1 more release to remove the migration
+> > infrastructure.)
+> > 
+> > Thoughts, questions?
+> 
+> This looks reasonable to me. I added a few minor comments on the patches
+> but they already look solid.
+
+Thanks for the review! I'll get a v2 prepared with your notes addressed. :)
+
+-Kees
+
+-- 
+Kees Cook
+
+
+_______________________________________________
+Openipmi-developer mailing list
+Openipmi-developer@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/openipmi-developer
