@@ -2,117 +2,87 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by mail.lfdr.de with LMTP
-	id 2beZBqOwNmqjDQcAu9opvQ
+	id VnACObveNmoOFwcAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Sat, 20 Jun 2026 17:24:19 +0200
+	for <lists+openipmi-developer@lfdr.de>; Sat, 20 Jun 2026 20:40:59 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 29C386A91C7
-	for <lists+openipmi-developer@lfdr.de>; Sat, 20 Jun 2026 17:24:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 725876A97C8
+	for <lists+openipmi-developer@lfdr.de>; Sat, 20 Jun 2026 20:40:59 +0200 (CEST)
 Authentication-Results: mail.lfdr.de;
-	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=P+HJyXTQ;
-	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=hZ0tas0k;
-	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=dn40l13s;
-	dkim=fail ("body hash did not verify") header.d=minyard.net header.s=google header.b=IJj+gGH1;
+	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=fOtYiqyd;
+	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=OCk1FLVX;
+	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=aEi5eEuo;
+	dkim=fail ("body hash did not verify") header.d=infradead.org header.s=bombadil.20210309 header.b=yOYjAXtM;
 	spf=pass (mail.lfdr.de: domain of openipmi-developer-bounces@lists.sourceforge.net designates 216.105.38.7 as permitted sender) smtp.mailfrom=openipmi-developer-bounces@lists.sourceforge.net;
-	dmarc=fail reason="SPF not aligned (strict), DKIM not aligned (strict)" header.from=minyard.net (policy=none)
+	dmarc=fail reason="SPF not aligned (relaxed), DKIM not aligned (relaxed)" header.from=infradead.org (policy=none)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
-	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
-	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87RGy3bENihbAbhBNotLhy6e92OZbjYsuUEMxvTvDbU=; b=P+HJyXTQVhqUMPEr4C0GT4bHDi
-	eoOnFkeW4AgQRp0Q4SedBY3ICrl+uotVwqJtNLdQ4ASmGCWLaDFj3dVc3MXkO+dR9OB9RVa97ffxW
-	P37AoQPHPCmYJ0pJIpQ8jQbzqKu7EV4/x+qzCei+GiaJKI+nCl/mbMJZdyTP+yERtUK8=;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:In-Reply-To:From:References:To:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sm9XZucGYL+uB6C1HxdjqatE6/Tcib+OCQyunFeVaLE=; b=fOtYiqydXBdLalh1bKbsMP2/To
+	a+V4VE174ZAi38A+qzwaaguSlvZ/ZsCNPg5FxWWti3ENks55TSc+ZZWuZFYGoSLH1I6sHE6Tzr8Rb
+	KS97iZv32Pb+sWvaD69rYdBvBBNu4QO7WtLKVo7OxPGf6p6/Dxi1CGFtfPxe9BS1+PZk=;
 Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
 	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1waxYB-0007py-3M;
-	Sat, 20 Jun 2026 15:24:00 +0000
+	id 1wb0cd-0003Ph-2A;
+	Sat, 20 Jun 2026 18:40:48 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <corey@minyard.net>) id 1waxYA-0007ps-GF
+ (envelope-from <rdunlap@infradead.org>) id 1wb0cb-0003Pa-DQ
  for openipmi-developer@lists.sourceforge.net;
- Sat, 20 Jun 2026 15:24:00 +0000
+ Sat, 20 Jun 2026 18:40:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
- Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
+ d=sourceforge.net; s=x; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:
+ From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=QfozMZ4MckZ6z82xnad27KmIs/kPPZXqPb4RdkxOOME=; b=hZ0tas0kmv3Rq8TdyUXMwa90MM
- XRxYnYH1O8gb6u23MT6dzr8I6imIBHofG6JU9MDjrjNkP4my1vp73sURgTMTVns8LLwI57Es/nW+f
- WGXUVjmpA+aRkj4ItW+YfntisUF+9NIcpnULKwZ6gjFEboOgEQm9iF08/Ys3zX2K0C84=;
+ bh=lF91LOryZhh9Xbnlao0wR5FYAQfbHc7j4pr9N+nyMk8=; b=OCk1FLVXKSr4B27rrxTYIAmg5M
+ Vkw85ao9aZ/BEsZyTkqBhiVkFs9UqSAi86t4gCx8/yw6GuL1PmV95ql7Y2js5ww12ZS7zGJ34uUiT
+ hM8RXZgpChJEpR7Mr42HruhUFkp6g3zY+kweZ5WYjoPzrT6BuhLwLnU+NNJ202EmWI/Q=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
- Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+ Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=QfozMZ4MckZ6z82xnad27KmIs/kPPZXqPb4RdkxOOME=; b=dn40l13s+dq1L885gVLzKhkNgr
- dIIe7cGLAuN0Z8aT1ab72zKQvsY+jqiW1Lm8k6o4/7/R/3No0P/ZgXFbceuwOkO5i+HT11pm6bYcs
- vX2uuyNdwv7l/8ju7wrE+GsXGu1OKUtODXQyFm783BCgmQ4C2RAyQWkZm2t/xsk67upU=;
-Received: from mail-oi1-f175.google.com ([209.85.167.175])
+ bh=lF91LOryZhh9Xbnlao0wR5FYAQfbHc7j4pr9N+nyMk8=; b=aEi5eEuouZQsUA0OCCHK9S3oNu
+ a0hEusQ5Wl37zaPvkeOjqEp00w6FB5VpkakPQzRDn6gxtmeZDpOcYp+M9toCLBOSM8J6atZpU+hpp
+ bXVWcpiGaBEeEGLc2aKmXXSAaEuviYXx21KByRreVcpHSUZ6fghv5hdixWlAfvE21KTw=;
+Received: from bombadil.infradead.org ([198.137.202.133])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
- id 1waxY6-0007cG-Vz for openipmi-developer@lists.sourceforge.net;
- Sat, 20 Jun 2026 15:23:59 +0000
-Received: by mail-oi1-f175.google.com with SMTP id
- 5614622812f47-48bec0abe6aso44609b6e.3
- for <openipmi-developer@lists.sourceforge.net>;
- Sat, 20 Jun 2026 08:23:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=minyard.net; s=google; t=1781969029; x=1782573829; darn=lists.sourceforge.net;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:from:to:cc:subject:date
- :message-id:reply-to;
- bh=QfozMZ4MckZ6z82xnad27KmIs/kPPZXqPb4RdkxOOME=;
- b=IJj+gGH17v2oXR2J2nnLpkGM5lWrx7IY3RBOCxw58y4MnjBtH9vk0RD/2uOxsDWPWD
- ZJTUR96/S2ZAx46nBO6rX1hrXp8BbdQEt0ywavoQOQMWfEKkiEiKfA2VUOHCzdIVB6G2
- sbFPa8XismHIqXq+KP6Yc49UorLLQ4hPBJqwMBuPZ0P4fKlYbmOBdmePCFXfvr306h7o
- 1NpY7h6t7mn+X2HxjWR9EUy1pJsCiPEuN+df4W5PuPtDchLOT01v3ZdjQl2W6Umav7vO
- z66Y1InClQVG9imQwIEw0KD5nsJycyNSuLy3/OZXpYVmuKcMMTnd/HQcTlYajeBT5Fde
- Ex0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20251104; t=1781969029; x=1782573829;
- h=in-reply-to:content-disposition:mime-version:references:reply-to
- :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
- :to:cc:subject:date:message-id:reply-to;
- bh=QfozMZ4MckZ6z82xnad27KmIs/kPPZXqPb4RdkxOOME=;
- b=fHsUl3IRsShjBdJWtMOKf5CGDETTf91dDRRmL9qYn15gtMujegsYyzBPF9RQRL9WQy
- 5r28qwwGSOICI/tqd+EH3xC9mvmwlH+zsPk6Oe0NDa2RO+cARXt2hYs9DeiD/fwMJqeT
- X1VWb+yNjMOo1gjTuKvycVdukKlkVS1y+C8e+K+RXSTFt8XDAtCFTvwYhfulLRTJtpni
- iROqmVtyYpSByXOSAFDlYHC5wmcqFPQN3gh3p/FLDG+bi1lTg5YMEWfujS5wqrmL8r3U
- EHiG2lX43apTRi/txpixL8H4QNjwca5OR82cn/ch3V0kU5FMhrVKpkNBNTeYji8OQ15w
- ntGA==
-X-Gm-Message-State: AOJu0Yw1lYqY9IXxW+y9ZfpPczhMLxi0511uEJZVVS2aFJIjbPbtGJd6
- cOGnJ1TdcLYSfAGY/8fd50GocbePhRDYs3raRDc8F+hQzq9ilKhhqvtuZ1DwYeLkEB8=
-X-Gm-Gg: AfdE7clozY/egmxnt/Mvem7ib5sliVUZrGzvql4ofZEe5LneygeBWTbYuc1NmPOIj2A
- yvgcd8EJNmX3yyEm2PbM7hvr+sNuCwcAcxPKXIn6JG6t78XysGeGB2Nz+qbx93NXMkvm6ycp7CE
- iumHpoOz82inK8N24K9manirEhGdutBFkMbjmLeDw/WFny90oAN+CNiix7yhKXP7rwzESXxiR/O
- WRPq/qGRHJqdzsPx+aEnuyOHlT7VhFUPxhslQjSIp6FNqlAndUBmUuOB8nw+yeaWNMt/46cBIu+
- 50xCQZddc254dN3dW0CaFm8sYxKmhuKt4Fn1fNvUW5XZ0Z1C2y0K7coZtjp69J90V8ma3yDHI67
- uFVDSotkAA2HiYrGryAKa5mGAQPVkfsw86QhwoHHTmyR2c1hEFi+JDe5yrYkwpgrpz0C35ksGMS
- UY8d2UjRG0cUeLHXU9GbIGLLc5Aptaz4UxDEoOCyzGvBGryQkm0h5IXfZGkYH+HyIXMQREjcxYD
- dt/ww==
-X-Received: by 2002:a05:6808:3508:b0:48a:b4ad:9dc4 with SMTP id
- 5614622812f47-48ab4adb250mr3459662b6e.10.1781969028772; 
- Sat, 20 Jun 2026 08:23:48 -0700 (PDT)
-Received: from mail.minyard.net ([2001:470:b8f6:1b:c99d:af19:3e7e:706c])
- by smtp.gmail.com with ESMTPSA id
- 5614622812f47-48ae8b3b1efsm1392657b6e.0.2026.06.20.08.23.45
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 20 Jun 2026 08:23:46 -0700 (PDT)
-Date: Sat, 20 Jun 2026 10:23:42 -0500
-From: Corey Minyard <corey@minyard.net>
-To: Zenghui Yu <zenghui.yu@linux.dev>
-Message-ID: <ajawfhU5nCR93DL_@mail.minyard.net>
-References: <20260620122747.7902-1-zenghui.yu@linux.dev>
+ (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
+ id 1wb0cX-0008Oo-Kv for openipmi-developer@lists.sourceforge.net;
+ Sat, 20 Jun 2026 18:40:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+ Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+ Message-ID:Sender:Reply-To:Content-ID:Content-Description;
+ bh=lF91LOryZhh9Xbnlao0wR5FYAQfbHc7j4pr9N+nyMk8=; b=yOYjAXtMGYVQWk4we9CyvduKi2
+ oed/dqL5xd+1AI/uU5hz6klED6dWMSLYh6AaKGeM25jLsMF7LtVD9PraB2Z6+xPdMTiGcrdms43I1
+ 1FJRh5s/Jov8kkAzdrD3FVLhTJmctvCbKDOMWZzoOPs8NPmbOMUEaHY/8MS6Lq1Fkwa1g8jU81ia5
+ UY6YRIV5Z/w+TuUGocFORYNXc0YxWyeUeO6qRU2OkSvMhjYY3hKTz8l+dVuVYYF1M7FJ2F4tKQobY
+ i0pUlVnywo+zG5x2CVrLs1aOjr9dv3Xda3ervxJpvKfTHAiPCnfgmndOx8F4gXwkDojfF8JUFmvCj
+ O77u0nqA==;
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+ by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+ id 1wb0cL-00000003VFx-3del; Sat, 20 Jun 2026 18:40:33 +0000
+Message-ID: <626477f6-8bda-4cac-8341-c720fd279ba3@infradead.org>
+Date: Sat, 20 Jun 2026 11:40:32 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+To: Zenghui Yu <zenghui.yu@linux.dev>,
+ openipmi-developer@lists.sourceforge.net, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260620122747.7902-1-zenghui.yu@linux.dev>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
 In-Reply-To: <20260620122747.7902-1-zenghui.yu@linux.dev>
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
@@ -121,10 +91,10 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On Sat, Jun 20, 2026 at 08:27:47PM +0800, Zenghui Yu wrote:
- > The correct path of the "hotmod" module parameter should be >
+ Content preview:  On 6/20/26 5:27 AM, Zenghui Yu wrote: > The correct path
+ of the "hotmod" module parameter should be >
  /sys/module/ipmi_si/parameters/hotmod.
- Fix it. Thanks, it's in my queue. -corey 
+ Fix it. > > Signed-off-by: Zenghui Yu <zenghui.yu@linux.dev [...] 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -135,9 +105,7 @@ X-Spam-Report: Spam detection software,
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.175 listed in wl.mailspike.net]
-X-Headers-End: 1waxY6-0007cG-Vz
+X-Headers-End: 1wb0cX-0008Oo-Kv
 Subject: Re: [Openipmi-developer] [PATCH] docs: ipmi: Fix path of the
  "hotmod" module parameter
 X-BeenThere: openipmi-developer@lists.sourceforge.net
@@ -152,10 +120,7 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-Reply-To: corey@minyard.net
-Cc: openipmi-developer@lists.sourceforge.net, corbet@lwn.net,
- skhan@linuxfoundation.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org
+Cc: corey@minyard.net, skhan@linuxfoundation.org, corbet@lwn.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
@@ -163,74 +128,59 @@ X-Rspamd-Action: no action
 X-Spamd-Result: default: False [-1.01 / 15.00];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
 	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
-	MAILLIST(-0.20)[mailman];
 	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
-	DMARC_POLICY_SOFTFAIL(0.10)[minyard.net : SPF not aligned (strict), DKIM not aligned (strict),none];
+	MAILLIST(-0.20)[mailman];
 	MIME_GOOD(-0.10)[text/plain];
+	DMARC_POLICY_SOFTFAIL(0.10)[infradead.org : SPF not aligned (relaxed), DKIM not aligned (relaxed),none];
 	HAS_LIST_UNSUB(-0.01)[];
-	FORGED_SENDER_MAILLIST(0.00)[];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
 	RCVD_TLS_LAST(0.00)[];
-	DKIM_MIXED(0.00)[];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,minyard.net:s=google];
-	ARC_NA(0.00)[];
-	FORGED_RECIPIENTS(0.00)[m:zenghui.yu@linux.dev,m:openipmi-developer@lists.sourceforge.net,m:corbet@lwn.net,m:skhan@linuxfoundation.org,m:linux-kernel@vger.kernel.org,m:linux-doc@vger.kernel.org,s:lists@lfdr.de];
-	MIME_TRACE(0.00)[0:+];
-	FORGED_SENDER(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
+	RCVD_COUNT_THREE(0.00)[4];
+	FORGED_SENDER(0.00)[rdunlap@infradead.org,openipmi-developer-bounces@lists.sourceforge.net];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,infradead.org:s=bombadil.20210309];
 	TO_DN_SOME(0.00)[];
+	FORGED_RECIPIENTS(0.00)[m:zenghui.yu@linux.dev,m:openipmi-developer@lists.sourceforge.net,m:linux-doc@vger.kernel.org,m:linux-kernel@vger.kernel.org,m:corey@minyard.net,m:skhan@linuxfoundation.org,m:corbet@lwn.net,s:lists@lfdr.de];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
 	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,minyard.net:-];
-	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
-	FORGED_RECIPIENTS_FORWARDING(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[6];
-	FORGED_SENDER_FORWARDING(0.00)[];
-	RCVD_COUNT_FIVE(0.00)[5];
-	PREVIOUSLY_DELIVERED(0.00)[openipmi-developer@lists.sourceforge.net];
-	REPLYTO_ADDR_EQ_FROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
+	DKIM_MIXED(0.00)[];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[linux.dev:email,mail.minyard.net:mid,lists.sourceforge.net:dkim,lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:from_smtp];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
-	MISSING_XM_UA(0.00)[];
+	FORGED_SENDER_MAILLIST(0.00)[];
+	FORGED_SENDER_FORWARDING(0.00)[];
 	ALIAS_RESOLVED(0.00)[];
-	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	FROM_NEQ_ENVFROM(0.00)[rdunlap@infradead.org,openipmi-developer-bounces@lists.sourceforge.net];
+	FROM_HAS_DN(0.00)[];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,infradead.org:-];
+	RCPT_COUNT_SEVEN(0.00)[7];
 	TAGGED_RCPT(0.00)[openipmi-developer];
+	FORGED_RECIPIENTS_FORWARDING(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
-	HAS_REPLYTO(0.00)[corey@minyard.net]
+	DBL_BLOCKED_OPENRESOLVER(0.00)[linux.dev:email]
 X-Rspamd-Server: lfdr
-X-Rspamd-Queue-Id: 29C386A91C7
+X-Rspamd-Queue-Id: 725876A97C8
 
-On Sat, Jun 20, 2026 at 08:27:47PM +0800, Zenghui Yu wrote:
+
+
+On 6/20/26 5:27 AM, Zenghui Yu wrote:
 > The correct path of the "hotmod" module parameter should be
 > /sys/module/ipmi_si/parameters/hotmod. Fix it.
-
-Thanks, it's in my queue.
-
--corey
-
 > 
 > Signed-off-by: Zenghui Yu <zenghui.yu@linux.dev>
 > ---
 >  Documentation/driver-api/ipmi.rst | 2 +-
 >  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/driver-api/ipmi.rst b/Documentation/driver-api/ipmi.rst
-> index f52ab2df2569..d08cee98e34a 100644
-> --- a/Documentation/driver-api/ipmi.rst
-> +++ b/Documentation/driver-api/ipmi.rst
-> @@ -495,7 +495,7 @@ tuned to the user's desired performance.
->  
->  The driver supports a hot add and remove of interfaces.  This way,
->  interfaces can be added or removed after the kernel is up and running.
-> -This is done using /sys/modules/ipmi_si/parameters/hotmod, which is a
-> +This is done using /sys/module/ipmi_si/parameters/hotmod, which is a
->  write-only parameter.  You write a string to this interface.  The string
->  has the format::
->  
-> -- 
-> 2.53.0
-> 
+
+There are several other places that use /sys/modules/ instead of
+/sys/module/.
+
+Would you care to fix those also?
+
+thanks.
+-- 
+~Randy
+
 
 
 _______________________________________________
