@@ -2,127 +2,145 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by mail.lfdr.de with LMTP
-	id 5sePJeb3PWoh9ggAu9opvQ
+	id yrRmHcT3PWoK9ggAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Fri, 26 Jun 2026 05:54:14 +0200
+	for <lists+openipmi-developer@lfdr.de>; Fri, 26 Jun 2026 05:53:40 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 279256C9F94
-	for <lists+openipmi-developer@lfdr.de>; Fri, 26 Jun 2026 05:54:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A0C7A6C9F80
+	for <lists+openipmi-developer@lfdr.de>; Fri, 26 Jun 2026 05:53:39 +0200 (CEST)
 Authentication-Results: mail.lfdr.de;
-	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=IfH2V10U;
-	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=VAGG3FdW;
-	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=EwW5gcl7;
-	dkim=fail ("body hash did not verify") header.d=email-od.com header.s=dkim header.b=Ug5lIfdE;
+	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b="ICs/MsMy";
+	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=aojur6FV;
+	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=LVwoiCDh;
+	dkim=fail ("body hash did not verify") header.d=minyard.net header.s=google header.b=Er4phO+d;
 	spf=pass (mail.lfdr.de: domain of openipmi-developer-bounces@lists.sourceforge.net designates 216.105.38.7 as permitted sender) smtp.mailfrom=openipmi-developer-bounces@lists.sourceforge.net;
-	dmarc=none
+	dmarc=fail reason="SPF not aligned (strict), DKIM not aligned (strict)" header.from=minyard.net (policy=none)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Subject:MIME-Version:References:In-Reply-To:Message-ID:Date:To:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=28FAnr3wA+3HMykp52UdtCHvfwcJUXxw9xDAZ8DO/L0=; b=IfH2V10U4qXgFmDFexy28eIdTY
-	nO+z0Tk74VT0ZTcHlJuc9hoX1FNk2xMOkw6XxspnlMrM6nMIJZcHhbN42rHwDGCptpyPbJU6ntNxd
-	BcboF0aBNwtJlvqq9Xh+xrf1rCZv/MXdRxkPrDNDp2tNJhPw2I3shAr3u0ehVkvP66YQ=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:
+	List-Id:Subject:In-Reply-To:MIME-Version:References:Message-ID:To:From:Date:
+	Sender:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TgJ6md2FimiGGt4KS1/lgR71bbkPWBPXxsN+pMZuaNc=; b=ICs/MsMyO7N8zVzIyDMwMb1IA+
+	41PHz9mxMCKDc8ezXVneqW8D82sEcvKpTK2RWux7mWrKp1s2J/xT3YZxFm2tHo3t/Vrn6TdlBFYSU
+	ANCndldQs/++sTKe8HvSrV/iCkp7/Qpq3hbTkLlkOH8oaFLJVAqUby2wxR0pw2cAmbmM=;
+Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
+	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1wcxdn-0003lO-Df;
-	Fri, 26 Jun 2026 03:54:04 +0000
+	id 1wcxd9-0001l7-Ow;
+	Fri, 26 Jun 2026 03:53:28 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95) (envelope-from
- <4504.82.47781000001268a.b93c8fa8c33b6913544b93bae4e16e77@email-od.com>)
- id 1wctnt-0004ag-TX for openipmi-developer@lists.sourceforge.net;
- Thu, 25 Jun 2026 23:48:17 +0000
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
+ (envelope-from <corey@minyard.net>) id 1wcxd3-0001kf-QG
+ for openipmi-developer@lists.sourceforge.net;
+ Fri, 26 Jun 2026 03:53:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
- In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+ d=sourceforge.net; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
+ Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=mUM4h5webrIL3hHJwfioi6vOP6GUI22fY7vCjVOlmik=; b=VAGG3FdWp2Sz2xpadC1JLxvvKv
- 6EUcG/IjGCXlmwga4pknkk722ywBQ3jE52Z+f+m2p418IeQDd1xIRGq4y7reaug51ddRIdwLabEAh
- j/32FbbecXDulmOve+LdhlfQ5ZZtXq2W5PvsdTCXkGlp5y3d+I7ap4aGh4kcyG14z1YQ=;
+ bh=5ekautMQd5B1wPD60Ni6tLMTSZM+lQAdPvFp6WPEqzk=; b=aojur6FV0PnDC8vRl2rNb/0xz0
+ DRKd/TdoDYpJBW3WKxLL5imIDxGVF0XhcvlAHBtm01+8NTFLvClcBEopetCZyDPlPiCm4AQjuCO+2
+ QtcUvcJQS3r8I2ch64J5ZUwZULipIjBmOQhi1w1xKeBhbbxadn01/WNy/s64F9RcJ4+U=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ;
- h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
- Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ h=In-Reply-To:Content-Type:MIME-Version:References:Reply-To:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Content-Transfer-Encoding:Content-ID:
  Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
  :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
  List-Post:List-Owner:List-Archive;
- bh=mUM4h5webrIL3hHJwfioi6vOP6GUI22fY7vCjVOlmik=; b=EwW5gcl7DQ4hWhDAidDjpwtKtm
- gCIsWdTATqCtKKgGBhEZEkTzte6yWL6gXpOMDfmlHuBAe2276aMME9Mq+uu1XDWX8RKgJelTUOcDv
- ERTKhKr5ubfW0nPRFGUmkqzbaPVT061B12QC2aLEwtvTX+LPnDeswQC+qnRobow3tAkc=;
-Received: from s1-ba86.socketlabs.email-od.com ([142.0.186.134])
+ bh=5ekautMQd5B1wPD60Ni6tLMTSZM+lQAdPvFp6WPEqzk=; b=LVwoiCDh6MNsU103uZGDJF3q+M
+ VdwYyNPZSi7YkSz9JcHjiizTdR+qF2uDTw+WlYExu/cysYJpZHoCtaqZuY34ME+vVj5KPRlaFFmWE
+ j4NSuPl1ZQ9IRRfu7wyyGDRzmE88u3F4H+KHJQPdTYxZS2ZjqOa1Bzxf8yvpR3jUkBs0=;
+Received: from mail-ot1-f44.google.com ([209.85.210.44])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
- (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1wctns-0005Hy-Pj for openipmi-developer@lists.sourceforge.net;
- Thu, 25 Jun 2026 23:48:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; d=email-od.com;i=@email-od.com;s=dkim;
- c=relaxed/relaxed; q=dns/txt; t=1782431297; x=1785023297;
- h=content-transfer-encoding:mime-version:references:in-reply-to:message-id:date:subject:cc:to:from:x-thread-info:subject:to:from:cc:reply-to;
- bh=mUM4h5webrIL3hHJwfioi6vOP6GUI22fY7vCjVOlmik=;
- b=Ug5lIfdEHQSAIKeseY6pFBey+yEYz66UI2kBm5Aq0kLYBVRpYtEEAcrP2XfwWrTZdefzgqeTjDLRcIafO1pyjZEoKRHnPMPzfKqJl/Qiw4kRBaDI7FFBLwpB5Lgm8SRfgaGYWuTxND++Sxd4Qn01+LeTIe4ie4TChgiYiiisQy4=
-X-Thread-Info: NDUwNC4xMi40Nzc4MTAwMDAwMTI2OGEub3BlbmlwbWktZGV2ZWxvcGVyPWxpc3RzLnNvdXJjZWZvcmdlLm5ldA==
-x-xsSpam: eyJTY29yZSI6MCwiRGV0YWlscyI6bnVsbH0=
-Received: from nalramli-fst-tp.. (d4-50-191-215.clv.wideopenwest.com
- [50.4.215.191])
- by nalramli.com (Postfix) with ESMTPSA id 3E0D92CE01A2;
- Thu, 25 Jun 2026 18:47:46 -0400 (EDT)
-From: "Nabil S. Alramli" <dev@nalramli.com>
-To: corey@minyard.net
-Date: Thu, 25 Jun 2026 18:47:41 -0400
-Message-ID: <20260625224741.3632191-2-dev@nalramli.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260625224741.3632191-1-dev@nalramli.com>
+ (TLS1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.95)
+ id 1wcxd3-0003VU-AU for openipmi-developer@lists.sourceforge.net;
+ Fri, 26 Jun 2026 03:53:22 +0000
+Received: by mail-ot1-f44.google.com with SMTP id
+ 46e09a7af769-7e6e9408e30so469830a34.2
+ for <openipmi-developer@lists.sourceforge.net>;
+ Thu, 25 Jun 2026 20:53:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=minyard.net; s=google; t=1782445991; x=1783050791; darn=lists.sourceforge.net;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=5ekautMQd5B1wPD60Ni6tLMTSZM+lQAdPvFp6WPEqzk=;
+ b=Er4phO+d+eJI7/az+5bDdqz61Q/4UdJN31s8tHWS71A227r4yvlKx9/sAJ83sNJI7S
+ hGLr7l3I2U7XCZ4pILGRCW4ABFxtYmBXRtTH5L2YtdV+FoP7IXJDfGEYdoWM53GGvkat
+ CwrcLaxsdBgl4pSY9gTM5E59uak84YfWgYVo0zFMcnZhv8Bf81x0nBKij6WILxbB91U0
+ lTJZ26K1BmI8NaF+0mvo/IBubsNuOi/6RHI9L2eaDiDW3ScBpubLtqoweXFtAndKqM2i
+ OJ8Kl1YKsqKe6gN6ao4lhmPM6MNeyOkpG2jC3sr156l3QAeXiMSw6U7dAgVVmFcviN5u
+ 28Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20251104; t=1782445991; x=1783050791;
+ h=in-reply-to:content-disposition:mime-version:references:reply-to
+ :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+ :to:cc:subject:date:message-id:reply-to;
+ bh=5ekautMQd5B1wPD60Ni6tLMTSZM+lQAdPvFp6WPEqzk=;
+ b=hdOCix5s8q6pcs3oyA7P735EtQ8ns1yYm4VVS0PO3lHKQC1Xnnq0FF3nF5GRgoNWNK
+ 0k4sDije2tUFmT/A6V7X9he7dnVRSFLJgpqw1C0HFxm3ky8EpQ3sllAqEDSi/KPQ7eOa
+ XFXKD6++Ldnh4SKHcXTdE046WV1o1ThE1GDS46bdmmGgoC+lvQaDLGHflYlarKuYJ+Bz
+ C/EStjyV+tc3dVDJaa7bFm3hj0dl6eh9p6aXZDG9FQiBnU4ZVYgsxnJUKtLHYcJlDiBQ
+ wAzZkic9vqYPIAn9gPm3vbIWQ7wwWYH5m5l3tzUiz9eWwAVHT+22gD0s0IU5ZBi8pBwk
+ witA==
+X-Forwarded-Encrypted: i=1;
+ AFNElJ/8smkp6NZl4ogB39jd5tDMX9RktbgkO08qudYSChFXzd9iTU3r4Je/4gvA/vvuCnnUIg3O2g8zecA9M9bKJi2/mJ4=@lists.sourceforge.net
+X-Gm-Message-State: AOJu0YzZRWsVFG7lP/82ZLLrkAkINX5tMYZgsm/HKvYEYBovNWjFhZ4H
+ avOHk3JTM7pnfZtoUlywSyDbeJ7G9vWCnCZLcx9IpGCMe2IRA/SD35tGVH6nMqBorzY=
+X-Gm-Gg: AfdE7ckLmunNBEDI1VEQQNk9MME2HQXG9FGhxtdfob85QLBoaJH4BMuds9L4EyzmvCL
+ kzXUeH5mw8L3cUvkEQIetq83KufyjM01M158NKlKZI93athf0GawozCHLaNVvefJfoR/HlKV+WK
+ JdSjXYiWU2zUWVMrNketwMiiLiITS+gPOi5wYxBDB+prXHBajmu/1ixnzIewXscGgPkndATExu0
+ GagcyMPhtXKD5pB6pmoi+lcTudSIUnXSz48pOvksjtrQJhcFdP6T49+VWF+QZcP54XKMF8UZbOf
+ 1MahiWRf8vIJOD4Ej0G3ONOO0FZ6SwANtU+0JPFihFzS4T039nTqZjCuU6sQn5R91BEHjzMrY4W
+ SZJF4Ae1AQlZof/ap6ZRTU0LhTUWqUnksXl4ave5Q8v8QPYLZblJsWx3BXT6V7gH0x4GKUrGRA4
+ NwI5+tC0Q7YhMhM+/YYe1scuxaCRkgfE9rPNHBcau/gBXYdbUCx2CodfHdAca5CRYIOFcGU6/+m
+ qeGTUm4WB7ELZsLO6LgjJckTTK9UtA18VbV3A==
+X-Received: by 2002:a05:6808:1211:b0:48a:a85b:ba53 with SMTP id
+ 5614622812f47-4921b03a0f7mr4919378b6e.35.1782445991132; 
+ Thu, 25 Jun 2026 20:53:11 -0700 (PDT)
+Received: from mail.minyard.net ([2001:470:b8f6:1b:c047:37b0:eea4:3569])
+ by smtp.gmail.com with ESMTPSA id
+ 5614622812f47-49352504eeasm669482b6e.4.2026.06.25.20.53.07
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 25 Jun 2026 20:53:09 -0700 (PDT)
+Date: Thu, 25 Jun 2026 22:53:04 -0500
+From: Corey Minyard <corey@minyard.net>
+To: "Nabil S. Alramli" <dev@nalramli.com>
+Message-ID: <aj33oLelZRBlYgKD@mail.minyard.net>
 References: <20260625224741.3632191-1-dev@nalramli.com>
 MIME-Version: 1.0
-X-Spam-Score: -4.9 (----)
+Content-Disposition: inline
+In-Reply-To: <20260625224741.3632191-1-dev@nalramli.com>
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
  running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  On certain hardware, the BMC firmware takes longer to become
- available. We get errors that look like below, after which the BMC does not
- recover and is unavailable for the rest of the boot: ``` kernel: ipmi_si
- IPI0001:00: BMC returned 0xc0,
- retry get bmc device id kernel: ipmi_si IPI0001:00:
- BMC returned 0xc0, retry get bmc device id kernel: ipmi_si IPI0001:00: BMC
- returned 0xc0, retry g [...] 
- Content analysis details:   (-4.9 points, 5.0 required)
+ Content preview:  On Thu, Jun 25, 2026 at 06:47:40PM -0400, Nabil S. Alramli
+ wrote: > Hello ipmi / BMC experts, > > We have been dealing with certain
+ servers where the BMC firmware takes > longer than usual to become a [...]
+ Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.2 RCVD_IN_IADB_DK        RBL: IADB: Sender publishes Domain Keys record
- [142.0.186.134 listed in iadb.isipp.com]
- -0.0 RCVD_IN_IADB_SENDERID  RBL: IADB: Sender publishes Sender ID record
- [142.0.186.134 listed in iadb.isipp.com]
- -0.2 RCVD_IN_IADB_RDNS      RBL: IADB: Sender has reverse DNS record
- [142.0.186.134 listed in iadb.isipp.com]
- -2.1 RCVD_IN_IADB_OPTIN     RBL: IADB: All mailing list mail is opt-in
- [142.0.186.134 listed in iadb.isipp.com]
- -0.0 RCVD_IN_IADB_ESP       RBL: IADB: Email Service Provider (ESP)
- [142.0.186.134 listed in iadb.isipp.com]
- -0.0 RCVD_IN_IADB_SPF       RBL: IADB: Sender publishes SPF record
- [142.0.186.134 listed in iadb.isipp.com]
- -0.4 RCVD_IN_IADB_LISTED    RBL: Participates in the IADB system
- [142.0.186.134 listed in iadb.isipp.com]
- -2.2 RCVD_IN_IADB_VOUCHED   RBL: ISIPP IADB lists as vouched-for sender
- [142.0.186.134 listed in iadb.isipp.com]
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
+ domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level mail
- domains are different
- -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium trust sender
-X-Headers-End: 1wctns-0005Hy-Pj
-X-Mailman-Approved-At: Fri, 26 Jun 2026 03:54:03 +0000
-Subject: [Openipmi-developer] [bmc/for-next RFC 1/1] ipmi: Retry BMC 100
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.44 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+X-Headers-End: 1wcxd3-0003VU-AU
+Subject: Re: [Openipmi-developer] [bmc/for-next RFC 0/1] ipmi: Retry BMC 100
  times
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
@@ -136,85 +154,84 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
+Reply-To: corey@minyard.net
 Cc: openipmi-developer@lists.sourceforge.net, nalramli@fastly.com,
- dev@nalramli.com, linux-kernel@vger.kernel.org
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-0.11 / 15.00];
-	MID_CONTAINS_FROM(1.00)[];
+X-Spamd-Result: default: False [-1.01 / 15.00];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
-	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7:c];
-	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MAILLIST(-0.20)[mailman];
+	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
+	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
 	MIME_GOOD(-0.10)[text/plain];
+	DMARC_POLICY_SOFTFAIL(0.10)[minyard.net : SPF not aligned (strict), DKIM not aligned (strict),none];
 	HAS_LIST_UNSUB(-0.01)[];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
-	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:openipmi-developer@lists.sourceforge.net,m:nalramli@fastly.com,m:dev@nalramli.com,m:linux-kernel@vger.kernel.org,s:lists@lfdr.de];
 	FORGED_SENDER_MAILLIST(0.00)[];
 	RCVD_TLS_LAST(0.00)[];
-	FORGED_SENDER(0.00)[dev@nalramli.com,openipmi-developer-bounces@lists.sourceforge.net];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_THREE(0.00)[4];
-	DMARC_NA(0.00)[nalramli.com: no valid DMARC record];
-	ARC_NA(0.00)[];
-	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,minyard.net:s=google];
 	DKIM_MIXED(0.00)[];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,email-od.com:-];
-	RCPT_COUNT_FIVE(0.00)[5];
+	ARC_NA(0.00)[];
+	FORGED_RECIPIENTS(0.00)[m:dev@nalramli.com,m:openipmi-developer@lists.sourceforge.net,m:nalramli@fastly.com,m:linux-kernel@vger.kernel.org,s:lists@lfdr.de];
+	MIME_TRACE(0.00)[0:+];
+	FORGED_SENDER(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
+	TO_DN_SOME(0.00)[];
+	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,minyard.net:-];
+	RCPT_COUNT_THREE(0.00)[4];
+	HAS_REPLYTO(0.00)[corey@minyard.net];
 	FORGED_SENDER_FORWARDING(0.00)[];
-	TO_DN_NONE(0.00)[];
-	FROM_NEQ_ENVFROM(0.00)[dev@nalramli.com,openipmi-developer-bounces@lists.sourceforge.net];
+	RCVD_COUNT_FIVE(0.00)[5];
+	PREVIOUSLY_DELIVERED(0.00)[openipmi-developer@lists.sourceforge.net];
+	REPLYTO_ADDR_EQ_FROM(0.00)[];
 	FROM_HAS_DN(0.00)[];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,email-od.com:s=dkim];
+	FROM_NEQ_ENVFROM(0.00)[corey@minyard.net,openipmi-developer-bounces@lists.sourceforge.net];
+	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
 	ALIAS_RESOLVED(0.00)[];
 	TAGGED_RCPT(0.00)[openipmi-developer];
-	FORGED_RECIPIENTS_MAILLIST(0.00)[];
 	FORGED_RECIPIENTS_FORWARDING(0.00)[];
-	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	MID_RHS_MATCH_FROMTLD(0.00)[];
+	MISSING_XM_UA(0.00)[];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:dkim,lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:from_smtp]
+	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[minyard.net:replyto,minyard.net:from_mime,lists.sourceforge.net:dkim,lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:from_smtp]
 X-Rspamd-Server: lfdr
-X-Rspamd-Queue-Id: 279256C9F94
+X-Rspamd-Queue-Id: A0C7A6C9F80
 
-On certain hardware, the BMC firmware takes longer to become available. We
-get errors that look like below, after which the BMC does not recover and
-is unavailable for the rest of the boot:
+On Thu, Jun 25, 2026 at 06:47:40PM -0400, Nabil S. Alramli wrote:
+> Hello ipmi / BMC experts,
+> 
+> We have been dealing with certain servers where the BMC firmware takes
+> longer than usual to become available. We have been able to work around
+> the problem by increasing the BMC retry counter GET_DEVICE_ID_MAX_RETRY
+> from 5 to 100. Would you please share some guidance on whether or not this
+> is a valid approach, and if it would be possible to incorporate in your
+> next release?
 
-```
-kernel: ipmi_si IPI0001:00: BMC returned 0xc0, retry get bmc device id
-kernel: ipmi_si IPI0001:00: BMC returned 0xc0, retry get bmc device id
-kernel: ipmi_si IPI0001:00: BMC returned 0xc0, retry get bmc device id
-kernel: ipmi_si IPI0001:00: BMC returned 0xc0, retry get bmc device id
-kernel: ipmi_si IPI0001:00: BMC returned 0xc0, retry get bmc device id
-kernel: ipmi_si IPI0001:00: There appears to be no BMC at this location
-```
+No, this is not going to work.  It can increase boot times too much on
+some systems where IPMI isn't working quite right.
 
-The fix is to increase the number of retries from 5 to 100, which allows
-the BMC firmware on this hardware enough time to start up.
+The right way to fix this is to schedule something later to keep
+retrying.  That's going to be a lot more complicated.
 
-Signed-off-by: Nabil S. Alramli <dev@nalramli.com>
----
- include/linux/ipmi.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+-corey
 
-diff --git a/include/linux/ipmi.h b/include/linux/ipmi.h
-index 7da6602eab71..662c664ce9de 100644
---- a/include/linux/ipmi.h
-+++ b/include/linux/ipmi.h
-@@ -339,7 +339,7 @@ struct ipmi_smi_info {
- /* This is to get the private info of struct ipmi_smi */
- extern int ipmi_get_smi_info(int if_num, struct ipmi_smi_info *data);
- 
--#define GET_DEVICE_ID_MAX_RETRY		5
-+#define GET_DEVICE_ID_MAX_RETRY		100
- 
- /* Helper function for computing the IPMB checksum of some data. */
- unsigned char ipmb_checksum(unsigned char *data, int size);
--- 
-2.43.0
-
+> 
+> Best Regards,
+> 
+> Nabil S. Alramli (1):
+>   ipmi: Retry BMC 100 times
+> 
+>  include/linux/ipmi.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> -- 
+> 2.43.0
+> 
 
 
 _______________________________________________
