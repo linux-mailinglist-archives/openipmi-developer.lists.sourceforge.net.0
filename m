@@ -2,100 +2,97 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by mail.lfdr.de with LMTP
-	id QpJwFA1cQmqh5QkAu9opvQ
+	id TVdeEw1cQmqf5QkAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
 	for <lists+openipmi-developer@lfdr.de>; Mon, 29 Jun 2026 13:50:37 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 997776D9A60
+	by mail.lfdr.de (Postfix) with ESMTPS id 88EF26D9A5F
 	for <lists+openipmi-developer@lfdr.de>; Mon, 29 Jun 2026 13:50:36 +0200 (CEST)
 Authentication-Results: mail.lfdr.de;
-	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=kr3wZ4Jo;
-	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=WQUbVymr;
-	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=b1Tqa6v0;
-	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b=KJtjbnW1;
+	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=i1DgEquS;
+	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b="U/+067LJ";
+	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=ILXFavEL;
+	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b=qAJxWiPV;
 	spf=pass (mail.lfdr.de: domain of openipmi-developer-bounces@lists.sourceforge.net designates 216.105.38.7 as permitted sender) smtp.mailfrom=openipmi-developer-bounces@lists.sourceforge.net;
 	dmarc=pass (policy=none) header.from=lists.sourceforge.net
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
 	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:To:MIME-Version:Message-Id:Date:Sender:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KvPdP+EwlyyMk1geVrlDoOrRPmH8XxCWDCIxSYmcIDI=; b=kr3wZ4Jo/ypuG8EM5XLEZjOWHM
-	bD3aPHVCq3H7ZoIZtAK5raJKRrpjn1jli60g+kcO0FrhtNBC7glUvuRTysFuLEfXI3HDjRDUXmLwA
-	ZirjuJj3rNtF58fxvh9wP+e8LQ7szExDInRahZLb7qWYL3SjA7pupKaHFVv9fGMHmzWE=;
+	List-Unsubscribe:List-Id:Subject:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Date:Sender:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uxbNAyPPXIKr9orNp7tqJUtiQPYZbu96h+uZuzTtIzQ=; b=i1DgEquSzxUQg7IcorMtyM1pVW
+	jdBDj7+kN8mx7L4z97Hx+HDin4SGJYrLh6vbR2cZe1ioL+eLrrjpCkKdFZgNbmGfew8/BvGeLVI3J
+	Ea86lpjms/nUV/0KYztFjXXRNsDYdoHBM0ad9yCVkCKAKAFt7tPUIme/0I/679JvYsts=;
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1weAVU-0003D4-2y;
+	id 1weAVT-0003Cm-Cq;
 	Mon, 29 Jun 2026 11:50:32 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <devnull+yc_hsieh.aspeedtech.com@kernel.org>)
- id 1we5oO-0008Jc-Pz for openipmi-developer@lists.sourceforge.net;
- Mon, 29 Jun 2026 06:49:44 +0000
+ id 1we5oK-0004EK-59 for openipmi-developer@lists.sourceforge.net;
+ Mon, 29 Jun 2026 06:49:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Reply-To:Cc:To:Content-Transfer-Encoding:
- Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
+ Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=elnn7JUGC5l+jKw9U2Iosas8+d3MHu6QPBJwE1B2V50=; b=WQUbVymrrtT1+UbTcgidJhMU4G
- CdMKm1ZwMBiujixojgSEPzyDu/SVogAchxNkEr9vdD1BrWg0IvsQIRU1cxpAs2Ie9zzUrvPrlMBEL
- 6vcBiwTGeaFxIJP3CcMukOHF7TW+6c8ob0r/DyIZq9y98RYCBSkPMXaT/CkJStaEyOnY=;
+ bh=Brem5F6jsxIN6etVsDIuamNk9v7c1ikSU0zYL3gtl7k=; b=U/+067LJpcxx7cTBssLR4PcUNP
+ A06+5qnxcEl/kOWYzJuNS0aXoEuHMjXPJ5dUU4Tj5OlbBd1Hul5boON/PhBgOEyWX1e2m/s9m9NsA
+ e0W6o+HY3oCx5UyiI5JS/U5t1U8Nzw6juavZYOEusLhG0xvN4+9HD6xcW1/hE5zH2zbM=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
- ;
- h=Reply-To:Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
- Message-Id:Date:Subject:From:Sender:Content-ID:Content-Description:
- Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
- In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=elnn7JUGC5l+jKw9U2Iosas8+d3MHu6QPBJwE1B2V50=; b=b1Tqa6v0nYv6Ym+c3QxZNbknyJ
- NV5JWjjRql9JvxHrknTaidSv3G2T/iTkrtjjLg044eUCD+CPmU6f5cBsk2FMfNwUkq15nmxr/H9EE
- DnS0vqys7+iAClcmYO2C5Ggkjzo0sueRGoUjVG2Q8lmvaVYAS++6HqStcFBzsKsNKoHU=;
+ ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
+ Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=Brem5F6jsxIN6etVsDIuamNk9v7c1ikSU0zYL3gtl7k=; b=ILXFavELof2GIHYyZ4WVGlz6NZ
+ wAk3mws9X6C/jMuBiM/J0eEh8bejJkaUHl5742kyuJ6y3qXJkqBIiwGbYoeCanW/D/piXrRGUz0G8
+ Jt+mvMGkNel1aq8RUihj0ViKZBfebXkush4nmk2k+7Vv5fn3QbG9IOD2l5Ik79mThj9g=;
 Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1we5oN-0003Cm-R3 for openipmi-developer@lists.sourceforge.net;
- Mon, 29 Jun 2026 06:49:44 +0000
+ id 1we5oI-0003CI-Sj for openipmi-developer@lists.sourceforge.net;
+ Mon, 29 Jun 2026 06:49:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by sea.source.kernel.org (Postfix) with ESMTP id EFEAF43B03;
- Mon, 29 Jun 2026 06:49:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C72D9C19425;
+ by sea.source.kernel.org (Postfix) with ESMTP id 1A84F43D71;
+ Mon, 29 Jun 2026 06:49:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E60A0C2BCF4;
  Mon, 29 Jun 2026 06:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1782715773;
- bh=uq6YWgDsWWGXAC45T6w2Ey4osYNKqHhIwFzNycMRum0=;
- h=From:Subject:Date:To:Cc:Reply-To:From;
- b=KJtjbnW1/mqKsn403xVrjfNllzjp/b4KZ0ab99n/OwnpfS7xL3m8NLEypUizpITYe
- d5Wi+eSF/E1L/X+8EQbNUuowHU25QdOzrPVfJzDbJqqHnayE8RQNg+NiVOaqQEXgw5
- lqKG1rKaujmOxgeuKulxFFzpZGa3p3f2mo0ccQOKOkAchx9t0XTWDznUQJ7V+HJiK6
- OKezfWYasXnMr/I2JULjMY8T2erEpk4m/csazqMENxhBparDm86LY/5qE1kxT8562/
- zixx8yNtgdmcMfdurTGAzi22dMS6nKcnRTBDug9zQtOzBbq+x/nm3THQqHpYGOlT5y
- agRvKEsmdvGAA==
+ s=k20201202; t=1782715774;
+ bh=FDwiNnQBBCZ/QNpWwqyHzdSkJIqsF5fGdO+P3uhJhds=;
+ h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+ b=qAJxWiPVg6528Lhg4/0l0Av5OZ8Gz+nivKx5XllbrCQ8K3951ahAjQKIrxZ2w9+US
+ 9KEMeSuKAenLBKu6fD+biwpbGu1Y/yNNIUAe82HYmpVnSCeoApmJ8soBTa5Vh9FXem
+ maezA0zXrkmlJe/AsUXsT0ahXmv1XyunYhe1azV/6ad4TRjpakhJ5HxIpaTmuXdxtJ
+ ktsBMxHYjM3ZeWd8v0OnF59BtCrlYrBx9RO5RNEtiqFvXUwectd/Ul7hXr/QTqOWd7
+ dyjt8rqACywE5z5NgwtIe040NB1R5SGRHs7dlaFp1Nv3hFWOoXxJdjFx2JBsGvFA1b
+ pRnCuF+2do9nA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
  (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id BCD8FC43327;
+ by smtp.lore.kernel.org (Postfix) with ESMTP id CDDDCC43638;
  Mon, 29 Jun 2026 06:49:33 +0000 (UTC)
-Date: Mon, 29 Jun 2026 14:48:57 +0800
-Message-Id: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
+Date: Mon, 29 Jun 2026 14:48:58 +0800
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAFkVQmoC/x3MQQqAIBBA0avErBswsYKuEi3UxhooC60IpLtnL
- R98foJIgSlCVyQIdHHkzWdUZQF21n4i5DEbpJCNaGSNOu5EI5oDzWpxPZeDv9DTgkYpXQnnlGg
- t5MEeyPH9z/vheV7fNbWobAAAAA==
-X-Change-ID: 20260625-aspeed-bt-bmc-multichannel-b44a10ff407c
+Message-Id: <20260629-aspeed-bt-bmc-multichannel-v1-1-fc23ee337f7a@aspeedtech.com>
+References: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
+In-Reply-To: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
 To: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
  Andrew Jeffery <andrew@codeconstruct.com.au>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782715772; l=1578;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782715772; l=3925;
  i=yc_hsieh@aspeedtech.com; s=20260629; h=from:subject:message-id;
- bh=uq6YWgDsWWGXAC45T6w2Ey4osYNKqHhIwFzNycMRum0=;
- b=z0YtNlAtfb9bWuZnl+4DCd9uwBOGfUQn+aP+5ndB2O/l5fbsR+oL9XsClEErI4e3dyIgUSw3j
- dcqDi7YaxAXAgEuiRYiZKpRdhR3OWwyOGVjBozc1R3XAZPoZjC4B4Wp
+ bh=HQw8rGJUsM6loLGP55U5cgMUUCPUOKcrGTqHI8TGeyw=;
+ b=Mg57Y/Vn2ocHuNlZAZqksIQ0vRHfMU0JKXY0uL/knqv7c4ICD8NzGXdCdiFClN9xhS/Yheusc
+ B5G083PbCmYD71NYrV8XV1FsDJV8yyawcP2dzWurZPGlGsjI8mi6jI7
 X-Developer-Key: i=yc_hsieh@aspeedtech.com; a=ed25519;
  pk=kLxUeF7g6teciq79it9N3tYNgp3yCspZ+AHlYSnZ0gs=
 X-Endpoint-Received: by B4 Relay for yc_hsieh@aspeedtech.com/20260629 with
@@ -108,9 +105,10 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  The Aspeed BT BMC driver currently programs a fixed LPC IO
- address and SerIRQ value for the host-facing BT interface. That matches the
- original single-interface setup, but newer systems may need the host interface
+ Content preview:  From: Yu-Che Hsieh <yc_hsieh@aspeedtech.com> Use BIT(),
+ GENMASK(), 
+ and FIELD_PREP() for the BT register definitions and register field
+ programming.
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -121,10 +119,10 @@ X-Spam-Report: Spam detection software,
  domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1we5oN-0003Cm-R3
+X-Headers-End: 1we5oI-0003CI-Sj
 X-Mailman-Approved-At: Mon, 29 Jun 2026 11:50:29 +0000
-Subject: [Openipmi-developer] [PATCH 0/4] ipmi: bt-bmc: Add configurable LPC
- host interface
+Subject: [Openipmi-developer] [PATCH 1/4] ipmi: bt-bmc: Use bitfield helpers
+ for register definitions
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -153,24 +151,24 @@ X-Spamd-Result: default: False [-7.11 / 15.00];
 	SUSPICIOUS_RECIPS(1.50)[];
 	DMARC_POLICY_ALLOW_WITH_FAILURES(-0.50)[];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
-	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7:c];
 	MAILLIST(-0.20)[mailman];
+	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
 	MIME_GOOD(-0.10)[text/plain];
 	HAS_LIST_UNSUB(-0.01)[];
-	RCVD_TLS_LAST(0.00)[];
-	DKIM_MIXED(0.00)[];
-	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:robh@kernel.org,m:krzk+dt@kernel.org,m:conor+dt@kernel.org,m:joel@jms.id.au,m:andrew@codeconstruct.com.au,m:devnull+yc_hsieh.aspeedtech.com@kernel.org,m:devicetree@vger.kernel.org,m:linux-aspeed@lists.ozlabs.org,m:linux-kernel@vger.kernel.org,m:yc_hsieh@aspeedtech.com,m:openipmi-developer@lists.sourceforge.net,m:linux-arm-kernel@lists.infradead.org,m:krzk@kernel.org,m:conor@kernel.org,m:devnull@kernel.org,s:lists@lfdr.de];
-	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
 	MIME_TRACE(0.00)[0:+];
+	DKIM_MIXED(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
 	RCPT_COUNT_TWELVE(0.00)[13];
-	RECEIVED_HELO_LOCALHOST(0.00)[];
-	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
-	ARC_NA(0.00)[];
 	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	RECEIVED_HELO_LOCALHOST(0.00)[];
+	ARC_NA(0.00)[];
+	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
+	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
+	FORGED_RECIPIENTS(0.00)[m:corey@minyard.net,m:robh@kernel.org,m:krzk+dt@kernel.org,m:conor+dt@kernel.org,m:joel@jms.id.au,m:andrew@codeconstruct.com.au,m:devnull+yc_hsieh.aspeedtech.com@kernel.org,m:devicetree@vger.kernel.org,m:linux-aspeed@lists.ozlabs.org,m:linux-kernel@vger.kernel.org,m:yc_hsieh@aspeedtech.com,m:openipmi-developer@lists.sourceforge.net,m:linux-arm-kernel@lists.infradead.org,m:krzk@kernel.org,m:conor@kernel.org,m:devnull@kernel.org,s:lists@lfdr.de];
 	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,kernel.org:s=k20201202];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,kernel.org:-];
 	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,kernel.org:-];
 	RCVD_COUNT_FIVE(0.00)[6];
 	ALIAS_RESOLVED(0.00)[];
 	FORGED_SENDER_FORWARDING(0.00)[];
@@ -185,53 +183,139 @@ X-Spamd-Result: default: False [-7.11 / 15.00];
 	FORGED_SENDER_MAILLIST(0.00)[];
 	HAS_REPLYTO(0.00)[yc_hsieh@aspeedtech.com]
 X-Rspamd-Server: lfdr
-X-Rspamd-Queue-Id: 997776D9A60
+X-Rspamd-Queue-Id: 88EF26D9A5F
 
-The Aspeed BT BMC driver currently programs a fixed LPC IO address and
+From: Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
 
-SerIRQ value for the host-facing BT interface. That matches the original
+Use BIT(), GENMASK(), and FIELD_PREP() for the BT register definitions
 
-single-interface setup, but newer systems may need the host interface
+and register field programming.
 
-parameters to be described by firmware.
+This makes the register layout easier to read and prepares the driver
 
-The Aspeed KCS BMC and VUART bindings already use aspeed,lpc-io-reg and
+for later changes that need to program the BT_CR0 fields from device
 
-aspeed,lpc-interrupts for this purpose. Reuse the same properties for
+configuration.
 
-the BT BMC binding and teach the driver to consume them while preserving
-
-the existing default LPC IO address and level-low SerIRQ configuration
-
-when the properties are absent.
-
-The first two patches are small preparation patches. The register
-
-definitions are converted to bitfield helpers so BT_CR0 fields can be
-
-programmed by name, and the open state is moved from a global variable
-
-to the device instance so multiple BT devices are not blocked by a
-
-single shared open count.
-
+Signed-off-by: Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
 ---
-Yu-Che Hsieh (4):
-      ipmi: bt-bmc: Use bitfield helpers for register definitions
-      ipmi: bt-bmc: Track open state per device
-      dt-bindings: ipmi: Add optional LPC properties to ASPEED BT devices
-      ipmi: bt-bmc: Read LPC address and SerIRQ from device tree
+ drivers/char/ipmi/bt-bmc.c | 72 ++++++++++++++++++++++++----------------------
+ 1 file changed, 37 insertions(+), 35 deletions(-)
 
- .../bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml      |  21 ++++
- drivers/char/ipmi/bt-bmc.c                         | 118 ++++++++++++++-------
- 2 files changed, 99 insertions(+), 40 deletions(-)
----
-base-commit: 493181e2f2f1bdfd4f09a988008653ae73b30688
-change-id: 20260625-aspeed-bt-bmc-multichannel-b44a10ff407c
+diff --git a/drivers/char/ipmi/bt-bmc.c b/drivers/char/ipmi/bt-bmc.c
+index a179d4797011..f3c67272502f 100644
+--- a/drivers/char/ipmi/bt-bmc.c
++++ b/drivers/char/ipmi/bt-bmc.c
+@@ -15,6 +15,7 @@
+ #include <linux/poll.h>
+ #include <linux/sched.h>
+ #include <linux/timer.h>
++#include <linux/bitfield.h>
+ 
+ /*
+  * This is a BMC device used to communicate to the host
+@@ -24,33 +25,34 @@
+ #define BT_IO_BASE	0xe4
+ #define BT_IRQ		10
+ 
+-#define BT_CR0		0x0
+-#define   BT_CR0_IO_BASE		16
+-#define   BT_CR0_IRQ			12
+-#define   BT_CR0_EN_CLR_SLV_RDP		0x8
+-#define   BT_CR0_EN_CLR_SLV_WRP		0x4
+-#define   BT_CR0_ENABLE_IBT		0x1
+-#define BT_CR1		0x4
+-#define   BT_CR1_IRQ_H2B	0x01
+-#define   BT_CR1_IRQ_HBUSY	0x40
+-#define BT_CR2		0x8
+-#define   BT_CR2_IRQ_H2B	0x01
+-#define   BT_CR2_IRQ_HBUSY	0x40
+-#define BT_CR3		0xc
+-#define BT_CTRL		0x10
+-#define   BT_CTRL_B_BUSY		0x80
+-#define   BT_CTRL_H_BUSY		0x40
+-#define   BT_CTRL_OEM0			0x20
+-#define   BT_CTRL_SMS_ATN		0x10
+-#define   BT_CTRL_B2H_ATN		0x08
+-#define   BT_CTRL_H2B_ATN		0x04
+-#define   BT_CTRL_CLR_RD_PTR		0x02
+-#define   BT_CTRL_CLR_WR_PTR		0x01
+-#define BT_BMC2HOST	0x14
+-#define BT_INTMASK	0x18
+-#define   BT_INTMASK_B2H_IRQEN		0x01
+-#define   BT_INTMASK_B2H_IRQ		0x02
+-#define   BT_INTMASK_BMC_HWRST		0x80
++#define BT_CR0			0x0
++#define   BT_CR0_IO_BASE	GENMASK(31, 16)
++#define   BT_CR0_SIRQ		GENMASK(15, 12)
++#define   BT_CR0_SIRQ_TYPE	GENMASK(11, 10)
++#define   BT_CR0_EN_CLR_SLV_RDP	BIT(3)
++#define   BT_CR0_EN_CLR_SLV_WRP	BIT(2)
++#define   BT_CR0_ENABLE_IBT	BIT(0)
++#define BT_CR1			0x4
++#define   BT_CR1_IRQ_EN_HBUSY	BIT(6)
++#define   BT_CR1_IRQ_EN_H2B	BIT(0)
++#define BT_CR2			0x8
++#define   BT_CR2_IRQ_STS_HBUSY	BIT(6)
++#define   BT_CR2_IRQ_STS_H2B	BIT(0)
++#define BT_CR3			0xc
++#define BT_CTRL			0x10
++#define   BT_CTRL_B_BUSY	BIT(7)
++#define   BT_CTRL_H_BUSY	BIT(6)
++#define   BT_CTRL_OEM0		BIT(5)
++#define   BT_CTRL_SMS_ATN	BIT(4)
++#define   BT_CTRL_B2H_ATN	BIT(3)
++#define   BT_CTRL_H2B_ATN	BIT(2)
++#define   BT_CTRL_CLR_RD_PTR	BIT(1)
++#define   BT_CTRL_CLR_WR_PTR	BIT(0)
++#define BT_BMC2HOST		0x14
++#define BT_INTMASK		0x18
++#define   BT_INTMASK_BMC_HWRST	BIT(7)
++#define   BT_INTMASK_B2H_IRQ	BIT(1)
++#define   BT_INTMASK_B2H_IRQEN	BIT(0)
+ 
+ #define BT_BMC_BUFFER_SIZE 256
+ 
+@@ -361,7 +363,7 @@ static irqreturn_t bt_bmc_irq(int irq, void *arg)
+ 
+ 	reg = readl(bt_bmc->base + BT_CR2);
+ 
+-	reg &= BT_CR2_IRQ_H2B | BT_CR2_IRQ_HBUSY;
++	reg &= BT_CR2_IRQ_STS_H2B | BT_CR2_IRQ_STS_HBUSY;
+ 	if (!reg)
+ 		return IRQ_NONE;
+ 
+@@ -398,7 +400,7 @@ static int bt_bmc_config_irq(struct bt_bmc *bt_bmc,
+ 	 * message to the BT buffer
+ 	 */
+ 	reg = readl(bt_bmc->base + BT_CR1);
+-	reg |= BT_CR1_IRQ_H2B | BT_CR1_IRQ_HBUSY;
++	reg |= BT_CR1_IRQ_EN_H2B | BT_CR1_IRQ_EN_HBUSY;
+ 	writel(reg, bt_bmc->base + BT_CR1);
+ 
+ 	return 0;
+@@ -447,12 +449,12 @@ static int bt_bmc_probe(struct platform_device *pdev)
+ 		add_timer(&bt_bmc->poll_timer);
+ 	}
+ 
+-	writel((BT_IO_BASE << BT_CR0_IO_BASE) |
+-		     (BT_IRQ << BT_CR0_IRQ) |
+-		     BT_CR0_EN_CLR_SLV_RDP |
+-		     BT_CR0_EN_CLR_SLV_WRP |
+-		     BT_CR0_ENABLE_IBT,
+-		bt_bmc->base + BT_CR0);
++	writel(FIELD_PREP(BT_CR0_IO_BASE, BT_IO_BASE) |
++	       FIELD_PREP(BT_CR0_SIRQ, BT_IRQ) |
++	       BT_CR0_EN_CLR_SLV_RDP |
++	       BT_CR0_EN_CLR_SLV_WRP |
++	       BT_CR0_ENABLE_IBT,
++	       bt_bmc->base + BT_CR0);
+ 
+ 	clr_b_busy(bt_bmc);
+ 
 
-Best regards,
 -- 
-Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
+2.34.1
 
 
 
