@@ -2,18 +2,18 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by mail.lfdr.de with LMTP
-	id 9FeEGg1cQmqm5QkAu9opvQ
+	id nIczFg1cQmqj5QkAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
 	for <lists+openipmi-developer@lfdr.de>; Mon, 29 Jun 2026 13:50:37 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id EA1D46D9A63
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F8C86D9A61
 	for <lists+openipmi-developer@lfdr.de>; Mon, 29 Jun 2026 13:50:36 +0200 (CEST)
 Authentication-Results: mail.lfdr.de;
-	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=csiKM0cA;
-	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=OK9TeUos;
-	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=f5DCcbNV;
-	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b=SSwEZKs8;
+	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=Ez0w2gUG;
+	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=WJj+1u99;
+	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=WEQr5z3A;
+	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b="HgMltV/i";
 	spf=pass (mail.lfdr.de: domain of openipmi-developer-bounces@lists.sourceforge.net designates 216.105.38.7 as permitted sender) smtp.mailfrom=openipmi-developer-bounces@lists.sourceforge.net;
 	dmarc=pass (policy=none) header.from=lists.sourceforge.net
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,65 +22,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Subject:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Date:Sender:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3VW3cp8sQmBdBKvJkNBDOC28MlqUiAUMA5DVrxGcXUo=; b=csiKM0cAXX4i1M4oIuNBwESd/s
-	tdGZ1W05LvKwgqxOA0RjG+nPgy0NoBjT/+pKLLYg/AzOmG+KlwQX7XdjTP5hyvWxcXvU9IIIy0/Jg
-	JgPKaIh0nGSyJ6NR/n94t+XIximegRoKU/aIVDgiO1dbkrxf08cSz1H3Rtb4n86xumQE=;
+	bh=074y8soIimMoz395nSI1sIGQ60CDhq0NEeJs91GS/h8=; b=Ez0w2gUGbNSHt8ewwDHBF+/c83
+	zKZramKtWgIg28VdcfIhanDVT9EO2x1EhCtOCpG2HFWJg4/QclA8N2mVBrvO/Do9giUknOzTsHpSY
+	oELYuutdq8y7rE4X2EDQFdiT4NeLycNoCBeV35bPjBzQEJOiDFXCByF3xnqrxlaxPRAU=;
 Received: from [127.0.0.1] (helo=sfs-ml-2.v29.lw.sourceforge.com)
 	by sfs-ml-2.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1weAVU-0003Db-OR;
-	Mon, 29 Jun 2026 11:50:33 +0000
+	id 1weAVT-0003Cw-NY;
+	Mon, 29 Jun 2026 11:50:32 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-2.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <devnull+yc_hsieh.aspeedtech.com@kernel.org>)
- id 1we5oR-0004FL-FR for openipmi-developer@lists.sourceforge.net;
- Mon, 29 Jun 2026 06:49:48 +0000
+ id 1we5oN-0003P1-A1 for openipmi-developer@lists.sourceforge.net;
+ Mon, 29 Jun 2026 06:49:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Df9KJQGwN+4BY13mT7BAtNM2SG+EkBQ538Vnt+/tQFY=; b=OK9TeUos/0LpCDsy5ajWFoqEQt
- uM1F9OKDCDiraYC/5lKO4V99ms8quv9EKlyFQ+TcsXOqzSs4WbVh0kkUkr6LamlfZvKADC11EfoV9
- R0yP3DjslKPSwsREAmQE9rqxrMZ6KvSGuhBBTdEHlRj3+tPWrV9p/CzziAu7lJOA9sbE=;
+ bh=eDudAM8QJ8mlGZ+xLz/u0jrk7EBH14j1ZjojnoRSWmw=; b=WJj+1u99XKplusfbT0fvwLRR+V
+ B1nVKTmhdtB89UPIoT4PdZVsbrWKxdbvjudoz22J0BDOYRnUiyFAkZHMVAtUqiUb7mfJvGdTzj+oD
+ vrygqG86paiBndN45XhDig9kKPN0SF/9FFbAE1rVrIC+7qpo0uxfiFia8befEsfHdBbI=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=Df9KJQGwN+4BY13mT7BAtNM2SG+EkBQ538Vnt+/tQFY=; b=f5DCcbNV0L4DIWNOnhDMjHezr2
- /0AZ9TwO5Wk1Yb+iu+PoP6zwl427CCYvUQAX5euH+26MllaPE/6+k+o78oxsJGfHkArUhGxNt1zax
- xXQyKeFEoPnoMmEZoRUoSYhq7rx7V6bJnNcu4cBKE2GgSnUQj2CGHhXwbnPTzgntlqRA=;
+ bh=eDudAM8QJ8mlGZ+xLz/u0jrk7EBH14j1ZjojnoRSWmw=; b=WEQr5z3AVr5nR5BwAAZU43bvFa
+ yLzA7dJt1DcpSs16mchasaMOuzm9Bj65M9y69yAP0xFZr+3laP+5g7c6Wl4poUmo1rkuMaa2C+DPv
+ e4++hq0HNQpJwZc8rO/9yMZNUR0pQ0txG6NidxCvXhj31fOIwl/MKZ260B1oMr8DNP2o=;
 Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1we5oN-0003Cn-Uu for openipmi-developer@lists.sourceforge.net;
- Mon, 29 Jun 2026 06:49:48 +0000
+ id 1we5oJ-0003CK-59 for openipmi-developer@lists.sourceforge.net;
+ Mon, 29 Jun 2026 06:49:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by sea.source.kernel.org (Postfix) with ESMTP id 3011443D98;
+ by sea.source.kernel.org (Postfix) with ESMTP id 3782F43DA3;
  Mon, 29 Jun 2026 06:49:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 12AC0C4AF0F;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1A16BC2BCF7;
  Mon, 29 Jun 2026 06:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
  s=k20201202; t=1782715774;
- bh=nBvnhkraAlhGHXXmcPBOJhkaZz0VzUTiD+ls+OA6G2k=;
+ bh=0gtJ2jkDHDroFd/tvTFdjs9XdlK02tL9fNLXJCMYb4c=;
  h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
- b=SSwEZKs83e6+QTrEKzagUVnFW/IOgcDcpy+iaAn1t081H8LzVxAcJzQf35og+tL70
- om6TdRvoHWlIclhSpcSzpW2NmEb2AqkOG+Z8LVYS/pf7FL26td+/RevoGfni8M9Zk+
- SFjmLdCRSonP/rLpeMecLhVDMK9uWgivKQeEKmb/aVe6VcRKg/4VE/62gqBoP102FI
- BM9AOskNHU3MNvLb100K9x5Jju0jQuU9P9dtNryzcziwvh7Rd5cr0pyoCAPmh4tmEC
- 7kqIqTsgVheFudAo4TobAubW4RI2qufprx8wJzezum3MB2PyHR1CO+IEhlXYD+Y1DD
- WpoXAV+9Kr7XA==
+ b=HgMltV/iuPgeub48WZJi5UNGtHADF4P3curFF4GXLEnc5pjZNPEZz+2Epjdt1r+7L
+ qelftI3L2Khr/t3/49q9vmjRKEsYoFUWfN0BL6fK7xtDnt7jicE2eVjaQcU6wt9mFi
+ QynK3Z4NxV33wPDBA6V3PP2AIBCZg9cjIRz7zeENmfNTn6BScbTgNsLwoBbmAXfRHy
+ VBffFYCZiLixphDj2UQxzg8tXonddTlOLIGTxDU/s3o+Wq90vvdyJ6vmh+w7HnhnRd
+ 2NVFPBb4kf47+mAVxCgEDHfQh4rnMjmUE9U9hmTCZ66r6DLWW90tdfFNoEB/kMv27E
+ CpC17bZKKRu6Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
  (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id F0EA1C44500;
- Mon, 29 Jun 2026 06:49:33 +0000 (UTC)
-Date: Mon, 29 Jun 2026 14:49:00 +0800
+ by smtp.lore.kernel.org (Postfix) with ESMTP id 12488C43327;
+ Mon, 29 Jun 2026 06:49:34 +0000 (UTC)
+Date: Mon, 29 Jun 2026 14:49:01 +0800
 MIME-Version: 1.0
-Message-Id: <20260629-aspeed-bt-bmc-multichannel-v1-3-fc23ee337f7a@aspeedtech.com>
+Message-Id: <20260629-aspeed-bt-bmc-multichannel-v1-4-fc23ee337f7a@aspeedtech.com>
 References: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
 In-Reply-To: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
 To: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>, 
@@ -88,11 +88,11 @@ To: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
  Andrew Jeffery <andrew@codeconstruct.com.au>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782715772; l=2189;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782715772; l=2682;
  i=yc_hsieh@aspeedtech.com; s=20260629; h=from:subject:message-id;
- bh=z+ycFWmOaDIg3MLyJDHKU8ALQWWy3TelygSh1S01hYI=;
- b=2Z9HfF4G2QEiNPdhd3fE4XoWv99voNdrQ8WCW9S6YS9YMCZkCHI4FWveW74mN6CgGvTdjwiDC
- DSvofFpp5H7Dr21dT5wgMlRNWm301BGtmyyzOF1GLUFzkHN5ot/asz7
+ bh=EF1+2Ti2wuA06NwsW+QoJlNDr5W2qvG2AEgoxOs4li0=;
+ b=D8mUNlVKBhK5Gu/mgQ8KRyUEN1CNPv03ZJ5EwBjb30X1V0G4Oa8eeCxz2irvaf9+E10wC+2xk
+ NlEhO1Jg+MeC2Jw2RoKwDKxh0eDBGNOXrLMxbmHqBpwqDkiyalK4VAY
 X-Developer-Key: i=yc_hsieh@aspeedtech.com; a=ed25519;
  pk=kLxUeF7g6teciq79it9N3tYNgp3yCspZ+AHlYSnZ0gs=
 X-Endpoint-Received: by B4 Relay for yc_hsieh@aspeedtech.com/20260629 with
@@ -105,9 +105,9 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  From: Yu-Che Hsieh <yc_hsieh@aspeedtech.com> Allocating IO
- and IRQ resources to LPC devices is in-theory an operation for the host,
- however ASPEED systems describe these resources through 
+ Content preview: From: Yu-Che Hsieh <yc_hsieh@aspeedtech.com> The BT interface
+ currently programs a fixed host LPC IO address and SerIRQ number. This works
+ for the existing single-channel setup, but 
  Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -118,10 +118,10 @@ X-Spam-Report: Spam detection software,
  domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
-X-Headers-End: 1we5oN-0003Cn-Uu
+X-Headers-End: 1we5oJ-0003CK-59
 X-Mailman-Approved-At: Mon, 29 Jun 2026 11:50:29 +0000
-Subject: [Openipmi-developer] [PATCH 3/4] dt-bindings: ipmi: Add optional
- LPC properties to ASPEED BT devices
+Subject: [Openipmi-developer] [PATCH 4/4] ipmi: bt-bmc: Read LPC address and
+ SerIRQ from device tree
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -182,72 +182,93 @@ X-Spamd-Result: default: False [-7.11 / 15.00];
 	FORGED_SENDER_MAILLIST(0.00)[];
 	HAS_REPLYTO(0.00)[yc_hsieh@aspeedtech.com]
 X-Rspamd-Server: lfdr
-X-Rspamd-Queue-Id: EA1D46D9A63
+X-Rspamd-Queue-Id: 9F8C86D9A61
 
 From: Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
 
-Allocating IO and IRQ resources to LPC devices is in-theory an operation
+The BT interface currently programs a fixed host LPC IO address and
 
-for the host, however ASPEED systems describe these resources through
+SerIRQ number. This works for the existing single-channel setup, but
 
-BMC-internal configuration, as already supported by the ASPEED KCS BMC
+does not allow the host interface parameters to be described by firmware.
 
-binding.
+Read the LPC IO address from aspeed,lpc-io-reg and the SerIRQ number
 
-Add aspeed,lpc-io-reg and aspeed,lpc-interrupts to the ASPEED BT BMC
+and interrupt type from aspeed,lpc-interrupts. Keep the existing IO
 
-binding so firmware can describe the host LPC IO address and SerIRQ
+address, SerIRQ number, and level-low interrupt type as defaults when
 
-configuration using the same properties as KCS devices.
+the properties are not present.
 
 Signed-off-by: Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
 ---
- .../bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml       | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/char/ipmi/bt-bmc.c | 39 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 37 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
-index c4f7cdbbe16b..1803c6bbae93 100644
---- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
-+++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
-@@ -25,6 +25,24 @@ properties:
-   interrupts:
-     maxItems: 1
+diff --git a/drivers/char/ipmi/bt-bmc.c b/drivers/char/ipmi/bt-bmc.c
+index 486ecc0b6815..6e1f941e63db 100644
+--- a/drivers/char/ipmi/bt-bmc.c
++++ b/drivers/char/ipmi/bt-bmc.c
+@@ -65,6 +65,12 @@ struct bt_bmc {
+ 	struct timer_list	poll_timer;
+ 	struct mutex		mutex;
+ 	atomic_t		open_count;
++	u32			io_addr;
++
++	struct {
++		u32 id;
++		u32 type;
++	} sirq;
+ };
  
-+  aspeed,lpc-io-reg:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    maxItems: 1
-+    description: |
-+      The host CPU LPC IO address for the BT device.
-+
-+  aspeed,lpc-interrupts:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    minItems: 2
-+    maxItems: 2
-+    description: |
-+      A 2-cell property expressing the LPC SerIRQ number and the interrupt
-+      level/sense encoding (specified in the standard fashion).
-+
-+      Note that the generated interrupt is issued from the BMC to the host, and
-+      thus the target interrupt controller is not captured by the BMC's
-+      devicetree.
-+
- required:
-   - compatible
-   - reg
-@@ -35,10 +53,13 @@ additionalProperties: false
- examples:
-   - |
-     #include <dt-bindings/clock/aspeed-clock.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
+ static u8 bt_inb(struct bt_bmc *bt_bmc, int reg)
+@@ -429,6 +435,33 @@ static int bt_bmc_probe(struct platform_device *pdev)
+ 	mutex_init(&bt_bmc->mutex);
+ 	init_waitqueue_head(&bt_bmc->queue);
  
-     bt@1e789140 {
-         compatible = "aspeed,ast2400-ibt-bmc";
-         reg = <0x1e789140 0x18>;
-         interrupts = <8>;
-         clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
-+        aspeed,lpc-io-reg = <0xe4>;
-+        aspeed,lpc-interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
-     };
++	rc = of_property_read_u32(dev->of_node, "aspeed,lpc-io-reg",
++				  &bt_bmc->io_addr);
++	if (rc) {
++		bt_bmc->io_addr = BT_IO_BASE;
++	} else if (bt_bmc->io_addr > FIELD_MAX(BT_CR0_IO_BASE)) {
++		dev_err(dev, "invalid LPC IO address\n");
++		return -EINVAL;
++	}
++
++	rc = of_property_read_u32_array(dev->of_node, "aspeed,lpc-interrupts",
++					(u32 *)&bt_bmc->sirq, 2);
++	if (rc) {
++		bt_bmc->sirq.id = BT_IRQ;
++		bt_bmc->sirq.type = IRQ_TYPE_LEVEL_LOW;
++	} else {
++		if (bt_bmc->sirq.id > FIELD_MAX(BT_CR0_SIRQ)) {
++			dev_err(dev, "invalid SerIRQ number\n");
++			return -EINVAL;
++		}
++
++		if (bt_bmc->sirq.type != IRQ_TYPE_LEVEL_HIGH &&
++		    bt_bmc->sirq.type != IRQ_TYPE_LEVEL_LOW) {
++			dev_err(dev, "invalid SerIRQ type\n");
++			return -EINVAL;
++		}
++	}
++
+ 	bt_bmc->miscdev.minor	= MISC_DYNAMIC_MINOR;
+ 	bt_bmc->miscdev.name	= DEVICE_NAME;
+ 	bt_bmc->miscdev.fops	= &bt_bmc_fops;
+@@ -450,8 +483,10 @@ static int bt_bmc_probe(struct platform_device *pdev)
+ 		add_timer(&bt_bmc->poll_timer);
+ 	}
+ 
+-	writel(FIELD_PREP(BT_CR0_IO_BASE, BT_IO_BASE) |
+-	       FIELD_PREP(BT_CR0_SIRQ, BT_IRQ) |
++	writel(FIELD_PREP(BT_CR0_IO_BASE, bt_bmc->io_addr) |
++	       FIELD_PREP(BT_CR0_SIRQ, bt_bmc->sirq.id) |
++	       FIELD_PREP(BT_CR0_SIRQ_TYPE,
++			  bt_bmc->sirq.type == IRQ_TYPE_LEVEL_LOW ? 0 : 1) |
+ 	       BT_CR0_EN_CLR_SLV_RDP |
+ 	       BT_CR0_EN_CLR_SLV_WRP |
+ 	       BT_CR0_ENABLE_IBT,
 
 -- 
 2.34.1
