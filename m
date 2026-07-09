@@ -2,18 +2,18 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by mail.lfdr.de with LMTP
-	id NaIvF3DZT2qVpAIAu9opvQ
+	id jmCCFHPZT2qZpAIAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:04 +0200
+	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:07 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id E2ED4733CE2
-	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DC7B4733CF2
+	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:06 +0200 (CEST)
 Authentication-Results: mail.lfdr.de;
-	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=KLDugkrW;
-	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=QSTgq9Ik;
-	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=egd8urW2;
-	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b="EAVZohe/";
+	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=d7KX0xZl;
+	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=YlPEoxk9;
+	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=ZHBX5caO;
+	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b=cy89Y128;
 	dmarc=pass (policy=none) header.from=lists.sourceforge.net;
 	spf=pass (mail.lfdr.de: domain of openipmi-developer-bounces@lists.sourceforge.net designates 216.105.38.7 as permitted sender) smtp.mailfrom=openipmi-developer-bounces@lists.sourceforge.net
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,65 +22,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Subject:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Date:Sender:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPaX1Lrn6kw7/+7VzlF0T4HmtEoF9QrWGxAow5eMnfA=; b=KLDugkrWLmULowdNOkKKcV+/lY
-	KgEyyYzWinVpUtB4KFLTIGoPpD3PoKowbAsAD9S1euGE5rnLqxzt0hVAwU2+kp4U7B+aQhGo+MDp+
-	nwIokbCgCyghogAwotii9S3aoOTIxSreAumu8WAkJhme8G/ykVzUKLiuP1brIwrLRTr8=;
-Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
-	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=9yoc4VlhCpN00If3yFtPdqzlKub9CoR4CoEggO4P1Ds=; b=d7KX0xZlyp6ft3k2CyMajihwCV
+	BnZvShwfONdwggoFGTI9Am82rbMTVxHPqlV8U2U/l3Msc8xcdrwqYhqO12ktWLaa8cQ7GcWwzFlLu
+	duwA11yimGXkRNLwit1jeqFlwQMZum4Hv7XK6EkfYl7+5VHZ3txWNyN2NqcUNGGGSnxs=;
+Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
+	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1whsUZ-00076H-2l;
-	Thu, 09 Jul 2026 17:24:55 +0000
+	id 1whsUg-0006D0-AM;
+	Thu, 09 Jul 2026 17:24:59 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <devnull+shankerwangmiao.gmail.com@kernel.org>)
- id 1whsUX-00076B-TU for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jul 2026 17:24:53 +0000
+ id 1whsUe-0006Cp-Bx for openipmi-developer@lists.sourceforge.net;
+ Thu, 09 Jul 2026 17:24:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=PKl+QGSD241MCl1PhfKuI07lj+p6lPKhpnJf1TtwKRE=; b=QSTgq9IkcEjaKjodUQ3XYyRNdH
- +uaEb00f0b9qiTss7/bGBFZzqXx77fIhTbxT0QyThyXxpiCEUYOPfa0rSGW9Pbv0Yz7wGGjLpuqUn
- kNVvqZ8oF3NbBQujpM8KhQjCHd1fWH4//czlPKnlPm9jf+5afTpGcNCpyKqcxUVl/Pas=;
+ bh=xy4zuNi9l/vTSw6gcFwKaCyfymURRz4z0azYHAVfzFA=; b=YlPEoxk9QP3NPdObrh83P8lCs/
+ CEIRAhjsZP1C3Te+/6VphsJm5YBOyRtR0QFMDi/JaU3RiRhBkI0YbAu8MvcSkxBVAeTHz4DwF0qXF
+ tdRxhs1WOEvVf4+tfF38NNJc8QyJfqjQAaWjPygW7BxTX7zG8zMjfhJMAU7Wi0qFuqMo=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=PKl+QGSD241MCl1PhfKuI07lj+p6lPKhpnJf1TtwKRE=; b=egd8urW2IMuqV1AUKCVP2KoUSp
- uEkOQ3c3TnW1VAzpVedFg6Q8vDHODu0dVunZYF/CoKsOW7klgYtQtpG0GznKbbyc8RLtvuXf258j4
- 2rfLLAfB5CrY2RWaipICE6kI51XZteSbRgwPgZ10XmWfQnBOKtYW5IoUh6iFRjL58DOs=;
+ bh=xy4zuNi9l/vTSw6gcFwKaCyfymURRz4z0azYHAVfzFA=; b=ZHBX5caOrms6UJCtdDw6nvXbF2
+ 4Ng7vEkf7hdtroYJY2OP28OhQ7jxhoJTKz8kzmaS3szI6qxH7jYyM9d4HVINIsJlsJGZGM9g4U2FL
+ +PstDNBZYLZADAixudSzkFIfigYcyrd9CvpdhZXlcvwT4TA/Yk9qxS38GRRabRPqZ9f8=;
 Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1whsUU-0006rg-Vv for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jul 2026 17:24:53 +0000
+ id 1whsUa-0006s4-Aj for openipmi-developer@lists.sourceforge.net;
+ Thu, 09 Jul 2026 17:24:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by sea.source.kernel.org (Postfix) with ESMTP id 8C45944016;
+ by sea.source.kernel.org (Postfix) with ESMTP id 9D03944021;
  Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 45705C4AF09;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 51ED0C2BCFF;
  Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
  s=k20201202; t=1783617885;
- bh=OjHpqlAg5MF1Iiyza2/YLamBBIPis/Er/709OxC7A+o=;
+ bh=vZac1ji0I2lbNpDkmzQP3TJvCTOj42vg2oAMlAK30yA=;
  h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
- b=EAVZohe/q7B37qw8Kz/eY2wuRfWu+pCXjvNAob6ymrSyZ+e/Qy1GCWohaEQW9fadY
- LuQlYT9TiMCnzjzDimT7usLKK4h40iYWP5q8j/t8m27uVhbeWIFRTezCwNlb9xen2H
- SgjybY3Sgq4Jl/5XtFpeho7ko+ChhlFFMMesG8iV5EdHfOVM29kiblGckFriZlskER
- ZqmkGu8P7bxM+g/x3BoKWW4WrQtAoptRI0EOYezhKivsrGk6JVHQ+M5nSkt6A0eZlO
- wt5b7WJt8LaV9FO738q3k43k2Ut3BAkgPtKpHNBgADLq0KJjBnkM2Bv2ir9DqmPqTq
- 1riehh1uAsBNg==
+ b=cy89Y1288Ev1qqON71vph0CAijo5j7F1wrkgryWDzPGYNHYdT0Ah2NXv5gG64LfP2
+ 2tAruV/MuuSdZmvdtXZ4pMss+fvQ3NZUyqGFhMg2k1DpUeLQnV+QJgqcYVhe86K/0E
+ qu+FiWae2FOtpFvZxu/6R9cfA4YoAtFwIWpGbATg795qSBsitPNZt2Xqj3UzujxrJV
+ s0Rl1I6k+NOchR3Ox+1jcUN0+pKgg6fzvR7piEcXstWBr1kNaVBPdZsuJwI1PMIiZU
+ 7eAvkybpB/G+Pi/6w5D4RJYjhJcl/wXEn+k3dPnkR3l/AwMmo/mUdn05/bZfGFHrM6
+ TVJVvh9aZ0bgQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
  (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id 32B6FC44508;
+ by smtp.lore.kernel.org (Postfix) with ESMTP id 3F277C43458;
  Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
-Date: Fri, 10 Jul 2026 01:24:21 +0800
+Date: Fri, 10 Jul 2026 01:24:22 +0800
 MIME-Version: 1.0
-Message-Id: <20260710-ls2kbmc-mod-v3-5-ef718636e78e@gmail.com>
+Message-Id: <20260710-ls2kbmc-mod-v3-6-ef718636e78e@gmail.com>
 References: <20260710-ls2kbmc-mod-v3-0-ef718636e78e@gmail.com>
 In-Reply-To: <20260710-ls2kbmc-mod-v3-0-ef718636e78e@gmail.com>
 To: Binbin Zhou <zhoubinbin@loongson.cn>, 
@@ -88,21 +88,21 @@ To: Binbin Zhou <zhoubinbin@loongson.cn>,
  Huacai Chen <chenhuacai@kernel.org>, Corey Minyard <corey@minyard.net>, 
  Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1266;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=726;
  i=shankerwangmiao@gmail.com; s=20250715; h=from:subject:message-id;
- bh=DqOdU6W3FkZ9wJNJOs/NgLGl94jX8Hgep53VmIhV2nQ=;
- b=owEBbQKS/ZANAwAKAbAx48p7/tluAcsmYgBqT9laVpLfK6V/x0Vbe6h8iLQEGWKb5mPZ/H2oM
- 2hM1IPKnzeJAjMEAAEKAB0WIQREqPWPgPJBxluezBOwMePKe/7ZbgUCak/ZWgAKCRCwMePKe/7Z
- bjX6D/92DGwclTpn8JEIqWvvqivT/xsqa59lGjX8RgaQtQgAieCsMOp+NDj1uaGbrtKeEG7XJv4
- u7AVCPaNIaBRUHu8XwmgLKQbJ5qVaoU96lS2XgQJPY/wlZfjkZDJwoWGz4e7lUtcwK454PlvIXp
- VW2D+TApygU86FNUU4ov6hhuSsz1tr/BSw4hX5PGRNFcBzZUP7eCFeYlyUuwIKQvVpYqKcx8ACc
- QIvfpJdh2lzDjtDeT38UlK4cBlUGU6hKAYDeoyWCQrkNZOUhFIS6CVPCD2stTCGAmKMi2lwT5Wa
- CpyU6cBm3SMR0CpMXvkdWPMwLqwup9CPVRHKizQJcO5yxT0vLZaaGGVl9QxnItxZvAIQmkGbRZd
- InvGttxmzRAx+Nx9XIdVQ79gKAcucKnXqVrXagEZ0P/ZsLpOt4wDhAg+ogSN/aA+keh1dGWdFOX
- HqTFhQILIiMvYCcMQoFKpOnWBbsjbHf0yQ8HGE2FCFuL6kAU5XSSQa1wQo/N+qJ4aIvSoRl99iX
- QAP2ULVzMuhzIiDJcoKpUJ5h2JomZ/H696tXwZjGwf0s/HEFJZrM01DbsVl7Mbv89vGbW4oKesy
- Sy5p9OeFKfEnHTRxbQLB9dk0b5uk3Tg5httLDmhN9EAqHOvoHqZ1DSyaakCNiIJqK5N5xEe+TF8
- kI9rrTkwPVTBv3A==
+ bh=4cYoUAWfr6lC2eTeoh29c5JZOLqOi/IiHDJf/iiky6g=;
+ b=owEBbQKS/ZANAwAKAbAx48p7/tluAcsmYgBqT9la4CJbrSXeiOdx6rKWijSotf1UR0bj6PC4l
+ uz6ToNr+TSJAjMEAAEKAB0WIQREqPWPgPJBxluezBOwMePKe/7ZbgUCak/ZWgAKCRCwMePKe/7Z
+ bmhwD/47GGXrGDaz5O7vrcrXTU+qDXUIultuqzdjvPV4LcSfNxHp21AC1XneWDecbOOyHoVvsdy
+ a1cVf7Rmkh2Rq5h8wXCby7bDYGb2R9cY2/Ao9jaO0zBHhWX6dGxYw3mc50vGeg7IGowBlZ4OtL9
+ iU+aLjfy6NpJP8AqWefP+/8H2iQuWOKgnPne2DfcuQcVG4ToavmRDGM0CseukvIwWIsgFCoIMWV
+ l0xEpBLtqe+J1qgqNLHEmJVRdolvh6MMDcO9vXY+mJGbZ0+xy7D0X+GNPNX5W0KgwUW38ALawBC
+ bi0gcZb2eAwbCTQldWdQkrQdGZjRoGLgUPUOd83TkBgj/xK2SgTg98h5GPw9h5+9goA7A+Fg7Fc
+ 9SmdTLaZYSDOE5WZKaS3QSWqxvT9znYRJplS4jBkTMt6BKD3CuBuVORlkg+z4zEEalDqKiIE/+Y
+ gxY4K6xAQ4q9PjhgsAf6nzjBsK27/nHAk5ASI3b515lvi08E13J8Xi4iGW6WRETBMaSAFviZ0L6
+ 4wt32DLNKJY7W83oNovZOmC6Yxl4djFpssD7adyS/t8YGntYCYmdV5i9bv9oSoR+ebvqhTjFoLt
+ FrW2atkd41bUfd1ki75n8z1Jeu+f328UwnZISNvOcPEDHhimb4Lu5DFGhgA7WDAa3QuJNVzhWl1
+ NCdZrAe4tRJ04ww==
 X-Developer-Key: i=shankerwangmiao@gmail.com; a=openpgp;
  fpr=6FAEFF06B7D212A774C60BFDFA0D166D6632EF4A
 X-Endpoint-Received: by B4 Relay for shankerwangmiao@gmail.com/20250715
@@ -115,10 +115,9 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  From: Miao Wang There is no strong dependency between the
- IPMI driver and its mfd driver. Although the IPMI driver will not work without
- the mfd driver, it is not a hard dependency. The IPMI driver can actually
- be co [...] 
+ Content preview: From: Miao Wang Make ls2kmc able to be compiled as a module
+ Signed-off-by: Miao Wang --- drivers/mfd/Kconfig | 2 +- 1 file changed, 1
+ insertion(+), 1 deletion(-) 
  Content analysis details:   (2.3 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -130,9 +129,9 @@ X-Spam-Report: Spam detection software,
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
-X-Headers-End: 1whsUU-0006rg-Vv
-Subject: [Openipmi-developer] [PATCH RFC v3 5/7] ipmi: ls2k: Relax the
- dependency to its mfd driver
+X-Headers-End: 1whsUa-0006s4-Aj
+Subject: [Openipmi-developer] [PATCH RFC v3 6/7] mfd: ls2kbmc: Able to be
+ compiled as a module
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -199,39 +198,30 @@ X-Spamd-Result: default: False [-5.11 / 15.00];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
 	TO_DN_SOME(0.00)[]
 X-Rspamd-Server: lfdr
-X-Rspamd-Queue-Id: E2ED4733CE2
+X-Rspamd-Queue-Id: DC7B4733CF2
 
 From: Miao Wang <shankerwangmiao@gmail.com>
 
-There is no strong dependency between the IPMI driver and its mfd
-driver. Although the IPMI driver will not work without the mfd driver,
-it is not a hard dependency. The IPMI driver can actually be compiled
-without the mfd driver, and it will just fail to probe. When the mfd
-driver is loaded, the IPMI driver will probe successfully. Therefore,
-the dependency of the IPMI driver on its mfd driver should be relaxed
-to "imply" from "select". This will allow the mfd driver to be compiled
-as a module and the IPMI driver to be compiled as a part of the ipmi_si
-module.
+Make ls2kmc able to be compiled as a module
 
-Fixes: d46651d4e3c0 ("ipmi: Add Loongson-2K BMC support")
 Signed-off-by: Miao Wang <shankerwangmiao@gmail.com>
 ---
- drivers/char/ipmi/Kconfig | 2 +-
+ drivers/mfd/Kconfig | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/char/ipmi/Kconfig b/drivers/char/ipmi/Kconfig
-index 669f7600019747bcd2b37563477cf336f19a0407..f456e3e89416932f0d21bb742153a503aeb24267 100644
---- a/drivers/char/ipmi/Kconfig
-+++ b/drivers/char/ipmi/Kconfig
-@@ -87,7 +87,7 @@ config IPMI_IPMB
- config IPMI_LS2K
- 	bool 'Loongson-2K IPMI interface'
- 	depends on LOONGARCH
--	select MFD_LS2K_BMC_CORE
-+	imply MFD_LS2K_BMC_CORE
- 	help
- 	  Provides a driver for Loongson-2K IPMI interfaces.
+diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+index 763ce6a34782bdd5d2b1a4d840c75b040092d83e..a7a9f97af248c88489dc1203a1ba05f2ce4827df 100644
+--- a/drivers/mfd/Kconfig
++++ b/drivers/mfd/Kconfig
+@@ -2494,7 +2494,7 @@ config MFD_LOONGSON_SE
+ 	  which will forward them to the corresponding engine.
  
+ config MFD_LS2K_BMC_CORE
+-	bool "Loongson-2K Board Management Controller Support"
++	tristate "Loongson-2K Board Management Controller Support"
+ 	depends on PCI && ACPI_GENERIC_GSI
+ 	select MFD_CORE
+ 	help
 
 -- 
 2.49.0
