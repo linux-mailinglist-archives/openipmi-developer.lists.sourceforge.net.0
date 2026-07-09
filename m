@@ -2,18 +2,18 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by mail.lfdr.de with LMTP
-	id VdmZHXDZT2qWpAIAu9opvQ
+	id vHhkL3PZT2qapAIAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:04 +0200
+	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:07 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E43D733CE3
-	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 50F5E733CF3
+	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:07 +0200 (CEST)
 Authentication-Results: mail.lfdr.de;
-	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=itw3LF35;
-	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=hKhnhar8;
-	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=MrMhvNo8;
-	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b=aD90MvHz;
+	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=AAzsKcxJ;
+	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=VqK+h+nN;
+	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=RfZMhi3D;
+	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b="IzLJ3BF/";
 	dmarc=pass (policy=none) header.from=lists.sourceforge.net;
 	spf=pass (mail.lfdr.de: domain of openipmi-developer-bounces@lists.sourceforge.net designates 216.105.38.7 as permitted sender) smtp.mailfrom=openipmi-developer-bounces@lists.sourceforge.net
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,65 +22,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Subject:To:In-Reply-To:References:Message-Id:
 	MIME-Version:Date:Sender:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iiqwBtYnWoRiDzoGh5S7dugITlsfV9UHQEdm+aDCB3A=; b=itw3LF35sW1kC4f+KqF7ADmwUS
-	BkNTHZJvEKO4xGq9sPCAbkX3JKvGZ1t82U9PxwIqHJjistBAqWGTaBgwiRroFi1bljQpxWOEo+lZa
-	/FFPXkKdl1TlT0JU3RrCG8ifmrmpMQuGgUjhJJmjI6eUUDplMQF9xW35feohbu9pnQiY=;
-Received: from [127.0.0.1] (helo=sfs-ml-1.v29.lw.sourceforge.com)
-	by sfs-ml-1.v29.lw.sourceforge.com with esmtp (Exim 4.95)
+	bh=X92BCpJ8DZSKFjQK2to+D1pvInv+cWe2rRTasM6k0X4=; b=AAzsKcxJJxoXebQTrnPbLAOuop
+	8yKdOh7LUkUHaGzOFRLOV/qyrJhGKNHPx6s5px9bXNmks0PZKC/Nk3NspYIog4qAejT06BIbg+iw3
+	ymatsAWhMyw1ssG/9EQL/WN4m+jhhApM4Ioawoaeir5cCCzshuuecQvvEJ8LWa+j9qzw=;
+Received: from [127.0.0.1] (helo=sfs-ml-4.v29.lw.sourceforge.com)
+	by sfs-ml-4.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1whsUc-0006CZ-WD;
-	Thu, 09 Jul 2026 17:24:56 +0000
+	id 1whsUe-00076p-DV;
+	Thu, 09 Jul 2026 17:25:00 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
- by sfs-ml-1.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
+ by sfs-ml-4.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
  (envelope-from <devnull+shankerwangmiao.gmail.com@kernel.org>)
- id 1whsUa-0006CQ-CU for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jul 2026 17:24:54 +0000
+ id 1whsUb-00076f-Sv for openipmi-developer@lists.sourceforge.net;
+ Thu, 09 Jul 2026 17:24:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=rCLEUAWE4a6XSMLMlpeZfrDlt2bwt5lOQ4i1lxW+yK4=; b=hKhnhar8iBbbNaZd7VNPgwqLzh
- eAfU4wgphoaLy1UX4WDpMpOBAF8CfPpdTqbUdOpgUzWMKkP+Njcx6IKojxxyGDUjR1sPZzvUIOtbZ
- NsUiRh1wMPj4JP05bYp3YGHeU5NRtYB8EiFE0QOxk2x0eRreBR2y9S4osRfN62lO+cEM=;
+ bh=Is3b978M+zwWHMMGzvfK5Y0bsWbGPpczWfDDmHSHMSQ=; b=VqK+h+nNThO1lYr9HUmDe5b0oe
+ oPfqcJIEbcSyvKfIwVc+KRpStfBiWUWo9zj85ew1Std3czRx5Tdv6s85Dkz5JkiGSE2hf1I2i6FEp
+ TgNLPvIKeo1rMnclpVbY/V1Lx7JmTyZkQaTkChWwcMq+3+tQApcmmd4OGf8P0Xyx1xvE=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
  ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
  Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=rCLEUAWE4a6XSMLMlpeZfrDlt2bwt5lOQ4i1lxW+yK4=; b=MrMhvNo8z1hdx0K/6UBtT5J6TG
- S3f3tQ/nW46j81UTDjK7iLzhE0eA5wYRal6LZHVpRHPwWuowtk3fVgBxWiORk/RiE/ihgODbi/nNz
- A31mC3mCr8aBsy+jp/VgafqUEVC6+WbaQMh3ThcMAJ1LdLpvBNcGTCu/Uk+b+fEo/SOg=;
+ bh=Is3b978M+zwWHMMGzvfK5Y0bsWbGPpczWfDDmHSHMSQ=; b=RfZMhi3D7T/4DnTmVyynYMujon
+ zISGM1fQHmCR+VySZI2hK/h6GwqOm5mKBpDGQYk1300aT6Tc9kDFH7x1erV56zsOkQnnQNNd5eVfV
+ jmlh3oRt07aadcx4ml/SqawccAWhiSKBKMORPNc/IIzstcQlujFRm0sLrBGucAve2qOY=;
 Received: from sea.source.kernel.org ([172.234.252.31])
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1whsUU-0006rf-Um for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jul 2026 17:24:53 +0000
+ id 1whsUa-0006s2-5W for openipmi-developer@lists.sourceforge.net;
+ Thu, 09 Jul 2026 17:24:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by sea.source.kernel.org (Postfix) with ESMTP id 7564F4400D;
+ by sea.source.kernel.org (Postfix) with ESMTP id 924104401A;
  Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2B45FC2BCC7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 341EBC2BCF5;
  Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
  s=k20201202; t=1783617885;
- bh=eWYs8ArN3BgCXHvDn3pG5mwVx4+aWWujqeQU5EaY0zw=;
+ bh=hWrvd5fvZPyhEvtDoJ9K7KER8KzSL+2EJ6VgJ5EVToI=;
  h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
- b=aD90MvHzlD5EO/xnd6Q3UAtoNGa/5EO8BwE9/eJ0FNCTsM0DWDtr8hLjm8rTdbdTG
- /qesht+/CDazCTsnCUrIM6Hly3ytMdPFMqbNFzqrbsvjGfoEQdmDTCeIaYAbiyUECE
- SAVVgKccudTIKvdZA/+H+mjWWTV68cIxsGmIQ+wx2Q0jZRM2iUXSYh9jfaF9XqRZIA
- Ht0e8R90pXou2Pqdt0ZcpxZA7eKS0QcTe6jJjm7571KLyCDGzDt98UnCvWFC8pImD5
- 7Q0C52GIRT/lu2muG0LXWEx/S7amUh8ri8hsSa310ISsmiWdnO1Pq3B9cMD4wcHlUX
- z7HobgKkSUC9w==
+ b=IzLJ3BF/vPqrbOxMHKWa3E1pTnN7N4VfurajJbTPKl7IakuO264JP0XOns8REdS7w
+ 5V5kVKxNB5h0CymarEUOpzOgNO/qhb7tStVwl55r+SZnPpRlfngPPsDDJt2ZiPWO3w
+ 1OLFiNSVb96Y47IaCb8sLNk4swYCUCMTCt50mchnoohNfNcEUzvBSIka0iU8i+aSOB
+ U9c+Fz068oupw5mWk8EZ4OGlQYPBIIVCwE5D7O+s60xx4KGbvOzq0QZ8V4pEgJsFZK
+ IU0BcztoXAJ5TYZSoYQUHPW2YRKApQE2G3Cz7Hpdy4wKjI7NtIb9+oZYZAhk+7l41a
+ IznGVQbxMZI/Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
  (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id 0AC60C44507;
+ by smtp.lore.kernel.org (Postfix) with ESMTP id 18262C44506;
  Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
-Date: Fri, 10 Jul 2026 01:24:18 +0800
+Date: Fri, 10 Jul 2026 01:24:19 +0800
 MIME-Version: 1.0
-Message-Id: <20260710-ls2kbmc-mod-v3-2-ef718636e78e@gmail.com>
+Message-Id: <20260710-ls2kbmc-mod-v3-3-ef718636e78e@gmail.com>
 References: <20260710-ls2kbmc-mod-v3-0-ef718636e78e@gmail.com>
 In-Reply-To: <20260710-ls2kbmc-mod-v3-0-ef718636e78e@gmail.com>
 To: Binbin Zhou <zhoubinbin@loongson.cn>, 
@@ -88,21 +88,21 @@ To: Binbin Zhou <zhoubinbin@loongson.cn>,
  Huacai Chen <chenhuacai@kernel.org>, Corey Minyard <corey@minyard.net>, 
  Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2629;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1128;
  i=shankerwangmiao@gmail.com; s=20250715; h=from:subject:message-id;
- bh=No2dp/27RmGGcRyar1/5K91t4kgdhfDKTp+IZPk/ZDE=;
- b=owEBbQKS/ZANAwAKAbAx48p7/tluAcsmYgBqT9laGySTMXTc/aNOkcP0IjD5esHoWaEKeulK1
- wyDFgjfDBuJAjMEAAEKAB0WIQREqPWPgPJBxluezBOwMePKe/7ZbgUCak/ZWgAKCRCwMePKe/7Z
- bhPfEAC90IBdBEXUf5ZguyzkKCCqDLOArEwqV3O5M4k95REjlpjQOq78RxHpJ6SJ+gJ9efVchD4
- ghyiqvxFHvV4oEMOCURxC/o54Ufz2UoyWiPmCphv70227bBTW98rD3M5KGbVwm5CWjE291yWO1/
- 4STettJ3v7q+ZRnQYjTXJYngPYs87FH5GnV1sWQmn8f7OBEf/bKR7Mrbuw0m1twcTsJMIMaK6ZL
- m+tHD99mW7dvuRzk1dUhrWohpcaXJfQMlL/t2TWxPlYll8mN3OxwBCvXrQvHEzX+xf3zR7oZK2i
- g4jcZOAmSpzL7rIwQQXivx6WEBjcdmdTPU8bVrPXHP+GkDVOyRDcR7yhfwhqAjeeYYx/TxJ7skp
- mRxObv0t5pjiCosMNljOCdXvfUeQl+T2YTCwx9RhtxhXkUYYs8CyJy+hSimPaJjLHULJ8HgbWe2
- 3oTdpcUS5n6ueFRXjXmtRgCHy2jcROMfnXFD1oMedrmK3cvFfxgKPd1FMcrcXIULESC5Q/2IBNi
- VdwShz13M6UHA3YZeuQeopnnfxgmjVLAWjmCvALAHXzugWn0J/7kBc+N99FfHQFe7myxs+7lnqi
- av13nM5A1BtJN61JN2PBRotYPpixBD7n3DQAD6JYErAOQt91T+WMFik70EeWQ/63g5rZ8ne+Gfl
- eErAxLMkMaSaWpQ==
+ bh=OujIxIWqUrslWQYj9yXk01UV8a8eZbDNcLz7yiDWTA0=;
+ b=owEBbQKS/ZANAwAKAbAx48p7/tluAcsmYgBqT9laS7rZjrVGRXVB+fmOUzlKL6aydQdsIqg97
+ Jv/CvpO2WCJAjMEAAEKAB0WIQREqPWPgPJBxluezBOwMePKe/7ZbgUCak/ZWgAKCRCwMePKe/7Z
+ bokXEACZIyWVsNdxahozVJUXJON3N1imfdQ393IkB2/oJIWEFzMscSRCzDAYMg4CFKKl/2PjbHY
+ veUOuOVVSjJNaqVM4j3vFr1lYzFjZS2rugCOfrBH2fW07XjjKoMmc3bRrk5Dix/0s3n1OAf2lUo
+ sNTOnhfKLxCbLmju6hzjd0NolojyqMGYiNbazRDpy8NinszZCBgyumqqFsfiz6ThHpWw3iOyKTs
+ ugAt2A0PKUhQQqbSU+fxMe/tCpaEJlETzV3S6ocX593qD0Ubwyb171boQ9AnyUJX4QHA05eCorw
+ VAyBizWmlrM/aUjVTbcPrvwt5n5gQsLixKZI/kaJwlRHfKnKtDjfYJDuZtSovo83EP89PEvYLsG
+ nQzz3TP6i0dE8+6hKteH3D52h4kwb2uo7gDlOW0+gx9CPfW4H+gmMSpLGRm0MC0a2z9L/6LDuWJ
+ lk8YuwfzSamc1ioJJY5IFz1G+6JCw5BTTH8O+RmJ/OVmafFCL5e23Hf1xMG6CzpW/5jLV2MqTZ9
+ yiOvgJfkWMuUqiaBGWOCudrYoJlGO4vcqSj4TU0BIE8VYc74tTgdYvLh0EkkdJ+vgF25TKU/yI8
+ M+AH9Fw51STcBsKgjYS8MZ+2tiYikjkwX2zasP86sOGJqRf0Z6SuYtqpeSv29kvAgInoxaSDj6M
+ WKOSBOToZRaqnDA==
 X-Developer-Key: i=shankerwangmiao@gmail.com; a=openpgp;
  fpr=6FAEFF06B7D212A774C60BFDFA0D166D6632EF4A
 X-Endpoint-Received: by B4 Relay for shankerwangmiao@gmail.com/20250715
@@ -115,10 +115,11 @@ X-Spam-Report: Spam detection software,
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  From: Miao Wang When the bmc resets, the recovery procedure
- require to reconfigure the parent device. The driver assumes that the parent
- device should be LS7A. Add a sanity check on initialization to ensure this
- and [...] 
+ Content preview:  From: Miao Wang Use update_screen, i.e. redraw_screen() to
+ trigger the redraw of the current vt. Fixes: d952bba3fbb5 ("mfd: ls2kbmc:
+ Add Loongson-2K BMC reset function support") Signed-off-by: Miao Wang ---
+ drivers/mfd/ls2k-bmc-core.c | 5 ++++- 1 file changed, 4 insertions(+), 1
+ deletion(-) 
  Content analysis details:   (2.3 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -130,9 +131,9 @@ X-Spam-Report: Spam detection software,
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
  not necessarily valid
  2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
-X-Headers-End: 1whsUU-0006rf-Um
-Subject: [Openipmi-developer] [PATCH RFC v3 2/7] mfd: ls2kbmc: Sanity check
- for the connected pci port
+X-Headers-End: 1whsUa-0006s2-5W
+Subject: [Openipmi-developer] [PATCH RFC v3 3/7] mfd: ls2kbmc: Redraw using
+ exported functions
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -199,78 +200,42 @@ X-Spamd-Result: default: False [-5.11 / 15.00];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
 	TO_DN_SOME(0.00)[]
 X-Rspamd-Server: lfdr
-X-Rspamd-Queue-Id: 0E43D733CE3
+X-Rspamd-Queue-Id: 50F5E733CF3
 
 From: Miao Wang <shankerwangmiao@gmail.com>
 
-When the bmc resets, the recovery procedure require to reconfigure the
-parent device. The driver assumes that the parent device should be LS7A.
-Add a sanity check on initialization to ensure this and prevent from
-accidentally operating on non-LS7A ports.
+Use update_screen, i.e. redraw_screen() to trigger the redraw of the
+current vt.
 
 Fixes: d952bba3fbb5 ("mfd: ls2kbmc: Add Loongson-2K BMC reset function support")
 Signed-off-by: Miao Wang <shankerwangmiao@gmail.com>
 ---
- drivers/mfd/ls2k-bmc-core.c | 32 ++++++++++++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ drivers/mfd/ls2k-bmc-core.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/mfd/ls2k-bmc-core.c b/drivers/mfd/ls2k-bmc-core.c
-index 27f6e096404d67459038a0607378057ec7ef69ab..b02e4955e9b04f517892a18b2ef103b5e481a238 100644
+index b02e4955e9b04f517892a18b2ef103b5e481a238..a5465c42a77b8b7b81e3ad787d6036679c6ba6df 100644
 --- a/drivers/mfd/ls2k-bmc-core.c
 +++ b/drivers/mfd/ls2k-bmc-core.c
-@@ -35,6 +35,15 @@
- #define LS2K_IPMI3_RES_START		(LS2K_IPMI2_RES_START + LS2K_IPMI_RES_SIZE)
- #define LS2K_IPMI4_RES_START		(LS2K_IPMI3_RES_START + LS2K_IPMI_RES_SIZE)
+@@ -25,6 +25,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/stop_machine.h>
+ #include <linux/vt_kern.h>
++#include <linux/console.h>
  
-+/* LS7A port Device IDs */
-+#define DEV_LS7A1K_PCIE_PORT0	0x7a09
-+#define DEV_LS7A1K_PCIE_PORT1	0x7a19
-+#define DEV_LS7A1K_PCIE_PORT2	0x7a29
-+#define DEV_LS7A2K_PCIE_PORT0	0x7a39
-+#define DEV_LS7A2K_PCIE_PORT1	0x7a49
-+#define DEV_LS7A2K_PCIE_PORT2	0x7a59
-+#define DEV_LS7A2K_PCIE_PORT3	0x7a69
-+
- #define LS7A_PCI_CFG_SIZE		0x100
+ /* LS2K BMC resources */
+ #define LS2K_DISPLAY_RES_START		(SZ_16M + SZ_2M)
+@@ -310,7 +311,9 @@ static void ls2k_bmc_events_fn(struct work_struct *work)
  
- /* LS7A bridge registers */
-@@ -477,6 +486,24 @@ static int ls2k_bmc_parse_mode(struct pci_dev *pdev, struct simplefb_platform_da
- 	return -EINVAL;
+ 	if (IS_ENABLED(CONFIG_VT)) {
+ 		/* Re-push the display due to previous PCI-E loss. */
+-		set_console(vt_move_to_console(MAX_NR_CONSOLES - 1, 1));
++		console_lock();
++		update_screen(vc_cons[fg_console].d);
++		console_unlock();
+ 	}
  }
  
-+static const struct pci_device_id ls7a_ports[] = {
-+	{ PCI_DEVICE(PCI_VENDOR_ID_LOONGSON, DEV_LS7A1K_PCIE_PORT0) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_LOONGSON, DEV_LS7A1K_PCIE_PORT1) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_LOONGSON, DEV_LS7A1K_PCIE_PORT2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_LOONGSON, DEV_LS7A2K_PCIE_PORT0) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_LOONGSON, DEV_LS7A2K_PCIE_PORT1) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_LOONGSON, DEV_LS7A2K_PCIE_PORT2) },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_LOONGSON, DEV_LS7A2K_PCIE_PORT3) },
-+	{ }
-+};
-+
-+static bool ls2k_check_parent(struct pci_dev *dev)
-+{
-+	struct pci_dev *parent = dev->bus->self;
-+
-+	return parent && pci_match_id(ls7a_ports, parent) != NULL;
-+}
-+
- static int ls2k_bmc_probe(struct pci_dev *dev, const struct pci_device_id *id)
- {
- 	struct simplefb_platform_data pd;
-@@ -488,6 +515,11 @@ static int ls2k_bmc_probe(struct pci_dev *dev, const struct pci_device_id *id)
- 	if (ret)
- 		return ret;
- 
-+	if (!ls2k_check_parent(dev)) {
-+		dev_err(&dev->dev, "Expected to be connected to LS7A PCI-E port\n");
-+		return -ENODEV;
-+	}
-+
- 	ddata = devm_kzalloc(&dev->dev, sizeof(*ddata), GFP_KERNEL);
- 	if (!ddata)
- 		return -ENOMEM;
 
 -- 
 2.49.0
