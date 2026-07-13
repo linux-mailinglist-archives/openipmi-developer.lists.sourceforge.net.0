@@ -2,136 +2,197 @@ Return-Path: <openipmi-developer-bounces@lists.sourceforge.net>
 Delivered-To: lists+openipmi-developer@lfdr.de
 Received: from mail.lfdr.de
 	by mail.lfdr.de with LMTP
-	id RA9gMm7ZT2qUpAIAu9opvQ
+	id M/xqObZ8VGozmgMAu9opvQ
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:02 +0200
+	for <lists+openipmi-developer@lfdr.de>; Mon, 13 Jul 2026 07:50:46 +0200
 X-Original-To: lists+openipmi-developer@lfdr.de
 Received: from lists.sourceforge.net (lists.sourceforge.net [216.105.38.7])
-	by mail.lfdr.de (Postfix) with ESMTPS id CC5F7733CDB
-	for <lists+openipmi-developer@lfdr.de>; Thu, 09 Jul 2026 19:25:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 973C3747596
+	for <lists+openipmi-developer@lfdr.de>; Mon, 13 Jul 2026 07:50:45 +0200 (CEST)
 Authentication-Results: mail.lfdr.de;
-	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=EcKrcpfd;
-	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=hqfXqlkN;
-	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=QyAd5qM8;
-	dkim=fail ("body hash did not verify") header.d=kernel.org header.s=k20201202 header.b=J7KfLcIO;
+	dkim=pass header.d=lists.sourceforge.net header.s=beta header.b=II+5boTm;
+	dkim=fail ("body hash did not verify") header.d=sourceforge.net header.s=x header.b=Y6t3cmay;
+	dkim=fail ("body hash did not verify") header.d=sf.net header.s=x header.b=JMFn71ii;
+	dkim=fail ("body hash did not verify") header.d=aspeedtech.com header.s=selector1 header.b=h3SX35bd;
 	dmarc=pass (policy=none) header.from=lists.sourceforge.net;
-	spf=pass (mail.lfdr.de: domain of openipmi-developer-bounces@lists.sourceforge.net designates 216.105.38.7 as permitted sender) smtp.mailfrom=openipmi-developer-bounces@lists.sourceforge.net
+	spf=pass (mail.lfdr.de: domain of openipmi-developer-bounces@lists.sourceforge.net designates 216.105.38.7 as permitted sender) smtp.mailfrom=openipmi-developer-bounces@lists.sourceforge.net;
+	arc=reject ("signature check failed: fail, {[1] = sig:microsoft.com:reject}")
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.sourceforge.net; s=beta; h=Content-Transfer-Encoding:Content-Type:Cc:
-	Reply-To:From:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Date:Sender:Content-ID:Content-Description:Resent-Date:
+	d=lists.sourceforge.net; s=beta; h=Content-Type:Cc:Reply-To:From:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Subject:MIME-Version:In-Reply-To:References:Message-ID:Date:To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VSaKjOVb2ktSQx/HbunbCi/gifpsil2BpGd3Qd23jRw=; b=EcKrcpfdR0oOOSEvy/HoDeOF0o
-	C6CMvtX+CZndX2olTn0Z9HxlnkAi1hFc+3nx9h6SAPTvVi24aikIC1eT4ng/5FouCkja7NB4MmiiE
-	yZ5cxboAPbJkVIoywxjoK/+896+gb4CdeCbSfqERdTAtblMuExM8ayKdJXWKuwDF8J/g=;
+	bh=zg+PLetpSNrbyotp01jCx3rYlFyMgNr3BfcPsoalvn0=; b=II+5boTmIgpvVvdzIHWQj8yrez
+	e1Jf9O4cCM4GerJzx4JKun0sbBD6vGF8jKq6CIAD48dDyQZFyk65MXnl715YjhwWTiCom6Nlns4eU
+	VQlLsZSSlVLpv6dwpFcYGN/sXeszbsDfDt1tt+pCt7btpVxDvuNaUcdid9ri7dajYuY4=;
 Received: from [127.0.0.1] (helo=sfs-ml-3.v29.lw.sourceforge.com)
 	by sfs-ml-3.v29.lw.sourceforge.com with esmtp (Exim 4.95)
 	(envelope-from <openipmi-developer-bounces@lists.sourceforge.net>)
-	id 1whsUY-0001RK-3H;
-	Thu, 09 Jul 2026 17:24:54 +0000
+	id 1wj9Yt-0001jy-BF;
+	Mon, 13 Jul 2026 05:50:40 +0000
 Received: from [172.30.29.66] (helo=mx.sourceforge.net)
  by sfs-ml-3.v29.lw.sourceforge.com with esmtps (TLS1.2) tls
  TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.95)
- (envelope-from <devnull+shankerwangmiao.gmail.com@kernel.org>)
- id 1whsUW-0001RB-9Y for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jul 2026 17:24:53 +0000
+ (envelope-from <yc_hsieh@aspeedtech.com>) id 1wj9Yq-0001jq-96
+ for openipmi-developer@lists.sourceforge.net;
+ Mon, 13 Jul 2026 05:50:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sourceforge.net; s=x; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
- Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+ d=sourceforge.net; s=x; h=MIME-Version:Content-Type:In-Reply-To:References:
+ Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gZBvAoD83JMvUQAarL7lj6Qur+BcYqxR/t8ny82Iigg=; b=hqfXqlkNTs0lSCHlPaa4QGkJ76
- keIxpbV7XoezVmphYWOxrnGKn4VE8yNsKV8+gZXVMv4LG2e5Th2rtb9GAuuPMxfaJRXFujnHDzvHh
- vBgx8xxDh05okFVfPm0qw+PrxlzONa9GhIg3mA6JEGoTTeVXs5/q/5Kj9NVmXlG04CuQ=;
+ bh=UuXYe5HvREAo9l6/5lOOmQOiQhAErjxuKKwZDIpGJ9c=; b=Y6t3cmayHmjIyGkR55DF+Kh4kZ
+ eow5BiD2hjjWLIyyv1/D59zRZfKranDW1OmgyKvA2nKNf6xPrfMggOYLc2U7bnfvKl4ZLUm8hC8Sf
+ ULg+Fwp2qTS/mmJITsYBI5gP4uWPCfXJnk+aItBVPsmruXCyotbb+q/aYNiXWA3+BYIw=;
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sf.net; s=x
- ; h=Reply-To:Cc:To:In-Reply-To:References:Message-Id:
- Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=gZBvAoD83JMvUQAarL7lj6Qur+BcYqxR/t8ny82Iigg=; b=QyAd5qM8lMXqGK595uivKR7ffq
- WMus8q31IkjLpnU7Iqc3uiOq+VMU6FHnDg8e6AgxiMDCgrLk6oFWMoD43S2+isL7/90D+cj8yC1NC
- gwQDAuS2v+ophv3RF9A5qvUSgKnojj1c+GgzDH3JCakk5vQN3BnJQZ0GI0TMkUjb6Ios=;
-Received: from tor.source.kernel.org ([172.105.4.254])
+ ;
+ h=MIME-Version:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:
+ CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=UuXYe5HvREAo9l6/5lOOmQOiQhAErjxuKKwZDIpGJ9c=; b=JMFn71iiZ2KHXJPVQkYRBKMxSb
+ O8Kfx/ocWg01c0X9O1DMOfL/5nEr/wdYc7FUErp6GANH9tKx5M8NZw8i1ciaSdz4OuFT1JzOyy3SF
+ ZXzFn+rgDJByWW+xnP2wEcwSJ3r45Ndx5PANm0WJTk9kkcCi4iLO0LXK3fuzIr6JvMYU=;
+Received: from mail-koreacentralazon11023097.outbound.protection.outlook.com
+ ([40.107.44.97] helo=SEYPR02CU001.outbound.protection.outlook.com)
  by sfi-mx-2.v28.lw.sourceforge.com with esmtps
  (TLS1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.95)
- id 1whsUV-0006ri-E5 for openipmi-developer@lists.sourceforge.net;
- Thu, 09 Jul 2026 17:24:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by tor.source.kernel.org (Postfix) with ESMTP id BB18061836;
- Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5E612C2BD05;
- Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1783617885;
- bh=MPujsGswY9o6XsIxCG+x+4eNh8rHmoYYDBHfhV/qxT4=;
- h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
- b=J7KfLcIOA6pwcAbvrj11hFe1OJayktjgDcCeOQ3mNgYFWIoHmmqkDAv1TwNTyCaJO
- oK+p9WEA40ntm5QOK1ectE7u79Rni2a3xjRMQ5cO7lAUNIHrmAVy+F4W7g97FlJOVk
- H2hMknUKyxg2IuE2JYpMIruof57ngXxYkEpAxvv+Wfc1j36D9MpgEEkrNhPc/+rYIN
- dpij0nlhFsvEG139CoRkYXzUZHd02EaQtyNwTqrQBAaoC6WbPNY5GcXW8naXLYip1w
- JP1rwulkVSf9VoBKAbhbThs2KVAzlWBnQZcgVx2vPvmM3n0Uc5nE7PoKWBvTR9W5gw
- YgLilWEYslGZQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org
- (localhost.localdomain [127.0.0.1])
- by smtp.lore.kernel.org (Postfix) with ESMTP id 4D419C44501;
- Thu,  9 Jul 2026 17:24:45 +0000 (UTC)
-Date: Fri, 10 Jul 2026 01:24:23 +0800
+ id 1wj9Yo-0000gi-Jo for openipmi-developer@lists.sourceforge.net;
+ Mon, 13 Jul 2026 05:50:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tsYCVCJIl0hUDyoJJbKueHCXjxUC/7+xR7CIbPy3Ctqip9QSi36mz6OfsSI+joxoE5SSN8GAo+6rgc6YZRTuyC6AzDJxBOG8Y0V+WUJ4d7tgLbF6KqQJZPCRLuk/yoGuuzf5wqpKh4b6OBfg5C2qvCi28uVLB1mc7BwSuNjH1CAdDV1MyGXNcGnoJBOV+2sRt6bmUrpGq5UieH4iJxKO4tbuFLPtIhNSL74UaoGBPQWrO6vJllJaYw5AHycTtQMqOYL4EGnntZ4vHeNhOSCl3uoETBbEdeAwzggVlpox/mrgCqXY2aagfKVrw3jdYOkgARIdb54Qs6brmOVPveX3kA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UuXYe5HvREAo9l6/5lOOmQOiQhAErjxuKKwZDIpGJ9c=;
+ b=NZvVms6vyF/PGtf2mxGFsFZdtttBDNMz6oV8zrVf8WUMnyxpo0RiT/ChFR9egFgWyj9x1oZxxXX0ka/UGDtdWq1LOM0SYMGDgJqIcfNFpPBqgCKWqx1J2NW9OWGoW0qbwZFBiMy8/zRTKIpbHUWppE1Y5DqHuZatCdNnlNBaTpFYjeEmvM2tTDPcCLvEOo6fcoxI+LtSLlqHvJFVL/Ek6jjE0XnlX6+5MCc8tYMuE3q7K6rD1WaOKBz8hsmtl9IRz/mu3LMMWm5x5jKWLsdYKmJv/wdHrJmTaoHGv77HMKBdD/Rn9JEl87qnW9vgfNoMYTG0+VdBfa0nFQcBKBcPuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UuXYe5HvREAo9l6/5lOOmQOiQhAErjxuKKwZDIpGJ9c=;
+ b=h3SX35bdnY3ccCMUio+pgwREc+P1cDWdsSS5UrNA95jPVoPUiNUf0xbkgq1l2ubBAK5YfVtGelLJkPExmuuFn6c5Oav0tKs799iqgZM4J9UOzvkUmJspv8OR+Vc7ChggQKr24DPBxkWbeVKGrwJW6iB+m1fVkx3C8+Sq6NXujMDU8sDyD1A35QcKh8PkJnA8aG+l5LivC0/c7g83QL/3SmXQ1CLIQB5XzQmDwZdCgSB0s4ji4eUxFqzdiM1DTbp3+YFaS7LGwd6T3We6KdDXrOP0/s+FnFzm1pGWLmlspsBJ5rbciycIwAJWoE/eNbPFeZ6QmzQqOZArTfmOIHL1Lw==
+Received: from TY0PR06MB6855.apcprd06.prod.outlook.com (2603:1096:405:13::10)
+ by SEZPR06MB5713.apcprd06.prod.outlook.com (2603:1096:101:9d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 13 Jul
+ 2026 05:34:16 +0000
+Received: from TY0PR06MB6855.apcprd06.prod.outlook.com
+ ([fe80::9405:99c0:aadd:7e05]) by TY0PR06MB6855.apcprd06.prod.outlook.com
+ ([fe80::9405:99c0:aadd:7e05%6]) with mapi id 15.21.0181.017; Mon, 13 Jul 2026
+ 05:34:16 +0000
+To: Krzysztof Kozlowski <krzk@kernel.org>, Corey Minyard <corey@minyard.net>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew
+ Jeffery <andrew@codeconstruct.com.au>
+Thread-Topic: [PATCH 3/4] dt-bindings: ipmi: Add optional LPC properties to
+ ASPEED BT devices
+Thread-Index: AQHdB5N07GOCG0yUdU+n8UrPxJS92rZWn3MAgBRgtcA=
+Date: Mon, 13 Jul 2026 05:34:16 +0000
+Message-ID: <TY0PR06MB6855F4F499246CD5C44DB23893FA2@TY0PR06MB6855.apcprd06.prod.outlook.com>
+References: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
+ <20260629-aspeed-bt-bmc-multichannel-v1-3-fc23ee337f7a@aspeedtech.com>
+ <35a8e3b3-7725-4d1b-8667-84e6fa24b2ca@kernel.org>
+In-Reply-To: <35a8e3b3-7725-4d1b-8667-84e6fa24b2ca@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY0PR06MB6855:EE_|SEZPR06MB5713:EE_
+x-ms-office365-filtering-correlation-id: bb4d90c3-4608-4895-ee86-08dee0a06114
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+ ARA:13230040|366016|1800799024|23010399003|7416014|376014|3023799007|6133799003|38070700021|18002099003|22082099003|56012099006|4143699003|8096899003;
+x-microsoft-antispam-message-info: 94JKcYwszho6ZXyHm0oX0csYD8b+3eT3wK8J/1Ol6wBhXnPPlD+A1jfBRmYMZvyPc6mCHfFR4+v1NojLJw1jqHWy/OsZpAmU+RwFvP514cn0rBLkP4OS114pm5+oL8es9xNvoxHIkBRKVmUwUlInZZibOifODS9BEXH6Thm3AcH2TPjSSNt2YgA/CZXmRpz+hIV41ZuPNP20nAOc8Cm69bks5gEmH8JoUWHk9+ghXgfeVSBcCkbcoZnnNk/dPeD1sL6wJ6QK0TNewzTrE/IvPAI5UoJ0keurt0PGS2ZRgb1axjIPrSupH2tAajHiWxT5Yg5091kdER+G60ChOn7PZDi1oKIi/oSNVezoPx9PiB8gJ0dFYPM04i7C41IWQKtzrOxhmPCiPS5yU0iKru84dlmwdF4pJRRBlKRoshbwZ8EapieScXc3IS0s44WbI6khZeBz9v9++ZzULai6flnmeFLz6cDiqd3TXkoPBBQl3VMPbFdnKLxrl5RsiQlU0jLwugODUY42nCfu9sUQEADhedAfFyLurcmt8J5/w3VPAXhn9IIIQL8ANvKWBHpbLMqYow1tGgKNTXOEoUZnrCcXVlHbzGLajxNd399Ge29yunTR1AV1PO+fGtaDra62mc7YGz/JZUzWoEoDJBfv8GLUyR7WmaC8/qufZ6zPHbjLphcB+huK2rmXjYQCSwsQrzYedf9vavDjlfTKaSTCkCYnpV7K52fdN8Kjioc0heAPDIA=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:zh-tw; SCL:1;
+ SRV:; IPV:NLI; SFV:NSPM; H:TY0PR06MB6855.apcprd06.prod.outlook.com; PTR:;
+ CAT:NONE;
+ SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(3023799007)(6133799003)(38070700021)(18002099003)(22082099003)(56012099006)(4143699003)(8096899003);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?big5?B?dU90bTE3cVVMa0VSaTVJNWc5ZE84SElaQnhtemlqTFRXcG5PTVJIY2VCUm1VMnRJ?=
+ =?big5?B?elJWbnRQM1VvcjVrWFpWZUFCU2pRWjg4M0VjSzJsRXk3MVJNUjNYVWdYM0FucnRn?=
+ =?big5?B?bDlmRU92NVJId01wMTVrRDZoaUtyc2NOdC9VV0swQU9mVzBRdW56M1VLRkczQXlY?=
+ =?big5?B?MnNOMzhXOVhyY3lwT0Z1SjcyWFErOUNHOURPdm80RHZSekFVd3hLZVJlZllYSE01?=
+ =?big5?B?ZTV6R0t6L2c3OHdpbVd6VXlSODZ1R1R0cFVubld6b1VBNG9BcGwydnA3MWdYK2pl?=
+ =?big5?B?SFBocDNEMHlsMDUyN0lFL1pYcEdCRmV6d0pXNXp6MnhxYzJhMjIyZGJhc3FoSUZM?=
+ =?big5?B?M1pHOFpXUU56eEF6ekFRMng1SUtURkJjYndWWHMwYVdzY09SVVlheCtXOUN6V09C?=
+ =?big5?B?UnRXY3pYdjBLTUNaSzVTZzFXZ1A0M3c4OXBzZUhIdEh1ZWZraHJ0bnpTbFk5NVQr?=
+ =?big5?B?bkdZZ293d01idHR6dnVSbDlJR1pUSkI3T0IxU0tsc01aWUR0Mm1JZVdCdHQzUk5E?=
+ =?big5?B?aktrajVUY0tkTUxxaTNvZVpWaWJZaFRRS0FYaTV5T2dNbGl6NmZKSEc3dnZha0JQ?=
+ =?big5?B?MGZza0dWNmhQbTJzM3Yvai84R1B3N0l3MXk3YTd3S0Z4QUU4a200eVNWWGpnbHR6?=
+ =?big5?B?Y0hLZjRoUlBsVzlnR2FpZCtid3M2aHdRQkhCcmJaWFpJVi84eWdUa1g4QW1yMkxs?=
+ =?big5?B?Z1pudTU4d3lMWmdtM2pacDVtdUZ3b2JUT3hKbXlLeXlURTJSQ0N3KzliVlExZjJH?=
+ =?big5?B?RjIwUlJIaTlLNytMN3pWeFVjd3E5TnZXNE1OMDdjRlhRZWh3WTR6L2FhYVVPSFk3?=
+ =?big5?B?QWV5ZW5BZVE3YUxkKzFnaStvNDdwWTNreVBVUnI3QlFlM2VJWkswU09hV2dnOW9p?=
+ =?big5?B?T25SWXpIWXVoVUJWLzc3U2FIMUpJSUcyWkxULzE3QllBMmFjS0J2TTVGT3MySi9q?=
+ =?big5?B?bS9GbE5lVC91dEM1UzFaNU9ya3NaTXRPUlpwenhHZks5THZmdzVINWhvNkFqU3BJ?=
+ =?big5?B?ZU8zM2g2K0d6SllTYUx0RkhYZi81WjZ4ZS9zaHB2aXAvYlNkb1RQSExNM2NRdjMz?=
+ =?big5?B?OGM1bi9Ra0MvWGJXcXpDT1FyR21TVDNKYTBTdzdwaVh2ekZUTWlzM0hoellxa0s4?=
+ =?big5?B?eHFZMGtDdm96OVhEc3dLZk9nYlJNWnJ4RmtlWGNsRE5OZHNqT1V0YjRJZGUzcUUz?=
+ =?big5?B?QkFqVGJocGdEL0hOMTI3VXdWTGtiQjdJVzNPWTNwQjVLSU1DVlYyTmN0L0oxUTNX?=
+ =?big5?B?SGozNUJvazYvOG9Nc1U0RFdFUUwyYVZPMnZYT0FRSndVL3FrbVYrbzdwY21iRlJi?=
+ =?big5?B?Q1d4VG1LeEZCZ3MvcS9rWnlkZVgxWkJWUFpIendiVVIxTExjZnhQeWJ4U0JXTitn?=
+ =?big5?B?QWR0UUJjeFRFTjJQYjM3a0xJS0hnTVA0ZUNxZkFiMkRyY09wbWExUHkxejkxNVNu?=
+ =?big5?B?RWJ2NENyN3UvYVBPeDBqME9FSHBNRkVGSlU5QjU0T0JhN1pTYUhzeFZIWEZndCtC?=
+ =?big5?B?OWwzS25FUnM2QzR6SEwwT1g1dCtMNzlqRkdHTmUzWERJS3JCWkxSMkVWZEVpUVlU?=
+ =?big5?B?UUdGUnVmeWhFSHkzakxtbUJtdGxrUE9ySmpBRHdsZzFrc0JUQUk0Q092T1Z6dGdZ?=
+ =?big5?B?MEk4UkZYRGJKWTdkcXZ2eFVBWVo4ZEJadkhVb0xvcDAxYWtHaTJpNlE0WDJXWmxv?=
+ =?big5?B?S1UvRzE1dnVpNHpOQ3hqR3RTRlNWU1pLcE1LYUxNaTV4clprMFdvL01ZMGtjbU1j?=
+ =?big5?B?UEZMMTd6OGtKNmlEMEJSRlVFTmxmZVo4aitNTGFMZVJ3SnpkZWpDRFJnbTFFMTgv?=
+ =?big5?B?V2VSNjFMaEczTWxCUnRkR2ZRTWNmWHdCQkZVdzhyb3NrbHBvUHJkd0c3VDBGTHNG?=
+ =?big5?B?WWRjZmQ2TGgvZGsrNCtLNVliU3dGOWRmNlBUQmE5VU0wbHhCMk1RcU5CTzBiYXZJ?=
+ =?big5?B?T3FqYUk1Zk5uMUIyZkcrVjNCMEo3djZEOSswb0hJenpISFZ5ZHI0Ukc0cFBYbVpF?=
+ =?big5?B?T01qRmJibExCQWQ5Z0VWK3hJdHYwL1QvWnJqNjM3THBLa2NRR1lkZjV5d2ZKanRr?=
+ =?big5?B?eDdJZTBRRUJIUG9vLzNxZWtibTAxTGg0VGMxSy90czJqQ1RTdmFHSlVJNzRERzEy?=
+ =?big5?B?K1BXY1p1aG9uUmZrS2Z1YVJ2TWNHai9qeFhXUUtKSzdQcDhHTWFlMW9kN1gwem92?=
+ =?big5?B?THZEemMwd0J4dEJ1SEl6TExoRXUwdz09?=
 MIME-Version: 1.0
-Message-Id: <20260710-ls2kbmc-mod-v3-7-ef718636e78e@gmail.com>
-References: <20260710-ls2kbmc-mod-v3-0-ef718636e78e@gmail.com>
-In-Reply-To: <20260710-ls2kbmc-mod-v3-0-ef718636e78e@gmail.com>
-To: Binbin Zhou <zhoubinbin@loongson.cn>, 
- Chong Qiao <qiaochong@loongson.cn>, Lee Jones <lee@kernel.org>, 
- Huacai Chen <chenhuacai@kernel.org>, Corey Minyard <corey@minyard.net>, 
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8511;
- i=shankerwangmiao@gmail.com; s=20250715; h=from:subject:message-id;
- bh=lcZh8gArBlUsxVf/oSboZ+zg1zTqwHMktoD4mL9iQSE=;
- b=owEBbQKS/ZANAwAKAbAx48p7/tluAcsmYgBqT9lapq5khaFN5t6QpvCO7EmrAJt7/LoLmOLhZ
- pN+E6LzYpuJAjMEAAEKAB0WIQREqPWPgPJBxluezBOwMePKe/7ZbgUCak/ZWgAKCRCwMePKe/7Z
- bmT4D/wLU9InTMKUUyp2/bLKEKpnqaOr6VGnUXFusoxKIOwqr5s3iV5KSv/pIqBwq/WYlMatr7I
- yub6dS1YptIfC43MSEUBxsT24dEexF+eX61LhKgpVriapoYrYhfRqUmdFDUo54kftQvTBkVI281
- yMryA0nfLnsn3MaLWVBEaxiw0AnHGinvKTs0bLQQZwECh2CoOefd+S8ERymsVsSrk1k5Ypcy7rM
- pmuJQmE7qlrIY/I4kO5cvx8AfG9jSbP8GQXNrpa2uGQZOgBoX9Xwb/MjczmUUNxGUMBF60eaziM
- tnxt4/WRscUCvtlIIBgl/deI2g+qpbnsAEF8Shv4eoTcHB1AYawsokX24xk3v84GlVzPNs5Fhd4
- R9QiYHzSeNNcwlLvlHASs60SEaEDUx0XYqBHuP5u96ybR14CF4RYhmaHIulhaBLcl41Pc7YcRr6
- fY+3LUCPlk1saEphUJt1NmFHwFfM+B5JftqsYGM5KEiJw6NQs8aSttG3J7X43Y+DgvGBeO47X84
- 8PYWVIC26AEkTp5Dp7NhE6E1en8PlZ+AvvYfqA4rfdkOqrintH2esa8ZPRljnhXTiHFjWdv35mT
- ZJnkYQsizb42tNcSjA3DXxSYU3XfGrPOxCabwYV5KpjM1SQK6V5+7M5yOpDMSwhvWgNEB/M/swF
- vrV5TMjcnmM+ZxA==
-X-Developer-Key: i=shankerwangmiao@gmail.com; a=openpgp;
- fpr=6FAEFF06B7D212A774C60BFDFA0D166D6632EF4A
-X-Endpoint-Received: by B4 Relay for shankerwangmiao@gmail.com/20250715
- with auth_id=462
-X-Original-From: Miao Wang <shankerwangmiao@gmail.com>
-X-Spam-Score: 2.3 (++)
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY0PR06MB6855.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb4d90c3-4608-4895-ee86-08dee0a06114
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jul 2026 05:34:16.0567 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: NH6fmECNkyfra9IqhEmnCB2Ml/GFOPOieS0XQnH0Bdi4vPF2laQ7yMS30MyUNqLZi1oHvEOLl2khHh3IeD3nng==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5713
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: Spam detection software,
- running on the system "sfi-spamd-1.hosts.colo.sdot.me", 
+ running on the system "sfi-spamd-2.hosts.colo.sdot.me", 
  has NOT identified this incoming email as spam.  The original
  message has been attached to this so you can view it or label
  similar future email.  If you have any questions, see
  the administrator of that system for details.
- Content preview:  From: Miao Wang The reset event of BMC is captured through
- GPIO. However, this driver bypasses the GPIO framework and directly accesses
- the GPIO controller through the fixed address. When the same GPIO controller
- is [...] Content analysis details:   (2.3 points, 5.0 required)
+ Content preview:  On Tue, Jun 30, 2026 at 08:11:34AM +0200, Krzysztof Kozlowski
+ wrote: > What > > is > > with > > this > > line breaks? Apologies for the
+ broken formatting in the commit message. I will fix it in the next revision.
+ Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
+ not necessarily valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID_AU Message has a valid DKIM or DK signature from author's
  domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature,
- not necessarily valid
- 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
-X-Headers-End: 1whsUV-0006ri-E5
-Subject: [Openipmi-developer] [PATCH RFC v3 7/7] mfd: ls2kbmc: Capture the
- reset event of BMC through GPIO
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [40.107.44.97 listed in wl.mailspike.net]
+X-Headers-End: 1wj9Yo-0000gi-Jo
+Subject: [Openipmi-developer] =?big5?b?pl7C0DogW1BBVENIIDMvNF0gZHQtYmlu?=
+ =?big5?b?ZGluZ3M6IGlwbWk6IEFkZCBvcHRpb25hbCBMUEMgcHJvcGVydGllcyB0byBBU1BF?=
+ =?big5?b?RUQgQlQgZGV2aWNlcw==?=
 X-BeenThere: openipmi-developer@lists.sourceforge.net
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -144,308 +205,448 @@ List-Post: <mailto:openipmi-developer@lists.sourceforge.net>
 List-Help: <mailto:openipmi-developer-request@lists.sourceforge.net?subject=help>
 List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/openipmi-developer>, 
  <mailto:openipmi-developer-request@lists.sourceforge.net?subject=subscribe>
-From: Miao Wang via B4 Relay via Openipmi-developer
+From: YC Hsieh via Openipmi-developer
  <openipmi-developer@lists.sourceforge.net>
-Reply-To: shankerwangmiao@gmail.com
-Cc: Miao Wang via B4 Relay <devnull+shankerwangmiao.gmail.com@kernel.org>,
- Yinbo Zhu <zhuyinbo@loongson.cn>, mfd@lists.linux.dev,
- linux-kernel@vger.kernel.org, Jiaxun Yang <jiaxun.yang@flygoat.com>,
- linux-gpio@vger.kernel.org, Xi Ruoyao <xry111@xry111.site>,
- WANG Xuerui <kernel@xen0n.name>, openipmi-developer@lists.sourceforge.net,
- Miao Wang <shankerwangmiao@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: YC Hsieh <yc_hsieh@aspeedtech.com>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Content-Type: multipart/mixed; boundary="===============1994031888330205441=="
 Errors-To: openipmi-developer-bounces@lists.sourceforge.net
 X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-5.11 / 15.00];
+X-Spamd-Result: default: False [-6.01 / 15.00];
 	WHITELIST_DMARC(-7.00)[sourceforge.net:D:+];
-	FREEMAIL_REPLYTO_NEQ_FROM(2.00)[];
 	SUSPICIOUS_RECIPS(1.50)[];
+	ARC_REJECT(1.00)[signature check failed: fail, {[1] = sig:microsoft.com:reject}];
 	DMARC_POLICY_ALLOW_WITH_FAILURES(-0.50)[];
 	RWL_MAILSPIKE_EXCELLENT(-0.40)[216.105.38.7:from];
-	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7:c];
-	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
+	R_SPF_ALLOW(-0.20)[+ip4:216.105.38.7];
 	MAILLIST(-0.20)[mailman];
-	MIME_GOOD(-0.10)[text/plain];
+	R_DKIM_ALLOW(-0.20)[lists.sourceforge.net:s=beta];
+	MIME_GOOD(-0.10)[multipart/mixed,multipart/alternative,text/plain];
+	MIME_BASE64_TEXT(0.10)[];
 	HAS_LIST_UNSUB(-0.01)[];
-	MIME_TRACE(0.00)[0:+];
 	DKIM_MIXED(0.00)[];
-	FREEMAIL_REPLYTO(0.00)[gmail.com];
 	RCVD_TLS_LAST(0.00)[];
-	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
-	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
 	RECEIVED_HELO_LOCALHOST(0.00)[];
+	FORGED_RECIPIENTS(0.00)[m:krzk@kernel.org,m:corey@minyard.net,m:robh@kernel.org,m:krzk+dt@kernel.org,m:conor+dt@kernel.org,m:joel@jms.id.au,m:andrew@codeconstruct.com.au,m:devicetree@vger.kernel.org,m:openipmi-developer@lists.sourceforge.net,m:linux-aspeed@lists.ozlabs.org,m:linux-kernel@vger.kernel.org,m:linux-arm-kernel@lists.infradead.org,m:conor@kernel.org,s:lists@lfdr.de];
+	MIME_TRACE(0.00)[0:+,1:+,2:+,3:~,4:+,5:+];
+	TO_DN_EQ_ADDR_SOME(0.00)[];
+	FORGED_SENDER(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
 	FORWARDED(0.00)[openipmi-developer@lists.sourceforge.net];
-	FORGED_RECIPIENTS(0.00)[m:zhoubinbin@loongson.cn,m:qiaochong@loongson.cn,m:lee@kernel.org,m:chenhuacai@kernel.org,m:corey@minyard.net,m:linusw@kernel.org,m:brgl@kernel.org,m:devnull+shankerwangmiao.gmail.com@kernel.org,m:zhuyinbo@loongson.cn,m:mfd@lists.linux.dev,m:linux-kernel@vger.kernel.org,m:jiaxun.yang@flygoat.com,m:linux-gpio@vger.kernel.org,m:xry111@xry111.site,m:kernel@xen0n.name,m:openipmi-developer@lists.sourceforge.net,m:shankerwangmiao@gmail.com,m:devnull@kernel.org,s:lists@lfdr.de];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[17];
-	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,kernel.org:s=k20201202];
-	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,kernel.org:-];
+	DMARC_POLICY_ALLOW(0.00)[lists.sourceforge.net,none];
+	DKIM_TRACE(0.00)[lists.sourceforge.net:+,sourceforge.net:-,sf.net:-,aspeedtech.com:-];
 	REPLYTO_DOM_NEQ_FROM_DOM(0.00)[];
-	RCVD_COUNT_FIVE(0.00)[6];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:from_smtp,lists.sourceforge.net:dkim,lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:from_mime];
+	RCVD_COUNT_FIVE(0.00)[5];
 	ALIAS_RESOLVED(0.00)[];
+	FORGED_RECIPIENTS_FORWARDING(0.00)[];
 	FORGED_SENDER_FORWARDING(0.00)[];
 	FROM_HAS_DN(0.00)[];
 	FROM_NEQ_ENVFROM(0.00)[openipmi-developer@lists.sourceforge.net,openipmi-developer-bounces@lists.sourceforge.net];
-	FREEMAIL_CC(0.00)[kernel.org,loongson.cn,lists.linux.dev,vger.kernel.org,flygoat.com,xry111.site,xen0n.name,lists.sourceforge.net,gmail.com];
-	FORGED_RECIPIENTS_FORWARDING(0.00)[];
+	R_DKIM_REJECT(0.00)[sourceforge.net:s=x,sf.net:s=x,aspeedtech.com:s=selector1];
+	TAGGED_RCPT(0.00)[openipmi-developer,dt];
+	MISSING_XM_UA(0.00)[];
+	HAS_REPLYTO(0.00)[yc_hsieh@aspeedtech.com];
 	ASN(0.00)[asn:11320, ipnet:216.105.32.0/21, country:US];
-	HAS_REPLYTO(0.00)[shankerwangmiao@gmail.com];
-	TAGGED_RCPT(0.00)[openipmi-developer,shankerwangmiao.gmail.com];
 	REPLYTO_DOM_NEQ_TO_DOM(0.00)[];
 	FORGED_SENDER_MAILLIST(0.00)[];
 	FORGED_RECIPIENTS_MAILLIST(0.00)[];
-	TO_DN_SOME(0.00)[]
+	DBL_BLOCKED_OPENRESOLVER(0.00)[lists.sourceforge.net:from_smtp,lists.sourceforge.net:dkim,lists.sourceforge.net:helo,lists.sourceforge.net:rdns,lists.sourceforge.net:from_mime]
 X-Rspamd-Server: lfdr
-X-Rspamd-Queue-Id: CC5F7733CDB
+X-Rspamd-Queue-Id: 973C3747596
 
-From: Miao Wang <shankerwangmiao@gmail.com>
+--===============1994031888330205441==
+Content-Language: zh-TW
+Content-Type: multipart/alternative;
+	boundary="_000_TY0PR06MB6855F4F499246CD5C44DB23893FA2TY0PR06MB6855apcp_"
 
-The reset event of BMC is captured through GPIO. However, this driver
-bypasses the GPIO framework and directly accesses the GPIO controller
-through the fixed address. When the same GPIO controller is also
-exposed through ACPI and probed by the corresponding GPIO driver,
-there would be a conflict between the two drivers.
+--_000_TY0PR06MB6855F4F499246CD5C44DB23893FA2TY0PR06MB6855apcp_
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
 
-This patch will try to find the GPIO through declared GPIO pin in the
-_CRS resources of the ACPI node. If no such delaration is found, the
-driver will fall back to search for the correct GPIO controller and pin
-according to the fixed address and pin number. A possible DSDT
-declaration for the GPIO pin might be as follows:
+T24gVHVlLCBKdW4gMzAsIDIwMjYgYXQgMDg6MTE6MzRBTSArMDIwMCwgS3J6eXN6dG9mIEtvemxv
+d3NraSB3cm90ZToNCg0KPiBXaGF0DQo+DQo+IGlzDQo+DQo+IHdpdGgNCj4NCj4gdGhpcw0KPg0K
+PiBsaW5lIGJyZWFrcz8NCg0KQXBvbG9naWVzIGZvciB0aGUgYnJva2VuIGZvcm1hdHRpbmcgaW4g
+dGhlIGNvbW1pdCBtZXNzYWdlLg0KSSB3aWxsIGZpeCBpdCBpbiB0aGUgbmV4dCByZXZpc2lvbi4N
+Cg0KPiBObywgeW91IGRvIG5vdCBnZXQgc2Vjb25kIHJlZyBwcm9wZXJ0eS4NCj4NCj4gTm8sIHlv
+dSBkbyBub3QgZ2V0IHNlY29uZCBpbnRlcnJ1cHRzIHByb3BlcnR5Lg0KDQpVbmRlcnN0b29kLg0K
+DQpUaGVzZSB2YWx1ZXMgYXJlIG5vdCBhZGRyZXNzYWJsZSByZXNvdXJjZXMgb2YgdGhlIEJNQyBu
+b2RlIGl0c2VsZjsNCnJhdGhlciwgdGhleSBkZXNjcmliZSBob3cgdGhlIEJNQydzIExQQyBlbmdp
+bmUgaXMgZXhwb3NlZCBvbiB0aGUgaG9zdA0KTFBDIGJ1cy4gSSBhbSBub3Qgc3VyZSBob3cgdGhl
+eSBzaG91bGQgYmUgcmVwcmVzZW50ZWQgaW4gRFQsIHNpbmNlDQp0aGV5IGRvIG5vdCBzZWVtIHRv
+IGZpdCB0aGUgdXN1YWwgc2VtYW50aWNzIG9mIGVpdGhlciAicmVnIiBvciAiaW50ZXJydXB0cyIu
+DQoNCkRvIHlvdSBoYXZlIGEgcHJlZmVycmVkIHdheSB0byByZXByZXNlbnQgdGhpcyBraW5kIG9m
+IGhvc3QtZmFjaW5nIExQQw0KY29uZmlndXJhdGlvbiBpbiB0aGUgYmluZGluZz8NCg0KVGhhbmtz
+LA0KWXUtQ2hlDQoNCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fDQqxSKXzqsw6IEty
+enlzenRvZiBLb3psb3dza2kgPGtyemtAa2VybmVsLm9yZz4NCqR3tsewZTogrFC0waRHLCAyMDI2
+IKZ+IDYgpOsgMzAgpOkgpFWkyCAwMjoxMQ0Kpqyl86rMOiBZQyBIc2llaCA8eWNfaHNpZWhAYXNw
+ZWVkdGVjaC5jb20+OyBDb3JleSBNaW55YXJkIDxjb3JleUBtaW55YXJkLm5ldD47IFJvYiBIZXJy
+aW5nIDxyb2JoQGtlcm5lbC5vcmc+OyBLcnp5c3p0b2YgS296bG93c2tpIDxrcnprK2R0QGtlcm5l
+bC5vcmc+OyBDb25vciBEb29sZXkgPGNvbm9yK2R0QGtlcm5lbC5vcmc+OyBKb2VsIFN0YW5sZXkg
+PGpvZWxAam1zLmlkLmF1PjsgQW5kcmV3IEplZmZlcnkgPGFuZHJld0Bjb2RlY29uc3RydWN0LmNv
+bS5hdT4NCrDGpbs6IG9wZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQgPG9w
+ZW5pcG1pLWRldmVsb3BlckBsaXN0cy5zb3VyY2Vmb3JnZS5uZXQ+OyBsaW51eC1rZXJuZWxAdmdl
+ci5rZXJuZWwub3JnIDxsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnPjsgZGV2aWNldHJlZUB2
+Z2VyLmtlcm5lbC5vcmcgPGRldmljZXRyZWVAdmdlci5rZXJuZWwub3JnPjsgbGludXgtYXJtLWtl
+cm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnIDxsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVh
+ZC5vcmc+OyBsaW51eC1hc3BlZWRAbGlzdHMub3psYWJzLm9yZyA8bGludXgtYXNwZWVkQGxpc3Rz
+Lm96bGFicy5vcmc+DQqlRKauOiBSZTogW1BBVENIIDMvNF0gZHQtYmluZGluZ3M6IGlwbWk6IEFk
+ZCBvcHRpb25hbCBMUEMgcHJvcGVydGllcyB0byBBU1BFRUQgQlQgZGV2aWNlcw0KDQpPbiAyOS8w
+Ni8yMDI2IDA4OjQ5LCBZdS1DaGUgSHNpZWggdmlhIEI0IFJlbGF5IHdyb3RlOg0KPiBGcm9tOiBZ
+dS1DaGUgSHNpZWggPHljX2hzaWVoQGFzcGVlZHRlY2guY29tPg0KPg0KPiBBbGxvY2F0aW5nIElP
+IGFuZCBJUlEgcmVzb3VyY2VzIHRvIExQQyBkZXZpY2VzIGlzIGluLXRoZW9yeSBhbiBvcGVyYXRp
+b24NCj4NCj4gZm9yIHRoZSBob3N0LCBob3dldmVyIEFTUEVFRCBzeXN0ZW1zIGRlc2NyaWJlIHRo
+ZXNlIHJlc291cmNlcyB0aHJvdWdoDQo+DQo+IEJNQy1pbnRlcm5hbCBjb25maWd1cmF0aW9uLCBh
+cyBhbHJlYWR5IHN1cHBvcnRlZCBieSB0aGUgQVNQRUVEIEtDUyBCTUMNCg0KV2hhdA0KDQppcw0K
+DQp3aXRoDQoNCnRoaXMNCg0KbGluZSBicmVha3M/DQoNCg0KPg0KPiBiaW5kaW5nLg0KPg0KPiBB
+ZGQgYXNwZWVkLGxwYy1pby1yZWcgYW5kIGFzcGVlZCxscGMtaW50ZXJydXB0cyB0byB0aGUgQVNQ
+RUVEIEJUIEJNQw0KPg0KPiBiaW5kaW5nIHNvIGZpcm13YXJlIGNhbiBkZXNjcmliZSB0aGUgaG9z
+dCBMUEMgSU8gYWRkcmVzcyBhbmQgU2VySVJRDQo+DQo+IGNvbmZpZ3VyYXRpb24gdXNpbmcgdGhl
+IHNhbWUgcHJvcGVydGllcyBhcyBLQ1MgZGV2aWNlcy4NCj4NCj4gU2lnbmVkLW9mZi1ieTogWXUt
+Q2hlIEhzaWVoIDx5Y19oc2llaEBhc3BlZWR0ZWNoLmNvbT4NCj4gLS0tDQo+IC4uLi9iaW5kaW5n
+cy9pcG1pL2FzcGVlZCxhc3QyNDAwLWlidC1ibWMueWFtbCAgICAgICB8IDIxICsrKysrKysrKysr
+KysrKysrKysrKw0KPiAgMSBmaWxlIGNoYW5nZWQsIDIxIGluc2VydGlvbnMoKykNCj4NCj4gZGlm
+ZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9pcG1pL2FzcGVlZCxh
+c3QyNDAwLWlidC1ibWMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9p
+cG1pL2FzcGVlZCxhc3QyNDAwLWlidC1ibWMueWFtbA0KPiBpbmRleCBjNGY3Y2RiYmUxNmIuLjE4
+MDNjNmJiYWU5MyAxMDA2NDQNCj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
+bmdzL2lwbWkvYXNwZWVkLGFzdDI0MDAtaWJ0LWJtYy55YW1sDQo+ICsrKyBiL0RvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9pcG1pL2FzcGVlZCxhc3QyNDAwLWlidC1ibWMueWFtbA0K
+PiBAQCAtMjUsNiArMjUsMjQgQEAgcHJvcGVydGllczoNCj4gICAgaW50ZXJydXB0czoNCj4gICAg
+ICBtYXhJdGVtczogMQ0KPg0KPiArICBhc3BlZWQsbHBjLWlvLXJlZzoNCj4gKyAgICAkcmVmOiAv
+c2NoZW1hcy90eXBlcy55YW1sIy9kZWZpbml0aW9ucy91aW50MzItYXJyYXkNCj4gKyAgICBtYXhJ
+dGVtczogMQ0KPiArICAgIGRlc2NyaXB0aW9uOiB8DQo+ICsgICAgICBUaGUgaG9zdCBDUFUgTFBD
+IElPIGFkZHJlc3MgZm9yIHRoZSBCVCBkZXZpY2UuDQoNCk5vLCB5b3UgZG8gbm90IGdldCBzZWNv
+bmQgcmVnIHByb3BlcnR5Lg0KDQo+ICsNCj4gKyAgYXNwZWVkLGxwYy1pbnRlcnJ1cHRzOg0KPiAr
+ICAgICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL3VpbnQzMi1hcnJheQ0K
+PiArICAgIG1pbkl0ZW1zOiAyDQo+ICsgICAgbWF4SXRlbXM6IDINCj4gKyAgICBkZXNjcmlwdGlv
+bjogfA0KPiArICAgICAgQSAyLWNlbGwgcHJvcGVydHkgZXhwcmVzc2luZyB0aGUgTFBDIFNlcklS
+USBudW1iZXIgYW5kIHRoZSBpbnRlcnJ1cHQNCj4gKyAgICAgIGxldmVsL3NlbnNlIGVuY29kaW5n
+IChzcGVjaWZpZWQgaW4gdGhlIHN0YW5kYXJkIGZhc2hpb24pLg0KPiArDQo+ICsgICAgICBOb3Rl
+IHRoYXQgdGhlIGdlbmVyYXRlZCBpbnRlcnJ1cHQgaXMgaXNzdWVkIGZyb20gdGhlIEJNQyB0byB0
+aGUgaG9zdCwgYW5kDQo+ICsgICAgICB0aHVzIHRoZSB0YXJnZXQgaW50ZXJydXB0IGNvbnRyb2xs
+ZXIgaXMgbm90IGNhcHR1cmVkIGJ5IHRoZSBCTUMncw0KPiArICAgICBkZXZpY2V0cmVlLg0KDQpO
+bywgeW91IGRvIG5vdCBnZXQgc2Vjb25kIGludGVycnVwdHMgcHJvcGVydHkuDQoNCj4NCg0KDQpC
+ZXN0IHJlZ2FyZHMsDQpLcnp5c3p0b2YNCg==
 
-    Device (BMC0) {
-        Name (_ADR, ...) // Match the PCI address of the BMC device
-        // \_SB.GPO1 is the ACPI path of the GPIO controller
-        Name (_CRS, ResourceTemplate () {
-            GpioInt (Edge, ActiveLow, Exclusive, PullNone, 0,
-                     "\\_SB.GPO1", 0) {
-                14 // 14 is the GPIO pin number
-            }
-    }
+--_000_TY0PR06MB6855F4F499246CD5C44DB23893FA2TY0PR06MB6855apcp_
+Content-Type: text/html; charset="big5"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Miao Wang <shankerwangmiao@gmail.com>
----
- drivers/mfd/ls2k-bmc-core.c | 158 +++++++++++++++++++++++++++++++-------------
- 1 file changed, 111 insertions(+), 47 deletions(-)
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dbig5">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+On Tue, Jun 30, 2026 at 08:11:34AM +0200, Krzysztof Kozlowski wrote:</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt; What</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt;&nbsp;</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt; is</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt;&nbsp;</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt; with</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt;</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt; this</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt;</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt; line breaks?</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+Apologies for the broken formatting in the commit message.</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+I will fix it in the next revision.</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt; No, you do not get second reg property.</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt;</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+&gt; No, you do not get second interrupts property.</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+Understood.</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+These values are not addressable resources of the BMC node itself;</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+rather, they describe how the BMC's LPC engine is exposed on the host</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+LPC bus. I am not sure how they should be represented in DT, since</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+they do not seem to fit the usual semantics of either &quot;reg&quot; or &q=
+uot;interrupts&quot;.</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+Do you have a preferred way to represent this kind of host-facing LPC</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+configuration in the binding?</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+<br>
+</div>
+<div class=3D"elementToProof" style=3D"font-family: &quot;Segoe UI&quot;, &=
+quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont,=
+ Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 11pt; color: rg=
+b(0, 0, 0);">
+Thanks,</div>
+<div style=3D"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West E=
+uropean)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica =
+Neue&quot;, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);">
+Yu-Che</div>
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<hr style=3D"display: inline-block; width: 98%;">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<b>=B1H=A5=F3=AA=CC:</b> Krzysztof Kozlowski &lt;krzk@kernel.org&gt;<br>
+<b>=A4w=B6=C7=B0e:</b> =ACP=B4=C1=A4G, 2026 =A6~ 6 =A4=EB 30 =A4=E9 =A4U=A4=
+=C8 02:11<br>
+<b>=A6=AC=A5=F3=AA=CC:</b> YC Hsieh &lt;yc_hsieh@aspeedtech.com&gt;; Corey =
+Minyard &lt;corey@minyard.net&gt;; Rob Herring &lt;robh@kernel.org&gt;; Krz=
+ysztof Kozlowski &lt;krzk+dt@kernel.org&gt;; Conor Dooley &lt;conor+dt@kern=
+el.org&gt;; Joel Stanley &lt;joel@jms.id.au&gt;; Andrew Jeffery &lt;andrew@=
+codeconstruct.com.au&gt;<br>
+<b>=B0=C6=A5=BB:</b> openipmi-developer@lists.sourceforge.net &lt;openipmi-=
+developer@lists.sourceforge.net&gt;; linux-kernel@vger.kernel.org &lt;linux=
+-kernel@vger.kernel.org&gt;; devicetree@vger.kernel.org &lt;devicetree@vger=
+.kernel.org&gt;; linux-arm-kernel@lists.infradead.org &lt;linux-arm-kernel@=
+lists.infradead.org&gt;;
+ linux-aspeed@lists.ozlabs.org &lt;linux-aspeed@lists.ozlabs.org&gt;<br>
+<b>=A5D=A6=AE:</b> Re: [PATCH 3/4] dt-bindings: ipmi: Add optional LPC prop=
+erties to ASPEED BT devices
+</div>
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div style=3D"font-size: 11pt;">On 29/06/2026 08:49, Yu-Che Hsieh via B4 Re=
+lay wrote:<br>
+&gt; From: Yu-Che Hsieh &lt;yc_hsieh@aspeedtech.com&gt;<br>
+&gt;<br>
+&gt; Allocating IO and IRQ resources to LPC devices is in-theory an operati=
+on<br>
+&gt;<br>
+&gt; for the host, however ASPEED systems describe these resources through<=
+br>
+&gt;<br>
+&gt; BMC-internal configuration, as already supported by the ASPEED KCS BMC=
+<br>
+<br>
+What<br>
+<br>
+is<br>
+<br>
+with<br>
+<br>
+this<br>
+<br>
+line breaks?<br>
+<br>
+<br>
+&gt;<br>
+&gt; binding.<br>
+&gt;<br>
+&gt; Add aspeed,lpc-io-reg and aspeed,lpc-interrupts to the ASPEED BT BMC<b=
+r>
+&gt;<br>
+&gt; binding so firmware can describe the host LPC IO address and SerIRQ<br=
+>
+&gt;<br>
+&gt; configuration using the same properties as KCS devices.<br>
+&gt;<br>
+&gt; Signed-off-by: Yu-Che Hsieh &lt;yc_hsieh@aspeedtech.com&gt;<br>
+&gt; ---<br>
+&gt; .../bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp; | 21 +++++++++++++++++++++<br>
+&gt;&nbsp; 1 file changed, 21 insertions(+)<br>
+&gt;<br>
+&gt; diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt=
+-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.y=
+aml<br>
+&gt; index c4f7cdbbe16b..1803c6bbae93 100644<br>
+&gt; --- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.ya=
+ml<br>
+&gt; +++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.ya=
+ml<br>
+&gt; @@ -25,6 +25,24 @@ properties:<br>
+&gt;&nbsp;&nbsp;&nbsp; interrupts:<br>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maxItems: 1<br>
+&gt;&nbsp;<br>
+&gt; +&nbsp; aspeed,lpc-io-reg:<br>
+&gt; +&nbsp;&nbsp;&nbsp; $ref: /schemas/types.yaml#/definitions/uint32-arra=
+y<br>
+&gt; +&nbsp;&nbsp;&nbsp; maxItems: 1<br>
+&gt; +&nbsp;&nbsp;&nbsp; description: |<br>
+&gt; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The host CPU LPC IO address for the BT=
+ device.<br>
+<br>
+No, you do not get second reg property.<br>
+<br>
+&gt; +<br>
+&gt; +&nbsp; aspeed,lpc-interrupts:<br>
+&gt; +&nbsp;&nbsp;&nbsp; $ref: /schemas/types.yaml#/definitions/uint32-arra=
+y<br>
+&gt; +&nbsp;&nbsp;&nbsp; minItems: 2<br>
+&gt; +&nbsp;&nbsp;&nbsp; maxItems: 2<br>
+&gt; +&nbsp;&nbsp;&nbsp; description: |<br>
+&gt; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A 2-cell property expressing the LPC S=
+erIRQ number and the interrupt<br>
+&gt; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; level/sense encoding (specified in the=
+ standard fashion).<br>
+&gt; +<br>
+&gt; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Note that the generated interrupt is i=
+ssued from the BMC to the host, and<br>
+&gt; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; thus the target interrupt controller i=
+s not captured by the BMC's<br>
+&gt; +&nbsp;&nbsp;&nbsp;&nbsp; devicetree.<br>
+<br>
+No, you do not get second interrupts property.<br>
+<br>
+&gt;<br>
+<br>
+<br>
+Best regards,<br>
+Krzysztof<br>
+</div>
+</body>
+</html>
 
-diff --git a/drivers/mfd/ls2k-bmc-core.c b/drivers/mfd/ls2k-bmc-core.c
-index 1466b314fc4e577fe5e31404444648b5b0447ebb..5a2644ff07fee05f4c8cbc54cb62abc2358c1820 100644
---- a/drivers/mfd/ls2k-bmc-core.c
-+++ b/drivers/mfd/ls2k-bmc-core.c
-@@ -26,6 +26,10 @@
- #include <linux/stop_machine.h>
- #include <linux/vt_kern.h>
- #include <linux/console.h>
-+#include <linux/gpio/consumer.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/gpio/property.h>
-+#include <linux/gpio/machine.h>
- 
- /* LS2K BMC resources */
- #define LS2K_DISPLAY_RES_START		(SZ_16M + SZ_2M)
-@@ -81,18 +85,6 @@
- 
- #define PCI_REG_STRIDE			0x4
- 
--#define LS2K_BMC_RESET_GPIO		14
--#define LOONGSON_GPIO_REG_BASE		0x1FE00500
--#define LOONGSON_GPIO_REG_SIZE		0x18
--#define LOONGSON_GPIO_OEN		0x0
--#define LOONGSON_GPIO_FUNC		0x4
--#define LOONGSON_GPIO_INTPOL		0x10
--#define LOONGSON_GPIO_INTEN		0x14
--
--#define LOONGSON_IO_INT_BASE		16
--#define LS2K_BMC_RESET_GPIO_INT_VEC	(LS2K_BMC_RESET_GPIO % 8)
--#define LS2K_BMC_RESET_GPIO_GSI		(LOONGSON_IO_INT_BASE + LS2K_BMC_RESET_GPIO_INT_VEC)
--
- enum {
- 	LS2K_BMC_DISPLAY,
- 	LS2K_BMC_IPMI0,
-@@ -186,6 +178,7 @@ struct ls2k_bmc_ddata {
- 	struct work_struct bmc_reset_work;
- 	struct ls2k_bmc_pci_data bmc_pci_data;
- 	struct ls2k_bmc_bridge_pci_data bridge_pci_data;
-+	struct gpio_desc *reset_gpio;
- };
- 
- static bool ls2k_bmc_bar0_addr_is_set(struct pci_dev *pdev)
-@@ -375,6 +368,90 @@ static void ls2k_bmc_save_pci_data(struct pci_dev *pdev, struct ls2k_bmc_ddata *
- 	pci_read_config_dword(pdev, PCI_INTERRUPT_LINE, &ddata->bmc_pci_data.interrupt_line);
- }
- 
-+static struct fwnode_handle *gpio_chip_get_fwnode(struct gpio_chip *chip)
-+{
-+	if (chip->fwnode)
-+		return chip->fwnode;
-+	else if (chip->parent)
-+		return chip->parent->fwnode;
-+	else
-+		return NULL;
-+}
-+
-+static int ls2k_bmc_gpiochip_find(struct gpio_chip *gc, const void *data)
-+{
-+	struct acpi_device *adev;
-+	struct list_head resource_list;
-+	struct resource_entry *rentry;
-+	struct fwnode_handle *fwnode = gpio_chip_get_fwnode(gc);
-+	phys_addr_t start_addr = (phys_addr_t) data;
-+	int ret, found = 0;
-+
-+	if (!is_acpi_node(fwnode))
-+		goto out;
-+
-+	adev = to_acpi_device_node(fwnode);
-+	if (!adev)
-+		goto out;
-+
-+	INIT_LIST_HEAD(&resource_list);
-+
-+	ret = acpi_dev_get_memory_resources(adev, &resource_list);
-+	if (ret < 0)
-+		goto out;
-+	rentry = list_first_entry_or_null(&resource_list, struct resource_entry, node);
-+	if (!rentry)
-+		goto free_resource_list;
-+	if (rentry->res->start == start_addr)
-+		found = 1;
-+
-+free_resource_list:
-+	acpi_dev_free_resource_list(&resource_list);
-+out:
-+	return found;
-+}
-+
-+static struct gpio_desc *ls2k_bmc_find_gpio(struct ls2k_bmc_ddata *ddata)
-+{
-+	/*
-+	 * In conventional way, the GPIO should be obtained through ACPI or
-+	 * device tree. However, when the information is not available,
-+	 * we should find the GPIO according to the convention of the server
-+	 * boards with LS2K BMC, the gpio signal relelecting the reset event
-+	 * of the BMC should be connected to pin 14 of the GPIO input of
-+	 * the first CPU node. The address of that GPIO controller is fixed.
-+	 */
-+	static const phys_addr_t LOONGSON_GPIO_REG_BASE = 0x1FE00500;
-+	static const unsigned int LS2K_BMC_RESET_GPIO = 14;
-+	int ret;
-+	struct gpio_device *gdev __free(gpio_device_put) = NULL;
-+	struct gpio_chip *gc;
-+	struct property_entry ls2k_bmc_swnode_properties[2] = { 0 };
-+
-+	dev_dbg(ddata->dev, "Searching for GPIO chip at address %pa\n", &LOONGSON_GPIO_REG_BASE);
-+
-+	gdev = gpio_device_find((void *)LOONGSON_GPIO_REG_BASE, ls2k_bmc_gpiochip_find);
-+
-+	if (!gdev) {
-+		dev_dbg(ddata->dev, "cannot find GPIO chip at address %pa, deferring\n",
-+			&LOONGSON_GPIO_REG_BASE);
-+		return ERR_PTR(-EPROBE_DEFER);
-+	}
-+
-+	gc = gpio_device_get_chip(gdev);
-+
-+	ls2k_bmc_swnode_properties[0] = PROPERTY_ENTRY_GPIO("gpio",
-+		gpio_chip_get_fwnode(gc), LS2K_BMC_RESET_GPIO, GPIO_ACTIVE_HIGH);
-+
-+	ret = device_create_managed_software_node(ddata->dev, ls2k_bmc_swnode_properties, NULL);
-+	if (ret) {
-+		dev_err(ddata->dev, "Failed to create software node for GPIO reset: %d\n", ret);
-+		return ERR_PTR(ret);
-+	}
-+
-+	return devm_gpiod_get_index(ddata->dev, NULL, 0, GPIOD_IN);
-+}
-+
- static void ls2k_bmc_cancel_wq(void *data)
- {
- 	struct ls2k_bmc_ddata *ddata = data;
-@@ -384,8 +461,7 @@ static void ls2k_bmc_cancel_wq(void *data)
- static int ls2k_bmc_init(struct ls2k_bmc_ddata *ddata)
- {
- 	struct pci_dev *pdev = to_pci_dev(ddata->dev);
--	void __iomem *gpio_base;
--	int gpio_irq, ret, val;
-+	int gpio_irq, ret;
- 
- 	ls2k_bmc_save_pci_data(pdev, ddata);
- 
-@@ -402,44 +478,32 @@ static int ls2k_bmc_init(struct ls2k_bmc_ddata *ddata)
- 		return ret;
- 	}
- 
--	gpio_base = ioremap(LOONGSON_GPIO_REG_BASE, LOONGSON_GPIO_REG_SIZE);
--	if (!gpio_base)
--		return -ENOMEM;
--
--	/* Disable GPIO output */
--	val = readl(gpio_base + LOONGSON_GPIO_OEN);
--	writel(val | BIT(LS2K_BMC_RESET_GPIO), gpio_base + LOONGSON_GPIO_OEN);
--
--	/* Enable GPIO functionality */
--	val = readl(gpio_base + LOONGSON_GPIO_FUNC);
--	writel(val & ~BIT(LS2K_BMC_RESET_GPIO), gpio_base + LOONGSON_GPIO_FUNC);
--
--	/* Set GPIO interrupts to low-level active */
--	val = readl(gpio_base + LOONGSON_GPIO_INTPOL);
--	writel(val & ~BIT(LS2K_BMC_RESET_GPIO), gpio_base + LOONGSON_GPIO_INTPOL);
--
--	/* Enable GPIO interrupts */
--	val = readl(gpio_base + LOONGSON_GPIO_INTEN);
--	writel(val | BIT(LS2K_BMC_RESET_GPIO), gpio_base + LOONGSON_GPIO_INTEN);
-+	ddata->reset_gpio = devm_gpiod_get_index_optional(&pdev->dev, NULL, 0, GPIOD_IN);
-+	if (IS_ERR(ddata->reset_gpio)) {
-+		ret = PTR_ERR(ddata->reset_gpio);
-+		ddata->reset_gpio = NULL;
-+		return dev_err_probe(ddata->dev, ret, "Failed to get GPIO pin for reset signal\n");
-+	}
-+	if (ddata->reset_gpio == NULL) {
-+		ddata->reset_gpio = ls2k_bmc_find_gpio(ddata);
-+		if (IS_ERR(ddata->reset_gpio)) {
-+			ret = PTR_ERR(ddata->reset_gpio);
-+			ddata->reset_gpio = NULL;
-+			return dev_err_probe(ddata->dev, ret, "Failed to find GPIO pin for reset signal\n");
-+		}
-+	}
- 
--	iounmap(gpio_base);
-+	gpio_irq = gpiod_to_irq(ddata->reset_gpio);
- 
--	/*
--	 * Since gpio_chip->to_irq is not implemented in the Loongson-3 GPIO driver,
--	 * acpi_register_gsi() is used to obtain the GPIO IRQ. The GPIO interrupt is a
--	 * watchdog interrupt that is triggered when the BMC resets.
--	 */
--	gpio_irq = acpi_register_gsi(NULL, LS2K_BMC_RESET_GPIO_GSI, ACPI_EDGE_SENSITIVE,
--				     ACPI_ACTIVE_LOW);
- 	if (gpio_irq < 0)
--		return gpio_irq;
-+		return dev_err_probe(ddata->dev, gpio_irq, "Failed to get IRQ for GPIO reset signal input\n");
- 
--	ret = devm_request_irq(ddata->dev, gpio_irq, ls2k_bmc_interrupt,
--			       IRQF_SHARED | IRQF_TRIGGER_FALLING, "ls2kbmc gpio", ddata);
--	if (ret)
--		dev_err(ddata->dev, "Failed to request LS2KBMC GPIO IRQ %d.\n", gpio_irq);
-+	ret = devm_request_irq(&pdev->dev, gpio_irq, ls2k_bmc_interrupt,
-+			       IRQF_SHARED | IRQF_TRIGGER_FALLING, "ls2kbmc reset", ddata);
-+
-+	if (ret != 0)
-+		return dev_err_probe(ddata->dev, ret, "Failed to request IRQ %d for GPIO reset signal input.\n", gpio_irq);
- 
--	acpi_unregister_gsi(LS2K_BMC_RESET_GPIO_GSI);
- 	return ret;
- }
- 
-
--- 
-2.49.0
+--_000_TY0PR06MB6855F4F499246CD5C44DB23893FA2TY0PR06MB6855apcp_--
 
 
+--===============1994031888330205441==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
+
+--===============1994031888330205441==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 Openipmi-developer mailing list
 Openipmi-developer@lists.sourceforge.net
 https://lists.sourceforge.net/lists/listinfo/openipmi-developer
+
+--===============1994031888330205441==--
+
